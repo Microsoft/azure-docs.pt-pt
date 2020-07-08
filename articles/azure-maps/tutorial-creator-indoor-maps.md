@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93827e4d5f6bcf66191ae78c18adac71b5dd0a22
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255182"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027867"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -109,6 +108,8 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > Os urls API neste documento podem ter de ser ajustados de acordo com a localização do seu recurso Criador. Para mais detalhes, consulte [Acesso aos Serviços de Criador.](how-to-manage-creator.md#access-to-creator-services)
 
 3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão.
 

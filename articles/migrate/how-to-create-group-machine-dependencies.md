@@ -4,10 +4,9 @@ description: Este artigo descreve como configurar a análise de dependência bas
 ms.topic: how-to
 ms.date: 6/09/2020
 ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770582"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar visualização de dependência
@@ -205,7 +204,7 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma avaliação](how-to-create-assessment.md) para um grupo.
 

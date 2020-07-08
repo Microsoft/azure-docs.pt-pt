@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 2c16c40ba7ed97f933516811432c3d4768bd0c62
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888493"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027567"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
@@ -105,7 +104,7 @@ Outras zonas que podem chegar a este VM podem continuar a servir o VM a partir d
 
 O equilibrador de carga é flexível no contexto das zonas de disponibilidade. Pode optar por alinhar-se com zonas ou ser redundante em zona para cada regra. O aumento da disponibilidade pode vir ao preço do aumento da complexidade. Design para disponibilidade para um desempenho ideal.
 
-### <a name="automatic-zone-redundancy"></a>Redundância automática de zona
+### <a name="zone-redundancy"></a>Redundância de zona
 
 O Balancer de Carga torna simples ter um único IP como frontend redundante de zona. Um endereço IP redundante de zona pode servir um recurso zonal em qualquer zona.  O IP pode sobreviver a uma ou mais falhas de zona enquanto uma zona permanecer saudável na região.  Em vez disso, uma frente zonal é uma redução do serviço para uma única zona e partilha o destino com a respetiva zona.
 
@@ -153,7 +152,7 @@ Os seus recursos em zonas não afetadas por falhas estarão disponíveis. A sua 
 
 Reveja [os padrões de design em nuvem Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [As Zonas de Disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - Saiba como [carregar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](load-balancer-standard-public-zonal-cli.md)

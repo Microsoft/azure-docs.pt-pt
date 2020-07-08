@@ -7,10 +7,9 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84636568"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Ser pago no mercado comercial

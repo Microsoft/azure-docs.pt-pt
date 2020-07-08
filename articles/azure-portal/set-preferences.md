@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763963"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir as preferências do portal do Azure
@@ -119,7 +118,7 @@ Selecione **Aplicar** para atualizar as definições do seu idioma e formato reg
 >Estas configurações linguísticas e regionais afetam apenas o portal Azure. Os links de documentação que abrem num novo separador ou janela utilizarão as definições de idioma do seu navegador para determinar o idioma a exibir.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e partilhar dashboards personalizados](azure-portal-dashboards.md)
 * [Séries de vídeos de procedimentos do portal do Azure](azure-portal-video-series.md)

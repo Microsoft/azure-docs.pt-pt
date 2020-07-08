@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920079"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do Serviço Comum de Nuvem
 Este artigo fornece alguns exemplos de tarefas comuns de arranque que poderá querer executar no seu serviço de cloud. Pode utilizar tarefas de arranque para executar operações antes de começar uma função. As operações que poderá querer realizar incluem a instalação de um componente, o registo de componentes com COM, a definição de chaves de registo ou o início de um longo processo de funcionamento. 
@@ -52,22 +51,22 @@ As variáveis também podem usar um [valor Azure XPath válido](cloud-services-r
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configurar startup IIS com AppCmd.exe
-A ferramenta de linha de comando [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) pode ser utilizada para gerir as definições do IIS no arranque do Azure. *AppCmd.exe* fornece acesso conveniente e de linha de comando às definições de configuração para utilização em tarefas de arranque no Azure. Utilizando *appCmd.exe,* as definições do Website podem ser adicionadas, modificadas ou removidas para aplicações e sites.
+A [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) ferramenta de linha de comando pode ser usada para gerir as definições do IIS no arranque do Azure. *AppCmd.exe* fornece acesso conveniente e de linha de comando às definições de configuração para utilização em tarefas de arranque no Azure. Utilizando *AppCmd.exe*, as definições do Website podem ser adicionadas, modificadas ou removidas para aplicações e sites.
 
-No entanto, existem algumas coisas a ter em atenção no uso do *AppCmd.exe* como uma tarefa de arranque:
+No entanto, há algumas coisas a ter em atenção no uso de *AppCmd.exe* como uma tarefa de arranque:
 
 * As tarefas de arranque podem ser executadas mais de uma vez entre reinicializações. Por exemplo, quando um papel recicla.
-* Se uma ação *AppCmd.exe* for executada mais de uma vez, poderá gerar um erro. Por exemplo, tentar adicionar uma secção à *Web.config* duas vezes pode gerar um erro.
-* As tarefas de arranque falham se devolverem um código de saída não zero ou **um nível de erro**. Por exemplo, quando *o AppCmd.exe* gera um erro.
+* Se uma *açãoAppCmd.exe* for executada mais de uma vez, pode gerar um erro. Por exemplo, tentar adicionar uma secção a *Web.config* duas vezes pode gerar um erro.
+* As tarefas de arranque falham se devolverem um código de saída não zero ou **um nível de erro**. Por exemplo, quando *AppCmd.exe* gera um erro.
 
-É uma boa prática verificar o **nível de erro** depois de ligar para *AppCmd.exe,* o que é fácil de fazer se embrulhar a chamada para *AppCmd.exe* com um ficheiro *.cmd.* Se detetar uma resposta de **nível de erro** conhecida, pode ignorá-la ou passá-la de volta.
+É uma boa prática verificar o **nível de erro** depois de ligar *AppCmd.exe*, o que é fácil de fazer se embrulhe a chamada para *AppCmd.exe* com um ficheiro *.cmd.* Se detetar uma resposta de **nível de erro** conhecida, pode ignorá-la ou passá-la de volta.
 
-O nível de erro devolvido pela *AppCmd.exe* está listado no ficheiro winerror.h, podendo também ser visto na [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
+O nível de erro devolvido por *AppCmd.exe* estão listados no ficheiro winerror.h, podendo também ser vistos na [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
 Este exemplo adiciona uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config,* com manipulação de erros e registo.
 
-As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas aqui, que incluem a definição do atributo [de execuçãoContexto](/previous-versions/azure/reference/gg557552(v=azure.100)#task) `elevated` para dar ao *AppCmd.exe* permissões suficientes para alterar as definições no ficheiro *Web.config:*
+As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas aqui, que incluem a definição do atributo [de execuçãoContexto](/previous-versions/azure/reference/gg557552(v=azure.100)#task) `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as definições no ficheiro *Web.config:*
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -80,7 +79,7 @@ As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas 
 </ServiceDefinition>
 ```
 
-O ficheiro de lote *De Arranque.cmd* utiliza *AppCmd.exe* para adicionar uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config.* O **nível de erro** esperado de 183 está definido para zero usando o CHECK. Programa de linha de comando EXE. Os velóis de erro inesperados são registados no StartupErrorLog.txt.
+O ficheiro de lote *De arranque.cmd* utiliza *AppCmd.exe* para adicionar uma secção de compressão e uma entrada de compressão para json no ficheiro *Web.config.* O **nível de erro** esperado de 183 está definido para zero usando o VERIFY.EXE programa de linha de comando. Os velóis de erro inesperados são registados em StartupErrorLog.txt.
 
 ```cmd
 REM   *** Add a compression section to the Web.config file. ***
@@ -151,9 +150,9 @@ EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Bloqueie um endereço IP específico
-Pode restringir o acesso de uma função web Azure a um conjunto de endereços IP especificados modificando o seu ficheiro IIS **web.config.** Também é necessário utilizar um ficheiro de comando que desbloqueie a secção **ipSecurity** do ficheiro **ApplicationHost.config.**
+Pode restringir o acesso de uma função web Azure a um conjunto de endereços IP especificados modificando o seu ficheiro **IISweb.config.** Também é necessário utilizar um ficheiro de comando que desbloqueie a secção **ipSecurity** do ficheiro **ApplicationHost.config.**
 
-Para fazer o desbloqueio da secção **ipSecurity** do ficheiro **ApplicationHost.config,** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
+Para fazer desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config,** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
 
 Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
@@ -377,15 +376,13 @@ EXIT /B 0
 Aqui estão algumas boas práticas que deve seguir ao configurar a tarefa para o seu papel web ou trabalhador.
 
 ### <a name="always-log-startup-activities"></a>Sempre registar atividades de startup
-O Visual Studio não fornece um depurgger para passar por ficheiros de lote, por isso é bom obter o máximo de dados possível sobre o funcionamento dos ficheiros de lote. Registar a saída dos ficheiros de lote, tanto **de stdout** como **de stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto **o stdout** como o **stderr** no ficheiro StartupLog.txt no diretório apontado pela variável ambiente **%TEMP%,** adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao fim de linhas específicas que pretende registar. Por exemplo, executar setup.exe no **diretório %PathToApp1Install%** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+O Visual Studio não fornece um depurgger para passar por ficheiros de lote, por isso é bom obter o máximo de dados possível sobre o funcionamento dos ficheiros de lote. Registar a saída dos ficheiros de lote, tanto **de stdout** como **de stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto **o stdout** como o **stderr** no ficheiro StartupLog.txt no diretório apontado pela variável ambiente **%TEMP%,** adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao fim das linhas específicas que pretende registar. Por exemplo, executar setup.exe no **diretório %PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Para simplificar o seu xml, pode criar um ficheiro *CMD* de invólucro que liga para todas as suas tarefas de arranque juntamente com o registo e garante que cada tarefa infantil partilha as mesmas variáveis ambientais.
 
-Pode ser irritante usá-lo `>> "%TEMP%\StartupLog.txt" 2>&1` no final de cada tarefa de arranque. Pode impor a exploração de tarefas criando um invólucro que lida com o registo de registos para si. Este invólucro chama o ficheiro de lote real que pretendes executar. Qualquer saída do ficheiro de lote-alvo será redirecionada para o ficheiro *Startuplog.txt.*
+Pode ser irritante usá-lo `>> "%TEMP%\StartupLog.txt" 2>&1` no final de cada tarefa de arranque. Pode impor a exploração de tarefas criando um invólucro que lida com o registo de registos para si. Este invólucro chama o ficheiro de lote real que pretendes executar. Qualquer saída do ficheiro do lote-alvo será redirecionada para o ficheiro *Startuplog.txt.*
 
-O exemplo a seguir mostra como redirecionar toda a saída de um ficheiro de lote de arranque. Neste exemplo, o ficheiro ServerDefinition.csdef cria uma tarefa de arranque que chama *logwrap.cmd*. *logwrap.cmd* chama *Startup2.cmd,* redirecionando toda a produção para **%TEMP% \\ StartupLog.txt**.
+O exemplo a seguir mostra como redirecionar toda a saída de um ficheiro de lote de arranque. Neste exemplo, o ficheiro ServerDefinition.csdef cria uma tarefa de arranque que chama *logwrap.cmd*. *logwrap.cmd* chama *Startup2.cmd,* redirecionando toda a produção para **%TEMP% \\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
@@ -468,7 +465,7 @@ Desateia os privilégios adequadamente para a tarefa de arranque. Por vezes, as 
 
 O [atributo Tarefa de Tarefa de execução Dedistexto][Task] define o nível de privilégio da tarefa de arranque. Usar `executionContext="limited"` significa que a tarefa de arranque tem o mesmo nível de privilégio que o papel. A utilização `executionContext="elevated"` de meios, a tarefa de arranque tem privilégios de administrador, o que permite que a tarefa de arranque execute tarefas de administrador sem dar privilégios ao administrador para o seu papel.
 
-Um exemplo de uma tarefa de startup que requer privilégios elevados é uma tarefa de startup que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"` .
+Um exemplo de uma tarefa de startup que requer privilégios elevados é uma tarefa de startup que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** `executionContext="elevated"` requer.
 
 ### <a name="use-the-appropriate-tasktype"></a>Utilize o tipo de tarefa apropriado
 O atributo[TaskType] de [tarefa]determina a forma como a tarefa de arranque é executada. Existem três valores: **simples,** **fundo**e **primeiro plano.** As tarefas de fundo e de primeiro plano são iniciadas de forma assíncronea, e então as tarefas simples são executadas sincronizadamente uma de cada vez.
@@ -493,7 +490,7 @@ Nem todas as reciclagems de papéis incluem um reboot, mas todas as reciclagems 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Use o armazenamento local para armazenar ficheiros que devem ser acedidos na função
 Se pretender copiar ou criar um ficheiro durante a sua tarefa inicial que esteja então acessível à sua função, esse ficheiro deve ser colocado no armazenamento local. Consulte [a secção anterior.](#create-files-in-local-storage-from-a-startup-task)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Reveja o [modelo e pacote de serviços](cloud-services-model-and-package.md) em nuvem
 
 Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.

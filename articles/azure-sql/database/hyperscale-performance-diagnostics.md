@@ -11,10 +11,9 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324402"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hiperscale desempenho problemas de resolução de diagnósticos
@@ -28,7 +27,7 @@ Cada nível de serviço de dados de base de dados Azure SQL tem limites de taxa 
 
 Os seguintes tipos de espera (em [sys.dm_os_wait_stats)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)descrevem as razões pelas quais a taxa de registo pode ser acelerada na réplica do cálculo primário:
 
-|Tipo de Espera    |Description                         |
+|Tipo de Espera    |Descrição                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Ocorre quando uma taxa de geração de registo de nó de nó de computação primária de hiperescala está a ser acelerada devido ao consumo retardado de registo no(s) servidor de página.         |
 |RBIO_RG_DESTAGE        | Ocorre quando uma taxa de geração de registo de nó de nó de cálculo de hiperescala está a ser acelerada devido ao consumo retardado de registo pelo armazenamento de registos a longo prazo.         |

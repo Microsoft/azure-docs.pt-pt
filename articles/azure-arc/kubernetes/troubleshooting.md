@@ -1,28 +1,27 @@
 ---
-title: O Espaço Desacado Comum Azure Arc permitiu problemas a Kubernetes (Pré-visualização)
+title: Resolução de problemas comum Azure Arc permitiu problemas de Kubernetes (Preview)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Problemas de resolução de problemas comuns com arc permitiu aglomerados kubernetes.
+description: Resolver problemas comuns com o Arc permitiu que os aglomerados de Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725589"
 ---
-# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>O Azure Arc permitiu a resolução de problemas da Kubernetes (Pré-visualização)
+# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc permitiu a resolução de problemas de Kubernetes (Preview)
 
 Este documento fornece alguns cenários comuns de resolução de problemas com conectividade, permissões e agentes.
 
 ## <a name="general-troubleshooting"></a>Resolução geral de problemas
 
 ### <a name="azure-cli-set-up"></a>Azure CLI configurado
-Antes de utilizar comandos CLI de az connectedk8s ou az k8sconfiguração, certifique-se de que o Az está definido para funcionar contra a subscrição azure correta.
+Antes de utilizar os comandos CLI de conexão az ou az k8s, certifique-se de que o AZ está preparado para funcionar contra a correta subscrição do Azure.
 
 ```console
 az account set --subscription 'subscriptionId'
@@ -30,9 +29,9 @@ az account show
 ```
 
 ### <a name="azure-arc-agents"></a>agentes azure-arc
-Todos os agentes da Azure Arc ativados Kubernetes são implantados como cápsulas no espaço de `azure-arc` nome. Em operações normais, todas as cápsulas devem estar a funcionar e a passar os seus exames de saúde.
+Todos os agentes do Azure Arc habilitados Kubernetes são implantados como cápsulas no `azure-arc` espaço de nomes. Em operações normais, todas as cápsulas devem estar a funcionar e a passar os seus exames de saúde.
 
-Primeiro, verifique o lançamento do leme do Azure Arc:
+Primeiro, verifique a libertação do leme do Arco Azure:
 
 ```console
 $ helm --namespace default status azure-arc
@@ -44,9 +43,9 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-Se a libertação do Leme não for encontrada ou desaparecida, tente embarcar no cluster novamente.
+Se a libertação do Leme não for encontrada ou em falta, tente embarcar novamente no aglomerado.
 
-Se a libertação do Leme estiver presente e `STATUS: deployed` determinar o estado dos agentes que `kubectl` utilizem:
+Se a libertação do Leme estiver presente e `STATUS: deployed` determinar o estado dos agentes que `kubectl` utilizam:
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
@@ -69,15 +68,15 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Todas as cápsulas devem mostrar `STATUS` como e devem ser ou `Running` `READY` `3/3` `2/2` . Pegue os registos e descreva as cápsulas que estão a regressar `Error` ou `CrashLoopBackOff` .
+Todos os Pods devem mostrar `STATUS` como e devem ser `Running` `READY` `3/3` `2/2` ou. Pegue os registos e descreva as cápsulas que estão a regressar `Error` ou `CrashLoopBackOff` .
 
 ## <a name="unable-to-connect-my-kubernetes-cluster-to-azure"></a>Incapaz de ligar o meu cluster Kubernetes a Azure
 
-A ligação de clusters ao Azure requer acesso a uma subscrição Azure e `cluster-admin` acesso a um cluster-alvo. Se o cluster não puder ser alcançado ou tiver permissões insuficientes no embarque falhará.
+A ligação de clusters ao Azure requer acesso a uma subscrição do Azure e `cluster-admin` acesso a um cluster alvo. Se o cluster não puder ser atingido ou tiver permissões insuficientes a bordo falhará.
 
 ### <a name="insufficient-cluster-permissions"></a>Permissões insuficientes do cluster
 
-Se o ficheiro kubeconfig fornecido não tiver permissões suficientes para instalar os agentes Do Arco Azure, o comando Azure CLI devolverá um erro que tenta ligar para a API kubernetes.
+Se o ficheiro kubeconfig fornecido não tiver permissões suficientes para instalar os agentes Azure Arc, o comando Azure CLI retornará um erro ao tentar ligar para a API de Kubernetes.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -88,11 +87,11 @@ This operation might take a while...
 Error: list: failed to list: secrets is forbidden: User "myuser" cannot list resource "secrets" in API group "" at the cluster scope
 ```
 
-O proprietário do cluster deve utilizar um utilizador kubernetes com permissões de administrador de cluster.
+O proprietário do cluster deve utilizar um utilizador Kubernetes com permissões de administrador de cluster.
 
-### <a name="installation-timeouts"></a>Intervalos de instalação
+### <a name="installation-timeouts"></a>Intervalos de tempo de instalação
 
-A instalação do agente Azure Arc requer o funcionamento de um conjunto de contentores no cluster alvo. Se o cluster estiver a passar por uma ligação lenta à Internet, a imagem do recipiente pode demorar mais tempo do que os intervalos de tempo do AZURI CLI.
+A instalação do agente Azure Arc requer a execução de um conjunto de contentores no aglomerado de alvos. Se o cluster estiver a passar por uma ligação lenta à internet, a imagem do contentor pode demorar mais tempo do que os intervalos de tempo do Azure CLI.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -106,15 +105,15 @@ There was a problem with connect-agent deployment. Please run 'kubectl -n azure-
 ## <a name="configuration-management"></a>Gestão da configuração
 
 ### <a name="general"></a>Geral
-Para ajudar a resolver problemas com a configuração do controlo de fonte, execute comandos az com interruptor de depuração.
+Para ajudar a resolver problemas com a configuração do controlo de origem, executar comandos az com o interruptor depuração.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8sconfiguration create <parameters> --debug
 ```
 
-### <a name="create-source-control-configuration"></a>Criar configuração de controlo de fonte
-A função contributiva no recurso Microsoft.Kubernetes/connectedCluster é necessária e suficiente para criar o recurso Microsoft.KubernetesConfiguration/sourceControlConfiguration.
+### <a name="create-source-control-configuration"></a>Criar configuração de controlo de fontes
+O papel do contribuinte no recurso Microsoft.Kubernetes/connectedCluster é necessário e suficiente para criar o recurso Microsoft.KubernetesConfiguration/sourceControlConfiguration.
 
 ### <a name="configuration-remains-pending"></a>A configuração permanece`Pending`
 

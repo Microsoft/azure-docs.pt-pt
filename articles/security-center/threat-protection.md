@@ -8,14 +8,13 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267159"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037193"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -106,36 +105,18 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Proteção contra ameaças para contentores Azure<a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Proteção contra ameaças para contentores<a name="azure-containers"></a>
 
-> [!NOTE]
-> Este serviço não está atualmente disponível no governo de Azure e nas regiões de nuvem soberana.
+### <a name="availability"></a>Disponibilidade
 
-O Security Center fornece proteção contra ameaças em tempo real para os seus ambientes contentorizados e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
+- Estado de libertação: **Disponibilidade geral**
+- Funções **necessárias: O administrador de segurança** pode dispensar alertas. **O leitor de segurança** pode ver as descobertas.
+- Nuvens:<br>
+    nuvens comerciais ✔<br>
+    ✘ Gov dos EUA<br>
+    ✘ China Gov, Outro Gov
 
-O Centro de Segurança fornece proteção contra ameaças a diferentes níveis: 
-
-* **Nível de anfitrião** - O agente do Security Center (disponível no nível Standard, ver [preços](security-center-pricing.md) para detalhes) monitoriza o Linux para atividades suspeitas. O agente aciona alertas para atividades suspeitas originárias do nó ou de um contentor que nele corre. Exemplos de tais atividades incluem deteção de conchas web e conexão com endereços IP suspeitos conhecidos.
-
-    Para uma visão mais profunda da segurança do seu ambiente contentorizado, o agente monitoriza análises específicas do contentor. Irá desencadear alertas para eventos como a criação de contentores privilegiados, acesso suspeito aos servidores da API e servidores Secure Shell (SSH) que estão dentro de um contentor do Docker.
-
-    >[!IMPORTANT]
-    > Se optar por não instalar os agentes nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
-
-    Para obter uma lista dos alertas de nível de anfitrião, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-containerhost).
-
-
-* Ao **nível do cluster AKS,** a proteção contra ameaças baseia-se na análise dos registos de auditoria da Kubernetes. Para ativar esta monitorização **sem agente,** adicione a opção Kubernetes à sua subscrição a partir da página **de definições & de preços** (ver [preços).](security-center-pricing.md) Para gerar alertas a este nível, o Security Center monitoriza os seus serviços geridos pela AKS utilizando os registos recuperados pela AKS. Exemplos de eventos a este nível incluem dashboards kubernetes expostos, criação de papéis privilegiados elevados, e a criação de suportes sensíveis.
-
-    >[!NOTE]
-    > O Security Center gera alertas de segurança para as ações e implementações do Serviço Azure Kubernetes que ocorrem após a opção Kubernetes estar ativada nas definições de subscrição. 
-
-    Para obter uma lista dos alertas de nível de cluster AKS, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-akscluster).
-
-Além disso, a nossa equipa global de investigadores de segurança monitoriza constantemente o cenário de ameaças. Acrescentam alertas e vulnerabilidades específicos aos contentores à medida que são descobertos.
-
-> [!TIP]
-> Pode simular alertas de contentores seguindo as instruções [neste post de blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +131,7 @@ A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas 
 
 Você verá alertas quando há atividades de base de dados suspeitas, potenciais vulnerabilidades, ou ataques de injeção DE SQL, e padrões anómalos de acesso e consulta de bases de dados.
 
-A Advanced Threat Protection for Azure SQL Database and SQL faz parte do pacote unificado de Segurança avançada de [Dados (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para capacidades avançadas de segurança SQL, abrangendo bases de dados Azure SQL, Azure SQL Database geridos instâncias, bases de dados Azure SQL Data Warehouse e servidores SQL em Azure Virtual Machines.
+A Advanced Threat Protection for Azure SQL Database and SQL faz parte do pacote unificado de Segurança avançada de [Dados (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para capacidades avançadas de segurança SQL, abrangendo a Base de Dados Azure SQL, Instâncias Geridas Azure SQL, bases de dados do Armazém de Dados Azure SQL e servidores SQL em Máquinas Virtuais Azure.
 
 Para obter mais informações, consulte:
 
@@ -162,15 +143,44 @@ Para obter mais informações, consulte:
 
 ## <a name="threat-protection-for-azure-storage"></a>Proteção contra ameaças para armazenamento Azure<a name="azure-storage"></a>
 
-A proteção avançada de ameaças para o Azure Storage deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Esta camada de proteção permite-lhe lidar com ameaças sem exigir que seja um perito em segurança e ajuda-o a gerir os seus sistemas de monitorização de segurança. 
+### <a name="availability"></a>Disponibilidade
 
-Os alertas de segurança são desencadeados quando há atividades suspeitas na sua conta de armazenamento ou é detetado um comportamento anómalo. Atividades suspeitas podem incluir o upload de uma bolha suspeita de conter malware. Alertas de comportamento anómalo incluem alterações no padrão de acesso a uma conta de armazenamento.
+- Estado de libertação:
+    - [Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
+    - [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (pré-visualização)
+- Nuvens:<br>
+    nuvens comerciais ✔<br>
+    ✔ Gov dos EUA<br>
+    ✘ China Gov, Outro Gov
+
+### <a name="whats-protected"></a>O que está protegido?
+
+A proteção contra ameaças para o Armazenamento Azure deteta atividade potencialmente prejudicial nas suas contas de Armazenamento Azure. Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados.
+
+Esta camada de proteção permite-lhe lidar com ameaças *sem* exigir que seja um perito em segurança e ajuda-o a gerir os seus sistemas de monitorização de segurança.
+
+As suas contas de armazenamento estão protegidas 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Que tipo de alertas a proteção contra ameaças para o Armazenamento Azure fornece?
+
+Alertas de segurança são acionados quando há:
+
+- **Atividade suspeita** - por exemplo, a conta de armazenamento foi acedida com sucesso a partir de um endereço IP que é conhecido como um nó de saída ativa de Tor
+- **Comportamento anómalo** - por exemplo, alterações no padrão de acesso a uma conta de armazenamento
+- **Potencial malware carregado** - análise de reputação de haxixe indica que um ficheiro carregado contém malware
 
 Os alertas incluem detalhes do incidente que os desencadeou, bem como recomendações sobre como investigar e remediar ameaças.
 
-Atualmente, a proteção contra ameaças para o armazenamento Azure está disponível apenas para [o armazenamento de blobs](https://azure.microsoft.com/services/storage/blobs/). 
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>O que é a análise de reputação de haxixe para malware?
 
-Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região de nuvens soberanas ou do Governo Azure. 
+Para determinar se um ficheiro carregado é suspeito, a proteção contra ameaças para o Azure Storage utiliza análises de reputação de haxixe suportadas pela [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). As ferramentas de proteção contra ameaças não digitalizam os ficheiros carregados, antes examinam os registos de armazenamento e comparam os hashes de ficheiros recentemente carregados com os de vírus conhecidos, cavalos de Troia, spyware e ransomware. 
+
+Quando se suspeita que um ficheiro contenha malware, o Security Center apresenta um alerta e pode opcionalmente enviar um e-mail ao proprietário do armazenamento para aprovação para apagar o ficheiro suspeito. Para configurar esta remoção automática de ficheiros que a análise de reputação de haxixe indica conter malware, implemente uma [automatização de fluxo de trabalho para desencadear alertas que contenham "Potencial malware carregado para uma conta de armazenamento".](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005)
+
+
+
+### <a name="next-steps"></a>Próximos passos 
 
 Para obter detalhes sobre os preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -178,9 +188,13 @@ Para obter mais informações, consulte:
 
 * [Como permitir a proteção avançada de ameaças para armazenamento de Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [A lista de alertas de proteção contra ameaças para o Armazenamento Azure](alerts-reference.md#alerts-azurestorage)
+* [Capacidades de inteligência de ameaça da Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> Pode simular alertas de Armazenamento Azure seguindo as instruções [neste post de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Pode simular alertas de armazenamento seguindo as instruções [neste post de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 
@@ -228,14 +242,17 @@ Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualizaçã
 >[!NOTE]
 > Várias das análises anteriores são alimentadas pela Microsoft Cloud App Security. Para beneficiar destas análises, tem de ativar uma licença de Segurança cloud App. Se tiver uma licença de Segurança cloud App, então estes alertas são ativados por padrão. Para desativar os alertas:
 >
-> 1. Na lâmina do **Centro de Segurança,** selecione **a política de segurança.** Para a subscrição que pretende alterar, **selecione configurações de Editar**.
-> 2. Selecione **deteção de ameaças**.
-> 3. No **Âmbito de ativações**, **limpe o Microsoft Cloud App Security para aceder aos meus dados**e selecione **Save**.
+> 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+> 1. Selecione a subscrição que pretende alterar.
+> 1. Selecione **deteção de ameaças**.
+> 1. **Limpar Permitir que a Microsoft Cloud App Security aceda aos meus dados**e selecione **Save**.
 
 >[!NOTE]
 >O Security Center armazena dados de clientes relacionados com a segurança no mesmo geo que o seu recurso. Se a Microsoft ainda não implementou o Security Center no geo dos recursos, então armazena os dados nos Estados Unidos. Quando a Cloud App Security está ativada, estas informações são armazenadas de acordo com as regras de localização geoparbrada da Cloud App Security. Para obter mais informações, consulte [o armazenamento de dados para serviços não regionais.](https://azuredatacentermap.azurewebsites.net/)
 
+1. Ajuste o espaço de trabalho no qual está a instalar o agente. Certifique-se de que o espaço de trabalho está na mesma subscrição que utiliza no Centro de Segurança e que tem permissões de leitura/escrita no espaço de trabalho.
 
+1. Desa estale o nível de preços padrão e **selecione Guardar**.
 
 
 
@@ -281,7 +298,7 @@ Para se defender dos ataques do DDoS, compre uma licença para a Azure DDoS Prot
 Para obter uma lista dos alertas de Proteção DDoS Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os alertas de segurança destes recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Centro de Segurança Azure](alerts-reference.md)

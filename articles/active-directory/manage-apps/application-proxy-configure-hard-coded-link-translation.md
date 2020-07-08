@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764847"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione links codificados para apps publicadas com Proxy de aplicações AD AZure
@@ -104,7 +103,7 @@ A lista completa de etiquetas de código HTML que o Application Proxy suporta a 
 * menuitem
 * meta
 * objeto
-* .
+* script
 * source
 * controlar
 * vídeo
@@ -149,7 +148,7 @@ Agora, quando os seus utilizadores acederem a esta aplicação, o proxy irá aut
 
 Queremos que a sua ajuda faça com que esta funcionalidade funcione para todas as suas aplicações. Procuramos mais de 30 tags em HTML e CSS. Se tiver um exemplo de links gerados que não estão a ser traduzidos, envie um código para [o Feedback do Procuração de Aplicações](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Utilize domínios personalizados com Proxy de aplicação AD Azure](application-proxy-configure-custom-domain.md) para ter o mesmo URL interno e externo
 
 [Configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

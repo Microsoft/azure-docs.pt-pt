@@ -10,10 +10,9 @@ ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 75f2e20db6ad1155e62691b711d8084a1feb5bae
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513333"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure Firewalls de armazenamento Azure e redes virtuais
@@ -470,7 +469,7 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra de incumprimento](#change-the-default-network-access-rule) para **negar,** ou remover exceções não tem efeito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os pontos finais do serviço Azure Network nos [pontos finais do Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 

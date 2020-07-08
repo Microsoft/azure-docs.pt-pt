@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698840"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037295"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Envie eventos para um ambiente de Time Series Insights usando um centro de eventos
 
@@ -55,13 +54,13 @@ Este artigo explica como criar e configurar um centro de eventos em Azure Event 
 
 ## <a name="add-a-time-series-insights-instance"></a>Adicione uma instância de insights de séries de tempo
 
-A atualização Time Series Insights utiliza instâncias para adicionar dados contextuais aos dados de telemetria que chegam. Os dados são unidos no tempo de consulta utilizando um **ID da Série De Tempo**. O **ID da Série De Tempo** para o projeto de moinhos de vento que usamos mais tarde neste artigo é `id` . Para saber mais sobre as instâncias de insight da Série de Tempo e **o ID da Série De Tempo,** leia [modelos de séries de tempo](./time-series-insights-update-tsm.md).
+A atualização Time Series Insights utiliza instâncias para adicionar dados contextuais aos dados de telemetria que chegam. Os dados são unidos no tempo de consulta utilizando um **ID da Série De Tempo**. O **ID da Série De Tempo** para o projeto de moinhos de vento que usamos mais tarde neste artigo é `id` . Para saber mais sobre as instâncias de insight da Série de Tempo e **o ID da Série De Tempo,** leia [modelos de séries de tempo](./concepts-model-overview.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Criar uma fonte de eventos time series Insights
 
 1. Se não criou uma fonte de evento, complete os passos para [criar uma fonte de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Desa fixar um valor para `timeSeriesId` . Para saber mais sobre **o ID da Série de Tempo,** leia [modelos de séries de tempo](./time-series-insights-update-tsm.md).
+1. Desa fixar um valor para `timeSeriesId` . Para saber mais sobre **o ID da Série de Tempo,** leia [modelos de séries de tempo](./concepts-model-overview.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Empurre os eventos para a amostra de moinhos de vento
 
@@ -201,7 +200,7 @@ A atualização Time Series Insights utiliza instâncias para adicionar dados co
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Veja o seu ambiente](https://insights.timeseries.azure.com) no explorador de Insights da Série Temporal.
 

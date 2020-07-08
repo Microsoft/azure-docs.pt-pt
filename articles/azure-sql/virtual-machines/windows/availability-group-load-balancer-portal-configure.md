@@ -13,12 +13,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c527ef9767d7b88e956bb1b3354b3067847857d9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921688"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configure um equilibrador de carga para um sql servidor sempre em grupo de disponibilidade em Máquinas Virtuais Azure
 
@@ -203,8 +202,10 @@ Testar a ligação fazendo os seguintes passos:
 1. Utilize o protocolo de ambiente de trabalho remoto (RDP) para ligar a uma instância do SQL Server que está na mesma rede virtual, mas que não possui a réplica. Este servidor pode ser a outra instância do SQL Server no cluster.
 
 2. Utilize **serviços sqlcmd** para testar a ligação. Por exemplo, o seguinte script estabelece uma ligação **sqlcmd** à réplica primária através do ouvinte com autenticação do Windows:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 A ligação SQLCMD liga-se automaticamente à instância SQL Server que acolhe a réplica primária. 
 
@@ -254,7 +255,7 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
     |**Porto backend** |Use o mesmo valor que a **Porta.**
     |**Piscina backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
     |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
-    |**Persistência da sessão** |Nenhum
+    |**Persistência da sessão** |Nenhuma
     |**Tempo de 20 minutos (minutos)** |Predefinição (4)
     |**IP flutuante (retorno direto do servidor)** | Ativado
 
@@ -303,7 +304,7 @@ Se um grupo de disponibilidade participar num grupo de disponibilidade distribu�
    |**Porto backend** | 5022 - Use o mesmo valor que a **Porta.**
    |**Piscina backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
    |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
-   |**Persistência da sessão** |Nenhum
+   |**Persistência da sessão** |Nenhuma
    |**Tempo de 20 minutos (minutos)** |Predefinição (4)
    |**IP flutuante (retorno direto do servidor)** | Ativado
 

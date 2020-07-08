@@ -4,10 +4,9 @@ description: Fornece uma visão geral das opções para migrar VMware VMs para A
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 56398f8bf78cb48b6cfe7a90ffdcbdb72743dc93
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84769631"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
@@ -51,7 +50,7 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Migrar VMware VMs](tutorial-migrate-vmware.md) com migração sem agentes.
 

@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84769878"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Ligar dados de fornecedores de inteligência de ameaças
@@ -109,7 +108,7 @@ Pode transmitir indicadores de ameaça ao Azure Sentinel utilizando um dos produ
 
 6. Para ver os indicadores de ameaça importados em Azure Sentinel, navegue até **Azure Sentinel - Logs**  >  **SecurityInsights**, e, em seguida, **expanda o ThreatIntelligenceIndicator**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar o seu fornecedor de inteligência de ameaça a Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos.
 

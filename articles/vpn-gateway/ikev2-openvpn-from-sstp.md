@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
 ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983349"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para protocolo OpenVPN ou IKEv2 da SSTP
@@ -63,7 +62,7 @@ Uma vez configurado o gateway, os clientes existentes não poderão ligar-se at�
 Se estiver a utilizar o Windows 10, também pode utilizar o [Cliente Azure VPN para windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="what-are-the-client-configuration-requirements"></a>What are the client configuration requirements? (Quais são os requisitos de configuração do cliente?)
 
 >[!NOTE]
@@ -160,7 +159,7 @@ Uma configuração P2S requer alguns passos específicos. Os seguintes artigos c
 
 * [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure uma ligação P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

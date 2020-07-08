@@ -17,10 +17,9 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2593f80db4c271d6ae4773f324cc9777e5400550
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764966"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problema na criação de uma aplicação de Procuração de Aplicação 
@@ -51,5 +50,5 @@ A mensagem de erro deve ser exibida no canto superior direito quando criar a apl
 
    ![Pedido de notificação](./media/application-proxy-config-problem/error-message.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Ativar o Proxy da Aplicação no Portal do Azure](application-proxy-add-on-premises-application.md)

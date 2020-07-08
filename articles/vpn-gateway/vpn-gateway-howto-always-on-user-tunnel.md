@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8cfe1d6434c0f5765196776ae9f6712fe14c52a3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984128"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurar um túnel de utilizador VPN AlwaysOn
@@ -41,6 +40,6 @@ Para remover um perfil, utilize os seguintes passos:
 
    ![Limpeza](./media/vpn-gateway-howto-always-on-user-tunnel/disconnect.jpg)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para resolver problemas de ligação que possam ocorrer, consulte [os problemas de ligação ponto-a-local do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

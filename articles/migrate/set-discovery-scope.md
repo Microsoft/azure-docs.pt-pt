@@ -4,10 +4,9 @@ description: Descreve como definir o âmbito de descoberta para a avaliação e 
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: e53eb0d01df2152aeced2901335f75879885fd22
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770395"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir o âmbito de descoberta para VMware VMs
@@ -58,6 +57,6 @@ Atualmente, a ferramenta de Avaliação do Servidor não consegue descobrir VMs 
 A configuração do controlo de acesso baseado em funções garante que a conta de utilizador correspondente do vCenter tenha acesso apenas a VMs específicos do arrendatário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Instale o aparelho](how-to-set-up-appliance-vmware.md)e [inicie a descoberta contínua](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).

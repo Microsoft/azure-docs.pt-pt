@@ -8,12 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eec5de7521c98e8147a8439844fd2a2a6b1bd2bc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73494527"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037499"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster Apache Spark em HDInsight
 
@@ -30,13 +29,17 @@ Utilize o seguinte procedimento para contornar a questão:
 
 2. Executar o seguinte comando para encontrar as identificações de aplicação dos trabalhos interativos iniciados através da Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     Os nomes de emprego predefinidos serão Livy se os trabalhos forem iniciados com uma sessão interativa livy sem nomes explícitos especificados. Para a sessão Livy iniciada por [Jupyter Notebook,](https://jupyter.org/)o nome do trabalho começa por `remotesparkmagics_*` .
 
 3. Executar o seguinte comando para matar aqueles trabalhos.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 Novos empregos começam a funcionar.
 
@@ -115,7 +118,7 @@ Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no cader
 
 2. Reinicie o caderno que estava a tentar ligar. Recursos suficientes devem estar disponíveis para que crie uma sessão agora.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
