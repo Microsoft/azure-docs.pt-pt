@@ -1,6 +1,6 @@
 ---
-title: Executar cargas de trabalho de aprendizagem automática azure em Apache Spark em HDInsight
-description: Aprenda a executar cargas de trabalho de Machine Learning Azure com machine learning automatizado (AutoML) em Apache Spark em Azure HDInsight.
+title: Executar cargas de trabalho de aprendizagem de máquinas Azure em Apache Spark em HDInsight
+description: Aprenda a executar cargas de trabalho de aprendizagem automática do Azure Machine Learning com machine learning automatizado (AutoML) em Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,23 +8,22 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75638889"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de Aprendizagem automática Azure com aprendizagem automática de máquinas em Apache Spark em HDInsight
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de aprendizagem automática da Azure Machine Learning com aprendizagem automática de máquinas em Apache Spark em HDInsight
 
-O Azure Machine Learning simplifica e acelera o edifício, formação e implantação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma funcionalidade de destino definida e, em seguida, iterar através de combinações de algoritmos e seleções de funcionalidades para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes disponibilizem clusters com centenas de nós. A autoML que funciona em Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade computacional através destes nós para executar trabalhos de formação de forma ção de forma à escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham a computação com as suas outras cargas de trabalho de big data.
+A Azure Machine Learning simplifica e acelera o edifício, formação e implementação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma característica-alvo definida e depois iteram através de combinações de algoritmos e seleções de recursos para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes provisem clusters com centenas de nós. O autoML que funciona na Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade de computação através destes nós para executar trabalhos de formação de formação de formação de formação em escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham o cálculo com as suas outras grandes cargas de trabalho de dados.
 
-## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instale a aprendizagem automática azure num cluster HDInsight
+## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instale a Azure Machine Learning num cluster HDInsight
 
-Para tutoriais gerais de machine learning automatizado, consulte [Tutorial: Use machine learning automatizado para construir o seu modelo](../../machine-learning/tutorial-auto-train-models.md)de regressão .
-Todos os novos clusters HDInsight-Spark vêm pré-instalados com O SDK AzureML-AutoML.
+Para tutoriais gerais de aprendizagem automática de máquinas, consulte [Tutorial: Utilize machine learning automatizado para construir o seu modelo de regressão.](../../machine-learning/tutorial-auto-train-models.md)
+Todos os novos clusters HDInsight-Spark vêm pré-instalados com AzureML-AutoML SDK.
 
 > [!Note]
-> Os pacotes azure machine learning estão instalados em ambiente de conda Python3. O caderno Jupyter instalado deve ser executado utilizando o núcleo PySpark3.
+> Os pacotes Azure Machine Learning são instalados no ambiente de Conda Python3. O caderno Jupyter instalado deve ser executado utilizando o núcleo PySpark3.
 
 Também pode utilizar os cadernos Zeppelin para utilizar o AutoML.
 
@@ -33,9 +32,9 @@ Também pode utilizar os cadernos Zeppelin para utilizar o AutoML.
 
 ## <a name="authentication-for-workspace"></a>Autenticação para espaço de trabalho
 
-A criação do espaço de trabalho e a submissão de experiências requerem um símbolo de autenticação. Esta ficha pode ser gerada através de uma [aplicação Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). Um [utilizador de Anúncio sintetizador](/azure/python/python-sdk-azure-authenticate) também pode ser utilizado para gerar o símbolo de autenticação necessário, se a autenticação de vários fatores não estiver ativada na conta.  
+A criação de espaço de trabalho e a submissão de experiências requerem um sinal de autenticação. Este token pode ser gerado usando uma [aplicação AD Azure](../../active-directory/develop/app-objects-and-service-principals.md). Um [utilizador AD Azure](/azure/python/python-sdk-azure-authenticate) também pode ser utilizado para gerar o token de autenticação necessário, se a autenticação multi-factor não estiver ativada na conta.  
 
-O seguinte código de corte cria um símbolo de autenticação utilizando uma **aplicação Azure AD**.
+O seguinte corte de código cria um símbolo de autenticação utilizando uma **aplicação AD Azure**.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -46,7 +45,7 @@ auth_sp = ServicePrincipalAuthentication(
 )
 ```
 
-O seguinte código de corte cria um símbolo de autenticação utilizando um **utilizador de Anúncio sinuoso**.
+O seguinte corte de código cria um símbolo de autenticação utilizando um **utilizador AZure AD**.
 
 ```python
 from azure.common.credentials import UserPassCredentials
@@ -55,7 +54,7 @@ credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 
 ## <a name="loading-dataset"></a>Conjunto de dados de carregamento
 
-A aprendizagem automática de máquinas em Spark utiliza **fluxos**de dados , que são preguiçosamente avaliados, operações imutáveis em dados.  Um Dataflow pode carregar um conjunto de dados a partir de uma bolha com acesso de leitura pública, ou de um URL blob com um token SAS.
+A aprendizagem automática de máquinas em Spark utiliza **dataflows,** que são preguiçosamente avaliados, operações imutáveis em dados.  Um Dataflow pode carregar um conjunto de dados a partir de uma bolha com acesso de leitura pública, ou de um URL blob com um token SAS.
 
 ```python
 import azureml.dataprep as dprep
@@ -67,14 +66,14 @@ dataflow_with_token = dprep.read_csv(
     path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 ```
 
-Também pode registar a loja de dados com o espaço de trabalho através de uma inscrição única.
+Também pode registar a datastore com o espaço de trabalho usando um registo único.
 
 ## <a name="experiment-submission"></a>Submissão de experiências
 
-Na [configuração automatizada](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)de `spark_context` aprendizagem automática, a propriedade deve ser definida para que a embalagem seja executada em modo distribuído. A `concurrent_iterations`propriedade , que é o número máximo de iterações executadas em paralelo, deve ser definida para um número menor do que os núcleos de executor para a app Spark.
+Na [configuração automatizada de machine learning,](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)a propriedade `spark_context` deve ser definida para que a embalagem seja executada no modo distribuído. A propriedade `concurrent_iterations` , que é o número máximo de iterações executadas em paralelo, deve ser definida como um número inferior aos núcleos executor da app Spark.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter mais informações sobre a motivação por trás da aprendizagem automática de máquinas, consulte [os modelos de Lançamento ao ritmo utilizando](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) o machine learning automatizado da Microsoft!
-* Para obter mais informações sobre a utilização de capacidades de ML automatizadas do Azure ML, consulte [novas capacidades automatizadas de aprendizagem automática em Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* Para obter mais informações sobre a motivação por trás da aprendizagem automática de [máquinas, consulte os modelos De lançamento ao ritmo utilizando a aprendizagem automática de máquinas da Microsoft!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* Para obter mais informações sobre a utilização de capacidades ML automatizadas Azure ML, consulte [novas capacidades automatizadas de aprendizagem automática em Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [Projeto AutoML da Microsoft Research](https://www.microsoft.com/research/project/automl/)

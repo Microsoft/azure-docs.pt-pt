@@ -1,25 +1,24 @@
 ---
-title: Redes de tecido de serviço Azure
-description: Boas práticas e considerações de design para gerir a conectividade da rede utilizando o Tecido de Serviço Azure.
+title: Azure Service Fabric networking as melhores práticas
+description: Boas práticas e considerações de design para gerir a conectividade da rede utilizando o Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551799"
 ---
 # <a name="networking"></a>Redes
 
-À medida que cria e gere os clusters Azure Service Fabric, está a fornecer conectividade de rede para os seus nós e aplicações. Os recursos de rede incluem gamas de endereços IP, redes virtuais, equilibradores de carga e grupos de segurança de rede. Neste artigo, você aprenderá as melhores práticas para estes recursos.
+À medida que cria e gere os clusters Azure Service Fabric, está a fornecer conectividade de rede para os seus nós e aplicações. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, equilibradores de carga e grupos de segurança de rede. Neste artigo, aprenderá as melhores práticas para estes recursos.
 
-Reveja os padrões de rede de [tecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) de serviço Azure para aprender a criar clusters que utilizam as seguintes funcionalidades: rede virtual ou subnet existente, endereço IP público estático, balanceador de carga interna ou equilibrista de carga interna e externo.
+Reveja [os Padrões de Rede de Tecidos de Serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) Azure para aprender a criar clusters que utilizem as seguintes funcionalidades: Rede virtual ou sub-rede existentes, endereço IP público estático, equilibr de carga interno ou equilibrador de carga interno e externo.
 
-## <a name="infrastructure-networking"></a>Networking de Infraestruturas
-Maximize o desempenho da sua Máquina Virtual com networking acelerado, declarando a propriedade enabledNetworking no seu modelo de Gestor de Recursos, o seguinte corte é de uma Rede de Configurações de Configurações de Configurações de Configuração de Conjunto de Escala de Máquina Virtual que permite a rede acelerada:
+## <a name="infrastructure-networking"></a>Rede de Infraestruturas
+Maximize o desempenho da sua Máquina Virtual com rede acelerada, declarando ativação da propriedade Denetworking ativada no seu modelo de Gestor de Recursos, o seguinte corte é de um Conjunto de Escala de Máquina Virtual Configurar Configurações que permite networking acelerado:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -37,38 +36,38 @@ Maximize o desempenho da sua Máquina Virtual com networking acelerado, declaran
   }
 ]
 ```
-O cluster de tecido de serviço pode ser aprovisionado em [Linux com Networking Acelerado](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)e [Windows com Networking Acelerado](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+O cluster de tecido de serviço pode ser a provisionado em [Linux com Rede Acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)e [Windows com Rede Acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-A Rede Acelerada é suportada para as Séries Automáticas Virtuais Azure SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. A Rede Acelerada foi testada com sucesso utilizando o Standard_DS8_v3 SKU em 1/23/2019 para um Cluster de Janelas de Tecido de Serviço, e usando Standard_DS12_v2 em 01/29/2019 para um Cluster De Linux de Tecido de Serviço.
+A Rede Acelerada é suportada para SKUs da Série de Máquinas Virtuais Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. O Accelerated Networking foi testado com sucesso utilizando o SKU Standard_DS8_v3 em 1/23/2019 para um Cluster de Janelas de Tecido de Serviço, e utilizando Standard_DS12_v2 em 01/29/2019 para um Cluster de Tecido de Serviço Linux.
 
-Para ativar a rede acelerada num cluster de tecido de serviço existente, é necessário primeiro dimensionar um cluster de tecido de [serviço, adicionando um conjunto](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)de escala de máquina virtual, para executar o seguinte:
-1. Provision arrestão de um Nó com Rede Acelerada ativada
-2. Migrar os seus serviços e o seu estado para o nó provisionado com networking acelerado habilitado
+Para ativar o networking acelerado num cluster de tecido de serviço existente, é necessário [primeiro escalar um cluster de tecido de serviço adicionando um Conjunto de Balança de Máquina Virtual,](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)para executar o seguinte:
+1. Provisionar um NodeType com rede acelerada ativada
+2. Migrar os seus serviços e o seu estado para o NodeType provisionado com rede acelerada habilitado
 
-É necessária uma infraestrutura de dimensionamento para permitir que a Rede Acelerada num cluster existente, porque permitir a rede acelerada no lugar causaria tempo de inatividade, uma vez que requer que todas as máquinas virtuais num conjunto de disponibilidade sejam [paradas e desalocadas antes de permitir a rede acelerada em qualquer NIC existente.](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms)
+A escala da infraestrutura é necessária para permitir a rede acelerada num cluster existente, pois permitir uma rede acelerada no local causaria tempo de inatividade, uma vez que requer que todas as máquinas virtuais num conjunto de disponibilidade sejam [paradas elocadas antes de permitir a ligação de rede acelerada em qualquer NIC existente.](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms)
 
-## <a name="cluster-networking"></a>Cluster Networking
+## <a name="cluster-networking"></a>Rede de Agrupamentos
 
-* Os clusters de tecido de serviço podem ser implantados numa rede virtual existente seguindo os passos delineados nos [padrões](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)de rede service Fabric .
+* Os clusters de tecido de serviço podem ser implantados numa rede virtual existente, seguindo os passos descritos nos [padrões de networking do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Os grupos de segurança da rede (NSGs) são recomendados para tipos de nó que restringem o tráfego de entrada e saída ao seu cluster. Certifique-se de que as portas necessárias são abertas no NSG. Por exemplo: ![Regras NSG de tecido de serviço][NSGSetup]
+* Os grupos de segurança da rede (NSGs) são recomendados para os tipos de nó que restringem o tráfego de entrada e saída ao seu cluster. Certifique-se de que as portas necessárias são abertas no NSG. Por exemplo: ![ Regras NSG do tecido de serviço][NSGSetup]
 
-* O tipo principal do nó, que contém os serviços do sistema Service Fabric, não precisa de ser exposto através do equilibrador de carga externo e pode ser exposto por um [equilibrador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* O tipo de nó primário, que contém os serviços do sistema Service Fabric, não precisa de ser exposto através do balançador de carga externo e pode ser exposto por um [equilibrador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
 * Utilize um [endereço IP público estático](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) para o seu cluster.
 
 ## <a name="application-networking"></a>Rede de aplicações
 
-* Para executar as cargas de trabalho do windows, utilize o modo de [rede aberto](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar a comunicação serviço-a-serviço.
+* Para executar as cargas de trabalho dos contentores do Windows, utilize [o modo de rede aberto](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar a comunicação de serviço ao serviço.
 
-* Utilize um proxy inverso como [traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) ou o proxy inverso do [Tecido de Serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para expor portas de aplicação comuns como 80 ou 443.
+* Utilize um representante inverso, como [o Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) ou o [proxy reverso do Tecido de Serviço,](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para expor portas de aplicação comuns como 80 ou 443.
 
-* Para os Recipientes Windows hospedados em máquinas com ar-gapped que não conseguem puxar camadas base do armazenamento em nuvem Azure, sobrepor-se ao comportamento da camada estrangeira, utilizando a bandeira de artefactos não [distribuíveis](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) no daemon do Docker.
+* Para os recipientes windows alojados em máquinas com lacunas de ar que não conseguem puxar camadas de base do armazenamento em nuvem Azure, sobreponsem o comportamento da camada estrangeira, utilizando a bandeira [de artefactos não-tristribuíveis](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) no daemon do Docker.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação](service-fabric-cluster-creation-for-windows-server.md) de cluster de tecido de serviço para Windows Server
-* Criar um cluster em VMs ou computadores em execução linux: [Criar um cluster Linux](service-fabric-cluster-creation-via-portal.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para windows server](service-fabric-cluster-creation-for-windows-server.md)
+* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster Linux](service-fabric-cluster-creation-via-portal.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

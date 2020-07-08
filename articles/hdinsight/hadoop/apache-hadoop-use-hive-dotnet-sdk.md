@@ -1,6 +1,6 @@
 ---
-title: Executar consultas de Hiv Apache usando HDInsight .NET SDK - Azure
-description: Saiba como submeter os empregos de Apache Hadoop ao Azure HDInsight Apache Hadoop utilizando hDInsight .NET SDK.
+title: Executar consultas de Hive Apache usando HDInsight .NET SDK - Azure
+description: Saiba como submeter os empregos da Apache Hadoop à Azure HDInsight Apache Hadoop utilizando HDInsight .NET SDK.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,43 +9,42 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: a9d71c8aebb9cc4a0adbd461aead6e2612bd13bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552496"
 ---
-# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas de Hiv Apache usando HDInsight .NET SDK
+# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas de Hive Apache usando HDInsight .NET SDK
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Saiba como submeter consultas apache hive usando HDInsight .NET SDK. Escreve um programa C# para submeter uma consulta da Hive para listar tabelas da Hive e exibir os resultados.
+Saiba como submeter consultas apache Hive usando HDInsight .NET SDK. Você escreve um programa C# para submeter uma consulta de Hive para listar tabelas de Colmeia, e mostrar os resultados.
 
 > [!NOTE]  
-> Os passos deste artigo devem ser realizados a partir de um cliente windows. Para obter informações sobre a utilização de um cliente Linux, OS X ou Unix para trabalhar com a Hive, utilize o seletor de separadores mostrado na parte superior do artigo.
+> Os passos deste artigo devem ser realizados a partir de um cliente Windows. Para obter informações sobre a utilização de um cliente Linux, OS X ou Unix para trabalhar com a Hive, utilize o seletor de separadores mostrado no topo do artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este artigo, deve ter os seguintes itens:
+Antes de iniciar este artigo, deve ter os seguintes itens:
 
-* Um aglomerado Apache Hadoop no HDInsight. Ver [Get começou a usar Hadoop baseado em Linux no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Um aglomerado Apache Hadoop em HDInsight. See [Get start using Linux-based Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
     > [!IMPORTANT]  
-    > A partir de 15 de setembro de 2017, o HDInsight .NET SDK apenas suporta a devolução dos resultados da consulta da Hive das contas de Armazenamento Azure. Se utilizar este exemplo com um cluster HDInsight que utiliza o Armazenamento de Lagos De Dados Azure como armazenamento primário, não é possível recuperar os resultados da pesquisa utilizando o .NET SDK.
+    > A partir de 15 de setembro de 2017, o HDInsight .NET SDK apenas suporta a devolução dos resultados da consulta da Hive a partir das contas de Armazenamento Azure. Se utilizar este exemplo com um cluster HDInsight que utiliza o Azure Data Lake Storage como armazenamento primário, não é possível obter resultados de pesquisa utilizando o .NET SDK.
 
-* [Estúdio Visual](https://visualstudio.microsoft.com/vs/community/) 2013 e mais além. Pelo menos deve ser instalado o desenvolvimento do ambiente de **trabalho .NET.**
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 e mais além. Deve ser instalada, pelo menos, o desenvolvimento da carga de trabalho **.NET.**
 
 ## <a name="run-a-hive-query"></a>Executar uma consulta de colmeia
 
 O HDInsight .NET SDK fornece bibliotecas de clientes .NET, o que facilita o trabalho com clusters HDInsight de .NET.
 
-1. Crie uma aplicação de consola C# no Estúdio Visual.
+1. Crie uma aplicação de consola C# no Visual Studio.
 
-1. A partir da Consola nuget Package Manager, executar o seguinte comando:
+1. A partir da Consola Nuget Package Manager, executar o seguinte comando:
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-1. Editar o código abaixo para inicializar `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`os valores das variáveis: . Em seguida, use o código revisto como todo o conteúdo de **Program.cs** no Estúdio Visual.
+1. Editar o código abaixo para rubricar os valores para variáveis: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Em seguida, use o código revisto como todo o conteúdo de **Program.cs** em Visual Studio.
 
     ```csharp
     using System.Collections.Generic;
@@ -134,16 +133,16 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, o que facilita o trab
 
 1. Prima **F5** para executar a aplicação.
 
-A saída do pedido deve ser semelhante a:
+A saída da aplicação deve ser semelhante:
 
-![Saída de emprego da Colmeia Hadoop HDInsight](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+![Saída de trabalho da DDInsight Hadoop Hive](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu a submeter consultas apache hive usando HDInsight .NET SDK. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu a submeter consultas de Hive Apache usando HDInsight .NET SDK. Para saber mais, consulte os seguintes artigos:
 
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)](apache-hadoop-linux-tutorial-get-started.md)
 * [Criar clusters Apache Hadoop em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Referência HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HdInsight .NET SDK referência](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Use Apache Sqoop com HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Criar aplicações do HDInsight de .NET de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

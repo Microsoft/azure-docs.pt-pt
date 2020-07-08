@@ -1,24 +1,23 @@
 ---
-title: Referência do artefacto do modelo
-description: Fornece um exemplo do artefacto do modelo de implantação para aplicações geridas pelo Azure.
+title: Referência de artefacto de modelo
+description: Fornece um exemplo do artefacto do modelo de implantação para aplicações geridas azure.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651465"
 ---
 # <a name="reference-deployment-template-artifact"></a>Referência: Artefacto do modelo de implantação
 
-Este artigo é uma referência para um artefacto *mainTemplate.json* em Aplicações Geridas azure. Para obter mais informações sobre o modelo de implementação de autor, consulte [os modelos do Gestor de Recursos Do Azure](../templates/template-syntax.md).
+Este artigo é uma referência para uma *mainTemplate.jssobre* artefactos em Aplicações Geridas Azure. Para obter mais informações sobre o modelo de implementação de autoria, consulte [os modelos do Gestor de Recursos Azure](../templates/template-syntax.md).
 
 ## <a name="deployment-template"></a>Modelo de implementação
 
-O jSON seguinte mostra um exemplo de ficheiro *mainTemplate.json* para aplicações geridas azure:
+O seguinte JSON mostra um exemplo de *mainTemplate.jsem* arquivo para aplicações geridas azure:
 
 ```json
 {
@@ -187,8 +186,8 @@ O jSON seguinte mostra um exemplo de ficheiro *mainTemplate.json* para aplicaç�
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Criar aplicação gerida com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
-- [Referência: Artefacto de elementos de interface do utilizador](reference-createuidefinition-artifact.md)
+- [Referência: Artefacto de elementos de interface de utilizador](reference-createuidefinition-artifact.md)
 - [Referência: Ver artefacto de definição](reference-view-definition-artifact.md)

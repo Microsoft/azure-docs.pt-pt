@@ -1,31 +1,30 @@
 ---
 title: Criar um cluster usando o nome comum do certificado
-description: Aprenda a criar um cluster de Tecido de Serviço usando o nome comum do certificado a partir de um modelo.
+description: Saiba como criar um cluster de tecido de serviço usando o nome comum do certificado a partir de um modelo.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614558"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster de tecido de serviço que usa o nome comum do certificado em vez de impressão digital
-Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capotamento ou a gestão do certificado de cluster. Vários certificados, no entanto, podem ter o mesmo nome ou assunto comum.  Um cluster usando nomes comuns de certificado torna a gestão de certificados muito mais simples. Este artigo descreve como implantar um cluster de tecido de serviço para usar o nome comum do certificado em vez da impressão digital do certificado.
+Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capotamento ou gestão do certificado de cluster. Vários certificados, no entanto, podem ter o mesmo nome comum ou sujeito.  Um cluster usando nomes comuns de certificado torna a gestão de certificados muito mais simples. Este artigo descreve como implantar um cluster de Tecido de Serviço para utilizar o nome comum do certificado em vez da impressão digital do certificado.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um certificado de uma autoridade de [certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que possui, e comprado a partir de um registo de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são empregados da Microsoft não podem fornecer certificados para domínios EmS, pelo que não pode utilizar os nomes DNS do seu LB ou Traffic Manager como nomes comuns para o seu certificado, e terá de fornecer uma [Zona DNS Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se o seu domínio personalizado for resolúvel em Azure. Também vai querer declarar o seu domínio personalizado que possui como "managementEndpoint" do seu cluster se quiser que o portal reflita o pseudónimo de domínio personalizado para o seu cluster.
+## <a name="get-a-certificate"></a>Obtenha um certificado
+Em primeiro lugar, obtenha um certificado de uma [autoridade de certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que possui, e comprado a partir de um registrador de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem providenciar certificados para domínios MS, por isso não pode utilizar os nomes DNS do seu LB ou Traffic Manager como nomes comuns para o seu certificado, e terá de providenciar uma [Zona DE DNS Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se o seu domínio personalizado for resolúvel em Azure. Também irá querer declarar o seu domínio personalizado que possui como "managementEndpoint" do seu cluster se quiser que o portal reflita o pseudónimo de domínio personalizado para o seu cluster.
 
-Para efeitos de teste, pode obter um certificado assinado pela AC de uma autoridade de certificados gratuitos ou abertos.
+Para efeitos de teste, pode obter um certificado assinado pela AC de uma autoridade de certificados gratuito ou aberto.
 
 > [!NOTE]
-> Os certificados auto-assinados, incluindo os gerados na implementação de um cluster de tecido de serviço no portal Azure, não são suportados. 
+> Os certificados auto-assinados, incluindo os gerados ao implantar um cluster de Tecido de Serviço no portal Azure, não são suportados. 
 
-## <a name="upload-the-certificate-to-a-key-vault"></a>Faça upload do certificado para um cofre chave
-Em Azure, um cluster de tecido de serviço é implantado num conjunto de escala de máquina virtual.  Envie o certificado para um cofre chave.  Quando o cluster se implanta, o certificado instala-se no conjunto de escala de máquina virtual em que o cluster está a funcionar.
+## <a name="upload-the-certificate-to-a-key-vault"></a>Faça o upload do certificado para um cofre chave
+Em Azure, um cluster de tecido de serviço é implantado num conjunto de escala de máquina virtual.  Faça o upload do certificado para um cofre de chaves.  Quando o cluster é implantado, o certificado instala-se no conjunto de escala de máquina virtual em que o cluster está em funcionamento.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -64,11 +63,11 @@ Write-Host "SourceVault              :"  $SourceVault
 Write-Host "Common Name              :"  $CommName    
 ```
 
-## <a name="download-and-update-a-sample-template"></a>Descarregue e atualize um modelo de amostra
-Este artigo utiliza o modelo de exemplo de exemplo de [cluster seguro de 5 nós](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) e os parâmetros do modelo. Descarregue os *ficheiros azuredeploy.json* e *azuredeploy.parson.json* para o seu computador.
+## <a name="download-and-update-a-sample-template"></a>Faça o download e atualize um modelo de amostra
+Este artigo utiliza o modelo [de exemplo de cluster seguro de 5 nós](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) e os parâmetros do modelo. Descarregue o *azuredeploy.js* e *azuredeploy.parameters.jsem* ficheiros para o seu computador.
 
-### <a name="update-parameters-file"></a>Atualizar ficheiro de parâmetros
-Em primeiro lugar, abra o ficheiro *azuredeploy.parameters.json* num editor de texto e adicione o seguinte valor de parâmetro:
+### <a name="update-parameters-file"></a>Arquivo de parâmetros de atualização
+Em primeiro lugar, abra a *azuredeploy.parameters.jsficheiro num* editor de texto e adicione o seguinte valor de parâmetro:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -78,7 +77,7 @@ Em primeiro lugar, abra o ficheiro *azuredeploy.parameters.json* num editor de t
 },
 ```
 
-Em seguida, defina os valores do *certificadoCommonName*, *sourceVaultValue*e *certificateUrlValue* para os valores de parâmetros devolvidos pelo script anterior:
+Em seguida, desagreda o *certificadoCommonName*, *sourceVaultValue,* e *certificadoSUrvalue* valores dos valores de parâmetros devolvidos pelo script anterior:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -95,9 +94,9 @@ Em seguida, defina os valores do *certificadoCommonName*, *sourceVaultValue*e *c
 ```
 
 ### <a name="update-the-template-file"></a>Atualizar o ficheiro do modelo
-Em seguida, abra o ficheiro *azuredeploy.json* num editor de texto e evoque três atualizações para apoiar o nome comum do certificado.
+Em seguida, abra a *azuredeploy.jsem* arquivo num editor de texto e faça três atualizações para suportar o nome comum do certificado.
 
-1. Na secção **de parâmetros,** adicione um *parâmetro de nome comum* certificado:
+1. Na secção **de parâmetros,** adicione um *parâmetro certificadoCommonName:*
     ```json
     "certificateCommonName": {
       "type": "string",
@@ -113,21 +112,21 @@ Em seguida, abra o ficheiro *azuredeploy.json* num editor de texto e evoque trê
     },
     ```
 
-    Considere também a remoção do *certificadoImpressão Polegar,* pode já não ser necessário.
+    Considere também a remoção do *certificadoThumbprint,* podendo deixar de ser necessário.
 
-2. Detete o valor da variável *sfrpApiVersion* para "2018-02-01":
+2. Definir o valor da variável *sfrpApiVersion* para "2018-02-01":
     ```json
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. No recurso **Microsoft.Compute/virtualMachineScaleSets,** atualize a extensão da máquina virtual para utilizar o nome comum nas definições do certificado em vez da impressão digital.  No **virtualMachineProfile**->**extensionProfile**->**configurações de****properties**->**definições,**->**extensions**->adicionar 
+3. No recurso **Microsoft.Compute/virtualMachineScaleSets,** atualize a extensão da máquina virtual para utilizar o nome comum nas definições de certificado em vez da impressão digital.  No **virtualMachineProfile** -> **extensõesProfile** -> **extensões** -> **certificado** -> **de definições de propriedades**, -> **certificate**adicionar 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
        ],
     ```
 
-    e `"thumbprint": "[parameters('certificateThumbprint')]",`remover .
+    e remover `"thumbprint": "[parameters('certificateThumbprint')]",` .
 
     ```json
     "virtualMachineProfile": {
@@ -162,7 +161,7 @@ Em seguida, abra o ficheiro *azuredeploy.json* num editor de texto e evoque trê
           },
     ```
 
-4. No recurso **Microsoft.ServiceFabric/clusters,** atualize a versão API para "2018-02-01".  Adicione também uma definição de **certificateCommonNames** com uma propriedade **commonNames** e remova a definição do **certificado** (com a propriedade de impressão digital) como no seguinte exemplo:
+4. No recurso **Microsoft.ServiceFabric/clusters,** atualize a versão API para "2018-02-01".  Adicione também um **certificado Configuração com** uma propriedade **comumNames** e remova a definição do **certificado** (com a propriedade de impressão digital) como no exemplo seguinte:
    ```json
    {
        "apiVersion": "2018-02-01",
@@ -189,12 +188,12 @@ Em seguida, abra o ficheiro *azuredeploy.json* num editor de texto e evoque trê
        ...
    ```
    > [!NOTE]
-   > O campo 'certificateIssuerThumbprint' permite especificar os emitentes esperados de certificados com um nome comum sujeito. Este campo aceita uma enumeração separada da vírcula das impressões digitais SHA1. Note que se trata de um reforço da validação do certificado - no caso de o emitente não estar especificado ou vazio, o certificado será aceite para autenticação se a sua cadeia puder ser construída e acaba numa raiz fidedigna pelo validador. Se o emitente for especificado, o certificado será aceite se a impressão digital do seu emitente direto corresponder a qualquer dos valores especificados neste campo - independentemente de a raiz ser ou não fidedigna. Por favor, note que um PKI pode usar diferentes autoridades de certificação para emitir certificados para o mesmo assunto, pelo que é importante especificar todas as impressões digitais esperadas para um determinado assunto.
+   > O campo 'certificateIssuerThumbprint' permite especificar os emitentes esperados de certificados com um determinado nome comum. Este campo aceita uma enumeração separada por vírgula de impressões digitais SHA1. Note que se trata de um reforço da validação do certificado - no caso de o emitente não estar especificado ou vazio, o certificado será aceite para autenticação se a sua cadeia puder ser construída, e acaba numa raiz fidedigna pelo validador. Se o emitente for especificado, o certificado será aceite se a impressão digital do seu emitente direto corresponder a qualquer um dos valores especificados neste campo - independentemente de a raiz ser ou não fidedigna. Por favor, note que um PKI pode usar diferentes autoridades de certificação para emitir certificados para o mesmo assunto, e por isso é importante especificar todas as impressões digitais emitentes esperadas para um determinado assunto.
    >
-   > Especificar o emitente é considerado uma boa prática; embora omitindo-o continuará a funcionar - para certificados acorrentados a uma raiz de confiança - este comportamento tem limitações e pode ser gradualmente eliminado num futuro próximo. Note também que os clusters implantados no Azure, e protegidos com certificados X509 emitidos por um PKI privado e declarados por sujeito, podem não ser validados pelo serviço Azure Service Fabric (para comunicação cluster-to-service), se a Política de Certificados do PKI não for detetável, disponível e acessível. 
+   > Especificar o emitente é considerado uma boa prática; ao omiti-lo continuará a funcionar - para certificados acorrentados até uma raiz de confiança - este comportamento tem limitações e pode ser eliminado gradualmente num futuro próximo. Note-se também que os clusters implantados em Azure, e protegidos com certificados X509 emitidos por um PKI privado e declarados por sujeitos podem não ser validados pelo serviço Azure Service Fabric (para comunicação cluster-to-service), se a Política de Certificados do PKI não for detetável, disponível e acessível. 
 
 ## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Reutilizar o modelo atualizado depois de efazer as alterações.
+Reimplante o modelo atualizado após efetuar as alterações.
 
 ```powershell
 # Variables.
@@ -211,10 +210,10 @@ New-AzResourceGroup -Name $groupname -Location $clusterloc
 New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
-* Saiba como [reverter um certificado](service-fabric-cluster-rollover-cert-cn.md) de cluster
+## <a name="next-steps"></a>Próximos passos
+* Conheça a [segurança do cluster.](service-fabric-cluster-security.md)
+* Saiba como [capotar um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
-* Simplificar gestão de certificados [por alteração do cluster da impressão digital do certificado para nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
+* Simplificar a Gestão de [Certificados mudando o cluster da impressão digital do certificado para o nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
