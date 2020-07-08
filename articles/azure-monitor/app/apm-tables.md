@@ -1,470 +1,469 @@
 ---
-title: Esquema de recursos baseado no espaço de trabalho Azure Monitor Insights
-description: Conheça a nova estrutura de tabela e o esquema para os recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
+title: Azure Monitor Application Insights esquema de recursos baseado no espaço de trabalho
+description: Conheça a nova estrutura de mesa e esquema para recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83210544"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos baseadas no espaço de trabalho (pré-visualização)
 
-Antes da introdução de recursos de Insights de [Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)os dados do Application Insights foram armazenados separados de outros dados de registo no Monitor Azure. Ambos são baseados no Azure Data Explorer e usam a mesma linguagem de consulta Kusto (KQL). Isto é descrito em [Registos no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Antes da introdução dos recursos de [Insights de Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)os dados do Application Insights foram armazenados separadamente de outros dados de registo no Azure Monitor. Ambos são baseados no Azure Data Explorer e usam a mesma língua de consulta kusto (KQL). Isto é descrito em [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
-Com os dados de recursos de aplicação baseados no espaço de trabalho, os dados dos recursos insights são armazenados num espaço de trabalho de Log Analytics com outros dados de monitorização e dados de aplicação. Isto simplifica a sua configuração, permitindo-lhe analisar mais facilmente os dados através de múltiplas soluções e alavancar as capacidades dos espaços de trabalho.
+Com os dados de recursos de aplicações baseados no espaço de trabalho, os dados de recursos do Log Analytics são armazenados num espaço de trabalho do Log Analytics com outros dados de monitorização e dados de aplicações. Isto simplifica a sua configuração, permitindo-lhe analisar mais facilmente dados em várias soluções e alavancar as capacidades dos espaços de trabalho.
 
 ## <a name="table-structure"></a>Estrutura de mesa
 
-| Nome de mesa legado | Novo nome de mesa | Descrição |
+| Nome da mesa do legado | Novo nome de mesa | Descrição |
 |:---|:---|:---|
-| disponibilidadeResultados | Resultados da Disponibilidade de Aplicações |  Resumo dos dados dos testes de disponibilidade.|
-| browserTimings | AppBrowserTimings | Dados sobre o desempenho do cliente, como o tempo que se demorou a processar os dados que chegam.|
-| dependências | Dependências de Aplicações | Chamadas da aplicação para outros componentes (incluindo componentes externos) registadas via TrackDependency() – por exemplo, chamadas para REST API, base de dados ou um sistema de ficheiros.  |
-| eventos personalizados | Eventos de Aplicações | Eventos personalizados criados pela sua aplicação. |
-| métricas personalizadas | AppMetrics | Métricas personalizadas criadas pela sua aplicação. |
-| pageViews | Vistas de página de aplicações| Dados sobre cada visualização do site com informações do navegador. |
-| performanceCounters | AppPerformanceCounters | Medições de desempenho dos recursos computacionais que suportam a aplicação, por exemplo, contadores de desempenho do Windows. |
-| pedidos | Pedidos de Aplicações | Pedidos recebidos pelo seu pedido. Por exemplo, um registo de pedido separado é registado para cada pedido HTTP que a sua aplicação web recebe.  |
-| exceções | Eventos de Sistemas de Aplicações | Exceções lançadas pelo tempo de execução da aplicação, captura tanto o lado do servidor como as exceções do lado do cliente (navegadores). |
-| vestígios | AppTraces | Registos detalhados (vestígios) emitidos através do código de aplicação/quadros de registo registados através do TrackTrace(). |
+| disponibilidadeResults | AppDilabilityResults |  Dados sumários dos testes de disponibilidade.|
+| browsersa | AppBrowserTimings | Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados recebidos.|
+| dependências | AppDependencies | Chamadas da aplicação para outros componentes (incluindo componentes externos) gravadas via TrackDependency() – por exemplo, chamadas para API REST, base de dados ou um sistema de ficheiros.  |
+| costumesEvents | Eventos AppEvents | Eventos personalizados criados pela sua aplicação. |
+| costumesMetricos | AppMetrics | Métricas personalizadas criadas pela sua aplicação. |
+| pageVers | AppPageViews| Dados sobre cada visualização do site com informações do navegador. |
+| performanceCounters | AppPerformanceCounters | Medições de desempenho dos recursos computativos que suportam a aplicação, por exemplo, contadores de desempenho do Windows. |
+| pedidos | Recorrentes | Pedidos recebidos pelo seu pedido. Por exemplo, é registado um registo de pedidos separado para cada pedido HTTP que a sua aplicação web recebe.  |
+| exceções | Eventos AppSystemEvents | Exceções lançadas pelo tempo de execução da aplicação, captura as exceções do lado do servidor e do lado do cliente (navegadores). |
+| vestígios | AppTraces | Registos detalhados (vestígios) emitidos através de quadros de código de aplicação/registo registados através do TrackTrace(). |
 
-## <a name="table-schemas"></a>Esquemias de mesa
+## <a name="table-schemas"></a>Esquemas de mesa
 
-As seguintes secções mostram o mapeamento entre os nomes clássicos da propriedade e os novos nomes de propriedades de Application Insights baseados no espaço de trabalho.  Utilize estas informações para converter quaisquer consultas utilizando tabelas antigas.
+As secções seguintes mostram o mapeamento entre os nomes clássicos da propriedade e os novos nomes de propriedades de Aplicações baseadas no espaço de trabalho.  Utilize estas informações para converter quaisquer consultas utilizando tabelas antigas.
 
-A maioria das colunas tem o mesmo nome com capitalização diferente. Uma vez que o KQL é sensível aos casos, terá de alterar cada nome de coluna juntamente com os nomes de tabela sinuosos em consultas existentes. Destacam-se as colunas com alterações para além da capitalização. Ainda pode utilizar as suas consultas clássicas de Insights de Aplicação dentro do painel de **Registos** do seu recurso Application Insights, mesmo que seja um recurso baseado no espaço de trabalho. Os novos nomes de propriedade são necessários para quando se consulta no contexto da experiência do espaço de trabalho Log Analytics.
+A maioria das colunas tem o mesmo nome com capitalização diferente. Uma vez que o KQL é sensível a casos, terá de alterar o nome de cada coluna juntamente com os nomes de tabela nas consultas existentes. Destacam-se as colunas com alterações para além da capitalização. Ainda pode utilizar as suas consultas **clássicas** de Insights de Aplicação dentro do painel de Logs do seu recurso Application Insights, mesmo que seja um recurso baseado no espaço de trabalho. Os novos nomes de propriedade são necessários para quando consulta a partir do contexto da experiência do espaço de trabalho Log Analytics.
 
-### <a name="appavailabilityresults"></a>Resultados da Disponibilidade de Aplicações
+### <a name="appavailabilityresults"></a>AppDilabilityResults
 
-Tabela legacy: disponibilidade
+Tabela legado: disponibilidade
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DuraçãoMs|real|
 |`id`|string|`Id`|string|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|String|
+|itemType|string|Tipo|String|
 |localização|string|Localização|string|
 |message|string|Mensagem|string|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |size|real|Tamanho|real|
 |exito|string|Êxito|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
 ### <a name="appbrowsertimings"></a>AppBrowserTimings
 
-Tabela legacy: browserTimings
+Tabela legado: browserTimings
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
-|nome|string|Name|datetime|
-|redeDuração|real|Duração da redeMs|real|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|string|
+|name|string|Name|datetime|
+|redeDuração|real|NetworkDurationMs|real|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|processamentoDuração|real|ProcessamentoDuraMs|real|
-|receberDuração|real|ReceberDuraMs|real|
+|processamentoDuração|real|ProcessamentoDurationMs|real|
+|receberDuration|real|ReceberDurationMs|real|
 |sdkVersion|string|SdkVersion|string|
-|enviarDuração|real|EnvioDeDuraMs|real|
-|session_Id|string|SessãoId|string|
+|sendDuration|real|SendDurationMs|real|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|totalDuração|real|TotalDeduraMs|real|
+|totalDuração|real|TotaldurationMs|real|
 |url|string|Url|string|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
-### <a name="appdependencies"></a>Dependências de Aplicações
+### <a name="appdependencies"></a>AppDependencies
 
 Tabela legado: dependências
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
-|data|string|Dados|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
+|dados|string|Dados|string|
 |duration|real|DuraçãoMs|real|
 |`id`|string|`Id`|string|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|String|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|String|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
-|resultadoCódigo|string|Código de Resultados|string|
+|resultadosDesco|string|Resultados Código|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |exito|string|Êxito|Booleano|
 |alvo|string|Destino|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|tipo|string|DependencyType|string|
-|user_AccountId|string|UserAccountid|string|
+|tipo|string|Tipo de Dependência|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
-### <a name="appevents"></a>Eventos de Aplicações
+### <a name="appevents"></a>Eventos AppEvents
 
-Tabela legacy: customEvents
+Tabela legado: costumesEvents
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
 ### <a name="appmetrics"></a>AppMetrics
 
-Tabela legacy: customMetrics
+Tabela legado: costumesMetrics
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|iChave|string|IKey|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|iKey|string|IKey|string|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 |valor|real|(removido)||
 |valorCount|int|ValorCount|int|
-|valorMax|real|ValorMax|real|
+|valorMax|real|ValueMax|real|
 |valorMin|real|ValorMin|real|
 |valorStdDev|real|ValorStdDev|real|
-|valorSum|real|ValorSSoma|real|
+|valorSum|real|ValueSum|real|
 
-### <a name="apppageviews"></a>Vistas de página de aplicações
+### <a name="apppageviews"></a>AppPageViews
 
-Tabela legacy: pageViews
+Tabela legado: pageViews
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DuraçãoMs|real|
 |`id`|string|`Id`|string|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|String|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|String|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |url|string|Url|string|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
 ### <a name="appperformancecounters"></a>AppPerformanceCounters
 
-Tabela legacy: performanceCounters
+Tabela legado: performanceCounters
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |categoria|string|Categoria|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |counter|string|(removido)||
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|iChave|string|IKey|string|
-|instância|string|Instância|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|iKey|string|IKey|string|
+|exemplo|string|Instância|string|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
-|nome|string|Name|string|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 |valor|real|Valor|real|
 
-### <a name="apprequests"></a>Pedidos de Aplicações
+### <a name="apprequests"></a>Recorrentes
 
-Tabela legacy: pedidos
+Tabela legado: pedidos
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|Dinâmica|
-|medidas personalizadas|dynamic|Medições|Dinâmica|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|Dinâmica|
+|medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DuraçãoMs|Real|
 |`id`|string|`Id`|String|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|String|
-|nome|string|Name|String|
-|operation_Id|string|OperaçãoId|string|
+|itemType|string|Tipo|String|
+|name|string|Name|String|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
-|resultadoCódigo|string|Código de Resultados|String|
+|resultadosDesco|string|Resultados Código|String|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
+|session_Id|string|SessionId|string|
 |source|string|Origem|String|
 |exito|string|Êxito|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |url|string|Url|String|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
-### <a name="appsystemevents"></a>Eventos de Sistemas de Aplicações
+### <a name="appsystemevents"></a>Eventos AppSystemEvents
 
 Tabela legado: exceções
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |montagem|string|Assemblagem|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|dynamic|
-|medidas personalizadas|dynamic|Medições|dynamic|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|dynamic|
+|medidas de medidas personalizadas|dynamic|Medições|dynamic|
 |detalhes|dynamic|Detalhes|dynamic|
 |handledAt|string|HandledAt|string|
-|iChave|string|IKey|string|
-|InnermostAssembly|string|Assembleia Interior|string|
-|mensagem mais interior|string|Mensagem Interior|string|
-|innermostMethod|string|Método Interior|string|
-|mais íntimoType|string|InnermostType|string|
-|itensCount|int|ItemCount|int|
+|iKey|string|IKey|string|
+|mais internamente Montagem|string|Mais internamente|string|
+|innerstMessage|string|InternamenteMessage|string|
+|innermostMethod|string|InnermostMethod|string|
+|Mais íntimosTipo|string|Mais innertType|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
+|itemType|string|Tipo|string|
 |message|string|Mensagem|string|
 |método|string|Método|string|
-|operation_Id|string|OperaçãoId|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
-|ExteriorAssem|string|Assembleia Exterior|string|
-|mensagem exterior|string|Mensagem Externa|string|
-|método exterior|string|Método Exterior|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|exteriorEssaconly|string|ExteriorEseto|string|
+|outerMessage|string|OuterMessage|string|
+|outerMethod|string|OuterMethod|string|
 |outerType|string|OuterType|string|
-|problemaId|string|Problema|string|
+|problemId|string|ProblemaId|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
-|gravidadeN|int|Nível de gravidade|int|
+|session_Id|string|SessionId|string|
+|severidadeLevel|int|SeveridadeLevel|int|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|tipo|string|Tipo de exceção|string|
-|user_AccountId|string|UserAccountid|string|
+|tipo|string|ExcepçãoType|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
 ### <a name="apptraces"></a>AppTraces
 
-Tabela legacy: vestígios
+Tabela do legado: vestígios
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|string|\_Seguid|string|
-|application_Version|string|AppVersion|string|
-|nome de app|string|\_ResourceId|string|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
-|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
 |client_IP|string|ClientIP|string|
 |client_Model|string|Modelo de Cliente|string|
-|client_OS|string|Clientes|string|
-|client_StateOrProvince|string|ClientStateorProvince|string|
-|client_Type|string|Tipo de cliente|string|
-|cloud_RoleInstance|string|AppRoleInstance|string|
-|cloud_RoleName|string|Nome de Funções de Aplicação|string|
-|dimensões personalizadas|dynamic|Propriedades|dynamic|
-|medidas personalizadas|dynamic|Medições|dynamic|
-|iChave|string|IKey|string|
-|itensCount|int|ItemCount|int|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|customDimensionais|dynamic|Propriedades|dynamic|
+|medidas de medidas personalizadas|dynamic|Medições|dynamic|
+|iKey|string|IKey|string|
+|itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|artigoType|string|Tipo|string|
+|itemType|string|Tipo|string|
 |message|string|Mensagem|string|
-|operation_Id|string|OperaçãoId|string|
+|operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperaçãoParentóide|string|
-|operation_SyntheticSource|string|OperaçãoSyntheticSource|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
-|session_Id|string|SessãoId|string|
-|gravidadeN|int|Nível de gravidade|int|
+|session_Id|string|SessionId|string|
+|severidadeLevel|int|SeveridadeLevel|int|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|string|UserAccountid|string|
+|user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)

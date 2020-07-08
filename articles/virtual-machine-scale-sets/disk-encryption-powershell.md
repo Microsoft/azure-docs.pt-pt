@@ -1,6 +1,6 @@
 ---
 title: Criptografe discos para conjuntos de escala Azure com Azure PowerShell
-description: Aprenda a usar o Azure PowerShell para encriptar instâncias VM e discos anexados num conjunto de escala de máquina virtual do Windows
+description: Saiba como usar o Azure PowerShell para encriptar instâncias VM e discos anexos num conjunto de escala de máquina virtual do Windows
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,23 +10,22 @@ ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a20abec6ab9925408dd769c5238186af9b7c3d1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83195893"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografe os OS e discos de dados anexados num conjunto de escala de máquina virtual com O PowerShell Azure
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com a Azure PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts.  Este artigo mostra-lhe como usar o Azure PowerShell para criar e encriptar um conjunto de escala de máquina virtual. Para obter mais informações sobre a aplicação da encriptação do disco Azure num conjunto de escala de máquina virtual, consulte a encriptação do [disco Azure para conjuntos](disk-encryption-overview.md)de escala de máquina virtual .
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts.  Este artigo mostra-lhe como usar o Azure PowerShell para criar e encriptar um conjunto de escala de máquina virtual. Para obter mais informações sobre a aplicação da encriptação do disco Azure a um conjunto de escala de máquina virtual, consulte [encriptação do disco Azure para conjuntos de escala de máquina virtual](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Criar um Cofre de Chave Azure habilitado para encriptação de disco
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Criar um cofre de chave Azure habilitado para encriptação de disco
 
-O Azure Key Vault pode armazenar chaves, segredos ou senhas que lhe permitam implementá-las de forma segura nas suas aplicações e serviços. As chaves criptográficas são armazenadas no Cofre de Chaves Azure utilizando a proteção de software, ou pode importar ou gerar as suas chaves em Módulos de Segurança de Hardware (HSMs) certificados para normas de nível 2 FIPS 140-2. Estas teclas criptográficas são usadas para encriptar e desencriptar discos virtuais ligados ao seu VM. Mantém o controlo destas chaves criptográficas e pode auditar a sua utilização.
+O Azure Key Vault pode armazenar chaves, segredos ou senhas que lhe permitam implementá-las de forma segura nas suas aplicações e serviços. As chaves criptográficas são armazenadas no Cofre da Chave Azure utilizando proteção de software, ou pode importar ou gerar as suas chaves em Módulos de Segurança de Hardware (HSMs) certificadas para normas fips 140-2 de nível 2. Estas chaves criptográficas são usadas para encriptar e desencriptar discos virtuais ligados ao seu VM. Mantém o controlo destas chaves criptográficas e pode auditar o seu uso.
 
-Crie um cofre chave com [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Para permitir que o Cofre de Chaves seja utilizado para encriptação de disco, defina o parâmetro *EnabledForDiskEncryption.* O exemplo que se segue também define variáveis para o nome do grupo de recursos, nome do cofre chave e localização. Forneça o seu nome exclusivo do Cofre chave:
+Crie um [cofre-chave com New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Para permitir a utilização do Cofre de Chaves para encriptação do disco, desenfita o parâmetro *enabledForDiskEncryption.* O exemplo a seguir também define variáveis para nome de grupo de recursos, Nome do Cofre de Chaves e localização. Forneça o seu próprio nome exclusivo do Key Vault:
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"
@@ -39,9 +38,9 @@ New-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $locat
 
 ### <a name="use-an-existing-key-vault"></a>Use um cofre de chaves existente
 
-Este passo só é necessário se tiver um Cofre chave existente que deseja utilizar com encriptação de disco. Ignore este passo se criou um Cofre chave na secção anterior.
+Este passo só é necessário se tiver um Cofre de Chaves existente que deseja utilizar com encriptação de disco. Salte este passo se tiver criado um Cofre-Chave na secção anterior.
 
-Pode ativar um Cofre chave existente na mesma subscrição e região que o conjunto de escala para encriptação de discos com [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy). Defina o nome do seu Cofre-Chave existente na *variável $vaultName* seguinte:
+Pode ativar um Cofre-Chave existente na mesma subscrição e região que a escala definida para encriptação de disco com [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy). Defina o nome do cofre de chaves existente na variável *$vaultName* da seguinte forma:
 
 
 ```azurepowershell-interactive
@@ -57,7 +56,7 @@ Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias d
 $cred = Get-Credential
 ```
 
-Agora crie um conjunto de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
+Agora crie um conjunto de escala de máquina virtual com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
@@ -74,9 +73,9 @@ New-AzVmss `
     -Credential $cred
 ```
 
-## <a name="enable-encryption"></a>Ativar encriptação
+## <a name="enable-encryption"></a>Ativar a encriptação
 
-Para encriptar as instâncias vm num conjunto de escala, obtenha primeiro algumas informações sobre o Cofre de Chaves URI e id de recursos com [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). Estas variáveis são usadas para iniciar o processo de encriptação com [set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
+Para encriptar as instâncias VM num conjunto de escala, primeiro obtenha algumas informações sobre o Key Vault URI e o ID de recursos com [o Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). Estas variáveis são usadas para iniciar o processo de encriptação com [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
 
 
 ```azurepowershell-interactive
@@ -87,11 +86,11 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType "All"
 ```
 
-Quando solicitado, escreva *y* para continuar o processo de encriptação do disco nas instâncias vM definidas pela escala.
+Quando solicitado, escreva *y* para continuar o processo de encriptação do disco na escala definir instâncias VM.
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ativar a encriptação usando KEK para embrulhar a chave
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ative a encriptação usando KEK para embrulhar a chave
 
-Também pode utilizar uma chave de encriptação para uma maior segurança ao encriptar o conjunto de escala de máquina virtual.
+Também pode utilizar uma chave de encriptação para obter segurança adicional ao encriptar o conjunto de escala de máquina virtual.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -104,21 +103,21 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 ```
 
 > [!NOTE]
->  A sintaxe para o valor do parâmetro de cofre de encriptação de disco é a cadeia de identificação completa:</br>
-/subscrições/[subscrição-id-guid]/recursosGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[[keyvault-name]</br></br>
-> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em:</br>
+>  A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa:</br>
+/subscrições/[subscrição-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> A sintaxe para o valor do parâmetro chave de encriptação-chave é o URI completo para o KEK como em:</br>
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verifique o progresso da encriptação
 
-Para verificar o estado da encriptação do disco, utilize [a Encriptação Get-AzVmssDisk:](/powershell/module/az.compute/Get-AzVmssDiskEncryption)
+Para verificar o estado da encriptação do disco, utilize [a encriptação Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption):
 
 
 ```azurepowershell-interactive
 Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-Quando as instâncias vm são encriptadas, o código *CryptonSummary* reporta *ProvisioningState/succeeded* como mostrado na seguinte saída de exemplo:
+Quando as instâncias VM são encriptadas, o código *de encriptaçãoSummary* *reporta ProvisioningState/succeeded* como mostrado na seguinte saída de exemplo:
 
 ```powershell
 ResourceGroupName            : myResourceGroup
@@ -140,14 +139,14 @@ EncryptionExtensionInstalled : True
 
 ## <a name="disable-encryption"></a>Desativar a encriptação
 
-Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [desactivação-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption) da seguinte forma:
+Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption) da seguinte forma:
 
 
 ```azurepowershell-interactive
 Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Neste artigo, utilizou o Azure PowerShell para encriptar um conjunto de escala de máquina virtual. Também pode utilizar os modelos [Azure CLI](disk-encryption-cli.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
-- Se desejar que a Encriptação do Disco Azure seja aplicada após a disponibilização de outra extensão, pode utilizar [a sequenciação](virtual-machine-scale-sets-extension-sequencing.md)de extensões .
+- Neste artigo, usou o Azure PowerShell para encriptar um conjunto de escala de máquina virtual. Também pode utilizar os modelos [Azure CLI](disk-encryption-cli.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
+- Se desejar que a Encriptação do Disco Azure seja aplicada após a disponibilização de outra extensão, pode utilizar [a sequência de extensão](virtual-machine-scale-sets-extension-sequencing.md).

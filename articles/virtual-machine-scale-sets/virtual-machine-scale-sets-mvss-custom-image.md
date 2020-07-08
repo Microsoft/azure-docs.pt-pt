@@ -1,5 +1,5 @@
 ---
-title: Referência a uma imagem personalizada em um modelo de conjunto de escala Azure
+title: Refira uma imagem personalizada num modelo de conjunto de escala Azure
 description: Saiba como adicionar uma imagem personalizada a um modelo de conjunto de escala de máquina virtual Azure existente
 author: cynthn
 ms.author: cynthn
@@ -10,24 +10,23 @@ ms.date: 04/26/2018
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124912"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
-Este artigo mostra como modificar o [modelo de conjunto](virtual-machine-scale-sets-mvss-start.md) de escala básica para implantar a partir de imagem personalizada.
+Este artigo mostra como modificar o [modelo de conjunto de escala básica](virtual-machine-scale-sets-mvss-start.md) para implementar a partir da imagem personalizada.
 
-## <a name="change-the-template-definition"></a>Alterar a definição do modelo
-Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo básico de conjunto de escala. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de escala a partir de uma imagem personalizada.  
+## <a name="change-the-template-definition"></a>Alterar a definição de modelo
+Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo de conjunto de escala básica. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa uma escala definida a partir de uma imagem personalizada.  
 
 ### <a name="creating-a-managed-disk-image"></a>Criar uma imagem de disco gerida
 
-Se já tem uma imagem de disco gerida sob medida (um recurso de `Microsoft.Compute/images` tipo), então pode saltar esta secção.
+Se já tiver uma imagem de disco gerida sob medida (um recurso do `Microsoft.Compute/images` tipo), então pode saltar esta secção.
 
-Em primeiro lugar, adicione um `sourceImageVhdUri` parâmetro, que é o URI à bolha generalizada no Armazenamento Azure que contém a imagem personalizada para implantar.
+Em primeiro lugar, adicione um `sourceImageVhdUri` parâmetro, que é o URI à bolha generalizada no Azure Storage que contém a imagem personalizada a ser implantada.
 
 
 ```diff
@@ -45,7 +44,7 @@ Em primeiro lugar, adicione um `sourceImageVhdUri` parâmetro, que é o URI à b
    "variables": {},
 ```
 
-Em seguida, adicione um recurso de tipo `Microsoft.Compute/images` , que é a imagem de disco gerida com base na bolha generalizada localizada na URI `sourceImageVhdUri` . Esta imagem deve estar na mesma região que o conjunto de escala que a utiliza. Nas propriedades da imagem, especifique o tipo DE Os, a localização da bolha (a partir do parâmetro) e o tipo de conta de `sourceImageVhdUri` armazenamento:
+Em seguida, adicione um recurso do tipo , que é a imagem de `Microsoft.Compute/images` disco gerido com base na bolha generalizada localizada na URI `sourceImageVhdUri` . Esta imagem deve estar na mesma região que o conjunto de escala que a utiliza. Nas propriedades da imagem, especifique o tipo de SO, a localização do blob (a partir do `sourceImageVhdUri` parâmetro) e o tipo de conta de armazenamento:
 
 ```diff
    "resources": [
@@ -72,7 +71,7 @@ Em seguida, adicione um recurso de tipo `Microsoft.Compute/images` , que é a im
 
 ```
 
-No recurso de conjunto de escala, adicione uma cláusula que se refere à imagem personalizada para se certificar de que a imagem é criada antes que o conjunto de `dependsOn` escala tente ser implantado a partir dessa imagem:
+No recurso conjunto de escala, adicione uma `dependsOn` cláusula referente à imagem personalizada para garantir que a imagem é criada antes que o conjunto de escala tente implementar a partir dessa imagem:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -87,9 +86,9 @@ No recurso de conjunto de escala, adicione uma cláusula que se refere à imagem
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterar propriedades definidas de escala para usar a imagem de disco gerida
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterar as propriedades do conjunto de escala para usar a imagem do disco gerido
 
-No `imageReference` conjunto de escala `storageProfile` , em vez de especificar a editora, oferecer, sku e versão de uma imagem de plataforma, especificar o do `id` `Microsoft.Compute/images` recurso:
+No `imageReference` conjunto de `storageProfile` escala, em vez de especificar o editor, oferta, sku e versão de uma imagem de plataforma, especificar `id` o `Microsoft.Compute/images` recurso:
 
 ```json
          "virtualMachineProfile": {
@@ -101,7 +100,7 @@ No `imageReference` conjunto de escala `storageProfile` , em vez de especificar 
            "osProfile": {
 ```
 
-Neste exemplo, utilize a `resourceId` função para obter o ID de recurso da imagem criada no mesmo modelo. Se criou previamente a imagem gerida do disco, deve fornecer a identificação dessa imagem. Esta identificação deve ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>` .
+Neste exemplo, utilize a `resourceId` função para obter o ID de recursos da imagem criada no mesmo modelo. Se criou previamente a imagem do disco gerido, deve fornecer o ID dessa imagem. Esta identificação deve ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>` .
 
 
 ## <a name="next-steps"></a>Passos Seguintes
