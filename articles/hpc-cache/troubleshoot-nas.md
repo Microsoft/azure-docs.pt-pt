@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
 ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515457"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Resolução de problemas Na configuração e problemas de alvo de armazenamento NFS
@@ -145,6 +145,6 @@ Se o seu sistema reportar o seu estilo de segurança como UNIX ou POSIX sem incl
 
 Para os sistemas que utilizam ACLs, a Cache Azure HPC precisa de rastrear valores adicionais específicos do utilizador para controlar o acesso aos ficheiros. Isto é feito através da ativação de uma cache de acesso. Não existe um controlo virado para o utilizador para ligar a cache de acesso, mas pode abrir um bilhete de apoio para solicitar que seja ativado para os alvos de armazenamento afetados no seu sistema cache.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver um problema que não foi abordado neste artigo, [abra um bilhete de apoio](hpc-cache-support-ticket.md) para obter ajuda especializada.

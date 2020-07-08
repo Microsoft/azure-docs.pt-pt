@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85517385"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
@@ -71,7 +71,7 @@ Cada vez que corre um oleoduto, a configuração do gasoduto e os seus resultado
 
 As corridas de gasodutos são agrupadas em [experiências](concept-azure-machine-learning-architecture.md#experiments) para organizar a história da execução. Pode definir a experiência para cada corrida de gasodutos. 
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjuntos de Dados
 
 Um conjunto de dados de machine learning facilita o acesso e o trabalho com os seus dados. Vários conjuntos de dados de amostra estão incluídos no designer para você experimentar. Pode [registar](how-to-create-register-datasets.md) mais conjuntos de dados à medida que necessitar.
 
@@ -98,7 +98,7 @@ Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline
 
 Os alvos computacional estão ligados ao seu [espaço de trabalho Azure Machine Learning](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-## <a name="deploy"></a>Implementar
+## <a name="deploy"></a>Implementação
 
 Para realizar inferenculação em tempo real, tem de implantar um gasoduto como ponto final em **tempo real**. O ponto final em tempo real cria uma interface entre uma aplicação externa e o seu modelo de pontuação. Uma chamada para um ponto final em tempo real devolve os resultados da previsão à aplicação em tempo real. Para fazer uma chamada para um ponto final em tempo real, você passa a chave API que foi criada quando implementou o ponto final. O ponto final é baseado no REST, uma escolha popular de arquitetura para projetos de programação web.
 
@@ -135,7 +135,7 @@ Pode converter experiências de interface visual existentes e serviços web em o
 [!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar as amostras de [designers existentes](samples-designer.md) para as adaptar às suas necessidades.

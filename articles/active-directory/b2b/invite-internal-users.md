@@ -11,19 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f217266a2b28bfaf15df6a70a28784873dd123
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551366"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar utilizadores internos para a colaboração B2B
 
-|     |
-| --- |
-| Convidar utilizadores internos a utilizarem a colaboração B2B é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). |
-|     |
+> [!NOTE]
+> Convidar utilizadores internos a utilizarem a colaboração B2B é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Antes da disponibilidade da colaboração Azure AD B2B, as organizações poderiam colaborar com distribuidores, fornecedores, fornecedores e outros utilizadores convidados, estabelecendo credenciais internas para eles. Se tiver utilizadores convidados internos como este, pode convidá-los a usar a colaboração B2B para que possa usufruir dos benefícios do Azure AD B2B. Os seus utilizadores convidados B2B poderão usar as suas próprias identidades e credenciais para iniciar scontabilidade, e não precisará de manter senhas ou gerir ciclos de vida da conta.
 
@@ -99,6 +97,6 @@ ContentType: application/json
 
 A resposta à API é a mesma que obtém quando convida um novo utilizador convidado para o diretório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resgate de convite de colaboração B2B](redemption-experience.md)

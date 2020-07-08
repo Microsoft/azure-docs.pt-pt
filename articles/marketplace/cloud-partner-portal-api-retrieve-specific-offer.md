@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/19/2020
 ms.author: dsindona
 ms.openlocfilehash: 771c103b535c09f8481c2b01328078504b8633aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516299"
 ---
 <a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
@@ -47,7 +47,7 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 | offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
 | versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
 | slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft`(predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview`recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production`recupera a versão de oferta atualmente em produção.          |      enum |
-| api-version | Última versão da API                                                                    | Date          |
+| api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
 
 

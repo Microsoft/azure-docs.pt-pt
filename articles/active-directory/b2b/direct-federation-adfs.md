@@ -12,18 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf9b92b868e8707a0e20531f5738146d833c301
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551524"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemplo: Federação direta com Serviços da Federação de Diretórios Ativos (AD FS) (pré-visualização)
-|     |
-| --- |
-| A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo descreve como criar uma [federação direta](direct-federation.md) usando os Serviços da Federação de Diretório Ativo (AD FS) como um SAML 2.0 ou um fornecedor de identidade WS-Fed. Para apoiar a federação direta, certos atributos e reclamações devem ser configurados no fornecedor de identidade. Para ilustrar como configurar um fornecedor de identidade para a federação direta, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como exemplo. Vamos mostrar como criar a AD FS tanto como fornecedor de identidade SAML como como fornecedor de identidade da WS-Fed.
 
@@ -52,7 +51,7 @@ As seguintes alegações devem ser configuradas no token SAML 2.0 emitido pelo f
 
 A secção seguinte ilustra como configurar os atributos e alegações necessários usando AD FS como exemplo de um fornecedor de identidade SAML 2.0.
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este procedimento. Para obter ajuda na configuração de um servidor AD FS, consulte [Criar uma instância AD FS 3.0 de teste numa máquina virtual Azure](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
@@ -123,7 +122,7 @@ Reclamações necessárias para o token WS-Fed emitido pelo IdP:
 
 A secção seguinte ilustra como configurar os atributos e alegações necessários usando AD FS como um exemplo de um fornecedor de identidade WS-Fed.
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este procedimento. Para obter ajuda na configuração de um servidor AD FS, consulte [Criar uma instância AD FS 3.0 de teste numa máquina virtual Azure](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
 
@@ -153,5 +152,5 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 1.  A janela **'Regras de Reclamação de Edição'** apresentará a nova regra. Clique em **Aplicar**.  
 1.  Clique em **OK**. O servidor AD FS está agora configurado para federação direta usando a WS-Fed.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Em seguida, você configurará [a federação direta em Azure AD,](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) quer no portal AD AZure ou usando PowerShell. 

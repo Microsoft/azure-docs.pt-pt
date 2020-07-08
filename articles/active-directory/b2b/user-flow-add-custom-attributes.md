@@ -11,19 +11,17 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4369f42df8862adbc0b7fafd42979b9ceac0729b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551162"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definir atributos personalizados para fluxos de utilizador (Pré-visualização)
 
-|      |
-| ---- |
-| A funcionalidade de atributos personalizados do utilizador é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). |
-|      |
+> [!NOTE]
+> A funcionalidade de atributos personalizados do utilizador é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para cada aplicação, poderá ter diferentes requisitos para a informação que pretende recolher durante a inscrição. A Azure AD vem com um conjunto incorporado de informações armazenadas em atributos, tais como Nome Dado, Apelido, Cidade e Código Postal. Com o Azure AD, pode estender o conjunto de atributos armazenados numa conta de hóspedes quando o utilizador externo se inscreve através de um fluxo de utilizador.
 
@@ -59,6 +57,6 @@ O atributo personalizado está agora disponível na lista de atributos do utiliz
 
 Uma vez criado um novo utilizador utilizando um fluxo de utilizador que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição no objeto do utilizador. Pode ligar para a API do gráfico da sua aplicação para obter os dados deste atributo depois de adicionado ao objeto do utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação](self-service-sign-up-user-flow.md)

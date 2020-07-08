@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a9026db19d453100971739dcf633629a3f06d43
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85388308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549485"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta no Facebook utilizando o Azure Ative Directory B2C
 
@@ -32,7 +32,7 @@ Para utilizar uma conta do Facebook como fornecedor de [identidade](authorizatio
 1. Selecione **Definições**  >  **Básicas**.
 1. Escolha uma **categoria,** por `Business and Pages` exemplo. Este valor é exigido pelo Facebook, mas não utilizado para Azure AD B2C.
 1. Na parte inferior da página, selecione **Add Platform**e, em seguida, selecione **Website**.
-1. No **URL do Site,** `https://your-tenant-name.b2clogin.com/` insira a substituição `your-tenant-name` pelo nome do seu inquilino. Introduza um URL para o **URL da Política de Privacidade,** por exemplo `http://www.contoso.com` . O URL de política é uma página que mantém para fornecer informações de privacidade para a sua aplicação.
+1. No **URL do Site,** insira o endereço do seu website, por `https://contoso.com` exemplo. Introduza um URL para o **URL da Política de Privacidade,** por exemplo `http://www.contoso.com/privacy` . O URL de política é uma página que mantém para fornecer informações de privacidade para a sua aplicação.
 1. Selecione **Guardar alterações**.
 1. No topo da página, copie o valor do ID da **aplicação.**
 1. Selecione **Mostrar** e copie o valor da **App Secret.** Usa os dois para configurar o Facebook como fornecedor de identidade no seu inquilino. **App Secret** é uma importante credencial de segurança.

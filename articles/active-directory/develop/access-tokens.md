@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ebb751826f0495f378c2df4118b3ad2008fd418f
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552008"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -71,7 +71,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="header-claims"></a>Reclamações de cabeçalho
 
-|Afirmação | Formato | Description |
+|Afirmação | Formatar | Descrição |
 |--------|--------|-------------|
 | `typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
 | `nonce` | String | Um identificador único usado para proteger contra ataques de repetição de símbolos. O seu recurso pode registar este valor para proteger contra repetições. |
@@ -81,7 +81,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
-| Afirmação | Formato | Description |
+| Afirmação | Formatar | Descrição |
 |-----|--------|-------------|
 | `aud` | String, um ID URI de aplicativo | Identifica o destinatário pretendido do token. Em fichas de identificação, o público é o ID da aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deve validar este valor e rejeitar o token se o valor não corresponder. |
 | `iss` | String, um STS URI | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o token, e o inquilino AD AZure em que o utilizador foi autenticado. Se o token emitido for um sinal v2.0 (ver `ver` reclamação), o URI terminará em `/v2.0` . O GUID que indica que o utilizador é um utilizador consumidor de uma conta microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad` . A sua aplicação deve utilizar a parte GUID da reivindicação para restringir o conjunto de inquilinos que podem iniciar sôm na app, se aplicável. |
@@ -139,7 +139,7 @@ Pode utilizar a `BulkCreateGroups.ps1` pasta de [Scripts de Criação de Aplica�
 
 As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas não estão incluídas em fichas v2.0 por padrão. Se estiver a utilizar o v2.0 e precisar de uma destas reclamações, solicite-os usando [reclamações opcionais](active-directory-optional-claims.md).
 
-| Afirmação | Formato | Description |
+| Afirmação | Formatar | Descrição |
 |-----|--------|-------------|
 | `ipaddr`| String | O endereço IP do utilizador autenticado. |
 | `onprem_sid`| String, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta alegação fornece o seu SID. Pode usar `onprem_sid` para autorização em aplicações antigas.|
@@ -155,7 +155,7 @@ As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas 
 
 As identidades da Microsoft podem autenticar de diferentes formas, o que pode ser relevante para a sua aplicação. A `amr` alegação é um conjunto que pode conter vários itens, `["mfa", "rsa", "pwd"]` como, por exemplo, para uma autenticação que usou uma palavra-passe e a aplicação Authenticator.
 
-| Valor | Description |
+| Valor | Descrição |
 |-----|-------------|
 | `pwd` | Autenticação de palavra-passe, senha microsoft de um utilizador ou segredo de cliente de uma aplicação. |
 | `rsa` | A autenticação baseou-se na prova de uma chave RSA, por exemplo com a [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi feita por um JWT auto-assinado com um certificado X509 de propriedade de serviço. |
@@ -256,7 +256,7 @@ Utilizando [a configuração de vida útil simbólica,](active-directory-configu
 
 As fichas de atualização podem ser revogadas pelo servidor devido a uma alteração de credenciais, ou devido à utilização ou ação de administração.  Os tokens de atualização caem em duas classes - as emitidas a clientes confidenciais (a coluna mais à direita) e as emitidas a clientes públicos (todas as outras colunas).   
 
-|   | Cookie baseado em palavra-passe | Ficha baseada em palavra-passe | Cookie não baseado em palavra-passe | Token não baseado em palavra-passe | Ficha de cliente confidencial |
+| Alterar | Cookie baseado em palavra-passe | Ficha baseada em palavra-passe | Cookie não baseado em palavra-passe | Token não baseado em palavra-passe | Ficha de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | A palavra-passe expira | Permanece vivo | Permanece vivo | Permanece vivo | Permanece vivo | Permanece vivo |
 | Palavra-passe alterada pelo utilizador | Revoked | Revoked | Permanece vivo | Permanece vivo | Permanece vivo |
@@ -273,7 +273,7 @@ As fichas de atualização podem ser revogadas pelo servidor devido a uma altera
 >
 > Os tokens de atualização não são invalidados ou revogados quando usados para obter um novo token de acesso e atualização token.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na sua. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [ `id_tokens` em Azure AD](id-tokens.md).
 * Saiba mais sobre permissão e consentimento [(v1.0,](../azuread-dev/v1-permissions-consent.md) [v2.0](v2-permissions-and-consent.md)).

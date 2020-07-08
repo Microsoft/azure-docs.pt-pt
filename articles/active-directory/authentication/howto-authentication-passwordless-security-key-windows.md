@@ -11,23 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84d4f1ca01db07ea432bbf8f9929863a8134cfb
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550624"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
 
 Este documento centra-se em permitir a autenticação sem palavras-passe baseada em chaves de segurança FIDO2 com dispositivos Windows 10. No final deste artigo, poderás iniciar súb na sua AD Azure e o híbrido Azure AD juntou-se aos dispositivos Do Windows 10 com a sua conta AZure AD utilizando uma chave de segurança FIDO2.
 
-|     |
-| --- |
-| As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 | Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
@@ -160,7 +158,7 @@ Se quiser partilhar feedback ou encontrar problemas durante a pré-visualizaçã
    - Subcategoria: FIDO
 1. Para capturar registos, use a opção para **recriar o meu problema**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Permitir o acesso aos recursos no local para dispositivos ad Azure Azure e híbridos Azure AD](howto-authentication-passwordless-security-key-on-premises.md)
 

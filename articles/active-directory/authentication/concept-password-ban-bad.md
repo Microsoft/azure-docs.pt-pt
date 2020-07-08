@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f905b3eb6d1675f0bc252c3500169b3144287d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550704"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminate bad passwords in your organization (Eliminar palavras-passe más na sua organização)
 
@@ -158,7 +158,7 @@ Após a normalização, esta palavra-passe torna-se "contosoblankf9!". O process
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-|   | Proteção de senha AZure AD com lista global de senhas proibidas | Proteção de senha AD AZure com lista de senhas proibidas personalizadas|
+| Utilizadores | Proteção de senha AZure AD com lista global de senhas proibidas | Proteção de senha AD AZure com lista de senhas proibidas personalizadas|
 | --- | --- | --- |
 | Utilizadores apenas em nuvem | Azure AD Gratuito | Azure AD Premium P1 ou P2 |
 | Utilizadores sincronizados a partir de Windows Server Ative Directory | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
@@ -174,7 +174,7 @@ Quando um utilizador tenta redefinir uma palavra-passe para algo que seria proib
 
 Infelizmente, a sua palavra-passe contém uma palavra, frase ou padrão que torna a sua palavra-passe facilmente adivinhável. Por favor, tente novamente com uma senha diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a lista de senhas proibidas personalizadas](howto-password-ban-bad.md)
 - [Ativar agentes de proteção de passwords AZure no local](howto-password-ban-bad-on-premises-deploy.md)

@@ -1,22 +1,22 @@
 ---
 title: Configurar gestão de sessão de autenticação - Azure Ative Directory
-description: Personalize a configuração da sessão de autenticação AZure AD, incluindo o sinal do utilizador na persistência da frequência e da sessão do navegador.
+description: Personalize a configuração da sessão de autenticação AZure AD, incluindo a frequência de sessão de sessão de inscrição do utilizador e a persistência da sessão de navegador.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72cc876e2fd695e40b3b9cf7d9a52d34dea2387c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552118"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -35,7 +35,7 @@ Antes de mergulhar em detalhes sobre como configurar a política, vamos examinar
 
 A frequência de inscrição define o período de tempo antes de um utilizador ser convidado a iniciar novamente o seu sing quando tenta aceder a um recurso.
 
-A configuração padrão do Azure Ative Directory (Azure AD) para o sinal do utilizador em frequência é uma janela rolante de 90 dias. Pedir credenciais aos utilizadores muitas vezes parece uma coisa sensata a fazer, mas pode dar a volta por cima: os utilizadores que são treinados para introduzir as suas credenciais sem pensar podem fornecer-lhes involuntariamente uma solicitação de credencial maliciosa.
+A configuração padrão do Azure Ative Directory (Azure AD) para a frequência de inscrição do utilizador é uma janela rolante de 90 dias. Pedir credenciais aos utilizadores muitas vezes parece uma coisa sensata a fazer, mas pode dar a volta por cima: os utilizadores que são treinados para introduzir as suas credenciais sem pensar podem fornecer-lhes involuntariamente uma solicitação de credencial maliciosa.
 
 Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão AD AD do Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
 
@@ -51,15 +51,17 @@ A definição de frequência de início funciona com aplicações que implementa
 - Dynamics CRM Online
 - Portal do Azure
 
+A definição de frequência de inscrição também funciona com aplicações SAML, desde que não larguem os seus próprios cookies e sejam redirecionados de volta para Azure AD para autenticação regularmente.
+
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequência de inscrição do utilizador e autenticação de vários fatores
 
-Frequência de entrada anteriormente aplicada apenas à autenticação do primeiro fator em dispositivos que estavam ligados a Azure AD, AD Híbrido Azure aderiu e Azure AD registrado. Não havia uma forma fácil de os nossos clientes reefiarem a autenticação de vários fatores (MFA) nesses dispositivos. Com base no feedback do cliente, a frequência de inscrição também se aplicará a MFA.
+Frequência de entrada anteriormente aplicada apenas à autenticação do primeiro fator em dispositivos que estavam aderidos a Azure AD, a AD Híbrida Azure juntou-se e a Azure AD registada. Não havia uma forma fácil de os nossos clientes reefiarem a autenticação de vários fatores (MFA) nesses dispositivos. Com base no feedback do cliente, a frequência de inscrição também se aplicará a MFA.
 
 [![Assine na frequência e MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de inscrição do utilizador e identidades do dispositivo
 
-Se tiver a Azure AD aderido, a Azure AD híbrida junta-se, ou dispositivos registados AZURE AD, quando um utilizador desbloqueia o seu dispositivo ou sinais interativamente, este evento também irá satisfazer o sinal na política de frequência. Nos seguintes 2 exemplos, a frequência de inscrição do utilizador é definida em 1 hora:
+Se tiver a Azure AD aderido, a Azure AD híbrida junta-se, ou dispositivos registados AZURE AD, quando um utilizador desbloqueia o seu dispositivo ou sinais interativamente, este evento também irá satisfazer a política de frequência de inscrição. Nos dois exemplos de frequência de inscrição do utilizador é definida para 1 hora:
 
 Exemplo 1:
 
@@ -101,9 +103,9 @@ O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença pr
 1. Selecione um valor de **Horas** ou **Dias** a partir do dropdown
 1. Salve a sua política
 
-![Política de acesso condicional configurada para sinal na frequência](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Política de acesso condicional configurada para a frequência de inscrição](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-No Azure AD os dispositivos Windows registados no computador são considerados uma solicitação. Por exemplo, se tiver configurado o Sinal em frequência até 24 horas para aplicações do Office, os utilizadores em dispositivos Windows registados em Azure irão satisfazer a política de sinal na política de frequência ao iniciar a sessão no dispositivo e não serão novamente solicitados ao abrir aplicações do Office.
+No Azure AD os dispositivos Windows registados no computador são considerados uma solicitação. Por exemplo, se tiver configurado a frequência de inscrição para 24 horas para aplicações do Office, os utilizadores em dispositivos Windows registados em Azure irão satisfazer a política de frequência de inscrição ao iniciar a sessão no dispositivo e não serão novamente solicitados ao abrir aplicações do Office.
 
 Se tiver configurado diferentes frequências de inscrição para diferentes aplicações web que estão a ser executadas na mesma sessão de navegador, a política mais rigorosa será aplicada a ambas as aplicações porque todas as aplicações em execução na mesma sessão de navegador partilham um token de sessão única.
 
@@ -134,7 +136,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)

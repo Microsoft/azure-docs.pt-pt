@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e37365c73c603a8cd742e2f7943c2f5116ce22
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551436"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Adicione o Facebook como fornecedor de identidades externas
 
@@ -32,7 +32,7 @@ Para utilizar uma conta do Facebook como fornecedor de [identidade,](identity-pr
 
 > [!NOTE]  
 > Utilize os seguintes URLs nos passos 9 e 16 abaixo.
-> - Para **a entrada do URL do site** `https://login.microsoftonline.com` .
+> - Para **URL do site** insira o endereço da sua aplicação, tal como `https://contoso.com` .
 > - Para **OAuth redirecionar URIs,** insira `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp` . Pode encontrar o seu `<tenant-ID>` na lâmina geral do Diretório Ativo Azure.
 
 
@@ -101,6 +101,6 @@ Pode eliminar a configuração da federação do Facebook. Se o fizer, qualquer 
    > [!NOTE]
    > Para obter mais informações, consulte [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione inscrição de self-service a uma aplicação](self-service-sign-up-user-flow.md)

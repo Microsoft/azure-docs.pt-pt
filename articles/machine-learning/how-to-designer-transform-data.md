@@ -11,10 +11,10 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85517548"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em Azure Machine Learning designer (pré-visualização)
@@ -170,7 +170,7 @@ Salte esta secção se quiser continuar com a parte 2 deste como, [retrain model
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a transformar um conjunto de dados e guardá-lo para uma datastore registada.
 

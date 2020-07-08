@@ -1,41 +1,41 @@
 ---
 title: Criar aplicativo web para Conector de Gestão de Serviços
-description: Crie uma aplicação Web do Gestor de Serviços utilizando um script automatizado para se conectar com o Conector de Gestão de Serviços de TI em Azure e monitorizar centralmente e gerir os itens de trabalho ITSM.
+description: Crie uma aplicação Web do Service Manager utilizando um script automatizado para ligar-se ao It Service Management Connector em Azure e monitorizar centralmente e gerir os itens de trabalho ITSM.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549655"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
-Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviços. Mais informações sobre a ligação do Gestor de Serviços estão aqui: [Aplicação Web do Gestor de Serviços](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviço. Mais informações sobre a ligação do Service Manager estão aqui: [App Web do Gestor de Serviços](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Executar o script fornecendo os seguintes detalhes necessários:
+Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
 - Localização
-- Detalhes do servidor do Gestor de Serviços (nome do servidor, domínio, nome de utilizador e palavra-passe)
+- Detalhes do servidor do Gestor de Serviço (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo de nome do site para a sua aplicação Web
-- ServiceBus Namespace.
+- Espaço de nomes ServiceBus.
 
-O script criará a aplicação Web utilizando o nome que especificou (juntamente com algumas cordas adicionais para torná-la única). Gera o URL da **aplicação Web,** **o ID**do cliente e o segredo **do cliente.**
+O script criará a aplicação Web usando o nome especificado (juntamente com algumas cordas adicionais para torná-la única). Gera o URL da **aplicação Web,** **iD do cliente**e **o segredo do cliente.**
 
-Guarde estes valores, necessitará destes valores quando criar uma ligação com o Conector de Gestão de Serviços de TI.
+Guarde estes valores, necessitará destes valores quando criar uma ligação com o Connector de Gestão de Serviços de TI.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
  Quadro de Gestão do Windows 5.0 ou superior.
-O Windows 10 tem 5.1 por padrão. Pode baixar o quadro a partir [daqui:](https://www.microsoft.com/download/details.aspx?id=50395)
+O Windows 10 tem 5.1 por predefinição. Pode descarregar a estrutura a partir [daqui:](https://www.microsoft.com/download/details.aspx?id=50395)
 
 Utilize o seguinte guião:
 
@@ -314,6 +314,8 @@ Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}```
-## Next steps
-[Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+}
+```
+
+## <a name="next-steps"></a>Próximos passos
+[Configure a ligação Híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

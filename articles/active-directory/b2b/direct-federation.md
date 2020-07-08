@@ -12,18 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fef25af1e39aadb39113c109b7bee16e8e55195
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551537"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
-|     |
-| --- |
-| A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+>  A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo descreve como criar uma federação direta com outra organização para a colaboração B2B. Pode criar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) apoie o protocolo SAML 2.0 ou WS-Fed.
 Quando configurar uma federação direta com o IdP de um parceiro, novos utilizadores convidados desse domínio podem usar a sua própria conta organizacional gerida pelo IdP para se inscreverem no seu inquilino Azure AD e começar a colaborar consigo. Não há necessidade de o utilizador convidado criar uma conta AD Azure separada.
@@ -72,7 +71,7 @@ Atualmente, um máximo de 1.000 relações da federação é apoiado. Este limit
 ### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
 Não apoiamos a federação direta com vários domínios do mesmo inquilino.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso criar uma federação direta com um domínio para o qual existe um inquilino não gerido (verificado por e-mail) ? 
 Sim. Se o domínio não tiver sido verificado e o inquilino não tiver sido submetido a [uma aquisição de administração,](../users-groups-roles/domains-admin-takeover.md)pode criar uma federação direta com esse domínio. Os inquilinos não geridos, ou verificados por e-mail, são criados quando um utilizador resgata um convite B2B ou realiza uma inscrição de self-service para a AD Azure usando um domínio que não existe atualmente. Pode configurar uma federação direta com estes domínios. Se tentar configurar uma federação direta com um domínio verificado pelo DNS, quer no portal Azure, quer através do PowerShell, verá um erro.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se a federação direta e a autenticação de código de acesso de e-mail estiverem ativados, que método tem precedência?
@@ -222,6 +221,6 @@ Para remover a federação direta com um fornecedor de identidade utilizando o P
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a [experiência de resgate de convites](redemption-experience.md) quando utilizadores externos iniciarem sôms com vários fornecedores de identidade.

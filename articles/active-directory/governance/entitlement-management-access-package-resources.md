@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa110dac1ede9c3ef46bafcca0f4a59d956e3ae9
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550322"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recursos para um pacote de acesso na gestão de direitos Azure AD
 
@@ -90,7 +90,7 @@ Para obter mais informações, consulte [Grupos Compare](https://docs.microsoft.
 
     Assim que selecionar o grupo ou a equipa, a coluna **sub-tipo** listará um dos seguintes subtipos:
 
-    |  |  |
+    | Sub-tipo | Descrição |
     | --- | --- |
     | Segurança | Usado para conceder acesso a recursos. |
     | Distribuição | Usado para enviar notificações a um grupo de pessoas. |
@@ -180,7 +180,7 @@ Na gestão de direitos, a Azure AD processará alterações a granel para atribu
 
 Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie um grupo básico e adicione membros usando o Azure Ative Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md)

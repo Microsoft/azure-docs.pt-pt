@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: ee8d0c773a5ec4d362eae66e289838b9646247e6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516305"
 ---
 <a name="retrieve-offers"></a>Obter ofertas
@@ -30,7 +30,7 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificador de editor, por exemplo`contoso` |   String    |
-|  api-version     | Última versão da API                    |    Date        |
+|  api-version     | Última versão da API                    |    Data        |
 |  |  |
 
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef4bbe25c21940958b2bc3e22d4bb85b04acd34
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550477"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configure e permita aos utilizadores a autenticação baseada em SMS utilizando o Azure Ative Directory (pré-visualização)
 
@@ -24,12 +24,10 @@ Para reduzir a complexidade e os riscos de segurança para os utilizadores se in
 
 Este artigo mostra-lhe como ativar a autenticação baseada em SMS para utilizadores ou grupos selecionados em Azure AD.
 
-|     |
-| --- |
-| A autenticação por SMS para os utilizadores é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> A autenticação por SMS para os utilizadores é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -146,7 +144,7 @@ Se receber um erro quando tentar definir um número de telefone para uma conta d
 1. Certifique-se de que o número de telefone não é usado em outro lugar no seu inquilino.
 1. Verifique se não há nenhum número de voz definido na conta. Se um número de voz estiver definido, apague e tente novamente o número de telefone.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter formas adicionais de iniciar sing no AD Azure sem uma senha, como a App autenticador microsoft ou as teclas de segurança FIDO2, consulte [opções de autenticação sem palavras-passe para Azure AD][concepts-passwordless].
 

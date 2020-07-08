@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: bf980f7c60cd43a4a37a481b96dce737a91d03aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516304"
 ---
 # <a name="retrieve-operations"></a>Obter operações
@@ -37,7 +37,7 @@ Recupera todas as operações da oferta ou para obter uma operação específica
 |  publisherId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  String       |
 |  offerId           |  Identificar oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operaçãoId pode ser recuperada utilizando esta API, e também é devolvida no cabeçalho HTTP da resposta para qualquer operação de longa duração, como a [Oferta Editorial](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
-|  api-version       | Última versão da API |    Date      |
+|  api-version       | Última versão da API |    Data      |
 |  |  |  |
 
 ## <a name="header"></a>Cabeçalho
