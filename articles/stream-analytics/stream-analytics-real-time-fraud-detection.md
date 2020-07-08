@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 51999572dc9ebf7e3a5d537f5e902c50cd473279
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791236"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037618"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a usar Azure Stream Analytics: Deteção de fraude em tempo real
 
@@ -422,7 +422,7 @@ No entanto, se já acabou e não precisa dos recursos que criou, pode eliminá-l
 
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode continuar este tutorial com o seguinte artigo:
 

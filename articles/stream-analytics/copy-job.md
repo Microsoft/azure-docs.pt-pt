@@ -5,20 +5,20 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c6b6af46ae89f794e05c3aa80716250c566257e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612270"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037227"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou apoiar trabalhos de Azure Stream Analytics
 
 Pode copiar ou fazer cópias de segurança dos seus trabalhos Azure Stream Analytics usando Visual Studio Code ou Visual Studio. Copiar um trabalho para outra região não copia o último tempo de saída. Portanto, não pode utilizar [**A última**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) opção interrompida ao iniciar o trabalho copiado.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
@@ -49,7 +49,7 @@ Pode copiar ou fazer cópias de segurança dos seus trabalhos Azure Stream Analy
 
 2. Abra o \* ficheiro .asaql no Editor de Consulta, **selecione Submeter-se ao Azure** no editor de scripts e siga as instruções para publicar o trabalho para outra região ou cópia de segurança usando um novo nome.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho stream analytics usando Código de Estúdio Visual](quick-create-vs-code.md)
 * [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)

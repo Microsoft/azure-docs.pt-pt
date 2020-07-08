@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268736"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038689"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -41,7 +41,7 @@ Crie um novo projeto no Visual Studio, utilizando o modelo de aplicação web co
 
 ### <a name="configure-authentication-values"></a>Configurar valores de autenticação
 
-Clique com o botão direito no projeto no _Solution Explorer_ e escolha Gerir **os Segredos do Utilizador.** Isto abrirá um ficheiro chamado _secrets.json._ Este ficheiro não é controlado pelo controlo de fontes. Sabia mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Substitua o conteúdo de _secrets.json_ pelo seguinte, fornecendo os valores dados quando criou o seu recurso Leitor Imersivo.
+Clique com o botão direito no projeto no _Solution Explorer_ e escolha Gerir **os Segredos do Utilizador.** Isto abrirá um ficheiro chamado _secrets.js._ Este ficheiro não é controlado pelo controlo de fontes. Sabia mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Substitua o conteúdo de _secrets.js_ pelo seguinte, fornecendo os valores dados quando criou o seu recurso Leitor Imersivo.
 
 ```json
 {
@@ -70,7 +70,7 @@ Abra _os controladores\HomeController.cs_, e adicione o seguinte código após a
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Agora, vamos configurar o controlador para obter os valores da AD Azure de _secrets.json_. No topo da classe _HomeController,_ ```public class HomeController : Controller {``` depois, adicione o seguinte código.
+Agora, vamos configurar o controlador para obter os valores AD Azure a partir de _secrets.jsem_. No topo da classe _HomeController,_ ```public class HomeController : Controller {``` depois, adicione o seguinte código.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -303,9 +303,10 @@ Ao clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o co
 
 ![Leitura Avançada](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Veja o início rápido do [Node.js](../../quickstart-nodejs.md) para ver o que mais pode fazer com a biblioteca de clientes Immersive Reader usando Node.js
+* Veja o [Node.js arranque rápido](../../tutorial-nodejs.md) para ver o que mais pode fazer com a biblioteca de clientes Immersive Reader usando Node.js
+* Veja o [tutorial do Android](../../tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android
+* Veja o tutorial do [iOS](../../tutorial-ios.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Swift para iOS
 * Veja o [tutorial python](../../tutorial-python.md) para ver o que mais pode fazer com a biblioteca de clientes imersivos usando Python
-* Veja o tutorial do [iOS](../../tutorial-ios-picture-immersive-reader.md) para ver o que mais pode fazer com a biblioteca de clientes imersivos usando Swift
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../../reference.md)

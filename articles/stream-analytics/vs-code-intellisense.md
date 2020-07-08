@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394400"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037261"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense em ferramentas Azure Stream Analytics para Código de Estúdio Visual
 
@@ -34,13 +34,12 @@ Pode ativar o IntelliSense em qualquer janela de editor, digitando um personagem
 
 As ferramentas stream Analytics para o código VS IntelliSense oferecem diferentes tipos de acabamentos, incluindo sugestões de servidores de idiomas, snippets e simples conclusões texuais baseadas em palavras.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Conclusão     |  Tipo       |
+| ----- | ------- |
 | Palavras-chave | `keyword`
 | Funções | `build-in function`, `user defined function`  |
 | Nome do conjunto de dados| `input`, `output`, `intermediate result set`|
 | Nome da coluna do conjunto de dados|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Conclusão do nome
 
@@ -70,7 +69,7 @@ Conforme fornecido pelo serviço de idiomas, pode ver **Quick Info** para cada i
 
 Este problema é causado pela falta de configuração de entrada que fornece dados. Pode verificar se uma [entrada local](visual-studio-code-local-run.md#define-a-local-input) ou entrada [ao vivo](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) foi configurada corretamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-vs-code.md)
 * [Teste Stream Analytics consultas localmente com dados de amostra usando Código de Estúdio Visual](visual-studio-code-local-run.md)

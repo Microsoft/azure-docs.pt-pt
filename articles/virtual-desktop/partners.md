@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 332ce90de334a384ee6017a12781d0ddb2ed4158
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126149"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038060"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
 
@@ -255,7 +255,7 @@ A impressão é uma tarefa fundamental em praticamente todos os escritórios e a
 
 A RDPSoft é um parceiro virtual do Windows Desktop que fornece soluções de monitorização, gestão e reporte poderosas e baratas. As suas ofertas de Comandos de Ambiente de Trabalho Remoto permitem que os profissionais de TI obtenham informações sobre a saúde, desempenho, atividade do utilizador, licenciamento e segurança das suas implementações de Desktop Virtual Windows. 
  
-As soluções de Comando de Ambiente de Trabalho Remoto da RDPSoft melhoram a administração virtual do Windows Desktop. As funcionalidades de Gestão Premium simplificam a delegação de tarefas de gestão virtual do Windows Desktop para apoiar o pessoal do balcão, fornecendo assistência remota, sessão de utilizador e gestão de processos. Ao mesmo tempo, a Suíte Comando de Ambiente de Trabalho Remoto recolhe métricas ricas sobre desempenho e carga por utilizador, atividade e auditoria, qualidade de conexão virtual do Windows Desktop (latência e largura de banda), licenciamento e segurança numa placa central de base de dados Azure SQL para revisão. Com RDPSoft, relatórios históricos ricos e dashboards abrangentes estão apenas a um clique de distância.
+As soluções de Comando de Ambiente de Trabalho Remoto da RDPSoft melhoram a administração virtual do Windows Desktop. As funcionalidades de Gestão Premium simplificam a delegação de tarefas de gestão virtual do Windows Desktop para apoiar o pessoal do balcão, fornecendo assistência remota, sessão de utilizador e gestão de processos. Ao mesmo tempo, a Suíte Comando de Ambiente de Trabalho Remoto recolhe métricas ricas sobre desempenho e carga por utilizador, atividade e auditoria, qualidade de conexão virtual do Windows Desktop (latência e largura de banda), licenciamento e segurança numa instância central da Base de Dados SQL do Azure para revisão. Com RDPSoft, relatórios históricos ricos e dashboards abrangentes estão apenas a um clique de distância.
 
 - [Vá ao site do parceiro.](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
 
@@ -334,7 +334,7 @@ O Workspot alarga o valor do Windows Virtual Desktop simplificando o processo de
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Vá ao site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o Windows Virtual Desktop](overview.md).
 - [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
