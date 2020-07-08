@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386781"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
@@ -305,13 +305,13 @@ Content-type: application/json
 
 | Parâmetro                                           | Obrigatório | Descrição                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Yes      | Pode ser gerado tomando a `email_address` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Yes      | Deve ser definido para `true` .                                                                                                                                                 |
-| correio                                                | Yes      | Equivalente à `email_address` reclamação enviada à API.                                                                                                               |
-| userType                                            | Yes      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
-| identidades                                          | Yes      | A informação de identidade federada.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | No       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
+| userPrincipalName                                   | Sim      | Pode ser gerado tomando a `email_address` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Sim      | Deve ser definido para `true` .                                                                                                                                                 |
+| correio                                                | Sim      | Equivalente à `email_address` reclamação enviada à API.                                                                                                               |
+| userType                                            | Sim      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
+| identidades                                          | Sim      | A informação de identidade federada.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | Não       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | Não       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
 
@@ -371,7 +371,7 @@ Content-type: application/json
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Começa com as [nossas amostras de quickstart da Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
 - Check-out o [autosserviço de inscrição para utilizadores convidados com amostra de aprovação manual](code-samples-self-service-sign-up.md#custom-approval-workflows). 

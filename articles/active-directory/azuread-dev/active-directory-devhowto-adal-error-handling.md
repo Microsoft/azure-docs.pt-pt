@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383739"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Manipulação de erros das melhores práticas para clientes da Azure Ative Directory Authentication Library (ADAL)
@@ -51,7 +51,7 @@ Existe um conjunto de erros gerados pelo sistema operativo, que podem exigir o t
 
 Fundamentalmente, existem dois casos de erros de AcquireTokenSilent:
 
-| Caso | Description |
+| Caso | Descrição |
 |------|-------------|
 | **Caso 1**: Erro é resolúvel com um sinal interativo | Para erros causados pela falta de fichas válidas, é necessário um pedido interativo. Especificamente, a procura de cache e um token de atualização inválido/expirado requerem uma chamada AcquireToken para resolver.<br><br>Nestes casos, o utilizador final tem de ser solicitado a iniciar sedu. A aplicação pode optar por fazer um pedido interativo imediatamente, após a interação do utilizador final (como carregar num botão de inscrição) ou mais tarde. A escolha depende do comportamento desejado da aplicação.<br><br>Consulte o código na secção seguinte para este caso específico e os erros que o diagnosticam.|
 | **Caso 2**: O erro não é resolúvel com um sinal interativo | Para erros de rede e transitórios/temporários, ou outras falhas, a realização de um pedido interativo AcquireToken não resolve o problema. Pedidos de inscrição interativos desnecessários também podem frustrar os utilizadores finais. A ADAL tenta automaticamente uma única repetição para a maioria dos erros nas falhas do AcquireTokenSilent.<br><br>A aplicação do cliente também pode tentar uma nova tentativa em algum momento posterior, mas quando e como é dependente do comportamento da aplicação e da experiência desejada pelo utilizador final. Por exemplo, a aplicação pode fazer uma relemdação AcquireTokenSilent após alguns minutos, ou em resposta a alguma ação do utilizador final. Uma nova tentativa imediata resultará no estrangulamento da aplicação e não deve ser tentada.<br><br>Uma tentativa subsequente de redatório com o mesmo erro não significa que o cliente deve fazer um pedido interativo usando o AcquireToken, uma vez que não resolve o erro.<br><br>Consulte o código na secção seguinte para este caso específico e os erros que o diagnosticam. |

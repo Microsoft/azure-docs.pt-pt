@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
 ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383585"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
@@ -26,7 +26,7 @@ ms.locfileid: "85383585"
 
 Saiba como encontrar e corrigir problemas [de inscrição única](../manage-apps/what-is-single-sign-on.md) para aplicações no Azure Ative Directory (Azure AD) que suportam [a Linguagem de Marcação de Afirmação de Segurança (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Recomendamos a instalação da [extensão de inscrição segura das minhas apps](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensão do navegador facilita a recolha do pedido SAML e das informações de resposta SAML de que necessita para resolver problemas com um único sing-on. Caso não possa instalar a extensão, este artigo mostra-lhe como resolver problemas com e sem a extensão instalada.
 
@@ -102,6 +102,6 @@ Para resolver o erro, siga estes passos:
 1. Agora que reviu a resposta DO SAML, consulte [Error na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
 1. Se ainda não conseguir assinar com sucesso, pode perguntar ao vendedor de aplicações o que falta na resposta SAML.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que o único sign-on está a funcionar com a sua aplicação, pode [automatizar o fornecimento e desaprovisionamento do utilizador às aplicações saaS](../manage-apps/user-provisioning.md) ou [começar com o Acesso Condicional.](../conditional-access/app-based-conditional-access.md)

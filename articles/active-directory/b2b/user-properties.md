@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386628"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
@@ -110,7 +110,7 @@ Sim. Por predefinição, os objetos convidados não estão visíveis na lista gl
 
 Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Pode atualizar a propriedade de correio através do centro de administração Exchange ou [Do Exchange Online PowerShell,](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)e a alteração será refletida no objeto de utilizador do Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Fichas de utilização de colaboração B2B](user-token.md)

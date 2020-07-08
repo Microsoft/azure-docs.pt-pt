@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85384962"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolução de problemas Azure AD B2C políticas personalizadas e enquadramento de experiência de identidade
@@ -74,7 +74,7 @@ Os erros de validação comuns incluem:
 
 **Desenvolver e testar viagens de utilizador com perfis técnicos testados.** Alterar gradualmente os passos de orquestração de uma viagem de utilizador. Construa progressivamente os seus cenários pretendidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Disponível no GitHub, descarregue o arquivo [active-directório-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip. Também pode clonar o repositório:
 

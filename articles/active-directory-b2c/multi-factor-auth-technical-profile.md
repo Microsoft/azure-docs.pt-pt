@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385948"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico Azure MFA numa política personalizada Azure AD B2C
@@ -59,10 +59,10 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para a Az
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| userPrincipalName | Yes | O identificador do utilizador que possui o número de telefone. |
-| número de telefone | Yes | O número de telefone para enviar um código SMS para. |
-| nome da empresa | No |O nome da empresa na SMS. Se não for fornecido, o nome da sua aplicação é utilizado. |
-| região | No | A localidade do SMS. Se não for fornecida, é utilizada a localidade do navegador do utilizador. |
+| userPrincipalName | Sim | O identificador do utilizador que possui o número de telefone. |
+| número de telefone | Sim | O número de telefone para enviar um código SMS para. |
+| nome da empresa | Não |O nome da empresa na SMS. Se não for fornecido, o nome da sua aplicação é utilizado. |
+| região | Não | A localidade do SMS. Se não for fornecida, é utilizada a localidade do navegador do utilizador. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de **elementos inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o serviço Azure MFA.
 
@@ -76,7 +76,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Yes | Deve ser **oneWaySMS**.  |
+| Operação | Sim | Deve ser **oneWaySMS**.  |
 
 #### <a name="ui-elements"></a>Elementos da IU
 
@@ -84,10 +84,10 @@ Os metadados que se seguem podem ser utilizados para configurar as mensagens de 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfCodntSendSms | No | Mensagem de erro do utilizador se o número de telefone fornecido não aceitar SMS. |
-| UserMessageIfInvalidFormat | No | Mensagem de erro do utilizador se o número de telefone fornecido não for um número de telefone válido. |
-| UserMessageIfServerError | No | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
-| UserMessageIfThrottled| No | Mensagem de erro do utilizador se um pedido tiver sido estrangulado.|
+| UserMessageIfCodntSendSms | Não | Mensagem de erro do utilizador se o número de telefone fornecido não aceitar SMS. |
+| UserMessageIfInvalidFormat | Não | Mensagem de erro do utilizador se o número de telefone fornecido não for um número de telefone válido. |
+| UserMessageIfServerError | Não | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
+| UserMessageIfThrottled| Não | Mensagem de erro do utilizador se um pedido tiver sido estrangulado.|
 
 ### <a name="example-send-an-sms"></a>Exemplo: enviar um SMS
 
@@ -121,8 +121,8 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para a Az
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- | ----------- |
-| número de telefone| Yes | O mesmo número de telefone usado anteriormente para enviar um código. Também é usado para localizar uma sessão de verificação de telefone. |
-| verificaçãoDesco  | Yes | O código de verificação fornecido pelo utilizador a ser verificado |
+| número de telefone| Sim | O mesmo número de telefone usado anteriormente para enviar um código. Também é usado para localizar uma sessão de verificação de telefone. |
+| verificaçãoDesco  | Sim | O código de verificação fornecido pelo utilizador a ser verificado |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de **elementos inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de ligar para o serviço Azure MFA.
 
@@ -136,7 +136,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Yes | Deve ser **verificar** |
+| Operação | Sim | Deve ser **verificar** |
 
 #### <a name="ui-elements"></a>Elementos da IU
 
@@ -144,10 +144,10 @@ Os metadados que se seguem podem ser utilizados para configurar as mensagens de 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfMaxAllowedCodeRetryReached| No | Mensagem de erro do utilizador se o utilizador tiver tentado um código de verificação demasiadas vezes. |
-| UserMessageIfServerError | No | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
-| UserMessageIfThrottled| No | Mensagem de erro do utilizador se o pedido for acelerado.|
-| UserMessageIfWrongCodeEntered| No| Mensagem de erro do utilizador se o código introduzido para verificação estiver errado.|
+| UserMessageIfMaxAllowedCodeRetryReached| Não | Mensagem de erro do utilizador se o utilizador tiver tentado um código de verificação demasiadas vezes. |
+| UserMessageIfServerError | Não | Mensagem de erro do utilizador se o servidor tiver encontrado um erro interno. |
+| UserMessageIfThrottled| Não | Mensagem de erro do utilizador se o pedido for acelerado.|
+| UserMessageIfWrongCodeEntered| Não| Mensagem de erro do utilizador se o código introduzido para verificação estiver errado.|
 
 ### <a name="example-verify-a-code"></a>Exemplo: verificar um código
 

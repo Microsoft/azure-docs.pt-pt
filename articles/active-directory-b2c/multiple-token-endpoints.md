@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385744"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
@@ -143,7 +143,7 @@ Depois (substituir `{your-b2c-tenant}` pelo nome do seu inquilino B2C):
 
 Quando as cordas do ponto final são construídas durante a execução da aplicação web, os pontos finais baseados em b2clogin.com são utilizados quando solicita tokens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo apresentou um método de configurar uma API web implementando o middleware Microsoft OWIN (Katana) para aceitar tokens de vários pontos finais de emitentes. Como pode notar, existem várias outras cordas nos ficheiros *Web.Config* tanto do TaskService como do TaskWebApp que teriam de ser alterados se quiser construir e executar estes projetos contra o seu próprio inquilino. Você é bem-vindo a modificar os projetos apropriadamente se você quiser vê-los em ação, no entanto, uma passagem completa de fazê-lo está fora do âmbito deste artigo.
 

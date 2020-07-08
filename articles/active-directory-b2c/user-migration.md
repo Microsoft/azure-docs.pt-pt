@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383976"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para Azure AD B2C
@@ -99,7 +99,7 @@ Antes de iniciar o processo de migração, aproveite para limpar o seu diretóri
 
 Se as contas que está a migrar tiverem uma força de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) aplicada pelo Azure AD B2C, pode desativar o requisito de senha forte. Para mais informações, consulte [a propriedade da política password.](manage-user-accounts-graph-api.md#password-policy-property)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O repositório [azure-ad-b2c/migração do utilizador](https://github.com/azure-ad-b2c/user-migration) no GitHub contém um exemplo de política de migração sem emenda e uma amostra de código REST API:
 

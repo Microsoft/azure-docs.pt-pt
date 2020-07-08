@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fad29c32731ee2470354a51acf32e350eb0c4cfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85384877"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
@@ -93,7 +93,7 @@ Há um curto atraso, normalmente menos de cinco minutos, antes de poder ver novo
 
 Aqui está uma lista de consultas que pode usar para ver os registos:
 
-| Consulta | Description |
+| Consulta | Descrição |
 |---------------------|--------------------|
 `traces` | Veja todos os registos gerados por Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia
@@ -102,7 +102,7 @@ As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
 Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
 

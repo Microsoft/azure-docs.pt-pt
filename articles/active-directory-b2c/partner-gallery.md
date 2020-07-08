@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385909"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Parceiros Azure Ative Directory B2C
@@ -36,7 +36,7 @@ A nossa rede de parceiros alarga as nossas capacidades de solução para o ajuda
 | ![logotipo](./media/partner-gallery/twilio-logo.png) | [A Twilio Check App](./partner-twilio.md) fornece múltiplas soluções para permitir a autenticação de vários fatores (MFA) através de sms única senha (OTP), senha única baseada no tempo (TOTP), e notificações push, e para cumprir os requisitos sca para a Diretiva de Serviços de Pagamento 2 (PSD2).|
 | ![logotipo](./media/partner-gallery/typingdna-logo.png) | [A Digitação deDNA](./partner-typingdna.md) é um fornecedor de verificação de identidade e de impermeabilização com base no padrão de dactilografia do utilizador, fornece soluções de verificação de ID que forçam a autenticação de vários fatores e ajuda a cumprir os requisitos da SCA para a Diretiva 2 dos Serviços de Pagamento (PSD2). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Selecione um parceiro na tabela acima para aprender a integrar a sua solução com a Azure AD B2C.
 

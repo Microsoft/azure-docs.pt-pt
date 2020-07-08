@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383722"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nome do Serviço de Controlo de Acesso desativado
@@ -94,7 +94,7 @@ As novas prorrogações deixarão de ser automaticamente aprovadas. Se precisar 
 
     | Campo de pedido de apoio | Valor |
     |-----------------------|--------------------|
-    | **Tipo de emissão** | `Technical` |
+    | **Tipo de problema** | `Technical` |
     | **Subscrição** | Configurar para a sua subscrição |
     | **Serviço** | `All services` |
     | **Recurso** | `General question/Resource not available` |
@@ -124,6 +124,6 @@ As novas prorrogações deixarão de ser automaticamente aprovadas. Se precisar 
 - Se tiver algum problema depois de seguir este como fazer, contacte o suporte da [Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 - Se tiver dúvidas ou feedback sobre a reforma da ACS, contacte-nos em acsfeedback@microsoft.com .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja as informações sobre a reforma da ACS em [Como: Migrar do Serviço de Controlo de Acesso Azure](active-directory-acs-migration.md).

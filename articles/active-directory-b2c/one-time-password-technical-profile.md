@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385727"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
@@ -53,7 +53,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identifier | Yes | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identifier | Sim | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.
 
@@ -63,7 +63,7 @@ O elemento **OutputClaims** contém uma lista de reclamações geradas pelo forn
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| otpGenerado | Yes | O código gerado cuja sessão é gerida por Azure AD B2C. |
+| otpGenerado | Sim | O código gerado cuja sessão é gerida por Azure AD B2C. |
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
@@ -73,12 +73,12 @@ As seguintes definições podem ser utilizadas para configurar o modo de geraç�
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` Predefinição: `600` . |
-| CodeLength | No | Comprimento do código. O valor predefinido é `6`. |
-| Conjunto de Caracteres | No | O conjunto de caracteres para o código, formatado para utilização numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
-| NumRetryAttempts | No | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
-| Operação | Yes | A operação a ser realizada. Valor possível: `GenerateCode` . |
-| Reutilizar OAmeCode | No | Se um código duplicado deve ser dado em vez de gerar um novo código quando determinado código não expirou e ainda é válido. O valor predefinido é `false`. |
+| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` Predefinição: `600` . |
+| CodeLength | Não | Comprimento do código. O valor predefinido é `6`. |
+| Conjunto de Caracteres | Não | O conjunto de caracteres para o código, formatado para utilização numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
+| NumRetryAttempts | Não | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
+| Operação | Sim | A operação a ser realizada. Valor possível: `GenerateCode` . |
+| Reutilizar OAmeCode | Não | Se um código duplicado deve ser dado em vez de gerar um novo código quando determinado código não expirou e ainda é válido. O valor predefinido é `false`. |
 
 ### <a name="example"></a>Exemplo
 
@@ -115,8 +115,8 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identifier | Yes | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
-| otpToVerificar | Yes | O código de verificação fornecido pelo utilizador. |
+| identifier | Sim | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| otpToVerificar | Sim | O código de verificação fornecido pelo utilizador. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.
 
@@ -132,7 +132,7 @@ As seguintes definições podem ser utilizadas no modo de verificação de códi
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Yes | A operação a ser realizada. Valor possível: `VerifyCode` . |
+| Operação | Sim | A operação a ser realizada. Valor possível: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Elementos da IU
@@ -141,11 +141,11 @@ Os metadados que se seguem podem ser utilizados para configurar as mensagens de 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | No | A mensagem a apresentar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um identificador dado. |
-| UserMessageIfMaxRetryAttempted | No | A mensagem a apresentar ao utilizador se exceder as tentativas de verificação máxima permitidas. |
-| UserMessageIfInvalidCode | No | A mensagem a apresentar ao utilizador se tiver fornecido um código inválido. |
-| UserMessageIfVerificationFailedRetryAllowed | No | A mensagem a apresentar ao utilizador se tiver fornecido um código inválido e o utilizador estiver autorizado a fornecer o código correto.  |
-|UserMessageIfSessionConflict|No| A mensagem a apresentar ao utilizador se o código não puder ser verificado.|
+| UserMessageIfSessionDoesNotExist | Não | A mensagem a apresentar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um identificador dado. |
+| UserMessageIfMaxRetryAttempted | Não | A mensagem a apresentar ao utilizador se exceder as tentativas de verificação máxima permitidas. |
+| UserMessageIfInvalidCode | Não | A mensagem a apresentar ao utilizador se tiver fornecido um código inválido. |
+| UserMessageIfVerificationFailedRetryAllowed | Não | A mensagem a apresentar ao utilizador se tiver fornecido um código inválido e o utilizador estiver autorizado a fornecer o código correto.  |
+|UserMessageIfSessionConflict|Não| A mensagem a apresentar ao utilizador se o código não puder ser verificado.|
 
 ### <a name="example"></a>Exemplo
 
@@ -165,7 +165,7 @@ Os metadados que se seguem podem ser utilizados para configurar as mensagens de 
 </TechnicalProfile>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte artigo, por exemplo, utilizando um perfil técnico de senha única com verificação de e-mail personalizado:
 

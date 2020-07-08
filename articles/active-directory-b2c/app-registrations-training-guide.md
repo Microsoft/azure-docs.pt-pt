@@ -11,10 +11,10 @@ ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c89ed98d8100df270f09f1d2d1b621e71e326fe3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386305"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
@@ -109,7 +109,7 @@ A nova experiência tem as seguintes limitações:
 <!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - Alterar o valor das contas suportadas não é suportado na UI. Você precisará usar o manifesto da aplicação, a menos que você esteja trocando entre Azure AD single-tenant e multi-inquilino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a nova experiência de registo de aplicações:
 * Saiba [como registar uma aplicação web.](tutorial-register-applications.md)

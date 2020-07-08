@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385557"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrando Trusona com Azure Ative Directory B2C
@@ -158,7 +158,7 @@ Neste cenário, Trusona atua como um fornecedor de identidade para a Azure AD B2
 
 5. Depois de digitalizar o código Secure QR, deverá ser redirecionado para o URL de resposta definido no passo 3.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

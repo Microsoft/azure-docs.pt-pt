@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184210"
 ---
-1. No Failover Cluster Manager, expanda **as Funções**e destaque o seu grupo de disponibilidade.  
+1. Em Failover Cluster Manager, expanda **funções**e, em seguida, realce o seu grupo de disponibilidade.  
 
-2. No separador **Recursos,** clique no nome do ouvinte e clique em **Propriedades**.
+2. No separador **Recursos,** clique com o botão direito no nome do ouvinte e, em seguida, clique em **Propriedades**.
 
-3. Clique no separador **Dependências.** Se vários recursos estiverem listados, verifique se os endereços IP têm dependências de OR, não E, e.  
+3. Clique no separador **Dependências.** Se vários recursos estiverem listados, verifique se os endereços IP têm ou, não E, dependências.  
 
 4. Clique em **OK**.
 
-5. Clique no nome do ouvinte e clique em **Bring Online**.
+5. Clique com o botão direito no nome do ouvinte e, em seguida, clique em **Bring Online**.
 
-6. Depois de o ouvinte estar online, no separador **Recursos,** clique no grupo de disponibilidade e clique em **Propriedades**.
+6. Depois de o ouvinte estar online, no separador **Recursos,** clique com o botão direito no grupo de disponibilidade e, em seguida, clique em **Propriedades**.
    
     ![Configure o recurso do grupo de disponibilidade](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Crie uma dependência do recurso de nome do ouvinte (não o nome dos recursos de endereço IP) e, em seguida, clique EM **OK**.
+7. Crie uma dependência do recurso de nome do ouvinte (não o nome de recursos de endereço IP) e, em seguida, clique em **OK**.
    
     ![Adicione dependência do nome do ouvinte](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Inicie o Estúdio de Gestão de Servidores SQL e, em seguida, ligue-se à réplica primária.
+8. Inicie o SQL Server Management Studio e, em seguida, ligue-se à réplica primária.
 
-9. Vá a **AlwaysOn High Availability** > **Availability Availability Group** > **\<\>AvailabilityGroupName** > **Availability Group Listeners**.  
-    O nome do ouvinte que criou no Failover Cluster Manager deve ser exibido.
+9. Vá ao **AlwaysOn High**  >  **Availability Availability**  >  **\<AvailabilityGroupName\>**  >  **Groups Disponibilidade Grupos Ouvintes**do grupo .  
+    O nome de ouvinte que criou no Failover Cluster Manager deve ser exibido.
 
-10. Clique no nome do ouvinte e, em seguida, clique em **Propriedades**.
+10. Clique com o botão direito no nome do ouvinte e, em seguida, clique em **Propriedades**.
 
-11. Na caixa **do Porto,** especifique o número de porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que utilizou anteriormente (neste tutorial, 1433 foi o padrão), e, em seguida, **clique**OK .
+11. Na caixa **de Porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que utilizou anteriormente (neste tutorial, 1433 foi o padrão), e clique em **OK**.
 

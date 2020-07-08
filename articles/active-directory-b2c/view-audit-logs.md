@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383942"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Aceder aos registos de auditoria do Azure AD B2C
@@ -32,7 +32,7 @@ Os eventos de registo de auditoria só são mantidos por **sete dias**. Planeie 
 
 A categoria **B2C** nos registos de auditoria contém os seguintes tipos de atividades:
 
-|Tipo de atividade |Description  |
+|Tipo de atividade |Descrição  |
 |---------|---------|
 |Autorização |Atividades relativas à autorização de um utilizador para aceder aos recursos B2C (por exemplo, um administrador que aceda a uma lista de políticas B2C).         |
 |Diretório |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
@@ -51,7 +51,7 @@ Esta imagem de exemplo do portal Azure mostra os dados capturados quando um util
 
 O painel de detalhes da atividade contém as seguintes informações relevantes:
 
-|Section|Campo|Description|
+|Section|Campo|Descrição|
 |-------|-----|-----------|
 | Atividade | Name | Que atividade aconteceu. Por exemplo, *emita um id_token à aplicação*, que conclui o real pedido de inscrição do utilizador. |
 | Iniciado por (Ator) | ObjectId | O **ID** do Objeto da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
@@ -221,6 +221,6 @@ Aqui está a representação JSON do evento de atividades exemplo mostrado anter
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode automatizar outras tarefas de administração, por exemplo, [gerir contas de utilizadores Azure AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).

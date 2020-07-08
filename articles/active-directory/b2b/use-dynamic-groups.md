@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6adf7e6c5abbba3c018f9a03b5167aec7537c704
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386662"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e colaboração B2B do Diretório Ativo Azure
@@ -71,7 +71,7 @@ A imagem a seguir mostra a sintaxe de regra para um grupo dinâmico modificado p
 
 ![Mostra regra onde o tipo de utilizador é igual ao hóspede](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Propriedades do utilizador de colaboração B2B](user-properties.md)
 - [Adicionar um utilizador de colaboração B2B a uma função](add-guest-to-role.md)

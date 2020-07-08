@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387019"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B utilizadores em Azure AD acesso às suas aplicações no local
@@ -82,7 +82,7 @@ Antes de utilizar o script, certifique-se de que revê os pré-requisitos e cons
 
 Certifique-se de que tem as licenças de acesso ao cliente (CALs) corretas para utilizadores externos que acedem a aplicações no local. Para mais informações, consulte a secção "Conectores Externos" das Licenças de [Acesso ao Cliente e Licenças de Gestão.](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx) Consulte o seu representante da Microsoft ou revendedor local sobre as suas necessidades específicas de licenciamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Colaboração B2B do Diretório Ativo Azure para organizações híbridas](hybrid-organizations.md)
 

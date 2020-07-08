@@ -11,10 +11,10 @@ ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385421"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Garantir uma API de Gestão AZURE com Azure AD B2C
@@ -271,7 +271,7 @@ O exemplo a seguir da política de entrada da APIM ilustra como aceitar fichas e
 </policies>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais detalhes sobre as políticas de gestão da API Azure, consulte o [índice de referência da política da APIM](../api-management/api-management-policies.md).
 

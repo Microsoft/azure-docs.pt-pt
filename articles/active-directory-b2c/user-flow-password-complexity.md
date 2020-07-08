@@ -12,10 +12,10 @@ ms.date: 02/11/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 165529697949bba0233567b89c5a8a077d48a28b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85384027"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configure requisitos de complexidade para senhas no Azure Ative Directory B2C
@@ -46,7 +46,7 @@ Se estiver a utilizar políticas personalizadas, pode[(configurar a complexidade
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 
-| Complexidade | Description |
+| Complexidade | Descrição |
 | --- | --- |
 | Simples | Uma palavra-passe que é de pelo menos 8 a 64 caracteres. |
 | Forte | Uma palavra-passe que é de pelo menos 8 a 64 caracteres. Requer 3 de 4 maiúsculas, maiúsculas, números ou símbolos. |
