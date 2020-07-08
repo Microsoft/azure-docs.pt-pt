@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76157795"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081201"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 

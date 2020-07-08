@@ -3,15 +3,16 @@ title: Rastreio de Dependência em Insights de Aplicações Azure / Microsoft Do
 description: Monitorize as chamadas de dependência a partir das suas instalações ou da aplicação web microsoft Azure com Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445224"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081354"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreio de dependência em Insights de Aplicação Azure 
 
-A *dependência* é um componente externo que é chamado pela sua aplicação. É tipicamente um serviço chamado HTTP, ou uma base de dados, ou um sistema de ficheiros. [A Application Insights](../../azure-monitor/app/app-insights-overview.md) mede a duração das chamadas de dependência, quer falhe ou não, juntamente com informações adicionais como o nome da dependência e assim por diante. Pode investigar chamadas de dependência específicas e correlacioná-las com pedidos e exceções.
+Uma *dependência* é um componente que é chamado pela sua aplicação. É tipicamente um serviço chamado HTTP, ou uma base de dados, ou um sistema de ficheiros. [A Application Insights](../../azure-monitor/app/app-insights-overview.md) mede a duração das chamadas de dependência, quer falhe ou não, juntamente com informações adicionais como o nome da dependência e assim por diante. Pode investigar chamadas de dependência específicas e correlacioná-las com pedidos e exceções.
 
 ## <a name="automatically-tracked-dependencies"></a>Dependências rastreadas automaticamente
 
@@ -190,7 +191,7 @@ Você pode rastrear dependências na [língua de consulta kusto](/azure/kusto/qu
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Como é que o relatório automático do colecionador de dependências falhou nas chamadas para as dependências?*
 

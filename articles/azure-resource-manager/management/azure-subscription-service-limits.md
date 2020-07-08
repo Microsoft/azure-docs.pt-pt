@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 7805e65b3f49a69d4667180715a58585767ddf5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080980"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
-Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços do Azure](https://azure.microsoft.com/pricing/). Aí, pode estimar os seus custos utilizando [a calculadora de preços.](https://azure.microsoft.com/pricing/calculator/) Também pode ir à página de detalhes de preços para um determinado serviço, por exemplo, [VMs Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas para ajudar a gerir os seus custos, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos.](../../billing/billing-getting-started.md)
+Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços do Azure](https://azure.microsoft.com/pricing/). Aí, pode estimar os seus custos utilizando [a calculadora de preços.](https://azure.microsoft.com/pricing/calculator/) Também pode ir à página de detalhes de preços para um determinado serviço, por exemplo, [VMs Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas para ajudar a gerir os seus custos, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos.](../../cost-management-billing/manage/getting-started.md)
 
 ## <a name="managing-limits"></a>Limites de gestão
 
@@ -29,7 +29,7 @@ Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços 
 >
 > Se pretender elevar o limite ou quota acima do limite por defeito, [abra gratuitamente um pedido de apoio ao cliente online.](../templates/error-resource-quota.md)
 
-[As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [a atualização da subscrição do Azure Free Trial para uma subscrição Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md) e a [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
+[As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [a atualização da subscrição do Azure Free Trial para uma subscrição Pay-As-You-Go](../../cost-management-billing/manage/upgrade-azure-subscription.md) e a [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
 Alguns limites são geridos a nível regional.
 
@@ -259,7 +259,7 @@ O quadro seguinte detalha as características e limites dos [níveis](../../cont
 
 ### <a name="media-services-v2-legacy"></a>Serviços de Multimédia v2 (legados)
 
-Para limites específicos dos Serviços de Mídia v2 (legado), consulte [Os Serviços de Mídia v2 (legado)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+Para limites específicos dos Serviços de Mídia v2 (legado), consulte [Os Serviços de Mídia v2 (legado)](../../media-services/previous/media-services-quotas-and-limitations.md)
 
 ## <a name="mobile-services-limits"></a>Limites de Serviços Móveis
 
@@ -332,11 +332,11 @@ O quadro a seguir aplica-se aos SKUs V1, V2, Standard e WAF, salvo indicação e
 
 ## <a name="sql-database-limits"></a>Limites de base de dados SQL
 
-Para os limites da base de dados [SQL, consulte os limites de recursos da Base de Dados SQL para bases de dados únicas,](../../azure-sql/database/resource-limits-vcore-single-databases.md) [limites de recursos da Base de Dados SQL para piscinas elásticas e bases de dados em piscinas,](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)e [limites de recursos da Base de Dados SQL para instâncias geridas.](../../azure-sql/managed-instance/resource-limits.md)
+Para os limites da base de dados [SQL, consulte os limites de recursos da Base de Dados SQL para bases de dados únicas,](../../azure-sql/database/resource-limits-vcore-single-databases.md) [limites de recursos da Base de Dados SQL para piscinas elásticas e bases de dados em piscinas,](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)e [limites de recursos de base de dados SQL para sql Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>Limites do Armazém de Dados SQL
+## <a name="azure-synapse-analytics-limits"></a>Limites Azure Synapse Analytics
 
-Para os limites do Armazém de Dados [SQL, consulte os limites de recursos do Armazém de Dados SQL.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)
+Para os limites Azure Synapse Analytics, consulte [os limites de recursos da Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 
@@ -420,7 +420,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Compreender os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

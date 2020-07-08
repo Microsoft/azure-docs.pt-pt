@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço usando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130634"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078566"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -60,7 +60,7 @@ O Advisor analisa os padrões de utilização dos últimos 30 dias para os segui
 O Advisor analisa os seus padrões de utilização do Azure Cosmos DB nos últimos 30 dias e recomenda compras de capacidade reservada para otimizar os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de hora a hora da Azure Cosmos e economizar sobre os seus custos de pagamento. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
 
 ### <a name="sql-paas-reserved-capacity"></a>Capacidade reservada SQL PaaS
-O Advisor analisa piscinas elásticas SQL PaaS e geriu padrões de utilização de instâncias nos últimos 30 dias. Recomenda então compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de DB SQL por hora e economizar acima dos seus custos de computação SQL. A sua licença SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
+Advisor analisa piscinas de base de dados elásticas SQL PaaS e padrões de utilização sql Managed Instance ao longo dos últimos 30 dias. Recomenda então compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de DB SQL por hora e economizar acima dos seus custos de computação SQL. A sua licença SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Taxa de selo de serviço de aplicação reservada
 O Advisor analisa o padrão de utilização da Taxa de Selo para o seu ambiente isolado do Serviço de Aplicações Azure ao longo dos últimos 30 dias e recomenda compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso por hora para o ambiente isolado Stamp Fee e economizar sobre os seus custos de pagamento à medida. Note que a capacidade reservada se aplica apenas à Taxa de Selo e não às instâncias do Serviço de Aplicações. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula a poupança de estimativas para subscrições individuais utilizando preços de reserva de 3 anos com base em padrões de utilização nos últimos 30 dias.

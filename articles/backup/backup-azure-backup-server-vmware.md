@@ -3,11 +3,12 @@ title: Backup VMware VMs com Azure Backup Server
 description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer backup vMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081065"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
 
@@ -26,9 +27,8 @@ Este artigo explica como:
 - Verifique se está a executar uma versão do vCenter/ESXi que é suportada por cópias de segurança. Consulte aqui a [matriz](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)de suporte.
 - Certifique-se de que configura o Servidor de Backup Azure. Se não o fez, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Deverá estar a executar o Azure Backup Server com as últimas atualizações.
 - Certifique-se de que as seguintes portas de rede estão abertas:
-    - TCP 443 entre MABS e vCenter
-    - TCP 443 e TCP 902 entre mABS e anfitrião ESXi
-
+  - TCP 443 entre MABS e vCenter
+  - TCP 443 e TCP 902 entre mABS e anfitrião ESXi
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Criar uma ligação segura ao servidor vCenter
 
@@ -133,72 +133,75 @@ O Azure Backup Server necessita de uma conta de utilizador com permissões para 
 
 ### <a name="role-permissions"></a>Permissões de funções
 
-| Privilégios para conta de utilizador vCenter 6.7                     | Privilégios para conta de utilizador vCenter 6.5                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Datastore cluster.Configure um cluster datatstore            | Datastore cluster.Configure um cluster datatstore            |
-| Datastore.AlocarSpace                                      | Datastore.AlocarSpace                                      |
-| Datastore.Navegue na loja de dados                                   | Datastore.Navegue na loja de dados                                   |
-| Datastore.Operações de ficheiros de baixo nível                          | Datastore.Operações de ficheiros de baixo nível                          |
-| Global.Métodos de desativação                                       | Global.Métodos de desativação                                       |
-| Global.Permitir métodos                                        | Global.Permitir métodos                                        |
-| Global.Licenças                                              | Global.Licenças                                              |
-| Evento Global.Log                                             | Evento Global.Log                                             |
-| Global.Gerir atributos personalizados                              | Global.Gerir atributos personalizados                              |
-| Global.Definir atributo personalizado                                  | Global.Definir atributo personalizado                                  |
-| Host.Operações locais. Criar máquina virtual                | Host.Operações locais. Criar máquina virtual                |
-| Rede.Atribuir rede                                       | Rede.Atribuir rede                                       |
-| Recurso. Atribuir máquina virtual ao pool de recursos           | Recurso. Atribuir máquina virtual ao pool de recursos           |
-| vApp.Adicionar máquina virtual                                     | vApp.Adicionar máquina virtual                                     |
-| vApp.Atribua o conjunto de recursos                                    | vApp.Atribua o conjunto de recursos                                    |
-| vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine.Configuration. Adicionar ou remover dispositivo          | VirtualMachine.Configuration. Adicionar ou remover dispositivo          |
-| Uration de machine.Configvirtual. Adquirir arrendamento em disco            | Uration de machine.Configvirtual. Arrendamento em disco                     |
-| Uration de machine.Configvirtual. Adicionar disco novo                   | Uration de machine.Configvirtual. Adicionar disco novo                   |
-| Uration de machine.Configvirtual. Configuração avançada        | Uration de machine.Configvirtual. Avançado                       |
-| Uration de machine.Configvirtual. Rastreio de mudança de disco toggle   | Uration de machine.Configvirtual. Rastreio de mudança de disco          |
-| Virtual machine.Configuration.Configure Host USB     | Uration de machine.Configvirtual. Dispositivo USB anfitrião               |
-| Uration de machine.Configvirtual. Estender o disco virtual           | Uration de machine.Configvirtual. Estender o disco virtual           |
-| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos           | Uration de machine.Configvirtual. Consulta de ficheiros não desnudos           |
-| Uration de machine.Configvirtual. Alterar colocação de swapfile     | Uration de machine.Configvirtual. Colocação de ficheiros de swap            |
-| Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado | Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado |
-| Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes | Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes |
-| Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes    | Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes    |
-| Máquina virtual. Interação . Ligação do dispositivo             | Máquina virtual. Interação . Ligação do dispositivo             |
+A tabela que se segue captura os privilégios que precisa de atribuir à conta de utilizador que cria:
+
+| Privilégios para conta de utilizador vCenter 6.5                          | Privilégios para conta de utilizador vCenter 6.7                            |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Datastore cluster.Configure um cluster de datastore                           | Datastore cluster.Configure um cluster de datastore                           |
+| Datastore.AlocarSpace                                                    | Datastore.AlocarSpace                                                    |
+| Datastore.Navegue na loja de dados                                                 | Datastore.Navegue na loja de dados                                                 |
+| Datastore.Operações de ficheiros de baixo nível                                        | Datastore.Operações de ficheiros de baixo nível                                        |
+| Global.Métodos de desativação                                                     | Global.Métodos de desativação                                                     |
+| Global.Permitir métodos                                                      | Global.Permitir métodos                                                      |
+| Global.Licenças                                                            | Global.Licenças                                                            |
+| Evento Global.Log                                                           | Evento Global.Log                                                           |
+| Global.Gerir atributos personalizados                                            | Global.Gerir atributos personalizados                                            |
+| Global.Definir atributo personalizado                                                | Global.Definir atributo personalizado                                                |
+| Host.Operações locais. Criar máquina virtual                               | Host.Operações locais. Criar máquina virtual                               |
+| Rede.Atribuir rede                                                     | Rede.Atribuir rede                                                     |
+| Recurso. Atribuir máquina virtual ao pool de recursos                          | Recurso. Atribuir máquina virtual ao pool de recursos                          |
+| vApp.Adicionar máquina virtual                                                   | vApp.Adicionar máquina virtual                                                   |
+| vApp.Atribua o conjunto de recursos                                                  | vApp.Atribua o conjunto de recursos                                                  |
+| vApp.Unregister                                                            | vApp.Unregister                                                            |
+| VirtualMachine.Configuration. Adicionar ou remover dispositivo                         | VirtualMachine.Configuration. Adicionar ou remover dispositivo                         |
+| Uration de machine.Configvirtual. Arrendamento em disco                                   | Uration de machine.Configvirtual. Adquirir arrendamento em disco                           |
+| Uration de machine.Configvirtual. Adicionar disco novo                                 | Uration de machine.Configvirtual. Adicionar disco novo                                 |
+| Uration de machine.Configvirtual. Avançado                                     | Uration de machine.Configvirtual. Configuração avançada                       |
+| Uration de machine.Configvirtual. Rastreio de mudança de disco                         | Uration de machine.Configvirtual. Rastreio de mudança de disco toggle                  |
+| Uration de machine.Configvirtual. Dispositivo USB anfitrião                              | Virtual machine.Configuration.Configure Host USB                    |
+| Uration de machine.Configvirtual. Estender o disco virtual                          | Uration de machine.Configvirtual. Estender o disco virtual                          |
+| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos                          | Uration de machine.Configvirtual. Consulta de ficheiros não desnudos                          |
+| Uration de machine.Configvirtual. Colocação de ficheiros de swap                           | Uration de machine.Configvirtual. Alterar colocação de swapfile                    |
+| Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado         | Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado         |
+| Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes             | Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes             |
+| Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes                   | Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes                   |
+| Máquina virtual. Interação . Ligação do dispositivo                            | Máquina virtual. Interação . Ligação do dispositivo                            |
 | Máquina virtual. Interação . Gestão do sistema operativo convidado pela VIX API | Máquina virtual. Interação . Gestão do sistema operativo convidado pela VIX API |
-| Máquina virtual. Interação . Desligar                      | Máquina virtual. Interação . Desligar                      |
-| Máquina virtual. Inventário.Criar novo                        | Máquina virtual. Inventário.Criar novo                        |
-| Máquina virtual. Inventário.Remover                            | Máquina virtual. Inventário.Remover                            |
-| Máquina virtual. Inventário.Registo                          | Máquina virtual. Inventário.Registo                          |
-| Máquina virtual. Provisioning.Permitir o acesso ao disco             | Máquina virtual. Provisioning.Permitir o acesso ao disco             |
-| Máquina virtual. Provisioning.Permitir o acesso aos ficheiros             | Máquina virtual. Provisioning.Permitir o acesso aos ficheiros             |
-| Máquina virtual. Provisioning.Permitir o acesso ao disco apenas de leitura   | Máquina virtual. Provisioning.Permitir o acesso ao disco apenas de leitura   |
-| Máquina virtual. Provisioning.Permitir o download de máquinas virtuais | Máquina virtual. Provisioning.Permitir o download de máquinas virtuais |
-| Máquina virtual. Gestão de instantâneos.  Criar instantâneo       | Máquina virtual. Gestão de instantâneos.  Criar instantâneo       |
-| Máquina virtual. Gestão de instantâneos. Remover instantâneo        | Máquina virtual. Gestão de instantâneos. Remover instantâneo        |
-| Máquina virtual. Gestão de instantâneos. Reverter para instantâneo     | Máquina virtual. Gestão de instantâneos. Reverter para instantâneo     |
+| Máquina virtual. Interação . Desligar                                    | Máquina virtual. Interação . Desligar                                    |
+| Máquina virtual. Inventário.Criar novo                                      | Máquina virtual. Inventário.Criar novo                                      |
+| Máquina virtual. Inventário.Remover                                          | Máquina virtual. Inventário.Remover                                          |
+| Máquina virtual. Inventário.Registo                                        | Máquina virtual. Inventário.Registo                                        |
+| Máquina virtual. Provisioning.Permitir o acesso ao disco                            | Máquina virtual. Provisioning.Permitir o acesso ao disco                            |
+| Máquina virtual. Provisioning.Permitir o acesso aos ficheiros                            | Máquina virtual. Provisioning.Permitir o acesso aos ficheiros                            |
+| Máquina virtual. Provisioning.Permitir o acesso ao disco apenas de leitura                  | Máquina virtual. Provisioning.Permitir o acesso ao disco apenas de leitura                  |
+| Máquina virtual. Provisioning.Permitir o download de máquinas virtuais               | Máquina virtual. Provisioning.Permitir o download de máquinas virtuais               |
+| Máquina virtual. Gestão de instantâneos. Criar instantâneo                      | Máquina virtual. Gestão de instantâneos. Criar instantâneo                      |
+| Máquina virtual. Gestão de instantâneos. Remover instantâneo                       | Máquina virtual. Gestão de instantâneos. Remover instantâneo                       |
+| Máquina virtual. Gestão de instantâneos. Reverter para instantâneo                    | Máquina virtual. Gestão de instantâneos. Reverter para instantâneo                    |
 
-<br>
+> [!NOTE]
+> A tabela que se segue lista os privilégios para as contas de utilizador vCenter 6.0 e vCenter 5.5.
 
-| **Privilégios para conta de utilizador vCenter 6.0**                | **Privilégios para conta de utilizador vCenter 5.5** |
-| ---------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AlocarSpace                                    | Rede.Atribuir                              |
-| Global.Gerir atributos personalizados                           | Datastore.AlocarSpace                     |
-| Global.Definir atributo personalizado                               | VirtualMachine.Config. ChangeTracking        |
-| Host.Operações locais. Criar máquina virtual              | VirtualMachine.State.RemoveSnapshot         |
-| A rede.  Atribuir rede                                   | VirtualMachine.State.CreateSnapshot         |
-| Recurso.  Atribuir máquina virtual ao pool de recursos         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Uration de machine.Configvirtual. Adicionar disco novo                | VirtualMachine.Interact.PowerOff            |
-| Uration de machine.Configvirtual. Avançado                    | VirtualMachine.Inventory.Create             |
-| Uration de machine.Configvirtual. Rastreio de mudança de disco        | VirtualMachine.Config. AddNewDisk            |
-| Uration de machine.Configvirtual. Dispositivo USB anfitrião             | VirtualMachine.Config. HostUSBDevice         |
-| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos         | VirtualMachine.Config. Config Avançado        |
-| Uration de machine.Configvirtual. Colocação de ficheiros de swap          | VirtualMachine.Config. Troca de Substituição         |
-| Máquina virtual. Interação.Desligar                     | Global.ManageCustomFields                   |
-| Máquina virtual. O inventário. Criar novo                     |                                             |
-| Máquina virtual. Provisioning.Permitir o acesso ao disco            |                                             |
-| Máquina virtual. Provisões. Permitir o acesso ao disco apenas de leitura |                                             |
-| Máquina virtual. Gestão de instantâneos. Criar instantâneo       |                                             |
-| Máquina virtual. Gestão de instantâneos. Remover instantâneo       |                                             |
+| Privilégios para conta de utilizador vCenter 6.0 | Privilégios para conta de utilizador vCenter 5.5 |
+| --- | --- |
+| Datastore.AlocarSpace | Rede.Atribuir |
+| Global.Gerir atributos personalizados | Datastore.AlocarSpace |
+| Global.Definir atributo personalizado | VirtualMachine.Config. ChangeTracking |
+| Host.Operações locais. Criar máquina virtual | VirtualMachine.State.RemoveSnapshot |
+| A rede. Atribuir rede | VirtualMachine.State.CreateSnapshot |
+| Recurso. Atribuir máquina virtual ao pool de recursos | VirtualMachine.Provisioning.DiskRandomRead |
+| Uration de machine.Configvirtual. Adicionar disco novo | VirtualMachine.Interact.PowerOff |
+| Uration de machine.Configvirtual. Avançado | VirtualMachine.Inventory.Create |
+| Uration de machine.Configvirtual. Rastreio de mudança de disco | VirtualMachine.Config. AddNewDisk |
+| Uration de machine.Configvirtual. Dispositivo USB anfitrião | VirtualMachine.Config. HostUSBDevice |
+| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos | VirtualMachine.Config. Config Avançado |
+| Uration de machine.Configvirtual. Colocação de ficheiros de swap | VirtualMachine.Config. Troca de Substituição |
+| Máquina virtual. Interação.Desligar | Global.ManageCustomFields |
+| Máquina virtual. O inventário. Criar novo |   |
+| Máquina virtual. Provisioning.Permitir o acesso ao disco |   |
+| Máquina virtual. Provisões. Permitir o acesso ao disco apenas de leitura |   |
+| Máquina virtual. Gestão de instantâneos. Criar instantâneo |   |
+| Máquina virtual. Gestão de instantâneos. Remover instantâneo |   |
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta VMware
 

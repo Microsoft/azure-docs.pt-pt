@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195376"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082289"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a Azure SQL Managed Instance com serviços de integração de servidores SQL (SSIS) na Azure Data Factory
 
@@ -35,25 +36,25 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
 1. [Ativar o Azure Ative Directory (Azure AD) em Azure SQL Managed Instance,](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)ao escolher a autenticação do Azure Ative Directory.
 
-1. Escolha como ligar a ocorrência gerida pela SQL, em vez de um ponto final privado ou sobre o ponto final público:
+1. Escolha como ligar a SQL Managed Instance, sobre o ponto final privado ou sobre o ponto final público:
 
     - Sobre o ponto final privado (preferencial)
 
         1. Escolha a rede virtual para a Azure-SSIS IR para aderir:
-            - Dentro da mesma rede virtual que o SQL geriu exemplo, com **diferentes sub-redes.**
-            - Dentro de uma rede virtual diferente da sql gerido exemplo, através de um espremiamento de rede virtual (que está limitado à mesma região devido a restrições de peering Global VNet) ou uma ligação da rede virtual à rede virtual.
+            - Dentro da mesma rede virtual que o caso gerido, com **diferentes sub-redes.**
+            - Dentro de uma rede virtual diferente da instância gerida, através do espremiamento de rede virtual (que se limita à mesma região devido a restrições de peering Global VNet) ou uma ligação da rede virtual à rede virtual.
 
-            Para obter mais informações sobre a conectividade de exemplo gerida pela SQL, consulte [Connect your application to Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para obter mais informações sobre a conectividade sql Managed Instance, consulte [Conecte a sua aplicação a Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configure a rede virtual.](#configure-virtual-network)
 
     - Sobre o ponto final público
 
-        Azure SQL Managed Instances pode fornecer conectividade sobre [os pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Os requisitos de entrada e saída devem ser cumpridos para permitir o tráfego entre a sql gerida instância e Azure-SSIS IR:
+        Azure SQL Managed Instances pode fornecer conectividade sobre [os pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Os requisitos de entrada e saída devem ser cumpridos para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR:
 
         - quando o Azure-SSIS IR não está dentro de uma rede virtual (preferencial)
 
-            **Requisito de entrada de sql gerido instância**, para permitir o tráfego de entrada a partir de Azure-SSIS IR.
+            **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
             | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino |
             |---|---|---|---|---|
@@ -63,19 +64,19 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
         - quando o Azure-SSIS IR dentro de uma rede virtual
 
-            Há um cenário especial quando o SQL é gerido por exemplo numa região que o Azure-SSIS IR não suporta, o Azure-SSIS IR está dentro de uma rede virtual sem o olhar da VNet devido à limitação do peering global VNet. Neste cenário, **o Azure-SSIS IR dentro de uma rede virtual** liga o SQL a caso gerido sobre o ponto final **público.** Utilizar abaixo as regras do Grupo de Segurança da Rede (NSG) para permitir o tráfego entre a instância gerida pela SQL e o IR Azure-SSIS:
+            Há um cenário especial quando o SQL Managed Instance está numa região que o Azure-SSIS IR não suporta, o Azure-SSIS IR está dentro de uma rede virtual sem o olhar da VNet devido à limitação global do peering VNet. Neste cenário, **o Azure-SSIS IR dentro de uma rede virtual** liga a SQL Managed Instance ao ponto final **público.** Utilize abaixo as regras do Grupo de Segurança da Rede (NSG) para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR:
 
-            1. **Requisito de entrada de sql gerido instância**, para permitir o tráfego de entrada a partir de Azure-SSIS IR.
+            1. **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
                 | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
                 |---|---|---|---|---|
                 |TCP|Endereço IP estático do Azure-SSIS IR <br> Para mais informações, consulte [Bring Your Own Public IP for Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
 
-             1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a ocorrência gerida pela SQL.
+             1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a SQL Managed Instance.
 
                 | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL geriu endereço IP público de caso](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[Sql Managed Instance endereço IP público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
 
 ### <a name="configure-virtual-network"></a>Configurar uma rede virtual
 
@@ -101,18 +102,18 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
-    1. Permitir o tráfego na regra do Grupo de Segurança da Rede (NSG), para permitir o tráfego entre a SQL gerida instância e Azure-SSIS IR, e o tráfego necessário pela Azure-SSIS IR.
-        1. **Requisito de entrada de sql gerido instância**, para permitir o tráfego de entrada a partir de Azure-SSIS IR.
+    1. Permitir o tráfego na regra do Grupo de Segurança da Rede (NSG), para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR, e o tráfego necessário pela Azure-SSIS IR.
+        1. **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
             | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
             |---|---|---|---|---|---|
             |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Se a sua política de ligação ao servidor SQL Database estiver definida como **Proxy** em vez de **Redirecionar**, apenas é necessária a porta 1433.|
 
-        1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a sql gerido instância, e outro tráfego necessário pela Azure-SSIS IR.
+        1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a SQL Managed Instance, e outro tráfego necessário pela Azure-SSIS IR.
 
         | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir o tráfego de saída para a sq. Se a política de ligação for definida como **Proxy** em vez de **Redirecionar,** apenas a porta 1433 é necessária. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir o tráfego de saída para a SQL Managed Instance. Se a política de ligação for definida como **Proxy** em vez de **Redirecionar,** apenas a porta 1433 é necessária. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para aceder aos serviços Azure, como o Azure Storage e o Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | (Opcional) Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para descarregar uma lista de revogação de certificados da internet. Se bloquear este tráfego, poderá experimentar uma degradação de desempenho quando iniciar o IR e perder capacidade de verificar a lista de revogação de certificados para utilização do certificado. Se pretender reduzir ainda mais o destino a determinados FQDNs, consulte a [Utilização Azure ExpressRoute ou a Rota Definida pelo Utilizador (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
         | TCP | VirtualNetwork | * | Armazenamento | 445 | (Opcional) Esta regra só é necessária quando pretender executar o pacote SSIS armazenado em Ficheiros Azure. |
@@ -134,9 +135,9 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
 ### <a name="provision-azure-ssis-integration-runtime"></a>Provision Azure-SSIS IntegrationTime
 
-1. Selecione SQL gerido exemplo ponto final privado ou ponto final público.
+1. Selecione SQL Managed Instance ponto final privado ou ponto final público.
 
-    Ao [forer a aplicação Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) em Azure portal/ADF, na página SQL Settings, utilize **o ponto final privado** ou o ponto final **público** da SQL ao criar o catálogo SSIS (SSISDB).
+    Ao [forer a aplicação Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) em Azure portal/ADF, na página SQL Settings, utilize **o ponto final privado** da SQL Managed Instance ou o ponto **final público** ao criar o catálogo SSIS (SSISDB).
 
     O nome do anfitrião do ponto final público vem no formato <mi_name>.public.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.  
 
@@ -152,7 +153,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
     Na página de definição avançada, selecione a Rede Virtual e a sub-rede para se juntar.
     
-    Quando dentro da mesma rede virtual que o SQL geriu, escolha uma **sub-rede diferente** da sql gerida. 
+    Quando estiver dentro da mesma rede virtual que o SQL Managed Instance, escolha uma **sub-rede diferente** da SQL Managed Instance. 
 
     Para obter mais informações sobre como juntar o Azure-SSIS IR numa rede virtual, consulte [Junte-se a uma rede virtual de integração Azure-SSIS.](join-azure-ssis-integration-runtime-virtual-network.md)
 
@@ -172,7 +173,7 @@ A política de retenção de registos SSISDB é definida por propriedades abaixo
 
     O número de dias em que os detalhes da operação e as mensagens de operação são armazenados no catálogo. Quando o valor é -1, a janela de retenção é infinita. Nota: Se não for desejada uma limpeza, desate OPERATION_CLEANUP_ENABLED para FALSO.
 
-Para remover os registos SSISDB que estão fora da janela de retenção definida pelo administrador, pode acionar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]` . Opcionalmente, pode agendar a execução de trabalho de agente de instância gerido pela SQL para desencadear o procedimento armazenado.
+Para remover os registos SSISDB que estão fora da janela de retenção definida pelo administrador, pode acionar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]` . Opcionalmente, pode agendar a execução de trabalho de agente de instância gerida sql para desencadear o procedimento armazenado.
 
 ## <a name="next-steps"></a>Próximos passos
 

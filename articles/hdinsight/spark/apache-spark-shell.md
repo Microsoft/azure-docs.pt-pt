@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
-ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162808"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081184"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Executar Apache Spark da Concha de Faísca
 

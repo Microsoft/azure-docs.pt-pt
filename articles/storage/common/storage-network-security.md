@@ -5,15 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 07/01/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 75f2e20db6ad1155e62691b711d8084a1feb5bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080028"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure Firewalls de armazenamento Azure e redes virtuais
 
@@ -395,6 +396,7 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite a importação e exportação de dados de instâncias específicas da Base de Dados SQL utilizando a PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Base de Dados SQL do Azure       | Microsoft.Sql                          | Permite [a importação](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e [a escrita](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) de dados de auditoria para contas de armazenamento por trás do firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam escritos para o armazenamento blob. Esta funcionalidade encontra-se em pré-visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite o acesso aos dados no Azure Storage da Synapse Analytics. |
 

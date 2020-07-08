@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77186867"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082459"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
 

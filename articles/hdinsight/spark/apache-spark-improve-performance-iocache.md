@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75494980"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081762"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho das cargas de trabalho da Apache Spark utilizando a cache IO IO do Azure HDInsight
 
@@ -46,7 +47,7 @@ A azure HDInsight IO Cache é desativado por padrão na pré-visualização. IO 
 > [!NOTE]  
 > Mesmo que a barra de progresso mostre ativada, a Cache IO não está ativada até reiniciar os outros serviços afetados.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
   
 Pode obter erros de espaço em disco executando trabalhos spark depois de ativar io Cache. Estes erros ocorrem porque a Spark também utiliza o armazenamento de discos locais para armazenar dados durante as operações de baralhar. A faísca pode ficar sem espaço SSD uma vez que a Cache IO esteja ativada e o espaço para armazenamento de faíscas seja reduzido. A quantidade de espaço utilizada pela IO Cache é padrão para metade do espaço SSD total. O uso do espaço em disco para IO Cache é configurável em Ambari. Se tiver erros de espaço em disco, reduza a quantidade de espaço SSD utilizado para cache IO e reinicie o serviço. Para alterar o espaço definido para IO Cache, faça os seguintes passos:
 

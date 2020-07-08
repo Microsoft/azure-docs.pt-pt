@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 068af40ed42d0211eed6e1a315016bb8ecc40d05
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954218"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081848"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Adicione dados aos registos de auditoria utilizando cabeçalhos HTTP personalizados
 
@@ -36,7 +36,7 @@ Pode utilizar cabeçalhos personalizados para capturar vários tipos de informa�
 > [!IMPORTANT]
 > Esteja ciente de que as informações enviadas em cabeçalhos personalizados são armazenadas num sistema de registo interno da Microsoft durante 30 dias após estarem disponíveis no Azure Log Monitoring. Recomendamos encriptar qualquer informação antes de adicioná-la a cabeçalhos personalizados. Não deve passar nenhuma informação phi através de cabeçalhos de cliente.
 
-Deve utilizar a seguinte convenção de nomeação para os seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT- \<name> .
+Deve utilizar a seguinte convenção de nomeação para os seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT- \<name> .
 
 Estes cabeçalhos HTTP estão incluídos num saco de propriedade que é adicionado ao registo. Por exemplo:
 
@@ -75,7 +75,7 @@ client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
 };
 client.Get("Patient");
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a adicionar dados a registos de auditoria utilizando cabeçalhos personalizados na API Azure para FHIR. Em seguida, saiba mais sobre outras configurações adicionais que pode configurar na API Azure para FHIR.
  
 >[!div class="nextstepaction"]

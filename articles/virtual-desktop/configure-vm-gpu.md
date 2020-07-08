@@ -7,11 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 96881154a368da15d703b43ba2ffe5d6dd034bd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213266"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081099"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
 
@@ -59,22 +60,36 @@ Por predefinição, as aplicações e os desktops em execução em configuraçõ
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Codificação de quadros acelerados pela GPU
 
-O Ambiente de Trabalho Remoto codifica todos os gráficos renderizados por apps e ambientes de trabalho (seja renderizado com GPU ou com CPU) para transmissão a clientes de Ambiente de Trabalho Remoto. Por predefinição, o Remote Desktop não aproveita as GPUs disponíveis para esta codificação. Configure a política de grupo para o anfitrião da sessão para permitir a codificação de quadros acelerados pela GPU. Continuando os passos acima:
+O Ambiente de Trabalho Remoto codifica todos os gráficos renderizados por apps e ambientes de trabalho (seja renderizado com GPU ou com CPU) para transmissão a clientes de Ambiente de Trabalho Remoto. Quando uma parte do ecrã é frequentemente atualizada, esta parte do ecrã é codificada com um código de vídeo (H.264/AVC). Por predefinição, o Remote Desktop não aproveita as GPUs disponíveis para esta codificação. Configure a política de grupo para o anfitrião da sessão para permitir a codificação de quadros acelerados pela GPU. Continuando os passos acima:
+ 
+>[!NOTE]
+>A codificação de quadros acelerados pela GPU não está disponível em VMs da série NVv4.
 
-1. Selecione a política **Priorização H.264/AVC 444 O modo gráfico para ligações de ambiente de trabalho remoto** e define esta política para **Ativar** o código H.264/AVC 444 na sessão remota.
-2. Selecione a codificação de **hardware Configure H.264/AVC para ligações remotas de ambiente de trabalho** e descongessione esta política para **Ativar** a codificação de hardware para AVC/H.264 na sessão remota.
+1. Selecione a codificação de **hardware Configure H.264/AVC para ligações remotas de ambiente de trabalho** e descongessione esta política para **Ativar** a codificação de hardware para AVC/H.264 na sessão remota.
 
     >[!NOTE]
     >No Windows Server 2016, opção de definição **Prefere hardware AVC Encoding** to **Always try**.
 
-3. Agora que as políticas de grupo foram editadas, forcem uma atualização da política de grupo. Abra a solicitação de comando e escreva:
+2. Agora que as políticas de grupo foram editadas, forcem uma atualização da política de grupo. Abra a solicitação de comando e escreva:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Inscreva-se na sessão de desktop remoto.
+3. Inscreva-se na sessão de desktop remoto.
 
+## <a name="configure-fullscreen-video-encoding"></a>Configurar a codificação de vídeo completo
+
+Se utilizar frequentemente aplicações que produzam um conteúdo de alta taxa de fotogramas, como modelação 3D, cad/CAM e aplicações de vídeo, pode optar por ativar uma codificação de vídeo completa para uma sessão remota. O perfil de vídeo fullscreen proporciona uma maior taxa de fotogramas e uma melhor experiência do utilizador para tais aplicações em detrimento da largura de banda da rede e tanto dos recursos do anfitrião da sessão como dos recursos dos clientes. Recomenda-se a utilização de molduras aceleradas pela GPU para codificação de vídeo de ecrã inteiro. Configure a Política de Grupo para o anfitrião da sessão para permitir a codificação de vídeo sonoro. Continuando os passos acima:
+
+1. Selecione a política **Priorização H.264/AVC 444 O modo gráfico para ligações de ambiente de trabalho remoto** e define esta política para **Ativar** o código H.264/AVC 444 na sessão remota.
+2. Agora que as políticas de grupo foram editadas, forcem uma atualização da política de grupo. Abra a solicitação de comando e escreva:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Inscreva-se na sessão de desktop remoto.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Verifique a renderização de aplicativos acelerados pela GPU
 
 Para verificar se as aplicações estão a utilizar a GPU para renderização, experimente qualquer uma das seguintes:
@@ -89,7 +104,14 @@ Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação a
 1. Ligue-se ao ambiente de trabalho do VM utilizando o cliente de ambiente de trabalho virtual do Windows.
 2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Serviços Regista**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
 3. Para determinar se a codificação acelerada da GPU é usada, procure o ID 170 do evento. Se vir "AVC hardware codificador: 1" então a codificação da GPU é utilizada.
-4. Para determinar se o modo AVC 444 é utilizado, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
+
+## <a name="verify-fullscreen-video-encoding"></a>Verifique a codificação de vídeo sonoro
+
+Para verificar se o Remote Desktop está a utilizar a codificação de vídeo sonoro:
+
+1. Ligue-se ao ambiente de trabalho do VM utilizando o cliente de ambiente de trabalho virtual do Windows.
+2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Serviços Regista**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
+3. Para determinar se a codificação de vídeo de ecrã completo é utilizada, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
 
 ## <a name="next-steps"></a>Próximos passos
 

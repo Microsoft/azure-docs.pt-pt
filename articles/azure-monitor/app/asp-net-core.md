@@ -3,18 +3,18 @@ title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: f9e51521e9bd35c6afb3dbe7cafb1e56e847756a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e575bf0d1fe138ae9dd4160b55be4f2c8ea5bea
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390130"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082204"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
 Este artigo descreve como ativar insights de aplicação para uma aplicação [core ASP.NET.](https://docs.microsoft.com/aspnet/core) Quando completar as instruções deste artigo, a Application Insights recolherá pedidos, dependências, exceções, contadores de desempenho, batimentos cardíacos e registos da sua aplicação Core ASP.NET.
 
-O exemplo que vamos usar aqui é uma [aplicação MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) que `netcoreapp3.0` visa. Pode aplicar estas instruções a todas as ASP.NET aplicações Core.
+O exemplo que vamos usar aqui é uma [aplicação MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) que `netcoreapp3.0` visa. Pode aplicar estas instruções a todas as ASP.NET aplicações Core. Se estiver a utilizar o [Serviço de Trabalhadores,](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template)utilize as instruções [daqui](./worker-service.md).
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -225,7 +225,7 @@ Para obter mais informações, consulte [a amostragem adaptativa configure para 
 
 ### <a name="adding-telemetryinitializers"></a>Adicionar TelemetriaInitializers
 
-Utilize [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) quando quiser definir propriedades globais que são enviadas com toda a telemetria.
+Utilize [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) quando quiser enriquecer a telemetria com informações adicionais.
 
 Adicione qualquer novidade `TelemetryInitializer` ao `DependencyInjection` recipiente, como mostra o seguinte código. O SDK apanha automaticamente qualquer `TelemetryInitializer` um que seja adicionado ao `DependencyInjection` contentor.
 
@@ -282,7 +282,7 @@ O Application Insights utiliza módulos de telemetria para recolher automaticame
 Os seguintes módulos de recolha automática são ativados por predefinição. Estes módulos são responsáveis pela recolha automática de telemetria. Pode desativá-los ou configurá-los para alterar o seu comportamento predefinido.
 
 * `RequestTrackingTelemetryModule`- Recolhe PedidoTelemetry a partir de pedidos web de entrada.
-* `DependencyTrackingTelemetryModule`- Recolhe a DependencyTelemetry a partir de chamadas http e chamadas de sql de saída.
+* `DependencyTrackingTelemetryModule`- Recolhe [a DependencyTelemetry](./asp-net-dependencies.md) a partir de chamadas http e chamadas de sql de saída.
 * `PerformanceCollectorModule`- Coleciona o Windows PerformanceCounters.
 * `QuickPulseTelemetryModule`- Coleta telemetria para exibição no portal Live Metrics.
 * `AppServicesHeartbeatTelemetryModule`- Coleciona batimentos cardíacos (que são enviados como métricas personalizadas), sobre o ambiente do Azure App Service onde a aplicação é hospedada.
@@ -329,7 +329,7 @@ A partir da versão 2.12.2, [`ApplicationInsightsServiceOptions`](#using-applica
 
 ### <a name="configuring-a-telemetry-channel"></a>Configurar um canal de telemetria
 
-O canal predefinido é `ServerTelemetryChannel` . Pode sobrepor-se como mostra o exemplo a seguir.
+O canal de [telemetria](./telemetry-channels.md) predefinido é `ServerTelemetryChannel` . Pode sobrepor-se como mostra o exemplo a seguir.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -363,7 +363,7 @@ Se pretender desativar a telemetria de forma condicional e dinâmica, poderá re
 
 O acima referido não impede que quaisquer módulos de recolha de automóveis recolham telemetria. Apenas o envio de telemetria para Application Insights é desativado com a abordagem acima. Se não for desejado um determinado módulo de recolha de automóveis, o melhor é [remover o módulo de telemetria](#configuring-or-removing-default-telemetrymodules)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
@@ -398,7 +398,7 @@ public class HomeController : Controller
     }
 ```
 
-Para obter mais informações sobre relatórios de dados personalizados em Informações de [Aplicação, consulte a referência API de métricas personalizadas do Application Insights.](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/)
+Para obter mais informações sobre relatórios de dados personalizados em Informações de [Aplicação, consulte a referência API de métricas personalizadas do Application Insights.](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/) Uma abordagem semelhante pode ser usada para o envio de métricas personalizadas para Application Insights usando a [API GetMetric](./get-metric.md).
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Alguns modelos de Estúdio Visual usaram o método de extensão UseApplicationInsights () no IWebHostBuilder para ativar insights de aplicações. Este uso ainda é válido?
 

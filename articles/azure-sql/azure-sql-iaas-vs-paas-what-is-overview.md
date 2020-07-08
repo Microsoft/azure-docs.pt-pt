@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080181"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ O Azure monitoriza constantemente os seus dados por ameaças. Com a Azure SQL, p
 Existem vários fatores que podem influenciar a sua decisão de escolher entre as diferentes ofertas de dados:
 
 - [Custo](#cost): Tanto a opção PaaS como a IaaS incluem o preço base que cobre infraestruturas subjacentes e licenciamento. No entanto, com a opção IaaS é necessário investir tempo e recursos adicionais para gerir a sua base de dados, enquanto no PaaS obtém estas funcionalidades de administração incluídas no preço. O IaaS permite-lhe desligar recursos enquanto não os utiliza para diminuir o custo, enquanto o PaaS está sempre em funcionamento, a menos que deixe cair e re-crie os seus recursos quando são necessários.
-- [Administração](#administration): As opções PaaS reduzem o tempo que precisa para investir para administrar a base de dados. No entanto, também limita o leque de tarefas e scripts de administração personalizados que você pode executar ou executar. Por exemplo, o CLR não é suportado com bases de dados individuais ou aginhadas, mas é suportado para um exemplo de SQL Managed Instance. Além disso, nenhuma opção de implantação no PaaS suporta o uso de bandeiras de vestígios.
+- [Administração](#administration): As opções PaaS reduzem o tempo que precisa para investir para administrar a base de dados. No entanto, também limita o leque de tarefas e scripts de administração personalizados que você pode executar ou executar. Por exemplo, o CLR não é suportado com base de dados SQL, mas é suportado para um exemplo de SQL Managed Instance. Além disso, nenhuma opção de implantação no PaaS suporta o uso de bandeiras de vestígios.
 - [Acordo de nível de serviço](#service-level-agreement-sla): Tanto o IaaS como o PaaS fornecem SLA padrão elevado e padrão da indústria. A opção PaaS garante 99,99% SLA, enquanto o IaaS garante 99,95% SLA para infraestruturas, o que significa que precisa de implementar mecanismos adicionais para garantir a disponibilidade das suas bases de dados. Pode atingir 99,99% de SLA criando uma máquina virtual SQL adicional e implementando a solução de alta disponibilidade do grupo SQL Always On availability group. 
 - [Hora de mudar para Azure](#market): SQL Server on Azure VM é a correspondência exata do seu ambiente, por isso a migração de instalações para o VM Azure não é diferente de mover as bases de dados de um servidor no local para outro. A SQL Managed Instance também permite uma migração fácil; no entanto, pode haver algumas alterações que precisa aplicar antes da sua migração. 
 

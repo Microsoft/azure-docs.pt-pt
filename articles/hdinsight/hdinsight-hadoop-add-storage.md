@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192489"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080011"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
@@ -134,14 +134,6 @@ Para contornar este problema:
 > [!IMPORTANT]  
 > Não é suportada a chave de armazenamento da conta de armazenamento primária anexada a um cluster.
 
-### <a name="poor-performance"></a>Mau desempenho
-
-Se a conta de armazenamento estiver numa região diferente do cluster HDInsight, poderá experimentar um mau desempenho. O acesso aos dados numa região diferente envia tráfego de rede fora do centro de dados regional Azure. E através da internet pública, que pode introduzir latência.
-
-### <a name="additional-charges"></a>Encargos adicionais
-
-Se a conta de armazenamento estiver numa região diferente do cluster HDInsight, poderá notar taxas adicionais de saída na sua faturação Azure. Uma taxa de saída é aplicada quando os dados deixam um centro de dados regional. Esta carga é aplicada mesmo que o tráfego esteja destinado a outro centro de dados Azure numa região diferente.
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprendeu a adicionar contas de armazenamento adicionais a um cluster HDInsight existente. Para obter mais informações sobre as ações de script, consulte [os clusters HDInsight baseados em Linux utilizando ação de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -5,14 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14591f334801329e78000a007783c3d6c4c3b5ae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75435500"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082544"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix em Azure HDInsight
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251782"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081643"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
@@ -82,7 +82,9 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
  
    O nome da fábrica de dados Azure deve ser **globalmente único.** Se vir o erro seguinte no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialBulkCopyDF). Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
   
-       `Data factory name "ADFTutorialBulkCopyDF" is not available`
+    ```text
+    Data factory name "ADFTutorialBulkCopyDF" is not available
+    ```
 1. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
 1. No **Grupo de Recursos**, siga um destes passos:
      
@@ -392,7 +394,7 @@ Este gasoduto faz duas ações:
 
 1. Confirme que os dados foram copiados para o target Azure Synapse Analytics (anteriormente SQL DW) que usou neste tutorial. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

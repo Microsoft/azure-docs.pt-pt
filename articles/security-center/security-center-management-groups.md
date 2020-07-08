@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080878"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Azure Security Center
 Este artigo explica como gerir a postura de segurança da sua organização em escala, aplicando políticas de segurança a todas as subscrições da Azure ligadas ao seu inquilino Azure Ative Directory.
@@ -73,7 +74,7 @@ Um administrador de inquilino do Azure Ative Directory não tem acesso direto à
 
 3. Sob **a gestão de acesso para recursos Azure,** altere o interruptor para **Sim**.
 
-   ![Administração global pode gerir Subscrições e Grupos de Gestão Azure - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Gestão de acesso para recursos Azure - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Quando define o interruptor para Sim, é-lhe atribuída a função de Administrador de Acesso ao Utilizador em Azure RBAC no âmbito raiz (/). Isto permite-lhe atribuir funções em todas as subscrições e grupos de gestão Azure associados a este diretório AZure AD. Este switch só está disponível para utilizadores que lhe sejam atribuídas a função de Administrador Global em AZure AD.
 
@@ -160,7 +161,7 @@ Uma vez atribuídas as funções RBAC aos utilizadores, o administrador do arren
 
 2. Na lista de navegação, clique em **Azure Ative Directory** e, em seguida, clique em **Propriedades**.
 
-3. Sob **administração Global pode gerir subscrições e grupos de gestão Azure,** definir o interruptor para **Nº**.
+3. Sob **a gestão do Access para recursos Azure,** altere o interruptor para **Nº**.
 
 4. Clique **em Guardar** para guardar a sua definição.
 

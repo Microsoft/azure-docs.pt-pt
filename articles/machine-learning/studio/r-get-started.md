@@ -9,11 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8252c9bf899811163193c9ed21f1f81c9fd0502f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080810"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Começa com o Azure Machine Learning Studio (clássico) em R
 
@@ -82,7 +83,7 @@ Se ocorrer um erro no Machine Learning Studio (clássico) durante a execução d
 
 Por exemplo, corri o seguinte código R, com uma variável indefinida y, num módulo [executo R Script:][execute-r-script]
 
-```R
+```r
 x <- 1.0
 z <- x + y
 ```
@@ -95,13 +96,15 @@ Este código não é executado, resultando numa condição de erro. Selecionar *
 
 Parece que precisamos olhar em output.log para ver a mensagem de erro R. Selecione o [Script Execute R][execute-r-script] e, em seguida, selecione o item **'Ver saída.log'** no **painel de propriedades** para a direita. Uma nova janela do navegador abre, e eu vejo o seguinte.
 
-    [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
-    ---------- Start of error message from R ----------
-    object 'y' not found
+```output
+[Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
+---------- Start of error message from R ----------
+object 'y' not found
 
 
-    object 'y' not found
-    ----------- End of error message from R -----------
+object 'y' not found
+----------- End of error message from R -----------
+```
 
 Esta mensagem de erro não contém surpresas e identifica claramente o problema.
 
@@ -111,7 +114,7 @@ Para verificar o valor de qualquer objeto em R, pode imprimir estes valores no f
 
 O estúdio vem com mais de 350 pacotes de linguagem R pré-instalados. Pode utilizar o seguinte código no módulo [Executar R Script][execute-r-script] para recuperar uma lista das embalagens pré-instaladas.
 
-```R
+```r
 data.set <- data.frame(installed.packages())
 maml.mapOutputPort("data.set")
 ```
@@ -182,7 +185,7 @@ Nesta perspetiva vemos muita informação útil. Podemos ver as primeiras linhas
 
 Vamos criar um simples primeiro script R para experimentar dentro do Azure Machine Learning Studio (clássico). Criei e testei o seguinte guião no RStudio.  
 
-```R
+```r
 ## Only one of the following two lines should be used
 ## If running in Machine Learning Studio (classic), use the first line with maml.mapInputPort()
 ## If in RStudio, use the second line with read.csv()
@@ -209,7 +212,7 @@ Vamos olhar para cada uma destas entradas, indo da esquerda para a direita. Pode
 
 A entrada do Pacote script permite-lhe passar o conteúdo de um ficheiro zip para o módulo [Execut R Script.][execute-r-script] Pode utilizar um dos seguintes comandos para ler o conteúdo do ficheiro postal no seu código R.
 
-```R
+```r
 source("src/yourfile.R") # Reads a zipped R script
 load("src/yourData.rdata") # Reads a zipped R data file
 ```
@@ -221,7 +224,7 @@ Já discutimos o carregamento de conjuntos de dados em [Carregar o conjunto de d
 
 1. Guarde o script R num . Ficheiro R. Chamo o meu ficheiro de guião de "simples enredo". R". Aqui está o conteúdo.
 
-   ```R
+   ```r
    ## Only one of the following two lines should be used
    ## If running in Machine Learning Studio (classic), use the first line with maml.mapInputPort()
    ## If in RStudio, use the second line with read.csv()
@@ -256,44 +259,48 @@ Uma vez concluídos estes passos, o módulo [Execut R Script][execute-r-script] 
 
 Pode passar uma tabela retangular de dados para o seu código R utilizando a entrada Dataset1. No nosso simples script a `maml.mapInputPort(1)` função lê os dados da porta 1. Estes dados são então atribuídos a um nome variável dataframe no seu código. No nosso simples script, a primeira linha de código executa a atribuição.
 
-```R
+```r
 cadairydata <- maml.mapInputPort(1)
 ```
 
 Execute a sua experiência selecionando o botão **Executar.** Quando a execução terminar, selecione o módulo ['Script Execute R'][execute-r-script] e, em seguida, selecione **Ver registo de saída** no painel de propriedades. Uma nova página deve aparecer no seu navegador mostrando o conteúdo do ficheiro output.log. Quando rolar para baixo, deve ver algo como o seguinte.
 
-    [ModuleOutput] InputDataStructure
-    [ModuleOutput]
-    [ModuleOutput] {
-    [ModuleOutput]  "InputName":Dataset1
-    [ModuleOutput]  "Rows":228
-    [ModuleOutput]  "Cols":9
-    [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
-    [ModuleOutput] }
+```output
+[ModuleOutput] InputDataStructure
+[ModuleOutput]
+[ModuleOutput] {
+[ModuleOutput]  "InputName":Dataset1
+[ModuleOutput]  "Rows":228
+[ModuleOutput]  "Cols":9
+[ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
+[ModuleOutput] }
+```
 
 Mais abaixo na página está uma informação mais detalhada sobre as colunas, que se parecerá com o seguinte.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput]
-    [ModuleOutput] 'data.frame':    228 obs. of  9 variables:
-    [ModuleOutput]
-    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Month            : chr  "Jan" "Feb" "Mar" "Apr" ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
-    [ModuleOutput]
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput]
+[ModuleOutput] 'data.frame':    228 obs. of  9 variables:
+[ModuleOutput]
+[ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput]
+[ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+[ModuleOutput]
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput]
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput]
+[ModuleOutput]  $ Month            : chr  "Jan" "Feb" "Mar" "Apr" ...
+[ModuleOutput]
+[ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+[ModuleOutput]
+[ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+[ModuleOutput]
+[ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+[ModuleOutput]
+[ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+```
 
 Estes resultados são maioritariamente como esperado, com 228 observações e 9 colunas no quadro de dados. Podemos ver os nomes das colunas, o tipo de dados R e uma amostra de cada coluna.
 
@@ -310,7 +317,7 @@ O comportamento da entrada Dataset2 é idêntico ao do Dataset1. Utilizando esta
 
 Pode descodurar o conteúdo de um dataframe R como uma tabela retangular através da porta Dataset1 de resultados utilizando a `maml.mapOutputPort()` função. No nosso simples script R este é realizado pela seguinte linha.
 
-```
+```r
 maml.mapOutputPort('cadairydata')
 ```
 
@@ -367,7 +374,7 @@ Olhando para os tipos de dados das colunas que introduzimos na secção anterior
 
 Apaguei a linha que criou a matriz de dispersão e adicionei uma linha que converte a coluna 'Mês' num fator. Na minha experiência, vou cortar e colar o código R na janela de código do Módulo [de Script Execute R.][execute-r-script] Também pode atualizar o ficheiro zip e carregá-lo para o Azure Machine Learning Studio (clássico), mas isso dá vários passos.  
 
-```R
+```r
 ## Only one of the following two lines should be used
 ## If running in Machine Learning Studio (classic), use the first line with maml.mapInputPort()
 ## If in RStudio, use the second line with read.csv()
@@ -383,31 +390,33 @@ maml.mapOutputPort('cadairydata')
 
 Vamos executar este código e ver o registo de saída para o script R. Os dados relevantes do registo são apresentados na Figura 9.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  9 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 14 levels "Apr","April",..: 6 5 9 1 11 8 7 3 14 13 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  9 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 14 levels "Apr","April",..: 6 5 9 1 11 8 7 3 14 13 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving variable  cadairydata  ..."
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```
 
 *Figura 9. Resumo do dataframe com uma variável de fator.*
 
@@ -415,38 +424,40 @@ O tipo de mês deve agora dizer '**Fator c/ 14 níveis**'. Este é um problema, 
 
 O problema é que a coluna "Mês" não foi codificada sistematicamente. Em alguns casos, um mês é chamado de abril e em outros é abreviado como abr. Podemos resolver este problema aparando a corda para 3 caracteres. A linha de código agora parece o seguinte:
 
-```R
+```r
 ## Ensure the coding is consistent and convert column to a factor
 cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 ```
 
 Reexame a experiência e veja o registo de saída. Os resultados esperados são apresentados na Figura 10.  
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  9 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  9 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving variable  cadairydata  ..."
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```
 
 *Figura 10. Resumo do dataframe com número correto de níveis de fator.*
 
@@ -463,34 +474,36 @@ Há um pouco de filtragem que devemos fazer no nosso conjunto de dados. Se olhar
 
 Adiciono a seguinte linha ao meu código R no módulo [executo R Script.][execute-r-script]
 
-```R
+```r
 # Remove two columns we do not need
 cadairydata <- cadairydata[, c(-1, -2)]
 ```
 
 Verifique este código na sua experiência e verifique o resultado a partir do registo de saída. Estes resultados são apresentados na Figura 11.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  7 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  7 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving variable  cadairydata  ..."
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```
 
 *Figura 11. Resumo do quadro de dados com duas colunas removidas.*
 
@@ -502,7 +515,7 @@ Para criar modelos de séries temporais será conveniente ter uma coluna contend
 
 Para ajudar a organizar o código, criaremos a nossa primeira função simples, `num.month()` . Em seguida, aplicaremos esta função para criar uma nova coluna no dataframe. O novo código é o seguinte.
 
-```R
+```r
 ## Create a new column with the month count
 ## Function to find the number of months from the first
 ## month of the time series
@@ -520,29 +533,31 @@ cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 
 Agora execute a experiência atualizada e use o registo de saída para ver os resultados. Estes resultados são apresentados na Figura 12.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  8 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  8 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving variable  cadairydata  ..."
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```
 
 *Figura 12. Resumo do quadro de dados com a coluna adicional.*
 
@@ -558,7 +573,7 @@ Para o nosso modelo de previsão usamos um modelo multiplicativo para tendência
 
 No seguinte código, defino uma nova função, `log.transform()` e aplicá-la às linhas que contêm os valores numéricos. A `Map()` função R é utilizada para aplicar a `log.transform()` função às colunas selecionadas do quadro de dados. `Map()`é `apply()` semelhante, mas permite mais de uma lista de argumentos para a função. Note que uma lista de multiplicadores fornece o segundo argumento à `log.transform()` função. A `na.omit()` função é usada como um pouco de limpeza para garantir que não temos valores em falta ou indefinidos no dataframe.
 
-```R
+```r
 log.transform <- function(invec, multiplier = 1) {
   ## Function for the transformation, which is the log
   ## of the input value times a multiplier
@@ -604,29 +619,31 @@ Se não estiver habituado à programação defensiva em R, todo este código pod
 
 Execute este código R na sua experiência e veja a saída impressa no ficheiro output.log. Verá agora os valores transformados das quatro colunas no registo, como mostra a Figura 13.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  8 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
-    [ModuleOutput] 
-    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  8 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving variable  cadairydata  ..."
+[ModuleOutput] 
+[ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
+```
 
 *Figura 13. Resumo dos valores transformados no dataframe.*
 
@@ -656,7 +673,7 @@ Tal como fiz para os primeiros exemplos, à medida que avançamos através do ex
 
 Como primeiro passo, vamos ler num dataframe e certificar-nos de que obtemos os resultados esperados. O seguinte código deve fazer o trabalho.
 
-```R
+```r
 # Comment the following if using RStudio
 cadairydata <- maml.mapInputPort(1)
 str(cadairydata) # Check the results
@@ -664,25 +681,27 @@ str(cadairydata) # Check the results
 
 Agora, faz a experiência. O registo da nova forma do Script Execut R deve parecer a Figura 14.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  8 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  8 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+```
 
 *Figura 14. Resumo do quadro de dados no módulo executo do script R.*
 
@@ -692,7 +711,7 @@ Estes dados são dos tipos e formatos esperados. Note que a coluna 'Mês' é de 
 
 Precisamos adicionar um objeto de série de tempo ao nosso dataframe. Substitua o código atual pelo seguinte, que adiciona uma nova coluna de classe POSIXct.
 
-```R
+```r
 # Comment the following if using RStudio
 cadairydata <- maml.mapInputPort(1)
 
@@ -705,27 +724,29 @@ str(cadairydata) # Check the results
 
 Agora, verifique o tronco. Deve parecer a Figura 15.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  9 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  9 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
+```
 
 *Figura 15. Resumo do dataframe com um objeto da série de tempo.*
 
@@ -735,7 +756,7 @@ Podemos ver pelo resumo que a nova coluna é, de facto, de classe POSIXct.
 
 Vamos explorar algumas das variáveis neste conjunto de dados. Uma matriz de dispersão é uma boa maneira de produzir um olhar rápido. Estou a substituir a `str()` função no código R anterior pela seguinte linha.
 
-```R
+```r
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
 ```
 
@@ -753,7 +774,7 @@ Para realizar a análise de correlação precisamos de desatar e padronizar as v
 
 A `ts.detrend()` função abaixo mostra ambas estas operações. As duas linhas seguintes de desacrução dos dados e, em seguida, normalizam os valores.
 
-```R
+```r
 ts.detrend <- function(ts, Time, min.length = 3){
   ## Function to de-trend and standardize a time series
 
@@ -816,7 +837,7 @@ Pode comparar estes resultados com os apresentados na Figura 16. Com a tendênci
 
 O código para calcular as correlações como objetos R ccf é o seguinte.
 
-```R
+```r
 ## A function to compute pairwise correlations from a
 ## list of time series value vectors
 pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
@@ -834,57 +855,59 @@ cadairycorrelations
 
 A execução deste código produz o registo mostrado na Figura 18.
 
-    [ModuleOutput] Loading objects:
-    [ModuleOutput]   port1
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] [[1]]
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] Autocorrelations of series 'X', by lag
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput]    -1     0     1 
-    [ModuleOutput] 0.148 0.358 0.317 
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] [[2]]
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] Autocorrelations of series 'X', by lag
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput]     -1      0      1 
-    [ModuleOutput] -0.395 -0.186 -0.238 
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] [[3]]
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] Autocorrelations of series 'X', by lag
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput]     -1      0      1 
-    [ModuleOutput] -0.059 -0.089 -0.127 
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] [[4]]
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] Autocorrelations of series 'X', by lag
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput]    -1     0     1 
-    [ModuleOutput] 0.140 0.294 0.293 
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] [[5]]
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput] Autocorrelations of series 'X', by lag
-    [ModuleOutput] 
-    [ModuleOutput] 
-    [ModuleOutput]     -1      0      1 
-    [ModuleOutput] -0.002 -0.074 -0.124 
+```output
+[ModuleOutput] Loading objects:
+[ModuleOutput]   port1
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] [[1]]
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] Autocorrelations of series 'X', by lag
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput]    -1     0     1 
+[ModuleOutput] 0.148 0.358 0.317 
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] [[2]]
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] Autocorrelations of series 'X', by lag
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput]     -1      0      1 
+[ModuleOutput] -0.395 -0.186 -0.238 
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] [[3]]
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] Autocorrelations of series 'X', by lag
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput]     -1      0      1 
+[ModuleOutput] -0.059 -0.089 -0.127 
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] [[4]]
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] Autocorrelations of series 'X', by lag
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput]    -1     0     1 
+[ModuleOutput] 0.140 0.294 0.293 
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] [[5]]
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput] Autocorrelations of series 'X', by lag
+[ModuleOutput] 
+[ModuleOutput] 
+[ModuleOutput]     -1      0      1 
+[ModuleOutput] -0.002 -0.074 -0.124 
+```
 
 *Figura 18. Lista de objetos ccf da análise de correlação de pares.*
 
@@ -895,7 +918,7 @@ Calculamos as correlações em pares como uma lista de objetos R ccf. Isto apres
 
 O código a seguir extrai os valores de lag da lista de objetos ccf, que são eles próprios listas.
 
-```R
+```r
 df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
 
 c.names <- c("correlation pair", "-1 lag", "0 lag", "+1 lag")
@@ -951,7 +974,7 @@ Comece por adicionar um **novo** módulo [executo R script][execute-r-script] à
 
 Tal como com a análise de correlação que acabámos de completar, precisamos adicionar uma coluna com um objeto da série de tempo POSIXct. O seguinte código fará apenas isto.
 
-```R
+```r
 # If running in Machine Learning Studio (classic), uncomment the first line with maml.mapInputPort()
 cadairydata <- maml.mapInputPort(1)
 
@@ -964,27 +987,29 @@ str(cadairydata)
 
 Executar este código e olhar para o registo. O resultado deve parecer a Figura 21.
 
-    [ModuleOutput] [1] "Loading variable port1..."
-    [ModuleOutput] 
-    [ModuleOutput] 'data.frame':    228 obs. of  9 variables:
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
-    [ModuleOutput] 
-    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
+```output
+[ModuleOutput] [1] "Loading variable port1..."
+[ModuleOutput] 
+[ModuleOutput] 'data.frame':    228 obs. of  9 variables:
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+[ModuleOutput] 
+[ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+[ModuleOutput] 
+[ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
+```
 
 *Figura 21. Um resumo do quadro de dados.*
 
@@ -994,7 +1019,7 @@ Com este resultado, estamos prontos para começar a nossa análise.
 
 Com o dataframe construído precisamos criar um conjunto de dados de formação. Estes dados incluirão todas as observações, exceto as últimas 12, do ano de 2013, que é o nosso conjunto de dados de teste. O código seguinte subconjunta o dataframe e cria parcelas das variáveis de produção e preço dos lacticínios. Em seguida, crio parcelas das quatro variáveis de produção e preço. Uma função anónima é usada para definir alguns aumentos para enredo, e depois iterar sobre a lista dos outros dois argumentos com `Map()` . Se está a pensar que um loop teria funcionado bem aqui, tem razão. Mas, como R é uma linguagem funcional, estou a mostrar-lhe uma abordagem funcional.
 
-```R
+```r
 cadairytrain <- cadairydata[1:216, ]
 
 Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
@@ -1025,69 +1050,73 @@ Dada a pequena escala dos dados, vou construir o modelo de tendência no RStudio
 
 Como primeira tentativa, tentarei uma regressão polinómial com poderes até 3. Existe um perigo real de se adaptar a este tipo de modelos. Portanto, é melhor evitar termos de alta ordem. A `I()` função inibe a interpretação dos conteúdos (interpreta o conteúdo 'como está') e permite escrever uma função literalmente interpretada numa equação de regressão.
 
-```R
+```r
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cadairytrain)
 summary(milk.lm)
 ```
 
 Isto gera o seguinte.
 
-    ##
-    ## Call:
-    ## lm(formula = Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3),
-    ##     data = cadairytrain)
-    ##
-    ## Residuals:
-    ##      Min       1Q   Median       3Q      Max
-    ## -0.12667 -0.02730  0.00236  0.02943  0.10586
-    ##
-    ## Coefficients:
-    ##                   Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-    ## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
-    ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-    ## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ##
-    ## Residual standard error: 0.0418 on 212 degrees of freedom
-    ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
-    ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
+```output
+##
+## Call:
+## lm(formula = Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3),
+##     data = cadairytrain)
+##
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## -0.12667 -0.02730  0.00236  0.02943  0.10586
+##
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##
+## Residual standard error: 0.0418 on 212 degrees of freedom
+## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
+## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
+```
 
 A partir dos valores P `Pr(>|t|)` nesta saída, podemos ver que o termo quadrado pode não ser significativo. Vou usar a `update()` função para modificar este modelo deixando cair o termo ao quadrado.
 
-```R
+```r
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
 summary(milk.lm)
 ```
 
 Isto gera o seguinte.
 
-    ##
-    ## Call:
-    ## lm(formula = Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-    ##
-    ## Residuals:
-    ##      Min       1Q   Median       3Q      Max
-    ## -0.12597 -0.02659  0.00185  0.02963  0.10696
-    ##
-    ## Coefficients:
-    ##                   Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-    ## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-    ## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ##
-    ## Residual standard error: 0.0417 on 213 degrees of freedom
-    ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
-    ## F-statistic: 1.69e+03 on 2 and 213 DF,  p-value: <2e-16
+```output
+##
+## Call:
+## lm(formula = Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
+##
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## -0.12597 -0.02659  0.00185  0.02963  0.10696
+##
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)
+## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##
+## Residual standard error: 0.0417 on 213 degrees of freedom
+## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
+## F-statistic: 1.69e+03 on 2 and 213 DF,  p-value: <2e-16
+```
 
 Isto parece melhor. Todos os termos são significativos. No entanto, o valor 2e-16 é um valor padrão, e não deve ser levado muito a sério.  
 
 Como um teste de sanidade, vamos fazer uma série de tempo dos dados de produção de lacticínios da Califórnia com a curva de tendência mostrada. Adicionei o seguinte código no Azure Machine Learning Studio (clássico) [Execute R Script][execute-r-script] modelo (não RStudio) para criar o modelo e fazer um enredo. O resultado é mostrado na Figura 23.
 
-```R
+```r
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
 plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
@@ -1106,50 +1135,52 @@ Com um modelo de tendência na mão, precisamos continuar e incluir os efeitos s
 
 Uma vez que temos um modelo de tendência satisfatório podemos usar a `update()` função para adicionar os novos termos ao modelo existente. O -1 na fórmula de atualização deixa cair o termo de interceção. Continuando no RStudio por enquanto:
 
-```R
+```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
 summary(milk.lm2)
 ```
 
 Isto gera o seguinte.
 
-    ##
-    ## Call:
-    ## lm(formula = Milk.Prod ~ Time + I(Month.Count^3) + Month - 1,
-    ##     data = cadairytrain)
-    ##
-    ## Residuals:
-    ##      Min       1Q   Median       3Q      Max
-    ## -0.06879 -0.01693  0.00346  0.01543  0.08726
-    ##
-    ## Coefficients:
-    ##                   Estimate Std. Error t value Pr(>|t|)
-    ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-    ## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-    ## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-    ## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-    ## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-    ## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-    ## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-    ## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-    ## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-    ## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-    ## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-    ## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-    ## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-    ## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ##
-    ## Residual standard error: 0.0263 on 202 degrees of freedom
-    ## Multiple R-squared:     1,    Adjusted R-squared:     1
-    ## F-statistic: 1.42e+06 on 14 and 202 DF,  p-value: <2e-16
+```output
+##
+## Call:
+## lm(formula = Milk.Prod ~ Time + I(Month.Count^3) + Month - 1,
+##     data = cadairytrain)
+##
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## -0.06879 -0.01693  0.00346  0.01543  0.08726
+##
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)
+## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##
+## Residual standard error: 0.0263 on 202 degrees of freedom
+## Multiple R-squared:     1,    Adjusted R-squared:     1
+## F-statistic: 1.42e+06 on 14 and 202 DF,  p-value: <2e-16
+```
 
 Vemos que o modelo já não tem um termo de interceção e tem 12 fatores mensais significativos. Isto é exatamente o que queríamos ver.
 
 Vamos fazer outra série de tempo dos dados de produção de lacticínios da Califórnia para ver como o modelo sazonal está a funcionar. Adicionei o seguinte código no Azure Machine Learning Studio (clássico) [Execute R Script][execute-r-script] para criar o modelo e fazer um enredo.
 
-```R
+```r
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
 plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
@@ -1166,7 +1197,7 @@ A adequação aos dados apresentados na Figura 24 é bastante encorajadora. Tant
 
 Como outra verificação do nosso modelo, vamos dar uma olhada nos residuais. O código seguinte calcula os valores previstos dos nossos dois modelos, calcula os residuais para o modelo sazonal, e depois traça estes residuais para os dados de treino.
 
-```R
+```r
 ## Compute predictions from our models
 predict1  <- predict(milk.lm, cadairydata)
 predict2  <- predict(milk.lm2, cadairydata)
@@ -1188,7 +1219,7 @@ O enredo mostrado na Figura 25 é útil para detetar quaisquer padrões dependen
 
 Também pode usar `plot.lm()` para produzir uma série de enredos de diagnóstico.
 
-```R
+```r
 ## Show the diagnostic plots for the model
 plot(milk.lm2, ask = FALSE)
 ```
@@ -1213,7 +1244,7 @@ Só há mais uma coisa a fazer para completar o nosso exemplo. Precisamos calcul
 
 Uma série de métricas são usadas para medir o desempenho dos modelos de séries temporais. No nosso caso, usaremos o erro quadrado de raiz (RMS). A seguinte função calcula o erro RMS entre duas séries.  
 
-```R
+```r
 RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
   ## Function to compute the RMS error or difference between two
   ## series or vectors
@@ -1263,7 +1294,7 @@ Tal como na `log.transform()` função que discutimos na secção "Transformaç�
 
 Equipado com uma função para medir o erro RMS, vamos construir e desaudam um dataframe contendo os erros do RMS. Incluiremos apenas termos para o modelo de tendência e o modelo completo com fatores sazonais. O seguinte código faz o trabalho utilizando os dois modelos lineares que construímos.
 
-```R
+```r
 ## Compute the RMS error in a dataframe
 ## Include the row names in the first column so they will
 ## appear in the output of the Execute R Script

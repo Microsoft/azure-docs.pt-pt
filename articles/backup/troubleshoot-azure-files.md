@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130403"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079892"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -277,8 +277,6 @@ Código de erro: BMSUserErrorObjectLocked
 Error Message: Está em curso outra operação no item selecionado.
 
 Aguarde que a outra operação em curso termine e relemisse mais tarde.
-
-Do ficheiro: troubleshoot-azure-files.md
 
 ## <a name="common-soft-delete-related-errors"></a>Erros relacionados com a eliminação suave comum
 

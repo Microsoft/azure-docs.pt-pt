@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701886"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081575"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas para uma VM do Windows no Azure
 Pode receber uma mensagem de erro específica quando utilizar a ligação remote desktop a uma máquina virtual Windows (VM) em Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com medidas de resolução de problemas para as resolver. Se tiver problemas ligados ao seu VM utilizando RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md).
@@ -39,7 +40,9 @@ Causa: O período de carência de 120 dias para a função Remote Desktop Server
 
 Como solução alternativa, guarde uma cópia local do ficheiro RDP do portal e execute este comando num pedido de comando PowerShell para ligar. Este passo desativa o licenciamento para essa ligação:
 
-        mstsc <File name>.RDP /admin
+```powershell
+mstsc <File name>.RDP /admin
+```
 
 Se não precisar de mais de duas ligações de ambiente de trabalho remoto simultâneas ao VM, pode utilizar o Server Manager para remover a função "Servidor de Ambiente de Trabalho Remoto".
 
@@ -54,9 +57,11 @@ Possíveis soluções:
 
 * Se estiver na intranet de uma organização, certifique-se de que o seu computador tem acesso ao servidor proxy e pode enviar-lhe tráfego HTTPS.
 * Se estiver a utilizar um ficheiro RDP armazenado localmente, tente utilizar o que é gerado pelo portal. Este passo garante que tem o nome DNS correto para a máquina virtual, ou o serviço de nuvem e a porta de ponto final do VM. Aqui está uma amostra de ficheiro RDP gerado pelo portal:
-  
-        full address:s:tailspin-azdatatier.cloudapp.net:55919
-        prompt for credentials:i:1
+
+    ```output
+    full address:s:tailspin-azdatatier.cloudapp.net:55919
+    prompt for credentials:i:1
+    ```
 
 A parte de endereço deste ficheiro RDP tem:
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05d2ec362a81052b94746bdcfb0653e6366a3b32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcd0bbad41964e09665552a716d2577b1ccc0856
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513563"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080334"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
 
@@ -152,10 +153,10 @@ A sua aplicação AZure AD precisa de direitos para aceder às chaves ou segredo
 Utilize a política de definição de [keyvault az](/cli/azure/keyvault#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [Manage Key Vault utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Dê ao diretor de serviço que criou através do Azure CLI acesso para obter segredos e embrulhar chaves com o seguinte comando:
- 
-     ```azurecli-interactive
-     az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
-     ```
+
+```azurecli-interactive
+az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
+```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a>Desconfiem da política de acesso ao cofre chave para a app AZure AD com o portal
 

@@ -6,13 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75612296"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082017"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
 

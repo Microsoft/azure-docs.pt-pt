@@ -6,14 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 0a434e09e940bcfaa459b45ef402b72229bb9375
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea2bda905879f6bdc6cc515f43474ff570e881b4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610020"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078889"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo PySpark para o Código do Estúdio Visual
 

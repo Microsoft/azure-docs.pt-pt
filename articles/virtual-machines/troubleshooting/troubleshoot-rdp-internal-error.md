@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8600971ffd23b1c253e8de807d365c46409b37bc
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703796"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081456"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Um erro interno ocorre quando se tenta ligar a uma VM do Azure através do Ambiente de Trabalho Remoto)
 
@@ -57,48 +58,61 @@ Ligue-se à [Consola em Série e abra a instância PowerShell](./serial-console-
 1. Numa instância PowerShell, utilize o [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é utilizada por outras aplicações:
 
-        Netstat -anob |more
+    ```powershell
+    Netstat -anob |more
+    ```
+
 2. Se Termservice.exe estiver a utilizar a porta 8080, vá para o passo 2. Se outro serviço ou aplicação que não Termservice.exe estiver a utilizar a porta 8080, siga estes passos:
 
     1. Parar o serviço para a aplicação que está a utilizar o serviço 3389:
 
-            Stop-Service -Name <ServiceName> -Force
+        ```powershell
+        Stop-Service -Name <ServiceName> -Force
+        ```
 
     2. Inicie o serviço de terminais:
 
-            Start-Service -Name Termservice
+        ```powershell
+        Start-Service -Name Termservice
+        ```
 
 2. Se o pedido não puder ser interrompido, ou se este método não se aplicar a si, altere a porta para PDR:
 
     1. Alterar a porta:
 
-            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+        ```powershell
+        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-            Stop-Service -Name Termservice -Force
-            
-            Start-Service -Name Termservice 
+        Stop-Service -Name Termservice -Force
+
+        Start-Service -Name Termservice
+        ```
 
     2. Desa parte da firewall para a nova porta:
 
-            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+        ```powershell
+        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+        ```
 
     3. [Atualize o grupo de segurança da rede para o novo porto](../../virtual-network/security-overview.md) no portal Azure RDP.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passo 2: Definir permissões corretas no certificado auto-assinado RDP
 
-1.  Numa instância powerShell, executar os seguintes comandos um a um para renovar o certificado auto-assinado RDP:
+1. Numa instância powerShell, executar os seguintes comandos um a um para renovar o certificado auto-assinado RDP:
 
-        Import-Module PKI 
-    
-        Set-Location Cert:\LocalMachine 
-        
-        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
-        
-        Remove-Item -Path $RdpCertThumbprint
+    ```powershell
+    Import-Module PKI
 
-        Stop-Service -Name "SessionEnv"
+    Set-Location Cert:\LocalMachine 
 
-        Start-Service -Name "SessionEnv"
+    $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+
+    Remove-Item -Path $RdpCertThumbprint
+
+    Stop-Service -Name "SessionEnv"
+
+    Start-Service -Name "SessionEnv"
+    ```
 
 2. Se não conseguir renovar o certificado utilizando este método, tente renovar remotamente o certificado auto-assinado RDP:
 
@@ -108,49 +122,64 @@ Ligue-se à [Consola em Série e abra a instância PowerShell](./serial-console-
     4. Aceda à pasta **Remote Desktop\Certificates,** clique com o botão direito no certificado e, em seguida, e selecione **Delete**.
     5. Numa instância PowerShell a partir da Consola em Série, reinicie o serviço de Configuração de Ambiente de Trabalho Remoto:
 
-            Stop-Service -Name "SessionEnv"
+        ```powershell
+        Stop-Service -Name "SessionEnv"
 
-            Start-Service -Name "SessionEnv"
+        Start-Service -Name "SessionEnv"
+        ```
+
 3. Reinicie a permissão para a pasta MachineKeys.
 
-        remove-module psreadline icacls
+    ```powershell
+    remove-module psreadline icacls
 
-        md c:\temp
+    md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
-        
-        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
+    takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
+    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
+    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
-        
-        Restart-Service TermService -Force
+    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
+
+    icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+
+    Restart-Service TermService -Force
+    ```
 
 4. Reinicie o VM e, em seguida, tente iniciar uma ligação de ambiente de trabalho remoto ao VM. Se o erro ainda ocorrer, vá para o próximo passo.
 
 #### <a name="step-3-enable-all-supported-tls-versions"></a>Passo 3: Ativar todas as versões TLS suportadas
 
 O cliente RDP utiliza o TLS 1.0 como protocolo padrão. No entanto, isto pode ser alterado para TLS 1.1, que se tornou o novo padrão. Se o TLS 1.1 estiver desativado no VM, a ligação falhará.
-1.  Em caso CMD, ativar o protocolo TLS:
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+1. Em caso CMD, ativar o protocolo TLS:
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+    ```console
+    reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
-2.  Para evitar que a política da AD sobreessa as alterações, pare temporariamente a atualização da política de grupo:
+    reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
-3.  Reinicie o VM de modo a que as alterações entrem em vigor. Se a questão for resolvida, executar o seguinte comando para ree capacitar a política de grupo:
+    reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+    ```
 
-        sc config gpsvc start= auto sc start gpsvc
+2. Para evitar que a política da AD sobreessa as alterações, pare temporariamente a atualização da política de grupo:
 
-        gpupdate /force
+    ```console
+    REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
+    ```
+
+3. Reinicie o VM de modo a que as alterações entrem em vigor. Se a questão for resolvida, executar o seguinte comando para ree capacitar a política de grupo:
+
+    ```console
+    sc config gpsvc start= auto sc start gpsvc
+
+    gpupdate /force
+    ```
+
     Se a mudança for revertida, significa que há uma política de Diretório Ativo no domínio da sua empresa. É preciso mudar essa política para evitar que este problema volte a ocorrer.
 
 ### <a name="repair-the-vm-offline"></a>Reparar o VM Offline
@@ -170,7 +199,7 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
 
     Neste script, assumimos que a letra de unidade que é atribuída ao disco de OS anexado é F. Substitua esta letra de unidade pelo valor adequado para o seu VM.
 
-    ```
+    ```console
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -197,73 +226,77 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
 1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador**).
 2. Execute o seguinte script. Neste script, assumimos que a letra de unidade que é atribuída ao disco de OS anexado é F. Substitua esta letra de unidade pelo valor adequado para o seu VM.
 
-        Md F:\temp
+    ```console
+    Md F:\temp
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
-        
-        takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+    icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
+    takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
+    icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
+    icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
 
-        icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
+    icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
+
+    icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
+    ```
 
 #### <a name="enable-all-supported-tls-versions"></a>Ativar todas as versões TLS suportadas
 
-1.  Abra uma sessão de solicitação de comando elevada **(Executar como administrador)** e executar os seguintes comandos. O seguinte script pressupõe que a carta do controlador é atribuída ao disco de OS anexado é F. Substitua esta letra de unidade pelo valor adequado para o seu VM.
-2.  Verifique qual o TLS que está ativado:
+1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador)** e executar os seguintes comandos. O seguinte script pressupõe que a carta do controlador é atribuída ao disco de OS anexado é F. Substitua esta letra de unidade pelo valor adequado para o seu VM.
+2. Verifique qual o TLS que está ativado:
 
-        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+    ```console
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
+    ```
 
-3.  Se a chave não existir, ou se o seu valor for **0,** ative o protocolo executando os seguintes scripts:
+3. Se a chave não existir, ou se o seu valor for **0,** ative o protocolo executando os seguintes scripts:
 
-        REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
+    ```console
+    REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+    ```
 
-4.  Ativar a NLA:
+4. Ativar a NLA:
 
-        REM Enable NLA
+    ```console
+    REM Enable NLA
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-5.  [Retire o disco de SO e recrie o VM](../windows/troubleshoot-recovery-disks-portal.md)e, em seguida, verifique se o problema está resolvido.
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
+    ```
 
-
-
-
-
+5. [Retire o disco de SO e recrie o VM](../windows/troubleshoot-recovery-disks-portal.md)e, em seguida, verifique se o problema está resolvido.

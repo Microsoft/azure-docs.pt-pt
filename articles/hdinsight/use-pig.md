@@ -1,95 +1,97 @@
 ---
 title: Utilizar Apache Pig
 titleSuffix: Azure HDInsight
-description: Aprenda a usar o Porco com Apache Hadoop no HDInsight.
+description: Aprenda a usar o Pig com Apache Hadoop em HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb6c540573ecd3163e9200be66edb58ed2ca4751
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672128"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079212"
 ---
-# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Porco Apache com Hadoop Apache no HDInsight
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Porco Apache com Apache Hadoop em HDInsight
 
-Aprenda a usar [o Porco Apache](https://pig.apache.org/) com HDInsight.
+Aprenda a usar [o Apache Pig](https://pig.apache.org/) com HDInsight.
 
-Apache Pig é uma plataforma para criar programas para Apache Hadoop usando uma linguagem processual conhecida como *Pig Latin*. O porco é uma alternativa a Java para criar soluções *MapReduce,* e está incluído com Azure HDInsight. Utilize a tabela seguinte para descobrir as várias formas de o Porco poder ser utilizado com o HDInsight:
+Apache Pig é uma plataforma para criar programas para Apache Hadoop usando uma linguagem processual conhecida como *Pig Latin.* O porco é uma alternativa a Java para criar soluções *MapReduce,* e está incluído com Azure HDInsight. Use a seguinte tabela para descobrir as várias formas de o Porco ser usado com HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Por que usar o Porco Apache
 
-Um dos desafios do processamento de dados utilizando mapReduce em Hadoop é implementar a sua lógica de processamento usando apenas um mapa e uma função de redução. Para um processamento complexo, muitas vezes tem de quebrar o processamento em múltiplas operações mapReduce que estão acorrentadas para alcançar o resultado desejado.
+Um dos desafios do processamento de dados usando o MapReduce em Hadoop é implementar a sua lógica de processamento usando apenas um mapa e uma função de redução. Para um processamento complexo, você muitas vezes tem que quebrar o processamento em várias operações MapReduce que estão acorrentadas em conjunto para alcançar o resultado desejado.
 
-O porco permite-lhe definir o processamento como uma série de transformações que os dados fluem para produzir a saída desejada.
+O porco permite definir o processamento como uma série de transformações que os dados fluem para produzir a produção desejada.
 
-A língua latina do porco permite-lhe descrever o fluxo de dados da entrada crua, através de uma ou mais transformações, para produzir a saída desejada. Os programas pig latinos seguem este padrão geral:
+A língua pig latina permite-lhe descrever o fluxo de dados da entrada bruta, através de uma ou mais transformações, para produzir a produção desejada. Os programas de pig latin seguem este padrão geral:
 
-* **Carga**: Leia os dados a manipular a partir do sistema de ficheiros.
+* **Carga:** Leia os dados a manipular a partir do sistema de ficheiros.
 
-* **Transformar:** Manipular os dados.
+* **Transformar**: Manipular os dados.
 
-* **Despejo ou armazene:** Dados de saída para o ecrã ou armazená-lo para processamento.
+* **Despeje ou guarde:** Desajeição de dados para o ecrã ou guarde-os para processamento.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo utilizador
 
-O Pig Latin também suporta funções definidas pelo utilizador (UDF), que lhe permitem invocar componentes externos que implementam lógicas difíceis de modelar em Pig Latin.
+O Pig Latin também suporta funções definidas pelo utilizador (UDF), que permite invocar componentes externos que implementam uma lógica difícil de modelar em Pig Latin.
 
-Para mais informações sobre o Pig Latin, consulte o Manual de [Referência Latina do Porco 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) e o Manual de Referência Latina do Porco [2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+Para obter mais informações sobre o pig latin, consulte [o Manual de Referência Latino do Porco 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) e o Manual de Referência Latina do Porco [2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 ## <a name="example-data"></a><a id="data"></a>Dados de exemplo
 
-O HDInsight fornece vários conjuntos de dados `/example/data` `/HdiSamples` de exemplo, que são armazenados nos diretórios e diretórios. Estes diretórios estão no armazenamento padrão para o seu cluster. O exemplo pig neste documento utiliza o `/example/data/sample.log`ficheiro *log4j* a partir de .
+O HDInsight fornece vários conjuntos de dados de exemplo, que são armazenados nos `/example/data` `/HdiSamples` diretórios e nos diretórios. Estes diretórios estão no armazenamento padrão para o seu cluster. O exemplo de Porco neste documento utiliza o ficheiro *log4j* de `/example/data/sample.log` .
 
-Cada registo no interior do ficheiro consiste numa `[LOG LEVEL]` linha de campos que contém um campo para mostrar o tipo e a gravidade, por exemplo:
+Cada registo dentro do ficheiro consiste numa linha de campos que contém um `[LOG LEVEL]` campo para mostrar o tipo e a gravidade, por exemplo:
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 No exemplo anterior, o nível de registo é ERROR.
 
 > [!NOTE]  
-> Também pode gerar um ficheiro log4j utilizando a ferramenta de registo [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) e, em seguida, carregar esse ficheiro para a sua bolha. Consulte [os dados de upload para hDInsight](hdinsight-upload-data.md) para obter instruções. Para obter mais informações sobre como as bolhas no armazenamento do Azure são usadas com o HDInsight, consulte [Use Azure Blob Storage com HDInsight](hdinsight-hadoop-use-blob-storage.md).
+> Também pode gerar um ficheiro log4j utilizando a ferramenta de registo [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) e, em seguida, fazer o upload desse ficheiro para a sua bolha. Consulte [os dados do upload para o HDInsight](hdinsight-upload-data.md) para obter instruções. Para obter mais informações sobre como as bolhas no armazenamento Azure são usadas com HDInsight, consulte [Use Azure Blob Storage com HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-## <a name="example-job"></a><a id="job"></a>Trabalho de exemplo
+## <a name="example-job"></a><a id="job"></a>Exemplo de trabalho
 
-O seguinte trabalho pig `sample.log` latin carrega o ficheiro do armazenamento predefinido para o seu cluster HDInsight. Em seguida, executa uma série de transformações que resultam numa contagem de quantas vezes cada nível de registo ocorreu nos dados de entrada. Os resultados estão escritos para o STDOUT.
+O seguinte trabalho pig latin carrega o `sample.log` ficheiro do armazenamento predefinido para o seu cluster HDInsight. Em seguida, executa uma série de transformações que resultam numa contagem de quantas vezes cada nível de registo ocorreu nos dados de entrada. Os resultados são escritos para STDOUT.
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
-A imagem seguinte mostra um resumo do que cada transformação faz aos dados.
+A imagem a seguir mostra um resumo do que cada transformação faz aos dados.
 
 ![Representação gráfica das transformações][image-hdi-pig-data-transformation]
 
-## <a name="run-the-pig-latin-job"></a><a id="run"></a>Executar o trabalho de Pig Latin
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Executar o trabalho de porco latino
 
-O HDInsight pode executar trabalhos de Pig Latin utilizando uma variedade de métodos. Use a tabela seguinte para decidir qual o método certo para si e, em seguida, siga o link para uma passagem.
+HDInsight pode executar trabalhos latinos de porco usando uma variedade de métodos. Use a seguinte tabela para decidir qual o método certo para si e, em seguida, siga o link para uma passagem.
 
 ## <a name="pig-and-sql-server-integration-services"></a>Serviços de Integração de Servidores de Porco e SQL
 
-Pode utilizar os Serviços de Integração do Servidor SQL (SSIS) para executar um trabalho de Porco. O Pack de Recursos Azure para SSIS fornece os seguintes componentes que trabalham com trabalhos de porco no HDInsight.
+Você pode usar os Serviços de Integração de Servidor SQL (SSIS) para executar um trabalho de Porco. O Azure Feature Pack for SSIS fornece os seguintes componentes que trabalham com trabalhos de porco em HDInsight.
 
-* [Tarefa de porco Azure HDInsight][pigtask]
+* [Tarefa do porco Azure HDInsight][pigtask]
 
 * [Gestor de conexão de assinatura Azure][connectionmanager]
 
-Saiba mais sobre o Pacote de Funcionalidades Azure para O SSIS [aqui][ssispack].
+Saiba mais sobre o Azure Feature Pack para SSIS [aqui.][ssispack]
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Passos seguintes
+## <a name="next-steps"></a><a id="nextsteps"></a>Próximos passos
 
-Agora que aprendeu a usar o Pig com o HDInsight, use os seguintes links para explorar outras formas de trabalhar com o Azure HDInsight.
+Agora que aprendeu a usar o Pig com HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 
 * [Upload data to HDInsight (Carregar dados para o HDInsight)](hdinsight-upload-data.md)
 * [Use a Colmeia Apache com HDInsight](./hadoop/hdinsight-use-hive.md)

@@ -5,14 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75435897"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079739"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters HDInsight com pacote de segurança empresarial
 

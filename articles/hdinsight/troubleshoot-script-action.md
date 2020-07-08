@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079264"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Ações de script de resolução de problemas em Azure HDInsight
 
@@ -55,7 +55,9 @@ Se a criação de cluster falhar devido a um erro de script, os registos são ma
 
 * Toda **a sestram** e **stderr** do anfitrião correspondente são enviados para a conta de armazenamento. Há uma **saída- \* .txt** e **erros- \* .txt** para cada ação do script. O ficheiro **output-*.txt** contém informações sobre o URI do script que foi executado no anfitrião. O seguinte texto é um exemplo destas informações:
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```output
+    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```
 
 * É possível que crie repetidamente um cluster de ação de script com o mesmo nome. Nesse caso, pode distinguir os registos relevantes com base no nome da pasta **DATE.** Por exemplo, a estrutura da pasta para um cluster, **mycluster,** criada em datas diferentes parece semelhante às seguintes entradas de registo:
 
@@ -106,7 +108,7 @@ Há duas exceções:
     No new script actions can be run on this cluster because of conflicting script names in existing scripts. Script names provided at cluster creation must be all unique. Existing scripts are run on resize.
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

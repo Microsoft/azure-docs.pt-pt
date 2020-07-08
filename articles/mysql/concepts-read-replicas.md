@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/24/2020
-ms.openlocfilehash: 29ae9c47ca4ed8cdfedf78ffa7957376c7556076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079178"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -107,6 +107,25 @@ Quando escolhes parar a replicação a uma réplica, perde todas as ligações c
 > Antes de parar a replicação numa réplica de leitura, certifique-se de que a réplica tem todos os dados necessários.
 
 Aprenda a parar a [replicação a uma réplica.](howto-read-replicas-portal.md)
+
+## <a name="failover"></a>Ativação pós-falha
+
+Não existe uma falha automatizada entre servidores mestre e réplica. 
+
+Como a replicação é assíncronea, há um desfasamento entre o mestre e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor principal e a latência entre centros de dados. Na maioria dos casos, o desfasamento da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
+
+> [!Tip]
+> Se falhar na réplica, o atraso no momento em que desvincular a réplica do mestre indicará quantos dados são perdidos.
+
+Uma vez que tenha decidido que quer falhar para uma réplica, 
+
+1. Pare a replicação na réplica<br/>
+   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado do mestre. Uma vez iniciado a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
+    
+2. Aponte a sua aplicação para a (antiga) réplica<br/>
+   Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez do mestre.
+    
+Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 

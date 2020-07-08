@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0e18e7bcc85dace93962c557d05d114df215d7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733000"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082221"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o kit de ferramentas Azure para eclipse para criar aplicações Apache Spark para um cluster HDInsight
 

@@ -3,12 +3,12 @@ title: Como criar definições de política de configuração de convidados a pa
 description: Saiba como converter a Política de Grupo do Windows Server 2019 Base de Segurança numa definição de política.
 ms.date: 06/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 021e8cc4aa34a21f980363e71de1a4b9afbf3ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269052"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080674"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows
 
@@ -92,7 +92,7 @@ O próximo passo é publicar o ficheiro para o armazenamento de bolhas.
 1. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Note que os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
 
    ```azurepowershell-interactive
-    function publish {
+    function Publish-Configuration {
         param(
         [Parameter(Mandatory=$true)]
         $resourceGroup,
@@ -147,25 +147,29 @@ O próximo passo é publicar o ficheiro para o armazenamento de bolhas.
 
 1. Utilize a função de publicação com os parâmetros atribuídos para publicar o pacote de Configuração de Convidados para o armazenamento de bolhas públicas.
 
-   ```azurepowershell-interactive
-   $uri = publish `
-    -resourceGroup $resourceGroup `
-    -storageAccountName $storageAccount `
-    -storageContainerName $storageContainer `
-    -filePath $path `
-    -blobName $blob
-    -FullUri
-    ```
 
+   ```azurepowershell-interactive
+   $PublishConfigurationSplat = @{
+       resourceGroup = $resourceGroup
+       storageAccountName = $storageAccount
+       storageContainerName = $storageContainer
+       filePath = $path
+       blobName = $blob
+       FullUri = $true
+   }
+   $uri = Publish-Configuration @PublishConfigurationSplat
+    ```
 1. Uma vez criado e carregado um pacote de política personalizada de Configuração de Convidados, crie a definição de política de Configuração de Convidados. Utilize o `New-GuestConfigurationPolicy` cmdlet para criar a Configuração do Convidado.
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPolicy `
-    -ContentUri $Uri `
-    -DisplayName 'Server 2019 Configuration Baseline' `
-    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
-    -Path C:\git\policyfiles\policy  `
-    -Platform Windows 
+    $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri 
+        DisplayName = 'Server 2019 Configuration Baseline' 
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        Path = 'C:\git\policyfiles\policy'  
+        Platform = Windows 
+        }
+   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
     
 1. Publique as definições de política utilizando o `Publish-GuestConfigurationPolicy` cmdlet. O cmdlet tem apenas o parâmetro **Path** que aponta para a localização dos ficheiros JSON criados por `New-GuestConfigurationPolicy` . Para executar o comando Publicar, precisa de ter acesso para criar definições de política em Azure. Os requisitos específicos de autorização estão documentados na página [Azure Policy Overview.](../overview.md#getting-started) O melhor papel incorporado é o **Contribuinte para a Política de Recursos.**

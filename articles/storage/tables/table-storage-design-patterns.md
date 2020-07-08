@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081235"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -1124,7 +1124,7 @@ Neste exemplo assíncronos, pode ver as seguintes alterações a partir da vers�
 
 A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método será executada em um fio separado.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Modelar relações](table-storage-design-modeling.md)
 - [Design das consultas](table-storage-design-for-query.md)

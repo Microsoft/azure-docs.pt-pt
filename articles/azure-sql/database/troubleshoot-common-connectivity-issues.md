@@ -12,11 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668411"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078974"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -104,7 +105,7 @@ Para tornar este teste prático, desligue o computador da rede antes de iniciar 
 - Faça uma pausa na execução utilizando o método **Console.ReadLine** ou um diálogo com um botão OK. O utilizador pressiona a tecla Enter depois de o computador estar ligado à rede.
 - Tentar novamente ligar-se, esperando sucesso.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste, soletrando mal o nome da base de dados ao ligar
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Teste, soletrando mal o nome de utilizador ao ligar
 
 O seu programa pode soletrar mal o nome de utilizador antes da primeira tentativa de ligação. O erro é:
 

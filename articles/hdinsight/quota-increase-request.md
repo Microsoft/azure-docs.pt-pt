@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 775234116812c8a6e156c6fb54d325ffcde4df94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079620"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 

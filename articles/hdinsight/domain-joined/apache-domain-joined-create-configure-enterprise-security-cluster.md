@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437638"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080164"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
 
@@ -424,6 +424,6 @@ Este passo requer os seguintes pré-requisitos:
 
 Se puder iniciar sômpa com esta conta, configura o seu cluster ESP corretamente para sincronizar com o seu caso ative diretório no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia [Uma introdução à segurança apache Hadoop com ESP.](hdinsight-security-overview.md)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 559746a817442602c76ba91f12c195be1d7f3cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f602c23f182ede2b9897563a8421163e1328e24
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188434"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079195"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Use SCP com Apache Hadoop em Azure HDInsight
 
@@ -44,7 +44,7 @@ Para obter informações sobre o carregamento de dados diretamente para o armaze
 * [HDInsight com o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
 * [HDInsight usando Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilizar SSH com o HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Utilizar nós de extremidade no HDInsight)

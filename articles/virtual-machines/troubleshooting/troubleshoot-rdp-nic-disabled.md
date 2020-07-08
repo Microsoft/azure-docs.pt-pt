@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918245"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078634"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível um ambiente de trabalho remoto para um VM porque a interface de rede está desativada
 
@@ -39,21 +40,29 @@ Para ativar a interface para o VM, utilize o controlo de série ou [reinicie](#r
 ). Se a Consola em Série não estiver ativada no seu VM, consulte [a interface de rede de reset](#reset-network-interface).
 2. Verifique o estado da interface da rede:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Note o nome da interface de rede desativada.
 
 3. Ativar a interface de rede:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Por exemplo, se a interface de intertração for denominada "Ethernet 2", executar o seguinte comando:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Verifique novamente o estado da interface de rede para se certificar de que a interface de rede está ativada.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Não tens de reiniciar o VM neste momento. O VM voltará a ser alcançável.
 

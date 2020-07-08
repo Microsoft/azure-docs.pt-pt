@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0394a7db6776e00ea031a2f40ab4de01540982a6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80436928"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080215"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar para o local aglomerados Apache Hadoop para Azure HDInsight
 
@@ -33,7 +33,7 @@ O Armazenamento Azure pode ser geo-replicado. Embora a geo-replicação dê recu
 
 Um dos seguintes formatos pode ser usado para aceder a dados armazenados no Azure Storage:
 
-|Formato de Acesso a Dados |Description |
+|Formato de Acesso a Dados |Descrição |
 |---|---|
 |`wasb:///`|Aceder ao armazenamento predefinido utilizando uma comunicação não encriptada.|
 |`wasbs:///`|Aceder ao armazenamento predefinido usando comunicação encriptada.|
@@ -79,7 +79,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure (Monitor, diagnose, and troubleshoot Microsoft Azure Storage)](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorizar uma conta de armazenamento no portal do Azure](../../storage/common/storage-monitor-storage-account.md)
 
-### <a name="azure-data-lake-storage-gen1"></a>Armazenamento do Azure Data Lake Ger1
+### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
 Azure Data Lake Storage implementa o modelo de controlo de acesso ao estilo HDFS e POSIX. Proporciona integração de primeira classe com a AAD para controlo de acessos finos. Não há limites para o tamanho dos dados que pode armazenar, ou a sua capacidade de executar análises massivamente paralelas.
 
@@ -88,7 +88,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Criar clusters HDInsight com armazenamento de data lake usando o portal Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Use o armazenamento do lago de dados com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 é a mais recente oferta de armazenamento. Unifica as capacidades centrais da primeira geração do Azure Data Lake Storage com um ponto final do sistema de ficheiros compatível com Hadoop diretamente integrado no Azure Blob Storage. Esta melhoria combina a escala e os benefícios de custos do armazenamento de objetos com a fiabilidade e desempenho tipicamente associados apenas com sistemas de ficheiros no local.
 
@@ -155,7 +155,7 @@ O HDInsight por padrão tem acesso total aos dados nas contas de Armazenamento A
 
 1. Abra o ficheiro [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e altere os seguintes valores:
 
-    |Propriedade Token|Description|
+    |Propriedade Token|Descrição|
     |---|---|
     |policy_name|O nome a usar para a política armazenada para criar.|
     |storage_account_name|O nome da sua conta de armazenamento.|
@@ -220,6 +220,6 @@ A conta de armazenamento adicional pode ser adicionada de uma sobre as seguintes
 
 Para obter mais informações, veja [Adicionar mais contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia o artigo seguinte nesta série: [As melhores práticas de migração de dados para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

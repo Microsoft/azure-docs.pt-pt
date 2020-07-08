@@ -5,17 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800652"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078739"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
 
 O Azure FarmBeats ajuda-o a trazer dados meteorológicos do seu(s) fornecedor de dados meteorológicos usando um Connector Framework baseado em estivadores. Utilizando este quadro, os fornecedores de dados meteorológicos implementam um estivador que pode ser integrado com o FarmBeats. Atualmente, os seguintes fornecedores de dados meteorológicos são suportados:
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Os dados meteorológicos podem ser usados para gerar insights accuíveis e construir modelos AI/ML em FarmBeats.
 
@@ -59,6 +62,9 @@ Para começar a obter dados meteorológicos no seu hub de dados FarmBeats, siga 
    ```
 
    Por exemplo, para obter dados meteorológicos da DTN, use a carga útil abaixo. Pode modificar o nome e a descrição de acordo com a sua preferência.
+
+   > [!NOTE]
+   > O passo abaixo requer uma chave API, por favor contacte a DTN para obter o mesmo para a sua subscrição DTN.
 
    ```json
    {

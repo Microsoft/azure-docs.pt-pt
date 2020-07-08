@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081315"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -269,9 +269,9 @@ Depois disso, todas as extrações delta DTPs e Data Factory subsequentes funcio
 
 Para definir o estado do DTP delta para **Fetched,** pode utilizar a seguinte opção para executar manualmente o DTP delta:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Sem Transferência de Dados; Estado da Delta na Fonte: Recolhido*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o suporte do conector SAP BW Open Hub:
 

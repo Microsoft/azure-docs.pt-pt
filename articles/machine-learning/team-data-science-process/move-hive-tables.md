@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860618"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080742"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure
 
@@ -69,7 +70,9 @@ Você pode executar comando como `hive -e "<your hive query>;` enviar simples co
 #### <a name="submit-hive-queries-in-hql-files"></a>Submeter consultas de Colmeia em ficheiros '.hql'
 Quando a consulta da Colmeia é mais complicada e tem várias linhas, editar consultas na linha de comando ou consola de comando Hive não é prático. Uma alternativa é usar um editor de texto no nó de cabeça do cluster Hadoop para salvar as consultas de Colmeia num ficheiro '.hql' num diretório local do nó de cabeça. Em seguida, a consulta da Colmeia no ficheiro '.hql' pode ser submetida utilizando o argumento da `-f` seguinte forma:
 
-    hive -f "<path to the '.hql' file>"
+```console
+hive -f "<path to the '.hql' file>"
+```
 
 ![Consulta de colmeia num ficheiro '.hql'](./media/move-hive-tables/run-hive-queries-3.png)
 
@@ -77,8 +80,10 @@ Quando a consulta da Colmeia é mais complicada e tem várias linhas, editar con
 
 Por padrão, após a consulta da Hive ser submetida na Linha de Comando Hadoop, o progresso do trabalho Mapa/Redução é impresso no ecrã. Para suprimir a impressão de ecrã do Mapa/Reduzir o progresso do trabalho, pode utilizar um argumento `-S` ("S" em maiúscula) na linha de comando da seguinte forma:
 
-    hive -S -f "<path to the '.hql' file>"
-    hive -S -e "<Hive queries>"
+```console
+hive -S -f "<path to the '.hql' file>"
+hive -S -e "<Hive queries>"
+```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Submeta consultas de Colmeia na consola de comando da Hive.
 Também pode primeiro introduzir a consola de comando da Colmeia executando o comando `hive` na Linha de Comando Hadoop e, em seguida, submeter consultas de Colmeia na consola de comando da Hive. Eis um exemplo. Neste exemplo, as duas caixas vermelhas destacam os comandos utilizados para entrar na consola de comando da Colmeia, e a consulta hive submetida na consola de comando da Hive, respectivamente. A caixa verde destaca a saída da consulta hive.
@@ -90,7 +95,9 @@ Os exemplos anteriores desempendam diretamente os resultados da consulta da Hive
 **A consulta da Hive de saída resulta num ficheiro local.**
 Para obter resultados de consulta de Hive para um diretório local no nó de cabeça, você tem que submeter a consulta de Colmeia na Linha de Comando Hadoop da seguinte forma:
 
-    hive -e "<hive query>" > <local path in the head node>
+```console
+hive -e "<hive query>" > <local path in the head node>
+```
 
 No exemplo seguinte, a saída da consulta hive é escrita num ficheiro `hivequeryoutput.txt` em diretório `C:\apps\temp` .
 
@@ -100,7 +107,9 @@ No exemplo seguinte, a saída da consulta hive é escrita num ficheiro `hivequer
 
 Também pode obter os resultados da consulta da Colmeia para uma bolha Azure, dentro do recipiente padrão do cluster Hadoop. A consulta da Colmeia para isto é a seguinte:
 
-    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```console
+insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```
 
 No exemplo seguinte, a saída da consulta de Hive é escrita para um diretório blob `queryoutputdir` dentro do recipiente padrão do cluster Hadoop. Aqui, só precisa de fornecer o nome do diretório, sem o nome blob. Um erro é lançado se fornecer nomes de diretório e blob, tais como `wasb:///queryoutputdir/queryoutput.txt` .
 
@@ -121,18 +130,20 @@ As consultas de Colmeia são partilhadas no [repositório GitHub](https://github
 
 Aqui está a consulta da Colmeia que cria uma mesa de colmeia.
 
-    create database if not exists <database name>;
-    CREATE EXTERNAL TABLE if not exists <database name>.<table name>
-    (
-        field1 string,
-        field2 int,
-        field3 float,
-        field4 double,
-        ...,
-        fieldN string
-    )
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
-    STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+create database if not exists <database name>;
+CREATE EXTERNAL TABLE if not exists <database name>.<table name>
+(
+    field1 string,
+    field2 int,
+    field3 float,
+    field4 double,
+    ...,
+    fieldN string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
+STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```
 
 Aqui estão as descrições dos campos que precisa de ligar e outras configurações:
 
@@ -146,7 +157,9 @@ Aqui estão as descrições dos campos que precisa de ligar e outras configuraç
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Carregar dados para as tabelas da Colmeia
 Aqui está a consulta da Colmeia que carrega dados numa tabela de Colmeias.
 
-    LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```hiveql
+LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```
 
 * **\<path to blob data\>**: Se o ficheiro blob a ser carregado para a tabela Hive estiver no recipiente predefinido do cluster HDInsight Hadoop, o *\<path to blob data\>* deve estar no formato * \<directory in this container> / \<blob file name> 'wasb://'*. O ficheiro blob também pode estar num recipiente adicional do cluster HDInsight Hadoop. Neste caso, *\<path to blob data\>* deve estar no formato *«wasb:// \<container name> @ \<storage account name> \<blob file name> .blob.core.windows.net/».*
 
@@ -163,69 +176,83 @@ Além das tabelas de colmeias de partição, também é benéfico armazenar os d
 ### <a name="partitioned-table"></a>Mesa dividida
 Aqui está a consulta da Colmeia que cria uma tabela dividida e carrega dados nela.
 
-    CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
-    (field1 string,
-    ...
-    fieldN string
-    )
-    PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-         lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
-        PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
+(field1 string,
+...
+fieldN string
+)
+PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
+    PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```
 
 Ao consultar as tabelas partitioned, recomenda-se adicionar a condição de partição no **início** da cláusula, o `where` que melhora a eficiência de pesquisa.
 
-    select
-        field1, field2, ..., fieldN
-    from <database name>.<partitioned table name>
-    where <partitionfieldname>=<partitionfieldvalue> and ...;
+```hiveql
+select
+    field1, field2, ..., fieldN
+from <database name>.<partitioned table name>
+where <partitionfieldname>=<partitionfieldvalue> and ...;
+```
 
 ### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>Armazenar dados da Colmeia em formato ORC
 Não é possível carregar diretamente os dados do armazenamento de bolhas nas tabelas Hive que são armazenadas no formato ORC. Aqui estão os passos que precisa de tomar para carregar dados de bolhas Azure para tabelas de Colmeias armazenadas em formato ORC.
 
 Crie uma tabela externa **ARMAZENADA COMO TEXTFILE** e carregue os dados do armazenamento do blob para a tabela.
 
-        CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-            lines terminated by '<line separator>' STORED AS TEXTFILE
-            LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' STORED AS TEXTFILE
+    LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+```
 
 Crie uma tabela interna com o mesmo esquema que a tabela externa no passo 1, com o mesmo delimiter de campo, e guarde os dados da Hive no formato ORC.
 
-        CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```hiveql
+CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```
 
 Selecione os dados da tabela externa no passo 1 e insira na tabela ORC
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name>
-            SELECT * FROM <database name>.<external textfile table name>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name>
+    SELECT * FROM <database name>.<external textfile table name>;
+```
 
 > [!NOTE]
 > Se a tabela TEXTFILE * \<database name\> . \<external textfile table name\> * tem divisórias, no PASSO 3, o `SELECT * FROM <database name>.<external textfile table name>` comando seleciona a variável de partição como um campo no conjunto de dados devolvidos. Inserindo-o no * \<database name\> . \<ORC table name\> * falha desde * \<database name\> . \<ORC table name\> * não tem a variável de partição como um campo no esquema de mesa. Neste caso, é necessário selecionar especificamente os campos a introduzir * \<database name\> . \<ORC table name\> * da seguinte forma:
 >
 >
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
-           SELECT field1, field2, ..., fieldN
-           FROM <database name>.<external textfile table name>
-           WHERE <partition variable>=<partition value>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
+    SELECT field1, field2, ..., fieldN
+    FROM <database name>.<external textfile table name>
+    WHERE <partition variable>=<partition value>;
+```
 
 É seguro deixar cair a *\<external text file table name\>* seguinte consulta depois de todos os dados terem sido inseridos * \<database name\> \<ORC table name\> *em :
 
-        DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```hiveql
+    DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```
 
 Depois de seguir este procedimento, deverá ter uma tabela com dados no formato ORC prontos a ser utilizados.  

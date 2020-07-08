@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82994188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080725"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
 

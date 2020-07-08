@@ -5,14 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 78623f738285e781cb561a3844db8fbf37226929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8751a54393f310c1d5a77ccbfdb553ee3643f74a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645026"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080113"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas MapReduce personalizados
 
