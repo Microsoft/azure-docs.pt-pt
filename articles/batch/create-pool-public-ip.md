@@ -3,12 +3,12 @@ title: Criar uma piscina com endereços IP públicos especificados
 description: Saiba como criar uma piscina de Lote que utilize os seus próprios endereços IP públicos.
 ms.topic: how-to
 ms.date: 06/16/2020
-ms.openlocfilehash: 9992ae573ea5c9590f15d6cffa11da599026c0a9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 51cb023bf3749233878fa4d544c6fd8ef4703645
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884976"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961562"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar uma piscina Azure Batch com endereços IP públicos especificados
 
@@ -16,13 +16,15 @@ Quando criar uma piscina Azure Batch, pode [providenciar a piscina numa sub-rede
 
 Pode criar uma lista de endereços IP públicos estáticos para usar com as máquinas virtuais na sua piscina. Isto permite-lhe controlar a lista de endereços IP públicos e garantir que não mudarão inesperadamente. Isto pode ser especialmente útil se estiver a trabalhar com qualquer serviço externo, como uma base de dados, que restringe o acesso a determinados endereços IP.
 
+Para obter informações sobre a criação de piscinas sem endereços IP públicos, leia [Criar um pool Azure Batch sem endereços IP públicos.](./batch-pool-no-public-ip-address.md)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Autenticação.** Para utilizar um endereço IP público, a API do cliente Batch deve utilizar a autenticação do [Azure Ative Directory (AD).](batch-aad-auth.md)
 
 - **Um Azure VNet.** Tem de utilizar uma [rede virtual](batch-virtual-network.md) a partir da mesma subscrição Azure na qual está a criar a sua piscina e os seus endereços IP. Apenas VNets baseados em Recursos Azure podem ser utilizados. Certifique-se de que o VNet satisfaz todos os [requisitos gerais](batch-virtual-network.md#vnet-requirements).
 
-- **Pelo menos um endereço IP público Azure**. Para criar um ou mais endereços IP públicos, pode utilizar o [portal Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [Interface Azure Command-Line (CLI)](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
+- **Pelo menos um endereço IP público Azure**. Para criar um ou mais endereços IP públicos, pode utilizar o [portal Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [Interface Azure Command-Line (CLI)](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
 
 > [!NOTE]
 > O lote atribui automaticamente recursos de rede adicionais no grupo de recursos que contém os endereços IP públicos. Por cada 100 nós dedicados, o Batch atribui geralmente um grupo de segurança de rede (NSG) e um equilibrador de carga. Estes recursos são limitados pelas quotas de recursos da subscrição. Ao utilizar piscinas maiores, poderá ter de [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos.
@@ -43,7 +45,7 @@ Tenha em mente os seguintes requisitos ao criar os seus endereços IP públicos:
 
 ## <a name="create-a-batch-pool-with-public-ip-addresses"></a>Criar uma piscina de lote com endereços IP públicos
 
-O exemplo abaixo mostra como usar a [API de Serviço de Lote Azure](https://docs.microsoft.com/rest/api/batchservice/pool/add) para criar uma piscina que utiliza endereços IP públicos.
+O exemplo abaixo mostra como usar a [API de Serviço de Lote Azure](/rest/api/batchservice/pool/add) para criar uma piscina que utiliza endereços IP públicos.
 
 ### <a name="batch-service-rest-api"></a>API REST do Serviço do Batch
 
@@ -91,7 +93,9 @@ Corpo do Pedido
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma piscina numa sub-rede de uma rede virtual Azure.](batch-virtual-network.md)
+- Saiba como [criar uma piscina Azure Batch sem endereços IP públicos.](./batch-pool-no-public-ip-address.md)
+

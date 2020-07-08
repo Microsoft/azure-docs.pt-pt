@@ -4,22 +4,22 @@ description: Conte o estado das tarefas do Lote Azure e os nós de computação 
 ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: d702cb4ec34925e8b9ce6f0c2e47af81db149a3e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 90f741b9ec5e17da4fd0cc95ef921e116b0c27dc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299454"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960593"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorize soluções de Lote contando tarefas e nódes por estado
 
 Para monitorizar e gerir soluções Azure Batch em larga escala, poderá ser necessário determinar a contagem de recursos em vários estados. O Azure Batch fornece operações eficientes para obter contagens para tarefas de Batch e nós de computação. Você pode usar estas operações em vez de consultas de lista potencialmente demoradas que devolvem informações detalhadas sobre grandes coleções de tarefas ou nós.
 
-- [Obter Task Counts](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) obtém uma contagem agregada de tarefas ativas, executantes e concluídas num trabalho, e de tarefas que foram bem sucedidas ou falhadas. 
+- [Obter Task Counts](/rest/api/batchservice/job/gettaskcounts) obtém uma contagem agregada de tarefas ativas, executantes e concluídas num trabalho, e de tarefas que foram bem sucedidas ou falhadas. 
 
   Ao contar tarefas em cada estado, pode apresentar mais facilmente o progresso do trabalho a um utilizador, ou detetar atrasos ou falhas inesperadas que possam afetar o trabalho. Get Task Counts está disponível a partir da versão API do Serviço de Lote 2017-06-01.5.1 e SDKs e ferramentas relacionadas.
 
-- [List Pool Node Counts](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) obtém o número de nós computacional dedicados e de baixa prioridade em cada piscina que estão em vários estados: criar, ficar inativo, offline, preempted, reiniciar, reimaging, iniciar, e outros.
+- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) obtém o número de nós computacional dedicados e de baixa prioridade em cada piscina que estão em vários estados: criar, ficar inativo, offline, preempted, reiniciar, reimaging, iniciar, e outros.
 
   Ao contar nós em cada estado, pode determinar quando tem recursos computativos adequados para executar os seus trabalhos e identificar potenciais problemas com as suas piscinas. List Pool Node Counts está disponível a partir da versão API do Serviço de Lote 2018-03-01.6.1 e SDKs e ferramentas relacionadas.
 
@@ -30,9 +30,9 @@ Note que, por vezes, os números devolvidos por estas operações podem não est
 A operação Get Task Counts conta as tarefas pelos seguintes estados:
 
 - **Ativo** - Uma tarefa que é em fila e capaz de executar, mas que não está atualmente atribuída a um nó de computação. Uma tarefa também é `active` se depender de uma tarefa dos [pais](batch-task-dependencies.md) que ainda não tenha sido concluída. 
-- **Execução** - Uma tarefa que foi atribuída a um nó de computação, mas que ainda não foi concluída. Uma tarefa é contada como `running` quando o seu estado é ou , como indicado pela `preparing` `running` Informação obter sobre uma operação [de tarefa.](https://docs.microsoft.com/rest/api/batchservice/task/get)
+- **Execução** - Uma tarefa que foi atribuída a um nó de computação, mas que ainda não foi concluída. Uma tarefa é contada como `running` quando o seu estado é ou , como indicado pela `preparing` `running` Informação obter sobre uma operação [de tarefa.](/rest/api/batchservice/task/get)
 - **Concluída** - Uma tarefa que já não é elegível para executar, porque ou terminou com sucesso, ou terminou sem sucesso e também esgotou o seu limite de recandidologia. 
-- **Bem sucedido** - Uma tarefa cujo resultado da execução de tarefas é `success` . O lote determina se uma tarefa foi bem sucedida ou falhou verificando a `TaskExecutionResult` propriedade da [execuçãoInfo.](https://docs.microsoft.com/rest/api/batchservice/task/get)
+- **Bem sucedido** - Uma tarefa cujo resultado da execução de tarefas é `success` . O lote determina se uma tarefa foi bem sucedida ou falhou verificando a `TaskExecutionResult` propriedade da [execuçãoInfo.](/rest/api/batchservice/task/get)
 - **Falhou** Uma tarefa cujo resultado da execução de tarefas é `failure` .
 
 A seguinte amostra de código .NET mostra como recuperar contagens de tarefas por estado:
@@ -65,7 +65,7 @@ A operação List Pool Node Counts conta os nós computacional pelos seguintes e
 - **Reimaging** - Um nó no qual o sistema operativo está a ser reinstalado.
 - **Execução** - Um nó que executa uma ou mais tarefas (para além da tarefa inicial).
 - **Início** - Um nó no qual o serviço Batch está a começar. 
-- **StartTaskFailed** - Um nó no qual a [tarefa inicial](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) falhou e esgotou todas as retrações, e sobre a qual está definida a `waitForSuccess` tarefa inicial. O nó não é utilizável para executar tarefas.
+- **StartTaskFailed** - Um nó no qual a [tarefa inicial](/rest/api/batchservice/pool/add#starttask) falhou e esgotou todas as retrações, e sobre a qual está definida a `waitForSuccess` tarefa inicial. O nó não é utilizável para executar tarefas.
 - **Desconhecido** - Um nó que perdeu o contacto com o serviço Batch e cujo estado não é conhecido.
 - **Inutilizável** - Um nó que não pode ser usado para execução de tarefas por causa de erros.
 - **WaitingForStartTask** - Um nó no qual a tarefa inicial começou a ser iniciada, mas `waitForSuccess` está definida e a tarefa inicial ainda não está concluída.
@@ -114,7 +114,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 
 Você pode usar um padrão semelhante para REST e outras línguas suportadas para obter contagem de nó para piscinas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como aplicar filtros a consultas que listam recursos do Lote, consulte [Criar consultas para listar os recursos do Batch de forma eficiente.](batch-efficient-list-queries.md)

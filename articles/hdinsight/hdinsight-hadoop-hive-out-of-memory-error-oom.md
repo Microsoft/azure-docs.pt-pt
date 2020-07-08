@@ -1,7 +1,7 @@
 ---
-title: Corrija uma Colmeia fora do erro de memória no Azure HDInsight
-description: Corrija uma Colmeia a partir de um erro de memória no HDInsight. O cenário do cliente é uma consulta em muitas mesas grandes.
-keywords: fora do erro de memória, OOM, Definições da Colmeia
+title: Corrija uma Colmeia fora de erro de memória em Azure HDInsight
+description: Corrija uma Colmeia com um erro de memória em HDInsight. O cenário do cliente é uma consulta em muitas mesas grandes.
+keywords: fora do erro de memória, OOM, configurações de Colmeia
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: 371c00fd63f7a89f4d50ce130e89f10e2a7a38bd
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891098"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961902"
 ---
-# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora do erro de memória no Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora de erro de memória em Azure HDInsight
 
-Aprenda a corrigir um erro da Hive Apache a partir da memória (OOM) ao processar grandes tabelas configurando as definições de memória da Hive.
+Aprenda a corrigir um erro da Colmeia Apache fora da memória (OOM) ao processar grandes tabelas configurando as definições de memória da Colmeia.
 
-## <a name="run-apache-hive-query-against-large-tables"></a>Executar consulta da Colmeia Apache contra grandes mesas
+## <a name="run-apache-hive-query-against-large-tables"></a>Executar consulta de Colmeia Apache contra grandes mesas
 
 Um cliente fez uma consulta da Hive:
 
@@ -46,15 +46,18 @@ Algumas nuances desta consulta:
 
 * T1 é um pseudónimo de uma grande mesa, TABLE1, que tem muitos tipos de colunas STRING.
 * Outras mesas não são tão grandes, mas têm muitas colunas.
-* Todas as mesas estão se juntando umas às outras, em alguns casos com várias colunas em TABLE1 e outros.
+* Todas as mesas estão se juntando, em alguns casos com várias colunas no TABLE1 e outras.
 
-A consulta da Hive demorou 26 minutos a terminar num cluster A3 HDInsight de 24 nós. O cliente reparou nas seguintes mensagens de aviso:
+A consulta da Colmeia demorou 26 minutos a terminar num aglomerado de 24 nós A3 HDInsight. O cliente reparou nas seguintes mensagens de aviso:
 
+```output
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
+```
 
-Usando o motor de execução Apache Tez. A mesma consulta durou 15 minutos e, em seguida, atirou o seguinte erro:
+Usando o motor de execução Apache Tez. A mesma consulta durou 15 minutos, e depois atirou o seguinte erro:
 
+```output
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
         at
@@ -78,16 +81,17 @@ Usando o motor de execução Apache Tez. A mesma consulta durou 15 minutos e, em
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
+```
 
-O erro permanece ao utilizar uma máquina virtual maior (por exemplo, D12).
+O erro permanece quando se utiliza uma máquina virtual maior (por exemplo, D12).
 
 ## <a name="debug-the-out-of-memory-error"></a>Depurar o erro de memória
 
-As nossas equipas de apoio e engenharia juntos encontraram um dos problemas que causaram o erro de memória foi uma [questão conhecida descrita no Apache JIRA:](https://issues.apache.org/jira/browse/HIVE-8306)
+As nossas equipas de apoio e engenharia encontraram juntos um dos problemas que causaram o erro de memória foi um [problema conhecido descrito no Apache JIRA:](https://issues.apache.org/jira/browse/HIVE-8306)
 
-"Quando a hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum of tables sizes in the map join is less noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation don't take to to do overhead introduceed by different HashTable implementation as results if the sum of input sizes is small than the noconditionaltask size by a small marginries
+"Quando hive.auto.convert.join.noconditionaltask = verdadeiro verificamos não o tamanho do não-especial.e se a soma dos tamanhos das tabelas na junção do mapa for inferior a nãoconditionaltask.size o plano geraria uma junção de mapa, a questão é que o cálculo não tem em conta a sobrecarga introduzida pela implementação de ísselo diferente como resultado se a soma dos tamanhos de entrada for menor do que o tamanho de não-condicionaltask por uma pequena margem consultas atingirá a OOM."
 
-O ficheiro **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was definido para **verdadeiro:**
+O **ficheiro hive.auto.convert.join.noconditionaltask** no hive-site.xml ficheiro foi definido como **verdadeiro**:
 
 ```xml
 <property>
@@ -101,22 +105,24 @@ O ficheiro **hive.auto.convert.join.noconditionaltask** in the hive-site.xml fil
 </property>
 ```
 
-É provável que a adesão ao mapa tenha sido a causa do Espaço Monte Java por erro de memória. Como explicado no post de blogue [Hadoop Yarn definições de memória no HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), quando o motor de execução Tez é usado, o espaço de pilha usado realmente pertence ao recipiente Tez. Veja a seguinte imagem descrevendo a memória do recipiente Tez.
+É provável que o mapa se juntasse foi a causa do Espaço Java Heap por erro de memória. Como explicado no blog post [Hadoop Yarn definições de memória em HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), quando o motor de execução Tez é usado o espaço de pilha usado realmente pertence ao recipiente Tez. Veja a seguinte imagem descrevendo a memória do recipiente Tez.
 
-![Diagrama de memória de recipiente tez: Colmeia fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Diagrama de memória do recipiente Tez: Colmeia fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Como sugere a publicação de blogue, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts**. Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor seja muito pequeno. Significa que o tamanho do monte Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que você vê fora da memória, você pode tentar aumentar **hive.tez.java.opts**. Se necessário, poderá ter de aumentar a **colmeia.tez.container.size**. A definição **java.opta** deve ser de cerca de 80% do tamanho do **recipiente.tamanho.**
+Como sugere o post do blog, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts**. Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor é muito pequeno. Significa que o tamanho da pilha de Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que vir fora da memória, pode tentar aumentar **a hive.tez.java.opts**. Se necessário, poderá ter de aumentar **o tamanho da colmeia.tez.container**. A definição **de java.opts** deve ser de cerca de 80% do tamanho do **contentor.**
 
 > [!NOTE]  
-> A definição **de hive.tez.java.opts** deve ser sempre menor do que **a hive.tez.container.size**.
+> A configuração **hive.tez.java.opts** deve ser sempre menor do que **hive.tez.container.size**.
 
-Como uma máquina D12 tem memória de 28 GB, decidimos usar um contentor tamanho de 10 GB (10240 MB) e atribuir 80% a java.opts:
+Como uma máquina D12 tem memória de 28 GB, decidimos usar um tamanho de contentor de 10 GB (10240 MB) e atribuir 80% a java.opts:
 
-    SET hive.tez.container.size=10240
-    SET hive.tez.java.opts=-Xmx8192m
+```console
+SET hive.tez.container.size=10240
+SET hive.tez.java.opts=-Xmx8192m
+```
 
-Com as novas configurações, a consulta correu com sucesso em menos de 10 minutos.
+Com as novas definições, a consulta foi com sucesso em menos de 10 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Obter um erro oom não significa necessariamente que o tamanho do recipiente é muito pequeno. Em vez disso, deve configurar as definições de memória de modo a que o tamanho da pilha seja aumentado e seja pelo menos 80% do tamanho da memória do recipiente. Para otimizar consultas de Hive, consulte [Otimize Apache Hive consultas para Apache Hadoop em HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Obter um erro OOM não significa necessariamente que o tamanho do recipiente é muito pequeno. Em vez disso, deve configurar as definições de memória de modo a que o tamanho da pilha seja aumentado e seja pelo menos 80% do tamanho da memória do recipiente. Para otimizar as consultas de Colmeia, consulte [as consultas de Hive Otimize Apache para Apache Hadoop em HDInsight.](hdinsight-hadoop-optimize-hive-query.md)

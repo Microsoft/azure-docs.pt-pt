@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 63fae2144a775629486f32ac721c95e8e29ff18f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 90e88020f735f34d308935f1233fb91c0eddfe32
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483453"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961069"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>Desenvolver para Azure NetApp Files com REST API usando PowerShell
 
@@ -40,15 +40,19 @@ A especificação REST API para ficheiros Azure NetApp é publicada através do 
 
    2. Introduza o seguinte comando no Azure CLI:  
 
-           $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json 
+      ```azurepowershell
+      $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json         
+      ```
 
       Para exibir as principais informações do serviço, `$RBAC_SP` escreva e prima Enter.
 
-           appId       : appID displays here
-           displayName : displayName
-           name        : http://SP_Name
-           password    : super secret password
-           tenant      : your tenant shows here
+      ```output
+      appId       : appID displays here
+      displayName : displayName
+      name        : http://SP_Name
+      password    : super secret password
+      tenant      : your tenant shows here
+      ```
         
       A saída é guardada no objeto `$RBAC_SP` variável. Usaremos os `$RBAC_SP.appId` `$RBAC_SP.password` valores e `$RBAC_SP.tenant` valores.
 
@@ -57,27 +61,33 @@ A especificação REST API para ficheiros Azure NetApp é publicada através do 
     Os exemplos deste artigo utilizam o PowerShell. Também pode utilizar várias ferramentas API, tais como [Carteiro,](https://www.getpostman.com/) [Insónia](https://insomnia.rest/)e [Pata.](https://paw.cloud/)  
 
     Usando a `$RBAC_SP` variável, vamos agora obter o símbolo do Portador. 
-
-        $body = "grant_type=client_credentials&client_id=$($RBAC_SP.appId)&client_secret=$($RBAC_SP.password)&resource=https://management.azure.com/"
-        $BearerToken = Invoke-RestMethod -Method Post -body $body -Uri https://login.microsoftonline.com/$($RBAC_SP.tenant)/oauth2/token
-
+    
+    ```azurepowershell
+    $body = "grant_type=client_credentials&client_id=$($RBAC_SP.appId)&client_secret=$($RBAC_SP.password)&resource=https://management.azure.com/"
+    $BearerToken = Invoke-RestMethod -Method Post -body $body -Uri https://login.microsoftonline.com/$($RBAC_SP.tenant)/oauth2/token
+    ```
     A saída fornece um objeto Bearer Token. Você pode ver o token de acesso digitando `$BearerToken.access_token` . É semelhante ao seguinte exemplo:
 
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
+    ```output
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
+    ```
 
     O token visualizado é válido por 3600 segundos. Depois disso, tens de pedir um novo símbolo. O token é guardado na variável e será usado no passo seguinte.
 
 4. Criar o `headers` objeto:
 
-        $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
-        $headers.Add("Authorization", "Bearer $($BearerToken.access_token)")
-        $headers.Add("Content-Type", "application/json")
+    ```azurepowershell  
+    $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+    $headers.Add("Authorization", "Bearer $($BearerToken.access_token)")
+    $headers.Add("Content-Type", "application/json")
+    ```
 
 5. Envie uma chamada de teste e inclua o token para validar o seu acesso à API REST:
 
-        $SubId = (Get-AzureRmContext).Subscription.Id 
-        Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2019-11-01
-
+    ```azurepowershell
+    $SubId = (Get-AzureRmContext).Subscription.Id 
+    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SubId/providers/Microsoft.Web/sites?api-version=2019-11-01
+    ```
 
 ## <a name="examples-using-the-api"></a>Exemplos de utilização da API  
 
@@ -88,26 +98,28 @@ Este artigo utiliza o seguinte URL para a linha de base dos pedidos. Este URL ap
 Deve atribuir valores variáveis antes de executar os seguintes exemplos com os seus próprios valores. As variáveis PowerShell são acedidas por dactilografia `$variablename` .
 As variáveis PowerShell são atribuídas através da utilização `$variablename = “value”` .
 
-        $Region = “westus2" 
-        $ResourceGroup = “MYTest-RG-63" 
-        $ANFvnetname = “NetAppFilesVnet-63"
-        $ANFvnetCIDR = “10.63.64.0/18"
-        $ANFsubnet = “NetAppFilesSubnet-63"
-        $ANFsubnetCIDR = “10.63.120.0/28"
-        $ANFsubnetID = “/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.Network/virtualNetworks/$ANFvnetname/subnets/$ANFSubnet"
-        $ANFAccount = “TestoftheAPI"
-        $ANFCapacityPool = “ANFTestPool"
-        $ANFServicelevel = “Standard"
-        $ANFVolume = “ANFTestVolume"
-        $ANFVolumeShareName = “Share-TEST"
-        $ANFVolumesize = 100GB
-        $ANFSnapshot = “ANFTestSnapshot"
+```azurepowershell
+$Region = “westus2" 
+$ResourceGroup = “MYTest-RG-63" 
+$ANFvnetname = “NetAppFilesVnet-63"
+$ANFvnetCIDR = “10.63.64.0/18"
+$ANFsubnet = “NetAppFilesSubnet-63"
+$ANFsubnetCIDR = “10.63.120.0/28"
+$ANFsubnetID = “/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.Network/virtualNetworks/$ANFvnetname/subnets/$ANFSubnet"
+$ANFAccount = “TestoftheAPI"
+$ANFCapacityPool = “ANFTestPool"
+$ANFServicelevel = “Standard"
+$ANFVolume = “ANFTestVolume"
+$ANFVolumeShareName = “Share-TEST"
+$ANFVolumesize = 100GB
+$ANFSnapshot = “ANFTestSnapshot"
+```
 
 ### <a name="put-request-examples"></a>PUT solicitar exemplos
 
 Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como mostram os seguintes exemplos. O corpo do pedido PUT inclui os dados formatados JSON para as alterações. Deve ser incluído no comando PowerShell como texto ou referenciado como ficheiro. Para referir o corpo como um ficheiro, guarde o exemplo json para um ficheiro e adicione `-body (Get-Content @<filename>)` ao comando PowerShell.
 
-
+```azurepowershell
     #create a NetApp account  
     $body = "{ 
         `"name`": `"$ANFAccount`", 
@@ -120,7 +132,9 @@ Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como 
 
     $api_version = "2020-02-01"
     Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount`?api-version=$api_version"  
+```
 
+```azurepowershell
     #create a capacity pool  
     $body = "{
       `"location`": `"$Region`",
@@ -131,7 +145,9 @@ Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como 
     }"
     $api_version = "2020-02-01"
     Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool`?api-version=$api_version" 
+```
 
+```azurepowershell
     #create a volume  
     $body = "{
         `"name`": `"$ANFVolume`",
@@ -147,7 +163,9 @@ Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como 
     }"
     $api_version = "2020-02-01"
     Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume`?api-version=$api_version" 
+```
 
+```azurepowershell
     #create a volume snapshot
     $body = "{
         `"name`": `"$ANFAccount/$ANFCapacityPool/$ANFVolume/$ANFSnapshot`",
@@ -160,11 +178,13 @@ Utiliza um pedido PUT para criar novos objetos nos Ficheiros Azure NetApp, como 
     }"
     $api_version = '2020-02-01'
     Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume/Snapshots/$ANFSnapshot`?api-version=$api_version"
+```
 
 ### <a name="json-examples"></a>Exemplos JSON
 
 O exemplo a seguir mostra como criar uma conta NetApp:
 
+```json
     { 
         "name": "MYNETAPPACCOUNT", 
         "type": "Microsoft.NetApp/netAppAccounts", 
@@ -173,9 +193,11 @@ O exemplo a seguir mostra como criar uma conta NetApp:
             "name": "MYNETAPPACCOUNT" 
         }
     } 
+```
 
 O exemplo a seguir mostra como criar um pool de capacidade: 
 
+```json
     {
         "name": "MYNETAPPACCOUNT/POOLNAME",
         "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
@@ -186,9 +208,11 @@ O exemplo a seguir mostra como criar um pool de capacidade:
             "serviceLevel": "Premium"
         }
     }
+```
 
 O exemplo a seguir mostra como criar um novo volume. (O protocolo predefinido para o volume é NFSV3.) 
 
+```json
     {
         "name": "MYNEWVOLUME",
         "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
@@ -201,9 +225,11 @@ O exemplo a seguir mostra como criar um novo volume. (O protocolo predefinido pa
             "subnetId": "/subscriptions/$SUBID/resourceGroups/$RESOURCEGROUP/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
         }
     }
+```
 
 O exemplo a seguir mostra como criar uma imagem instantânea de um volume: 
 
+```json
     {
         "name": "apitest2/apiPool01/apiVol01/snap02",
         "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
@@ -213,6 +239,7 @@ O exemplo a seguir mostra como criar uma imagem instantânea de um volume:
             "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
         }
     }
+```
 
 > [!NOTE] 
 > Tem de especificar `fileSystemId` para criar uma imagem instantânea.  Pode obter o `fileSystemId` valor com um pedido GET para um volume. 
@@ -221,21 +248,30 @@ O exemplo a seguir mostra como criar uma imagem instantânea de um volume:
 
 Ocorre um erro se o recurso não existir. Utiliza um pedido GET para consultar objetos de Ficheiros Azure NetApp numa subscrição, como mostram os seguintes exemplos:
 
-    #get NetApp accounts 
-    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01 | ConvertTo-Json
+```azurepowershell
+#get NetApp accounts 
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01 | ConvertTo-Json
+```
 
-    #get capacity pools for NetApp account 
-    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools?api-version=2019-11-01 | ConvertTo-Json
+```azurepowershell
+#get capacity pools for NetApp account 
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools?api-version=2019-11-01 | ConvertTo-Json
+```
 
-    #get volumes in NetApp account & capacity pool 
-    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes?api-version=2019-11-01 | ConvertTo-Json
+```azurepowershell
+#get volumes in NetApp account & capacity pool 
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes?api-version=2019-11-01 | ConvertTo-Json
+```
 
-    #get snapshots for a volume 
-    Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes/$ANFVOLUME/snapshots?api-version=2019-11-01 | ConvertTo-Json
+```azurepowershell
+#get snapshots for a volume 
+Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes/$ANFVOLUME/snapshots?api-version=2019-11-01 | ConvertTo-Json
+```
 
 ### <a name="complete-powershell-scripts"></a>Scripts completos do PowerShell
 Esta secção mostra scripts de amostra para PowerShell.
 
+```azurepowershell
     <#
     Disclaimer 
     The sample scripts are not supported under any Microsoft standard support program or service. The sample scripts are provided AS IS without warranty of any kind. Microsoft further disclaims all implied warranties including, without limitation, any implied warranties of merchantability or of fitness for a particular purpose. The entire risk arising out of the use or performance of the sample scripts and documentation remains with you. In no event shall Microsoft, its authors, or anyone else involved in the creation, production, or delivery of the scripts be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the sample scripts or documentation, even if Microsoft has been advised of the possibility of such damages.
@@ -397,7 +433,8 @@ Esta secção mostra scripts de amostra para PowerShell.
        sleep 5
        $response = Invoke-RestMethod -Method ‘GET’ -Headers $headers -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume/Snapshots/$ANFSnapshot`?api-version=$api_version" 
        }  
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Consulte a referência AZure NetApp API](https://docs.microsoft.com/rest/api/netapp/)

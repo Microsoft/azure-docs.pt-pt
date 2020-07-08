@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb92e4b7eaacb5b2d18b3c33f6fdf714592bdefc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803920"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961120"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 
@@ -27,8 +27,6 @@ ms.locfileid: "84803920"
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -66,7 +64,9 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
     O resultado esperado para o comando acima é o seguinte:
 
-        info:    New mode is arm
+    ```output
+    info:    New mode is arm
+    ```
 
 3. Abra o ficheiro de parâmetros, selecione o conteúdo e guarde-o num ficheiro no seu computador. Para este exemplo, guardámos o ficheiro de parâmetros em *parameters.json*.
 4. Execute o comando **azure group deployment create** para implementar o novo balanceador de carga interno com o modelo e os ficheiros de parâmetros que transferiu e alterou acima. A lista apresentada depois do resultado explica os parâmetros utilizados.
@@ -75,7 +75,7 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar um modo de distribuição de balanceador de carga com a afinidade do IP de origem](load-balancer-distribution-mode.md)
 

@@ -1,42 +1,45 @@
 ---
-title: Configuração completa do jogador de mídia azure
-description: Aprenda a configurar o Azure Media Player.
+title: Azure Media Player Full Setup
+description: Saiba como configurar o Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727245"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961784"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Leitor de Multimédia do Azure #
 
-Azure Media Player é fácil de configurar. Basta maquete sem estôver os conteúdos dos media logo na sua conta Azure Media Services. [As amostras](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidas no diretório de amostras da libertação.
+O Azure Media Player é fácil de configurar. Bastam alguns momentos para obter a reprodução básica de conteúdos de mídia na sua conta Azure Media Services. [As amostras](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidas no diretório de amostras da libertação.
 
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Passo 1: Incluir os ficheiros JavaScript e CSS na cabeça da sua página ##
 
-Com o Azure Media Player, podeaceder aos scripts a partir da versão hospedada da CDN. É frequentemente recomendado agora colocar javaScript antes `<body>` da `<head>`etiqueta do corpo final em vez da , mas O Azure Media Player inclui um 'HTML5 Shiv', que precisa estar na cabeça para versões IE mais antigas para respeitar a etiqueta de vídeo como um elemento válido.
+Com o Azure Media Player, pode aceder aos scripts a partir da versão hospedada pela CDN. Muitas vezes é recomendado agora colocar JavaScript antes da etiqueta de corpo final `<body>` em vez do , mas O `<head>` Azure Media Player inclui um 'HTML5 Shiv', que precisa estar na cabeça para versões IE mais antigas para respeitar a etiqueta de vídeo como um elemento válido.
 
 > [!NOTE]
-> Se já estiver a usar uma faca HTML5 como [modernizr,](http://modernizr.com/) pode incluir o JavaScript do Jogador de Mídia Azure em qualquer lugar. No entanto, certifique-se de que a sua versão do Modernizr inclui a faca para vídeo.
+> Se já estiver a utilizar um shiv HTML5 como [o Modernizr,](https://modernizr.com/) pode incluir o JavaScript do Azure Media Player em qualquer lugar. No entanto, certifique-se de que a sua versão de Modernizr inclui o shiv para vídeo.
 
 ### <a name="cdn-version"></a>Versão CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
-> **Não** deve utilizar `latest` a versão em produção, uma vez que esta está sujeita a alterações a pedido. Substitua `latest` por uma versão do Azure Media Player. Por exemplo, `latest` `2.1.1`substitua-o por . As versões Azure Media Player podem ser consultadas a partir [daqui.](azure-media-player-changelog.md)
+> **NÃO** deve utilizar a `latest` versão em produção, uma vez que esta está sujeita a alterações a pedido. Substitua `latest` por uma versão do Azure Media Player. Por exemplo, `latest` substitua-o por `2.1.1` . As versões Azure Media Player podem ser consultadas a partir [daqui](azure-media-player-changelog.md).
 
 > [!NOTE]
-> Desde `1.2.0` o lançamento, já não é necessário incluir a localização para as tecnologias de retorno (irá automaticamente captar a localização a partir do caminho relativo do ficheiro azuremediaplayer.min.js). Pode modificar a localização dos técnicos de recuo adicionando o seguinte script nos scripts `<head>` seguintes.
+> Desde o `1.2.0` lançamento, já não é necessário incluir a localização para os técnicos de retorno (irá automaticamente recolher a localização a partir do caminho relativo do ficheiro azuremediaplayer.min.js). Pode modificar a localização dos técnicos de retorno adicionando o seguinte script nos `<head>` scripts acima referidos.
 
 > [!NOTE]
-> Devido à natureza dos plugins Flash e Silverlight, os ficheiros swf e xap devem ser alojados num domínio sem qualquer informação ou dados sensíveis - isto é automaticamente tratado para si com a versão hospedada do Azure CDN.
+> Devido à natureza dos plugins Flash e Silverlight, os ficheiros SWF e XAP devem ser alojados num domínio sem qualquer informação ou dados sensíveis - isto é automaticamente tratado por si com a versão acolhida pelo CDN Azure.
 
 ```javascript
     <script>
@@ -47,17 +50,17 @@ Com o Azure Media Player, podeaceder aos scripts a partir da versão hospedada d
 
 ## <a name="step-2-add-an-html5-video-tag-to-your-page"></a>Passo 2: Adicione uma etiqueta de vídeo HTML5 à sua página ##
 
-Com o Azure Media Player, pode utilizar uma etiqueta de vídeo HTML5 para incorporar um vídeo. O Azure Media Player irá então ler a etiqueta e fazê-la funcionar em todos os navegadores, e não apenas nos que suportam o vídeo HTML5. Para além da marcação básica, o Azure Media Player precisa de algumas peças extras.
+Com o Azure Media Player, pode utilizar uma video tag HTML5 para incorporar um vídeo. O Azure Media Player irá então ler a etiqueta e fazê-la funcionar em todos os navegadores, e não apenas aqueles que suportam o vídeo HTML5. Para além da marcação básica, o Azure Media Player precisa de algumas peças extra.
 
-1. O `<data-setup>` atributo `<video>` no diz ao Azure Media Player para configurar automaticamente o vídeo quando a página estiver pronta, e ler qualquer (em formato JSON) do atributo.
-1. O `id` atributo: Deve ser utilizado e único para cada vídeo na mesma página.
+1. O `<data-setup>` atributo no `<video>` Azure Media Player diz ao Azure Media Player para configurar automaticamente o vídeo quando a página estiver pronta, e ler qualquer (em formato JSON) a partir do atributo.
+1. O `id` atributo: Deve ser usado e único para cada vídeo na mesma página.
 1. O `class` atributo contém duas classes:
     - `azuremediaplayer`aplica estilos que são necessários para a funcionalidade UI do Azure Media Player
     - `amp-default-skin`aplica a pele padrão aos controlos HTML5
 1. O `<source>` inclui dois atributos necessários
-    - `src`atributo pode incluir um ficheiro **.ism/manifesto* da Azure Media Services é adicionado, Azure Media Player adiciona automaticamente os URLs para DASH, SMOOTH e HLS ao leitor
+    - `src`o atributo pode incluir um ficheiro **.ism/manifesto* da Azure Media Services, a Azure Media Player adiciona automaticamente os URLs para DASH, SMOOTH e HLS ao jogador
     - `type`atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *".ism/manifest"* é *"application/vnd.ms-sstr+xml"*
-1. O *optional* `<data-setup>` atributo opcional `<source>` no conta Azure Media Player se existem políticas de entrega únicas para o stream da Azure Media Services, incluindo, mas não se limitando a, tipo de encriptação (AES ou PlayReady, Widevine ou FairPlay) e ficha.
+1. O atributo *opcional* `<data-setup>` no tells `<source>` Azure Media Player se houver alguma política de entrega única para o stream da Azure Media Services, incluindo, mas não limitado a, tipo de encriptação (AES ou PlayReady, Widevine ou FairPlay) e token.
 
 Inclua/exclua atributos, configurações, fontes e faixas exatamente como faria para o vídeo HTML5.
 
@@ -70,11 +73,11 @@ Inclua/exclua atributos, configurações, fontes e faixas exatamente como faria 
     </video>
 ```
 
-Por padrão, o botão de reprodução grande está localizado no canto superior esquerdo para que não cubra as partes interessantes do cartaz. Se preferir centrar o botão de reprodução grande, pode adicionar um adicional `amp-big-play-centered` `class` ao seu `<video>` elemento.
+Por predefinição, o botão de reprodução grande está localizado no canto superior esquerdo para não cobrir as partes interessantes do cartaz. Se preferir centrar o botão de reprodução grande, pode adicionar um adicional `amp-big-play-centered` `class` ao seu `<video>` elemento.
 
-### <a name="alternative-setup-for-dynamically-loaded-html"></a>Configuração alternativa para HTML dinamicamente carregada ###
+### <a name="alternative-setup-for-dynamically-loaded-html"></a>Configuração alternativa para HTML carregado dinamicamente ###
 
-Se a sua página web ou aplicação carregar a etiqueta de vídeo de forma dinâmica (ajax, apêndiceChild, etc.), para que possa não existir quando a página for carregada, irá querer configurar manualmente o leitor em vez de confiar no atributo de configuração de dados. Para isso, primeiro remova o atributo de configuração de dados da etiqueta para que não haja confusão em torno de quando o jogador é inicializado. Em seguida, execute o seguinte JavaScript algum tempo depois do JavaScript do Jogador de Mídia Azure ter carregado, e depois da etiqueta de vídeo ter sido carregada no DOM.
+Se a sua página web ou aplicação carregar a etiqueta de vídeo de forma dinâmica (ajax, apendchild, etc.), para que possa não existir quando a página estiver carregada, irá querer configurar manualmente o leitor em vez de se basear no atributo de configuração de dados. Para isso, remova primeiro o atributo de configuração de dados da etiqueta para que não haja confusão quando o leitor é inicializado. Em seguida, execute o JavaScript seguinte algum tempo depois do JavaScript Azure Media Player ter carregado, e depois da tag de vídeo ter sido carregada no DOM.
 
 ```javascript
     var myPlayer = amp('vid1', { /* Options */
@@ -99,13 +102,13 @@ Se a sua página web ou aplicação carregar a etiqueta de vídeo de forma dinâ
     }]);
 ```
 
-O primeiro argumento `amp` na função é a identificação da sua etiqueta de vídeo. Substitua-o pelo seu.
+O primeiro argumento na `amp` função é a identificação da sua etiqueta de vídeo. Substitua-o pelo seu.
 
 O segundo argumento é um objeto de opções. Permite-lhe definir opções adicionais como pode com o atributo de configuração de dados.
 
-O terceiro argumento é uma chamada "pronta". Uma vez que o Azure Media Player tenha sido inicializado, chamará a esta função. No backback pronto, o objeto 'this' refere-se à instância do jogador.
+O terceiro argumento é uma chamada "pronta". Uma vez inicializado o Azure Media Player, chamará esta função. Na chamada pronta, o objeto 'this' refere-se à instância do jogador.
 
-Em vez de utilizar um ID de elemento, também pode passar uma referência ao próprio elemento.
+Em vez de usar um ID de elemento, também pode passar uma referência ao próprio elemento.
 
 ```javascript
 
@@ -115,6 +118,6 @@ Em vez de utilizar um ID de elemento, também pode passar uma referência ao pr�
     myPlayer.src([{ src: "//example/path/to/myVideo.ism/manifest", type: "application/vnd.ms-sstr+xml"]);
 ```
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Próximos passos ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)
