@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84436128"
 ---
 | Categoria | Arquivo de dados |
