@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17e6660548084d64fce38617ba4e80ccf197f3d3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555022"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -32,15 +32,14 @@ Este artigo pressupõe que está familiarizado com a [Introdução à gestão de
 
 Para planear a implementação do seu Azure AD, deve familiarizar-se com:
 
-|   |   |
-|---|---|
-|![Marcar][1]|Reveja os seus cenários|
-|![Marcar][1]|Reveja a sua infraestrutura de identidade|
-|![Marcar][1]|Avalie a gestão do seu dispositivo|
-|![Marcar][1]|Compreender considerações para aplicações e recursos|
-|![Marcar][1]|Compreenda as suas opções de provisionamento|
-|![Marcar][1]|Configurar o roaming do estado da empresa|
-|![Marcar][1]|Configure acesso condicional|
+> [!div class="checklist"]
+> - Reveja os seus cenários
+> - Reveja a sua infraestrutura de identidade
+> - Avalie a gestão do seu dispositivo
+> - Compreender considerações para aplicações e recursos
+> - Compreenda as suas opções de provisionamento
+> - Configurar o roaming do estado da empresa
+> - Configure acesso condicional
 
 ## <a name="review-your-scenarios"></a>Reveja os seus cenários 
 
@@ -197,13 +196,13 @@ Pode providenciar a ad AD Azure usando as seguintes abordagens:
  
 Aqui está uma comparação destas três abordagens 
  
-|   | Configuração de self-service | Windows Autopilot | Inscrição em massa |
+| Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
 | Requerem interação do utilizador para configurar | Sim | Sim | Não |
 | Exigir esforço de TI | Não | Sim | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
-| Direitos de administração local para o utilizador primário | Sim, por defeito. | Configurável | No |
-| Requera suporte ao OEM do dispositivo | Não | Yes | Não |
+| Direitos de administração local para o utilizador primário | Sim, por defeito. | Configurável | Não |
+| Requera suporte ao OEM do dispositivo | Não | Sim | Não |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  
@@ -294,7 +293,7 @@ Se tiver um fornecedor DEM configurado para os seus dispositivos aderentes Azure
 
 Pode utilizar esta implementação para [exigir dispositivos geridos para acesso a aplicações na nuvem com acesso condicional.](../conditional-access/require-managed-devices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Junte-se a um novo dispositivo Windows 10 com Azure AD durante uma primeira execução](azuread-joined-devices-frx.md) 

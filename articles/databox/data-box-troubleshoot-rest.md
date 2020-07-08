@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 130cc532355ac0c52ad08b1a32ae8b961d7ced75
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558560"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Problemas relacionados com o armazenamento de blob da caixa de dados Azure
 

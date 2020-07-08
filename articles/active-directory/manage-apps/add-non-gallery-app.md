@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9691ecb8d742952ba4364dcda2b62c3829f79d60
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555133"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicione uma aplicação não cotada (não-galeria) à sua organização AZure AD
 
@@ -70,7 +70,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
       Comportamento para utilizadores **atribuídos**:
 
-       | Definições da propriedades da aplicação | | | Experiência para utilizadores atribuídos | |
+       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores atribuídos | Experiência para utilizadores atribuídos |
        |---|---|---|---|---|
        | Ativado para os utilizadores iniciarem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores atribuídos podem iniciar sessão? | Os utilizadores atribuídos podem ver a aplicação?* |
        | sim | sim | sim | sim | sim  |
@@ -84,7 +84,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
       Comportamento para utilizadores **não atribuídos**:
 
-       | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
+       | Propriedade de aplicação | Propriedade de aplicação | Propriedade de aplicação | Experiência para utilizadores não atribuídos | Experiência para utilizadores não atribuídos |
        |---|---|---|---|---|
        | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
        | sim | sim | sim | não  | não   |
@@ -104,7 +104,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
 4. Quando terminar, **selecione Save**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que pretende utilizar e consulte o artigo apropriado abaixo:
 

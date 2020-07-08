@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557867"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica Azure SQL Database (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -148,11 +148,11 @@ A consulta elástica está incluída no custo da Base de Dados Azure SQL. Note q
 * Atualmente, as estatísticas das colunas sobre as tabelas externas não são suportadas. As estatísticas dos quadros são apoiadas, mas precisam de ser criadas manualmente.
 * A consulta elástica funciona apenas com base de dados Azure SQL. Não é possível usá-lo para consultar uma instância do SQL Server.
 
-## <a name="feedback"></a>Comentários
+## <a name="share-your-feedback"></a>Partilhe o seu feedback
 
 Partilhe feedback sobre a sua experiência com consultas elásticas connosco abaixo, nos fóruns da MSDN ou no Stack Overflow. Estamos interessados em todo o tipo de feedback sobre o serviço (defeitos, arestas ásperas, lacunas de recursos).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).
 * Para consultas de sintaxe e amostra para dados verticalmente divididos, consulte [consulta de dados partidos verticalmente)](elastic-query-vertical-partitioning.md)

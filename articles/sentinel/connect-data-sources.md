@@ -1,6 +1,6 @@
 ---
 title: Ligue fontes de dados ao Azure Sentinel ! Microsoft Docs
-description: Saiba como ligar fontes de dados ao Azure Sentinel.
+description: Saiba como ligar fontes de dados como a Microsoft Threat Protection, Microsoft 365 e Office 365, AZure AD, ATP e Cloud App Security ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 3ff031cb9e4dd45de180eca4b726aa47f0fd52e1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555512"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -67,7 +67,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Citrix Analytics (Segurança)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
-    - [Perímetro 81 troncos](connect-perimeter-81-logs.md)
+    - [Perimeter 81 logs](connect-perimeter-81-logs.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [ICDX da Symantec](connect-symantec.md)
     - [Zimperium](connect-zimperium-mtd.md)
@@ -147,7 +147,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Barracuda_CL | [Ligar a Barracuda](connect-barracuda.md) | &#10003; | |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

@@ -1,36 +1,41 @@
 ---
-title: Funções espaciais na linguagem de consulta do Azure Cosmos DB
-description: Conheça as funções espaciais do sistema SQL em Azure Cosmos DB.
+title: Funções espaciais na linguagem de consulta DB do Cosmos Azure
+description: Saiba mais sobre as funções do sistema SQL espacial no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1d523b09cb3d7142a6c375a0ffde77f8ca1153b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87d73787998d1a49d7512723b212c26b7107513f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71349451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559803"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Funções espaciais (Azure Cosmos DB)
 
-Cosmos DB suporta as seguintes funções do Consórcio Geoespacial Aberto (OGC) incorporados para consulta geoespacial. 
+Cosmos DB suporta as seguintes funções de Open Geospatial Consortium (OGC) para consulta geoespacial. 
 
 ## <a name="functions"></a>Funções
 
-As seguintes funções escalar executam uma operação sobre um valor de entrada de objeto espacial e devolvem um valor numérico ou booleano.  
-  
-|||||
-|-|-|-|-|
-|[ST_DISTANCE](sql-query-st-distance.md)|[ST_INTERSECTS](sql-query-st-intersects.md)|[ST_ISVALID](sql-query-st-isvalid.md)|
-|[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)|[ST_WITHIN](sql-query-st-within.md)||||
+As seguintes funções de escalar executam uma operação sobre um valor de entrada de objeto espacial e devolvem um valor numérico ou booleano.  
+
+* [ST_DISTANCE](sql-query-st-distance.md)
+* [ST_INTERSECTS](sql-query-st-intersects.md)
+* [ST_ISVALID](sql-query-st-isvalid.md)
+* [ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)
+* [ST_WITHIN](sql-query-st-within.md)
+
+
+
+
   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Funções Definidas pelo Utilizador](sql-query-udfs.md)
+- [Funções definidas pelo utilizador](sql-query-udfs.md)
 - [Agregados](sql-query-aggregates.md)

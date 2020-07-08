@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 7d5a7d82aceae6902ad953e314434f1a3736a5e1
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554349"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -36,7 +36,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | serviço | global | 1-50 | Alfanuméricos.<br><br>Comece com a carta. |
+> | serviço | global | 1-50 | Alfanuméricos e hífenes.<br><br>Comece com a letra, e termine com alfanumérico. |
 > | serviço / apis | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / questões | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / problemas / anexos | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
@@ -702,6 +702,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

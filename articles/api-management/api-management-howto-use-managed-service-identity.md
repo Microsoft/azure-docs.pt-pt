@@ -1,6 +1,6 @@
 ---
 title: Utilizar identidades geridas na Azure API Management Microsoft Docs
-description: Saiba como utilizar identidades geridas na Gestão da API
+description: Saiba como criar identidades atribuídas ao sistema e atribuídas ao utilizador na Gestão API utilizando o portal Azure, o PowerShell e um modelo de Gestor de Recursos.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,44 +11,44 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 028b26537c9fe8a976dbc68a4776b2ea4101d811
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558035"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Azure API Management
 
-Este artigo mostra-lhe como criar uma identidade gerida para um caso de Gestão de API e como aceder a outros recursos. Uma identidade gerida gerada pelo Azure Ative Directory (Azure AD) permite que a sua instância de Gestão API aceda de forma fácil e segura a outros recursos protegidos pela Azure, como o Azure Key Vault. Esta identidade é gerida pela Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais informações sobre identidades geridas, consulte [o que é gerido para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
+Este artigo mostra-lhe como criar uma identidade gerida para um caso de Gestão API Azure e como aceder a outros recursos. Uma identidade gerida gerada pelo Azure Ative Directory (Azure AD) permite que a sua instância de Gestão API aceda de forma fácil e segura a outros recursos protegidos pela Azure, como o Azure Key Vault. O Azure gere esta identidade, para que não tenhas de providenciar ou rodar segredos. Para obter mais informações sobre identidades geridas, veja [quais são as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
-Um caso de Gestão da API pode ser concedido dois tipos de identidades:
+Pode conceder dois tipos de identidades a uma instância de Gestão da API:
 
-- Uma **identidade atribuída ao sistema** está ligada ao seu serviço e é eliminada se o seu serviço for eliminado. O serviço só pode ter uma identidade atribuída ao sistema.
-- Uma **identidade atribuída ao utilizador** é um recurso autónomo da Azure que pode ser atribuído ao seu serviço. O serviço pode ter várias identidades atribuídas ao utilizador(*).
+- Uma *identidade atribuída ao sistema* está ligada ao seu serviço e é eliminada se o seu serviço for eliminado. O serviço pode ter apenas uma identidade atribuída ao sistema.
+- Uma *identidade atribuída ao utilizador* é um recurso autónomo da Azure que pode ser atribuído ao seu serviço. O serviço pode ter várias identidades atribuídas ao utilizador.
 
-## <a name="create-a-system-assigned-managed-identity-for-an-api-management-instance"></a>Criar uma identidade gerida atribuída pelo sistema para uma instância de Gestão da API
+## <a name="create-a-system-assigned-managed-identity"></a>Criar uma identidade gerida atribuída ao sistema
 
-### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 
-Para configurar uma identidade gerida no portal, irá primeiro criar uma instância de Gestão API normal e, em seguida, ativar a funcionalidade.
+Para configurar uma identidade gerida no portal Azure, primeiro criará uma instância de Gestão API e depois ativará a funcionalidade.
 
-1. Crie uma instância de Gestão API no portal como normalmente faria. Navegue até ele no portal.
+1. Crie uma instância de Gestão API no portal como normalmente faria. Procure-o no portal.
 2. Selecione **identidades geridas**.
-3. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Guardar**.
+3. No separador **System atribuído,** **altere o Estado** para **ligar**. Selecione **Guardar**.
 
-    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Ativar a identidade gerida atribuída pelo sistema." border="true":::
+    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída ao sistema" border="true":::
 
 
-### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Os seguintes passos irão acompanhá-lo através da criação de uma instância de Gestão da API e atribuindo-lhe uma identidade usando a Azure PowerShell. 
+Os passos seguintes acompanham-no através da criação de uma instância de Gestão da API e atribuindo-lhe uma identidade utilizando o Azure PowerShell. 
 
-1. Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/install-az-ps)e, em seguida, corra `Connect-AzAccount` para criar uma ligação com a Azure.
+1. Se necessário, instale a Azure PowerShell utilizando as instruções no [guia Azure PowerShell](/powershell/azure/install-az-ps). Em seguida, corra `Connect-AzAccount` para criar uma ligação com Azure.
 
-2. Crie um caso de Gestão API utilizando a Azure PowerShell. Para obter mais exemplos de como utilizar a Azure PowerShell com instância de Gestão da API, consulte [as amostras da API Management PowerShell](powershell-samples.md):
+2. Utilize o seguinte código para criar o caso. Para mais exemplos de como utilizar o Azure PowerShell com um exemplo de Gestão da API, consulte [as amostras da API Management PowerShell](powershell-samples.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -58,7 +58,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma instância 
     New-AzApiManagement -ResourceGroupName $resourceGroupName -Name consumptionskuservice -Location $location -Sku Consumption -Organization contoso -AdminEmail contoso@contoso.com -SystemAssignedIdentity
     ```
 
-3. Atualizar e caso existente para criar a identidade:
+3. Atualizar um caso existente para criar a identidade:
 
     ```azurepowershell-interactive
     # Get an API Management instance
@@ -68,7 +68,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma instância 
     Set-AzApiManagement -InputObject $apimService -SystemAssignedIdentity
     ```
 
-### <a name="using-the-azure-resource-manager-template"></a>Usando o modelo de gestor de recursos Azure
+### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
 Pode criar um caso de Gestão de API com uma identidade, incluindo a seguinte propriedade na definição de recurso:
 
@@ -78,7 +78,7 @@ Pode criar um caso de Gestão de API com uma identidade, incluindo a seguinte pr
 }
 ```
 
-Isto diz à Azure para criar e gerir a identidade para o seu caso de Gestão de API.
+Esta propriedade diz à Azure para criar e gerir a identidade para o seu caso de Gestão de API.
 
 Por exemplo, um modelo completo do Gestor de Recursos Azure pode parecer o seguinte:
 
@@ -117,22 +117,22 @@ Quando o caso é criado, tem as seguintes propriedades adicionais:
 }
 ```
 
-A propriedade do inquilinoId identifica a que Azure AD inquilino a identidade pertence. O directorid é um identificador único para a identidade nova, por exemplo. Dentro da Azure AD, o diretor de serviço tem o mesmo nome que deu à sua instância de Gestão de API.
+A `tenantId` propriedade identifica a que inquilino da AD AZure a identidade pertence. A `principalId` propriedade é um identificador único para a nova identidade do exemplo. Dentro da Azure AD, o diretor de serviço tem o mesmo nome que deu à sua instância de Gestão de API.
 
 
 > [!NOTE]
-> Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
+> Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade `SystemAssigned,UserAssigned` seria.
 
-### <a name="scenarios-supported"></a>Cenários Suportados
+### <a name="supported-scenarios"></a>Cenários suportados
 
 #### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtenha um certificado TLS/SSL personalizado para a instância de Gestão da API a partir do Cofre da Chave Azure
-A identidade atribuída ao sistema de um serviço de Gestão API pode ser usada para recuperar certificados TLS/SSL personalizados armazenados no Cofre da Chave Azure. Estes certificados podem ser atribuídos a domínios personalizados em instância de Gestão da API.
+Pode utilizar a identidade atribuída ao sistema de uma instância de Gestão da API para recuperar certificados TLS/SSL personalizados armazenados no Cofre da Chave Azure. Em seguida, pode atribuir estes certificados a domínios personalizados na instância de Gestão da API. Tenha em conta o seguinte:
 
-1. O tipo de conteúdo do segredo deve ser *aplicação/x-pkcs12*.
-2. O ponto final secreto do certificado Key Vault deve ser usado, que contém o segredo real.
+- O tipo de conteúdo do segredo deve ser *aplicação/x-pkcs12*.
+- Use o ponto final secreto do certificado Key Vault, que contém o segredo.
 
 > [!Important]
-> Se a versão objeto do certificado não for fornecida, a API Management obterá automaticamente a versão mais recente do certificado depois de ser enviado para o Cofre-Chave dentro de 4 horas.
+> Se não fornecer a versão do objeto do certificado, a API Management obterá automaticamente a versão mais recente do certificado no prazo de quatro horas após a sua atualização no Key Vault.
 
 O exemplo a seguir mostra um modelo do Gestor de Recursos Azure que contém os seguintes passos:
 
@@ -192,7 +192,7 @@ O exemplo a seguir mostra um modelo do Gestor de Recursos Azure que contém os s
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
+                "description": "Reference to the Key Vault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -262,36 +262,36 @@ O exemplo a seguir mostra um modelo do Gestor de Recursos Azure que contém os s
 }
 ```
 
-#### <a name="authenticate-using-api-management-identity-to-the-backend"></a>Autenticar usando identidade de gestão da API para o backend
+#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar até ao fim utilizando uma identidade de Gestão API
 
-A identidade atribuída ao sistema pode ser usada para autenticar o seu backend utilizando a política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
+Pode utilizar a identidade atribuída ao sistema para autenticar até ao final através da política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
 
 
-## <a name="create-a-user-assigned-managed-identity-for-an-api-management-instance"></a>Criar uma identidade gerida atribuída ao utilizador para uma instância de Gestão da API
+## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 > [!NOTE]
-> Um caso de Gestão API pode ser associado a até 10 identidade gerida atribuída pelo utilizador.
+> Pode associar uma instância de Gestão da API a até 10 identidades geridas atribuídas pelo utilizador.
 
-### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 
-Para configurar uma identidade gerida no portal, irá primeiro criar uma instância de Gestão API normal e, em seguida, ativar a funcionalidade.
+Para configurar uma identidade gerida no portal, primeiro criará uma instância de Gestão API e depois ativará a funcionalidade.
 
-1. Crie uma instância de Gestão API no portal como normalmente faria. Navegue até ele no portal.
+1. Crie uma instância de Gestão API no portal como normalmente faria. Procure-o no portal.
 2. Selecione **identidades geridas**.
-3. Dentro do **separador Utilizador atribuído,** clique em **Adicionar**.
-4. Procure a identidade que criou anteriormente e selecione-a. Clique em **Adicionar**.
+3. No **separador Utilizador atribuído,** selecione **Adicionar**.
+4. Procure a identidade que criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Ativar a identidade gerida atribuída pelo utilizador." border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída pelo utilizador" border="true":::
 
-### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Os seguintes passos irão acompanhá-lo através da criação de uma instância de Gestão da API e atribuindo-lhe uma identidade usando a Azure PowerShell. 
+Os passos seguintes acompanham-no através da criação de uma instância de Gestão da API e atribuindo-lhe uma identidade utilizando o Azure PowerShell. 
 
-1. Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/install-az-ps)e, em seguida, corra `Connect-AzAccount` para criar uma ligação com a Azure.
+1. Se necessário, instale o Azure PowerShell utilizando as instruções no [guia Azure PowerShell](/powershell/azure/install-az-ps). Em seguida, corra `Connect-AzAccount` para criar uma ligação com Azure.
 
-2. Crie um caso de Gestão API utilizando a Azure PowerShell. Para obter mais exemplos de como utilizar a Azure PowerShell com instância de Gestão da API, consulte [as amostras da API Management PowerShell](powershell-samples.md):
+2. Utilize o seguinte código para criar o caso. Para mais exemplos de como utilizar o Azure PowerShell com um exemplo de Gestão da API, consulte [as amostras da API Management PowerShell](powershell-samples.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -306,7 +306,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma instância 
     New-AzApiManagement -ResourceGroupName $resourceGroupName -Location $location -Name $apiManagementName -Organization contoso -AdminEmail admin@contoso.com -Sku Consumption -UserAssignedIdentity $userIdentities
     ```
 
-3. Atualizar e serviço existente para atribuir uma identidade ao serviço.
+3. Atualizar um serviço existente para atribuir uma identidade ao serviço:
 
     ```azurepowershell-interactive
     # Get an API Management instance
@@ -320,7 +320,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma instância 
     Set-AzApiManagement -InputObject $apimService -UserAssignedIdentity $userIdentities
     ```
 
-### <a name="using-the-azure-resource-manager-template"></a>Usando o modelo de gestor de recursos Azure
+### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
 Pode criar um caso de Gestão de API com uma identidade, incluindo a seguinte propriedade na definição de recurso:
 
@@ -382,25 +382,25 @@ Quando o serviço é criado, tem as seguintes propriedades adicionais:
 }
 ```
 
-O directorid é um identificador único para a identidade que é usada para a administração da AD Azure. O clientId é um identificador único para a nova identidade da aplicação que é usada para especificar qual identidade usar durante chamadas de tempo de execução.
+A `principalId` propriedade é um identificador único para a identidade que é usada para a administração da AD Azure. A `clientId` propriedade é um identificador único para a nova identidade da aplicação que é usada para especificar qual identidade usar durante chamadas de tempo de execução.
 
 > [!NOTE]
-> Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
+> Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade `SystemAssigned,UserAssigned` seria.
 
-### <a name="scenarios-supported"></a>Cenários Suportados
+### <a name="supported-scenarios"></a>Cenários suportados
 
-#### <a name="authenticate-using-user-assigned-identity-to-the-backend"></a>Autenticar usando a identidade atribuída pelo utilizador ao Backend
+#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar até ao fim utilizando uma identidade atribuída ao utilizador
 
-A identidade atribuída ao utilizador pode ser utilizada para autenticar o seu backend utilizando a política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
+Pode utilizar a identidade atribuída ao utilizador para autenticar até ao final através da política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
 
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Remover uma identidade
 
-Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o portal ou o Modelo de Gestor de Recursos Azure da mesma forma que foi criado. As identidades atribuídas ao utilizador podem ser removidas individualmente. Para remover todas as identidades, desa um tipo de identidade para "Nenhum".
+Pode remover uma identidade atribuída ao sistema desativando a funcionalidade através do portal ou do modelo Azure Resource Manager da mesma forma que foi criada. As identidades atribuídas ao utilizador podem ser removidas individualmente. Para remover todas as identidades, desa um tipo de identidade para `"None"` .
 
 A remoção de uma identidade atribuída ao sistema desta forma também a eliminará do Azure AD. As identidades atribuídas ao sistema também são automaticamente removidas da Azure AD quando a instância de Gestão da API é eliminada.
 
-Para remover todas as identidades usando o Modelo do Gestor de Recursos Azure, atualize esta secção:
+Para remover todas as identidades utilizando o modelo Azure Resource Manager, atualize esta secção:
 
 ```json
 "identity": {
@@ -409,13 +409,14 @@ Para remover todas as identidades usando o Modelo do Gestor de Recursos Azure, a
 ```
 
 > [!Important]
-> Se uma instância de Gestão da API for configurada com certificado ssl personalizado da KeyVault e se tentar desativar a identidade gerida, o pedido é falhado.
-> O cliente pode desbloquear-se mudando do certificado Azure Key Vault para fornecer certificado codificado inline e, em seguida, desativando a identidade gerida. Consulte o [Configure Custom Domain](configure-custom-domain.md)
+> Se uma instância de Gestão da API estiver configurada com um certificado SSL personalizado da Key Vault e tentar desativar uma identidade gerida, o pedido falhará.
+>
+> Pode desbloquear-se mudando de um certificado Azure Key Vault para um certificado codificado inline e, em seguida, desativando a identidade gerida. Para obter mais informações, consulte [configurar um nome de domínio personalizado.](configure-custom-domain.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre identidades geridas para recursos Azure:
 
-* [O que é gerido identidades para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md)
+* [Quais são as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
 * [Autenticar com identidade gerida numa política](./api-management-authentication-policies.md#ManagedIdentity)

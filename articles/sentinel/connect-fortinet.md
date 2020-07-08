@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados da Fortinet ao Azure Sentinel. Microsoft Docs
-description: Saiba como ligar dados da Fortinet ao Azure Sentinel.
+title: Ligue os dados do Fortinet ao Azure Sentinel. Microsoft Docs
+description: Ligue o seu aparelho Fortinet ao Azure Sentinel para ver os dashboards, criar alertas personalizados e melhorar a investigação. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555951"
 ---
-# <a name="connect-fortinet-to-azure-sentinel"></a>Ligue fortinet a Azure Sentinel
+# <a name="connect-fortinet-to-azure-sentinel"></a>Conecte Fortinet a Azure Sentinel
 
 
 
-Este artigo explica como ligar o seu aparelho Fortinet ao Azure Sentinel. O conector de dados Fortinet permite-lhe ligar facilmente os seus registos Fortinet com o Azure Sentinel, ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Fortinet no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
+Este artigo explica como ligar o seu aparelho Fortinet ao Azure Sentinel. O conector de dados Fortinet permite-lhe conectar facilmente os seus registos Fortinet com a Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Fortinet no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
 
 
  
-## <a name="forward-fortinet-logs-to-the-syslog-agent"></a>Registos de Fortinet para o agente Syslog
+## <a name="forward-fortinet-logs-to-the-syslog-agent"></a>Forward Fortinet logs para o agente Syslog
 
-Configure a Fortinet para retransmitir mensagens Syslog em formato CEF para o seu espaço de trabalho Azure através do agente Syslog.
+Configure Fortinet para encaminhar mensagens Syslog em formato CEF para o seu espaço de trabalho Azure através do agente Syslog.
 
 1. Abra o CLI no seu aparelho Fortinet e execute os seguintes comandos:
 
@@ -44,21 +44,21 @@ Configure a Fortinet para retransmitir mensagens Syslog em formato CEF para o se
         end
 
     - Substitua o **endereço IP** do servidor pelo endereço IP do agente.
-    - Coloque a **porta de slog** para **514** ou a porta colocada no agente.
-    - Para ativar o formato CEF nas versões FortiOS iniciais, poderá ser necessário executar o conjunto de **comandocsv desativar**.
+    - Coloque a **porta de syslog** no **514** ou a porta definida no agente.
+    - Para ativar o formato CEF nas primeiras versões FortiOS, poderá ser necessário executar o conjunto de **comandos csv desativado**.
  
    > [!NOTE] 
-   > Para mais informações, vá à biblioteca de [documentos Fortinet.](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary) Selecione a sua versão e utilize o **Manual** e referência de **mensagens**de registo .
+   > Para mais informações, aceda à [biblioteca de documentos Fortinet.](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary) Selecione a sua versão e utilize o **Manual** e **o Referencial de Mensagem de Registo**.
 
-1. Para utilizar o esquema relevante no Azure Monitor Log Analytics para `CommonSecurityLog`os eventos Fortinet, procure .
+1. Para utilizar o esquema relevante no Azure Monitor Log Analytics para os eventos Fortinet, procure `CommonSecurityLog` .
 
-1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
+1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a ligar os aparelhos Fortinet ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+## <a name="next-steps"></a>Próximos passos
+Neste artigo, aprendeu a ligar os aparelhos Fortinet ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 
 

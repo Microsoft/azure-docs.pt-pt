@@ -1,6 +1,6 @@
 ---
 title: Implementar dispositivo da série StorSimple 8000 no portal do Governo Microsoft Docs
-description: Descreve os passos e as melhores práticas para a implementação do dispositivo da série StorSimple 8000 que executa o Update 3 e posteriormente, e o serviço no portal do Governo Azure.
+description: Descreve os passos e as melhores práticas para a implementação do dispositivo da série StorSimple 8000 em execução da Atualização 3 e posterior, e o serviço no portal do Governo Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 22084f9c59070c2efaa112ebfbb0c5ecc647145e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68965888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556020"
 ---
-# <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implemente o seu dispositivo StorSimple no portal do Governo
+# <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Coloque o seu dispositivo StorSimple no portal do Governo
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Descrição geral
-Bem-vindo à implementação do dispositivo Microsoft Azure StorSimple. Estes tutoriais de implantação aplicam-se ao software StorSimple 8000 Series running Update 3 ou mais tarde no portal do Governo Azure. Esta série de tutoriais inclui uma lista de verificação de configuração, uma lista de pré-requisitos de configuração e passos de configuração detalhados para o seu dispositivo StorSimple.
+Bem-vindo à implementação do dispositivo Microsoft Azure StorSimple. Estes tutoriais de implementação aplicam-se ao software StorSimple 8000 Series running Update 3 ou mais tarde no portal do Governo Azure. Esta série de tutoriais inclui uma lista de verificação de configuração, uma lista de pré-requisitos de configuração e passos de configuração detalhados para o seu dispositivo StorSimple.
 
-As informações nestes tutoriais pressupõem que leu as precauções de segurança e descompactou, montou em bastidor e instalou os cabos do dispositivo StorSimple. Se ainda precisar de efetuar essas tarefas, comece por ler as [precauções de segurança](storsimple-safety.md). Siga as instruções específicas do dispositivo para descompactar, montar em bastidor e instalar os cabos do dispositivo.
+As informações nestes tutoriais pressupõem que leu as precauções de segurança e descompactou, montou em bastidor e instalou os cabos do dispositivo StorSimple. Se ainda precisar de efetuar essas tarefas, comece por ler as [precauções de segurança](storsimple-8000-safety.md). Siga as instruções específicas do dispositivo para descompactar, montar em bastidor e instalar os cabos do dispositivo.
 
 * [Descompactar, montar em bastidor e instalar os cabos do 8100](storsimple-8100-hardware-installation.md)
 * [Descompactar, montar em bastidor e instalar os cabos do 8600](storsimple-8600-hardware-installation.md)
@@ -36,23 +36,23 @@ As informações nestes tutoriais pressupõem que leu as precauções de seguran
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. Recomendamos que consulte a lista de verificação das configurações antes de começar. O processo de implementação e configuração pode demorar algum tempo a concluir.
 
 > [!NOTE]
-> As informações de implementação do StorSimple publicadas no site do Microsoft Azure aplicam-se exclusivamente aos dispositivos StorSimple da série 8000. Para obter informações completas sobre os dispositivos [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)da série 7000, vá a: . Para obter informações sobre a implementação nas séries 7000, consulte o [manual de início rápido do sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> As informações de implementação do StorSimple publicadas no site do Microsoft Azure aplicam-se exclusivamente aos dispositivos StorSimple da série 8000. Para obter informações completas sobre os dispositivos da série 7000, aceda a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Para obter informações sobre a implementação nas séries 7000, consulte o [manual de início rápido do sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 
 ## <a name="deployment-steps"></a>Passos da implementação
-Efetue estes passos obrigatórios para configurar o dispositivo StorSimple e ligá-lo ao serviço Gestor de Dispositivos do StorSimple. Além das etapas necessárias, existem passos e procedimentos opcionais que poderá ter de ser concluído durante a implementação. As instruções passo-a-passo para a implementação indicam quando deve efetuar cada um dos seguintes passos opcionais.
+Efetue estes passos obrigatórios para configurar o dispositivo StorSimple e ligá-lo ao serviço Gestor de Dispositivos do StorSimple. Além das etapas necessárias, existem etapas e procedimentos opcionais que poderá ter de completar durante a implantação. As instruções passo-a-passo para a implementação indicam quando deve efetuar cada um dos seguintes passos opcionais.
 
 | Passo | Descrição |
 | --- | --- |
-| **PRÉ-REQUISITOS** |Estes têm de ser concluídos no processo de preparação para a implementação futura. |
+| **Pré-requisitos** |Estes têm de ser concluídos no processo de preparação para a implementação futura. |
 | [Lista de verificação das configurações de implementação](#deployment-configuration-checklist) |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
 | [Pré-requisitos de implantação](#deployment-prerequisites) |Estes validam que o ambiente está pronto para ser implantado. |
 |  | |
 | **IMPLANTAÇÃO PASSO A PASSO** |Estes passos são obrigatórios para implementar o dispositivo StorSimple para produção. |
 | [Passo 1: Criar um novo serviço](#step-1-create-a-new-service) |Configure a gestão e o armazenamento na cloud do dispositivo StorSimple. *Ignore este passo se tiver um serviço existente para outros dispositivos StorSimple*. |
 | [Passo 2: Obter a chave de registo do serviço](#step-2-get-the-service-registration-key) |Utilize esta chave para registar e ligar o seu dispositivo StorSimple ao serviço de gestão. |
-| [Passo 3: Configure e registe o dispositivo através do Windows PowerShell para storSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Ligue o dispositivo à rede e registe-o com o Azure para concluir a configuração através do serviço de gestão. |
-| [Passo 4: Complete a configuração mínima do dispositivo](#step-4-complete-minimum-device-setup) </br>Opcional: Atualizar o dispositivo StorSimple. |Utilize o serviço de gestão para concluir a configuração do dispositivo e ativá-lo para fornecer armazenamento. |
+| [Passo 3: Configurar e registar o dispositivo através do Windows PowerShell para storSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Ligue o dispositivo à rede e registe-o com o Azure para concluir a configuração através do serviço de gestão. |
+| [Passo 4: Completar a configuração mínima do dispositivo](#step-4-complete-minimum-device-setup) </br>Opcional: Atualizar o dispositivo StorSimple. |Utilize o serviço de gestão para concluir a configuração do dispositivo e ativá-lo para fornecer armazenamento. |
 | [Passo 5: Criar um contentor de volume](#step-5-create-a-volume-container) |Crie um contentor para os volumes de aprovisionamento. Um contentor de volume possui uma conta do Storage, largura de banda e definições de encriptação em todos os volumes nele contidos. |
 | [Passo 6: Criar um volume](#step-6-create-a-volume) |Aprovisione o(s) volume(s) de armazenamento no dispositivo StorSimple para os servidores. |
 | [Passo 7: Montar, inicializar e formatar um volume](#step-7-mount-initialize-and-format-a-volume) </br>Opcional: Configurar o MPIO. |Ligue os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os seus servidores podem tolerar falhas de ligação, rede e interface. |
@@ -67,7 +67,7 @@ Efetue estes passos obrigatórios para configurar o dispositivo StorSimple e lig
 
 
 ## <a name="deployment-configuration-checklist"></a>Lista de verificação das configurações de implementação
-Antes de implementar o seu dispositivo StorSimple, terá de recolher informações para configurar o software no seu dispositivo. Preparar com antecedência algumas destas informações ajudará a simplificar o processo de implementação do dispositivo StorSimple no seu ambiente. Faça o download e utilize esta lista de verificação para observar os detalhes da configuração à medida que implementa o seu dispositivo.
+Antes de implementar o seu dispositivo StorSimple, terá de recolher informações para configurar o software no seu dispositivo. Preparar com antecedência algumas destas informações ajudará a simplificar o processo de implementação do dispositivo StorSimple no seu ambiente. Descarregue e utilize esta lista de verificação para ter em conta os detalhes de configuração à medida que implementa o seu dispositivo.
 
 [Transferir a lista de verificação das configurações da implementação do StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
@@ -113,7 +113,7 @@ Um serviço Gestor de Dispositivos do StorSimple pode gerir diversos dispositivo
 ## <a name="step-2-get-the-service-registration-key"></a>Passo 2: Obter a chave de registo do serviço
 Assim que o serviço Gestor de Dispositivos do StorSimple estiver ativo e em execução, será necessário obter a chave de registo do serviço. Esta chave é utilizada para registar e ligar o seu dispositivo StorSimple ao serviço.
 
-Realizar os seguintes passos no portal do Governo.
+Execute os seguintes passos no portal do Governo.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
@@ -136,20 +136,20 @@ Execute os seguintes passos no portal do Governo Azure para completar a configur
 ## <a name="step-5-create-a-volume-container"></a>Passo 5: Criar um contentor de volume
 Um contentor de volume possui uma conta do Storage, largura de banda e definições de encriptação em todos os volumes nele contidos. Terá de criar um contentor de volume antes de poder começar a aprovisionar volumes no dispositivo StorSimple.
 
-Realizar os seguintes passos no portal do Governo para criar um contentor de volume.
+Execute os seguintes passos no portal do Governo para criar um recipiente de volume.
 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
 ## <a name="step-6-create-a-volume"></a>Passo 6: Criar um volume
-Depois de criar um contentor de volume, pode aprovisionar um volume de armazenamento no dispositivo StorSimple para os servidores. Realizar os seguintes passos no portal do Governo para criar um volume.
+Depois de criar um contentor de volume, pode aprovisionar um volume de armazenamento no dispositivo StorSimple para os servidores. Execute os seguintes passos no portal do Governo para criar um volume.
 
 > [!IMPORTANT]
-> O StorSimple Device Manager só pode criar volumes pouco provisionados.  No entanto, não é possível criar volumes parcialmente aprovisionados.
+> O StorSimple Device Manager só pode criar volumes pouco abastetados.  No entanto, não é possível criar volumes parcialmente aprovisionados.
 
 [!INCLUDE [storsimple-8000-create-volume](../../includes/storsimple-8000-create-volume-u2.md)]
 
 ## <a name="step-7-mount-initialize-and-format-a-volume"></a>Passo 7: Montar, inicializar e formatar um volume
-Execute estes passos no seu anfitrião do Windows Server.
+Execute estes passos no anfitrião do Windows Server.
 
 > [!IMPORTANT]
 > * Para uma maior disponibilidade da solução StorSimple, recomendamos que configure o MPIO nos servidores de anfitrião (opcionais) antes de configurar o iSCSI. A configuração do MPIO nos servidores de anfitrião irá garantir que os servidores podem tolerar falhas de ligação, da rede ou da interface.
@@ -174,7 +174,7 @@ Este passo é opcional e só precisa de o executar se não tiver ativado a cria�
 
 Se precisar de criar uma conta do Storage do Azure numa região diferente, consulte [Acerca das Contas do Storage do Azure](../storage/common/storage-create-storage-account.md) para obter instruções passo-a-passo.
 
-Execute os seguintes passos no portal do Governo, na página de **serviço storSimple Device Manager.**
+Execute os seguintes passos no portal do Governo, na página **de serviço StorSimple Device Manager.**
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]
 
@@ -192,11 +192,11 @@ Execute os passos seguintes para obter o Nome Qualificado do iSCSI (IQN) de um a
 [!INCLUDE [Get IQN of your Windows Server host](../../includes/storsimple-get-iqn.md)]
 
 ## <a name="create-a-manual-backup"></a>Criar uma cópia de segurança manual
-Execute os seguintes passos no portal do Governo para criar uma cópia manual de reserva a pedido para um único volume no seu dispositivo StorSimple.
+Execute os seguintes passos no portal do Governo para criar uma cópia de segurança manual a pedido para um único volume no seu dispositivo StorSimple.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Configurar um [dispositivo virtual](storsimple-8000-cloud-appliance-u2.md).
 * Utilizar o [serviço Gestor de Dispositivos do StorSimple](storsimple-8000-manager-service-administration.md) para gerir o dispositivo StorSimple.
 

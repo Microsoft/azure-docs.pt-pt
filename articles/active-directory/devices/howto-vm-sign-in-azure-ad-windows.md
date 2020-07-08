@@ -12,21 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 700e8f2ae29ad41ceaecf58c3ffde4a27725c25c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554892"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
 As organizações podem agora utilizar a autenticação do Azure Ative Directory (AD) para as suas máquinas virtuais Azure (VMs) que executam a **edição do Datacenter 2019 do Windows Server 2019** ou **do Windows 10 1809** e posteriormente. A utilização do Azure AD para autenticar em VMs proporciona-lhe uma forma de controlar e impor políticas centralmente. Ferramentas como O Controlo de Acesso Baseado em Função (RBAC) e acesso condicional AD Azure permitem-lhe controlar quem pode aceder a um VM. Este artigo mostra-lhe como criar e configurar um VM Windows Server 2019 para utilizar a autenticação AD AZure.
 
-|     |
-| --- |
-| O Azure AD in for Azure Windows VMs é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> O Azure AD in for Azure Windows VMs é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar sessão no Windows VMs em Azure, incluindo:
 
@@ -41,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -364,6 +362,6 @@ Se não tiver implementado o Windows Hello for Business e se isso não for uma o
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou informe os problemas que o utilizam no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](/azure/active-directory/fundamentals/active-directory-whatis)

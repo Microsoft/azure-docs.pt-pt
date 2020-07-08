@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 2d9e9ed1a65265a119f59edee7da1b8f244e2f7f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85112740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556063"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)
 
 > [!IMPORTANT] 
 > Os níveis de desempenho S1, S2 e S3 discutidos neste artigo estão a ser reformados e já não estão disponíveis para novas contas DB do Azure Cosmos.
->
 
 Este artigo fornece uma visão geral dos níveis de desempenho de S1, S2 e S3, e discute como as coleções que usam estes níveis de desempenho podem ser migradas para coleções únicas divididas. Depois de ler este artigo, poderá responder às seguintes perguntas:
 
@@ -43,7 +42,7 @@ Os níveis de desempenho S1, S2 e S3 não oferecem a flexibilidade que a oferta 
 
 A tabela a seguir compara as opções de produção e armazenamento disponíveis em coleções de divisórias individuais, coleções divididas e níveis de desempenho S1, S2, S3. Aqui está um exemplo para a região norte-americana east 2:
 
-|   |Coleção dividida|Coleção única de divisórias|S1|S2|S3|
+| Nome da quota  |Coleção dividida|Coleção única de divisórias|S1|S2|S3|
 |---|---|---|---|---|---|
 |Débito máximo|Ilimitado|10K RU/s|250 RU/s|1 K RU/s|2,5 K RU/s|
 |Produção mínima|2,5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2,5 K RU/s|
@@ -129,7 +128,7 @@ Visite a [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 
 Os clientes da EA estarão protegidos pelo preço até ao final do seu contrato atual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre preços e gestão de dados com a Azure Cosmos DB, explore estes recursos:
 
 1.  [Dados de partilha em Cosmos DB](sql-api-partition-data.md). Compreenda a diferença entre um único recipiente de partição e recipientes divididos, bem como dicas sobre a implementação de uma estratégia de partição para escalar sem problemas.

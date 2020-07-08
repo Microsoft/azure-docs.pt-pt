@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d6ecc2ddab7bc0fa739989e9cfdc2645cc1ccb27
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559842"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
 
@@ -28,7 +28,9 @@ Para obter mais informações sobre os diferentes pontos finais, consulte [Escol
 Os pontos finais e as rotas são geridos com os [**APIs do EventRoutes,**](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Também podem ser geridos através do [portal Azure.](https://portal.azure.com)
 
 > [!NOTE]
-> A gestão das rotas de eventos através do portal Azure está atualmente disponível apenas para utilizadores do Azure em contas de domínio corporativo. Se estiver a utilizar uma conta pessoal [da Microsoft (MSA),](https://account.microsoft.com/account/Account)utilize as APIs ou CLI das Gémeas Digitais Azure para gerir as rotas dos eventos, conforme descrito neste artigo.
+> A gestão das rotas de eventos através do portal Azure está atualmente disponível apenas para utilizadores do Azure em contas de domínio corporativo. 
+>
+>Se estiver a utilizar uma conta pessoal [da Microsoft (MSA),](https://account.microsoft.com/account/Account)como uma @outlook.com conta, utilize as APIs ou CLI das Gémeas Digitais Azure para gerir as rotas dos eventos, conforme descrito neste artigo.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -184,7 +186,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
 * [Como fazer: Interpretar dados do evento](how-to-interpret-event-data.md)

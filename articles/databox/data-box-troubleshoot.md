@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 461c5b1603a4c06e680aab671238a1c8ccd5dacd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558536"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com Azure Data Box e Azure Data Box Heavy
 

@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeffcfc919a6aeeae61ed79286d613d72c6b183c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84761175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555305"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planeie uma implantação do Painel de Acesso ao Diretório Ativo Azure
 
@@ -63,7 +63,7 @@ O Painel de Acesso é gratuito e não requer licenças para usar a um nível bá
 
 * [Adesão baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Reset da palavra-passe de autosserviço](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Reposição personalizada de palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Proteção de Identidade do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
@@ -81,7 +81,7 @@ Complete os seguintes pré-requisitos antes de iniciar este projeto:
 
 O quadro que se segue descreve os principais casos de utilização para uma implantação do Painel de Acesso:
 
-| Área| Description |
+| Área| Descrição |
 | - | - |
 | Access| O portal Access Panel está acessível a partir de dispositivos corporativos e pessoais dentro da rede corporativa. |
 |Access | O portal Access Panel está acessível a partir de dispositivos corporativos fora da rede corporativa. |
@@ -127,11 +127,11 @@ A tabela a seguir lista várias configurações importantes do Painel de Acesso 
 | Determinar os grupos-piloto| Identifique o grupo de segurança Azure AD para ser utilizado e certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Determinar o grupo ou grupos a habilitar para a produção.| Identifique os grupos de segurança AZure AD, ou os grupos de Diretório Ativo sincronizados com a Azure AD, a serem utilizados. Certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Permitir que os utilizadores utilizem SSO para determinados tipos de aplicações| SSO Federado, OAuth, Password SSO, App Proxy |
-| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Yes |
-| Permitir que os utilizadores utilizem a autenticação multi-factor| Yes |
+| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Sim |
+| Permitir que os utilizadores utilizem a autenticação multi-factor| Sim |
 | Permitir que os utilizadores utilizem a gestão do grupo self-service para determinados tipos de grupos| Grupos de segurança, Escritório 365 grupos |
-| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Yes |
-| Permitir que os utilizadores utilizem comentários de acesso| Yes |
+| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Sim |
+| Permitir que os utilizadores utilizem comentários de acesso| Sim |
 
 ### <a name="plan-consent-strategy"></a>Estratégia de consentimento do plano
 
@@ -261,7 +261,7 @@ Para planear a adesão ao grupo de self-service, determine se permitirá que tod
 
 A Azure AD fornece [relatórios que oferecem insights técnicos e empresariais.](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/) Trabalhe com os seus empresários e gestores de aplicações técnicas para assumir a propriedade destes relatórios e consumi-los regularmente. A tabela seguinte fornece alguns exemplos de cenários típicos de reporte.
 
-|   | Faça a gestão do risco.| Aumentar a produtividade| Governação e conformidade |
+| Exemplo | Faça a gestão do risco.| Aumentar a produtividade| Governação e conformidade |
 |  - |- | - | - |
 | Tipos de relatório|  Permissões de aplicação e utilização| Atividade de provisionamento de conta| Rever quem está a aceder às aplicações |
 | Ações potenciais| Acesso à auditoria; revogar permissões| Remediar quaisquer erros de provisionamento| Revogar o acesso |
@@ -338,11 +338,11 @@ Deve utilizar o papel menos privilegiado para realizar uma tarefa necessária no
 
 | Pessoas fictícias| Funções| Papel de AD AZure  |
 | - | -| -|
-| Administração Helpdesk| Suporte de nível 1| Nenhum |
+| Administração Helpdesk| Suporte de nível 1| Nenhuma |
 | Administrador de identidade| Configurar e depurar quando as questões impactam Azure AD| Administrador global |
-| Administrador de candidatura| Atestado de utilizador na aplicação, configuração em utilizadores com permissões| Nenhum |
+| Administrador de candidatura| Atestado de utilizador na aplicação, configuração em utilizadores com permissões| Nenhuma |
 | Administradores de infraestruturas| Cert proprietário de capotamento| Administrador global |
-| Empresário/stakeholder| Atestado de utilizador na aplicação, configuração em utilizadores com permissões| Nenhum |
+| Empresário/stakeholder| Atestado de utilizador na aplicação, configuração em utilizadores com permissões| Nenhuma |
 
 Pode utilizar a [Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) para gerir as suas funções para fornecer auditoria adicional, controlo e revisão de acesso aos utilizadores com permissões de diretório.
 
@@ -362,6 +362,6 @@ Consulte estes guias de resolução de problemas para obter referência:
 
 [Problemas com a extensão do navegador](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Planear uma implantação da Autenticação Multi-Factor Azure](https://aka.ms/deploymentplans/mfa)

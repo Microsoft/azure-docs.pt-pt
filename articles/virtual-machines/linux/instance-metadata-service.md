@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: f638b332eae5cd85e1cb6aae9c6bd8eb4ad44848
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: e720be86c6505c2ddebaca91eeefa08e38170cbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558610"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -24,7 +24,8 @@ O Azure Instance Medata Service (IMDS) fornece informações sobre casos de máq
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte [as APIs de metadados](#metadata-apis).
 O Serviço de Metadados de Exemplo está disponível tanto para o conjunto de escala de VM como para a escala de máquina virtual. Só está disponível para executar VMs criados/geridos utilizando [o Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
-O Serviço de Metadados de Instância da Azure é um ponto final de REST que está disponível num endereço IP não-roteado bem conhecido ( `169.254.169.254` ), que só pode ser acedido a partir do VM.
+O IMDS do Azure é um ponto final de REST que está disponível num endereço IP não-roteado bem conhecido ( `169.254.169.254` ), que só pode ser acedido a partir do VM. A comunicação entre o VM e o IMDS nunca sai do Hospedeiro.
+É prática ser prática ter os seus clientes HTTP a contornar os proxies web dentro do VM ao consultar o IMDS e tratar `169.254.169.254` o mesmo que [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) .
 
 ## <a name="security"></a>Segurança
 
@@ -46,7 +47,7 @@ Abaixo está o código de amostra para recuperar todos os metadados para um exem
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
 **Resposta**
@@ -180,7 +181,7 @@ API | Formato de dados predefinidos | Outros Formatos
 Para aceder a um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
@@ -204,7 +205,7 @@ Quando nenhuma versão é especificada, um erro é devolvido com uma lista das v
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 ```
 
 **Resposta**
@@ -224,7 +225,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 
 O Serviço de Metadados contém várias APIs representando diferentes fontes de dados.
 
-API | Description | Versão introduzida
+API | Descrição | Versão introduzida
 ----|-------------|-----------------------
 /atestado | Ver [Dados Attestados](#attested-data) | 2018-10-01
 /identidade | Ver [Adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -235,7 +236,7 @@ API | Description | Versão introduzida
 
 A API de caso expõe os metadados importantes para as instâncias VM, incluindo o VM, a rede e o armazenamento. As seguintes categorias podem ser acedidas através de exemplo/cálculo:
 
-Dados | Description | Versão introduzida
+Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente azul onde o VM está em execução | 2018-10-01
 customData | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -270,7 +271,7 @@ Como prestador de serviços, poderá ser necessário rastrear o número de VMs q
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Resposta**
@@ -288,7 +289,7 @@ Pode consultar estes dados diretamente através do Serviço de Metadados de Exem
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 **Resposta**
@@ -304,7 +305,7 @@ Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria 
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **Resposta**
@@ -404,7 +405,7 @@ Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.micr
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Resposta**
@@ -426,7 +427,7 @@ A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
 Os metadados de rede fazem parte do caso API. As seguintes categorias de Rede estão disponíveis através do ponto final de instância/rede.
 
-Dados | Description | Versão introduzida
+Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Endereço IPv4 local do VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público do VM | 2017-04-02
@@ -443,7 +444,7 @@ macAddress | Endereço de mac VM | 2017-04-02
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **Resposta**
@@ -482,7 +483,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="sample-2-retrieving-public-ip-address"></a>Amostra 2: Recuperação do endereço IP público
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 ## <a name="storage-metadata"></a>Metudatas de armazenamento
@@ -494,7 +495,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 ID      | ID do Recurso
 oferta   | Oferta da plataforma ou imagem de mercado
@@ -504,7 +505,7 @@ versão | Versão da plataforma ou imagem do mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -519,7 +520,7 @@ writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disc
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -538,7 +539,7 @@ O exemplo a seguir mostra como consultar as informações de armazenamento do VM
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **Resposta**
@@ -610,7 +611,7 @@ As etiquetas podem ter sido aplicadas ao seu Azure VM para organizar logicamente
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
 **Resposta**
@@ -624,7 +625,7 @@ O `tags` campo é uma corda com as etiquetas delimitadas por pontos-e-vírguis. 
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
 ```
 
 **Resposta**
@@ -658,7 +659,7 @@ Parte do cenário servido pelo Serviço de Metadados de Exemplo é fornecer gara
 **Pedir**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
 A versão Api é um campo obrigatório. Consulte a [secção de utilização](#usage) para versões API suportadas.
@@ -681,7 +682,7 @@ Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolv
 A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com os detalhes vM, como vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informações do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
 O documento contém os seguintes campos:
 
-Dados | Description
+Dados | Descrição
 -----|------------
 nonce | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não for fornecido nenhum nonce, o atual calendário UTC é usado
 plano | O [plano Azure Marketplace Image](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).
@@ -702,7 +703,7 @@ Os fornecedores de marketplace querem garantir que o seu software está licencia
 
 ```bash
 # Get the signature
-curl --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+curl --silent -H Metadata:True --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2019-04-30" | jq -r '.["signature"]' > signature
 # Decode the signature
 base64 -d signature > decodedsignature
 # Get PKCS7 format
@@ -796,7 +797,7 @@ O serviço está **geralmente disponível** em todas as Nuvens Azure.
 
 Amostras de serviço de metadados de chamada utilizando diferentes idiomas dentro do VM:
 
-Idioma      | Exemplo
+Linguagem      | Exemplo
 --------------|----------------
 Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

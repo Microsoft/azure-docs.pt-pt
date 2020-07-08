@@ -1,6 +1,6 @@
 ---
-title: Criar políticas de segurança personalizadas no Centro de Segurança Azure [ Microsoft Docs
-description: Definições de política personalizadas azure monitorizadas pelo Azure Security Center.
+title: Criar políticas de segurança personalizadas no Azure Security Center Microsoft Docs
+description: Definições de política personalizadas Azure monitorizadas pelo Azure Security Center.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,24 +8,24 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db310cb7ea5c3a89eb727262a7a7ed63ce55b5db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559564"
 ---
 # <a name="using-custom-security-policies"></a>Usando políticas de segurança personalizadas
 
-Para ajudar a proteger os seus sistemas e ambiente, o Azure Security Center gera recomendações de segurança. Estas recomendações baseiam-se nas melhores práticas da indústria, incorporadas na política genérica de segurança por defeito fornecida a todos os clientes. Também podem vir do conhecimento do Security Center sobre a indústria e normas regulamentares.
+Para ajudar a proteger os seus sistemas e ambiente, o Azure Security Center gera recomendações de segurança. Estas recomendações baseiam-se nas melhores práticas do setor, que são incorporadas na política de segurança genérica e padrão fornecida a todos os clientes. Também podem vir do conhecimento do Centro de Segurança sobre a indústria e as normas regulamentares.
 
-Com esta funcionalidade, pode adicionar as suas próprias iniciativas *personalizadas.* Em seguida, receberá recomendações se o seu ambiente não seguir as políticas que cria. Quaisquer iniciativas personalizadas que crie aparecerão ao lado das iniciativas incorporadas no painel de controlo regulamentar, conforme descrito no tutorial Melhorar a [sua conformidade regulamentar.](security-center-compliance-dashboard.md)
+Com esta funcionalidade, pode adicionar as suas próprias iniciativas *personalizadas.* Em seguida, receberá recomendações se o seu ambiente não seguir as políticas que cria. Quaisquer iniciativas personalizadas que crie aparecerão ao lado das iniciativas integradas no painel de conformidade regulamentar, conforme descrito no tutorial Melhorar a [sua conformidade regulamentar.](security-center-compliance-dashboard.md)
 
-Conforme discutido na [documentação da Política Azure,](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)quando especifica um local para a sua iniciativa personalizada, deve ser um grupo de gestão ou uma subscrição. 
+Como discutido na [documentação da Política Azure,](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)quando especificar um local para a sua iniciativa personalizada, deve ser um grupo de gestão ou uma subscrição. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Para adicionar uma iniciativa personalizada à sua subscrição 
 
-1. Da barra lateral do Centro de Segurança, abra a página da política de **segurança.**
+1. Da barra lateral do Centro de Segurança, abra a página **da política de segurança.**
 
 1. Selecione uma subscrição ou Grupo de Gestão ao qual gostaria de adicionar uma iniciativa personalizada.
 
@@ -36,32 +36,32 @@ Conforme discutido na [documentação da Política Azure,](https://docs.microsof
     >
     > Quando se adiciona um padrão personalizado, atribui uma *iniciativa* a esse âmbito. Por isso, recomendamos que selecione o âmbito mais amplo necessário para essa atribuição.
 
-1. Na página de política de Segurança, sob as suas iniciativas personalizadas, clique em **Adicionar uma iniciativa personalizada**.
+1. Na página de política de Segurança, no âmbito das suas iniciativas personalizadas, clique em **Adicionar uma iniciativa personalizada**.
 
-    [![Clique em **Adicione uma iniciativa personalizada**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Clique Em Adicionar uma iniciativa personalizada](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    Aparece a seguinte página:
+    A seguinte página aparece:
 
     ![Criar ou adicionar uma política](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. Na página de iniciativas personalizadas Add, reveja a lista de políticas personalizadas já criadas na sua organização. Se vir um que queira atribuir à sua subscrição, clique em **Adicionar**. Se não houver uma iniciativa na lista que responda às suas necessidades, ignore este passo.
+1. Na página De iniciativas personalizadas Add, reveja a lista de políticas personalizadas já criadas na sua organização. Se vir uma que pretende atribuir à sua subscrição, clique em **Adicionar**. Se não houver uma iniciativa na lista que atenda às suas necessidades, ignore este passo.
 
 1. Para criar uma nova iniciativa personalizada:
 
     1. Clique **em Criar novo**.
     1. Insira a localização e o nome da definição.
-    1. Selecione as políticas para incluir e clique em **Adicionar**.
+    1. Selecione as políticas para incluir e clique **Em Adicionar**.
     1. Introduza os parâmetros desejados.
     1. Clique em **Guardar**.
-    1. Na página de iniciativas personalizadas Adicionar, clique em atualizar. A sua nova iniciativa será mostrada como disponível.
-    1. Clique em **Adicionar** e atribua-o à sua subscrição.
+    1. Na página De iniciativas personalizadas Adicionar, clique em atualização. A sua nova iniciativa será mostrada como disponível.
+    1. Clique **em Adicionar** e atribua-o à sua subscrição.
 
     > [!NOTE]
-    > A criação de novas iniciativas requer credenciais de proprietários de subscrições. Para mais informações sobre as funções do Azure, consulte [Permissões no Centro de Segurança Azure.](security-center-permissions.md)
+    > A criação de novas iniciativas requer credenciais de proprietário de assinaturas. Para obter mais informações sobre as funções da Azure, consulte [permissões no Centro de Segurança Azure](security-center-permissions.md).
 
-    A sua nova iniciativa entra em vigor e pode ver o impacto nas seguintes duas formas:
+    A sua nova iniciativa entra em vigor e pode ver o impacto das duas seguintes formas:
 
-    * A partir da barra lateral do Centro de Segurança, ao abrigo da Política & Compliance, **selecione conformidade regulamentar.** O painel de instrumentos de conformidade abre para mostrar a sua nova iniciativa personalizada ao lado das iniciativas incorporadas.
+    * A partir da barra lateral do Centro de Segurança, no âmbito da Conformidade & Política, **selecione conformidade regulamentar**. O painel de conformidade abre-se para mostrar a sua nova iniciativa personalizada ao lado das iniciativas incorporadas.
     
     * Começará a receber recomendações se o seu ambiente não seguir as políticas que definiu.
 
@@ -71,14 +71,14 @@ Conforme discutido na [documentação da Política Azure,](https://docs.microsof
 
 ## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Melhorar as suas recomendações personalizadas com informações detalhadas
 
-As recomendações incorporadas fornecidas com o Centro de Segurança Azure incluem detalhes como níveis de gravidade e instruções de reparação. Se quiser adicionar este tipo de informação às suas recomendações personalizadas para que apareça no portal Azure ou onde quer que aceda às suas recomendações, terá de utilizar a API REST. 
+As recomendações incorporadas fornecidas com o Azure Security Center incluem detalhes como níveis de gravidade e instruções de reparação. Se pretender adicionar este tipo de informação às suas recomendações personalizadas para que apareça no portal Azure ou onde quer que aceda às suas recomendações, terá de utilizar a API REST. 
 
 Os dois tipos de informação que pode adicionar são:
 
-- **RemediaçãoDescrição** - Corda
+- **RemediationDDescrição** – Cadeia
 - **Severidade** – Enum [Baixo, Médio, Alto]
 
-Os metadados devem ser adicionados à definição de política para uma política que faça parte da iniciativa personalizada. Deve estar na propriedade 'SecurityCenter', como mostra:
+Os metadados devem ser adicionados à definição de política para uma política que faça parte da iniciativa personalizada. Deve estar na propriedade "SecurityCenter", como mostrado:
 
 ```json
  "metadata": {
@@ -136,10 +136,10 @@ Abaixo está um exemplo de uma política personalizada, incluindo a propriedade 
 }
   ```
 
-Para mais um exemplo de utilização da propriedade securityCenter, consulte [esta secção da documentação](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)REST API .
+Para outro exemplo de utilização da propriedade securityCenter, consulte [esta secção da documentação REST API](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar políticas de segurança personalizadas. 
 

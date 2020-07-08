@@ -8,23 +8,16 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: d870cb8d90573ab0c9661804aa1dd17b64d1600d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555528"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Empresa e Edições Básicas da Azure Machine Learning 
 
 O Azure Machine Learning oferece duas edições adaptadas às suas necessidades de aprendizagem automática. Estas edições determinam quais as ferramentas de machine learning disponíveis para desenvolvedores e cientistas de dados a partir do seu espaço de trabalho.
-
-<br/>
-<br/>
-
-| Edição básica | Edição empresarial                 |
-|------------------------------------------------------------------------------------|-----------|
-|Ótimo para: <br/>+ desenvolvimento de código aberto <br/>+ à escala de nuvens com um<br/>+ experiência de primeiro código <br/><br/>Os espaços básicos de trabalho permitem-lhe continuar a utilizar a Azure Machine Learning e [pagar apenas pelos recursos Azure consumidos](concept-plan-manage-cost.md) durante o processo ML. |Toda a edição básica, mais:<br/>+ a interface web do estúdio <br/>+ gestão segura e abrangente do ciclo de vida ML <br/>+ para todos os níveis de habilidade<br/><br/>Os espaços de trabalho da edição empresarial são cobrados apenas pelo seu consumo Azure enquanto a edição está em pré-visualização. |
 
 ## <a name="choose-an-edition"></a>Escolher uma edição
 
@@ -111,7 +104,6 @@ Saiba como [atualizar um espaço de trabalho básico para a edição Enterprise.
 | Inferenculação de lote                                                                  | Todos                     |
 | Modelos acelerados de hardware baseados na FPGA                                             | Todos                     |
 | Perfis de modelos                                                                    | Todos                     |
-| Explicabilidade na UI                                                               | Edição empresarial apenas |
 
 <br/>
 <br/>
@@ -126,7 +118,7 @@ Saiba como [atualizar um espaço de trabalho básico para a edição Enterprise.
 | [Link privado espaço de trabalho](how-to-configure-private-link.md)                                                            | Todos                     |
 | [Gestão de quotas](how-to-manage-quotas.md) em espaços de trabalho                                                 | Edição empresarial apenas |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o que está disponível na página geral da edição Azure Machine Learning [e na página de preços.](https://azure.microsoft.com/pricing/details/machine-learning/) 
 

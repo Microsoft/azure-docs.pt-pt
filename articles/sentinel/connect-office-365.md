@@ -1,6 +1,6 @@
 ---
 title: Ligar registos do Office 365 ao Azure Sentinel Microsoft Docs
-description: Saiba como ligar os dados do Office 365 ao Azure Sentinel.
+description: Aprenda a utilizar o conector de registo office 365 para obter informações sobre as atividades de utilizador e administração em curso em Exchange e SharePoint, incluindo o OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: bcd00247486faeea47ef4a4a43fa1df5420321e6
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559340"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Ligar registos do Office 365 ao Azure Sentinel
 
@@ -55,7 +55,7 @@ O conector de log [office 365](https://docs.microsoft.com/office/) traz informa�
 
 1. Para consultar os dados de registo do Office 365 no Log Analytics, `OfficeActivity` digite na primeira linha da janela de consulta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar o Office 365 ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
 - Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](tutorial-detect-threats-built-in.md) ou [personalizadas.](tutorial-detect-threats-custom.md)

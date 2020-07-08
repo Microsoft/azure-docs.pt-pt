@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 62c35eefe50643dc65dcf84305a9b4b3ee64cadb
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85478642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560393"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Problemas de resolução de problemas problemas de indexante comum na Pesquisa Cognitiva do Azure
 
@@ -43,7 +43,7 @@ Existem 2 opções para permitir que os indexantes acedam a estes recursos em ta
 
 Os detalhes para configurar as restrições de intervalo de endereços IP para cada tipo de fonte de dados podem ser encontrados a partir dos seguintes links:
 
-* [Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
 * [BD do Cosmos](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
@@ -76,7 +76,7 @@ A Azure Cognitive Search tem uma dependência implícita na indexação de Cosmo
 O indexante blob [documenta quais os formatos de documentos são explicitamente suportados.](search-howto-indexing-azure-blob-storage.md#SupportedFormats). . Às vezes, um recipiente de armazenamento de bolhas contém documentos não suportados. Outras vezes pode haver documentos problemáticos. Pode evitar parar o seu indexante nestes documentos [alterando opções de configuração:](search-howto-indexing-azure-blob-storage.md#DealingWithErrors)
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,7 +94,7 @@ O indexante blob [encontra e extrai texto de bolhas num recipiente](search-howto
 * O indexante blob é configurado apenas para metadados de índice. Para extrair o conteúdo, o indexante blob deve ser configurado para [extrair tanto o conteúdo como os metadados:](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 

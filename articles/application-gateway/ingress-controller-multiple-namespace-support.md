@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2c519792bcf9251f926d305c9611320a18b7c346
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84806994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556170"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Ativar vários suportes namespace num cluster AKS com controlador de entrada de gateway de aplicação
 
@@ -45,6 +45,7 @@ No topo da hierarquia - **os ouvintes** (endereço IP, porta e anfitrião) e **r
 Por outro lado - caminhos, piscinas de backend, definições HTTP e certificados TLS poderiam ser criados apenas por um espaço de nome e os duplicados serão removidos.
 
 Por exemplo, considere os seguintes recursos duplicados de ingresss recursos definidos `staging` e `production` `www.contoso.com` para:
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -101,6 +102,7 @@ Por predefinição, a AGIC configurará o Gateway de Aplicação com base em Ing
   - utilizar [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para limitar a AGIC a espaços de nome específicos
 
 ## <a name="sample-helm-config-file"></a>Arquivo config de amostra helm
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Por predefinição, a AGIC configurará o Gateway de Aplicação com base em Ing
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

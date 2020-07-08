@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 26899d629661fbf3a4f48ac09fa9fd3ee806bdb4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 06/30/2020
+ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554256"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -52,7 +52,7 @@ Na API REST, emita http post solicitando aos corpos de pedido json para o URL do
 No .NET SDK, embale os seus dados num `IndexBatch` objeto. Um `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar nesse documento. Para um exemplo de código, consulte o [C# Quickstart](search-get-started-dotnet.md).
 
 
-| @search.action | Description | Campos necessários para cada documento | Notas |
+| @search.action | Descrição | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No .NET SDK, isto inclui campos de tipo `DataType.Collection(DataType.String)` . Na API REST, isto inclui campos de `Collection(Edm.String)` tipo. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
@@ -63,11 +63,13 @@ No .NET SDK, embale os seus dados num `IndexBatch` objeto. Um `IndexBatch` encap
 
 Existem duas formas de [pesquisar o índice através da API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma forma consiste em emitir um pedido de HTTP POST, em que os parâmetros da sua consulta são definidos num objeto JSON no corpo do pedido. A outra forma consiste em emitir um pedido de HTTP GET, em que os parâmetros da consulta são definidos no URL do pedido. O POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) em relação ao tamanho dos parâmetros de consulta do que o GET. Por este motivo, recomendamos a utilização do POST, salvo se tiver circunstâncias especiais em que a utilização do GET seja mais conveniente.
 
-Para o POST e o GET, é necessário fornecer o *nome do serviço*, o *nome do índice* e a *versão de API* correta (no momento de publicação deste documento a versão de API atual é `2019-05-06`) no URL do pedido. No GET, os parâmetros de consulta são fornecidos na *cadeia de consulta* no final do URL. Veja a seguir o formato URL:
+Para post e GET, você precisa fornecer o seu nome de *serviço,* *nome de índice,* e uma *versão API* no URL de pedido. 
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+No GET, os parâmetros de consulta são fornecidos na *cadeia de consulta* no final do URL. Veja a seguir o formato URL:
 
-O formato para o POST é o mesmo, contudo, apenas com a versão de API nos parâmetros de cadeia de consulta.
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+
+O formato para POST é o mesmo, mas com `api-version` os parâmetros de cadeia de consulta.
 
 ## <a name="pulling-data-into-an-index"></a>Extrair dados para um índice
 
@@ -94,7 +96,7 @@ Uma forma rápida de realizar uma verificação preliminar no upload do document
 > [!TIP]
 > Numerosas amostras de código de [pesquisa cognitiva do Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executam o indexante pré-configurado na fonte de dados da amostra, um índice é criado e carregado com documentos que podem ser consultados no Explorador de Busca ou por código que escreve.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

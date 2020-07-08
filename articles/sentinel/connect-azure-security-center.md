@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados do Centro de Segurança Azure ao Azure Sentinel
-description: Saiba como ligar os dados do Azure Security Center ao Azure Sentinel.
+description: Aprenda a ligar alertas a partir do nível standard do Azure Security Center (ASC) e transmita-os para o Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 3d4b22196598d971c49f0364038b74ba81c73805
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 2fc7744600a9652ad43fd0aae8d886dc94acd58f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559153"
 ---
 # <a name="connect-data-from-azure-security-center-asc"></a>Ligar dados do Azure Security Center (ASC)
 
@@ -38,7 +38,7 @@ O Azure Sentinel permite-lhe ligar alertas do Centro de [Segurança Azure](../se
 
 1. Para utilizar o esquema relevante no Log Analytics para os alertas do Centro de Segurança Azure, procure por **SecurityAlert**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar o Centro de Segurança Azure ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

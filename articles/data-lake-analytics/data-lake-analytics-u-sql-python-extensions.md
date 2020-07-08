@@ -6,16 +6,15 @@ ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.custom: tracking-python
-ms.openlocfilehash: d047fd62e897163bf4ab6bf7e085462b136bf8fe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0d2a7910523bf5b6dd02d4c93aaf851b38cf09df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555645"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python em Azure Data Lake Analytics
 
@@ -27,7 +26,7 @@ Antes de começar, certifique-se de que as extensões Python estão instaladas n
 * No menu esquerdo, em **"COMEÇAR"** clique em **Scripts de Amostra**
 * Clique **em instalar extensões U-SQL** e depois **OK**
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição geral
 
 As extensões python para U-SQL permitem aos desenvolvedores executar uma execução massivamente paralela do código Python. O exemplo a seguir ilustra os passos básicos:
 
@@ -36,38 +35,32 @@ As extensões python para U-SQL permitem aos desenvolvedores executar uma execu�
 * As extensões Python para U-SQL incluem um redutor incorporado `Extension.Python.Reducer` () que executa o código Python em cada vértice atribuído ao redutor
 * O script U-SQL contém o código Python incorporado que tem uma função chamada `usqlml_main` que aceita um DataFrame pandas como entrada e devolve um DataFrame de pandas como saída.
 
---
-
-    REFERENCE ASSEMBLY [ExtPython];
-
-    DECLARE @myScript = @"
-    def get_mentions(tweet):
-        return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
-
-    def usqlml_main(df):
-        del df['time']
-        del df['author']
-        df['mentions'] = df.tweet.apply(get_mentions)
-        del df['tweet']
-        return df
-    ";
-
-    @t  = 
-        SELECT * FROM 
-           (VALUES
-               ("D1","T1","A1","@foo Hello World @bar"),
-               ("D2","T2","A2","@baz Hello World @beer")
-           ) AS 
-               D( date, time, author, tweet );
-
-    @m  =
-        REDUCE @t ON date
-        PRODUCE date string, mentions string
-        USING new Extension.Python.Reducer(pyScript:@myScript);
-
-    OUTPUT @m
-        TO "/tweetmentions.csv"
-        USING Outputters.Csv();
+```usql
+REFERENCE ASSEMBLY [ExtPython];
+DECLARE @myScript = @"
+def get_mentions(tweet):
+    return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
+def usqlml_main(df):
+    del df['time']
+    del df['author']
+    df['mentions'] = df.tweet.apply(get_mentions)
+    del df['tweet']
+    return df
+";
+@t  =
+    SELECT * FROM
+       (VALUES
+           ("D1","T1","A1","@foo Hello World @bar"),
+           ("D2","T2","A2","@baz Hello World @beer")
+       ) AS date, time, author, tweet );
+@m  =
+    REDUCE @t ON date
+    PRODUCE date string, mentions string
+    USING new Extension.Python.Reducer(pyScript:@myScript);
+OUTPUT @m
+    TO "/tweetmentions.csv"
+    USING Outputters.Csv();
+```
 
 ## <a name="how-python-integrates-with-u-sql"></a>Como python se integra com U-SQL
 
@@ -78,30 +71,36 @@ As extensões python para U-SQL permitem aos desenvolvedores executar uma execu�
 
 ### <a name="schemas"></a>Esquemas
 
-* Os vetores de índice em Pandas não são suportados em U-SQL. Todos os quadros de dados de entrada na função Python têm sempre um índice numérico de 64 bits de 0 até ao número de linhas menos 1. 
+* Os vetores de índice em Pandas não são suportados em U-SQL. Todos os quadros de dados de entrada na função Python têm sempre um índice numérico de 64 bits de 0 até ao número de linhas menos 1.
 * Conjuntos de dados U-SQL não podem ter nomes de colunas duplicados
-* U-SQL datasets nomes de colunas que não são cordas. 
+* U-SQL datasets nomes de colunas que não são cordas.
 
 ### <a name="python-versions"></a>Versões Python
-Apenas o Python 3.5.1 (compilado para Windows) é suportado. 
+
+Apenas o Python 3.5.1 (compilado para Windows) é suportado.
 
 ### <a name="standard-python-modules"></a>Módulos Python padrão
+
 Todos os módulos Python padrão estão incluídos.
 
 ### <a name="additional-python-modules"></a>Módulos Python adicionais
+
 Além das bibliotecas pitão padrão, várias bibliotecas de python comumente usadas estão incluídas:
 
-    pandas
-    numpy
-    numexpr
+* pandas
+* numpy
+* numexpr
 
 ### <a name="exception-messages"></a>Mensagens de Exceção
+
 Atualmente, uma exceção no código Python aparece como falha genérica do vértice. No futuro, as mensagens de erro U-SQL Job mostrarão a mensagem de exceção Python.
 
 ### <a name="input-and-output-size-limitations"></a>Limitações do tamanho da entrada e da saída
+
 Cada vértice tem uma quantidade limitada de memória atribuída a ele. Atualmente, esse limite é de 6 GB para uma AU. Como os DataFrames de entrada e saída devem existir na memória no código Python, o tamanho total da entrada e saída não pode exceder 6 GB.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Próximos passos
+
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio | Azure](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilização de funções de janela U-SQL para trabalhos de Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)

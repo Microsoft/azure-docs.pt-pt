@@ -4,12 +4,12 @@ description: Saiba mais sobre o acesso e identidade no Serviço Azure Kubernetes
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558162"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -68,7 +68,10 @@ As ligações de funções são usadas para atribuir papéis para um determinado
 
 Um ClusterRoleBinding funciona da mesma forma para ligar funções aos utilizadores, mas pode ser aplicado a recursos em todo o cluster, e não num espaço de nome específico. Esta abordagem permite conceder aos administradores ou engenheiros de apoio acesso a todos os recursos do cluster AKS.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE]
+> Quaisquer ações de cluster tomadas pelo suporte da Microsoft são feitas com o consentimento do utilizador sob um papel de ["editar"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) do nome embutido de Kubernetes `aks-support-rolebinding` . Com esta função, o suporte AKS é habilitado a editar a configuração do cluster e os recursos para resolver problemas e diagnosticar problemas de cluster, mas o papel não pode modificar permissões nem criar papéis ou encadernações de papéis. O acesso à função só é ativado em bilhetes de apoio ativos com acesso just-in-time (JIT). Leia mais sobre [as políticas de apoio à AKS.](support-policies.md)
+
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com Azure AD e Kubernetes RBAC, consulte [Integrate Azure Ative Directory com AKS][aks-aad].
 

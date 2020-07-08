@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e944c25f39903f8a78a949206bc8037f34508698
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555064"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Depurar problemas de aplicações do Proxy de Aplicações 
 
 Este artigo ajuda-o a resolver problemas com aplicações de procuração de aplicações Azure Ative (Azure AD). Se estiver a utilizar o serviço Application Proxy para acesso remoto a uma aplicação web no local, mas está com dificuldades em ligar-se à aplicação, use este fluxograma para depurar problemas de aplicação. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Ao resolver problemas problemas de aplicação proxy, recomendamos que comece com os conectores. Em primeiro lugar, siga o fluxo de resolução de problemas nos [problemas do Conector Proxy da aplicação de depuração](application-proxy-debug-connectors.md) para garantir que os conectores Proxy da aplicação estão configurados corretamente. Se ainda tiver problemas, volte a este artigo para resolver problemas na aplicação.  
 
@@ -39,7 +39,7 @@ Este fluxograma acompanha-o através dos passos para depurar algumas das questõ
 
 ![Flowchart mostrando passos para depurar uma aplicação](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Ação | Description | 
+| Passo | Ação | Descrição |
 |---------|---------|---------|
 |1 | Abra um navegador, aceda à app e insira as suas credenciais | Tente usar as suas credenciais para iniciar seduca na aplicação e verifique se há erros relacionados com o utilizador, como [esta aplicação corporativa não pode ser acedida.](application-proxy-sign-in-bad-gateway-timeout-error.md) |
 |2 | Verifique a atribuição do utilizador à aplicação | Certifique-se de que a sua conta de utilizador tem permissão para aceder à aplicação a partir de dentro da rede corporativa e, em seguida, testar a sessão na aplicação seguindo os passos no [Teste da aplicação.](application-proxy-add-on-premises-application.md#test-the-application) Se persistirem problemas de inscrição, consulte [como resolver os erros de inscrição de problemas](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
@@ -50,7 +50,7 @@ Este fluxograma acompanha-o através dos passos para depurar algumas das questõ
 |7 | Verifique a latência da rede | Se a página carregar lentamente, aprenda sobre formas de minimizar a latência da rede em [Considerações para reduzir a latência](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
 |8 | Consulte ajuda adicional para a resolução de problemas | Se as questões persistirem, encontre artigos adicionais de resolução de problemas na [documentação de resolução de problemas da Aplicação Proxy](application-proxy-troubleshoot.md). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 * [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)

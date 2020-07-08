@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9254e0ce9f27d95edb01359e53888078c1087381
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555036"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depurar problemas de conectores do Proxy de Aplicações 
 
 Este artigo ajuda-o a resolver problemas com conectores de aplicação Proxy da aplicação Azure Ative(Azure AD). Se estiver a utilizar o serviço Application Proxy para acesso remoto a uma aplicação web no local, mas está com dificuldades em ligar-se à aplicação, use este fluxograma para depurar problemas de conector. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que instalou o conector Application Proxy e está com um problema. Ao resolver problemas problemas de aplicação Proxy, recomendamos que comece com este fluxo de resolução de problemas para determinar se os conectores Proxy da aplicação estão configurados corretamente. Se ainda tiver problemas em ligar-se à aplicação, siga o fluxo de resolução de problemas em problemas de [aplicação de aplicação de aplicação de aplicação de aplicação de depuração](application-proxy-debug-apps.md).  
 
@@ -40,7 +40,7 @@ Este fluxograma acompanha-o através dos passos para depurar alguns dos problema
 
 ![Fluxograma mostrando passos para depurar um conector](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Ação | Description | 
+| Passo | Ação | Descrição |
 |---------|---------|---------|
 |1 | Encontre o grupo de conector atribuído à app | Provavelmente tem um conector instalado em vários servidores, caso em que os conectores devem ser [atribuídos a grupos de conector](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para saber mais sobre grupos de conectores, consulte [publicar aplicações em redes e locais separados utilizando grupos de conectores](application-proxy-connector-groups.md). |
 |2 | Instale o conector e atribua um grupo | Se não tiver um conector instalado, consulte [instalar e registar um conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Se tiver problemas na instalação do conector, consulte [o Problema de instalação do Conector](application-proxy-connector-installation-problem.md).<br></br> Se o conector não for atribuído a um grupo, consulte [atribuir o conector a um grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Se a aplicação não for atribuída a um grupo de conector, consulte [atribuir a aplicação a um grupo de conector](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
@@ -53,7 +53,7 @@ Este fluxograma acompanha-o através dos passos para depurar alguns dos problema
 |9 | Alonge o valor de tempo na parte de trás | Nas **Definições Adicionais** para a sua aplicação, altere a definição **de tempo de aplicação backend** para **Long**. Consulte [uma aplicação no local ao Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). |
 |10 | Se as questões persistirem, direcione problemas específicos de fluxo, app de revisão e fluxos de depurações SSO | Utilize a [aplicação Debug Application Proxy que emite](application-proxy-debug-apps.md) fluxo de resolução de problemas. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 * [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)

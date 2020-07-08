@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a92540ff2c57ff5c1aa827237a7341aecc1592b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557987"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
@@ -48,16 +48,16 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Name|Description|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Yes|
+|autenticação-básico|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Description|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|o nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
+|o nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
@@ -97,17 +97,17 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Description|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Yes|  
+|certificado de autenticação|Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Description|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
 |certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
-|body|Certificado de cliente como um byte array.|No|N/D|
+|body|Certificado de cliente como um byte array.|Não|N/D|
 |palavra-passe|Senha para o certificado do cliente.|Usado se o certificado especificado é `body` protegido por palavra-passe.|N/D|
   
 ### <a name="usage"></a>Utilização  
@@ -140,7 +140,7 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -174,18 +174,18 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Description|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Yes|  
+|identidade gerida por autenticação |Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Description|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|
-|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|No|identidade atribuída ao sistema|
-|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |No|N/D|  
-|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|No|false|  
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|
+|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|Não|identidade atribuída ao sistema|
+|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
+|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)  
@@ -194,7 +194,7 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
   
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)

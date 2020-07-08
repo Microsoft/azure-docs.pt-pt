@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bd89e3366fbaa60109be9ef3552970936f0a6715
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 4714fbb5d9f08e0b02dbc8f6cb32845642911e51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556298"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET
 
@@ -38,7 +38,7 @@ As várias bibliotecas de clientes definem classes `Index` `Field` como, `Docume
 
 Se quiser fornecer feedback para uma futura atualização do SDK, consulte a nossa página de [feedback](https://feedback.azure.com/forums/263029-azure-search/) ou crie um problema no [GitHub](https://github.com/azure/azure-sdk-for-net/issues) e mencione "Azure Cognitive Search" no título de edição.
 
-O .NET SDK suporta a versão `2019-05-06` da [AZure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui suporte para [tipos complexos](search-howto-complex-data-types.md), [enriquecimento de IA,](cognitive-search-concept-intro.md) [autocompleto](https://docs.microsoft.com/rest/api/searchservice/autocomplete)e [modo de análise JsonLines](search-howto-index-json-blobs.md) ao indexar Azure Blobs. 
+O .NET SDK visa a versão `2019-05-06` da [AZure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui suporte para [tipos complexos](search-howto-complex-data-types.md), [enriquecimento de IA,](cognitive-search-concept-intro.md) [autocompleto](https://docs.microsoft.com/rest/api/searchservice/autocomplete)e [modo de análise JsonLines](search-howto-index-json-blobs.md) ao indexar Azure Blobs. 
 
 Este SDK não suporta [Operações de Gestão](https://docs.microsoft.com/rest/api/searchmanagement/) como a criação e dimensionamento de serviços de pesquisa e gestão de chaves API. Se precisar de gerir os seus recursos de pesquisa a partir de uma aplicação .NET, pode utilizar o [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -752,7 +752,7 @@ E aqui estão os resultados, que incluem todos os campos uma vez que não especi
 
 Este passo completa o tutorial, mas não pare aqui. **Os próximos passos fornecem recursos adicionais para aprender mais sobre a Pesquisa Cognitiva Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * [Reveja as convenções de nomeação](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para aprender as regras para nomear vários objetos.
 * Reveja [os tipos de dados suportados](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) na Pesquisa Cognitiva Azure.

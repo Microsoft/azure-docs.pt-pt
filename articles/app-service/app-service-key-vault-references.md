@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 6ce11e806c514aa4a2074d120cb64ecdce222528
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557913"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -38,7 +38,7 @@ Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão 
 Uma referência do Cofre-Chave é do `@Microsoft.KeyVault({referenceString})` formulário, onde `{referenceString}` é substituída por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
-> | Cadeia de referência                                                            | Description                                                                                                                                                                                 |
+> | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o plano de dados completo URI de um segredo em Key Vault, incluindo uma versão, por exemplo,https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | Nome do cofre=_nome do cofre;_ Nome secreto=_nome secreto;_ SecretVersion=_secretversion_ | O **Nome do Cofre** deve ser o nome do seu recurso Key Vault. O **Nome Secreto** deve ser o nome do segredo do alvo. A **Versão Secreta** deve ser a versão do segredo a usar. |
@@ -72,7 +72,7 @@ Para utilizar uma referência do Cofre de Chaves para uma definição de aplica�
 
 Ao automatizar as implementações de recursos através dos modelos Azure Resource Manager, poderá necessitar de sequenciar as suas dependências de uma determinada forma de fazer com que esta funcionalidade funcione. De notar que terá de definir as definições da sua aplicação como recurso próprio, em vez de utilizar uma `siteConfig` propriedade na definição do site. Isto porque o site precisa de ser definido primeiro para que a identidade atribuída ao sistema seja criada com ele e possa ser usada na política de acesso.
 
-Um modelo de psuedo exemplo para uma aplicação de função pode parecer o seguinte:
+Um modelo de pseudo-modelo de exemplo para uma aplicação de função pode parecer o seguinte:
 
 ```json
 {

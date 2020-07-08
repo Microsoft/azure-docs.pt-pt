@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 3e58bdafce6746d7f83dfbceeff529c6d4b5075a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559929"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida (pré-visualização)
 
@@ -111,7 +111,7 @@ Ao indexar a partir de uma base de dados SQL, a fonte de dados deve ter as segui
 Exemplo de como criar um objeto de origem de dados Azure SQL utilizando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -132,7 +132,7 @@ O índice especifica os campos num documento, atributos e outras construções q
 Aqui está como criar um índice com um `booktitle` campo pesquisável:   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -156,7 +156,7 @@ Uma vez criado o índice e a fonte de dados, está pronto para criar o indexante
 Definição de indexante de exemplo para um indexador Azure SQL:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -178,7 +178,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting)do indexante .
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 Saiba mais sobre o indexante Azure SQL:
 * [Indexador do Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
