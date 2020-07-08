@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 8b8634d601a89ff0014d33921f20b2683b2ef12e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869559"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Pré-visualização: Visão geral do Azure Image Builder

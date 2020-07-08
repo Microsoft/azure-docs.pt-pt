@@ -1,6 +1,6 @@
 ---
-title: Livros de Trabalho do Monitor Azure- Transforme os dados da JSON com a JSONPath
-description: Como utilizar o JSONPath nos livros de trabalho do Monitor Azure para transformar os resultados dos dados da JSON devolvidos por um ponto final consultado ao formato que deseja.
+title: Azure Monitor Workbooks - Transforme os dados da JSON com o JSONPath
+description: Como utilizar o JSONPath nos livros do Azure Monitor para transformar os resultados dos dados JSON devolvidos por um ponto final questionado ao formato desejado.
 services: azure-monitor
 author: lgayhardt
 manager: carmonm
@@ -10,26 +10,25 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892215"
 ---
-# <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados da JSON em livros de trabalho
+# <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados da JSON em livros
 
-Os livros de trabalho são capazes de consultar dados de muitas fontes. Alguns pontos finais, como [o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) ou o endpoint personalizado, podem devolver resultados em JSON. Se os dados jSON devolvidos pelo ponto final consultado não estiverem configurados num formato que desejar, o JSONPath pode ser usado para transformar os resultados.
+Os livros de trabalho são capazes de consultar dados de muitas fontes. Alguns pontos finais, como [o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) ou o ponto final personalizado, podem devolver resultados em JSON. Se os dados JSON devolvidos pelo ponto final questionado não forem configurados num formato que deseje, o JSONPath pode ser utilizado para transformar os resultados.
 
-JSONPath é uma linguagem de consulta para JSON que é semelhante a XPath para XML. Tal como o XPath, o JSONPath permite a extração e filtração de dados a partir da estrutura JSON.
+JSONPath é uma linguagem de consulta para JSON que é semelhante a XPath para XML. Tal como o XPath, o JSONPath permite a extração e filtração de dados fora da estrutura JSON.
 
-Ao utilizar a transformação jSONPath, os autores do livro são capazes de converter jSON em uma estrutura de mesa. A tabela pode então ser usada para traçar visualizações de [livros.](workbooks-visualizations.md)
+Ao utilizar a transformação JSONPath, os autores do livro são capazes de converter JSON numa estrutura de mesa. A tabela pode então ser usada para traçar [visualizações de livros.](workbooks-visualizations.md)
 
-## <a name="using-jsonpath"></a>Usando jsonpath
+## <a name="using-jsonpath"></a>Utilização do JSONPath
 
-1. Mude o livro para o modo de edição clicando no item da barra de ferramentas *Editar.*
-2. Utilize o link *adicionar* > *consulta* para adicionar um controlo de consulta ao livro de trabalho.
+1. Mude o livro para editar o modo clicando no item da barra de ferramentas *Editar.*
+2. Utilize o link *de*consulta  >  *Add Add* para adicionar um controlo de consulta ao livro de trabalho.
 3. Selecione a fonte de dados como *JSON*.
-4. Use o editor da JSON para introduzir o seguinte corte JSON
+4. Use o editor JSON para inserir o seguinte snippet JSON
     ```json
     { "store": {
         "books": [ 
@@ -64,25 +63,25 @@ Ao utilizar a transformação jSONPath, os autores do livro são capazes de conv
     }
     ```  
 
-Vamos supor que nos é dado o objeto jSON acima como uma representação do inventário de uma loja. A nossa tarefa é criar uma tabela dos livros disponíveis da loja, listando os seus títulos, autores e preços.
+Vamos supor que nos é dado o objeto JSON acima como uma representação do inventário de uma loja. A nossa tarefa é criar uma tabela dos livros disponíveis da loja, listando os seus títulos, autores e preços.
 
-1. Selecione o separador *Definições* de Resultados e mude o formato de resultadopara *Caminho JSON*.
-2. Aplicar as seguintes Definições do Caminho JSON:
+1. Selecione o *separador Definições de Resultados* e altere o formato de resultado para *JSON Path*.
+2. Aplicar as seguintes definições do caminho JSON:
 
-    Mesa de caminho `$.store.books`JSON: . Este campo representa o caminho da raiz da mesa. Neste caso, preocupamo-nos com o inventário do livro da loja. O caminho da mesa filtra o JSON para a informação do livro.
+    Tabela de Caminhos JSON: `$.store.books` . Este campo representa o caminho da raiz da mesa. Neste caso, preocupamo-nos com o inventário de livros da loja. O caminho da mesa filtra o JSON à informação do livro.
 
-   | IDs de coluna | Caminho JSON da Coluna |
+   | IDs de coluna | Rota JSON da Coluna |
    |:-----------|:-----------------|
    | Título      | `$.title`        |
    | Autor     | `$.author`       |
    | Preço      | `$.price`        |
 
-    Os IDs da coluna serão os cabeçalhos da coluna. Os campos de caminhos da Coluna JSON representam o caminho desde a raiz da tabela até ao valor da coluna.
+    Os IDs da coluna serão os cabeçalhos das colunas. Os campos de caminhos da Coluna JSON representam o caminho desde a raiz da tabela até ao valor da coluna.
 
-1. Aplique as definições acima clicando em *Executar Consulta*
+1. Aplicar as definições acima clicando *em Consulta de Execução*
 
-![ Editar item de consulta com fonte de dados JSON e formato de resultado son path](./media/workbooks-jsonpath/query-jsonpath.png)
+![ Item de consulta de edição com fonte de dados JSON e formato de resultados JSON Path](./media/workbooks-jsonpath/query-jsonpath.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Visão geral dos livros](workbooks-overview.md)
-- [Grupos em Livros de Monitorização Azure](workbooks-groups.md)
+- [Grupos em livros de monitores Azure](workbooks-groups.md)

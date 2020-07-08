@@ -1,6 +1,6 @@
 ---
-title: Tutoriais de Integração de Aplicações SaaS para uso com Azure AD [ Microsoft Docs
-description: Configure Integração de assinatura única do Azure Ative Diretório com uma variedade de software de terceiros como aplicações de serviço.
+title: Tutoriais de Integração de Aplicativos SaaS para uso com Azure AD / Microsoft Docs
+description: Configure Azure Ative Directory integração única de sign-on com uma variedade de software de terceiros como aplicações de serviço.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -18,45 +18,44 @@ ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be265eee32a739bdfc2d4c3b746e01cd0c5ec06a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130583"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutorials for integrating SaaS applications with Azure Active Directory (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
-Para ajudar a integrar o seu software ativado pela nuvem [como um serviço (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) aplicações com o Azure Ative Directory, desenvolvemos uma coleção de tutoriais que o percorrem através da configuração.
+Para ajudar a integrar o seu software ativado pela nuvem [como um serviço (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) com o Azure Ative Directory, desenvolvemos uma coleção de tutoriais que o acompanham através da configuração.
 
-Para obter uma lista de todas as aplicações SaaS que foram pré-integradas no Azure AD, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+Para obter uma lista de todas as aplicações SaaS que foram pré-integradas no AD AZure, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Utilize o portal da rede de [aplicações](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) para solicitar a adição de uma aplicação [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) à galeria para fornecimento automático ou uma aplicação habilitada a SAML/OIDC para ser adicionada à galeria para SSO.
+Utilize o portal da [rede de aplicações](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) para solicitar uma aplicação [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) habilitada a ser adicionada à galeria para provisionamento automático ou uma aplicação ativada SAML/OIDC a ser adicionada à galeria de SSO.
 
 ## <a name="quick-links"></a>Ligações rápidas
 
-| Logótipo | Tutorial de candidatura para inscrição única | Tutorial de aplicação para fornecimento de utilizadores |
+| Logótipo | Tutorial de aplicação para um único sinal | Tutorial de aplicação para provisionamento de utilizadores |
 | :--- | :--- | :--- |
-| ![logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Nuvem Atlassian - Fornecimento de Utilizadores](atlassian-cloud-provisioning-tutorial.md)|
+| ![logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Nuvem Atlassiana - Provisionamento de Utilizadores](atlassian-cloud-provisioning-tutorial.md)|
 | ![logotipo](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - Fornecimento de Utilizadores](servicenow-provisioning-tutorial.md)|
-| ![logotipo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Folga - Fornecimento de Utilizadores](slack-provisioning-tutorial.md)|
+| ![logotipo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Provisioning do Utilizador](slack-provisioning-tutorial.md)|
 | ![logotipo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - Fornecimento de Utilizadores](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Dia de Trabalho - Fornecimento de Utilizadores](workday-inbound-tutorial.md)|
+| ![logotipo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Dias úteis - Provisionamento de Utilizadores](workday-inbound-tutorial.md)|
 
 Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 
 ## <a name="cloud-integrations"></a>Integrações em Nuvem
 
-| Logótipo | Tutorial de candidatura para inscrição única | Tutorial de aplicação para fornecimento de utilizadores |
+| Logótipo | Tutorial de aplicação para um único sinal | Tutorial de aplicação para provisionamento de utilizadores |
 | :--- | :--- | :--- |
-| ![logotipo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Consola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Consola Amazon Web Services (AWS) - Prestação de funções](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
-| ![logotipo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Fornecimento de Utilizadores](google-apps-provisioning-tutorial.md) |
+| ![logotipo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Consola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Consola Amazon Web Services (AWS) - Provisioning de funções](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
+| ![logotipo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Fun bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
+| ![logotipo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Provisioning de utilizadores](google-apps-provisioning-tutorial.md) |
 | ![logotipo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Fornecimento de Utilizadores](salesforce-provisioning-tutorial.md) |
-| ![logotipo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem SAP](saphana-tutorial.md)|[Plataforma de Identidade cloud SAP - Provisionamento](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logotipo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem SAP](saphana-tutorial.md)|[Plataforma de Identidade cloud SAP - Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 
-| Logótipo | Tutorial de candidatura para inscrição única |        |
+| Logótipo | Tutorial de aplicação para um único sinal |        |
 | :--- | :--- | :--- |
 | ![logotipo](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|      |
 | ![logotipo](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|      |
@@ -116,6 +115,6 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 | ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|        |
 | ![logotipo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre a gestão de aplicações, consulte [o que é a gestão de aplicações.](../manage-apps/what-is-application-management.md)
+Para saber mais sobre gestão de aplicações, consulte [O que é a gestão de aplicações.](../manage-apps/what-is-application-management.md)

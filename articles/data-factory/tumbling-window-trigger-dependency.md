@@ -1,6 +1,6 @@
 ---
-title: Criar dependências de gatilho sinuoso de janela
-description: Aprenda a criar dependência de um gatilho de janela caindo na Fábrica de Dados Azure.
+title: Criar dependências de gatilho de janelas caindo
+description: Aprenda a criar dependência de um gatilho de janela caindo na Azure Data Factory.
 services: data-factory
 ms.author: daperlov
 author: djpmsft
@@ -12,26 +12,25 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
 ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82870047"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo fornece passos para criar uma dependência de um gatilho de janela caindo. Para obter informações gerais sobre os gatilhos da Janela Tumbling, consulte [Como criar](how-to-create-tumbling-window-trigger.md)o gatilho da janela .
+Este artigo fornece passos para criar uma dependência de um gatilho de janela caindo. Para obter informações gerais sobre os gatilhos da Janela Tumbling, consulte [Como criar o gatilho da janela .](how-to-create-tumbling-window-trigger.md)
 
 Para construir uma cadeia de dependência e certificar-se de que um gatilho é executado apenas após a execução bem sucedida de outro gatilho na fábrica de dados, utilize esta funcionalidade avançada para criar uma dependência de janelas caindo.
 
-Para uma demonstração sobre como criar oleodutos dependentes na sua Fábrica de Dados Azure utilizando o gatilho da janela, veja o seguinte vídeo:
+Para uma demonstração de como criar oleodutos dependentes na sua Fábrica de Dados Azure utilizando o gatilho da janela caindo, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Criar uma dependência na UI da Fábrica de Dados
 
-Para criar dependência de um gatilho, selecione **Trigger > Advanced > New**, e, em seguida, escolha o gatilho para depender com a compensação e tamanho apropriados. Selecione **Terminar** e publique as alterações da fábrica de dados para que as dependências entrem em vigor.
+Para criar dependência de um gatilho, selecione **Trigger > Advanced > New**, e, em seguida, escolha o gatilho para depender do offset e do tamanho apropriados. **Selecione Terminar** e publicar as alterações na fábrica de dados para que as dependências entrem em vigor.
 
 ![Criação de Dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Criação de Dependência")
 
@@ -77,23 +76,23 @@ Um gatilho de janela caindo com uma dependência tem as seguintes propriedades:
 }
 ```
 
-A tabela seguinte fornece a lista de atributos necessários para definir uma dependência da Janela Caindo.
+A tabela seguinte fornece a lista de atributos necessários para definir uma dependência da Janela Tumbling.
 
 | **Nome da Propriedade** | **Descrição**  | **Tipo** | **Necessário** |
 |---|---|---|---|
-| tipo  | Todos os gatilhos existentes da janela são exibidos nesta queda para baixo. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
-| offset | Compensado do gatilho da dependência. Fornecer um valor no formato de tempo e compensações negativas e positivas são permitidas. Este imóvel é obrigatório se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se não for especificado qualquer valor, a janela é a mesma que o próprio gatilho. | Timespan<br/>(hh:mm:ss) | Auto-Dependência: Sim<br/>Outros: Não |
-| size | Tamanho da janela de tropeçar da dependência. Forneça um valor de tempo positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | No  |
+| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
+| offset | Compensação do gatilho da dependência. Fornecer um valor no formato de tempo e tanto compensações negativas como positivas são permitidas. Esta propriedade é obrigatória se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Timespan<br/>(hh:mm:ss) | Auto-dependência: Sim<br/>Outros: Não |
+| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
 > [!NOTE]
-> Um gatilho da janela pode depender de um máximo de cinco outros gatilhos.
+> Um gatilho da janela caindo pode depender de um máximo de cinco outros gatilhos.
 
-## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de auto-dependência de janelas caindo
+## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de auto-dependência da janela caindo
 
-Em cenários em que o gatilho não deve passar para a janela seguinte até que a janela anterior seja concluída com sucesso, construa uma auto-dependência. Um gatilho de auto-dependência que dependa do sucesso de corridas anteriores dentro da hora anterior terá as propriedades indicadas no seguinte código.
+Em cenários em que o gatilho não deve seguir para a janela seguinte até que a janela anterior esteja concluída com sucesso, construa uma auto-dependência. Um gatilho de auto-dependência que depende do sucesso de execuções anteriores de si mesmo dentro da hora anterior terá as propriedades indicadas no seguinte código.
 
 > [!NOTE]
-> Se o seu gasoduto acionado depender da saída de gasodutos em janelas previamente acionadas, recomendamos que utilize apenas a auto-dependência do gatilho da janela. Para limitar as corridas paralelas do gatilho, detete a moeda do gatilho máximo.
+> Se o seu gasoduto acionado depender da saída de gasodutos em janelas previamente acionadas, recomendamos que utilize apenas a auto-dependência do gatilho da janela. Para limitar as execuções paralelas do gatilho, desloe o gatilho máximo.
 
 ```json
 {
@@ -131,9 +130,9 @@ Em cenários em que o gatilho não deve passar para a janela seguinte até que a
 
 Abaixo estão ilustrações de cenários e uso de propriedades de dependência de janelas caindo.
 
-### <a name="dependency-offset"></a>Compensação da dependência
+### <a name="dependency-offset"></a>Compensação de dependência
 
-![Exemplo de compensação](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Exemplo de compensação")
+![Exemplo de offset](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Exemplo de offset")
 
 ### <a name="dependency-size"></a>Tamanho da dependência
 
@@ -145,7 +144,7 @@ Abaixo estão ilustrações de cenários e uso de propriedades de dependência d
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dependência de outro gatilho da janela caindo
 
-Um trabalho diário de processamento de telemetria, dependendo de outro trabalho diário que agrega os últimos sete dias de produção e gera streams de janelas rolantes de sete dias:
+Um trabalho diário de processamento de telemetria dependendo de outro trabalho diário agregando a produção dos últimos sete dias e gera fluxos de janelas rolantes de sete dias:
 
 ![Exemplo de dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Exemplo de dependência")
 
@@ -157,18 +156,18 @@ Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
 ## <a name="monitor-dependencies"></a>Monitorizar dependências
 
-Pode monitorizar a cadeia de dependência e as janelas correspondentes a partir da página de monitorização do gatilho. Navegar para **monitorizar > disparos**. Sob a coluna de ações, pode reproduzir o gatilho ou ver as suas dependências.
+Pode monitorizar a cadeia de dependência e as janelas correspondentes a partir da página de monitorização do gatilho. Navegue para **monitorizar > Trigger Runs**. Sob a coluna de ações, pode refazer o gatilho ou ver as suas dependências.
 
 ![Monitorizar execuções acionadas](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorizar execuções acionadas")
 
-Se clicar em 'Ver Dependências do Gatilho', pode ver o estado das dependências. Se um dos gatilhos de dependência falhar, deve reexecutá-lo com sucesso para que o gatilho dependente corra. Um gatilho de janela caindo vai esperar por dependências por sete dias antes de sair.
+Se clicar em 'Ver Dependências do Gatilho', pode ver o estado das dependências. Se um dos gatilhos de dependência falhar, deve voltar a executá-lo com sucesso para que o gatilho dependente possa funcionar. Um gatilho da janela caindo vai esperar de dependências por sete dias antes de sair.
 
 ![Monitorizar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorizar dependências")
 
-Para um visual mais visual para ver o horário de dependência do gatilho, selecione a vista Gantt.
+Para uma visualização mais visual do calendário de dependência do gatilho, selecione a vista Gantt.
 
 ![Monitorizar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorizar dependências")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Rever [Como criar um gatilho](how-to-create-tumbling-window-trigger.md) de janela caindo
+* Rever [Como criar um gatilho de janela caindo](how-to-create-tumbling-window-trigger.md)

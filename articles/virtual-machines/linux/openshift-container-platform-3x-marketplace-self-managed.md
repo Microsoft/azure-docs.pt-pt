@@ -1,6 +1,6 @@
 ---
-title: Implementar plataforma de contentores OpenShift 3.11 Oferta de Mercado Autogerida em Azure
-description: Implemente a Plataforma de Contentores OpenShift 3.11 Oferta de Mercado Autogerida em Azure.
+title: Implementar a Plataforma de Contentores OpenShift 3.11 Oferta de Mercado Auto-gerida em Azure
+description: Implementar a Oferta de Mercado de Contentores OpenShift 3.11 auto-gerida em Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,181 +11,180 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759569"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
-Antes de utilizar a oferta do Marketplace para implementar um cluster openshift autogerido plataforma 3.11 em Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [de pré-requisitos openShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) para instruções para criar uma chave ssh (sem uma frase de passe), cofre chave Azure, segredo do cofre chave e um diretor de serviço.
+Antes de utilizar a oferta do Marketplace para implantar um cluster 3.11 da Plataforma de Contentores OpenShift auto-geridos em Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [pré-requisitos openShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) para instruções para criar uma chave ssh (sem uma palavra-passe), cofre chave Azure, segredo de cofre chave, e um diretor de serviço.
 
  
-## <a name="deploy-using-the-marketplace-offer"></a>Implementar usando a oferta marketplace
+## <a name="deploy-using-the-marketplace-offer"></a>Implementar usando a oferta do Marketplace
 
-A forma mais simples de implantar um cluster OpenShift Container Platform 3.11 autogerido em Azure é utilizar a oferta do [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy)
+A forma mais simples de implantar um cluster de contentores OpenShift auto-geridos 3.11 em Azure é utilizar a oferta do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Esta opção é a mais simples, mas também tem capacidades de personalização limitadas. A oferta do Marketplace implementa a Plataforma de Contentores OpenShift 3.11.82 e inclui as seguintes opções de configuração:
 
-- **Nós Mestres**: Três (3) Nós Mestrecom tipo de instância configurável.
-- **Pontos de infravermelhos:** Três (3) Nós de infravermelhos com tipo de instância configurável.
+- **Nós Mestres**: Três (3) Nós Mestres com tipo de instância configurável.
+- **Nó de infravermelhos**: Três (3) Nóns de infravermelhos com tipo de instância configurável.
 - **Nós**: O número de nós (entre 1 e 9) e o tipo de instância são configuráveis.
 - **Tipo de disco**: São utilizados discos geridos.
-- **Rede**: Suporte para uma rede nova ou existente e gama CIDR personalizada.
+- **Rede**: Suporte para rede nova ou existente e gama CIDR personalizada.
 - **CNS**: O SNC pode ser ativado.
-- **Métricas:** As Métricas Hawkular podem ser ativadas.
-- **Exploração madeireira**: A exploração madeireira EFK pode ser ativada.
-- **Fornecedor de nuvem azure**: Ativado por padrão, pode ser desativado.
+- **Métricas**: As métricas hawkular podem ser ativadas.
+- **Registo :** O registo EFK pode ser ativado.
+- **Azure Cloud Provider**: Ativado por padrão, pode ser desativado.
 
-Na parte superior esquerda do portal Azure, clique **em Criar um recurso**, introduza a "plataforma de contentores de turno aberto" na caixa de pesquisa e bata no Enter.
+Na parte superior esquerda do portal Azure, clique em **Criar um recurso,** introduza a "plataforma de contentores de abertura" na caixa de pesquisa e clique em Enter.
 
    ![Nova pesquisa de recursos](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
 
-A página Resultados abrirá com a Plataforma de **Contentores OpenShift 3.11** da Red Hat Na lista. 
+A página Resultados abrirá com **a Plataforma de Contentores OpenShift do Chapéu Vermelho 3.11 Auto-Gerida** na lista. 
 
    ![Novo resultado da pesquisa de recursos](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
 
-Clique na oferta para ver detalhes da oferta. Para implementar esta oferta, clique em **Criar**. Aparecerão os parâmetros necessários para entrar. O primeiro ecrã é a lâmina **Basics.**
+Clique na oferta para ver detalhes da oferta. Para implementar esta oferta, clique em **Criar**. Aparecerá o UI para introduzir os parâmetros necessários. O primeiro ecrã é a lâmina **Basics.**
 
-   ![Página de título de oferta](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
+   ![Oferta página de título](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
 **Noções básicas**
 
 Para obter ajuda em qualquer um dos parâmetros de entrada, paire sobre o ***i*** ao lado do nome do parâmetro.
 
-Introduza os valores para os parâmetros de entrada e clique **OK**.
+Introduza os valores para os parâmetros de entrada e clique **em OK**.
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Nome do utilizador do administrador VM | O utilizador administrador a ser criado em todos os casos de VM |
-| Chave Pública SSH para utilizador de administrador | Chave pública SSH usada para entrar em VM - não deve ter uma palavra-passe |
-| Subscrição | Assinatura Azure para implantar cluster em |
+| Nome de utilizador do administrador VM | O utilizador administrador a ser criado em todas as instâncias VM |
+| Chave pública SSH para utilizador de administração | A chave pública SSH usada para iniciar sessão em VM - não deve ter uma palavra-passe |
+| Subscrição | A subscrição do Azure para implantar cluster em |
 | Grupo de Recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazios existente para recursos de cluster |
 | Localização | Região de Azure para implantar cluster em |
 
    ![Oferecer lâmina básica](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
 
-**Definições de infraestrutura**
+**Definições de infraestruturas**
 
-Introduza os valores para os parâmetros de entrada e clique **OK**.
+Introduza os valores para os parâmetros de entrada e clique **em OK**.
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Prefixo de nome do cluster OCP | Prefixo de cluster usado para configurar nomes de anfitriões para todos os nós. Entre 1 e 20 caracteres |
-| Tamanho do nó mestre | Aceite o tamanho de VM predefinido ou clique em Alterar o **tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho de VM apropriado para a sua carga de trabalho |
-| Tamanho do nó de infraestrutura | Aceite o tamanho de VM predefinido ou clique em Alterar o **tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho de VM apropriado para a sua carga de trabalho |
-| Número de nós de aplicação | Aceite o tamanho de VM predefinido ou clique em Alterar o **tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho de VM apropriado para a sua carga de trabalho |
-| Tamanho do nó de aplicação | Aceite o tamanho de VM predefinido ou clique em Alterar o **tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho de VM apropriado para a sua carga de trabalho |
-| Tamanho do hospedeiro do bastião | Aceite o tamanho de VM predefinido ou clique em Alterar o **tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho de VM apropriado para a sua carga de trabalho |
-| Rede Virtual Nova ou Existente | Crie um novo vNet (Padrão) ou use um vNet existente |
-| Escolha as definições do CIDR predefinidos ou personalize o INTERVALO IP (CIDR) | Aceite intervalos DE CIDR padrão ou selecione **Gama IP Personalizada** e introduza informações cidr personalizadas.  Definições predefinidas criarão vNet com CIDR de 10.0.0.0.0/14, sub-rede master com 10.1.0.0.0/16, subnet de infra-rede com 10.2.0.0.0/16, e subnet computação e cns com 10.3.0.0/16 |
-| Nome do grupo de recursos do cofre chave | O nome do Grupo de Recursos que contém o Cofre chave |
-| Nome do cofre da chave | O nome do Cofre-Chave que contém o segredo com a chave privada ssh.  Apenas personagens alfanuméricos e traços são permitidos, e estar entre 3 e 24 caracteres |
-| Nome Secreto | O nome do segredo que contém a chave privada ssh.  Apenas personagens alfanuméricos e traços são permitidos |
+| Prefixo do nome do cluster OCP | O prefixo do cluster usado para configurar os hostnames para todos os nós. Entre 1 e 20 caracteres |
+| Tamanho do nó mestre | Aceite o tamanho VM predefinido ou clique em **Alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM apropriado para a sua carga de trabalho |
+| Tamanho do nó de infraestrutura | Aceite o tamanho VM predefinido ou clique em **Alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM apropriado para a sua carga de trabalho |
+| Número de nós de aplicação | Aceite o tamanho VM predefinido ou clique em **Alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM apropriado para a sua carga de trabalho |
+| Tamanho do nó de aplicação | Aceite o tamanho VM predefinido ou clique em **Alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM apropriado para a sua carga de trabalho |
+| Tamanho do hospedeiro de bastião | Aceite o tamanho VM predefinido ou clique em **Alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM apropriado para a sua carga de trabalho |
+| Rede Virtual Nova ou Existente | Criar um novo vNet (Padrão) ou usar um vNet existente |
+| Escolha configurações CIDR predefinidos ou personalize a gama IP (CIDR) | Aceite as gamas CIDR predefinidos ou selecione **o alcance IP personalizado** e introduza informações personalizadas do CIDR.  As Definições predefinidos criarão vNet com CIDR de 10.0.0.0/14, sub-rede master com 10.1.0.0/16, infra-rede com 10.2.0.0/16, e sub-redes de computação e cns com 10.3.0.0/16 |
+| Nome do grupo de recursos do cofre chave | O nome do Grupo de Recursos que contém o Cofre de Chaves |
+| Nome do cofre de chaves | O nome do Cofre-Chave que contém o segredo com a chave privada.  Apenas caracteres alfanuméricos e traços são permitidos, e estar entre 3 e 24 caracteres |
+| Nome secreto | O nome do segredo que contém a chave privada ssh.  Apenas caracteres alfanuméricos e traços são permitidos |
 
    ![Oferecer lâmina de infraestrutura](media/openshift-marketplace-self-managed/ocp-inframain.png)  
 <br>
 
 **Alterar tamanho**
 
-Para selecionar um tamanho VM diferente, clique em ***Alterar o tamanho***.  A janela de seleção VM abrirá.  Selecione o tamanho VM que deseja e clique **em Selecionar**.
+Para selecionar um tamanho VM diferente, clique em ***Alterar o tamanho***.  A janela de seleção VM abrir-se-á.  Selecione o tamanho VM que deseja e clique em **Selecionar**.
 
-   ![Selecione Tamanho VM](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
+   ![Selecione tamanho VM](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
 
-**Rede Virtual Existente**
+**Rede Virtual existente**
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Nome de rede virtual existente | Nome da vNet existente |
-| Nome de sub-rede para nomes mestres | Nome da subnet existente para os narizes-mestre.  Precisa conter pelo menos 16 endereços IP e seguir rFC 1918 |
-| Nome de sub-rede para nódeos de infravermelhos | Nome da sub-rede existente para os nódosos de infravermelhos.  Precisa conter pelo menos 32 endereços IP e seguir rFC 1918 |
-| Nome de sub-rede para computação e nódoas cns | Nome da subnet existente para os nósoculas e os nódosos do SNC.  Precisa conter pelo menos 32 endereços IP e seguir rFC 1918 |
-| Grupo de Recursos para a rede virtual existente | Nome do grupo de recursos que contém o vNet existente |
+| Nome de rede virtual existente | Nome do vNet existente |
+| Nome da sub-rede para os principais nosdes | Nome da sub-rede existente para nós mestres.  Precisa conter pelo menos 16 endereços IP e seguir RFC 1918 |
+| Nome da sub-rede para nóns infravermelhos | Nome da sub-rede existente para os nós infra.  Precisa conter pelo menos 32 endereços IP e seguir RFC 1918 |
+| Nome da sub-rede para nó de computação e cns | Nome da sub-rede existente para nó de computação e cns.  Precisa conter pelo menos 32 endereços IP e seguir RFC 1918 |
+| Grupo de Recursos para a Rede Virtual existente | Nome do grupo de recursos que contém o vNet existente |
 
-   ![Oferecer infraestrutura existente vnet](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
+   ![Oferta de infraestrutura vnet existente](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
 <br>
 
-**Gama IP Personalizada**
+**Gama IP personalizada**
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Gama de endereços para a Rede Virtual | CIDR personalizado para a vNet |
-| Gama de endereços para a subnet que contém os nódosos mestres | CIDR personalizado para master subnet |
-| Gama de endereços para a subnet que contém os nódosos de infraestrutura | CIDR personalizado para subnet de infraestrutura |
-| Gama de endereços para subnet contendo os nósocula e os nódosos do SNC | CIDR personalizado para os nósoculas e cns |
+| Intervalo de endereços para a Rede Virtual | CIDR personalizado para o vNet |
+| Intervalo de endereço para a sub-rede que contém os nosdes-mestre | CIDR personalizado para sub-rede master |
+| Intervalo de endereço para a sub-rede que contém os nosdes de infraestrutura | CIDR personalizado para sub-rede de infraestrutura |
+| Intervalo de endereços para sub-rede que contém os nó de computação e cns | CIDR personalizado para os nóndes de computação e cns |
 
-   ![Oferecer gama IP personalizada de infraestrutura](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
+   ![Oferta de infraestrutura custom IP gama](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
 <br>
 
 **OpenShift Container Platform 3.11**
 
-Introduza valores para os parâmetros de entrada e clique EM **OK**
+Introduza os valores para os Parâmetros de Entrada e clique **em OK**
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Palavra-passe do utilizador do administrador OpenShift | Palavra-passe para o utilizador openshift inicial.  Este utilizador também será o administrador do cluster |
-| Confirmar palavra-passe do utilizador do anúncio openshift | Reescreva a palavra-passe do utilizador do administrador OpenShift |
-| Nome do utilizador do gestor de subscrição do chapéu vermelho | Nome do utilizador para aceder à sua Subscrição ou ID da Organização do Chapéu Vermelho.  Esta credencial é utilizada para registar a instância RHEL na sua subscrição e não será armazenada pela Microsoft ou pela Red Hat |
-| Palavra-passe do gestor de subscrição do chapéu vermelho | Palavra-passe para aceder à sua chave de subscrição ou de ativação do Chapéu Vermelho.  Esta credencial é utilizada para registar a instância RHEL na sua subscrição e não será armazenada pela Microsoft ou pela Red Hat |
-| Red Hat Subscription Manager OpenShift Pool ID | ID do pool que contém o direito da plataforma de contentores OpenShift. Certifique-se de que tem direitos suficientes da Plataforma de Contentores OpenShift para a instalação do cluster |
-| Red Hat Subscription Manager OpenShift Pool ID para Corretor / Master Nodes | ID do pool que contém direitos da Plataforma de Contentores OpenShift para Broker / Master Nodes. Certifique-se de que tem direitos suficientes da Plataforma de Contentores OpenShift para a instalação do cluster. Se não utilizar o broker /master pool ID, insira o ID da piscina para os nós de aplicação |
-| Configure Azure Cloud Provider | Configure o OpenShift para utilizar o Fornecedor de Nuvem Azure. Necessário se utilizar a fixação do disco Azure para volumes persistentes.  Padrão é Sim |
-| Azure AD Service Principal ID CLIENTE GUID | Azure AD Service Principal CLIENTE ID GUID - também conhecido como AppID. Só é necessário se configurar o Fornecedor de Nuvem Azure definido para **Sim** |
-| Azure AD Service Principal Cliente ID Secret | Azure AD Service Principal Cliente ID Secret. Só é necessário se configurar o Fornecedor de Nuvem Azure definido para **Sim** |
+| Senha de utilizador de administrador de turno aberto | Palavra-passe para o utilizador inicial OpenShift.  Este utilizador também será o administrador do cluster |
+| Confirme a senha de utilizador do administrador de turno aberto | Retipe a senha de utilizador do administrador de turno aberto |
+| Nome de utilizador do gestor de subscrição de chapéu vermelho | Nome do utilizador para aceder à subscrição do chapéu vermelho ou iD da organização.  Esta credencial é usada para registar a instância RHEL na sua subscrição e não será armazenada pela Microsoft ou pela Red Hat |
+| Senha de utilizador do gestor de subscrição de chapéu vermelho | Palavra-passe para aceder à subscrição ou chave de ativação do chapéu vermelho.  Esta credencial é usada para registar a instância RHEL na sua subscrição e não será armazenada pela Microsoft ou pela Red Hat |
+| Gestor de assinatura de chapéu vermelho openshift pool id | ID do pool que contém direito da plataforma de recipientes openshift. Certifique-se de que tem direitos suficientes da Plataforma de Contentores OpenShift para a instalação do cluster |
+| Gestor de subscrição de chapéu vermelho OpenShift Pool ID para Corretor / Master Nodes | ID do pool que contém direitos da plataforma de recipientes openshift para Corretor /Master Nodes. Certifique-se de que tem direitos suficientes da Plataforma de Contentores OpenShift para a instalação do cluster. Se não utilizar o ID do corretor /master pool, introduza o ID da piscina para nó de aplicação |
+| Configure Fornecedor de nuvem Azure | Configure OpenShift para utilizar o Azure Cloud Provider. Necessário se utilizar o disco Azure se ligar para volumes persistentes.  O padrão é Sim |
+| Azure Ad Service Principal Cliente ID GUID | Azure AD Service Principal Client ID GUID - também conhecido como AppID. Só é necessário se o Fornecedor de Nuvem Azure configurado para **Sim** |
+| Azure Ad Service Principal Cliente ID Secret | Azure Ad Service Principal Cliente ID Secret. Só é necessário se o Fornecedor de Nuvem Azure configurado para **Sim** |
  
-   ![Oferecer lâmina OpenShift](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
+   ![Ofereça lâmina OpenShift](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
 <br>
 
-**Configurações adicionais**
+**Definições adicionais**
 
-A lâmina de definições adicionais permite a configuração de CNS para armazenamento de glusterfs, login, métricas e sub domínio router.  O predefinido não instala nenhuma destas opções e utilizará nip.io como subdomínio do router para fins de teste. Ativar o CNS irá instalar três nódeos de cálculo adicionais com três discos adicionais anexados que irão alojar cápsulas de glusterfs.  
+A lâmina de Definições Adicionais permite a configuração do CNS para o armazenamento de glusterfs, registo, métricas e sub-router.  O padrão não instala nenhuma destas opções e utilizará nip.io como subdesemo do router para efeitos de teste. Permitir o CNS irá instalar três nós computacionais adicionais com três discos adicionais anexados que irão acolher cápsulas de glusterfs.  
 
-Introduza valores para os parâmetros de entrada e clique EM **OK**
+Introduza os valores para os Parâmetros de Entrada e clique **em OK**
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Configure Armazenamento Nativo de Recipiente (CNS) | Instala o SNc no cluster OpenShift e ativa-o como armazenamento. Será por defeito se o Fornecedor Azure estiver desativado |
-| Configure Cluster Logging | Instala a funcionalidade de registo EFK no cluster.  Nósde os tamanhos de infravermelhos adequadamente para hospedar cápsulas EFK |
-| Configurar métricas para o cluster | Instala métricas Hawkular no cluster OpenShift.  Tamanho de nódeos de infravermelhos adequadamente para hospedar cápsulas de métricas Hawkular |
-| Domínio sub do Router padrão | Selecione nipio para testar ou personalizado para entrar no seu próprio subdomínio para produção |
+| Configure o armazenamento nativo do contentor (CNS) | Instala o SNC no cluster OpenShift e permite-o como armazenamento. Será padrão se O Fornecedor Azure for desativado |
+| Configurar a madeira do cluster | Instala a funcionalidade de registo EFK no cluster.  Tamanho infravermelho acena adequadamente para hospedar cápsulas EFK |
+| Métricas de configuração para o Cluster | Instala métricas Hawkular no cluster OpenShift.  Tamanho infravermelho acena adequadamente para hospedar cápsulas de métricas Hawkular |
+| Sub domínio do router predefinido | Selecione nipio para testes ou personalizados para introduzir o seu próprio subd domínio para produção |
  
    ![Oferecer lâmina adicional](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
 <br>
 
-**Configurações adicionais - Parâmetros extra**
+**Definições adicionais - Parâmetros extra**
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| (CNS) Tamanho do nó | Aceite o tamanho do nó predefinido ou selecione **Alterar tamanho** para selecionar um novo tamanho VM |
-| Introduza o seu subdomínio personalizado | O domínio de encaminhamento personalizado a utilizar para expor aplicações através do router no cluster OpenShift.  Certifique-se de criar a entrada adequada do DNS wildcard] |
+| (CNS) Tamanho do nó | Aceite o tamanho do nó predefinido ou selecione **tamanho de alteração** para selecionar um novo tamanho VM |
+| Insira o seu subdomínio personalizado | O domínio de encaminhamento personalizado a ser utilizado para expor aplicações através do router no cluster OpenShift.  Certifique-se de criar a entrada de DNS wildcard apropriada] |
  
    ![Oferecer instalação adicional do CNS](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
 **Resumo**
 
-A validação ocorre nesta fase para verificar que a quota central é suficiente para implantar o número total de VMs selecionados para o cluster.  Reveja todos os parâmetros que foram introduzidos.  Se as inputs forem aceitáveis, clique em **OK** para continuar.
+A validação ocorre nesta fase para verificar a quota principal é suficiente para implantar o número total de VMs selecionados para o cluster.  Reveja todos os parâmetros que foram introduzidos.  Se as entradas forem aceitáveis, clique **em OK** para continuar.
 
-   ![Oferecer lâmina de resumo](media/openshift-marketplace-self-managed/ocp-summary.png)  
+   ![Oferta lâmina de resumo](media/openshift-marketplace-self-managed/ocp-summary.png)  
 <br>
 
 **Comprar**
 
 Confirme as informações de contacto na página Comprar e clique em **Comprar** para aceitar os termos de utilização e iniciar a implementação do cluster da Plataforma de Contentores OpenShift.
 
-   ![Oferecer lâmina de compra](media/openshift-marketplace-self-managed/ocp-purchase.png)  
+   ![Oferta lâmina de compra](media/openshift-marketplace-self-managed/ocp-purchase.png)  
 <br>
 
 
 ## <a name="connect-to-the-openshift-cluster"></a>Ligue-se ao cluster OpenShift
 
-Quando a implantação terminar, recupere a ligação da secção de saída da implantação. Conecte-se à consola OpenShift com o seu navegador utilizando o URL da **Consola OpenShift**. também pode sSH para o anfitrião bastião. Segue-se um exemplo em que o nome de utilizador do administrador é clusteradmin e o bastião público IP DNS FQDN é bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Quando a colocação terminar, recupere a ligação da secção de saída da implantação. Ligue a consola OpenShift ao seu navegador utilizando o **URL da consola OpenShift**. você também pode SSH para o anfitrião do Bastião. Segue-se um exemplo em que o nome de utilizador de administração é clusteradmin e o público de bastião IP DNS FQDN é bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
@@ -193,15 +192,15 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Use o [grupo AZ eliminar](/cli/azure/group) o comando para remover o grupo de recursos, o cluster OpenShift, e todos os recursos relacionados quando já não são necessários.
+Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados quando já não são necessários.
 
 ```azurecli 
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Tarefas de pós-implantação](./openshift-container-platform-3x-post-deployment.md)
-- [Implantação openShift de resolução de problemas em Azure](./openshift-container-platform-3x-troubleshooting.md)
-- [Começar com plataforma de contentores OpenShift](https://docs.openshift.com)
+- [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
+- [Resolução de problemas OpenShift implantação em Azure](./openshift-container-platform-3x-troubleshooting.md)
+- [Começando com plataforma de recipientes openshift](https://docs.openshift.com)
 - 

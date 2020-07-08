@@ -1,6 +1,6 @@
 ---
-title: Configure TLS para um serviço na nuvem [ Microsoft Docs
-description: Saiba como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação. Estes exemplos utilizam o portal Azure.
+title: Configure O TLS para um serviço de nuvem / Microsoft Docs
+description: Saiba como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação. Estes exemplos usam o portal Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -9,44 +9,43 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024851"
 ---
-# <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação no Azure
+# <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação em Azure
 
-A Segurança da Camada de Transporte (TLS), anteriormente conhecida como encriptação Secure Socket Layer (SSL), é o método mais utilizado para proteger os dados enviados através da internet. Esta tarefa comum discute como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação.
+A Segurança da Camada de Transporte (TLS), anteriormente conhecida como encriptação Secure Socket Layer (SSL), é o método mais utilizado para proteger dados enviados através da internet. Esta tarefa comum discute como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação.
 
 > [!NOTE]
-> Os procedimentos nesta tarefa aplicam-se aos Serviços Azure Cloud; para serviços de aplicações, veja [isto](../app-service/configure-ssl-bindings.md).
+> Os procedimentos nesta tarefa aplicam-se aos Serviços Azure Cloud; para Serviços de Aplicações, veja [isto.](../app-service/configure-ssl-bindings.md)
 >
 
-Esta tarefa utiliza uma implantação de produção. As informações sobre a utilização de uma encenação são fornecidas no final deste tópico.
+Esta tarefa utiliza uma implantação de produção. As informações sobre a utilização de uma colocação de encenação são fornecidas no final deste tópico.
 
-Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se ainda não criou um serviço na nuvem.
+Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se ainda não tiver criado um serviço de cloud.
 
-## <a name="step-1-get-a-tlsssl-certificate"></a>Passo 1: Obtenha um certificado TLS/SSL
-Para configurar o TLS para um pedido, é necessário obter primeiro um certificado TLS/SSL que tenha sido assinado por uma Autoridade de Certificados (CA), um terceiro de confiança que emite certificados para o efeito. Se ainda não tem um, precisa de obter um de uma empresa que venda certificados TLS/SSL.
+## <a name="step-1-get-a-tlsssl-certificate"></a>Passo 1: Obter um certificado TLS/SSL
+Para configurar o TLS para um pedido, primeiro precisa de obter um certificado TLS/SSL assinado por uma Autoridade de Certificados (CA), um terceiro de confiança que emite certificados para o efeito. Se ainda não tiver um, precisa de obter um de uma empresa que venda certificados TLS/SSL.
 
 O certificado deve satisfazer os seguintes requisitos relativos aos certificados TLS/SSL em Azure:
 
 * O certificado deve conter uma chave pública.
-* O certificado deve ser criado para troca de chaves, exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
-* O nome do certificado deve corresponder ao domínio utilizado para aceder ao serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio cloudapp.net. Deve adquirir um nome de domínio personalizado para usar quando aceder ao seu serviço. Quando solicitar um certificado a um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o seu nome de domínio personalizado for **contoso.com** solicitaria um certificado da sua CA para ***.contoso.com** ou **www\.contoso.com**.
+* O certificado deve ser criado para troca de chaves, exportável para um ficheiro De troca de informações pessoais (.pfx).
+* O nome do certificado deve corresponder ao domínio utilizado para aceder ao serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio cloudapp.net. Tem de adquirir um nome de domínio personalizado para utilizar ao aceder ao seu serviço. Quando solicita um certificado a um CA, o nome do sujeito do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o seu nome de domínio personalizado for **contoso.com** solicitaria um certificado da sua AC para ***contoso.com** ou **www \. contoso.com**.
 * O certificado deve utilizar um mínimo de encriptação de 2048 bits.
 
-Para efeitos de teste, pode [criar](cloud-services-certs-create.md) e utilizar um certificado auto-assinado. Um certificado auto-assinado não é autenticado através de um CA e pode usar o domínio cloudapp.net como URL do site. Por exemplo, a seguinte tarefa utiliza um certificado auto-assinado no qual o nome comum (NC) utilizado no certificado é **sslexample.cloudapp.net**.
+Para efeitos de teste, pode [criar](cloud-services-certs-create.md) e utilizar um certificado auto-assinado. Um certificado auto-assinado não é autenticado através de um CA e pode usar o domínio cloudapp.net como URL do site. Por exemplo, a seguinte tarefa utiliza um certificado auto-assinado no qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
 
-Em seguida, deve incluir informações sobre o certificado na definição de serviço e ficheiros de configuração de serviço.
+Em seguida, deve incluir informações sobre o certificado na definição de serviço e nos ficheiros de configuração do serviço.
 
 <a name="modify"> </a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passo 2: Modificar a definição de serviço e os ficheiros de configuração
-A sua aplicação deve ser configurada para utilizar o certificado e deve ser adicionado um ponto final HTTPS. Como resultado, a definição de serviço e os ficheiros de configuração do serviço precisam de ser atualizados.
+O seu pedido deve ser configurado para utilizar o certificado, e um ponto final HTTPS deve ser adicionado. Como resultado, a definição de serviço e os ficheiros de configuração de serviço precisam de ser atualizados.
 
-1. No seu ambiente de desenvolvimento, abra o ficheiro de definição de serviço (CSDEF), adicione uma secção de **Certificados** dentro da secção **WebRole** e inclua as seguintes informações sobre o certificado (e certificados intermédios):
+1. No seu ambiente de desenvolvimento, abra o ficheiro de definição de serviço (CSDEF), adicione uma secção **de Certificados** na secção **WebRole** e inclua as seguintes informações sobre o certificado (e certificados intermédios):
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -72,16 +71,16 @@ A sua aplicação deve ser configurada para utilizar o certificado e deve ser ad
     </WebRole>
     ```
 
-   A secção **certificados** define o nome do nosso certificado, a sua localização e o nome da loja onde se encontra.
+   A secção **de Certificados** define o nome do nosso certificado, a sua localização e o nome da loja onde se encontra.
 
-   As permissões (atributo)`permissionLevel` podem ser definidas num dos seguintes valores:
+   As permissões `permissionLevel` (atributo) podem ser definidas com um dos seguintes valores:
 
    | Valor da Permissão | Descrição |
    | --- | --- |
-   | limitadoOrElevado |**(Predefinido)** Todos os processos de função podem aceder à chave privada. |
-   | elevado |Só processos elevados podem aceder à chave privada. |
+   | limitedOrElevated |**(Predefinição)** Todos os processos de função podem aceder à chave privada. |
+   | elevado |Só os processos elevados podem aceder à chave privada. |
 
-2. No ficheiro de definição de serviço, adicione um elemento **InputEndpoint** na secção **Pontos Finais** para ativar https:
+2. No seu ficheiro de definição de serviço, adicione um elemento **InputEndpoint** na secção **Ponto final** para ativar HTTPS:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -94,7 +93,7 @@ A sua aplicação deve ser configurada para utilizar o certificado e deve ser ad
     </WebRole>
     ```
 
-3. No ficheiro de definição de serviço, adicione um elemento **Deligação** na secção **Sites.** Este elemento adiciona uma ligação HTTPS para mapear o ponto final do seu site:
+3. No seu ficheiro de definição de serviço, adicione um elemento **de ligação** na secção **'Sites'.** Este elemento adiciona uma ligação HTTPS para mapear o ponto final para o seu site:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -110,8 +109,8 @@ A sua aplicação deve ser configurada para utilizar o certificado e deve ser ad
     </WebRole>
     ```
 
-   Todas as alterações necessárias ao ficheiro de definição de serviço foram concluídas; mas, ainda precisa adicionar a informação do certificado ao ficheiro de configuração do serviço.
-4. No seu ficheiro de configuração de serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione um valor de **Certificados** com o do seu certificado. A amostra de código que se segue fornece detalhes da secção **Certificados,** com exceção do valor da impressão digital.
+   Todas as alterações necessárias ao ficheiro de definição de serviço foram concluídas; mas ainda precisa de adicionar as informações do certificado ao ficheiro de configuração de serviço.
+4. No seu ficheiro de configuração de serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione um valor **certificado** com o do seu certificado. A seguinte amostra de código fornece detalhes da secção **certificados,** exceto o valor da impressão digital.
 
    ```xml
     <Role name="Deployment">
@@ -130,52 +129,52 @@ A sua aplicação deve ser configurada para utilizar o certificado e deve ser ad
 
 (Este exemplo usa **sha1** para o algoritmo de impressão digital. Especifique o valor adequado para o algoritmo de impressão digital do seu certificado.)
 
-Agora que a definição de serviço e os ficheiros de configuração do serviço foram atualizados, embalem a sua implementação para o upload para o Azure. Se estiver a utilizar **o cspack,** não utilize a bandeira **/geração DeConfiguraçãoFile,** pois isso irá sobrepor-se à informação do certificado que acabou de inserir.
+Agora que os ficheiros de definição de serviço e de configuração de serviço foram atualizados, embale a sua implementação para o upload para a Azure. Se estiver a utilizar **o cspack,** não utilize a bandeira **/generateConfigurationFile,** pois isso substituirá as informações do certificado que acabou de inserir.
 
 ## <a name="step-3-upload-a-certificate"></a>Passo 3: Carregar um certificado
 Ligue-se ao portal Azure e...
 
-1. Na secção **De Todos os recursos** do Portal, selecione o seu serviço de nuvem.
+1. Na secção **Todos os recursos** do Portal, selecione o seu serviço na nuvem.
 
     ![Publique o seu serviço na nuvem](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Clique em **Certificados**.
 
-    ![Clique no ícone dos certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
+    ![Clique no ícone de certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. Clique no **Upload** na parte superior da área de certificados.
+3. Clique em **Upload** no topo da área de certificados.
 
-    ![Clique no item do menu Upload](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
+    ![Clique no item do menu upload](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Forneça o **Ficheiro**, **Palavra-passe**e clique em **Carregar** na parte inferior da área de entrada de dados.
+4. Forneça o **Ficheiro**, **Palavra-passe**e clique em **Upload** na parte inferior da área de entrada de dados.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passo 4: Ligar à instância de funções utilizando HTTPS
-Agora que a sua implementação está a funcionar em Azure, pode ligar-se a ela usando HTTPS.
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passo 4: Ligar-se à instância de função utilizando HTTPS
+Agora que a sua implantação está a funcionar em Azure, pode ligar-se a ele utilizando HTTPS.
 
 1. Clique no URL do **Site** para abrir o navegador web.
 
-   ![Clique no URL do Site](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+   ![Clique no URL do site](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2. No seu navegador web, modifique o link para utilizar **https** em vez de **http**, e depois visite a página.
 
    > [!NOTE]
-   > Se estiver a utilizar um certificado auto-assinado, quando navega para um ponto final HTTPS associado ao certificado auto-assinado, poderá ver um erro de certificado no navegador. A utilização de um certificado assinado por uma autoridade de certificação fidedigna elimina este problema; Entretanto, pode ignorar o erro. (Outra opção é adicionar o certificado auto-assinado à loja de certificados de fidedigno do utilizador.)
+   > Se estiver a utilizar um certificado auto-assinado, quando navegar num ponto final HTTPS que esteja associado ao certificado auto-assinado poderá ver um erro de certificado no navegador. A utilização de um certificado assinado por uma autoridade de certificação fidedigna elimina este problema; Entretanto, pode ignorar o erro. (Outra opção é adicionar o certificado auto-assinado à loja de certificados fidedigna do utilizador.)
    >
    >
 
    ![Pré-visualização do site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se quiser utilizar o TLS para uma implantação de encenação em vez de uma implantação de produção, primeiro terá de determinar o URL utilizado para a implantação da encenação. Uma vez implementado o seu serviço de nuvem, o URL para o ambiente de paragem é determinado pelo ID DE **Implantação** GUID neste formato:`https://deployment-id.cloudapp.net/`  
+   > Se quiser utilizar o TLS para uma colocação de encenação em vez de uma implantação de produção, primeiro terá de determinar o URL utilizado para a colocação de paragem. Uma vez implementado o seu serviço em nuvem, o URL para o ambiente de preparação é determinado pelo ID GUID **de implementação** neste formato:`https://deployment-id.cloudapp.net/`  
    >
-   > Crie um certificado com o nome comum (CN) igual ao URL baseado em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilize o portal para adicionar o certificado ao seu serviço de nuvem encenado. Em seguida, adicione as informações do certificado aos seus ficheiros CSDEF e CSCFG, reembala a sua aplicação e atualize a sua implementação faseada para utilizar o novo pacote.
+   > Criar um certificado com o nome comum (CN) igual ao URL baseado em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilize o portal para adicionar o certificado ao seu serviço de nuvem encenada. Em seguida, adicione as informações do certificado aos seus ficheiros CSDEF e CSCFG, reembale a sua aplicação e atualize a sua implementação encenada para utilizar o novo pacote.
    >
 
-## <a name="next-steps"></a>Passos seguintes
-* [Configuração geral do seu serviço](cloud-services-how-to-configure-portal.md)de nuvem.
-* Aprenda a implementar um serviço de [nuvem.](cloud-services-how-to-create-deploy-portal.md)
-* Configure um nome de [domínio personalizado](cloud-services-custom-domain-name-portal.md).
-* [Gerencie o seu serviço de cloud](cloud-services-how-to-manage-portal.md).
+## <a name="next-steps"></a>Próximos passos
+* [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
+* Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)
+* [Gerencie o seu serviço na nuvem](cloud-services-how-to-manage-portal.md).
 
 
 
