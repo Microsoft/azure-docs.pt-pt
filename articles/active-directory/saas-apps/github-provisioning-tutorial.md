@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Fornecimento de utilizadores para GitHub - Azure AD'
-description: Aprenda a configurar o Diretório Ativo do Azure para fornecer e desfornecer automaticamente contas de utilizadores ao GitHub.
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao GitHub.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -16,92 +16,91 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057656"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configure GitHub para fornecimento automático de utilizadores
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar no GitHub e Azure AD para fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para GitHub.
+O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no GitHub e AD AZure para provisões automáticas e desavisagem de contas de utilizadores de Azure AD para GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
-* Uma organização GitHub criada na [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o plano de faturação da [GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-* Uma conta de utilizador no GitHub com permissões da Admin para a organização
-* Certifique-se de que o acesso da OAuth foi fornecido para a sua organização, conforme descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* Uma organização GitHub criada em [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) da GitHub Enterprise
+* Uma conta de utilizador no GitHub com permissões de administração para a organização
+* Certifique-se de que o acesso da OAuth foi fornecido para a sua organização, como descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
 > [!NOTE]
-> A integração de provisionamento de AD Azure baseia-se na [API GitHub SCIM,](https://developer.github.com/v3/scim/)que está disponível para os clientes [gitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no plano de faturação da [GitHub Enterprise.](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+> A integração de provisionamento Azure AD depende da [GitHub SCIM API,](https://developer.github.com/v3/scim/)que está disponível para os clientes [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)da GitHub Enterprise .
 
 ## <a name="assigning-users-to-github"></a>Atribuir utilizadores ao GitHub
 
-O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em Azure AD são sincronizados. 
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático da conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em AZure AD são sincronizados. 
 
-Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua aplicação GitHub. Uma vez decidido, pode atribuir estes utilizadores à sua aplicação GitHub seguindo as instruções aqui:
+Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua aplicação GitHub. Uma vez decididos, pode atribuir estes utilizadores à sua aplicação GitHub seguindo as instruções aqui:
 
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Dicas importantes para atribuir utilizadores ao GitHub
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído ao GitHub para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador AD Azure seja designado para o GitHub para testar a configuração de provisionamento. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador ao GitHub, deve selecionar a função **Utilizador** ou outra função específica de aplicação válida (se disponível) no diálogo de atribuição. A função **De Acesso Predefinido** não funciona para o provisionamento, e estes utilizadores são ignorados.
+* Ao atribuir um utilizador ao GitHub, tem de selecionar a função **Do Utilizador** ou outra função específica de aplicação válida (se disponível) no diálogo de atribuição. A função **de Acesso Predefinido** não funciona para o provisionamento, e estes utilizadores são ignorados.
 
 ## <a name="configuring-user-provisioning-to-github"></a>Configurar o fornecimento de utilizadores ao GitHub
 
-Esta secção guia-o através da ligação do seu Azure AD à conta de utilizador do GitHub que aprovisiona a API, e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas no GitHub com base na atribuição de utilizador e grupo em Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador do GitHub que fornece a API e configura o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas no GitHub com base na atribuição de utilizadores e grupos em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar o Single Sign-On baseado em SAML para o GitHub, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar um único sign-on baseado em SAML para o GitHub, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configure o fornecimento automático de conta de utilizador ao GitHub em Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-2. Se já configurou o GitHub para uma única inscrição, procure a sua instância de GitHub utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **gitHub** na galeria de aplicações. Selecione GitHub a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
+2. Se já configurar o GitHub para um único sinal de acesso, procure a sua instância do GitHub utilizando o campo de pesquisa. Caso contrário, **selecione Add** e procure **gitHub** na galeria de aplicações. Selecione GitHub a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
-3. Selecione a sua instância de GitHub e, em seguida, selecione o separador **Provisioning.**
+3. Selecione a sua instância de GitHub e, em seguida, selecione o **separador Provisioning.**
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Fornecimento GitHub](./media/github-provisioning-tutorial/GitHub1.png)
+    ![Provisão gitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Na secção **credenciais de administrador,** clique **em Autorizar**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Note que precisa de garantir que está aprovado para autorizar o acesso. Siga as instruções [aqui](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)descritas.
+5. Na secção **Credenciais de Administração,** clique **em Autorizor**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Tenha em atenção que tem de garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
-6. Na nova janela, inscreva-se no GitHub usando a sua conta De administrador. No diálogo de autorização resultante, selecione a equipa GitHub que pretende ativar o provisionamento e, em seguida, **selecione Autorizar**. Uma vez concluído, volte ao portal Azure para completar a configuração de provisionamento.
+6. Na nova janela, inscreva-se no GitHub usando a sua conta de administrador. No diálogo de autorização resultante, selecione a equipa do GitHub para a que pretende permitir o provisionamento e, em seguida, **selecione Authorize**. Uma vez concluído, volte ao portal Azure para completar a configuração de provisionamento.
 
     ![Diálogo de Autorização](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal Azure, insere o **URL do Inquilino** e clique em Test **Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GitHub. Se a ligação falhar, certifique-se de que a sua conta GitHub tem permissões de administrador e o **Tenant URl** é introduzido corretamente, então tente novamente o passo "Autorizar" (pode constituir **URL** de Inquilino por regra: `https://api.github.com/scim/v2/organizations/<Organization_name>`, pode encontrar as suas organizações sob a sua conta GitHub:**Organizações** **de Definições).** > 
+7. No portal Azure, **insira o URL do inquilino** e clique em Test **Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GitHub. Se a ligação falhar, certifique-se de que a sua conta GitHub tem permissões de administração e **o Inquilino URl** é introduzido corretamente, então tente novamente o passo "Authorize" (pode constituir **o Inquilino URL** por regra: , pode encontrar as suas `https://api.github.com/scim/v2/organizations/<Organization_name>` organizações sob a sua conta GitHub: **Organizações de Definições).**  >  **Organizations**
 
     ![Diálogo de Autorização](./media/github-provisioning-tutorial/GitHub3.png)
 
-8. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo de email de **notificação** e consulte a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha".
+8. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
 
 9. Clique em **Guardar**.
 
-10. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to GitHub**.
+10. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users para GitHub**.
 
-11. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para GitHub. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no GitHub para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
+11. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para GitHub. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no GitHub para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
 
-12. Para ativar o serviço de provisionamento de AD Azure para o GitHub, altere o Estado de **Provisionamento** para **On** na secção **Definições**
+12. Para ativar o serviço de prestação de Ad Azure para o GitHub, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
 13. Clique em **Guardar**.
 
-Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos ao GitHub na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento.
+Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos ao GitHub na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

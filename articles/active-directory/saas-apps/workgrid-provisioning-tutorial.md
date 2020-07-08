@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Workgrid para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores à Workgrid.
+title: 'Tutorial: Configurar Workgrid para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desagregativa de contas de utilizador à Workgrid.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,66 +16,65 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: 94d70447117c73a309959ddf66972c921aa5e687
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062817"
 ---
-# <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Tutorial: Configure workgrid para fornecimento automático de utilizadores
+# <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Tutorial: Configurar workgrid para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Workgrid e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos à Workgrid.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Workgrid e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desagregamento automaticamente de utilizadores e/ou grupos à Workgrid.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
-* [Um inquilino de Workgrid](https://www.workgrid.com/)
-* Uma conta de utilizador em Workgrid com permissões de administrador.
+* [Um inquilino workgrid](https://www.workgrid.com/)
+* Uma conta de utilizador em Workgrid com permissões de Administração.
 
 ## <a name="assigning-users-to-workgrid"></a>Atribuir utilizadores à Workgrid 
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram designados para uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso à Workgrid. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Workgrid seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Workgrid. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos à Workgrid seguindo as instruções aqui:
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-workgrid"></a>Dicas importantes para atribuir utilizadores à Workgrid 
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Workgrid para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador AZure AD seja designado para a Workgrid para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador à Workgrid, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador à Workgrid, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="set-up-workgrid-for-provisioning"></a>Configurar a Workgrid para o provisionamento
+## <a name="set-up-workgrid-for-provisioning"></a>Criar Workgrid para provisionamento
 
-Antes de configurar a Workgrid para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM na Workgrid.
+Antes de configurar o Workgrid para o fornecimento automático de utilizadores com Azure AD, terá de permitir o fornecimento scim no Workgrid.
 
-1. Inicie sessão na Workgrid. Navegue para **utilizadores > fornecimento de utilizadores**.
+1. Faça login no Workgrid. Navegue para **utilizadores > fornecimento de utilizadores.**
 
     ![Workgrid](media/Workgrid-provisioning-tutorial/user.png)
 
-2. No âmbito da API de **Gestão de Conta,** clique em **Criar Credenciais.**
+2. Na **API de Gestão de Conta,** clique em **Criar Credenciais.**
 
     ![Workgrid](media/Workgrid-provisioning-tutorial/scim.png)
 
-3. Copiar os valores do Ponto final do **SCIM** e do Token de **Acesso.** Estes serão inseridos no **campo URL** do Tenant e **secret Token** no separador de provisionamento da sua aplicação Workgrid no portal Azure.
+3. Copie os **valores do ponto final scim** e **do token de acesso.** Estes serão inseridos no campo **URL** e **Secret Token** no separador Provisioning da sua aplicação Workgrid no portal Azure.
 
     ![Workgrid](media/Workgrid-provisioning-tutorial/token.png)
 
 
 ## <a name="add-workgrid--from-the-gallery"></a>Adicione Workgrid da galeria
 
-Para configurar a Workgrid para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar a Workgrid da galeria de aplicações Azure AD à sua lista de aplicações saaS geridas.
+Para configurar workgrid para fornecimento automático de utilizadores com Azure AD, você precisa adicionar Workgrid da galeria de aplicações AD AD Azure à sua lista de aplicações geridas saaS.
 
-**Para adicionar Workgrid da galeria de aplicações Azure AD, execute os seguintes passos:**
+**Para adicionar Workgrid da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -87,84 +86,84 @@ Para configurar a Workgrid para o fornecimento automático de utilizadores com a
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **Workgrid**, selecione **Workgrid** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **Workgrid,** selecione **Workgrid** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Workgrid na lista de resultados](common/search-new-app.png)
 
 ## <a name="configuring-automatic-user-provisioning-to-workgrid"></a>Configurar o fornecimento automático de utilizadores à Workgrid  
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Workgrid com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Workgrid com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para workgrid, seguindo as instruções fornecidas no tutorial de [sinalização Workgrid Single](Workgrid-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para workgrid, seguindo as instruções fornecidas no [tutorial de inscrição single workgrid](Workgrid-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-workgrid--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para workgrid em Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-workgrid--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Workgrid em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Workgrid**.
+2. Na lista de candidaturas, selecione **Workgrid**.
 
     ![O link Workgrid na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção de Credenciais de Administrador, insere os valores **SCIM Endpoint** e **Access Token** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se à Workgrid. Se a ligação falhar, certifique-se de que a sua conta Workgrid tem permissões de administrador e tente novamente.
+5. Sob a secção credenciais de administração, insira os valores **scim Endpoint** e **Access Token** recuperados anteriormente em URL de **inquilino** e **Token Secreto,** respectivamente. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Workgrid. Se a ligação falhar, certifique-se de que a sua conta Workgrid tem permissões de Administração e tente novamente.
 
-    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Workgrid**.
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Workgrid**.
 
-    ![Mapeamento de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/usermapping.png)
+    ![Mapeamentos de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/usermapping.png)
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Workgrid na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Workgrid para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Workgrid na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Workgrid para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos de utilizador da workgrid](media/Workgrid-provisioning-tutorial/userattribute.png)
+    ![Atributos do utilizador workgrid](media/Workgrid-provisioning-tutorial/userattribute.png)
 
-10. Sob a secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Workgrid**
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Workgrid**
 
-    ![Mapeamento de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/groupmapping.png)
+    ![Mapeamentos de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
-12. Reveja os atributos do grupo que são sincronizados de Azure AD para Workgrid na secção **Attribute-Mapping.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Workgrid para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+12. Reveja os atributos do grupo que são sincronizados de Azure AD a Workgrid na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Workgrid para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Mapeamento de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/groupattribute.png)
+    ![Mapeamentos de utilizadores de workgrid](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
-13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Para ativar o serviço de provisionamento de AD Azure para workgrid, altere o Estado de **Provisionamento** para **Ligado** na secção **Definições.**
+14. Para ativar o serviço de prestação de Ad Azure para workgrid, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-15. Defina os utilizadores e/ou grupos que deseja fornecer à Workgrid, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+15. Defina os utilizadores e/ou grupos que deseja prestar à Workgrid, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-16. Quando estiver pronto para fornecer, clique em **Guardar**.
+16. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a executar do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo demorará os utilizadores e/ou grupos a fornecer, veja [quanto tempo demorará a fornecer aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações sobre o tempo que os utilizadores e/ou grupos demorarão a providenciar, consulte [quanto tempo demorará a providenciar aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir ligações ao seu relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure na Workgrid. Para mais informações, [consulte Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir links para o seu relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Azure AD em Workgrid. Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

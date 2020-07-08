@@ -1,6 +1,6 @@
 ---
 title: Solução Azure VMware by CloudSimple - Nuvens Privadas
-description: Saiba mais sobre cloudSimple Private Clouds e conceitos.
+description: Saiba mais sobre nuvens e conceitos privados CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,23 +9,22 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024959"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>CloudSimple Private Cloud visão geral
+# <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada CloudSimple
 
-CloudSimple transforma e estende cargas de trabalho vMware a nuvens públicas em minutos. Utilizando o serviço CloudSimple, pode implementar vMware de forma nativa na infraestrutura de metal bare Azure. A sua implantação vive em localizações do Azure e integra-se totalmente com o resto da nuvem Azure.
+CloudSimple transforma e estende cargas de trabalho VMware a nuvens públicas em minutos. Utilizando o serviço CloudSimple, pode implantar vMware de forma nativa na infraestrutura metálica Azure. A sua implantação vive em locais de Azure e integra-se totalmente com o resto da nuvem Azure.
 
-A solução CloudSimple proporciona uma continuidade operacional completa do VMware. Esta solução dá-lhe os benefícios da nuvem pública de:
+A solução CloudSimple proporciona uma continuidade operacional completa da VMware. Esta solução dá-lhe os benefícios da nuvem pública de:
 
 * Elasticidade
 * Innovation
 * Eficiência
 
-Com a CloudSimple, beneficia-se de um modelo de consumo em nuvem que reduz o custo total de propriedade. Oferece também a provisionamento a pedido, o pagamento à sua cresce e a otimização da capacidade.
+Com o CloudSimple, você beneficia de um modelo de consumo em nuvem que reduz o seu custo total de propriedade. Também oferece provisão a pedido, pagamento à medida que cresce e otimização da capacidade.
 
 CloudSimple é totalmente compatível com:
 
@@ -40,7 +39,7 @@ Esta compatibilidade permite que as suas equipas gerem cargas de trabalho na nuv
 * Proteção de dados  
 * Auditoria
 
-A CloudSimple gere a infraestrutura e todos os serviços de networking e gestão necessários. O serviço CloudSimple permite à sua equipa focar-se em:
+A CloudSimple gere a infraestrutura e todos os serviços de networking e gestão necessários. O serviço CloudSimple permite à sua equipa concentrar-se em:
 
 * Valor do negócio
 * Aprovisionamento de aplicações
@@ -50,89 +49,89 @@ A CloudSimple gere a infraestrutura e todos os serviços de networking e gestão
 
 ## <a name="private-cloud-environment-overview"></a>Visão geral do ambiente da nuvem privada
 
-Uma nuvem privada é uma pilha de VMware isolada que suporta:
+Uma Nuvem Privada é uma pilha de VMware isolada que suporta:
 
-* Anfitriões esXi
+* Anfitriões ESXi
 * vCenter
 * vSAN
 * NSX
 
-As Nuvens Privadas são geridas através do portal CloudSimple. Eles têm o seu próprio servidor vCenter no seu próprio domínio de gestão.
+Nuvens Privadas são geridas através do portal CloudSimple. Têm o seu próprio servidor vCenter no seu próprio domínio de gestão.
 
 A pilha continua:
 
 * Nós dedicados
-* Nódosos de hardware de metal isolados
+* Nódoas de hardware de metal nu isolada
 
-Os utilizadores consomem a pilha através de ferramentas VMware nativas, incluindo:
+Os utilizadores consomem a pilha através de ferramentas nativas de VMware, incluindo:
 
 * vCenter
-* Gestor NSX
+* Gerente NSX
 
-Pode instalar nódosos dedicados em localizações de Azure. Depois pode geri-los com azure e CloudSimple. Uma Nuvem Privada é composta por um ou mais aglomerados de vSphere, e cada cluster contém 3 a 16 nós.
+Pode implementar nós dedicados em locais Azure. Depois pode geri-los com Azure e CloudSimple. Uma Nuvem Privada é composta por um ou mais aglomerados vSphere, e cada cluster contém 3 a 16 nós.
 
 Você pode criar uma Nuvem Privada usando nós comprados, pay-as-you-go, ou nós reservados e dedicados.
 
-Pode ligar a Nuvem Privada ao seu ambiente no local e à rede Azure utilizando as seguintes ligações:
+Pode ligar a Nuvem Privada ao ambiente no local e à rede Azure utilizando as seguintes ligações:
 
 * Proteger
-* VPN privada
+* VPN privado
 * Azure ExpressRoute
 
-O ambiente Private Cloud foi concebido para eliminar pontos únicos de falha:
+O ambiente Private Cloud é projetado para eliminar pontos únicos de falha:
 
-* Os clusters ESXi são configurados com alta disponibilidade vSphere e são dimensionados para ter pelo menos um nó sobressalente para resiliência.
-* vSAN fornece armazenamento primário redundante. VSan requer pelo menos três nódosos para fornecer proteção contra uma única falha. Pode configurar o vSAN para fornecer uma maior resiliência para clusters maiores.
+* Os clusters ESXi são configurados com vSphere alta disponibilidade e são dimensionados para ter pelo menos um nó sobressalente para a resiliência.
+* vSAN fornece armazenamento primário redundante. vSan requer pelo menos três nós para fornecer proteção contra uma única falha. Você pode configurar vSAN para fornecer maior resiliência para aglomerados maiores.
 * Pode configurar vCenter, PSC e NSX Manager VMs com a política de armazenamento RAID-10 para proteger contra falhas de armazenamento. vSphere HA protege contra falhas de nó e rede.
 
 ## <a name="scenarios-for-deploying-a-private-cloud"></a>Cenários para implantar uma Nuvem Privada
 
-Aqui estão alguns casos de uso de exemplo para a implantação de Cloud Privada.
+Aqui estão alguns casos de uso de exemplo para implantação de Private Cloud.
 
-### <a name="data-center-retirement-or-migration"></a>Reforma ou migração de centros de dados
+### <a name="data-center-retirement-or-migration"></a>Reforma ou migração do centro de dados
 
 * Obtenha capacidade adicional quando atingir os limites do seu datacenter existente ou atualizar hardware.
-* Adicione a capacidade necessária na nuvem e elimine as dores de cabeça da gestão de atualizações de hardware.
-* Reduzir o risco e o custo das migrações em nuvem em comparação com conversões ou rearquitetura sem tempo.
-* Utilize ferramentas e habilidades vMware familiares para acelerar as migrações em nuvem. Na nuvem, utilize os serviços Azure para modernizar as suas aplicações ao seu ritmo.
+* Adicione a capacidade necessária na nuvem e elimine as dores de cabeça de gerir as atualizações de hardware.
+* Reduza o risco e o custo das migrações em nuvem em comparação com conversões demoradas ou rearquiteturas.
+* Use ferramentas e habilidades vMware familiares para acelerar as migrações em nuvem. Na nuvem, utilize os serviços Azure para modernizar as suas aplicações ao seu ritmo.
 
 ### <a name="expand-on-demand"></a>Expandir a procura
 
 * Expanda-se para a nuvem para atender a necessidades inesperadas, como novos ambientes de desenvolvimento ou explosões de capacidade sazonal.
-* Crie uma nova capacidade a pedido e guarde-a apenas o tempo que precisar.
+* Crie uma nova capacidade a pedido e mantenha-a apenas o tempo que precisar.
 * Reduza o seu investimento frontal, acelere a velocidade de provisionamento e reduza a complexidade com a mesma arquitetura e políticas tanto no local como na nuvem.
 
-### <a name="disaster-recovery-and-virtual-desktops-in-the-azure-cloud"></a>Recuperação de desastres e ambientes de trabalho virtuais na nuvem azure
+### <a name="disaster-recovery-and-virtual-desktops-in-the-azure-cloud"></a>Recuperação de desastres e ambientes de trabalho virtuais na nuvem de Azure
 
-* Estabeleça acesso remoto a dados, apps e desktops na nuvem Azure. Com ligações de largura de banda alta, você carrega/descarrega dados rapidamente para recuperar de incidentes. As redes de baixa latência dão-lhe tempos de resposta rápidos que os utilizadores esperam de uma aplicação de desktop.
+* Estabelecer acesso remoto a dados, apps e desktops na nuvem Azure. Com ligações de largura de banda alta, você carrega/descarrega dados rapidamente para recuperar de incidentes. As redes de baixa latência dão-lhe tempos de resposta rápidos que os utilizadores esperam de uma aplicação para desktop.
 
-* Reproduza todas as suas políticas e networking na nuvem utilizando o portal CloudSimple e ferramentas vMware familiares. A replicação reduz o esforço e o risco de criar e gerir implementações de DR e VDI.
+* Replique todas as suas políticas e networking na nuvem usando o portal CloudSimple e ferramentas VMware familiares. A replicação reduz o esforço e o risco de criar e gerir implementações de DR e VDI.
 
 ### <a name="high-performance-applications-and-databases"></a>Aplicações e bases de dados de alto desempenho
 
-* Execute as suas cargas de trabalho mais exigentes com a arquitetura hiperconvergente fornecida pela CloudSimple.
-* Executar o Oracle, o servidor Microsoft SQL, sistemas de middleware e bases de dados sem SQL de alto desempenho.
-* Experimente a nuvem como o seu próprio centro de dados com ligações de rede de alta velocidade de 25 Gbps. As ligações de alta velocidade permitem-lhe executar aplicações híbridas que se estendem no local, VMware no Azure e cargas de trabalho privadas Azure e Azure, sem comprometer o desempenho.
+* Execute as suas cargas de trabalho mais exigentes com a arquitetura hiperconvergizada fornecida pela CloudSimple.
+* Executar Oracle, servidor Microsoft SQL, sistemas de middleware e bases de dados sem SQL de alto desempenho.
+* Experimente a nuvem como o seu próprio centro de dados com ligações de rede de alta velocidade de 25 Gbps. As ligações de alta velocidade permitem-lhe executar aplicações híbridas que se estendem no local, VMware em Azure e cargas de trabalho privadas Azure, sem comprometer o desempenho.
 
 ### <a name="true-hybrid"></a>Verdadeiro híbrido
 
-* Unifique os DevOps através dos serviços VMware e Azure.
+* Unifique os devOps através dos serviços VMware e Azure.
 * Otimize a administração VMware para serviços e soluções Azure que podem ser aplicadas em todas as suas cargas de trabalho.
-* Aceda aos serviços públicos de nuvem sem ter de expandir o seu centro de dados ou rearquitear as suas aplicações.
-* Centralize identidades, políticas de controlo de acesso, registo e monitorização de aplicações VMware no Azure.
+* Aceda aos serviços públicos de nuvem sem ter de expandir o seu centro de dados ou rearchitect as suas aplicações.
+* Centralizar identidades, políticas de controlo de acesso, registo e monitorização de aplicações VMware no Azure.
 
 ## <a name="limits"></a>Limites
 
-A tabela seguinte enumera os limites do nó nos recursos de uma Nuvem Privada.
+A tabela seguinte lista os limites do nó nos recursos de uma Nuvem Privada.
 
 | Recurso | Limite |
 |----------|-------|
 | Número mínimo de nós para criar uma Nuvem Privada | 3 |
-| Número máximo de nós em aglomerado numa nuvem privada | 16 |
+| Número máximo de nós em um aglomerado em uma nuvem privada | 16 |
 | Número máximo de nós numa Nuvem Privada | 64 |
-| Número mínimo de nós num novo aglomerado | 3 |
+| Número mínimo de nós num novo cluster | 3 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [criar uma Nuvem Privada](create-private-cloud.md)
-* Saiba como [configurar um ambiente de Nuvem Privada](quickstart-create-private-cloud.md)
+* Saiba como [configurar um ambiente private Cloud](quickstart-create-private-cloud.md)

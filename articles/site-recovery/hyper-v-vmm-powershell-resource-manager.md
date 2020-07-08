@@ -1,6 +1,6 @@
 ---
-title: Configurar a recuperação de desastres hyper-V (com VMM) para um local secundário com recuperação de site azure/PowerShell
-description: Descreve como configurar a recuperação de desastres de VMs hiper-V em nuvens VMM para um site de VMM secundário usando a Recuperação do Site Azure e PowerShell.
+title: Configurar a recuperação de desastres Hyper-V (com VMM) para um local secundário com Azure Site Recovery/PowerShell
+description: Descreve como configurar a recuperação de desastres de VMs hiper-V em nuvens VMM para um site secundário de VMM usando Azure Site Recovery e PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77048605"
 ---
-# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastres de VMs hiper-V para um local secundário usando powerShell (Gestor de Recursos)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastres de Hiper-VMs para um local secundário utilizando o PowerShell (Gestor de Recursos)
 
-Este artigo mostra como automatizar os passos para a replicação de VMs Hiper-V em System Center Virtual Machine Manager nuvens para uma nuvem de Gestor de Máquinavirtual num local secundário no local, utilizando a Recuperação do [Site Azure.](site-recovery-overview.md)
+Este artigo mostra como automatizar os passos para a replicação de VMs hiper-V em nuvens de Gerente de Máquina Virtual do System Center para uma nuvem virtual do Gestor de Máquinas num local secundário no local, utilizando [a recuperação do site Azure.](site-recovery-overview.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,32 +23,32 @@ Este artigo mostra como automatizar os passos para a replicação de VMs Hiper-V
 
 - Reveja a [arquitetura e os componentes do cenário](hyper-v-vmm-architecture.md).
 - Reveja os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
-- Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hyper-V cumprem os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
-- Verifique se os VMs que pretende replicar cumprem o [suporte à máquina replicado](site-recovery-support-matrix-to-sec-site.md).
+- Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hiper-V cumprem os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
+- Verifique se os VMs que pretende replicar cumprem o [suporte replicado da máquina](site-recovery-support-matrix-to-sec-site.md).
 
 ## <a name="prepare-for-network-mapping"></a>Preparar o mapeamento da rede
 
-Mapas de [mapeamento](hyper-v-vmm-network-mapping.md) de rede entre as redes VM virtual de machine manager no local em nuvens de origem e alvo. O mapeamento faz o seguinte:
+[Mapas de mapeamento](hyper-v-vmm-network-mapping.md) de rede entre as redes VM do Gestor de Máquinas Virtuais nas redes de origem e alvo. O mapeamento faz o seguinte:
 
 - Liga as VMs às redes de VMs de destino adequadas após a ativação pós-falha.
 - Coloca as VMs de réplica nos servidores dos anfitriões de Hyper-V de destino, de forma otimizada.
-- Se não configurar o mapeamento da rede, os VMs de réplica não serão ligados a uma rede VM após a falha.
+- Se não configurar o mapeamento da rede, as réplicas de VMs não serão ligadas a uma rede VM após a falha.
 
 Prepare o Gestor de Máquinas Virtuais da seguinte forma:
 
-- Certifique-se de que dispõe de [redes lógicas de Gestor](https://docs.microsoft.com/system-center/vmm/network-logical) de Máquinas Virtuais na fonte e visa servidores de Gestor de Máquinas Virtuais:
+- Certifique-se de que tem [redes lógicas do Gestor de Máquinas Virtuais](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores do Gestor de Máquinas Virtuais de origem e alvo:
   - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
   - A rede lógica no servidor de destino deve ser associada à cloud de destino.
-- Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) na fonte e direciona os servidores do Gestor de Máquinas Virtuais. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+- Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) na fonte e direcione os servidores Virtual Machine Manager. As redes de VMs devem ser ligadas à rede lógica em cada localização.
 - Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem.
 
-## <a name="prepare-for-powershell"></a>Prepare-se para powerShell
+## <a name="prepare-for-powershell"></a>Preparar para PowerShell
 
 Certifique-se de que tem o Azure PowerShell pronto para ir:
 
-- Se já utilizar o PowerShell, atualize para a versão 0.8.10 ou mais tarde. [Saiba mais](/powershell/azureps-cmdlets-docs) sobre como configurar a PowerShell.
-- Depois de configurar e configurar o PowerShell, reveja os [cmdlets](/powershell/azure/overview)de serviço .
-- Para saber mais sobre como utilizar valores de parâmetros, inputs e saídas no PowerShell, leia o guia [Get started.](/powershell/azure/get-started-azureps)
+- Se já utilizar o PowerShell, atualize para a versão 0.8.10 ou posterior. [Saiba mais](/powershell/azureps-cmdlets-docs) sobre como configurar o PowerShell.
+- Depois de configurar e configurar a PowerShell, reveja os [cmdlets de serviço](/powershell/azure/overview).
+- Para saber mais sobre como usar valores de parâmetros, entradas e saídas em PowerShell, leia o guia [Iniciar.](/powershell/azure/get-started-azureps)
 
 ## <a name="set-up-a-subscription"></a>Configurar uma subscrição
 
@@ -63,13 +62,13 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    Connect-AzAccount #-Credential $Cred
    ```
 
-1. Recupere uma lista das suas subscrições, com as iDs de subscrição. Tenha em anotaaaaa a identificação da subscrição na qual pretende criar o cofre dos Serviços de Recuperação.
+1. Recupere uma lista das suas subscrições, com os IDs de subscrição. Note o ID da subscrição na qual pretende criar o cofre dos Serviços de Recuperação.
 
    ```azurepowershell
    Get-AzSubscription
    ```
 
-1. Detete a assinatura para o cofre.
+1. Desemboe a assinatura do cofre.
 
    ```azurepowershell
    Set-AzContext –SubscriptionID <subscriptionId>
@@ -77,21 +76,21 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-1. Crie um grupo de recursos do Gestor de Recursos Azure se não tiver um.
+1. Crie um grupo de recursos Azure Resource Manager se não tiver um.
 
    ```azurepowershell
    New-AzResourceGroup -Name #ResourceGroupName -Location #location
    ```
 
-1. Crie um novo cofre dos Serviços de Recuperação. Guarde o objeto do cofre numa variável para ser usado mais tarde.
+1. Criar um novo cofre dos Serviços de Recuperação. Guarde o objeto do cofre numa variável para ser usado mais tarde.
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   Pode recuperar o objeto do cofre depois `Get-AzRecoveryServicesVault` de o criar utilizando o cmdlet.
+   Pode recuperar o objeto do cofre depois de o criar utilizando o `Get-AzRecoveryServicesVault` cmdlet.
 
-## <a name="set-the-vault-context"></a>Definir o contexto do cofre
+## <a name="set-the-vault-context"></a>Desa parte para o contexto do cofre
 
 1. Recuperar um cofre existente.
 
@@ -99,7 +98,7 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    $vault = Get-AzRecoveryServicesVault -Name #vaultname
    ```
 
-1. Desconte o contexto do cofre.
+1. Desa parte do contexto do cofre.
 
    ```azurepowershell
    Set-AzRecoveryServicesAsrVaultContext -Vault $vault
@@ -113,14 +112,14 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    New-Item -Path C:\ASR -ItemType Directory
    ```
 
-1. Extraios os ficheiros utilizando o ficheiro de configuração do fornecedor descarregado.
+1. Extrair os ficheiros utilizando o ficheiro de configuração do fornecedor descarregado.
 
    ```console
    pushd C:\ASR\
    .\AzureSiteRecoveryProvider.exe /x:. /q
    ```
 
-1. Instale o fornecedor e aguarde a instalação para terminar.
+1. Instale o fornecedor e aguarde que a instalação termine.
 
    ```console
    .\SetupDr.exe /i
@@ -145,7 +144,7 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
 
 ## <a name="create-and-associate-a-replication-policy"></a>Criar e associar uma política de replicação
 
-1. Crie uma política de replicação, neste caso para hyper-V 2012 R2, da seguinte forma:
+1. Crie uma política de replicação, neste caso para Hyper-V 2012 R2, da seguinte forma:
 
    ```azurepowershell
    $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
@@ -161,9 +160,9 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    ```
 
    > [!NOTE]
-   > A nuvem de Gestor de Máquinas Virtuais pode conter anfitriões Hyper-V que executam diferentes versões do Windows Server, mas a política de replicação é para uma versão específica de um sistema operativo. Se tiver diferentes anfitriões a funcionar em diferentes sistemas operativos, crie políticas de replicação separadas para cada sistema. Por exemplo, se tiver cinco anfitriões a funcionar no Windows Server 2012 e três anfitriões a funcionar no Windows Server 2012 R2, crie duas políticas de replicação. Cria-se um para cada tipo de sistema operativo.
+   > A nuvem Virtual Machine Manager pode conter anfitriões Hiper-V que executam diferentes versões do Windows Server, mas a política de replicação é para uma versão específica de um sistema operativo. Se tiver diferentes anfitriões em execução em diferentes sistemas operativos, crie políticas de replicação separadas para cada sistema. Por exemplo, se tiver cinco anfitriões em execução no Windows Server 2012 e três anfitriões em execução no Windows Server 2012 R2, crie duas políticas de replicação. Cria-se um para cada tipo de sistema operativo.
 
-1. Recupere o recipiente de proteção primária (nuvem principal do Gestor de Máquinas Virtuais) e o recipiente de proteção de recuperação (nuvem de gestor de máquinas virtuais de recuperação).
+1. Recupere o recipiente de proteção primária (nuvem de gestor de máquinas virtual primária) e o recipiente de proteção de recuperação (nuvem virtual gestor de máquinas de recuperação).
 
    ```azurepowershell
    $PrimaryCloud = "testprimarycloud"
@@ -173,19 +172,19 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    $recoveryprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $RecoveryCloud;
    ```
 
-1. Recupere a política de replicação que criou usando o nome amigável.
+1. Recupere a política de replicação que criou utilizando o nome amigável.
 
    ```azurepowershell
    $policy = Get-AzRecoveryServicesAsrPolicy -FriendlyName $policyname
    ```
 
-1. Inicie a associação do recipiente de proteção (nuvem de Gestor de Máquinavirtual) com a política de replicação.
+1. Inicie a associação do recipiente de proteção (Virtual Machine Manager cloud) com a política de replicação.
 
    ```azurepowershell
    $associationJob  = New-AzRecoveryServicesAsrProtectionContainerMapping -Policy $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
    ```
 
-1. Espere que o trabalho da associação política termine. Para verificar se o trabalho está concluído, utilize o seguinte corte PowerShell:
+1. Espere o trabalho de associação política terminar. Para verificar se o trabalho está terminado, utilize o seguinte corte PowerShell:
 
    ```azurepowershell
    $job = Get-AzRecoveryServicesAsrJob -Job $associationJob
@@ -196,7 +195,7 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    }
    ```
 
-1. Depois de o trabalho terminar o processamento, executar o seguinte comando:
+1. Após o trabalho terminar o processamento, executar o seguinte comando:
 
    ```azurepowershell
    if($isJobLeftForProcessing)
@@ -206,17 +205,17 @@ Certifique-se de que tem o Azure PowerShell pronto para ir:
    While($isJobLeftForProcessing)
    ```
 
-Para verificar a conclusão da operação, siga os passos da [atividade do Monitor](#monitor-activity).
+Para verificar a conclusão da operação, siga os passos na [atividade do Monitor](#monitor-activity).
 
 ##  <a name="configure-network-mapping"></a>Configurar o mapeamento da rede
 
-1. Use este comando para recuperar servidores para o cofre atual. O comando armazena os `$Servers` servidores de Recuperação do Site na variável matriz.
+1. Utilize este comando para recuperar servidores para o cofre atual. O comando armazena os servidores de Recuperação do Site na `$Servers` variável matriz.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
    ```
 
-1. Execute este comando para recuperar as redes para o servidor de gestor de máquinas virtuais de origem e para o servidor de Gestor de Máquinas Virtuais alvo.
+1. Executar este comando para recuperar as redes para o servidor Virtual Machine Manager de origem e para o servidor Target Virtual Machine Manager.
 
    ```azurepowershell
    $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
@@ -225,19 +224,19 @@ Para verificar a conclusão da operação, siga os passos da [atividade do Monit
    ```
 
    > [!NOTE]
-   > O servidor Source Virtual Machine Manager pode ser o primeiro ou o segundo na matriz do servidor. Verifique os nomes do servidor do Gestor de Máquinas Virtuais e recupere as redes de forma adequada.
+   > O servidor De Gestor de Máquinas Virtual de origem pode ser o primeiro ou o segundo na matriz do servidor. Verifique os nomes do servidor do Gestor de Máquinas Virtuais e recupere as redes adequadamente.
 
-1. Este cmdlet cria um mapeamento entre a rede primária e a rede de recuperação. Especifica a rede primária como o `$PrimaryNetworks`primeiro elemento de . Especifica a rede de recuperação `$RecoveryNetworks`como o primeiro elemento de .
+1. Este cmdlet cria um mapeamento entre a rede primária e a rede de recuperação. Especifica a rede primária como o primeiro elemento de `$PrimaryNetworks` . Especifica a rede de recuperação como o primeiro elemento de `$RecoveryNetworks` .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
    ```
 
-## <a name="enable-protection-for-vms"></a>Ativar a proteção para VMs
+## <a name="enable-protection-for-vms"></a>Permitir proteção para VMs
 
-Depois de os servidores, nuvens e redes estarem configurados corretamente, permitir a proteção para VMs na nuvem.
+Após os servidores, nuvens e redes estarem configurados corretamente, permitir a proteção de VMs na nuvem.
 
-1. Para permitir a proteção, dirija o seguinte comando para recuperar o recipiente de proteção:
+1. Para permitir a proteção, executar o seguinte comando para recuperar o recipiente de proteção:
 
    ```azurepowershell
    $PrimaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $PrimaryCloudName
@@ -256,25 +255,25 @@ Depois de os servidores, nuvens e redes estarem configurados corretamente, permi
    ```
 
 > [!NOTE]
-> Se desejar replicar discos geridos pela CMK em Azure, faça os seguintes passos utilizando a Az PowerShell 3.3.0 em diante:
+> Se pretender replicar os discos geridos com ativação CMK em Azure, faça os seguintes passos utilizando a az PowerShell 3.3.0 em diante:
 >
-> 1. Ativar a falha nos discos geridos atualizando propriedades VM
-> 1. Utilize `Get-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet para obter o ID do disco para cada disco do item protegido
-> 1. Crie um objeto `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` de dicionário usando cmdlet para conter o mapeamento do ID do disco para o conjunto de encriptação do disco. Estes conjuntos de encriptação de discos devem ser pré-criados por si na região alvo.
-> 1. Atualize as propriedades `Set-AzRecoveryServicesAsrReplicationProtectedItem` VM utilizando cmdlet, passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetSetMap.**
+> 1. Permitir falhas em discos geridos atualizando propriedades VM
+> 1. Utilize o `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet para obter o ID do disco para cada disco do item protegido
+> 1. Crie um objeto dicionário utilizando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` o cmdlet para conter o mapeamento do ID do disco para conjunto de encriptação de disco. Estes conjuntos de encriptação de discos devem ser pré-criados por si na região alvo.
+> 1. Atualize as propriedades VM utilizando `Set-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetMap.**
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
-Para testar a sua implementação, ecorra uma falha de teste para uma única máquina virtual. Também pode criar um plano de recuperação que contenha vários VMs e executar uma falha de teste para o plano. A ativação pós-falha de teste simula o mecanismo de ativação pós-falha e recuperação numa rede isolada.
+Para testar a sua colocação, teste falha para uma única máquina virtual. Também pode criar um plano de recuperação que contenha vários VMs e executar um teste de failover para o plano. A ativação pós-falha de teste simula o mecanismo de ativação pós-falha e recuperação numa rede isolada.
 
-1. Recupere o VM no qual os VMs falharão.
+1. Recupere o VM no qual os VMs vão falhar.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesASRFabric
    $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
    ```
 
-1. Faça uma falha no teste.
+1. Faça um teste de falha.
 
    Para um único VM:
 
@@ -294,9 +293,9 @@ Para testar a sua implementação, ecorra uma falha de teste para uma única má
    $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan -VMNetwork $RecoveryNetworks[1]
    ```
 
-Para verificar a conclusão da operação, siga os passos da [atividade do Monitor](#monitor-activity).
+Para verificar a conclusão da operação, siga os passos na [atividade do Monitor](#monitor-activity).
 
-## <a name="run-planned-and-unplanned-failovers"></a>Executar falhas planeadas e não planeadas
+## <a name="run-planned-and-unplanned-failovers"></a>Executar execuções planeadas e não planeadas
 
 1. Faça uma falha planeada.
 
@@ -318,7 +317,7 @@ Para verificar a conclusão da operação, siga os passos da [atividade do Monit
    $jobIDResult = Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
    ```
 
-1. Faça uma falha não planeada.
+1. Execute uma falha não planeada.
 
    Para um único VM:
 
@@ -340,7 +339,7 @@ Para verificar a conclusão da operação, siga os passos da [atividade do Monit
 
 ## <a name="monitor-activity"></a>Monitorizar a atividade
 
-Utilize os seguintes comandos para monitorizar a atividade de failover. Espere que o processamento termine entre os trabalhos.
+Utilize os seguintes comandos para monitorizar a atividade de falha. Aguarde que o processamento termine entre os empregos.
 
 ```azurepowershell
 Do
@@ -359,6 +358,6 @@ if($isJobLeftForProcessing)
 }While($isJobLeftForProcessing)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais](/powershell/module/az.recoveryservices) sobre a Recuperação do Site com os cmdlets powerShell do Gestor de Recursos.
+[Saiba mais](/powershell/module/az.recoveryservices) sobre a Recuperação do Site com cmdlets PowerShell do Gestor de Recursos.

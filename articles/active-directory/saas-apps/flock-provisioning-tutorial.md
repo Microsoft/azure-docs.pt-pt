@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Flock para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Flock.
+title: 'Tutorial: Configure Flock para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desaparamento de contas de utilizador ao Flock.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,20 +16,19 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: cd7aae05b064657c7b9072402f4bc4d4d7fef7a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057912"
 ---
-# <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configure Flock para fornecimento automático de utilizadores
+# <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configure Flock para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados no Flock e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer e desfornecer automaticamente utilizadores e/ou grupos para o Flock.
+O objetivo deste tutorial é demonstrar os passos a serem realizados no Flock e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos para o Flock.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,26 +36,26 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 * Um inquilino do Azure AD.
 * [Um inquilino do Rebanho](https://flock.com/pricing/)
-* Uma conta de utilizador em Flock com permissões de administrador.
+* Uma conta de utilizador em Flock com permissões de Administração.
 
 ## <a name="assigning-users-to-flock"></a>Atribuir utilizadores ao Flock 
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram designados para uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Flock. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Flock seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Flock. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos ao Flock seguindo as instruções aqui:
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-flock"></a>Dicas importantes para atribuir utilizadores ao Flock 
 
-* Recomenda-se que um único utilizador da AD Azure seja designado para o Flock para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador AZure AD seja designado para o Flock para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador ao Flock, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador ao Flock, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="setup-flock--for-provisioning"></a>Conjunto Flock para provisionamento
+## <a name="setup-flock--for-provisioning"></a>Setup Flock para provisionamento
 
-Antes de configurar o Flock para o fornecimento automático de utilizadores com a AD Azure, terá de ativar o fornecimento de SCIM no Flock.
+Antes de configurar o Flock para o fornecimento automático de utilizadores com Azure AD, terá de permitir o fornecimento scim no Flock.
 
-1. Faça login no [Flock](https://web.flock.com/?). Clique no **ícone** > definições Gerir a sua**equipa**.
+1. Faça login no [Flock.](https://web.flock.com/?) Clique **em Definições Ícone**Gerir a sua  >  **equipa**.
 
     ![Flock](media/flock-provisioning-tutorial/icon.png)
 
@@ -64,18 +63,18 @@ Antes de configurar o Flock para o fornecimento automático de utilizadores com 
 
     ![Flock](media/Flock-provisioning-tutorial/auth.png)
 
-3. Copie o **Token API.** Estes valores serão inseridos no campo **Secret Token** no separador de provisionamento da sua aplicação Flock no portal Azure.
+3. Copie o **Token da API**. Estes valores serão inseridos no campo **Secret Token** no separador Provisioning da sua aplicação Flock no portal Azure.
 
     ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
 
 
-## <a name="add-flock--from-the-gallery"></a>Adicione Flock da galeria
+## <a name="add-flock--from-the-gallery"></a>Adicione o rebanho da galeria
 
-Para configurar o Flock para o fornecimento automático de utilizadores com a AD Azure, é necessário adicionar o Flock da galeria de aplicações Azure AD à sua lista de aplicações saaS geridas.
+Para configurar o Flock para o fornecimento automático de utilizadores com Azure AD, é necessário adicionar o Flock da galeria de aplicações AD AZure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar O Rebanho da galeria de aplicações da AD Azure, execute os seguintes passos:**
+**Para adicionar Flock da galeria de aplicações AZure AD, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -87,78 +86,78 @@ Para configurar o Flock para o fornecimento automático de utilizadores com a AD
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **O Flock,** selecione **Flock** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **o Flock,** selecione **Flock** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Rebanho na lista de resultados](common/search-new-app.png)
 
 ## <a name="configuring-automatic-user-provisioning-to-flock"></a>Configurar o fornecimento automático de utilizadores ao Flock  
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Flock com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Flock com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para o Flock, seguindo as instruções fornecidas no tutorial de [inscrição Flock Single](Flock-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para o Flock, seguindo as instruções fornecidas no [tutorial de inscrição single do Flock.](Flock-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-flock--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Flock em Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-flock--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Flock in Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Flock**.
+2. Na lista de candidaturas, selecione **Flock**.
 
-    ![O link Flock na lista de aplicações](common/all-applications.png)
+    ![O link do Rebanho na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. De acordo com a secção `https://api.flock-staging.com/v2/scim` de Credenciais de Administrador, insere os valores do Token e **da API** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao Flock. Se a ligação falhar, certifique-se de que a sua conta Flock tem permissões de administrador e tente novamente.
+5. Sob a secção credenciais de administração, insira os `https://api.flock-staging.com/v2/scim` valores **token** e API recuperados anteriormente em URL de **inquilino** e **Token Secreto,** respectivamente. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Flock. Se a ligação falhar, certifique-se de que a sua conta Flock tem permissões de Administração e tente novamente.
 
-    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Flock**.
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Flock**.
 
-    ![Mapeamento de utilizadores de rebanho](media/flock-provisioning-tutorial/usermapping.png)
+    ![Mapeamentos do utilizador do rebanho](media/flock-provisioning-tutorial/usermapping.png)
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Flock na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Flock para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Flock na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Flock para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
     ![Atributos do utilizador do rebanho](media/flock-provisioning-tutorial/userattribute.png)
 
-11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para ativar o serviço de provisionamento de AD Azure para o Flock, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+12. Para ativar o serviço de prestação de Ad Azure para o Flock, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-13. Defina os utilizadores e/ou grupos que gostaria de fornecer ao Flock, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+13. Defina os utilizadores e/ou grupos que deseja prestar ao Flock, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-14. Quando estiver pronto para fornecer, clique em **Guardar**.
+14. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a executar do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo demorará os utilizadores e/ou grupos a fornecer, veja [quanto tempo demorará a fornecer aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações sobre o tempo que os utilizadores e/ou grupos demorarão a providenciar, consulte [quanto tempo demorará a providenciar aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir ligações ao seu relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure no Flock. Para mais informações, [consulte Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Pode utilizar a secção **Estado Atual** para monitorizar o progresso e seguir links para o seu relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Ad Azure no Flock. Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os registos de provisionamento da AD Azure, consulte [reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

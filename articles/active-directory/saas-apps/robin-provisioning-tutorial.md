@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Robin para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
-description: Aprenda a configurar o Diretório Ativo azure para fornecer automaticamente e desfornecer contas de utilizador à Robin Powered.
+title: 'Tutorial: Configure Robin para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à Robin Powered.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,63 +16,62 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
 ms.openlocfilehash: fabd8a1953bedf6c3db6da443903a6dbd965b01e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061011"
 ---
-# <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configure Robin para fornecimento automático de utilizadores
+# <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configure Robin para o fornecimento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar os passos a serem realizados na Robin e no Azure Ative Directory (Azure AD) para configurar a AD Azure para fornecer automaticamente e desfornecer utilizadores e/ou grupos à Robin.
+O objetivo deste tutorial é demonstrar os passos a serem realizados na Robin e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos à Robin.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
-> Este conector encontra-se atualmente em Pré-visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um inquilino da AD Azure
-* [Um inquilino Robin](https://robinpowered.com/pricing/)
+* Um inquilino da AD AZure
+* [Um inquilino robin](https://robinpowered.com/pricing/)
 * Uma conta de utilizador em Robin com permissões de administrador.
 
 ## <a name="assigning-users-to-robin"></a>Atribuir utilizadores à Robin
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que foram designados para uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso à Robin. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos à Robin seguindo as instruções aqui:
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso à Robin. Uma vez decididos, pode atribuir estes utilizadores e/ou grupos à Robin seguindo as instruções aqui:
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-robin"></a>Dicas importantes para atribuir utilizadores à Robin
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Robin para testar a configuração automática de fornecimento do utilizador. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
+* Recomenda-se que um único utilizador AZure AD seja designado à Robin para testar a configuração automática de provisionamento do utilizador. Utilizadores e/ou grupos adicionais podem ser atribuídos mais tarde.
 
-* Ao atribuir um utilizador à Robin, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
+* Ao atribuir um utilizador à Robin, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **Acesso Predefinido** estão excluídos do provisionamento.
 
-## <a name="set-up-robin-for-provisioning"></a>Configurar robin para o provisionamento
+## <a name="set-up-robin-for-provisioning"></a>Configurar a Robin para o provisionamento
 
-1. Inscreva-se na sua [Consola Robin Admin](https://dashboard.robinpowered.com/login). Navegar para **gerir as integrações > > SCIM > Gerir**.
+1. Inscreva-se na sua [Consola De Administrador Robin.](https://dashboard.robinpowered.com/login) Navegue para **gerir integrações > > SCIM > Manage**.
 
-    ![consola de administração robin powered](media/robin-provisioning-tutorial/robin-admin.png)
+    ![Robin powered Admin Consola](media/robin-provisioning-tutorial/robin-admin.png)
 
-2.  Gerar um novo símbolo da organização. Se perder este símbolo, pode sempre fazer um novo sem afetar os utilizadores existentes.
+2.  Gere um novo símbolo de organização. Se perder este token, pode sempre fazer um novo sem afetar os utilizadores existentes.
 
-    ![Robin alimentado Add SCIM](media/robin-provisioning-tutorial/robin-token.png)
+    ![robin alimentado Add SCIM](media/robin-provisioning-tutorial/robin-token.png)
 
-3.  Copiar o Símbolo de **Autenticação SCIM**. Este valor será inserido no campo Secret Token no separador de provisionamento da sua aplicação Robin no portal Azure.
+3.  Copie o **token de autenticação SCIM**. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Robin no portal Azure.
 
 
 
 ## <a name="add-robin-from-the-gallery"></a>Adicione Robin da galeria
 
-Antes de configurar a Robin para o fornecimento automático de utilizadores com o Azure AD, precisa de adicionar a Robin da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
+Antes de configurar a Robin para o fornecimento automático de utilizadores com Azure AD, tem de adicionar a Robin da galeria de aplicações AD AZure à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Robin da galeria de aplicações Azure AD, execute os seguintes passos:**
+**Para adicionar a Robin da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -84,87 +83,87 @@ Antes de configurar a Robin para o fornecimento automático de utilizadores com 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **Robin,** selecione **Robin** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **a Robin,** selecione **Robin** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Robin na lista de resultados](common/search-new-app.png)
 
 ## <a name="configuring-automatic-user-provisioning-to-robin"></a>Configurar o fornecimento automático de utilizadores à Robin 
 
-Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Robin com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Robin com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sinal baseado em SAML para a Robin, seguindo as instruções fornecidas no tutorial de [assinatura Robin Single](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático de utilizadores, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para a Robin, seguindo as instruções fornecidas no [tutorial de inscrição](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)robin single . O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
-### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para robin em Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Robin em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Robin**.
+2. Na lista de candidaturas, selecione **Robin.**
 
-    ![O elo robin alimentado na lista de aplicações](common/all-applications.png)
+    ![O link movido a robin na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Provisioning.**
+3. Selecione o **separador Provisioning.**
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Separador de provisionamento](common/provisioning.png)
 
-4. Detete o **modo de provisionamento** para **automático**.
+4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção de `https://api.robinpowered.com/v1.0/scim-2` **Credenciais de Administrador,** insere-se no URL do **Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente em **Ficha Secreta**. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se à Robin. Se a ligação falhar, certifique-se de que a sua conta Robin tem permissões de administrador e tente novamente.
+5. Sob a secção **de Credenciais de Administração,** entrada `https://api.robinpowered.com/v1.0/scim-2` na URL do **inquilino.** Insira o valor **de token de autenticação SCIM** recuperado anteriormente em **Secret Token**. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se à Robin. Se a ligação falhar, certifique-se de que a sua conta Robin tem permissões de administração e tente novamente.
 
-    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Email de notificação](common/provisioning-notification-email.png)
+    ![E-mail de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
-8. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Users to Robin**.
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Robin**.
 
-    ![Mapeamentos de utilizador movidos a robin](media/robin-provisioning-tutorial/robin-user-mapping.png)
+    ![Robin powered User Mappings](media/robin-provisioning-tutorial/robin-user-mapping.png)
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD para Robin na secção De Mapeamento do **Atributo.** Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Robin para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Robin na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em Robin para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![atributos de utilizador movidos a robin](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
+    ![atributos de utilizador alimentados por robin](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
 
-10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Robin**.
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Robin**.
 
-    ![Mapeamentos de grupo movidos a robin](media/robin-provisioning-tutorial/robin-group-mapping.png)
+    ![Robin powered Group Mappings](media/robin-provisioning-tutorial/robin-group-mapping.png)
 
-11. Reveja os atributos do grupo que são sincronizados de Azure AD para Robin na secção de Mapeamento de **Atributos.** Os atributos selecionados como propriedades **correspondentes** são usados para combinar os grupos em Robin para operações de atualização. Selecione o botão **Guardar** para elegiro qualquer alteração.
+11. Reveja os atributos do grupo que são sincronizados de Azure AD a Robin na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar os grupos em Robin para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
     ![atributos de grupo movidos a robin](media/robin-provisioning-tutorial/robin-group-attribute-mapping.png)
 
-12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para ativar o serviço de provisionamento de AD Azure para a Robin, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
+13. Para ativar o serviço de prestação de Ad Azure para a Robin, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
+    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
 
-14. Defina os utilizadores e/ou grupos que gostaria de fornecer à Robin, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+14. Defina os utilizadores e/ou grupos que deseja prestar à Robin, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para fornecer, clique em **Guardar**.
+15. Quando estiver pronto para a provisão, clique em **Guardar**.
 
-    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
+    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Você pode usar a secção **Detalhes de Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure na Robin.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure em Robin.
 
-Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
+Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
