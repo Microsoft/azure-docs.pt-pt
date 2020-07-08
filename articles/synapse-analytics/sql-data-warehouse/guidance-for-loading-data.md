@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201638"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Melhores práticas para carregar dados usando piscina Sinapse SQL
@@ -173,7 +173,7 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Não é preciso fazer outras alterações às origens de dados externas subjacentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a declaração COPY ou PolyBase ao conceber um processo de extrato, carga e transformação (ELT), consulte [Design ELT para SQL Data Warehouse](design-elt-data-loading.md).
 - Para um tutorial de carregamento, [utilize a declaração COPY para carregar os dados do armazenamento da bolha Azure para o Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).

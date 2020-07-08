@@ -9,10 +9,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2ead16c655d4790e81931371e67da8106dabf83e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85200550"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
@@ -66,7 +66,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 |14|UnexpectedNetworkDisconnect|A ligação à rede caiu. Peça ao utilizador para voltar a ligar.|
 |24|ReverseConnectFailed|A máquina virtual hospedeira não tem linha de visão direta para RD Gateway. Certifique-se de que o endereço IP gateway pode ser resolvido.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as funções dentro do Windows Virtual Desktop, consulte o [ambiente de trabalho virtual do Windows.](environment-setup.md)
 

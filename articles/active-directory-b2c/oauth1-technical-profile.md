@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204086"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth1 numa política personalizada do Azure Ative Directory B2C
@@ -70,13 +70,13 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Yes | O identificador de aplicação do fornecedor de identidade. |
-| ProviderName | No | O nome do fornecedor de identidade. |
-| request_token_endpoint | Yes | O URL do ponto final do token de pedido de acordo com RFC 5849. |
-| authorization_endpoint | Yes | O URL do ponto final de autorização de acordo com o RFC 5849. |
-| access_token_endpoint | Yes | O URL do ponto final simbólico de acordo com o RFC 5849. |
-| ReclamaçõesEndpoint | No | O URL do ponto final de informação do utilizador. |
-| ReclamaçõesResponseFormat | No | O formato de resposta de reclamações.|
+| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
+| ProviderName | Não | O nome do fornecedor de identidade. |
+| request_token_endpoint | Sim | O URL do ponto final do token de pedido de acordo com RFC 5849. |
+| authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 5849. |
+| access_token_endpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 5849. |
+| ReclamaçõesEndpoint | Não | O URL do ponto final de informação do utilizador. |
+| ReclamaçõesResponseFormat | Não | O formato de resposta de reclamações.|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -84,7 +84,7 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Yes | O segredo do cliente da aplicação do fornecedor de identidade.   |
+| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade.   |
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194795"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas IoT Edge para dispositivos individuais ou à escala
@@ -195,7 +195,7 @@ Executar reversãos na seguinte sequência:
    * A colocação de reversão de enrolar não deve continuar a apresentar o estado dos dispositivos que foram revirados.
    * A segunda implementação deve agora incluir o estado de implantação dos dispositivos que foram revirados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos de Implementação e Monitorização IoT Edge à escala](how-to-deploy-at-scale.md).
 * Saiba mais sobre outros conceitos IoT Edge como o [tempo de execução IoT Edge](iot-edge-runtime.md) e os [módulos IoT Edge](iot-edge-modules.md).

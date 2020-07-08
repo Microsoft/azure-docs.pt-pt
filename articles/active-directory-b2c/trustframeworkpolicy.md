@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203100"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -40,13 +40,13 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 |---------- | -------- | ----------- |
-| PolíticaSesoversão | Yes | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser`0.3.0.0` |
-| TenantObjectId | No | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
-| TenantId | Yes | O identificador único do inquilino a que esta política pertence. |
-| PolicyId | Yes | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
-| PublicPolicyUri | Yes | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
-| Envio de munições | No | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
-| UserJourneyRecorderEndpoint | No | O ponto final que é utilizado quando **o DeploymentMode** está definido para `Development` . O valor deve `urn:journeyrecorder:applicationinsights` ser. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
+| PolíticaSesoversão | Sim | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser`0.3.0.0` |
+| TenantObjectId | Não | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
+| TenantId | Sim | O identificador único do inquilino a que esta política pertence. |
+| PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
+| PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
+| Envio de munições | Não | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
+| UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado quando **o DeploymentMode** está definido para `Development` . O valor deve `urn:journeyrecorder:applicationinsights` ser. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy:**
@@ -88,7 +88,7 @@ Para herdar uma política de outra política, um elemento **basePolicy** deve se
 
 O elemento **BasePolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do seu inquilino Azure AD B2C. |
 | PolicyId | 1:1 | O identificador da política dos pais. |

@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193877"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conecte-se ao seu espaço de trabalho Azure Synapse utilizando links privados (pré-visualização)
@@ -55,7 +55,7 @@ Quando a implementação estiver concluída, abra o seu espaço de trabalho Azur
 
 ![Selecione detalhes de subscrição e região](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [o Espaço de Trabalho Gerido VNet](./synapse-workspace-managed-vnet.md)
 

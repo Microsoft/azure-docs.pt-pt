@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201366"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -44,11 +44,11 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | Um identificador que é usado para o tipo de reclamação. Outros elementos podem usar este identificador na apólice. |
+| Id | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem usar este identificador na apólice. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é apresentado aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
 | DataType | 1:1 | O tipo de reclamação. |
@@ -84,7 +84,7 @@ O elemento **DataType** suporta os seguintes valores:
 
 Os **DefaultPartnerClaimTypes** podem conter o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Protocolo | 1:n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
 
@@ -92,8 +92,8 @@ O elemento **Protocolo** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | Yes | O nome do tipo reivindicação a ser usado. |
+| Name | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Sim | O nome do tipo reivindicação a ser usado. |
 
 No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com um fornecedor de identidade SAML2 ou com pedido de parte, a alegação de **apelido** é mapeada `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` para, com OpenIdConnect e OAuth2, a alegação está mapeada para `family_name` .
 
@@ -127,8 +127,8 @@ O elemento **Máscara** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Yes | O tipo da máscara de reivindicação. Valores possíveis: `Simple` ou `Regex` . O `Simple` valor indica que uma simples máscara de texto é aplicada na parte principal de uma alegação de corda. O `Regex` valor indica que uma expressão regular é aplicada à alegação de corda como um todo.  Se o `Regex` valor for especificado, um atributo opcional também deve ser definido com a expressão regular a usar. |
-| `Regex` | No | Se **`Type`** estiver `Regex` definido, especifique a expressão regular a utilizar.
+| `Type` | Sim | O tipo da máscara de reivindicação. Valores possíveis: `Simple` ou `Regex` . O `Simple` valor indica que uma simples máscara de texto é aplicada na parte principal de uma alegação de corda. O `Regex` valor indica que uma expressão regular é aplicada à alegação de corda como um todo.  Se o `Regex` valor for especificado, um atributo opcional também deve ser definido com a expressão regular a usar. |
+| `Regex` | Não | Se **`Type`** estiver `Regex` definido, especifique a expressão regular a utilizar.
 
 O exemplo a seguir configura uma reivindicação **Do Número de Telefone** com a `Simple` máscara:
 
@@ -167,11 +167,11 @@ O elemento **restrição** pode conter o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| FusõesBehavior | No | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O `Prepend` valor é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O `ReplaceAll` valor é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
+| FusõesBehavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O `Prepend` valor é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O `ReplaceAll` valor é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
 
 O elemento **restrição** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Enumeração | 1:n | As opções disponíveis na interface do utilizador para o utilizador selecionar para uma reclamação, como um valor numa queda. |
 | Padrão | 1:1 | A expressão regular a usar. |
@@ -184,9 +184,9 @@ O elemento **Enumeração** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Yes | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
-|Valor | Yes | O valor de reclamação que está associado à seleção desta opção. |
-| SelecioneByDefault | No | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
+| Texto | Sim | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
+|Valor | Sim | O valor de reclamação que está associado à seleção desta opção. |
+| SelecioneByDefault | Não | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
 
 O exemplo a seguir configura uma reivindicação da lista de abandono da **cidade** com um valor padrão definido `New York` para:
 
@@ -213,8 +213,8 @@ O elemento **Padrão** pode conter os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Expressão Regular | Yes | A expressão regular que as alegações deste tipo devem corresponder para ser válida. |
-| HelpText | No | Uma mensagem de erro para os utilizadores se a verificação de expressão regular falhar. |
+| Expressão Regular | Sim | A expressão regular que as alegações deste tipo devem corresponder para ser válida. |
+| HelpText | Não | Uma mensagem de erro para os utilizadores se a verificação de expressão regular falhar. |
 
 O exemplo a seguir configura uma reclamação **de e-mail** com validação regular de entrada de expressão e texto de ajuda:
 
@@ -243,7 +243,7 @@ O Azure AD B2C suporta uma variedade de tipos de entrada de utilizador, tais com
 
 O elemento **UserInputType** disponível nos tipos de entrada do utilizador:
 
-| UserInputType | Tip de reclamação suportado | Description |
+| UserInputType | Tip de reclamação suportado | Descrição |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |Caixa de entrega multi-selecção. O valor de reclamação está representado numa cadeia delimiter de vírgula dos valores selecionados. |
 |DataTimeDropdown | `date`, `dateTime` |Drop-downs para selecionar um dia, mês e ano. |

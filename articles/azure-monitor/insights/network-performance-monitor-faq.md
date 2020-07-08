@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194008"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
@@ -277,6 +277,6 @@ Pode visualizar o estado de saúde dos nós utilizados para a monitorização a 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>A NPM pode reportar números de latência em microsegundos?
 O NPM completa os números de latência na UI e em milissegundos. Os mesmos dados são armazenados numa granularidade mais elevada (às vezes até quatro casas decimais).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](../../azure-monitor/insights/network-performance-monitor.md).

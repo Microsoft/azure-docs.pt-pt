@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204987"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade Azure Synapse Analytics (anteriormente SQL DW)
@@ -24,7 +24,7 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 
 ## <a name="workload-management"></a>Gestão de cargas de trabalho
 
-| Categoria | Description | Máximo |
+| Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU para uma única unidade de piscina SQL (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinido por servidor |54,000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota DTU de 54.000, que permite até DW5000c. Esta quota é apenas um limite de segurança. Pode aumentar a sua quota [criando um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *quota* como tipo de pedido.  Para calcular as suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9,5 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Pode ver o seu consumo atual de DTU a partir da opção do servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
@@ -36,7 +36,7 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 
 ## <a name="database-objects"></a>Objetos de base de dados
 
-| Categoria | Description | Máximo |
+| Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Base de Dados |Tamanho máximo | Gen1: 240 TB comprimido no disco. Este espaço é independente de espaço temporário ou log, e por isso este espaço é dedicado a mesas permanentes.  A compressão de colunas agrupadas é estimada em 5X.  Esta compressão permite que a base de dados cresça para aproximadamente 1 PB quando todas as tabelas estiverem agrupadas (o tipo de tabela predefinido). <br/><br/> Gen2: Armazenamento ilimitado para mesas de loja de colunas.  A parte da base de dados ainda está limitada a 240 TB comprimido no disco. |
 | Tabela |Tamanho máximo |Tamanho ilimitado para mesas de loja de colunas. <br>60 TB para mesas de loja comprimidas no disco. |
@@ -59,14 +59,14 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 
 ## <a name="loads"></a>Cargas
 
-| Categoria | Description | Máximo |
+| Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Cargas de Polibase |MB por linha |1<br/><br/>As cargas de polibase são inferiores a 1 MB. O carregamento de tipos de dados LOB em tabelas com um Índice de Loja de Colunas Agrupados (CCI) não é suportado.<br/><br/> |
 ||||
 
 ## <a name="queries"></a>Consultas
 
-| Categoria | Description | Máximo |
+| Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Consulta |Consultas em fila nas mesas de utilizador. |1000 |
 | Consulta |Consultas simultâneas sobre as vistas do sistema. |100 |
@@ -97,6 +97,6 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 | sys.dm_pdw_sql_requests |Os mais recentes pedidos de 1000 SQL que são armazenados em sys.dm_pdw_exec_requests. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter recomendações sobre a utilização do Azure Synapse, consulte a [Folha de Batota](cheat-sheet.md).

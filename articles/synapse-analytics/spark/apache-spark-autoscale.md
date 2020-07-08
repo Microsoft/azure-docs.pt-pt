@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
 ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194285"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
@@ -73,6 +73,6 @@ Durante o processo de escalonamento, a Autoscale colocará os nós em estado de 
 
 Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trabalho pendentes aguardarão para ser agendados normalmente, com menos nós disponíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Quickstart para criar uma nova piscina Spark [Criar uma piscina spark](../quickstart-create-apache-spark-pool-portal.md)

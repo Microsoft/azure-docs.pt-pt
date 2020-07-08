@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7df9c40980d7a35c1eab0f892c3aca0a30938f57
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194115"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilize o Diretório Ativo Azure para autenticar com PostgreSQL
@@ -209,7 +209,7 @@ GRANT azure_ad_user TO "DBReadUser";
 
 Isto pressupõe que criou um grupo "DBReadUser" no seu AD Azure. Os utilizadores pertencentes a esse grupo poderão agora iniciar susso na base de dados como utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja os conceitos globais de [autenticação do Azure Ative Directory com Azure Database for PostgreSQL - Single Server](concepts-aad-authentication.md)
 

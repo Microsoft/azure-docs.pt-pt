@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 18d341db8538af12dbbabab4797459779a553e4e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205004"
 ---
 # <a name="user-defined-restore-points"></a>Pontos de restauro definidos pelo utilizador
@@ -72,7 +72,7 @@ Os pontos de restauro definidos pelo utilizador também podem ser criados atrav�
 
     ![Nome do Ponto de Restauro](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restaurar uma piscina SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restaurar uma piscina SQL eliminada](sql-data-warehouse-restore-deleted-dw.md)

@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85200465"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Blockchain Data Manager com a CLI do Azure
@@ -79,7 +79,7 @@ Exemplo de configuração JSON para criar uma instância blockchain Manager na r
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 |---------|-------------|
 | localização | Região onde criar o recurso de observador |
 | propriedades | Propriedades a definir ao criar o recurso observador |
@@ -147,7 +147,7 @@ Configurar exemplo JSON para criar um recurso de entrada na região *leste dos E
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 |---------|-------------|
 | localização | Região onde criar o recurso de entrada. |
 | tipo de entrada | Tipo ledger do membro do Serviço Azure Blockchain. Atualmente, **ethereum** é apoiado. |
@@ -219,7 +219,7 @@ Configurar exemplo JSON para criar um recurso de saída na região *leste dos EU
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 |---------|-------------|
 | localização | Região onde criar o recurso de saída. |
 | tipo de saída | Tipo de saída. Atualmente, **o EventGrid** é apoiado. |
@@ -301,7 +301,7 @@ Configuração JSON exemplo para criar um recurso de aplicação na região *les
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrição |
 |---------|-------------|
 | localização | Região onde criar o recurso de aplicação. |
 | artefactoType | Tipo de aplicação. Atualmente, **o EthereumSmartContract** é suportado. |
@@ -413,7 +413,7 @@ az resource delete \
                    --resource-type Microsoft.blockchain/watchers
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando blockchain Data Manager e Azure Cosmos DB.
 

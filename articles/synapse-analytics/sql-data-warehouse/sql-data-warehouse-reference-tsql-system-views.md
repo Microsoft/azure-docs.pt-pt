@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 17c56e87eacc92714b51ebb4ecf7a749650b3bb2
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205145"
 ---
 # <a name="system-views-supported-in-synapse-sql-pool"></a>Vistas do sistema suportadas na piscina Sinaapse SQL
@@ -249,6 +249,6 @@ Os seguintes DMVs são aplicáveis à piscina SQL, mas devem ser executados liga
 * [VIEW_TABLE_USAGE](/sql/relational-databases/system-information-schema-views/view-table-usage-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Modos de exibição](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações de referência, consulte [as declarações de T-SQL na piscina Synapse SQL,](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem T-SQL na piscina Synapse SQL](sql-data-warehouse-reference-tsql-language-elements.md).

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207012"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
@@ -64,7 +64,7 @@ Para obter informações sobre como utilizar o Application Insights, consulte a 
 
 As seguintes áreas de Insights de Aplicação podem ser úteis na avaliação do comportamento, desempenho e erros nas suas funções:
 
-| Investigar | Description |
+| Investigar | Descrição |
 | ---- | ----------- |
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções ao servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas a menos que implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise os problemas de desempenho visualizando a utilização de recursos e a produção por **instâncias de função cloud**. Estes dados podem ser úteis para depurar cenários onde as funções estão a atrapalhar os seus recursos subjacentes. |
@@ -118,7 +118,7 @@ Pode utilizar o Application Insights sem qualquer configuração personalizada. 
 
 O madeireiro Azure Functions inclui uma *categoria* para cada registo. A categoria indica qual parte do código de execução ou o seu código de função escreveu o registo. O gráfico seguinte descreve as principais categorias de registos que o tempo de execução cria. 
 
-| Categoria | Description |
+| Categoria | Descrição |
 | ----- | ----- | 
 | Host.Results | Estes registos mostram como **pedidos** em Insights de Aplicação. Indicam sucesso ou falha de uma função. Todos estes registos estão escritos ao `Information` nível. Se filtrar ou `Warning` ultrapassar, não verá nenhum destes dados. |
 | Host.A agregador | Estes registos fornecem contagens e médias de invocações de funções durante um período de tempo [configurável.](#configure-the-aggregator) O período de incumprimento é de 30 segundos ou 1.000 resultados, o que vier primeiro. Os registos estão disponíveis na tabela **personalizadaMetrics** in Application Insights. Exemplos são o número de corridas, taxa de sucesso e duração. Todos estes registos estão escritos ao `Information` nível. Se filtrar ou `Warning` ultrapassar, não verá nenhum destes dados. |
@@ -143,7 +143,7 @@ O madeireiro Azure Functions também inclui um *nível de registo* com cada regi
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhum        | 6 |
+|Nenhuma        | 6 |
 
 O nível de `None` registo é explicado na secção seguinte. 
 
@@ -716,7 +716,7 @@ Quando ativar o Application Insights, desative a exploração madeireira incorpo
 
 Para desativar a sessão de registos incorporados, elimine a definição da `AzureWebJobsDashboard` aplicação. Para obter informações sobre como eliminar as definições de aplicações no portal Azure, consulte a secção de **definições** de Aplicação de [Como gerir uma aplicação de função](functions-how-to-use-azure-function-app-settings.md#settings). Antes de eliminar a definição da aplicação, certifique-se de que nenhuma função existente na mesma aplicação de função utiliza a definição para gatilhos ou encadernações de armazenamento Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte os seguintes recursos:
 

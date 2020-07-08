@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205650"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
@@ -249,7 +249,7 @@ Embora o Serviço de Aplicações cuide do caso de autorização mais simples (o
 
 Para qualquer aplicação do Windows, pode definir o comportamento de autorização do servidor web IIS, editando o ficheiro *Web.config.* As aplicações Linux não usam IIS e não podem ser configuradas através *deWeb.config*.
 
-1. Navegar para`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. Navegue para `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
 1. No navegador explorador dos seus ficheiros de Serviço de Aplicações, navegue para *o site/wwwroot*. Se não existir uma *Web.config,* crie-a selecionando **+**  >  **Novo Ficheiro**. 
 
@@ -278,7 +278,7 @@ O fornecedor de identidade pode fornecer determinada autorização chave-na-curv
 
 Se algum dos outros níveis não fornecer a autorização de que necessita, ou se a sua plataforma ou fornecedor de identidade não for suportado, deve escrever código personalizado para autorizar os utilizadores com base nas alegações do [utilizador.](#access-user-claims)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md) 

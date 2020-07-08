@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194979"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps
@@ -98,7 +98,7 @@ Para utilizar o ID do cliente e o segredo do cliente a partir da sua aplicação
 
    ![Fornecer informações de conexão](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own.png)
 
-   | Propriedade | Valor | Description |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Tipo de autenticação** | **Traga a sua própria aplicação** | Especifica que utilizará a sua própria aplicação de cliente para autenticação. |
    | **ID do cliente** | <*iD cliente*> | O ID do cliente da sua aplicação de clientes google |
@@ -115,6 +115,6 @@ Para utilizar o ID do cliente e o segredo do cliente a partir da sua aplicação
 
    Pode agora utilizar o conector gmail sem restrições na sua aplicação lógica.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o [conector](https://docs.microsoft.com/connectors/gmail/) do Gmail

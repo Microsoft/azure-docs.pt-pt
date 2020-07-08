@@ -11,10 +11,10 @@ ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201264"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
@@ -41,7 +41,7 @@ Um fornecedor de sinistros contém um conjunto de [perfis técnicos.](technicalp
 
 O elemento **ClaimsProviders** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Provívido de Reclamações | 1:n | Um provedor de reclamações acreditado que pode ser alavancado em várias viagens de utilizador. |
 
@@ -49,7 +49,7 @@ O elemento **ClaimsProviders** contém o seguinte elemento:
 
 O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Uma cadeia que contém o nome de domínio para o fornecedor de reclamações. Por exemplo, se o seu fornecedor de sinistros incluir o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de sinistros, a menos que seja ultrapassado pelo perfil técnico. O nome de domínio também pode ser referenciado numa **domain_hint**. Para obter mais informações, consulte o **redirecionar o sôm para uma** secção de prestador social de [Configuração de inscrição direta utilizando o Azure Ative Directory B2C](direct-signin.md). |
 | DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros. |

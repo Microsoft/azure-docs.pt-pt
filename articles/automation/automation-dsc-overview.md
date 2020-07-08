@@ -11,10 +11,10 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85206891"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do estado da Azure Automation
@@ -107,7 +107,7 @@ Para os nós Linux, o agente DSC suporta o proxy e utiliza a `http_proxy` variá
 
 Recomenda-se a utilização dos endereços listados nos [registos DNS por tabela da região](how-to/automation-region-dns-records.md) ao definir exceções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).

@@ -9,10 +9,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: eafe2050f834fdd9aecba492c7121be9c1e121e2
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85206007"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
@@ -56,7 +56,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
 17. Opcionalmente, bloqueie a porta TCP/3389 para remover o acesso direto ao Protocolo de Ambiente de Trabalho Remoto ao VM.
 18. Opcionalmente, confirme que o seu quadro .NET é pelo menos a versão 4.7.2. Isto é especialmente importante se estiver a criar uma imagem personalizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua implementação virtual do Windows Desktop está agora pronta a ser utilizada. [Descarregue a versão mais recente do cliente virtual do Windows desktop](https://aka.ms/wvd/clients/windows) para começar.
 

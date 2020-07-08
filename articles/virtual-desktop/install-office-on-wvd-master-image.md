@@ -9,10 +9,10 @@ ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85200533"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
@@ -163,6 +163,6 @@ O Windows Virtual Desktop não suporta o Skype para o Negócios.
 
 Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md). A otimização dos meios de comunicação para equipas do Microsoft no Windows Virtual Desktop está disponível na pré-visualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que adicionou o Office à imagem, pode continuar a personalizar a sua imagem principal de VHD. Consulte [Preparar e personalizar uma imagem master VHD](set-up-customize-master-image.md).

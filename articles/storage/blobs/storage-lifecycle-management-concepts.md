@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194710"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
@@ -291,9 +291,9 @@ Os filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Notas | é necessário |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enum predefinidos. | O atual lançamento suporta `blockBlob` . | Yes |
-| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento.  | No |
-| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
+| blobTypes   | Uma matriz de valores de enum predefinidos. | O atual lançamento suporta `blockBlob` . | Sim |
+| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento.  | Não |
+| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 
 > [!NOTE]
 > O Blob Index está em pré-visualização pública, e está disponível nas regiões **centro** e francesa da **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
@@ -315,7 +315,7 @@ A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas e a elim
 
 As condições de execução baseiam-se na idade. As bolhas de base usam o último tempo modificado para rastrear a idade, e os instantâneos blob usam o tempo de criação instantâneo para rastrear a idade.
 
-| Condição de execução de ação             | Valor da condição                          | Description                             |
+| Condição de execução de ação             | Valor da condição                          | Descrição                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | dias Após aModificaçãoGreaterThan | Valor inteiro indicando a idade em dias | A condição para as ações de blob base     |
 | dias Após ACreationGreaterThan     | Valor inteiro indicando a idade em dias | A condição para as ações de snapshot blob |
@@ -483,7 +483,7 @@ A política atualizada leva até 24 horas para entrar em vigor. Uma vez que a po
 **Rehisquirei manualmente uma bolha arquivada, como posso evitar que seja transferida temporariamente para o nível do Arquivo?**  
 Quando uma bolha é movida de um nível de acesso para outro, o seu último tempo de modificação não muda. Se reidratar manualmente uma bolha arquivada para o nível quente, ela seria transferida de volta para o nível de arquivo pelo motor de gestão do ciclo de vida. Desative a regra que afeta esta bolha temporariamente para evitar que seja arquivada novamente. Volte a ativar a regra quando a bolha pode ser deslocal para o nível de arquivo com segurança. Também pode copiar a bolha para outro local se precisar de permanecer permanentemente em camadas quentes ou frias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como recuperar dados após a eliminação acidental:
 

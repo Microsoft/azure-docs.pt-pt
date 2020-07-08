@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204546"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Gerir o computação no armazém de dados Azure Synapse Analytics
@@ -124,6 +124,6 @@ Para verificar o estado da piscina SQL, consulte o arranque rápido [PowerShell]
 
 A escala da piscina SQL requer as permissões descritas na [BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Pausa e Currículo requerem a permissão [do Contribuinte DB SQL,](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) especificamente Microsoft.Sql/servidores/bases de dados/ação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver como orientar para [gerir o cálculo](manage-compute-with-azure-functions.md) Outro aspeto da gestão dos recursos computacional é a alocar diferentes recursos computacional para consultas individuais. Para obter mais informações, consulte [as classes de Recursos para a gestão da carga de trabalho.](resource-classes-for-workload-management.md)

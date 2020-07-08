@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 8914f081196c41dccf3acbed9cf87bd63df8b92c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193962"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Versões de linguagem e tempo de execução suportadas para Apache Spark e componentes dependentes  
@@ -1249,7 +1249,7 @@ zipp==0.6.0
 
 zlib==1.2.8
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Documentação de faíscas apache](https://spark.apache.org/docs/2.4.4/)

@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203440"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
@@ -783,7 +783,7 @@ Determinar se um sub-adcção especificado ocorre dentro da reclamação de entr
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | O tipo de reclamação, que deve ser revistado. |
-|InputParameter|contém|string|O valor a procurar.|
+|InputParameter|contains|string|O valor a procurar.|
 |InputParameter|ignoreCase|string|Especifica se esta comparação deve ignorar o caso da cadeia ser comparada.|
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado. Um indicador booleano se o sub-adiscão ocorrer dentro da reivindicação de entrada. |
 

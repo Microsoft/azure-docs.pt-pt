@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202998"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação numa política personalizada do Azure Ative Directory B2C
@@ -47,7 +47,7 @@ Um perfil técnico autoafirmado pode definir um perfil técnico de validação a
 
 O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | ValidaçãoTechnicalProfile | 1:n | Um perfil técnico a utilizar para validar algumas ou todas as reivindicações de saída do perfil técnico de referência. |
 
@@ -55,13 +55,13 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de um perfil técnico já definido na política ou na política dos pais. |
-|ContinueOnError|No| Indicar se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (por defeito, o processamento de perfis de validação adicionais irá parar e um erro devolvido). |
-|ContinueOnSuccess | No | Indicar se a validação de quaisquer perfis de validação subsequentes deve continuar se este perfil técnico de validação for bem sucedido. Valores possíveis: `true` ou `false` . O padrão é `true` , o que significa que o processamento de perfis de validação adicionais continuará. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou na política dos pais. |
+|ContinueOnError|Não| Indicar se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (por defeito, o processamento de perfis de validação adicionais irá parar e um erro devolvido). |
+|ContinueOnSuccess | Não | Indicar se a validação de quaisquer perfis de validação subsequentes deve continuar se este perfil técnico de validação for bem sucedido. Valores possíveis: `true` ou `false` . O padrão é `true` , o que significa que o processamento de perfis de validação adicionais continuará. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Condições prévias | 0:1 | Uma lista de pré-condições que devem ser satisfeitas para que o perfil técnico de validação seja executado. |
 
@@ -69,12 +69,12 @@ O **elemento pré-condição** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Yes | O tipo de verificação ou consulta a efetuar para a pré-condição. Ou `ClaimsExist` é especificado para garantir que as ações devem ser executadas se as alegações especificadas existirem no conjunto de reclamações atuais do utilizador, ou se for especificado que as `ClaimEquals` ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Yes | Indica se as ações na condição prévia devem ser executadas se o teste for verdadeiro ou falso. |
+| `Type` | Sim | O tipo de verificação ou consulta a efetuar para a pré-condição. Ou `ClaimsExist` é especificado para garantir que as ações devem ser executadas se as alegações especificadas existirem no conjunto de reclamações atuais do utilizador, ou se for especificado que as `ClaimEquals` ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
+| `ExecuteActionsIf` | Sim | Indica se as ações na condição prévia devem ser executadas se o teste for verdadeiro ou falso. |
 
 O **elemento pré-condição** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Valor | 1:n | Os dados que são utilizados pelo cheque. Se o tipo desta verificação `ClaimsExist` for, este campo especifica uma ClaimTypeReferenceId para consulta. Se o tipo de verificação `ClaimEquals` for, este campo especifica uma ClaimTypeReferenceId para consulta. Enquanto outro elemento de valor contém o valor a ser verificado.|
 | Ação | 1:1 | A ação que deve ser tomada se o controlo de pré-condição dentro de um passo de orquestração for verdadeiro. O valor da **Ação** está definido para `SkipThisValidationTechnicalProfile` . Especifica que o perfil técnico de validação associado não deve ser executado. |

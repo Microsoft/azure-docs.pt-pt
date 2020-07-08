@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Implementar cargas de trabalho de borda IoTure Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193792"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Implementar cargas de trabalho de borda IoTure (pré-visualização)
@@ -69,6 +69,6 @@ Pode remover a configuração utilizando:
 az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

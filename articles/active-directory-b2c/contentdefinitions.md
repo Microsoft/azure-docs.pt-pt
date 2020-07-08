@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202862"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -63,11 +63,11 @@ O elemento **ContentDefinition** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | Um identificador para uma definição de conteúdo. O valor é especificado na secção **IDs** de definição de conteúdo mais tarde nesta página. |
+| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na secção **IDs** de definição de conteúdo mais tarde nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
 | RecoveryUri | 1:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. Não atualmente utilizado, o valor deve `~/common/default_page_error.html` ser. |
@@ -79,7 +79,7 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 
 O elemento **DataUri** é utilizado para especificar o identificador de página. Azure AD B2C utiliza o identificador de página para carregar e iniciar elementos de UI e javaScript do lado do cliente. O formato do valor `urn:com:microsoft:aad:b2c:elements:page-name:version` é. A tabela que se segue lista os identificadores de página que pode utilizar.
 
-| Identificador de página | Description |
+| Identificador de página | Descrição |
 | ----- | ----------- |
 | `globalexception` | Apresenta uma página de erro quando se encontra uma exceção ou um erro. |
 | `providerselection`, `idpselection` | Lista os fornecedores de identidade que os utilizadores podem escolher durante a sin-in.  |
@@ -131,7 +131,7 @@ O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c
 
 Um elemento **metadados** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Os metadados que se relacionam com a definição de conteúdo. |
 
@@ -139,7 +139,7 @@ O elemento **item** do elemento **Metadados** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Chave | Yes | A chave dos metadados.  |
+| Chave | Sim | A chave dos metadados.  |
 
 #### <a name="metadata-keys"></a>Chaves de metadados
 
@@ -147,13 +147,13 @@ A definição de conteúdo suporta os seguintes itens de metadados:
 
 | Chave | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DisplayName | No | Uma cadeia que contém o nome da definição de conteúdo. |
+| DisplayName | Não | Uma cadeia que contém o nome da definição de conteúdo. |
 
 ### <a name="localizedresourcesreferences"></a>Referências de Recursos Recursos Localizados
 
 O elemento **LocalresourcesReferences** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Referência de Recursos Fontes Localizadas | 1:n | Uma lista de referências de recursos localizadas para a definição de conteúdo. |
 
@@ -161,8 +161,8 @@ O elemento **LocalresourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Linguagem | Yes | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
-| Resources LocalizadoreferenceId | Yes | O identificador do elemento **Recursos Locais.** |
+| Linguagem | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
+| Resources LocalizadoreferenceId | Sim | O identificador do elemento **Recursos Locais.** |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou de inscrição com referência à localização para inglês, francês e espanhol:
 
@@ -188,7 +188,7 @@ Para aprender a adicionar suporte de localização às definições de conteúdo
 
 O atributo ID do elemento **ContentDefinition** especifica o tipo de página que se relaciona com a definição de conteúdo. O elemento define o contexto que um modelo html5/CSS personalizado vai aplicar. A tabela seguinte descreve o conjunto de IDs de definição de conteúdo que é reconhecido pelo Quadro de Experiência de Identidade, e os tipos de página que se relacionam com eles. Pode criar as suas próprias definições de conteúdo com um ID arbitrário.
 
-| ID | Modelo de padrão | Description |
+| ID | Modelo de padrão | Descrição |
 | -- | ---------------- | ----------- |
 | **api.erro** | [exceção.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** - Apresenta uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do fornecedor** de identidade - Lista os fornecedores de identidade que os utilizadores podem escolher durante a sindução. As opções são geralmente fornecedores de identidade empresarial, fornecedores de identidade social, como Facebook e Google+, ou contas locais. |
@@ -201,7 +201,7 @@ O atributo ID do elemento **ContentDefinition** especifica o tipo de página que
 | **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfis** - Exibe um formulário que os utilizadores podem aceder para atualizar o seu perfil. Esta página é semelhante à página de inscrição da conta social, exceto para os campos de entrada de senha. |
 | **api.signuporsignin** | [unificado.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou inscrição unificada** - Trata do processo de inscrição e inscrição do utilizador. Os utilizadores podem usar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um exemplo de personalização da interface do utilizador utilizando definições de conteúdo, consulte:
 

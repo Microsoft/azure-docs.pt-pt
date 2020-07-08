@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207096"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
@@ -119,7 +119,7 @@ Consulte o marcador pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML 
 
 Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estiver a criar um módulo que adiciona modelos de imagem adicionais, pode facilmente adicionar e recuperar estes ícones a partir da web SDK do Azure Maps. Utilize as seguintes funções estáticas no `atlas` espaço de nomes.
 
-| Name | Tipo de retorno | Description | 
+| Name | Tipo de retorno | Descrição | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao espaço de nome atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG pelo nome. |
@@ -127,7 +127,7 @@ Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estive
 
 Os modelos de imagem SVG suportam os seguintes valores de espaço reservado:
 
-| Marcador de posição | Description |
+| Marcador de posição | Descrição |
 |-|-|
 | `{color}` | A cor primária. | 
 | `{secondaryColor}` | A cor secundária. | 
@@ -216,7 +216,7 @@ Com a seguinte ferramenta, pode tornar os diferentes modelos de imagem incorpora
 Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>opções do modelo do ícone</a> da caneta por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

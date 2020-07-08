@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204375"
 ---
 # <a name="json-claims-transformations"></a>JSON reivindica transformações
@@ -230,7 +230,7 @@ Obtém o primeiro elemento a partir de dados JSON.
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | Os ClaimTypes que são utilizados pela transformação de sinistros para obter o item a partir dos dados JSON. |
-| OutputClaim | chave | string | A chave do primeiro elemento no JSON. |
+| OutputClaim | key | string | A chave do primeiro elemento no JSON. |
 | OutputClaim | valor | string | O primeiro elemento valor no JSON. |
 
 No exemplo seguinte, a transformação de sinistros extrai o primeiro elemento (nome dado) dos dados do JSON.

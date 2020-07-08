@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194999"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
@@ -157,7 +157,7 @@ Passe no nó gráfico para ver a ponta da ferramenta quando houver tarefas falha
 
 No separador gráfico de trabalho, as fases têm uma ponta de ferramenta e um pequeno ícone apresentados se tiverem tarefas que satisfaçam as seguintes condições:
 
-|Condição|Description|
+|Condição|Descrição|
 |-|-|
 |Distorção de dados|tamanho de leitura de dados > tamanho médio de leitura de dados de todas as tarefas dentro desta fase * 2 e tamanho de leitura de dados > 10 MB|
 |Distorção do tempo|tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e tempo de execução > 2 minutos|
@@ -236,7 +236,7 @@ O Gráfico de Utilização do Executor visualiza a atribuição e o estado de fu
 
 Os dados de entrada/saída que utilizam conjuntos de dados distribuídos resilientes (RDDs) não aparecem no separador de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

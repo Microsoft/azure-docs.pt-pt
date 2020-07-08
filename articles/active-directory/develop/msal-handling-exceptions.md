@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204631"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
@@ -76,7 +76,7 @@ A MSAL expõe um `Classification` campo, que pode ler para proporcionar uma melh
 | UserPasswordExpired | A senha do utilizador expirou. | Ligue para AcquireTokenInteractively para que o utilizador possa redefinir a sua palavra-passe. |
 | PromptNeverFailed| A Autenticação Interativa foi chamada com o parâmetro prompt=nunca, forçando a MSAL a confiar nos cookies do navegador e a não exibir o navegador. Isto falhou. | Ligue para AcquireTokenInteractively() sem Prompt.Nenhum |
 | AcquireTokenSilentFailed | A MSAL SDK não tem informação suficiente para ir buscar um símbolo à cache. Isto pode ser porque não há fichas na cache ou uma conta não foi encontrada. A mensagem de erro tem mais detalhes.  | Ligue para AcquireTokenInteractively(). |
-| Nenhum    | Não são fornecidos mais detalhes. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Ligue para AcquireTokenInteractively(). |
+| Nenhuma    | Não são fornecidos mais detalhes. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Ligue para AcquireTokenInteractively(). |
 
 ## <a name="net-code-example"></a>exemplo de código .NET
 

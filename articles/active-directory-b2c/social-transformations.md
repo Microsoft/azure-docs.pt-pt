@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203389"
 ---
 # <a name="social-accounts-claims-transformations"></a>Contas sociais reclamam transformações
@@ -43,7 +43,7 @@ Cria uma representação JSON da propriedade alternativaSecurityId do utilizador
 
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | chave | string | O ClaimType que especifica o identificador de utilizador único utilizado pelo fornecedor de identidade social. |
+| InputClaim | key | string | O ClaimType que especifica o identificador de utilizador único utilizado pelo fornecedor de identidade social. |
 | InputClaim | identidadeProvider | string | O ClaimType que especifica o nome do fornecedor de identidade da conta social, como facebook.com. |
 | OutputClaim | AlternativeSecurityId | string | O ClaimType que é produzido após a inserção da ClaimsTransformation. Contém informações sobre a identidade de um utilizador de conta social. O **emitente** é o valor da `identityProvider` reclamação. O **emitenteUSerId** é o valor da `key` reclamação no formato base64. |
 

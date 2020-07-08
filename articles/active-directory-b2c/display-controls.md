@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202301"
 ---
 # <a name="display-controls"></a>Controlos de exibição
@@ -48,12 +48,12 @@ O elemento **DisplayControl** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | Um identificador que é usado para o controlo de exibição. Pode ser [referenciado.](#referencing-display-controls) |
-| UserInterfaceControlType | Yes | O tipo de controlo de visualização. Atualmente suportado é [Controle de Verificação](display-control-verification.md) |
+| Id | Sim | Um identificador que é usado para o controlo de exibição. Pode ser [referenciado.](#referencing-display-controls) |
+| UserInterfaceControlType | Sim | O tipo de controlo de visualização. Atualmente suportado é [Controle de Verificação](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** são utilizados para pré-povoar o valor das reclamações a recolher junto do utilizador. |
 | DisplayClaims | 0:1 | **DisplayClaims** são utilizados para representar alegações a serem recolhidas junto do utilizador. |

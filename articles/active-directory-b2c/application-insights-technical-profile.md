@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201417"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de Insights de Aplicação numa política personalizada Azure AD B2C
@@ -75,12 +75,12 @@ O elemento CryptographicKeys não é utilizado.
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| InstrumentaçãoKey| Yes | A [chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights , que será utilizada para registar os eventos. | 
-| DeveloperMode| No | Um Boolean que indica se o modo de desenvolvimento está ativado. Valores possíveis: `true` ou `false` (predefinição). Estes metadados controlam a forma como os eventos são tamponados. Num ambiente de desenvolvimento com volume mínimo de eventos, permitir que o modo de desenvolvimento resulte em eventos enviados imediatamente para a Application Insights.|  
-|Desativação DeTelemetria |No |Um Booleano que indique se a telemetria deve ser ativada ou não. Valores possíveis: `true` ou `false` (predefinição).| 
+| InstrumentaçãoKey| Sim | A [chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights , que será utilizada para registar os eventos. | 
+| DeveloperMode| Não | Um Boolean que indica se o modo de desenvolvimento está ativado. Valores possíveis: `true` ou `false` (predefinição). Estes metadados controlam a forma como os eventos são tamponados. Num ambiente de desenvolvimento com volume mínimo de eventos, permitir que o modo de desenvolvimento resulte em eventos enviados imediatamente para a Application Insights.|  
+|Desativação DeTelemetria |Não |Um Booleano que indique se a telemetria deve ser ativada ou não. Valores possíveis: `true` ou `false` (predefinição).| 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um recurso do Application Insights](../azure-monitor/app/create-new-resource.md)
 - Saiba como rastrear o [comportamento do utilizador no Azure Ative Directory B2C usando Insights de Aplicação](analytics-with-application-insights.md)

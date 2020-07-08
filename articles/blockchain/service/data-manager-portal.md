@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85200686"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Blockchain Data Manager com o portal do Azure
@@ -40,7 +40,7 @@ Uma ligação de saída envia dados blockchain para Azure Event Grid. Configura 
 
     Introduza os seguintes detalhes:
 
-    Definição | Description
+    Definição | Descrição
     --------|------------
     Name | Insira um nome único para um Gestor de Dados blockchain conectado. O nome blockchain Data Manager pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
     Nó de transação | Escolha um nó de transação. Estão listados apenas os nós de transação que leu.
@@ -108,7 +108,7 @@ O Blockchain Data Manager exige que os ficheiros ABI e bytecode do contrato seja
 
     ![Criar um recipiente de conta de armazenamento](./media/data-manager-portal/create-container.png)
 
-    | Campo | Description |
+    | Campo | Descrição |
     |-------|-------------|
     | Name  | Dê um nome ao contentor. Por exemplo, *smartcontract* |
     | Nível de acesso público | Escolha *Privado (sem acesso anónimo)* |
@@ -144,7 +144,7 @@ Para cada bolha, gere uma assinatura de acesso partilhado.
 
     Introduza o nome da aplicação blockchain e o contrato inteligente ABI e BYtecode URLs.
 
-    Definição | Description
+    Definição | Descrição
     --------|------------
     Name | Introduza um nome único para a aplicação blockchain para rastrear.
     Contrato ABI | Caminho URL para o ficheiro ABI do contrato. Para obter mais informações, consulte [Criar contrato ABI e BYTECODE URL](#create-contract-abi-and-bytecode-url).
@@ -166,7 +166,7 @@ Pare a instância do Blockchain Manager quando pretender parar de capturar event
 
     ![Paragem da instância](./media/data-manager-portal/stop-instance.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando blockchain Data Manager e Azure Cosmos DB.
 

@@ -12,10 +12,10 @@ ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201859"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Sinal de uma página única na utilização do fluxo implícito OAuth 2.0 em Azure Ative Directory B2C
@@ -51,18 +51,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-|{inquilino}| Yes | Nome do seu inquilino Azure AD B2C|
-|{política}| Yes| O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
-| client_id | Yes | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
-| response_type | Yes | Deve incluir `id_token` para o iniciar sê-in OpenID Connect. Também pode incluir o tipo de `token` resposta. Se `token` utilizar, a sua aplicação pode receber imediatamente um token de acesso a partir do ponto final autorizado, sem fazer um segundo pedido ao ponto final autorizado.  Se utilizar o `token` tipo de resposta, o `scope` parâmetro deve conter um âmbito que indique qual o recurso para o qual emitir o token. |
-| redirect_uri | No | O URI redirecionado da sua app, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a um dos URIs de redirecionamento que registou no portal, exceto que deve estar codificado por URL. |
-| response_mode | No | Especifica o método a utilizar para enviar o símbolo resultante de volta para a sua aplicação.  Para fluxos implícitos, use `fragment` . |
-| scope | Yes | Uma lista de âmbitos separados pelo espaço. Um único valor de âmbito indica ao Azure AD ambas as permissões que estão a ser solicitadas. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de fichas de identificação. O `offline_access` âmbito é opcional para aplicações web. Indica que a sua aplicação precisa de um token de atualização para o acesso de longa duração aos recursos. |
-| state | No | Um valor incluído no pedido que também é devolvido na resposta simbólica. Pode ser uma série de conteúdos que queiras usar. Normalmente, um valor único gerado aleatoriamente é usado para evitar ataques de falsificação de pedidos de trans-locais. O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página em que se encontravam. |
-| nonce | Yes | Um valor incluído no pedido (gerado pela app) que está incluído no token de ID resultante como uma reclamação. A aplicação pode então verificar este valor para mitigar os ataques de reprodução de token. Normalmente, o valor é uma corda aleatória e única que pode ser usada para identificar a origem do pedido. |
-| rápido | No | O tipo de interação do utilizador que é necessária. Atualmente, o único valor válido é `login` . Este parâmetro obriga o utilizador a introduzir as suas credenciais nesse pedido. Uma única inscrição não faz efeito. |
+|{inquilino}| Sim | Nome do seu inquilino Azure AD B2C|
+|{política}| Sim| O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
+| client_id | Sim | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação. |
+| response_type | Sim | Deve incluir `id_token` para o iniciar sê-in OpenID Connect. Também pode incluir o tipo de `token` resposta. Se `token` utilizar, a sua aplicação pode receber imediatamente um token de acesso a partir do ponto final autorizado, sem fazer um segundo pedido ao ponto final autorizado.  Se utilizar o `token` tipo de resposta, o `scope` parâmetro deve conter um âmbito que indique qual o recurso para o qual emitir o token. |
+| redirect_uri | Não | O URI redirecionado da sua app, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a um dos URIs de redirecionamento que registou no portal, exceto que deve estar codificado por URL. |
+| response_mode | Não | Especifica o método a utilizar para enviar o símbolo resultante de volta para a sua aplicação.  Para fluxos implícitos, use `fragment` . |
+| scope | Sim | Uma lista de âmbitos separados pelo espaço. Um único valor de âmbito indica ao Azure AD ambas as permissões que estão a ser solicitadas. O `openid` âmbito indica uma permissão para assinar no utilizador e obter dados sobre o utilizador sob a forma de fichas de identificação. O `offline_access` âmbito é opcional para aplicações web. Indica que a sua aplicação precisa de um token de atualização para o acesso de longa duração aos recursos. |
+| state | Não | Um valor incluído no pedido que também é devolvido na resposta simbólica. Pode ser uma série de conteúdos que queiras usar. Normalmente, um valor único gerado aleatoriamente é usado para evitar ataques de falsificação de pedidos de trans-locais. O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página em que se encontravam. |
+| nonce | Sim | Um valor incluído no pedido (gerado pela app) que está incluído no token de ID resultante como uma reclamação. A aplicação pode então verificar este valor para mitigar os ataques de reprodução de token. Normalmente, o valor é uma corda aleatória e única que pode ser usada para identificar a origem do pedido. |
+| rápido | Não | O tipo de interação do utilizador que é necessária. Atualmente, o único valor válido é `login` . Este parâmetro obriga o utilizador a introduzir as suas credenciais nesse pedido. Uma única inscrição não faz efeito. |
 
 Neste momento, pede-se ao utilizador que complete o fluxo de trabalho da apólice. O utilizador poderá ter de introduzir o seu nome de utilizador e senha, iniciar sação com identidade social, inscrever-se no diretório ou qualquer outro número de passos. As ações do utilizador dependem da definição do fluxo do utilizador.
 
@@ -164,7 +164,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &prompt=none
 ```
 
-| Parâmetro | Necessário? | Description |
+| Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 {política}| Necessário| O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
@@ -229,19 +229,19 @@ Pode simplesmente redirecionar o utilizador para o `end_session_endpoint` que es
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parâmetro | Obrigatório | Description |
+| Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| {inquilino} | Yes | Nome do seu inquilino Azure AD B2C |
-| {política} | Yes | O fluxo do utilizador que pretende utilizar para assinar o utilizador fora da sua aplicação. |
-| post_logout_redirect_uri | No | O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso. Se não estiver incluído, o Azure AD B2C mostra ao utilizador uma mensagem genérica. |
-| state | No | Se um `state` parâmetro for incluído no pedido, o mesmo valor deve aparecer na resposta. O pedido deve verificar se os `state` valores do pedido e resposta são idênticos. |
+| {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
+| {política} | Sim | O fluxo do utilizador que pretende utilizar para assinar o utilizador fora da sua aplicação. |
+| post_logout_redirect_uri | Não | O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso. Se não estiver incluído, o Azure AD B2C mostra ao utilizador uma mensagem genérica. |
+| state | Não | Se um `state` parâmetro for incluído no pedido, o mesmo valor deve aparecer na resposta. O pedido deve verificar se os `state` valores do pedido e resposta são idênticos. |
 
 
 > [!NOTE]
 > Direcionar o utilizador para a `end_session_endpoint` eliminação de alguns dos únicos estados de entrada do utilizador com O Azure AD B2C. No entanto, não assina o utilizador fora da sessão de provedor de identidade social do utilizador. Se o utilizador selecionar o mesmo fornecedor de identidade durante uma sintrodução subsequente, o utilizador é reautentado sem introduzir as suas credenciais. Se um utilizador quiser assinar a sua aplicação Azure AD B2C, não significa necessariamente que queira assinar completamente fora da sua conta de Facebook, por exemplo. No entanto, para as contas locais, a sessão do utilizador terminará corretamente.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>Amostra de código: Azure AD B2C com a Microsoft Authentication Library for JavaScript
 
