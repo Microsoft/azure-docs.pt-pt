@@ -1,6 +1,6 @@
 ---
-title: Implantação de máquina virtual de resolução de problemas devido a discos separados / Microsoft Docs
-description: Implantação de máquina virtual de resolução de problemas devido a discos separados
+title: Resolução de problemas da implantação de máquinas virtuais devido a discos separados Microsoft Docs
+description: Resolução de problemas implementação de máquinas virtuais devido a discos separados
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,17 +13,16 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75486823"
 ---
-# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Implantação de máquina virtual de resolução de problemas devido a discos separados
+# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Resolução de problemas implementação de máquinas virtuais devido a discos separados
 
 ## <a name="symptom"></a>Sintoma
 
-Quando estiver a tentar atualizar uma máquina virtual cujo descolamento de disco de dados anterior falhou, pode encontrar este código de erro.
+Quando estiver a tentar atualizar uma máquina virtual cujo disquete de disco de dados anterior falhou, poderá encontrar este código de erro.
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
@@ -32,7 +31,7 @@ Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' beca
 
 ## <a name="cause"></a>Causa
 
-Este erro ocorre quando se tenta recolocar um disco de dados cuja última operação de desacopte falhou. A melhor maneira de sair deste estado é separar o disco falhado.
+Este erro ocorre quando se tenta recolocar um disco de dados cuja última operação de desprendimento falhou. A melhor maneira de sair deste estado é separar o disco falhado.
 
 ## <a name="solution-1-powershell"></a>Solução 1: Powershell
 
@@ -53,7 +52,7 @@ toBeDetached : False
 
 ### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passo 2: Coloque a bandeira para os discos falhados como "verdadeiros".
 
-Obtenha o índice de matriz do disco em falha e coloque a bandeira **toBeDetached** para o disco em falha (para o qual ocorreu o erro **attachDiskWhileBeingDetached)** para "verdadeiro". Esta definição implica separar o disco da máquina virtual. O nome do disco em falha pode ser encontrado no **erroMensagem**.
+Obtenha o índice de matriz do disco em falha e coloque a bandeira **toBeDetached** para o disco em falha (para o qual ocorreu um erro **de desacoplamento do AttachDiskWhileBeing)** para "verdadeiro". Esta definição implica separar o disco da máquina virtual. O nome do disco em falha pode ser encontrado no **erroMessage**.
 
 > ! Nota: A versão API especificada para chamadas Get and Put tem de ser 2019-03-01 ou superior.
 
@@ -61,7 +60,7 @@ Obtenha o índice de matriz do disco em falha e coloque a bandeira **toBeDetache
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-Em alternativa, também pode desmontar este disco utilizando o comando abaixo, o que será útil para os utilizadores que utilizem versões API antes de 01 de março de 2019.
+Em alternativa, também pode desconectar este disco utilizando o comando abaixo, o que será útil para os utilizadores que utilizem versões API antes de 01 de março de 2019.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
@@ -83,7 +82,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passo 2: Coloque a bandeira para os discos falhados como "verdadeiros".
 
-Detete a bandeira **toBeDetached** para falhar o disco verdadeiro na carga útil devolvida no passo 1. Nota: A versão API especificada para chamadas `2019-03-01` Get and Put tem de ser ou maior.
+Desagregue a bandeira **toBeDetached** por falhar o disco na carga útil devolvida no Passo 1. Nota: A versão API especificada para chamadas Get and Put tem de ser `2019-03-01` ou maior.
 
 **Corpo de Pedido de Amostra**
 
@@ -143,17 +142,17 @@ Detete a bandeira **toBeDetached** para falhar o disco verdadeiro na carga útil
 }
 ```
 
-Alternadamente também pode remover o disco de dados em falha da carga útil acima, o que é útil para os utilizadores que usam versões API antes de 01 de março de 2019.
+Em alternativa, também é possível remover o disco de dados em falha da carga útil acima, o que é útil para os utilizadores que utilizem versões API antes de 01 de março de 2019.
 
 ### <a name="step-3-update-the-virtual-machine"></a>Passo 3: Atualizar a máquina virtual
 
-Utilize a carga útil do corpo de pedido definida no passo 2 e atualize a máquina virtual da seguinte forma:
+Utilize o conjunto de carga útil do corpo de pedido no passo 2 e atualize a máquina virtual da seguinte forma:
 
 ```azurepowershell-interactive
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01
 ```
 
-**Resposta da amostra:**
+**Resposta à amostra:**
 
 ```azurepowershell-interactive
 {
@@ -232,6 +231,6 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se tiver problemas de ligação ao seu VM, consulte [ligações RDP de Troubleshoot a um VM Azure](troubleshoot-rdp-connection.md).
+Se tiver problemas de ligação ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](troubleshoot-rdp-connection.md).
 
-Para problemas com o acesso a aplicações em execução no seu VM, consulte problemas de conectividade da [aplicação Troubleshoot num VM windows](troubleshoot-app-connection.md).
+Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num VM do Windows](troubleshoot-app-connection.md).

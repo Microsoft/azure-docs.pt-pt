@@ -1,18 +1,17 @@
 ---
 title: Dados pessoais
-description: Saiba como gerir os dados pessoais associados às operações do Gestor de Recursos do Azure.
+description: Saiba como gerir os dados pessoais associados às operações do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485263"
 ---
-# <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gerir dados pessoais associados ao Gestor de Recursos Azure
+# <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gerir dados pessoais associados ao Azure Resource Manager
 
-Para evitar expor informações sensíveis, elimine quaisquer informações pessoais que possa ter fornecido em implementações, grupos de recursos ou tags. O Azure Resource Manager fornece operações que lhe permitem gerir dados pessoais que possa ter fornecido em implementações, grupos de recursos ou tags.
+Para evitar expor informações sensíveis, elimine qualquer informação pessoal que possa ter fornecido em implementações, grupos de recursos ou tags. O Azure Resource Manager fornece operações que lhe permitem gerir os dados pessoais que pode ter fornecido em implementações, grupos de recursos ou tags.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -20,31 +19,31 @@ Para evitar expor informações sensíveis, elimine quaisquer informações pess
 
 ## <a name="delete-personal-data-in-deployment-history"></a>Eliminar dados pessoais no histórico de implementação
 
-Para implementações, o Gestor de Recursos mantém valores de parâmetros e mensagens de estado no histórico de implementação. Estes valores persistem até eliminar a implantação da história. Para ver se forneceu dados pessoais nestes valores, enumere as implementações. Se encontrar dados pessoais, elimine as implementações do histórico.
+Para implementações, o Gestor de Recursos mantém os valores dos parâmetros e as mensagens de estado no histórico de implantação. Estes valores persistem até eliminar a implantação da história. Para ver se forneceu dados pessoais nestes valores, liste as implementações. Se encontrar dados pessoais, elimine as implementações do histórico.
 
-Para listar **as implementações** na história, utilize:
+Para **listar implementações** na história, utilize:
 
 * [Lista por Grupo de Recursos](/rest/api/resources/deployments/listbyresourcegroup)
-* [Implantação do Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
-* [lista de implantação do grupo AZ](/cli/azure/group/deployment#az-group-deployment-list)
+* [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
+* [lista de implantação de grupos az](/cli/azure/group/deployment#az-group-deployment-list)
 
-Para eliminar **as implementações** do histórico, utilize:
+Para eliminar **as implementações** da história, utilize:
 
 * [Eliminar](/rest/api/resources/deployments/delete)
-* [Remoção-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
-* [az grupo eliminar](/cli/azure/group/deployment#az-group-deployment-delete)
+* [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
+* [az implantação de grupo](/cli/azure/group/deployment#az-group-deployment-delete)
 
 ## <a name="delete-personal-data-in-resource-group-names"></a>Eliminar dados pessoais em nomes de grupos de recursos
 
-O nome do grupo de recursos persiste até eliminar o grupo de recursos. Para ver se forneceu dados pessoais nos nomes, enumere os grupos de recursos. Se encontrar dados pessoais, [desloque os recursos](move-resource-group-and-subscription.md) para um novo grupo de recursos e elimine o grupo de recursos com dados pessoais no nome.
+O nome do grupo de recursos persiste até eliminar o grupo de recursos. Para ver se forneceu dados pessoais nos nomes, liste os grupos de recursos. Se encontrar dados pessoais, [transloque os recursos](move-resource-group-and-subscription.md) para um novo grupo de recursos e elimine o grupo de recursos com dados pessoais no nome.
 
-Para listar grupos de **recursos,** utilize:
+Para listar **grupos de recursos,** utilize:
 
 * [Lista](/rest/api/resources/resourcegroups/list)
-* [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
-* [lista de grupo az](/cli/azure/group#az-group-list)
+* [Grupo Get-AzResource](/powershell/module/az.resources/Get-AzResourceGroup)
+* [lista de grupos az](/cli/azure/group#az-group-list)
 
-Para eliminar grupos de **recursos,** utilize:
+Para eliminar **grupos de recursos,** utilize:
 
 * [Eliminar](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
@@ -52,19 +51,19 @@ Para eliminar grupos de **recursos,** utilize:
 
 ## <a name="delete-personal-data-in-tags"></a>Eliminar dados pessoais em tags
 
-As etiquetas de nomes e valores persistem até que apague ou modifique a etiqueta. Para ver se forneceu dados pessoais nas etiquetas, enumere as etiquetas. Se encontrar dados pessoais, elimine as etiquetas.
+Os nomes e valores das etiquetas persistem até que apague ou modifique a etiqueta. Para ver se forneceu dados pessoais nas etiquetas, liste as etiquetas. Se encontrar dados pessoais, elimine as etiquetas.
 
-Para listar **etiquetas,** utilize:
+Para **listar tags,** utilize:
 
 * [Lista](/rest/api/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
-* [az lista de tag](/cli/azure/tag#az-tag-list)
+* [lista de etiquetas az](/cli/azure/tag#az-tag-list)
 
-Para eliminar **etiquetas,** utilize:
+Para eliminar **tags,** utilize:
 
 * [Eliminar](/rest/api/resources/tags/delete)
 * [Remover-AzTag](/powershell/module/az.resources/Remove-AzTag)
-* [az tag excluir](/cli/azure/tag#az-tag-delete)
+* [az tag eliminar](/cli/azure/tag#az-tag-delete)
 
-## <a name="next-steps"></a>Passos seguintes
-* Para uma visão geral do Gestor de Recursos Azure, consulte o [What is Resource Manager?](overview.md)
+## <a name="next-steps"></a>Próximos passos
+* Para uma visão geral do Gestor de Recursos Azure, consulte o [Gestor de Recursos O que é Gestor de Recursos?](overview.md)

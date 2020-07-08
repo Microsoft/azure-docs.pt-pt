@@ -1,42 +1,41 @@
 ---
-title: Monitorização do desempenho do tecido do serviço Azure
-description: Conheça os contadores de desempenho para monitorização e diagnóstico de clusters Azure Service Fabric.
+title: Monitorização de desempenho do tecido de serviço Azure
+description: Saiba mais sobre os contadores de desempenho para monitorização e diagnóstico de clusters de tecidos de serviço Azure.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464712"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
-As métricas devem ser recolhidas para compreender o desempenho do seu cluster, bem como as aplicações que estão a ser em execução no mesmo. Para os clusters service Fabric, recomendamos a recolha dos seguintes contadores de desempenho.
+As métricas devem ser recolhidas para entender o desempenho do seu cluster, bem como as aplicações que nele estão a decorrer. Para clusters de tecido de serviço, recomendamos a recolha dos seguintes contadores de desempenho.
 
 ## <a name="nodes"></a>Nós
 
-Para as máquinas do seu cluster, considere recolher os seguintes contadores de desempenho para entender melhor a carga em cada máquina e tomar decisões adequadas de escala de cluster.
+Para as máquinas do seu cluster, considere recolher os seguintes contadores de desempenho para entender melhor a carga em cada máquina e tomar as decisões adequadas de dimensionamento do cluster.
 
-| Categoria Contador | Contra nome |
+| Categoria de Contador | Contra-nome |
 | --- | --- |
-| Disco Lógico | Espaço Livre de Disco Lógico |
-| Disco Físico (por Disco) | Avg. Disk Ler comprimento da fila |
-| Disco Físico (por Disco) | Avg. Disk Write Queue Comprimento |
-| Disco Físico (por Disco) | Avg. Disk sec/Read |
-| Disco Físico (por Disco) | Avg. Disk sec/Write |
-| Disco Físico (por Disco) | Leituras/seg de disco |
-| Disco Físico (por Disco) | Discos Ler Bytes/seg |
-| Disco Físico (por Disco) | Escritas de Disco/seg |
-| Disco Físico (por Disco) | Discos Write Bytes/seg |
+| Disco lógico | Espaço livre de disco lógico |
+| PhysicalDisk(por Disco) | Avg. Disco ler comprimento da fila |
+| PhysicalDisk(por Disco) | Avg. Disco escrever comprimento da fila |
+| PhysicalDisk(por Disco) | Avg. Disco seg/Ler |
+| PhysicalDisk(por Disco) | Avg. Disco seg/Write |
+| PhysicalDisk(por Disco) | Leituras/seg de disco |
+| PhysicalDisk(por Disco) | Discos ler Bytes/seg |
+| PhysicalDisk(por Disco) | Escritas/seg de disco |
+| PhysicalDisk(por Disco) | Discos De Escrita Bytes/seg |
 | Memória | MBytes disponíveis |
-| Ficheiro paging | Uso % |
-| Processador(Total) | % de Tempo do Processador |
+| PagingFile | % Utilização |
+| Processador (Total) | % de Tempo do Processador |
 | Processo (por serviço) | % de Tempo do Processador |
 | Processo (por serviço) | Processo de ID |
-| Processo (por serviço) | Bytes Privados |
+| Processo (por serviço) | Bytes privados |
 | Processo (por serviço) | Contagem de fios |
 | Processo (por serviço) | Bytes Virtuais |
 | Processo (por serviço) | Conjunto de Trabalho |
@@ -47,38 +46,38 @@ Para as máquinas do seu cluster, considere recolher os seguintes contadores de 
 | Interface de rede (todos os casos) | Comprimento da fila de saída |
 | Interface de rede (todos os casos) | Pacotes Outbound Descartados |
 | Interface de rede (todos os casos) | Pacotes recebidos descartados |
-| Interface de rede (todos os casos) | Erros de saída de pacotes |
-| Interface de rede (todos os casos) | Pacotes Erros Recebidos |
+| Interface de rede (todos os casos) | Pacotes Erros de saída |
+| Interface de rede (todos os casos) | Pacotes recebidos erros |
 
 ## <a name="net-applications-and-services"></a>.NET aplicações e serviços
 
-Recolha os seguintes contadores se estiver a implementar serviços .NET para o seu cluster. 
+Recolha os seguintes contadores se estiver a implantar serviços .NET no seu cluster. 
 
-| Categoria Contador | Contra nome |
+| Categoria de Contador | Contra-nome |
 | --- | --- |
-| .NET CLR Memória (por serviço) | ID de Processo |
-| .NET CLR Memória (por serviço) | # Total bytes comprometidos |
-| .NET CLR Memória (por serviço) | # Total reservado Bytes |
-| .NET CLR Memória (por serviço) | Bytes em todos os Montes |
-| .NET CLR Memória (por serviço) | Tamanho heap objeto grande |
-| .NET CLR Memória (por serviço) | # Pegas GC |
-| .NET CLR Memória (por serviço) | # Gen 0 Collections |
-| .NET CLR Memória (por serviço) | # Coleções Gen 1 |
-| .NET CLR Memória (por serviço) | # Coleções Gen 2 |
-| .NET CLR Memória (por serviço) | % Tempo em GC |
+| .NET MEMÓRIA CLR (por serviço) | ID de Processo |
+| .NET MEMÓRIA CLR (por serviço) | Total comprometido Bytes |
+| .NET MEMÓRIA CLR (por serviço) | Total reservado Bytes |
+| .NET MEMÓRIA CLR (por serviço) | Bytes em todos os montes |
+| .NET MEMÓRIA CLR (por serviço) | Tamanho da pilha de objeto grande |
+| .NET MEMÓRIA CLR (por serviço) | # Alças GC |
+| .NET MEMÓRIA CLR (por serviço) | # Coleções Gen 0 |
+| .NET MEMÓRIA CLR (por serviço) | # Coleções Gen 1 |
+| .NET MEMÓRIA CLR (por serviço) | # Coleções Gen 2 |
+| .NET MEMÓRIA CLR (por serviço) | % Tempo em GC |
 
-### <a name="service-fabrics-custom-performance-counters"></a>Balcões de desempenho personalizados da Fabric de Serviço
+### <a name="service-fabrics-custom-performance-counters"></a>Balcões de desempenho personalizados da Service Fabric
 
-O Tecido de Serviço gera uma quantidade substancial de contadores de desempenho personalizados. Se tiver o SDK instalado, pode ver a lista completa da sua máquina Windows na sua aplicação Performance Monitor (Iniciar > Monitor de Desempenho). 
+O Tecido de Serviço gera uma quantidade substancial de contadores de desempenho personalizados. Se tiver o SDK instalado, pode ver a lista completa na sua máquina Windows na sua aplicação Monitor de Desempenho (Iniciar > Monitor de Desempenho). 
 
-Nas aplicações que está a implementar para o seu cluster, se `Service Fabric Actor` `Service Fabric Actor Method` estiver a utilizar Atores Fiáveis, adicione contadores e categorias (ver [Diagnósticos de Atores Fiáveis](service-fabric-reliable-actors-diagnostics.md)de Tecido de Serviço).
+Nas aplicações que está a implementar no seu cluster, se estiver a utilizar atores fidedigdos, adicione contadores de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (ver [Service Fabric Reliable Actors Diagnostics).](service-fabric-reliable-actors-diagnostics.md)
 
-Se utilizar serviços fiáveis ou remoting `Service Fabric Service` de `Service Fabric Service Method` serviço, também temos e contratemos categorias de que deve recolher contadores, ver [monitorização com responsadede serviços](service-fabric-reliable-serviceremoting-diagnostics.md) e balcões de [desempenho de serviços fiáveis.](service-fabric-reliable-services-diagnostics.md#performance-counters) 
+Se utilizar serviços fiáveis ou remoting de serviços, `Service Fabric Service` temos e `Service Fabric Service Method` contra-categorias de que deve recolher balcões, ver [monitorização com remoing de serviços](service-fabric-reliable-serviceremoting-diagnostics.md) e [balcões de desempenho de serviços confiáveis](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
-Se utilizar Coleções Fiáveis, recomendamos adicionar o `Avg. Transaction ms/Commit` a partir do para `Service Fabric Transactional Replicator` recolher a latência média de compromisso por métrica de transação.
+Se utilizar Coleções Fiáveis, recomendamos adicionar `Avg. Transaction ms/Commit` o do para recolher a `Service Fabric Transactional Replicator` latência média de efetivo por métrica de transação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre a geração de [eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) em Service Fabric
+* Saiba mais sobre [a geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
 * Recolher métricas de desempenho através do [agente Log Analytics](service-fabric-diagnostics-oms-agent.md)

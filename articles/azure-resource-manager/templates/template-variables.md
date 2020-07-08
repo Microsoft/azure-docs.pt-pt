@@ -4,21 +4,20 @@ description: Descreve como definir variáveis num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75483820"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo de Gestor de Recursos Azure
+# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo de gestor de recursos Azure
 
-Este artigo descreve como definir e usar variáveis no seu modelo de Gestor de Recursos Azure. Usa variáveis para simplificar o seu modelo. Em vez de repetir expressões complicadas em todo o seu modelo, você define uma variável que contém a expressão complicada. Em seguida, você refere essa variável como necessário em todo o seu modelo.
+Este artigo descreve como definir e usar variáveis no seu modelo de Gestor de Recursos Azure. Usa variáveis para simplificar o seu modelo. Em vez de repetir expressões complicadas ao longo do seu modelo, define uma variável que contém a expressão complicada. Em seguida, você refere essa variável conforme necessário em todo o seu modelo.
 
 O Gestor de Recursos resolve variáveis antes de iniciar as operações de implantação. Onde quer que a variável seja utilizada no modelo, o Gestor de Recursos substitui-a pelo valor resolvido.
 
 ## <a name="define-variable"></a>Definir variável
 
-O exemplo que se segue mostra uma definição variável. Cria um valor de cadeia para um nome de conta de armazenamento. Usa várias funções de modelo para obter um valor de parâmetro, e concatena-o a uma corda única.
+O exemplo a seguir mostra uma definição variável. Cria um valor de cadeia para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro, e concatena-lo para uma corda única.
 
 ```json
 "variables": {
@@ -26,11 +25,11 @@ O exemplo que se segue mostra uma definição variável. Cria um valor de cadeia
 },
 ```
 
-Não pode utilizar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista](template-functions-resource.md#list) na secção variáveis. Estas funções obtêm o estado de execução de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
+Não é possível utilizar a função [de referência](template-functions-resource.md#reference) ou qualquer das funções da [lista](template-functions-resource.md#list) na secção de variáveis. Estas funções obtêm o estado de funcionamento de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
 
-## <a name="use-variable"></a>Usar variável
+## <a name="use-variable"></a>Utilizar variável
 
-No modelo, referencia-se o valor do parâmetro utilizando a função [variáveis.](template-functions-deployment.md#variables) O exemplo que se segue mostra como usar a variável para uma propriedade de recursos.
+No modelo, refere-se o valor do parâmetro utilizando a função [de variáveis.](template-functions-deployment.md#variables) O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
 
 ```json
 "resources": [
@@ -44,7 +43,7 @@ No modelo, referencia-se o valor do parâmetro utilizando a função [variáveis
 
 ## <a name="configuration-variables"></a>Variáveis de configuração
 
-Pode definir variáveis que possuam valores relacionados para configurar um ambiente. Define a variável como um objeto com os valores. O exemplo que se segue mostra um objeto que detém valores para dois ambientes - **teste** e **prod**.
+Pode definir variáveis que possuam valores relacionados para configurar um ambiente. Define-se a variável como um objeto com os valores. O exemplo a seguir mostra um objeto que detém valores para dois ambientes - **teste** e **prod**.
 
 ```json
 "variables": {
@@ -87,11 +86,11 @@ Os exemplos que se seguem demonstram cenários para a utilização de variáveis
 
 |Modelo  |Descrição  |
 |---------|---------|
-| [definições variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo não distribui recursos. Constrói valores variáveis e devolve esses valores. |
-| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define valores de configuração. O modelo não distribui recursos. Constrói valores variáveis e devolve esses valores. |
-| [regras de segurança da rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e arquivo [parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para atribuir regras de segurança a um grupo de segurança de rede. |
+| [definições variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo não implementa recursos. Constrói valores variáveis e devolve esses valores. |
+| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define valores de configuração. O modelo não implementa recursos. Constrói valores variáveis e devolve esses valores. |
+| [regras de segurança da rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e arquivo de [parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói um conjunto no formato correto para atribuir regras de segurança a um grupo de segurança de rede. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para conhecer as propriedades disponíveis para variáveis, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure.](template-syntax.md)
-* Para recomendações sobre a criação de variáveis, consulte [As melhores práticas - variáveis](template-best-practices.md#variables).
+* Para conhecer as propriedades disponíveis para variáveis, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+* Para recomendações sobre a criação de variáveis, consulte [as melhores práticas - variáveis.](template-best-practices.md#variables)

@@ -1,25 +1,24 @@
 ---
-title: Executar um serviço Azure Service Fabric como utilizador ou grupo de anúncios
-description: Aprenda a executar um serviço como utilizador ou grupo de Directórioativo num cluster autónomo do Service Fabric Windows.
+title: Executar um serviço de tecido de serviço Azure como utilizador ou grupo de AD
+description: Saiba como executar um serviço como utilizador ou grupo ative directory num cluster autónomo do Service Fabric Windows.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464242"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Executar um serviço como utilizador ou grupo de Diretório Ativo
-Num cluster autónomo do Windows Server, pode executar um serviço como utilizador ou grupo de Directórioactivo utilizando uma política de RunAs.  Por predefinição, as aplicações de Tecido de Serviço são executadas sob a conta que o processo Fabric.exe é executado. Executar aplicações sob contas diferentes, mesmo num ambiente partilhado, torna-as mais seguras umas das outras. Note que isto utiliza diretório ativo no local dentro do seu domínio e não o Azure Ative Directory (Azure AD).  Também pode executar um serviço como uma conta de serviço gerida por [grupo (gMSA)](service-fabric-run-service-as-gmsa.md).
+Num cluster autónomo do Windows Server, pode executar um serviço como utilizador ou grupo de Diretório Ativo utilizando uma política RunAs.  Por predefinição, as aplicações do Service Fabric são executadas sob a conta que o processo de Fabric.exe é executado. Executar aplicações em diferentes contas, mesmo num ambiente partilhado, torna-as mais seguras umas das outras. Note que isto utiliza o Ative Directory no local dentro do seu domínio e não o Azure Ative Directory (Azure AD).  Também pode executar um serviço como conta de [serviço gerido do grupo (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Ao utilizar um utilizador ou grupo de domínio, pode então aceder a outros recursos no domínio (por exemplo, partilhas de ficheiros) que tenham sido concedidas permissões.
 
-O exemplo seguinte mostra um utilizador do Diretório Ativo chamado *TestUser* com a sua palavra-passe de domínio encriptada utilizando um certificado chamado *MyCert*. Pode utilizar `Invoke-ServiceFabricEncryptText` o comando PowerShell para criar o texto secreto da cifra. Consulte [a Gestão de segredos nas aplicações de Tecido de Serviço](service-fabric-application-secret-management.md) para mais detalhes.
+O exemplo a seguir mostra um utilizador do Ative Directory chamado *TestUser* com a sua senha de domínio encriptada através de um certificado chamado *MyCert*. Pode utilizar o `Invoke-ServiceFabricEncryptText` comando PowerShell para criar o texto secreto da cifra. Consulte [as aplicações Managing Secrets in Service Fabric](service-fabric-application-secret-management.md) para obter mais detalhes.
 
-Deve implementar a chave privada do certificado para desencriptar a palavra-passe para a máquina local utilizando um método fora de banda (em Azure, isto é via Azure Resource Manager). Em seguida, quando o Service Fabric implanta o pacote de serviço para a máquina, é capaz de desencriptar o segredo e (juntamente com o nome de utilizador) autenticar com Ative Directory para executar sob essas credenciais.
+Tem de implantar a chave privada do certificado para desencriptar a palavra-passe para a máquina local utilizando um método fora de banda (em Azure, isto é através do Azure Resource Manager). Em seguida, quando o Service Fabric implanta o pacote de serviço para a máquina, é capaz de desencriptar o segredo e (juntamente com o nome de utilizador) autenticar com o Ative Directory para executar sob essas credenciais.
 
 ```xml
 <Principals>
@@ -37,11 +36,11 @@ Deve implementar a chave privada do certificado para desencriptar a palavra-pass
 ```
 
 > [!NOTE] 
-> Se aplicar uma política de RunAs a um serviço e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, também deve especificar uma Política de **Acesso de Segurança**.  Para mais informações, consulte [Atribuir uma política de acesso à segurança para os pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
+> Se aplicar uma política runAs a um serviço e o manifesto de serviço declarar recursos de ponto final com o protocolo HTTP, também deve especificar uma **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso à segurança para pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Como próximo passo, leia os seguintes artigos:
+Como passo seguinte, leia os seguintes artigos:
 * [Compreender o modelo de aplicação](service-fabric-application-model.md)
 * [Especificar recursos num manifesto de serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
