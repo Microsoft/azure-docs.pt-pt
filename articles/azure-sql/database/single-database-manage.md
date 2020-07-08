@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254995"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores e bases de dados individuais na Base de Dados Azure SQL
@@ -65,7 +65,7 @@ Para criar e gerir servidores, bases de dados individuais e aginhadas e firewall
 > [!TIP]
 > Para scripts de exemplo PowerShell, consulte [Use PowerShell para criar uma base de dados na Base de Dados SQL e configurar uma regra de firewall ao nível do servidor](scripts/create-and-configure-database-powershell.md) e Monitor e escalar uma base de [dados na Base de Dados SQL utilizando powerShell](scripts/monitor-and-scale-database-powershell.md).
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Cria uma base de dados |
 |[Base de Dados Get-AzSql](/powershell/module/az.sql/get-azsqldatabase)|Obtém uma ou mais bases de dados|
@@ -90,7 +90,7 @@ Para criar e gerir os servidores, bases de dados e firewalls com [o Azure CLI,](
 > Para um quickstart Azure CLI, consulte [criar uma única Base de Dados Azure SQL utilizando o Azure CLI](az-cli-script-samples-content-guide.md). Para scripts de exemplo Azure CLI, consulte [use CLI para criar uma base de dados na Base de Dados Azure SQL e configurar uma regra de firewall SQL Database](scripts/create-and-configure-database-cli.md) e [use CLI para monitorizar e escalar uma base de dados na Base de Dados Azure SQL](scripts/monitor-and-scale-database-cli.md).
 >
 
-| Cmdlet | Description |
+| Cmdlet | Descrição |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Cria uma base de dados|
 |[lista de az sql db](/cli/azure/sql/db#az-sql-db-list)|Lista todas as bases de dados e armazéns de dados num servidor, ou todas as bases de dados numa piscina elástica|
@@ -121,7 +121,7 @@ Para criar e gerir os servidores, bases de dados e firewalls com Transact-SQL, u
 > [!IMPORTANT]
 > Não é possível criar ou eliminar um servidor utilizando o Transact-SQL.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[CRIAR BASE DE DADOs](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica uma base de dados ou piscina elástica. |
@@ -142,7 +142,7 @@ Para criar e gerir os servidores, bases de dados e firewalls com Transact-SQL, u
 
 Para criar e gerir os servidores, bases de dados e firewalls, utilize estes pedidos de API REST.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[Servidores - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
 |[Servidores - Eliminar](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina um servidor SQL.|
@@ -161,7 +161,7 @@ Para criar e gerir os servidores, bases de dados e firewalls, utilize estes pedi
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber sobre a migração de uma base de dados do SQL Server para Azure, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

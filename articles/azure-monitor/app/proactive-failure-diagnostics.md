@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
 ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254791"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de falha
@@ -350,7 +350,7 @@ A Deteção Inteligente de anomalias de falha complementa outras característica
 
 * Pode utilizar a função de supressão [de regras de ação de alerta.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplicação:
 
 * [Explorador métrico](../../azure-monitor/platform/metrics-charts.md)

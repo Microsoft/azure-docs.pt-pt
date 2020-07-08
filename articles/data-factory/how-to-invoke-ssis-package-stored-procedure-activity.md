@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: 95f29331c723e584cdecdd27a714f22377dfd26d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253584"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Run an SSIS package with the Stored Procedure activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Procedimento Armazenado no Azure Data Factory)
@@ -360,5 +360,5 @@ No passo anterior, invocou o gasoduto a pedido. Também pode criar um gatilho de
     ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Também pode monitorizar o gasoduto utilizando o portal Azure. Para obter instruções passo a passo, consulte [o gasoduto](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

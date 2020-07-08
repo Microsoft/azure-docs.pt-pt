@@ -13,10 +13,10 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253227"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
@@ -196,7 +196,7 @@ Quando um proxy de nuvem está no lugar, uma política que é usada para exigir 
 
 A API e a PowerShell ainda não estão suportadas para locais nomeados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Construir uma política de acesso condicional](concept-conditional-access-policies.md).
 - Procura uma política de exemplo usando a condição de localização? Ver o artigo, [Acesso Condicional: Bloquear acesso por local](howto-conditional-access-policy-location.md)

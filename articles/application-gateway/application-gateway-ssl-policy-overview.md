@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253635"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Visão geral da política do Gateway TLS de aplicação
@@ -109,6 +109,6 @@ O Application Gateway v2 não suporta atualmente as seguintes cifras:
 - DHE-DSS-AES256-SHA256
 - DHE-DSS-AES256-SHA
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser aprender a configurar uma política de TLS, consulte [versões de política configure TLS e suítes de cifra no Application Gateway](application-gateway-configure-ssl-policy-powershell.md).

@@ -5,10 +5,10 @@ ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254281"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma Base de Dados Azure SQL
@@ -122,7 +122,7 @@ Agora, pode adicionar o código de função C# que se conecta à sua Base de Dad
 
 Se pretender [publicar esta função,](functions-develop-vs.md#publish-to-azure)lembre-se de alterar o `TimerTrigger` atributo para um cron [mais](functions-bindings-timer.md#ncrontab-expressions) razoável do que a cada 15 segundos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, aprenda a usar. Funções com Aplicações Lógicas para integrar com outros serviços.
 

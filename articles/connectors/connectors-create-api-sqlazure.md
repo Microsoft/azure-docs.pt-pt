@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
 ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255506"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para uma base de dados SQL utilizando apps Azure Logic
@@ -71,7 +71,7 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Para **Tipo de Autenticação**, selecione a autenticação necessária e ativada na sua base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL:
 
-   | Autenticação | Description |
+   | Autenticação | Descrição |
    |----------------|-------------|
    | [**Azure AD Integrado**](../azure-sql/database/authentication-aad-overview.md) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer uma identidade válida no Azure Ative Directory (Azure AD) que tenha acesso à sua base de dados. <p>Para obter mais informações, veja estes tópicos: <p>- [Visão geral de segurança do Azure SQL - Autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso à base de dados a Azure SQL - Autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Autenticação Integrada AD AD](../azure-sql/database/authentication-aad-overview.md) |
    | [**Autenticação do SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma senha forte que são criadas e armazenadas na sua base de dados. <p>Para obter mais informações, veja estes tópicos: <p>- [Visão geral de segurança do Azure SQL - Autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso à base de dados a Azure SQL - Autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -87,9 +87,9 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome do servidor** | Yes | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome da base de dados** | Yes | O nome da sua base de dados SQL, por exemplo,`Fabrikam-Azure-SQL-DB` |
-   | **Nome da tabela** | Yes | A mesa que quer usar, por exemplo,`SalesLT.Customer` |
+   | **Nome do servidor** | Sim | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome da base de dados** | Sim | O nome da sua base de dados SQL, por exemplo,`Fabrikam-Azure-SQL-DB` |
+   | **Nome da tabela** | Sim | A mesa que quer usar, por exemplo,`SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -115,7 +115,7 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Para **tipo de autenticação,** selecione a autenticação necessária e ativada no seu Servidor SQL:
 
-   | Autenticação | Description |
+   | Autenticação | Descrição |
    |----------------|-------------|
    | [**Autenticação do Windows**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Suporta apenas o conector não-ISE SQL Server, que requer um recurso de gateway de dados que foi previamente criado em Azure para a sua ligação, independentemente de utilizar o Azure multi-inquilino ou um ISE. <p><p>- Requer um nome de utilizador e senha válidos do Windows para confirmar a sua identidade através da sua conta Windows. <p>Para mais informações, consulte [a autenticação do Windows](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**Autenticação do SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma palavra-passe forte que são criadas e armazenadas no seu SQL Server. <p>Para obter mais informações, consulte [a autenticação do servidor SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
@@ -129,10 +129,10 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome do servidor SQL** | Yes | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome da base de dados SQL** | Yes | O nome da sua base de dados SQL Server, por exemplo,`Fabrikam-Azure-SQL-DB` |
-   | **Nome de utilizador** | Yes | O seu nome de utilizador para o servidor e base de dados SQL |
-   | **Palavra-passe** | Yes | A sua palavra-passe para o servidor e base de dados SQL |
+   | **Nome do servidor SQL** | Sim | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome da base de dados SQL** | Sim | O nome da sua base de dados SQL Server, por exemplo,`Fabrikam-Azure-SQL-DB` |
+   | **Nome de utilizador** | Sim | O seu nome de utilizador para o servidor e base de dados SQL |
+   | **Palavra-passe** | Sim | A sua palavra-passe para o servidor e base de dados SQL |
    | **Subscrição** |  Sim, para a autenticação do Windows | A subscrição Azure para o recurso de gateway de dados que criou anteriormente no Azure |
    | **Gateway de conexão** | Sim, para a autenticação do Windows | O nome do recurso data gateway que criou anteriormente em Azure <p><p>**Sugestão**: Se o seu portal não aparecer na lista, verifique se configura corretamente [o seu portal](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). |
    |||
@@ -252,6 +252,6 @@ Quando se chama um procedimento armazenado utilizando o conector SQL Server, a s
 
 Para obter informações técnicas sobre os gatilhos, ações e limites deste conector, consulte a [página de referência do conector,](https://docs.microsoft.com/connectors/sql/)que é gerada a partir da descrição do Swagger.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores para Apps Azure Logic](../connectors/apis-list.md)

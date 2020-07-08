@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
 ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254417"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Lidar com linhas de erro de truncação SQL nos fluxos de dados de mapeamento da Data Factory
@@ -21,7 +21,7 @@ ms.locfileid: "85254417"
 
 Um cenário comum na Data Factory ao utilizar fluxos de dados de mapeamento, é escrever os seus dados transformados numa base de dados na Base de Dados Azure SQL. Neste cenário, uma condição de erro comum contra a qual deve prevenir é possível a truncação da coluna. Siga estes passos para fornecer registo de colunas que não se encaixam numa coluna de cordas-alvo, permitindo que o fluxo de dados continue nesses cenários.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 1. Temos uma tabela de base de dados-alvo que tem uma ```nvarchar(5)``` coluna chamada "nome".
 
@@ -50,6 +50,6 @@ Este vídeo percorre um exemplo de lógica de manipulação de linha de erro de 
 
     ![fluxo completo de dados](media/data-flow/error2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Construa o resto da sua lógica de fluxo de dados utilizando [transformações](concepts-data-flow-overview.md)de fluxos de dados de mapeamento.

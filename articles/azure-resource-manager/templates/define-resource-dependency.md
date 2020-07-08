@@ -4,10 +4,10 @@ description: Descreve como definir um recurso como dependente de outro recurso d
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255216"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem para a implantação de recursos em modelos ARM
@@ -147,7 +147,7 @@ O Gestor de Recursos identifica dependências circulares durante a validação d
 
 Para obter informações sobre a avaliação da ordem de implantação e a resolução de erros de dependência, consulte [os erros comuns de resolução de Azure com o Azure Resource Manager](common-deployment-errors.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial, consulte [Tutorial: crie modelos de Gestor de Recursos Azure com recursos dependentes.](template-tutorial-create-templates-with-dependent-resources.md)
 * Para obter recomendações ao definir dependências, consulte as [melhores práticas do modelo do Gestor de Recursos Azure](template-best-practices.md).

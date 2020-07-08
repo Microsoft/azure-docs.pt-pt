@@ -6,10 +6,10 @@ ms.date: 06/19/2020
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255987"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM
@@ -656,6 +656,6 @@ O exemplo a seguir **falha** porque utiliza uma função [de lista*](template-fu
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a executar o kit de ferramentas de teste, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).

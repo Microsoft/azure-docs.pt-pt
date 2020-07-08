@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253499"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
@@ -189,5 +189,5 @@ Para otimizar o desempenho da sua implementação Azure AD Connect, considere as
 - Esforce-se para completar o ciclo de sincronização delta em 30 minutos. Se o perfil de sincronização delta não estiver completo em 30 minutos, modifique a frequência de sincronização padrão para incluir um ciclo completo de sincronização delta.
 - Monitorize a sua [saúde de sincronização Azure AD Connect](how-to-connect-health-agent-install.md) em Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

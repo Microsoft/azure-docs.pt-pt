@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252649"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Ligar e consultar a borda Azure SQL (pré-visualização)
@@ -114,7 +114,7 @@ Para ligar a um exemplo de Azure SQL Edge utilizando o Código de Estúdio Visua
 
 Para ligar a um exemplo de Azure SQL Edge utilizando o Azure Data Studio numa máquina Windows, Mac ou Linux, consulte [o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Ligar e consultar](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 

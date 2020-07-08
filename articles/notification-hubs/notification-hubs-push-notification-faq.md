@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255131"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
@@ -212,6 +212,6 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 [Resolução de problemas dos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Centros de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registos Exportação/Importação]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

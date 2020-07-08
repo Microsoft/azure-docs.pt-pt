@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
 ms.openlocfilehash: e7f80bb7f9be2e01aa24090d7305b1a5d882da04
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255520"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Criar um anfitrião Azure Bastion usando Azure CLI
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como criar um anfitrião Azure Bastion usando Azure CLI. 
 
 Opcionalmente, pode criar um anfitrião Azure Bastion utilizando o [portal Azure,](bastion-create-host-portal.md)ou utilizando [a Azure PowerShell](bastion-create-host-powershell.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
@@ -49,7 +49,7 @@ Esta secção ajuda-o a criar um novo recurso Azure Bastion utilizando o Azure C
                            
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia as [FAQ de Bastião](bastion-faq.md) para obter informações adicionais.
 

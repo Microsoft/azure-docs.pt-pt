@@ -6,10 +6,10 @@ ms.date: 06/19/2020
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255981"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Use o kit de ferramentas de teste do modelo ARM
@@ -230,6 +230,6 @@ O próximo exemplo mostra como fazer os testes.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os testes predefinidos, consulte [os casos de teste para o conjunto de ferramentas](test-cases.md).

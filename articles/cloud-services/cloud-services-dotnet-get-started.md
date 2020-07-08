@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255233"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
@@ -759,7 +759,7 @@ Para alterar o projeto para utilizar o emulador completo, clique com o botão di
 
 Para executar a aplicação com o emulador completo, terá de abrir o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:
@@ -775,5 +775,5 @@ Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir os Serviços Cloud](cloud-services-how-to-manage-portal.md)
-* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

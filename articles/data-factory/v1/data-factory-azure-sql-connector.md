@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cf731b09115558fc4280fe322d7e952ccb420c03
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254876"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para a Base de Dados Azure SQL usando Azure Data Factory
@@ -64,8 +64,8 @@ Um serviço ligado Azure SQL liga a Base de Dados Azure SQL à sua fábrica de d
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **AzureSqlDatabase** |Yes |
-| conexãoStragem |Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a propriedade connectionString. Apenas a autenticação básica é suportada. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **AzureSqlDatabase** |Sim |
+| conexãoStragem |Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a propriedade connectionString. Apenas a autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
 > Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) o servidor de base de dados para permitir que os [Serviços Azure acedam ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a Base de Dados Azure SQL de fora de Azure, incluindo de fontes de dados no local com gateway de data factory, configufique a gama de endereços IP apropriada para a máquina que está a enviar dados para a Base de Dados Azure SQL.
@@ -79,7 +79,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tableName |Nome da tabela ou vista na página da Base de Dados Azure SQL a que o serviço ligado se refere. |Yes |
+| tableName |Nome da tabela ou vista na página da Base de Dados Azure SQL a que o serviço ligado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e política estão disponíveis para todos os tipos de atividades.
@@ -96,9 +96,9 @@ Na atividade de cópia, quando a fonte é do tipo **SqlSource,** as seguintes pr
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Exemplo: `select * from MyTable`. |No |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |No |
-| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |No |
+| sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Exemplo: `select * from MyTable`. |Não |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
 
 Se o **SqlReaderQuery** for especificado para o SqlSource, a Atividade de Cópia executa esta consulta com a fonte de Base de Dados Azure SQL para obter os dados. Em alternativa, pode especificar um procedimento armazenado especificando o **nome sqlReaderStoredProcedureName** e **os Computadores Deprocedures armazenados** (se o procedimento armazenado tiver parâmetros).
 
@@ -146,13 +146,13 @@ GO
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |No |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais informações, consulte [a cópia repetível.](#repeatable-copy) |Uma declaração de consulta. |No |
-| sliceIdentifierColumnName |Especifique um nome de coluna para a Atividade de Cópia para preencher com identificador de fatias gerados automaticamente, que é utilizado para limpar dados de uma fatia específica quando se revesse. Para mais informações, consulte [a cópia repetível.](#repeatable-copy) |Nome da coluna de uma coluna com tipo de dados binário (32). |No |
-| sqlWriterStorEdProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, para fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a ver com dados de origem, por exemplo, apagar/truncar, utilize `sqlWriterCleanupScript` a propriedade. |Nome do procedimento armazenado. |No |
-| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |No |
-| SqlWriterTableType |Especifique um nome de tipo de mesa a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome do tipo de mesa. |No |
+| sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais informações, consulte [a cópia repetível.](#repeatable-copy) |Uma declaração de consulta. |Não |
+| sliceIdentifierColumnName |Especifique um nome de coluna para a Atividade de Cópia para preencher com identificador de fatias gerados automaticamente, que é utilizado para limpar dados de uma fatia específica quando se revesse. Para mais informações, consulte [a cópia repetível.](#repeatable-copy) |Nome da coluna de uma coluna com tipo de dados binário (32). |Não |
+| sqlWriterStorEdProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, para fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a ver com dados de origem, por exemplo, apagar/truncar, utilize `sqlWriterCleanupScript` a propriedade. |Nome do procedimento armazenado. |Não |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
+| SqlWriterTableType |Especifique um nome de tipo de mesa a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome do tipo de mesa. |Não |
 
 #### <a name="sqlsink-example"></a>Exemplo sqlSink
 

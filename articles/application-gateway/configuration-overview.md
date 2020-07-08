@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
 ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254672"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
@@ -391,7 +391,7 @@ Uma porta de aplicação monitoriza a saúde de todos os recursos no seu final p
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, tem de a associar a uma definição HTTP de fundo. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe sobre os componentes do Application Gateway, pode:
 

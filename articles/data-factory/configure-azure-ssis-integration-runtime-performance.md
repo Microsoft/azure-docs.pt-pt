@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
 ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255539"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
@@ -163,5 +163,5 @@ Também pode ajustar o nível de preços da base de dados com base na informaç�
 ## <a name="design-for-high-performance"></a>Conceber o elevado desempenho
 Conceber um pacote SSIS para funcionar em Azure é diferente de desenhar um pacote para execução no local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no Azure-SSIS IR. Crie uma execução de pacote para cada pacote, para que não tenham que esperar um pelo outro para terminar. Esta abordagem beneficia da escalabilidade do tempo de integração Azure-SSIS e melhora a produção global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o tempo de execução da integração Azure-SSIS. Ver [tempo de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

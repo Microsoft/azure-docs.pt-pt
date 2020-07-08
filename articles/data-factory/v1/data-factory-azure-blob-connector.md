@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254519"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para a Azure Blob Storage usando a Azure Data Factory
@@ -83,11 +83,11 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Caminho para o recipiente e pasta no armazenamento do blob. Exemplo: myblobcontainer\myblobfolder\ |Yes |
-| fileName |O nome da bolha. fileName é opcional e sensível a casos.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona na Bolha específica.<br/><br/>Quando o data de ficheiroName não é especificado, copy inclui todas as Blobs na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando **o fileName** não é especificado para um conjunto de dados de saída e **a preservaçãoHierarquia** não é especificado na pia de atividade, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
-| partitionedBy |partitionedBy é uma propriedade opcional. Pode usá-lo para especificar uma pasta dinâmicaPath e nome de ficheiro para dados da série de tempo. Por exemplo, a pastaPath pode ser parametrizada para cada hora de dados. Consulte a [secção de propriedade 'Utilizar divisórias'](#using-partitionedby-property) para obter mais detalhes e exemplos. |No |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| folderPath |Caminho para o recipiente e pasta no armazenamento do blob. Exemplo: myblobcontainer\myblobfolder\ |Sim |
+| fileName |O nome da bolha. fileName é opcional e sensível a casos.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona na Bolha específica.<br/><br/>Quando o data de ficheiroName não é especificado, copy inclui todas as Blobs na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando **o fileName** não é especificado para um conjunto de dados de saída e **a preservaçãoHierarquia** não é especificado na pia de atividade, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| partitionedBy |partitionedBy é uma propriedade opcional. Pode usá-lo para especificar uma pasta dinâmicaPath e nome de ficheiro para dados da série de tempo. Por exemplo, a pastaPath pode ser parametrizada para cada hora de dados. Consulte a [secção de propriedade 'Utilizar divisórias'](#using-partitionedby-property) para obter mais detalhes e exemplos. |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="using-partitionedby-property"></a>Usando propriedade partitionedBy
 Como mencionado na secção anterior, pode especificar uma pasta dinâmicaPath e nome de ficheiro para dados de séries de tempo com a propriedade **partitionedBy,** [funções de Data Factory e as variáveis do sistema](data-factory-functions-variables.md).
@@ -129,13 +129,13 @@ Para obter uma lista completa das secções & propriedades disponíveis para def
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Indica se os dados são lidos novamente a partir das sub-pastas ou apenas a partir da pasta especificada. |Verdadeiro (valor predefinido), Falso |No |
+| recursivo |Indica se os dados são lidos novamente a partir das sub-pastas ou apenas a partir da pasta especificada. |Verdadeiro (valor predefinido), Falso |Não |
 
 **BlobSink** suporta a seguinte secção **de propriedades tipoProperties:**
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| copyOportundo |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |<b>PreserveHierarchy</b>: preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro alvo para a pasta alvo.<br/><br/><b>FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível de pasta alvo. Os ficheiros-alvo têm nome gerado automaticamente. <br/><br/><b>MergeFiles</b>: funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro/blob for especificado, o nome do ficheiro fundido será o nome especificado; caso contrário, seria nome de ficheiro gerado automaticamente. |No |
+| copyOportundo |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |<b>PreserveHierarchy</b>: preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro alvo para a pasta alvo.<br/><br/><b>FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível de pasta alvo. Os ficheiros-alvo têm nome gerado automaticamente. <br/><br/><b>MergeFiles</b>: funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro/blob for especificado, o nome do ficheiro fundido será o nome especificado; caso contrário, seria nome de ficheiro gerado automaticamente. |Não |
 
 **BlobSource** também suporta estas duas propriedades para retrocompatibilidade.
 
@@ -334,7 +334,7 @@ Devia ver dois serviços ligados. Um para a fonte e o outro para o destino. Nest
 
 Para obter mais informações sobre o serviço ligado ao Armazenamento Azure, consulte a secção [de propriedades de serviços Linked.](#linked-service-properties)
 
-#### <a name="datasets"></a>Conjuntos de dados
+#### <a name="datasets"></a>Conjuntos de Dados
 Existem dois conjuntos de dados: um conjunto de dados de entrada e um conjunto de dados de saída. O tipo de conjunto de dados é definido para **AzureBlob** para ambos.
 
 O conjunto de dados de entrada aponta para a pasta de **entrada** do recipiente de bolhas de **adfblobconnector.** A propriedade **externa** é definida como **verdadeira** para este conjunto de dados, uma vez que os dados não são produzidos pelo pipeline com a atividade de cópia que toma este conjunto de dados como uma entrada.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253856"
 ---
 # <a name="application-gateway-redirect-overview"></a>Visão geral do redirecionamento do Gateway de Aplicação
@@ -41,6 +41,6 @@ O suporte de redirecionamento do Gateway de Aplicação oferece as seguintes cap
 
 Com esta alteração, os clientes precisam de criar um novo objeto de configuração de redirecionamento, que especifica o ouvinte-alvo ou o site externo para o qual é desejada a reorientação. O elemento de configuração também suporta opções para permitir a pendência do caminho URI e a cadeia de consulta para o URL redirecionado. Também pode escolher o tipo de reorientação. Uma vez criado, esta configuração de redirecionamento é anexada ao ouvinte de origem através de uma nova regra. Ao utilizar uma regra básica, a configuração do redirecionamento está associada a um ouvinte de origem e é um redirecionamento global. Quando uma regra baseada em caminhos é usada, a configuração de redirecionamento é definida no mapa do caminho do URL. Assim, só se aplica à área específica do caminho de um site.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 [Configurar a reorientação do URL num gateway de aplicações](tutorial-url-redirect-powershell.md)

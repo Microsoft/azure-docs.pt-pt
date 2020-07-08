@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255420"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho Azure Stream Analytics em Azure SQL Edge (Preview) 
@@ -39,10 +39,10 @@ Além disso, se a Base de Dados Azure SQL Edge, SQL Server ou Azure SQL Database
 
 A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como entradas e saídas de fluxo.
 
-| Tipo de fonte de dados | Input | Saída | Description |
+| Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | S | S | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| Base de Dados SQL | N | S | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| SQL Database | N | S | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
 | Armazenamento de Blobs do Azure | N | S | Fonte de dados para escrever dados para uma bolha numa conta de armazenamento Azure. |
 | Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. Atualmente, este adaptador apenas se encontra disponível para versões Intel ou AMD do Azure SQL Edge. Não está disponível para a versão ARM64 do Azure SQL Edge.|
 
@@ -207,7 +207,7 @@ O trabalho de streaming pode ter qualquer um dos seguintes estatutos:
 | Parada | O trabalho de streaming foi interrompido. |
 | Falhou | O trabalho de streaming falhou. Isto é geralmente uma indicação de um erro fatal durante o processamento. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver metadados associados a trabalhos de streaming em Azure SQL Edge (Preview)](streaming-catalog-views.md) 
 - [Criar um fluxo externo](create-external-stream-transact-sql.md)

@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: 643ef90f4d1fca3dd97a248dae304f98ff1c3ec0
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254383"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para dispositivos específicos do iOS usando hubs de notificação Azure
@@ -349,7 +349,7 @@ Normalmente, as notificações seriam enviadas por um serviço de backend, mas, 
 
 3. Cada dispositivo subscrito a notícias de última hora recebe as notificações de última hora que acabou de enviar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, enviou notificações de transmissão a dispositivos iOS específicos que se registaram para as categorias. Para aprender a empurrar notificações localizadas, avance para o seguinte tutorial:
 
@@ -369,4 +369,4 @@ Neste tutorial, enviou notificações de transmissão a dispositivos iOS especí
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: ios-sdk-get-started.md
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

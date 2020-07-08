@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254944"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho do Advisor da Base de Dados para a Base de Dados Azure SQL
@@ -116,7 +116,7 @@ A recomendação "Fix schema issue" aparece quando a Base de Dados Azure SQL not
 
 Os desenvolvedores podem considerar desenvolver aplicações personalizadas usando recomendações de desempenho para Azure SQL Database. Todas as recomendações listadas no portal para uma base de dados podem ser acedidas através da [API get-AzSqlDataBaseRecommendedAction.](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a sintonização automática dos índices de base de dados e planos de execução de consultas, consulte [a afinação automática da Base de Dados Azure SQL](automatic-tuning-overview.md).
 - Para obter mais informações sobre a monitorização automática do desempenho da base de dados com diagnósticos automatizados e análise de causa de raiz de problemas de desempenho, consulte [Azure SQL Intelligent Insights](intelligent-insights-overview.md).

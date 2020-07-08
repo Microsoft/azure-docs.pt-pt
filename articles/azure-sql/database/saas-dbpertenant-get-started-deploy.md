@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254315"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
@@ -128,7 +128,7 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager
 
     As partes do formato anterior são explicadas na tabela seguinte.
 
-    | Parte url        | Description       |
+    | Parte url        | Descrição       |
     | :-------------- | :---------------- |
     | eventos.wingtip-dpt | Os eventos partes da aplicação Wingtip.<br /><br /> *-dpt* distingue a *implementação de bilhetes* wingtip por base de dados de outros. Exemplos são as implementações *de* uma única aplicação por inquilino *(-sa)* ou *uma base de dados multitenante* *(-mt).* |
     | . * &lt; utilizador &gt; * | *af1* no exemplo. |
@@ -258,7 +258,7 @@ Os dois gráficos ilustram que piscinas elásticas e base de dados SQL são adeq
 - Para aprender sobre trabalhos elásticos, consulte [Gerir bases de dados de nuvem escalonadas.](../../sql-database/elastic-jobs-overview.md)
 - Para saber mais sobre aplicações SaaS multitenantes, consulte [padrões de design para aplicações SaaS multitenantes.](saas-tenancy-app-design-patterns.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ficou a saber:
 

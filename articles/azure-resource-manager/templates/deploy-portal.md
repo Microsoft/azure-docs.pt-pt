@@ -4,10 +4,10 @@ description: Utilize o portal Azure e o Azure Resource Manage para implementar o
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255267"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementar recursos com modelos ARM e portal Azure
@@ -122,7 +122,7 @@ Se quiser executar uma implementação mas não utilizar nenhum dos modelos no M
 
 1. Selecione **Comprar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para ver os registos de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)
 - Para resolver os erros de implementação, consulte [as operações de implantação da visualização](deployment-history.md).

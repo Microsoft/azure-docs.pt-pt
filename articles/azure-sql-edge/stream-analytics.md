@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254077"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Utilizando trabalhos de Azure Stream Analytics com SQL Edge
@@ -32,7 +32,7 @@ Azure SQL Edge tem uma implementação nativa do tempo de execução da análise
 }
 ```
 
-|Campo | Description |
+|Campo | Descrição |
 |------|-------------|
 | SqlPackage | Azure Blob armazenamento URI para o ficheiro *.zip que contém o pacote DAC base de dados SQL.
 | ASAJobInfo | Azure Blob armazenamento URI para o trabalho ASA Edge.
@@ -49,7 +49,7 @@ Azure SQL Edge tem uma implementação nativa do tempo de execução da análise
 
     **Saída**. Selecione a Base de Dados SQL como saída. **Selecione Fornecer manualmente as definições da base de dados SQL**. Forneça os detalhes de configuração para a base de dados e tabela.
 
-    |Campo      | Description |
+    |Campo      | Descrição |
     |---------------|-------------|
     |Alias de saída | Nome do pseudónimo de saída.|
     |Base de Dados | O nome da base de dados. Tem de ser um nome válido de uma base de dados que exista no caso SQL Edge.|
@@ -126,7 +126,7 @@ Para implementar o trabalho de streaming no módulo SQL Edge, atualize a configu
 
 10. Após a atualização do módulo, o ficheiro de trabalho de análise de streaming é descarregado, desapertado e implantado contra a instância SQL Edge.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar sql edge através do portal Azure](deploy-portal.md).
 

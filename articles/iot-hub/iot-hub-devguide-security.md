@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252139"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
@@ -137,7 +137,7 @@ O símbolo de segurança tem o seguinte formato:
 
 Aqui estão os valores esperados:
 
-| Valor | Description |
+| Valor | Descrição |
 | --- | --- |
 | {assinatura} |Uma sequência de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry` . **Importante**: A chave é descodificada a partir da base64 e usada como chave para executar o cálculo HMAC-SHA256. |
 | {resourceURI} |Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando pelo nome de anfitrião do hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
@@ -461,7 +461,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [RFC 5246 - A versão 1.2 do Protocolo de Segurança da Camada de Transporte (TLS)](https://tools.ietf.org/html/rfc5246/) fornece mais informações sobre a autenticação TLS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a controlar o acesso ao IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 
