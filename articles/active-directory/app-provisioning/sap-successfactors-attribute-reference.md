@@ -12,10 +12,9 @@ ms.date: 12/06/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781553"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors atribuem referência

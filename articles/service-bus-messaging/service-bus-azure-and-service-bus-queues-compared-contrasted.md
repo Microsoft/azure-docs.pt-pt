@@ -4,10 +4,9 @@ description: Analisa diferenças e semelhanças entre dois tipos de filas oferec
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337636"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas de autocarros de serviço - comparadas e contrastadas
@@ -177,7 +176,7 @@ Ao obter uma compreensão mais profunda das duas tecnologias, poderá tomar uma 
 
 Uma vez que as filas do Service Bus fornecem uma série de funcionalidades avançadas, tais como sessões, transações, deteção duplicada, letras automáticas e capacidades de publicação/subscrição duráveis, podem ser uma escolha preferencial se estiver a construir uma aplicação híbrida ou se a sua aplicação de outra forma necessitar destas funcionalidades.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os seguintes artigos fornecem mais orientação e informações sobre a utilização de filas de armazenamento ou filas de autocarros de serviço.
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

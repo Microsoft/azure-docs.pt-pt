@@ -12,10 +12,9 @@ ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782284"
 ---
 # <a name="no-users-are-being-provisioned"></a>Não existem utilizadores a ser aprovisionados 
@@ -65,6 +64,6 @@ A função predefinida numa aplicação da galeria é chamada de função de "ac
 **Comportamento para configurações de provisionamento criadas antes de 04/16/2020:** Nos próximos 3 meses, o comportamento continuará como é hoje. Os utilizadores com a função de acesso predefinido serão ignorados como não têm direito eficaz. Depois de julho de 2020, o comportamento será uniforme para todas as aplicações. Não vamos ignorar o provisionamento dos utilizadores com a função de acesso predefinido devido a "não ter direito eficazmente". Esta alteração será feita pela Microsoft, sem necessidade de ação do cliente. Se quiser garantir que estes utilizadores continuam a ser ignorados, mesmo após esta alteração, por favor aplique os filtros de deteção apropriados ou não desatribua o utilizador da aplicação para garantir que estão fora de alcance.  
 
 Para perguntas sobre estas mudanças, por favor, contacteprovisioningfeedback@microsoft.com
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

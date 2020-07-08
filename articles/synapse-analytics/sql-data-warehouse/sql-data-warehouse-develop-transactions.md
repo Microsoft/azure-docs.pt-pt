@@ -11,10 +11,9 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213385"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Utilize transações no pool Sinaapse SQL
@@ -211,6 +210,6 @@ São os seguintes:
 * Sem transações marcadas
 * Sem suporte para DDL, como CREATE TABLE dentro de uma transação definida pelo utilizador
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a otimização de transações, consulte [as melhores práticas de Transações.](sql-data-warehouse-develop-best-practices-transactions.md) Para conhecer as melhores práticas da piscina SQL, consulte as [melhores práticas da piscina SQL.](sql-data-warehouse-best-practices.md)

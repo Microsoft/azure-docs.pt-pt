@@ -12,10 +12,9 @@ ms.date: 09/20/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782216"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure
@@ -107,5 +106,5 @@ Se o provisionamento estiver configurado e já em execução para uma app, os no
 
 Se os grupos de provisionamento estiverem habilitados, certifique-se de rever os mapeamentos de atributos para garantir que um campo adequado está a ser utilizado para o "ID correspondente". Este ID correspondente pode ser o nome de exibição ou pseudónimo de e-mail. O grupo e os seus membros não são a provisionados se a propriedade correspondente estiver vazia ou não povoada para um grupo em Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Automatizar o Provisionamento de Utilizadores e Deprovisionamento para aplicações saas com diretório ativo Azure](user-provisioning.md)

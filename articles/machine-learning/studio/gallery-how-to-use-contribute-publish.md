@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709033"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e descobrir recursos na Galeria Azure AI
@@ -179,7 +178,7 @@ Pode editar os itens da sua coleção selecionando **Editar.**
 * Para adicionar notas aos itens da sua coleção, selecione o canto superior direito de um item e, em seguida, selecione **nota de Adicionar/Editar**.
 * Para remover um item da sua coleção, selecione o canto superior direito de um item e, em seguida, selecione **Remover**.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Quais são os requisitos para submeter ou editar uma imagem?**
 
@@ -201,6 +200,6 @@ Depois de introduzir uma etiqueta, para introduzir outra etiqueta, prima a tecla
 
 Queremos que a Galeria seja conduzida pelos nossos utilizadores e pelos nossos utilizadores. Use o sorriso no direito de nos dizer o que ama ou odeia na Galeria.  
 
-![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[LEVE-ME À GALERIA >>](https://gallery.azure.ai)**

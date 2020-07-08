@@ -10,10 +10,9 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 68cd6673283362380fc5a1f4b780f0a22aa53402
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783590"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 e Dsv4

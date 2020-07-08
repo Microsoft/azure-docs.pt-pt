@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712399"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configure uma política de autorização chave de conteúdo
@@ -437,6 +436,6 @@ Para obter um token de teste com base na restrição simbólica que foi usada pa
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que configuraste a política de autorização da chave de conteúdo, vê [a Configure uma política de entrega de ativos.](media-services-dotnet-configure-asset-delivery-policy.md)
 

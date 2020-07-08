@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770973"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
@@ -53,7 +52,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 Os detalhes e durações de execução na parte inferior da visualização de monitorização da atividade da cópia descrevem as fases-chave pela qual a sua atividade de cópia passa (ver exemplo no início deste artigo), o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte a tabela seguinte na definição de cada etapa e aprenda a lidar com a atividade de [cópia de resolução de problemas na](#troubleshoot-copy-activity-on-azure-ir) atividade de cópia Azure IR e [Troubleshoot copy em IR auto-hospedado](#troubleshoot-copy-activity-on-self-hosted-ir) com tais informações.
 
-| Fase           | Description                                                  |
+| Fase           | Descrição                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Filas           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
 | Script pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para lavatórios de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
@@ -184,7 +183,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 * SQL Server: [Monitor e sintonizar para o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)

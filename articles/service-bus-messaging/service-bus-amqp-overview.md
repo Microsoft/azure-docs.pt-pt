@@ -4,10 +4,9 @@ description: Saiba como o Azure Service Bus suporta o Protocolo avançado de Fil
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85338068"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Service Bus
@@ -60,7 +59,7 @@ A seguinte figura ilustra uma implementação de exemplo em que os clientes java
 
 Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalhar com a Service Bus:
 
-| Idioma | Biblioteca |
+| Linguagem | Biblioteca |
 | --- | --- |
 | Java |Cliente do Serviço de Mensagens Apache Qpid Java (JMS)<br/>Cliente do IIT Software SwiftMQ Java |
 | C |Apache Qpid Protão-C |
@@ -74,7 +73,7 @@ Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalha
 * AMQP 1.0 é um protocolo de mensagens aberto e fiável que pode usar para construir aplicações híbridas e inter-plataforma. AMQP 1.0 é um padrão OASIS.
 * O suporte AMQP 1.0 já está disponível no Azure Service Bus, bem como no Service Bus para Windows Server (Service Bus 1.1). Os preços são os mesmos que para os protocolos existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Está pronto para saber mais? Visite os seguintes links:
 
 * [Utilização de ônibus de serviço a partir de .NET com AMQP]

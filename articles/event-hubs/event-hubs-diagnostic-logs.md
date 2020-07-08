@@ -4,10 +4,9 @@ description: Saiba como configurar registos de atividades e registos de diagnós
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322462"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
@@ -42,7 +41,7 @@ Os registos de diagnóstico são desativado por predefinição. Para ativar regi
 
 O Event Hubs captura registos de diagnóstico para as seguintes categorias:
 
-| Categoria | Description | 
+| Categoria | Descrição | 
 | -------- | ----------- | 
 | Registos de Arquivo | Captura informações sobre operações [de captura de Centros de Eventos,](event-hubs-capture-overview.md) especificamente, registos relacionados com erros de captura. |
 | Registos Operacionais | Capture todas as operações de gestão que são realizadas no espaço de nomes Azure Event Hubs. As operações de dados não são capturadas, devido ao elevado volume de operações de dados que são realizadas nos Hubs de Eventos Azure. |
@@ -59,7 +58,7 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON).
 
 As cordas JSON do log de arquivo incluem elementos listados na tabela seguinte:
 
-Name | Description
+Name | Descrição
 ------- | -------
 Nome de tarefa | Descrição da tarefa que falhou
 ActivityId | ID interno, usado para rastreio
@@ -97,7 +96,7 @@ O seguinte código é um exemplo de uma cadeia JSON de log de arquivo:
 
 As cordas JSON de registo operacional incluem elementos listados na tabela seguinte:
 
-Name | Description
+Name | Descrição
 ------- | -------
 ActivityId | ID interno, usado para fins de rastreio |
 EventName | Nome da operação |
@@ -129,7 +128,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>Esquema de registos de escala automática
 O registo de escala automática JSON inclui elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ---- | ----------- | 
 | TrackingId | ID interno, que é usado para fins de rastreio |
 | ResourceId | Identificação de recursos do Azure Resource Manager. |
@@ -148,7 +147,7 @@ Aqui está um evento de autoescala exemplo:
 ## <a name="kafka-coordinator-logs-schema"></a>O coordenador kafka regista o esquema
 O registo de coordenador da Kafka JSON inclui elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ---- | ----------- | 
 | RequestId | ID do pedido, que é usado para fins de rastreio |
 | ResourceId | Azure Resource Manager resource ID |
@@ -176,7 +175,7 @@ O registo de coordenador da Kafka JSON inclui elementos listados na tabela segui
 ## <a name="kafka-user-error-logs-schema"></a>Esquema de registos de erros do utilizador kafka
 O registo de erros do utilizador Kafka JSON inclui elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ---- | ----------- |
 | TrackingId | Identificação de rastreio, que é usada para fins de rastreio. |
 | NomespaceName | Nome do espaço de nomes |
@@ -191,7 +190,7 @@ O registo de erros do utilizador Kafka JSON inclui elementos listados na tabela 
 
 Evento de ligação de rede virtual (VNet) evento de ligação de rede virtual JSON inclui elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ---  | ----------- | 
 | SubscriptionId | ID de assinatura Azure |
 | NomespaceName | Nome do espaço de nomes |
@@ -219,7 +218,7 @@ Evento de ligação de rede virtual (VNet) evento de ligação de rede virtual J
 ## <a name="customer-managed-key-user-logs"></a>Registos de utilizadores geridos pelo cliente
 O registo de utilizador chave gerido pelo cliente JSON inclui elementos listados na tabela seguinte:
 
-| Name | Description |
+| Name | Descrição |
 | ---- | ----------- | 
 | Categoria | Tipo de categoria para uma mensagem. É um dos seguintes valores: **erro** e **informação** |
 | ResourceId | ID de recursos internos, que inclui ID de subscrição Azure e nome de espaço de nome |
@@ -232,7 +231,7 @@ O registo de utilizador chave gerido pelo cliente JSON inclui elementos listados
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Introdução aos Centros de Eventos](event-hubs-what-is-event-hubs.md)
 - [Amostras de Centros de Eventos](sdks.md)
 - Introdução ao Event Hubs

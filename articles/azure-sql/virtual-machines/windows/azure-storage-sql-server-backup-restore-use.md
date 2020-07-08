@@ -13,10 +13,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669203"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Use o armazenamento Azure para a cópia de segurança do SQL Server e restaure
@@ -51,7 +50,7 @@ Os seguintes componentes Azure são utilizados quando se baseia no armazenamento
 | --- | --- |
 | **Conta de armazenamento** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder ao armazenamento do Azure Blob, primeiro crie uma conta de Armazenamento Azure. Para obter mais informações sobre o armazenamento da Azure Blob, consulte [como utilizar o armazenamento Azure Blob](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Contentor** |Um recipiente fornece um agrupamento de um conjunto de bolhas, e pode armazenar um número ilimitado de Blobs. Para escrever uma cópia de segurança do SQL Server para o armazenamento do Azure Blob, deve ter pelo menos o recipiente de raiz criado. |
-| **Blob** |Um arquivo de qualquer tipo e tamanho. As bolhas são endereçadas utilizando o seguinte formato URL: **https://[conta de armazenamento].blob.core.windows.net/[contentor]/[blob]**. Para obter mais informações sobre as manchas de página, consulte [Understanding Block e Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blobs** |Um arquivo de qualquer tipo e tamanho. As bolhas são endereçadas utilizando o seguinte formato URL: **https://[conta de armazenamento].blob.core.windows.net/[contentor]/[blob]**. Para obter mais informações sobre as manchas de página, consulte [Understanding Block e Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componentes do Servidor SQL
 Os seguintes componentes do SQL Server são utilizados quando se baseia no armazenamento do Azure Blob.

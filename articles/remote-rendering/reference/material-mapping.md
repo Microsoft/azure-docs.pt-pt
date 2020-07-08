@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783015"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapeamento de materiais para formatos de modelos
@@ -172,7 +171,7 @@ Resumindo aqui, `Albedo` estará muito perto do `Diffuse` original, se estiver p
 * A fórmula atual não funciona bem para uma geometria colorida simples. Se `Specular` for brilhante o suficiente, então todas as geometrias tornam-se superfícies metálicas refletoras sem qualquer cor. A solução aqui é baixar `Specular` para 30% do original ou utilizar a definição de conversão [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
 * Os materiais PBR foram recentemente `Maya` adicionados e `3DS Max` ferramentas de criação de conteúdos. Eles usam propriedades de caixa preta definidas pelo utilizador personalizadas para passá-lo para FBX. A Azure Remote Rendering não lê essas propriedades adicionais porque não estão documentadas e o formato é de origem fechada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conversão de modelo](../how-tos/conversion/model-conversion.md)
 * [Materiais dominantes durante a conversão do modelo](../how-tos/conversion/override-materials.md)

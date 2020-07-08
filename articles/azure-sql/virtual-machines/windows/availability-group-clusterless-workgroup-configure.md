@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 0d3e7e7de6d8f044355a43eb870420ad121ed61f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343698"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955510"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configure um grupo de trabalho disponibilidade 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -104,7 +103,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
-Neste passo, criará o aglomerado de falhanços. Se não estiver familiarizado com estes passos, pode segui-los a partir do tutorial do [cluster de failover.](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct)
+Neste passo, criará o aglomerado de falhanços. Se não estiver familiarizado com estes passos, pode segui-los a partir do tutorial do [cluster de failover.](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
 Diferenças notáveis entre o tutorial e o que deve ser feito para um cluster de grupo de trabalho:
 - Desmarque **o armazenamento**e **os espaços de armazenamento diretos** ao executar a validação do cluster. 
@@ -130,7 +129,7 @@ Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para o f
 
 ## <a name="create-a-cloud-witness"></a>Criar uma testemunha em nuvem 
 
-Neste passo, configuure uma testemunha partilhada em nuvem. Se não está familiarizado com os passos, consulte o tutorial do [cluster failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+Neste passo, configuure uma testemunha partilhada em nuvem. Se não estiver familiarizado com os passos, consulte [Implementar uma Testemunha de Nuvem para um Cluster de Falhas.](/windows-server/failover-clustering/deploy-cloud-witness) 
 
 ## <a name="enable-the-availability-group-feature"></a>Ativar a funcionalidade de grupo de disponibilidade 
 

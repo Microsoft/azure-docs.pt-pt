@@ -8,10 +8,9 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 3b949905f311b1a8878aa691e32abc3f568e1e6b
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84659303"
 ---
 # <a name="enable-shared-disk"></a>Ativar disco partilhado

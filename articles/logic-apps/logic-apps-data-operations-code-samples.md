@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712450"
 ---
-# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Amostras de código de operação de dados para apps Azure Logic
+# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplos de código de operação de dados para o Azure Logic Apps
 
 Aqui estão as amostras de código para as definições de ação de operação de dados no artigo, [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). Pode utilizar estas amostras para quando quiser experimentar os exemplos com a definição subjacente de fluxo de trabalho da sua própria aplicação lógica, subscrição Azure e ligações API. Basta copiar e colar estas definições de ação no editor de visualização de código para a definição de fluxo de trabalho da sua aplicação lógica e, em seguida, modificar as definições para o seu fluxo de trabalho específico. 
 
@@ -322,7 +321,7 @@ Para experimentar o [exemplo de ação **parse JSON,** ](../logic-apps/logic-app
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Selecione
+## <a name="select"></a>Selecionar
 
 Para experimentar o exemplo [ **de** ação Select](../logic-apps/logic-apps-perform-data-operations.md#select-action), aqui estão as definições de ação que pode utilizar:
 
@@ -363,6 +362,6 @@ Para experimentar o exemplo [ **de** ação Select](../logic-apps/logic-apps-per
 },
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Realizar operações de dados](../logic-apps/logic-apps-perform-data-operations.md)

@@ -12,12 +12,11 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 8b1b8297f285a5481909e2e2d91118e15d7d5095
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190396"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954252"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configure Sempre Encriptado utilizando a loja de certificados Windows
 
@@ -73,20 +72,22 @@ Nesta secção, irá criar uma tabela para conter os dados do paciente. Esta ser
 1. Expandir **bases de dados.**
 2. Clique com o botão direito na base de dados **da Clínica** e clique em **Nova Consulta.**
 3. Cole o seguinte Transact-SQL (T-SQL) na nova **Execute** janela de consulta e execute-a.
-
-        CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1),
-         [SSN] [char](11) NOT NULL,
-         [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL,
-         [MiddleName] [nvarchar](50) NULL,
-         [StreetAddress] [nvarchar](50) NULL,
-         [City] [nvarchar](50) NULL,
-         [ZipCode] [char](5) NULL,
-         [State] [char](2) NULL,
-         [BirthDate] [date] NOT NULL
-         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+    
+    ```tsql
+    CREATE TABLE [dbo].[Patients](
+    [PatientId] [int] IDENTITY(1,1),
+    [SSN] [char](11) NOT NULL,
+    [FirstName] [nvarchar](50) NULL,
+    [LastName] [nvarchar](50) NULL,
+    [MiddleName] [nvarchar](50) NULL,
+    [StreetAddress] [nvarchar](50) NULL,
+    [City] [nvarchar](50) NULL,
+    [ZipCode] [char](5) NULL,
+    [State] [char](2) NULL,
+    [BirthDate] [date] NOT NULL
+    PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+    GO
+    ```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Colunas encriptadas (configurar sempre encriptadas)
 
@@ -164,19 +165,21 @@ Pode defini-lo diretamente na cadeia de ligação, ou pode defini-lo utilizando 
 
 Adicione a seguinte palavra-chave à sua cadeia de ligação:
 
-    Column Encryption Setting=Enabled
+`Column Encryption Setting=Enabled`
 
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Ativar sempre encriptado com um SqlConnectionStringBuilder
 
 O código que se segue mostra como ativar sempre encriptado definindo o [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enableed](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder =
-       new SqlConnectionStringBuilder("replace with your connection string");
+```csharp
+// Instantiate a SqlConnectionStringBuilder.
+SqlConnectionStringBuilder connStringBuilder =
+    new SqlConnectionStringBuilder("replace with your connection string");
 
-    // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting =
-       SqlConnectionColumnEncryptionSetting.Enabled;
+// Enable Always Encrypted.
+connStringBuilder.ColumnEncryptionSetting =
+    SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Aplicação de consola de amostra sempre encriptada
 
@@ -500,7 +503,9 @@ Pode verificar rapidamente se os dados reais do servidor são encriptados consul
 
 Execute a seguinte consulta na base de dados da Clínica.
 
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```tsql
+SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 Pode ver que as colunas encriptadas não contêm dados de texto simples.
 
@@ -515,7 +520,9 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
     ![Nova aplicação para consolas](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Execute a seguinte consulta na base de dados da **Clínica.**
 
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```tsql
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```
 
      Agora é possível ver os dados de texto simples nas colunas encriptadas.
 
@@ -524,7 +531,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
 > [!NOTE]
 > Se ligar com SSMS (ou qualquer cliente) a partir de um computador diferente, não terá acesso às chaves de encriptação e não será capaz de desencriptar os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar uma base de dados que utiliza Sempre Encriptado, poderá querer fazer o seguinte:
 

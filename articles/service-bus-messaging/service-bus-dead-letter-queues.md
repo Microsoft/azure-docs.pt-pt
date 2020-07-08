@@ -4,10 +4,9 @@ description: Descreve filas de cartas mortas no Azure Service Bus. As filas de a
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337587"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
@@ -109,7 +108,7 @@ Pode aceder à fila da letra morta utilizando a seguinte sintaxe:
 Se estiver a utilizar o .NET SDK, pode obter o caminho para a fila de letras mortas utilizando o método SubscriptionClient.FormatDeadLetterPath(). Este método tem o nome de tópico/nome de subscrição e sufixa com **/$DeadLetterQueue**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para obter mais informações sobre as filas do Service Bus:
 

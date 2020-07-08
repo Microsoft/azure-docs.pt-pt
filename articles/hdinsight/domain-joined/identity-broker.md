@@ -7,12 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921323"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utilizar o Corretor de ID (pré-visualização) para gestão credencial
 
@@ -90,6 +89,8 @@ Se adicionar uma nova função chamada `idbrokernode` com os seguintes atributos
 
 O plug-in HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) é atualizado para suportar o OAuth. Pode utilizar este plug-in para ligar ao cluster e apresentar empregos.
 
+Também pode usar [Ferramentas de Colmeia Spark & para código VS](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) para alavancar o caderno e submeter empregos.
+
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acesso SSH sem um hash de senha em Azure AD DS
 
 Depois de o ID Broker estar ativado, ainda vai precisar de um hash de palavra-passe armazenado em Azure AD DS para cenários SSH com contas de domínio. Para o SSH a um VM de domínio ou para executar o `kinit` comando, precisa fornecer uma palavra-passe. 
@@ -104,7 +105,7 @@ Na configuração do corretor de ID, as aplicações personalizadas e os cliente
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Permissão: (nome: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

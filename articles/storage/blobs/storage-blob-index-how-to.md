@@ -9,10 +9,9 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986277"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags blob index (Preview) para gerir e encontrar dados sobre o armazenamento do Azure Blob
@@ -296,7 +295,7 @@ As políticas [de gestão do ciclo de vida](storage-lifecycle-management-concept
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Blob Index. Consulte [Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)](storage-manage-find-blobs.md )
 

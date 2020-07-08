@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987477"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (pré-visualização)
@@ -36,7 +35,7 @@ Microsoft.Skills.text.customentityLookupSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `entitiesDefinitionUri`    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para combinar. Esta definição de entidade é lida no início de uma execução indexante; quaisquer atualizações a este ficheiro a meio do percurso não serão realizadas até que os subsequentes sejam executados. Este config deve estar acessível em HTTPS. Consulte o formato [de definição de entidade personalizada"](#custom-entity-definition-format) abaixo para o esquema esperado de CSV ou JSON.|
 |`inlineEntitiesDefinition` | Definições de entidades JSON inline. Este parâmetro substitui as entidadesDefinitionUri se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para o esquema esperado do JSON. |
@@ -45,7 +44,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | `text`          | O texto para analisar.          |
 | `languageCode`    | Opcional. A predefinição é `"en"`.  |
@@ -54,7 +53,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="skill-outputs"></a>Saídas de competências
 
 
-| Nome de saída      | Description                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | `entities` | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade tal como definida pelo utilizador no "Formato de Definição de Entidade Personalizada". </li> <li> *tipo:* Tipo de entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Coleção que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto em bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a partida foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes esta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
   |
@@ -143,7 +142,7 @@ Um exemplo mais complexo de uma definição JSON pode opcionalmente fornecer o i
 
 As tabelas abaixo descrevem em mais detalhes os diferentes parâmetros de configuração que pode definir ao definir as entidades para combinar:
 
-|  Nome do campo  |        Description  |
+|  Nome do campo  |        Descrição  |
 |--------------|----------------------|
 | `name` | O descritor de entidade de alto nível. Os fósforos na saída de habilidades serão agrupados por este nome, e devem representar a forma "normalizada" do texto encontrado.  |
 | `description`  | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
@@ -156,7 +155,7 @@ As tabelas abaixo descrevem em mais detalhes os diferentes parâmetros de config
 | `defaultFuzzyEditDistance` | (Opcional) Altera o valor de distância de edição padrão para esta entidade. Pode ser usado para alterar o valor padrão de todos os valores de EditDistance. |
 | `aliases` | (Opcional) Uma variedade de objetos complexos que podem ser usados para especificar ortografias ou sinónimos alternativos ao nome da entidade raiz. |
 
-| Propriedades de alias | Description |
+| Propriedades de alias | Descrição |
 |------------------|-------------|
 | `text`  | A ortografia ou representação alternativa de algum nome de entidade-alvo.  |
 | `caseSensitive` | (Opcional) Age o mesmo que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
@@ -302,7 +301,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 
 Este aviso será emitido se o número de partidas detetadas for superior ao máximo permitido. Neste caso, deixaremos de incluir correspondências duplicadas. Se isto for inaceitável para si, por favor preencha um [bilhete de apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

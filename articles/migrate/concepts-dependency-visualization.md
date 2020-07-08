@@ -4,10 +4,9 @@ description: Descreve como utilizar a análise de dependência para avaliação 
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771347"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
@@ -83,7 +82,7 @@ Exportação de dados | Os dados dos últimos 30 dias podem ser descarregados nu
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a](how-to-create-group-machine-dependencies.md) visualização de dependência baseada em agente.
 - [Experimente](how-to-create-group-machine-dependencies-agentless.md) a visualização de dependência sem agente para VMware VMs.

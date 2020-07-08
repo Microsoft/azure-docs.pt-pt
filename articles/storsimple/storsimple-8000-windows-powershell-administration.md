@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: c1976adba0159b54bd64b2c8830c3aaad9959912
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513705"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -50,7 +49,7 @@ Certifique-se de que utiliza as seguintes definições de PuTTY para ligar à in
 1. Na caixa de diálogo de **reconfiguração** PuTTY, no painel **de categorias,** selecione **Teclado**.
 2. Certifique-se de que as seguintes opções são selecionadas (estas são as definições predefinidos quando iniciar uma nova sessão).
    
-   | Item de teclado | Selecione |
+   | Item de teclado | Selecionar |
    | --- | --- |
    | Chave de backspace |Controlo-? (127) |
    | Chaves casa e fim |Standard |
@@ -175,7 +174,7 @@ Pode atualizar facilmente a Ajuda na interface Windows PowerShell. Execute os se
 > Para obter uma lista de todos os cmdlets disponíveis num espaço de execução, inicie sessão na opção de menu correspondente e execute o `Get-Command` cmdlet.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver algum problema com o seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima referidos, consulte [ferramentas para resolver problemas de implementações StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

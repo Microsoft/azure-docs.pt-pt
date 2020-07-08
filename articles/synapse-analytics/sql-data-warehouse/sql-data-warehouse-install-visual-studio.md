@@ -12,12 +12,11 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: df24206f4e6ff06be6d7d50ff45c41b60a70b616
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: e18a3628a2fbb9eee248851f2295000fd1f82532
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211872"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027295"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Começar com o Visual Studio 2019
 
@@ -44,7 +43,8 @@ Há alturas em que as versões de funcionalidades para Synapse SQL podem não in
   - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obter o suporte da funcionalidade.
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
    - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o suporte da funcionalidade.
+- Tabelas com uma [coluna de identidade](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem a versão mais recente do SSDT, está pronto para [ligar](sql-data-warehouse-query-visual-studio.md) à sua piscina SQL.

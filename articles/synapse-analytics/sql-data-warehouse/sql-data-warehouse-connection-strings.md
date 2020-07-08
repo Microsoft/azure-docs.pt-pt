@@ -12,10 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7c27c9e522964ca4f6374e83a9fb6b992f0fb2c1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213521"
 ---
 # <a name="connection-strings-for-synapse-sql-pool"></a>Cadeias de conexão para piscina Sinapse SQL
@@ -51,6 +50,6 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > [!NOTE]
 > Considere definir o tempo limite de ligação para 300 segundos, de modo a permitir que a ligação sobreviva a curtos períodos de indisponibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a consultar a sua piscina SQL com o Visual Studio e outras aplicações, consulte [Consulta com o Visual Studio](sql-data-warehouse-query-visual-studio.md).

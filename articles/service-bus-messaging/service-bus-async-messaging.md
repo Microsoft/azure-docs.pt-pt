@@ -4,10 +4,9 @@ description: Saiba como a Azure Service Bus suporta o assíncronismo através de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b628dd72efe0280e688b602f873a3f01d15ef587
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337796"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronos e alta disponibilidade
@@ -53,7 +52,7 @@ Com qualquer aplicação, as circunstâncias podem fazer com que um componente i
 
 Nestes casos, a aplicação do cliente gera uma exceção [System.TimeoutException][System.TimeoutException] ou [MessagingException.][MessagingException] A Service Bus contém uma mitigação para este problema sob a forma de lógica automatizada de relemisão do cliente. Uma vez esgotado o período de retíria e a mensagem não é entregue, pode explorar utilizando outros mencionados no artigo sobre [interrupções e desastres][handling outages and disasters]de manuseamento .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que aprendeu o básico das mensagens assíncronos na Service Bus, leia mais detalhes sobre [interrupções e desastres.][handling outages and disasters]
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception

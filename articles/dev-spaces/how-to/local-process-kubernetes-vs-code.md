@@ -1,18 +1,17 @@
 ---
-title: Use o processo local com Kubernetes com Código de Estúdio Visual (pré-visualização)
+title: Utilizar o Processo Local com o Kubernetes com o Visual Studio Code (pré-visualização)
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Saiba como utilizar o Processo Local com kubernetes para ligar o seu computador de desenvolvimento a um cluster Kubernetes com espaços Azure Dev
 keywords: Processo Local com Kubernetes, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: 23a94528ffa4e9e412f472349ea26d1a14003616
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84316741"
 ---
-# <a name="use-local-process-with-kubernetes-with-visual-studio-code-preview"></a>Use o processo local com Kubernetes com Código de Estúdio Visual (pré-visualização)
+# <a name="use-local-process-with-kubernetes-with-visual-studio-code-preview"></a>Utilizar o Processo Local com o Kubernetes com o Visual Studio Code (pré-visualização)
 
 O Processo Local com Kubernetes permite-lhe executar e depurar código no seu computador de desenvolvimento, ainda ligado ao seu cluster Kubernetes com o resto da sua aplicação ou serviços. Por exemplo, se tiver uma grande arquitetura de microserviços com muitos serviços e bases de dados interdependentes, replicar essas dependências no seu computador de desenvolvimento pode ser difícil. Além disso, a construção e implementação do código para o seu cluster Kubernetes para cada alteração de código durante o desenvolvimento do loop interno pode ser lenta, morosa e difícil de usar com um depurador.
 
@@ -25,7 +24,7 @@ Neste guia, você aprenderá a usar o Processo Local com Kubernetes para redirec
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][preview-terms]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este guia utiliza a [aplicação de amostra de partilha de bicicletas Azure Dev Spaces][bike-sharing-github] para demonstrar a ligação do seu computador de desenvolvimento a um cluster Kubernetes. Se já tem a sua própria aplicação a decorrer num cluster Kubernetes, ainda pode seguir os passos abaixo e usar os nomes dos seus próprios serviços.
 
@@ -130,13 +129,13 @@ O seu computador de desenvolvimento fica ligado quando a barra de estado fica la
 ![Computador de desenvolvimento conectado](../media/local-process-kubernetes-vs-code/development-computer-connected.png)
 
 > [!NOTE]
-> Nos lançamentos subesquentes, não será solicitado o nome de serviço, porta ou tarefa de lançamento. Estes valores são guardados em *.vscode/tasks.json*.
+> Nos lançamentos subesquentes, não será solicitado o nome de serviço, porta ou tarefa de lançamento. Estes valores são guardados em *.vscode/tasks.jsem*.
 
 Uma vez ligado o seu computador de desenvolvimento, o tráfego começa a ser redirecionado para o seu computador de desenvolvimento para o serviço que está a substituir.
 
 ## <a name="set-a-break-point"></a>Definir um ponto de rutura
 
-Abra [o server.js][server-js-breakpoint] e clique em algum lugar na linha 233 para colocar o cursor lá. Desaponte um ponto de rutura atingindo *F9* ou clicando *em Run* e depois *Toggle Breakpoint*.
+Abra [server.js][server-js-breakpoint] e clique em algum lugar na linha 233 para colocar o cursor lá. Desaponte um ponto de rutura atingindo *F9* ou clicando *em Run* e depois *Toggle Breakpoint*.
 
 Navegue para a aplicação da amostra abrindo o URL público. Selecione *Aurelia Briggs (cliente)* como utilizador e, em seguida, selecione uma bicicleta para alugar. Note que a imagem da bicicleta não carrega. Destaque para o Código do Estúdio Visual e observa a linha 233. O ponto de rutura que definiu fez uma pausa no serviço na linha 233. Para retomar o serviço, clique em *F5* ou clique em *Executar* *e*continue . Volte ao seu navegador e verifique se vê uma imagem de espaço reservado para a bicicleta.
 
@@ -188,7 +187,7 @@ Utilize o script fornecido para remover a aplicação da amostra do seu cluster.
 ./local-process-quickstart.sh -c -g MyResourceGroup -n MyAKS
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como usar a Azure Dev Spaces e GitHub Actions para testar alterações a partir de um pedido de puxar diretamente na AKS antes que o pedido de puxar seja fundido no ramo principal do seu repositório.
 

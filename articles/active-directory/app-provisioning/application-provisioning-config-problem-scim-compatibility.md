@@ -12,10 +12,9 @@ ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782267"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
@@ -33,10 +32,10 @@ Este artigo descreve problemas atuais e passados com a adesão do serviço de fo
 
 | **Emissão de conformidade SCIM 2.0** |  **Fixo?** | **Data de fixação**  |  
 |---|---|---|
-| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Yes  |  18 de dezembro de 2018 | 
-| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Yes  | 18 de dezembro de 2018  | 
-|  Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Yes  |  18 de dezembro de 2018  | 
-|  Os pedidos de criação de grupo contêm um esquema inválido URI | Yes  |  18 de dezembro de 2018  |  
+| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Sim  |  18 de dezembro de 2018 | 
+| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Sim  | 18 de dezembro de 2018  | 
+|  Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | 
+|  Os pedidos de criação de grupo contêm um esquema inválido URI | Sim  |  18 de dezembro de 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram descritas automaticamente na minha aplicação SCIM pré-existente?
 
@@ -107,6 +106,6 @@ Sim. Se tivesse codificado uma aplicação para o comportamento antigo que exist
 7. Preencha a configuração de provisionamento do utilizador como normalmente faria.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre o provisionamento e desavisionamento das aplicações do SaaS](user-provisioning.md)
 
