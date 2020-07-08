@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados de Proteção de Identidade Azure AD ao Azure Sentinel
-description: Saiba como ligar os dados de Proteção de Identidade Azure AD ao Azure Sentinel.
+description: Saiba como transmitir registos e alertas da Azure AD Identity Protection para o Azure Sentinel para ver dashboards, criar alertas personalizados e melhorar a investigação.
 author: yelevin
 manager: rkarlin
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 06/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 0f85e543c83413e840354c053a1f4cb0925fc271
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 69ab76bf213653ea10db8dfd181b615a7e0f47b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564481"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Ligar dados do Azure Ative Directory (Azure AD) Proteção de Identidade
 
@@ -38,7 +38,7 @@ Se tiver uma subscrição Azure AD Premium P2, a Azure AD Identity Protection es
 
 Se quiser testar o conector, pode [simular deteções](../active-directory/identity-protection/howto-identity-protection-simulate-risk.md) para gerar alertas de amostras que serão transmitidos para Azure Sentinel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar a Azure AD Identity Protection ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

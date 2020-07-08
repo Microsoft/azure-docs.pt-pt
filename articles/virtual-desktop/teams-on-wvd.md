@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b2ef8a944af9f80dd65ce75869bcf4e3156c63f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564454"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -135,7 +135,7 @@ Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente
 
 Para equipas conhecidas questões que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização](/microsoftteams/known-issues/)
 
-## <a name="feedback"></a>Comentários
+## <a name="uservoice-site"></a>Site UserVoice
 
 Fornecer feedback para equipas da Microsoft no Ambiente de Trabalho Virtual do Windows no site Teams [UserVoice](https://microsoftteams.uservoice.com/).
 

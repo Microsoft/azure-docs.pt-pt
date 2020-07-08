@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564421"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -83,7 +83,7 @@ Internamente, o gasoduto gera uma coleção de documentos enriquecidos. Pode dec
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adicione um elemento knowledgeStore para salvar enriquecimentos
 
-[Search REST api-version=2019-05-06-Preview](search-api-preview.md) estende habilidades com uma `knowledgeStore` definição que fornece uma ligação de armazenamento Azure e projeções que descrevem como os enriquecimentos são armazenados. Isto é além do seu índice. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. Com a loja de conhecimento, os documentos enriquecidos são preservados. Para mais informações, consulte [a Loja de Conhecimento (pré-visualização)](knowledge-store-concept-intro.md).
+[Search REST api-version=2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) estende habilidades com uma `knowledgeStore` definição que fornece uma conexão de armazenamento Azure e projeções que descrevem como os enriquecimentos são armazenados. Isto é além do seu índice. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. Com a loja de conhecimento, os documentos enriquecidos são preservados. Para mais informações, consulte [a Loja de Conhecimento.](knowledge-store-concept-intro.md)
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso baseado em consultas
 
@@ -115,12 +115,12 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 1. [Reinicie o indexante](search-howto-reindex.md) antes de reconstruir o gasoduto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Ligações de documentação de enriquecimento de IA](cognitive-search-resources-documentation.md)
 + [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA (C#)](cognitive-search-create-custom-skill-example.md)
 + [Quickstart: Experimente o enriquecimento de IA num portal walk-through](cognitive-search-quickstart-blob.md)
 + [Tutorial: Conheça as APIs de enriquecimento de IA](cognitive-search-tutorial-blob.md)
-+ [Arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md)
++ [Arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
 + [Criar uma loja de conhecimento em REST](knowledge-store-create-rest.md)
 + [Sugestões de resolução de problemas](cognitive-search-concept-troubleshooting.md)

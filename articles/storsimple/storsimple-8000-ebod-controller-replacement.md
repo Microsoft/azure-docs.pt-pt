@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 34a02181632c301f443ce48ade0de2013e2ae86c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564234"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substitua um controlador EBOD no seu dispositivo StorSimple
 
@@ -35,7 +35,7 @@ Considere as seguintes informações antes de começar:
 * O controlador EBOD é permutável a quente e pode ser removido ou substituído. Não remova um módulo defeituoso até ter uma substituição. Quando iniciar o processo de substituição, deve terminá-lo dentro de 10 minutos.
 
 > [!IMPORTANT]
-> Antes de tentar remover ou substituir qualquer componente StorSimple, certifique-se de que revê as [convenções](storsimple-safety.md#safety-icon-conventions) de ícones de segurança e [outras precauções de segurança](storsimple-safety.md).
+> Antes de tentar remover ou substituir qualquer componente StorSimple, certifique-se de que revê as [convenções](storsimple-8000-safety.md#safety-icon-conventions) de ícones de segurança e [outras precauções de segurança](storsimple-8000-safety.md).
 
 ## <a name="remove-an-ebod-controller"></a>Remover um controlador EBOD
 Antes de substituir o módulo de controlador EBOD falhado no seu dispositivo StorSimple, certifique-se de que o outro módulo do controlador EBOD está ativo e em funcionamento. O procedimento e tabela seguintes explicam como remover o módulo controlador EBOD.
@@ -98,6 +98,6 @@ O procedimento e a tabela seguintes explicam como instalar um módulo controlado
    | 8 |Recinto EBOD |
    | 9 |Unidades de Distribuição de Energia |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [a substituição do componente de hardware StorSimple](storsimple-8000-hardware-component-replacement.md).
 

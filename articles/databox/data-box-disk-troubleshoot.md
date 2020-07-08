@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 48a23c483ab4338492a407b60f3a5dfc95c0e680
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564995"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Utilize registos para resolver problemas de validação no Disco de Caixa de Dados Azure
 
@@ -21,7 +21,7 @@ Este artigo aplica-se ao Disco de Caixa de Dados do Microsoft Azure. O artigo de
 
 ## <a name="validation-tool-log-files"></a>Ficheiros de registo de ferramentas de validação
 
-Quando valida os dados dos discos utilizando a [ferramenta de validação,](data-box-disk-deploy-copy-data.md#validate-data)é gerado um *erro.xml* para registar quaisquer erros. O ficheiro de registo está localizado na `Drive:\DataBoxDiskImport\logs` pasta da sua unidade. É fornecida uma ligação ao registo de erros quando executa a validação.
+Quando valida os dados dos discos utilizando a [ferramenta de validação,](data-box-disk-deploy-copy-data.md#validate-data)é gerado um *error.xml* para registar eventuais erros. O ficheiro de registo está localizado na `Drive:\DataBoxDiskImport\logs` pasta da sua unidade. É fornecida uma ligação ao registo de erros quando executa a validação.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
@@ -71,7 +71,7 @@ Se executar várias sessões para validação, então um registo de erro é gera
 
 ## <a name="validation-tool-errors"></a>Erros de ferramenta de validação
 
-Os erros contidos no *erro.xml* com as ações recomendadas correspondentes são resumidos na tabela seguinte.
+Os erros contidos no *error.xml* com as ações recomendadas correspondentes são resumidos no quadro seguinte.
 
 | Código de erro| Descrição                       | Ações recomendadas               |
 |------------|--------------------------|-----------------------------------|

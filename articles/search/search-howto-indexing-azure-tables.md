@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6e32a0a876928e9430f9127299e6b7e657d7743c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563127"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas a partir do armazenamento da Tabela Azure com Azure Cognitive Search
 
@@ -49,7 +49,7 @@ Para a indexação da tabela, o dado fonte deve ter as seguintes propriedades:
 
 Para criar um dadosource:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ O índice especifica os campos num documento, os atributos e outras construçõe
 
 Para criar um índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Um indexante conecta uma fonte de dados com um índice de pesquisa alvo e fornec
 
 Após a criação do índice e da fonte de dados, está pronto para criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -135,7 +135,7 @@ Quando configura um indexador de tabelas para executar num horário, ele reindex
 
 Para indicar que certos documentos devem ser removidos do índice, pode utilizar uma estratégia de eliminação suave. Em vez de eliminar uma linha, adicione uma propriedade para indicar que é eliminada, e crie uma política de deteção de eliminação suave na fonte de dados. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tiver um imóvel `IsDeleted` com o valor `"true"` :
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

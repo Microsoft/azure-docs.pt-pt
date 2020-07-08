@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563109"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -16,10 +16,10 @@ Este artigo descreve como apagar um cofre dos Serviços de Recuperação [de Bac
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Não é possível apagar um cofre dos Serviços de Recuperação com qualquer uma das seguintes dependências:
+Não pode eliminar um cofre dos Serviços de Recuperação com qualquer uma das seguintes dependências:
 
 - Não é possível apagar um cofre que contenha fontes de dados protegidas (por exemplo, IaaS VMs, bases de dados SQL, partilhas de ficheiros Azure, etc.)  
-- Não é possível apagar um cofre que contenha dados de reserva. Uma vez eliminados os dados de backup, entrará no estado de apagação suave.
+- Não é possível apagar um cofre que contenha dados de reserva. Depois de eliminar os dados em cópia de segurança, entrará no estado de eliminação recuperável.
 - Não é possível apagar um cofre que contenha dados de backup no estado de eliminação suave.
 - Não se pode apagar um cofre que tenha contas de armazenamento registadas.
 
@@ -90,7 +90,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender 
 
       - Para MABS ou DPM, selecione **Servidores de Gestão de Cópias de Segurança**. Em seguida, selecione o servidor que pretende eliminar.
 
-          ![Para o MABS, selecione o seu cofre para abrir o seu painel de instrumentos.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![Para MABS ou DPM, selecione o seu cofre para abrir o seu painel de instrumentos.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. O **painel delete** aparece com uma mensagem de aviso.
 
@@ -114,7 +114,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender 
 Após o final deste processo, pode eliminar os itens de backup da consola de gestão:
 
 - [Eliminar itens de backup da consola de gestão MARS](#delete-backup-items-from-the-mars-management-console)
-- [Eliminar itens de backup da consola de gestão MABS](#delete-backup-items-from-the-mabs-management-console)
+- [Eliminar itens de backup da consola de gestão MABS ou DPM](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminar itens de backup da consola de gestão MARS
 
@@ -142,12 +142,12 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 
 Depois de eliminar os itens de backup no local, siga os próximos passos a partir do portal.
 
-### <a name="delete-backup-items-from-the-mabs-management-console"></a>Eliminar itens de backup da consola de gestão MABS
+### <a name="delete-backup-items-from-the-mabs-or-dpm-management-console"></a>Eliminar itens de backup da consola de gestão MABS ou DPM
 
 >[!NOTE]
 >Se apagar ou perder a máquina de origem sem parar a cópia de segurança, a próxima cópia de segurança programada falhará. O antigo ponto de recuperação expira de acordo com a política, mas o último ponto de recuperação único é sempre mantido até parar a cópia de segurança e apagar os dados. Pode fazê-lo seguindo os passos [desta secção.](#delete-protected-items-on-premises)
 
-Existem dois métodos que pode utilizar para eliminar itens de backup da consola de gestão MABS.
+Existem dois métodos que pode utilizar para eliminar itens de backup da consola de gestão MABS ou DPM.
 
 #### <a name="method-1"></a>Método 1
 
@@ -171,7 +171,7 @@ Para parar a proteção e eliminar dados de backup, faça os seguintes passos:
 
 #### <a name="method-2"></a>Método 2
 
-Abra a consola **de gestão MABS.** De acordo com **o método de proteção de dados Select,** limpe a caixa **de verificação de proteção** on-line.
+Abra a **gestão MABS** ou a consola **de gestão DPM.** De acordo com **o método de proteção de dados Select,** limpe a caixa **de verificação de proteção** on-line.
 
   ![Selecione o método de proteção de dados.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -367,7 +367,7 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMClient REA
 
 3. No portal Azure, certifique-se de que o cofre é apagado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Conheça os cofres dos Serviços](backup-azure-recovery-services-vault-overview.md) 
  de Recuperação [Conheça a monitorização e gestão dos cofres dos Serviços de Recuperação](backup-azure-manage-windows-server.md)

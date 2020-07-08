@@ -1,28 +1,25 @@
 ---
-title: Conceitos de loja de conhecimento (pré-visualização)
+title: Conceitos de loja de conhecimento
 titleSuffix: Azure Cognitive Search
-description: Envie documentos enriquecidos para o Azure Storage onde pode ver, remodelar e consumir documentos enriquecidos na Pesquisa Cognitiva do Azure e noutras aplicações. Esta funcionalidade está em pré-visualização pública.
+description: Envie documentos enriquecidos para o Azure Storage onde pode ver, remodelar e consumir documentos enriquecidos na Pesquisa Cognitiva do Azure e noutras aplicações.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: a8f7aa18598dba41b33ea4964bd2967a8c2670ac
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565282"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Loja de conhecimento em Azure Cognitive Search
 
-> [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte ao portal limitado e nenhum suporte .NET SDK.
+A loja de conhecimento é uma característica da Azure Cognitive Search que persiste na saída de um oleoduto de [enriquecimento](cognitive-search-concept-intro.md) de IA para análise independente ou processamento a jusante. Um *documento enriquecido* é a produção de um pipeline, criado a partir de conteúdos extraídos, estruturados e analisados através de processos de IA. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. A escolha de criar uma loja de conhecimento permitir-lhe-á preservar os documentos enriquecidos. 
 
-A loja de conhecimento é uma característica da Azure Cognitive Search que persiste na saída de um oleoduto de [enriquecimento](cognitive-search-concept-intro.md) de IA para análise independente ou processamento a jusante. Um *documento enriquecido* é a produção de um pipeline, criado a partir de conteúdos extraídos, estruturados e analisados através de processos de IA. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. Com a loja de conhecimento, os documentos enriquecidos são preservados. 
-
-Se já usou habilidades cognitivas no passado, já sabe que *as habilidades* movem um documento através de uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa, ou (novo nesta pré-visualização) projeções numa loja de conhecimento. As duas saídas, índice de pesquisa e loja de conhecimento, são produtos do mesmo oleoduto; derivado das mesmas entradas, mas resultando numa saída estruturada, armazenada e usada de formas muito diferentes.
+Se já usou habilidades cognitivas no passado, já sabe que *as habilidades* movem um documento através de uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa, ou projeções numa loja de conhecimento. As duas saídas, índice de pesquisa e loja de conhecimento, são produtos do mesmo oleoduto; derivado das mesmas entradas, mas resultando numa saída estruturada, armazenada e usada de formas muito diferentes.
 
 Fisicamente, uma loja de conhecimento é [a Azure Storage,](https://docs.microsoft.com/azure/storage/common/storage-account-overview)ou o armazenamento da Azure Table, o armazenamento Azure Blob, ou ambos. Qualquer ferramenta ou processo que possa ligar-se ao Azure Storage pode consumir o conteúdo de uma loja de conhecimento.
 
@@ -85,7 +82,7 @@ Um único objeto de projeção contém um conjunto de `tables` `objects` , e par
 
 No entanto, é possível criar `table` - `object` - `file` vários conjuntos de projeções, e pode fazê-lo se quiser diferentes relações de dados. Dentro de um conjunto, os dados estão relacionados, assumindo que essas relações existem e podem ser detetadas. Se criar conjuntos adicionais, os documentos de cada grupo nunca estão relacionados. Um exemplo de utilização de vários grupos de projeção pode ser se você quiser os mesmos dados projetados para uso com o seu sistema on-line e ele precisa ser representado de uma forma específica, você também quer os mesmos dados projetados para uso em um pipeline de ciência de dados que é representado de forma diferente.
 
-## <a name="requirements"></a>Requisitos 
+## <a name="requirements"></a>Requirements 
 
 É necessário [o armazenamento Azure.](https://docs.microsoft.com/azure/storage/) Fornece armazenamento físico. Você pode usar armazenamento Blob, armazenamento de mesa ou ambos. O armazenamento de bolhas é utilizado para documentos enriquecidos intactos, normalmente quando a saída vai para os processos a jusante. O armazenamento de mesa destina-se a fatias de documentos enriquecidos, normalmente utilizados para análise e reporte.
 
@@ -103,7 +100,7 @@ No entanto, é possível criar `table` - `object` - `file` vários conjuntos de 
 
 ## <a name="how-to-create-a-knowledge-store"></a>Como criar uma loja de conhecimento
 
-Para criar uma loja de conhecimentos, utilize o portal ou a pré-visualização REST API `api-version=2019-05-06-Preview` ().
+Para criar uma loja de conhecimentos, utilize o portal ou a API REST ( `api-version=2020-06-30` ).
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -117,13 +114,11 @@ O assistente **de dados Import** inclui opções para a criação de uma loja de
 
 1. Executar o feiticeiro. A extração, enriquecimento e armazenamento ocorrem neste último passo.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Use Create Skillset e a pré-visualização REST API
+### <a name="use-create-skillset-rest-api"></a>Utilizar Criar Skillset (REST API)]
 
 A `knowledgeStore` é definida dentro de um [skillset](cognitive-search-working-with-skillsets.md), que por sua vez é invocado por um [indexante](search-indexer-overview.md). Durante o enriquecimento, a Azure Cognitive Search cria um espaço na sua conta de Armazenamento Azure e projeta os documentos enriquecidos como bolhas ou em mesas, dependendo da sua configuração.
 
-Atualmente, a pré-visualização REST API é o único mecanismo através do qual pode criar uma loja de conhecimento programáticamente. Uma maneira fácil de explorar é criar a [sua primeira loja de conhecimento usando o Carteiro e a API REST.](knowledge-store-create-rest.md)
-
-O conteúdo de referência para esta funcionalidade de pré-visualização está localizado na secção de referência da [API](#kstore-rest-api) deste artigo. 
+A API REST é um mecanismo através do qual pode criar uma loja de conhecimento programáticamente. Uma maneira fácil de explorar é criar a [sua primeira loja de conhecimento usando o Carteiro e a API REST.](knowledge-store-create-rest.md)
 
 <a name="tools-and-apps"></a>
 
@@ -141,17 +136,17 @@ Uma vez que os enriquecimentos existam no armazenamento, qualquer ferramenta ou 
 
 ## <a name="api-reference"></a>Referência da API
 
-A versão REST API `2019-05-06-Preview` fornece loja de conhecimento através de definições adicionais sobre skillsets. Além da referência, consulte [Criar uma loja de conhecimento usando o Carteiro](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
+A versão REST API `2020-06-30` fornece loja de conhecimento através de definições adicionais sobre skillsets. Além da referência, consulte [Criar uma loja de conhecimento usando o Carteiro](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Create Skillset (versão api=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Atualização Skillset (versão api=2019-05-06-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Create Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Atualização Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A loja de conhecimento oferece persistência de documentos enriquecidos, úteis na conceção de um skillset, ou a criação de novas estruturas e conteúdos para consumo por quaisquer aplicações do cliente capazes de aceder a uma conta de Armazenamento Azure.
 
-A abordagem mais simples para criar documentos enriquecidos é [através do portal](knowledge-store-create-portal.md), mas também pode utilizar o Postman e a REST API, o que é mais útil se quiser saber como os objetos são criados e referenciados.
+A abordagem mais simples para criar documentos enriquecidos é [através do portal](knowledge-store-create-portal.md), mas também pode utilizar o Carteiro e a API REST, o que é mais útil se quiser saber como os objetos são criados e referenciados.
 
 > [!div class="nextstepaction"]
 > [Criar uma loja de conhecimentos usando Carteiro e REST](knowledge-store-create-rest.md)

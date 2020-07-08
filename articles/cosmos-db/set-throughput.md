@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: f1a093b85c832adaf5f810913dcbe8ecb46a305a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563206"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
 O Azure Cosmos DB permite-lhe definir o rendimento previsto nas suas bases de dados e contentores. Existem dois tipos de produção a provisionada, standard (manual) ou autoescala. Estes artigos dão uma visão geral de como funciona o rendimento previsto. 
 
-Uma base de dados Azure Cosmos é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de recipientes agnósticos de esquemas. Um recipiente Azure Cosmos é a unidade de escalabilidade tanto para produção como para armazenamento. Um recipiente é horizontalmente dividido através de um conjunto de máquinas dentro de uma região de Azure e é distribuído por todas as regiões de Azure associadas à sua conta Azure Cosmos.
+Uma base de dados do Azure Cosmos é uma unidade de gestão para um conjunto de contentores. Uma base de dados é constituída por um conjunto de contentores independentes de esquemas. Um contentor do Azure Cosmos é a unidade de escalabilidade para o débito e para o armazenamento. Um contentor é particionado horizontalmente num conjunto de computadores numa região do Azure e é distribuído por todas as regiões do Azure associadas à conta do Azure Cosmos.
 
 Com a Azure Cosmos DB, você pode provisões para dois granulares:
  
@@ -67,7 +67,7 @@ Todos os recipientes criados dentro de uma base de dados com produção a forera
 
 Se a carga de trabalho numa partição lógica consumir mais do que a produção atribuída a uma partição lógica específica, as suas operações são limitadas à taxa. Quando ocorre a limitação da taxa, pode aumentar a produção de toda a base de dados ou voltar a tentar as operações. Para obter mais informações sobre partição, consulte [as divisórias lógicas.](partition-data.md)
 
-Os contentores numa base de dados de produção partilhada partilham a produção (RU/s) atribuída a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Com a produção normalizada (manual), cada novo recipiente após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de produção partilhada com oito contentores, o RU/s mínimo na base de dados será de 800 RU/s. Com a produção de autoescala a provisionada, pode ter até 25 contentores numa base de dados com max RU/s 4000 RU/s (balanças entre 400 - 4000 RU/s).
+Os contentores numa base de dados de débito partilhado partilham o débito (RU/s) alocado a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Com a produção normalizada (manual), cada novo recipiente após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de débito partilhado com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s. Com a produção de autoescala a provisionada, pode ter até 25 contentores numa base de dados com max 4000 RU/s (balanças entre 400 - 4000 RU/s).
 
 > [!NOTE]
 > Em fevereiro de 2020, introduzimos uma alteração que permite ter um máximo de 25 contentores numa base de dados de produção partilhada, o que permite melhor a partilha de produção através dos contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [a provisionados com produção dedicada](#set-throughput-on-a-database-and-a-container), que é separada da produção partilhada da base de dados.<br>
@@ -124,7 +124,7 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 |Produção máxima por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
 |Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [divisórias lógicas.](partition-data.md)
 * Saiba como providenciar o [padrão (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).

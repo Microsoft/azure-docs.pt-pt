@@ -1,24 +1,21 @@
 ---
-title: Conceitos de projeção (pré-visualização)
+title: Conceitos de projeção
 titleSuffix: Azure Cognitive Search
-description: Guarde e molde os seus dados enriquecidos do oleoduto de indexação do enriquecimento de IA numa loja de conhecimento para utilização em cenários que não a pesquisa completa de texto. A loja de conhecimento está atualmente em pré-visualização pública.
+description: Guarde e molde os seus dados enriquecidos do oleoduto de indexação do enriquecimento de IA numa loja de conhecimento para utilização em cenários que não a pesquisa completa de texto.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 894fc6efc99eb7fcc17f2199270c08bc3cee8e8e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565197"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Loja de conhecimento "projeções" em Pesquisa Cognitiva Azure
-
-> [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte ao portal limitado e nenhum suporte .NET SDK.
 
 A Azure Cognitive Search permite o enriquecimento de conteúdos através de habilidades cognitivas incorporadas e habilidades personalizadas como parte da indexação. Os enriquecimentos criam novas informações onde nenhuma existia anteriormente: extrair informação de imagens, detetar sentimentos, frases-chave e entidades de texto, para citar alguns. Os enriquecimentos também acrescentam estrutura a texto indiferenciado. Todos estes processos resultam em documentos que tornam a pesquisa completa por texto mais eficaz. Em muitos casos, documentos enriquecidos são úteis para outros cenários que não a pesquisa, como para a mineração de conhecimento.
 
@@ -205,7 +202,7 @@ Em alternativa, se precisar de utilizar os dados enriquecidos num oleoduto de ci
 
 Finalmente, se necessitar de exportar os seus dados da loja de conhecimentos, a Azure Data Factory dispõe de conectores para exportar os dados e aterrar na base de dados à sua escolha. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como próximo passo, crie a sua primeira loja de conhecimentos utilizando dados e instruções de amostra.
 

@@ -1,78 +1,78 @@
 ---
 title: Criar um fornecedor de sugestões
 titleSuffix: Azure Cognitive Search
-description: Ative ações de consulta tipo-à-frente na Pesquisa Cognitiva Azure, criando sugestionantes e formulando pedidos que invoquem termos de consulta autocompletos ou auto-sugeridos.
+description: Ativar ações de consulta de tipo-a-frente na Azure Cognitive Search criando sugestivos e formulando pedidos que invoquem termos de consulta autocompletos ou auto-cortados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565332"
 ---
-# <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um sugestor para permitir resultados autocompletos e sugeridos numa consulta
+# <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
-Na Pesquisa Cognitiva Azure, o "search-as-you-type" é ativado através de uma construção **de sugestionante** adicionada a um índice de [pesquisa](search-what-is-an-index.md). Um sugestionador suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de um termo inteiro, e *sugestões* que convidam clique através de um determinado jogo. Autocomplete produz uma consulta. Sugestões produzem um documento correspondente.
+Na Pesquisa Cognitiva Azure, "search-as-you-type" é ativado através de uma construção **sugestiva** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um sugestivo suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de todo o termo, e *sugestões* que convidam a clicar para uma determinada correspondência. O autocomplete produz uma consulta. As sugestões produzem um documento correspondente.
 
-A seguinte imagem de [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambos. A Autocomplete antecipa um termo potencial, terminando "tw" com "in". Sugestões são resultados de mini pesquisa, onde um campo como o nome do hotel representa um documento de pesquisa de hotel correspondente do índice. Para sugestões, pode emergir qualquer campo que forneça informações descritivas.
+A imagem a seguir da Criação da [sua primeira aplicação em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambas. O autocomplete antecipa um termo potencial, terminando "tw" com "in". As sugestões são resultados de mini pesquisa, onde um campo como o nome do hotel representa um documento de pesquisa de hotel correspondente a partir do índice. Para sugestões, pode emergir qualquer campo que forneça informações descritivas.
 
-![Comparação visual de consultas autocompletas e sugeridas](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Comparação visual de consultas autocompletas e sugeridas")
+![Comparação visual de consultas auto-completas e sugeridas](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Comparação visual de consultas auto-completas e sugeridas")
 
-Pode utilizar estas funcionalidades separadamente ou em conjunto. Para implementar estes comportamentos na Pesquisa Cognitiva Azure, existe um componente de indexação e consulta. 
+Pode utilizar estas funcionalidades separadamente ou em conjunto. Para implementar estes comportamentos na Azure Cognitive Search, existe um componente de índice e consulta. 
 
-+ No índice, adicione um sugestor a um índice. Pode utilizar o portal, [REST API,](https://docs.microsoft.com/rest/api/searchservice/create-index)ou [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). O restante deste artigo está focado na criação de um sugestor.
++ No índice, adicione um sugestivo a um índice. Pode utilizar o portal REST [API,](https://docs.microsoft.com/rest/api/searchservice/create-index)ou [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). O restante deste artigo está focado em criar um sugestivo.
 
 + No pedido de consulta, ligue para uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
-O suporte de pesquisa como o tipo de pesquisa é ativado numa base por campo para campos de cordas. Pode implementar ambos os comportamentos da tipografia dentro da mesma solução de pesquisa se quiser uma experiência semelhante à indicada na imagem. Ambos os pedidos visam a recolha de *documentos* de índice específico e as respostas são devolvidas depois de um utilizador ter fornecido pelo menos uma cadeia de entrada de três caracteres.
+O suporte do tipo search-as-you é ativado numa base por campo para campos de cordas. Pode implementar ambos os comportamentos de tipa dentro da mesma solução de pesquisa se quiser uma experiência semelhante à indicada na imagem. Ambos os pedidos visam a recolha de *documentos* de índice específico e as respostas são devolvidas depois de um utilizador ter fornecido pelo menos uma cadeia de entrada de três caracteres.
 
-## <a name="what-is-a-suggester"></a>O que é um sugeridor?
+## <a name="what-is-a-suggester"></a>O que é um sugestivo?
 
-Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pesquisa como você tipo, armazenando prefixos para combinar em consultas parciais. Tal como em termos tokenizados, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa coleção de campos sugestionantes.
+Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pesquisa como você-tipo, armazenando prefixos para combinar em consultas parciais. Tal como acontece com os termos simbólicos, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa recolha de campos sugestivos.
 
-## <a name="define-a-suggester"></a>Defina um sugestionista
+## <a name="define-a-suggester"></a>Defina um sugestivo
 
-Para criar um sugestor, adicione um a um [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e coloque cada [propriedade](#property-reference). A melhor altura para criar um sugestionante é quando também está a definir o campo que o utilizará.
+Para criar um sugestivo, adicione um a um [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) e [desemote cada propriedade](#property-reference). A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
 
 + Use apenas campos de cordas
 
-+ Utilize o analisador lucene`"analyzer": null`padrão padrão () ou `"analyzer": "en.Microsoft"`um [analisador](index-add-language-analyzers.md) de linguagem (por exemplo, ) no campo
++ Utilize o analisador padrão padrão Lucene `"analyzer": null` () ou um [analisador de idioma](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo
 
 ### <a name="choose-fields"></a>Escolha campos
 
-Embora um sugestionista tenha várias propriedades, é principalmente uma coleção de campos de cordas para os quais você está permitindo uma experiência de pesquisa como você-tipo. Há um sugestor para cada índice, por isso a lista de sugestionantes deve incluir todos os campos que contribuam com conteúdo tanto para sugestões como para auto-completar.
+Embora um sugestivo tenha várias propriedades, é principalmente uma coleção de campos de cordas para os quais você está permitindo uma experiência de pesquisa como você-você-tipo. Há um sugestivo para cada índice, pelo que a lista de sugestivos deve incluir todos os campos que contribuam com conteúdo tanto para sugestões como para o preconto automático.
 
-Benefícios autocompletos de um conjunto maior de campos para extrair porque o conteúdo adicional tem mais potencial de conclusão de prazo.
+O autocompleto beneficia de um conjunto maior de campos para extrair porque o conteúdo adicional tem mais potencial de conclusão a prazo.
 
-As sugestões, por outro lado, produzem melhores resultados quando a sua escolha de campo é seletiva. Lembre-se que a sugestão é um representante para um documento de pesquisa para que você queira campos que melhor representem um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá qual clicar.
+As sugestões, por outro lado, produzem melhores resultados quando a sua escolha de campo é seletiva. Lembre-se que a sugestão é um proxy para um documento de pesquisa para que você queira campos que melhor representam um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá em que clicar.
 
-Para satisfazer as experiências de pesquisa como você tipo, adicione todos os campos que precisa para completar automaticamente, mas depois use **$select**, **$top,** **$filter**, e **procure Fields** para controlar resultados para sugestões.
+Para satisfazer ambas as experiências de pesquisa como você, adicione todos os campos que você precisa para preencher automaticamente, mas depois use **$select**, **$top**, **$filter**, e **searchFields** para controlar resultados para sugestões.
 
 ### <a name="choose-analyzers"></a>Escolha analisadores
 
-A sua escolha de um analisador determina como os campos são tokenizados e subsequentemente pré-fixados. Por exemplo, para uma cadeia hifenizada como "sensível ao contexto", usar um analisador de linguagem resultará nestas combinações simbólicas: "contexto", "sensível", "sensível ao contexto". Se tivesses usado o analisador lucene padrão, a corda hifenizada não existiria. 
+A sua escolha de um analisador determina como os campos são tokenizados e posteriormente pré-fixados. Por exemplo, para uma corda hifenizada como "sensível ao contexto", usar um analisador de linguagem resultará nestas combinações simbólicas: "contexto", "sensível", "sensível ao contexto". Se tivesses usado o analisador padrão lucene, a corda hifenizada não existiria. 
 
-Ao avaliar os analisadores, considere utilizar a [API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) de Texto analisar para obter informações sobre como os termos são tokenizados e subsequentemente pré-fixados. Uma vez construído um índice, pode experimentar vários analisadores numa corda para ver a saída de fichas.
+Ao avaliar os analisadores, considere a utilização da [API de Texto de Análise](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para obter uma visão de como os termos são tokenizados e posteriormente pré-fixados. Uma vez que você constrói um índice, você pode experimentar vários analisadores em uma cadeia para visualizar a saída de token.
 
-Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.md) ou [analisadores predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (com exceção do Lucene padrão) são explicitamente proibidos de evitar maus resultados.
+Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.md) ou [analisadores predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (com exceção do Lucene padrão) são explicitamente proibidos para evitar maus resultados.
 
 > [!NOTE]
-> Se precisar de contornar a restrição do analisador, por exemplo, se precisar de uma palavra-chave ou analisador de ngram para determinados cenários de consulta, deve utilizar dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestor, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
+> Se precisar de trabalhar em torno da restrição do analisador, por exemplo, se precisar de uma palavra-chave ou de um analisador de ngram para determinados cenários de consulta, deve utilizar dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestivo, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
 
-### <a name="when-to-create-a-suggester"></a>Quando criar um sugestor
+### <a name="when-to-create-a-suggester"></a>Quando criar um sugestivo
 
-A melhor altura para criar um sugestionista é quando também estás a criar a definição de campo em si.
+A melhor altura para criar um sugestivo é quando também está a criar a própria definição de campo.
 
-Se tentar criar um sugestionante utilizando campos pré-existentes, a API irá desafogá-la. Os prefixos são gerados durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são tokenizados ao lado de termos inteiros. Dado que os campos existentes já estão tokenizados, terá de reconstruir o índice se quiser adicioná-los a um sugestionista. Para mais informações, consulte Como reconstruir um índice de [pesquisa cognitiva Azure](search-howto-reindex.md).
+Se tentar criar um sugestivo utilizando campos pré-existentes, a API não o permitirá. Os prefixos são gerados durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são tokenizados ao lado de termos inteiros. Dado que os campos existentes já estão tokenizados, terá de reconstruir o índice se quiser adicioná-los a um sugestivo. Para obter mais informações, consulte [Como reconstruir um índice de Pesquisa Cognitiva Azure.](search-howto-reindex.md)
 
-## <a name="create-using-rest"></a>Criar usando o REST
+## <a name="create-using-rest"></a>Criar usando REST
 
-Na API REST, adicione os sugestores através do [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) ou do [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+Na API REST, adicione sugestivos através do [Índice de Criação](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [do Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -110,7 +110,7 @@ Na API REST, adicione os sugestores através do [Create Index](https://docs.micr
 
 ## <a name="create-using-net"></a>Criar usando .NET
 
-Em C#, defina um [objeto sugestionador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`é uma coleção, mas só pode levar um item. 
+Em C#, defina um [objeto Suggester](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`é uma coleção, mas só pode levar um item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -131,31 +131,31 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Referência imobiliária
+## <a name="property-reference"></a>Referência de propriedade
 
 |Propriedade      |Descrição      |
 |--------------|-----------------|
-|`name`        |O nome do sugeridor.|
-|`searchMode`  |A estratégia costumava procurar frases candidatas. O único modo atualmente `analyzingInfixMatching`suportado é , que atualmente coincide com o início de um período.|
-|`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para sugestões. Os campos devem `Edm.String` `Collection(Edm.String)`ser de tipo e . Se um analisador for especificado no campo, deve ser um analisador nomeado [desta lista](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (não um analisador personalizado).<p/> Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa numa barra de pesquisa ou uma lista de abandono.<p/>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são muito densos. Da mesma forma, os campos repetitivos, como categorias e tags, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer maneira para demonstrar que você pode incluir vários campos. |
+|`name`        |O nome do sugestivo.|
+|`searchMode`  |A estratégia usada para procurar frases de candidato. O único modo atualmente suportado é `analyzingInfixMatching` , que atualmente corresponde ao início de um mandato.|
+|`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` `Collection(Edm.String)` e. Se um analisador for especificado no campo, deve ser um analisador nomeado [desta lista](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (não um analisador personalizado).<p/> Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa em uma barra de pesquisa ou uma lista de abandono.<p/>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são demasiado densos. Da mesma forma, os campos repetitivos, como categorias e etiquetas, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer forma para demonstrar que pode incluir vários campos. |
 
 <a name="how-to-use-a-suggester"></a>
 
-## <a name="use-a-suggester"></a>Use um sugestor
+## <a name="use-a-suggester"></a>Use um sugestivo
 
-Um sugestor é usado numa consulta. Depois de criado um sugestor, ligue para uma das seguintes APIs para uma experiência de pesquisa como o seu tipo:
+Um sugestivo é usado numa consulta. Depois de criar um sugestivo, ligue para uma das seguintes APIs para uma experiência de pesquisa como você:
 
 + [Sugestões REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [API DE DESCANSO Autocompleto](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [SugestãoComHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [API DE REST autocompleto](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [Sugestão Método DeHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [Método AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-Numa aplicação de pesquisa, o código do cliente deve alavancar uma biblioteca como [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recolher a consulta parcial e fornecer a correspondência. Para obter mais informações sobre esta tarefa, consulte [Adicionar resultados autocompletos ou sugeridos ao código do cliente](search-autocomplete-tutorial.md).
+Numa aplicação de pesquisa, o código do cliente deve aproveitar uma biblioteca como [o jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recolher a consulta parcial e fornecer a correspondência. Para obter mais informações sobre esta tarefa, consulte [Adicionar resultados autocompletos ou sugeridos ao código do cliente.](search-autocomplete-tutorial.md)
 
-A utilização da API é ilustrada na seguinte chamada para a API DE REPOUSO Automática. Há dois takeaways deste exemplo. Em primeiro lugar, como em todas as consultas, a operação é contra a recolha de documentos de um índice e a consulta inclui um parâmetro de **pesquisa,** que neste caso fornece a consulta parcial. Em segundo lugar, deve adicionar o nome do **sugestor** ao pedido. Se um sugestionante não for definido no índice, uma chamada para autocompletar ou sugestões falhará.
+A utilização da API é ilustrada na seguinte chamada para a API autocomplete REST. Este exemplo, há dois takeaways. Em primeiro lugar, como em todas as consultas, a operação é contra a recolha de documentos de um índice e a consulta inclui um parâmetro **de pesquisa,** que neste caso fornece a consulta parcial. Segundo, deve adicionar o nome do **sugestivo** ao pedido. Se um sugestivo não estiver definido no índice, uma chamada para autocomplete ou sugestões falhará.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -164,13 +164,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="sample-code"></a>Código de exemplo
 
-+ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a](tutorial-csharp-type-ahead-and-suggestions.md) amostra de pesquisa como o seu tipo) demonstra uma construção sugestionária, consultas sugeridas, autocompleta e navegação facial. Esta amostra de código funciona num serviço de pesquisa cognitiva Azure e utiliza um índice de Hotéis pré-carregado, por isso tudo o que tem de fazer é pressionar f5 para executar a aplicação. Não é necessária nenhuma subscrição ou inscrição.
++ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a amostra de pesquisa-como-o-tipo)](tutorial-csharp-type-ahead-and-suggestions.md) demonstra uma construção sugestiva, consultas sugeridas, autocomplete e navegação frontal. Esta amostra de código funciona num serviço de pesquisa cognitiva Azure e utiliza um índice de Hotéis pré-carregados, por isso tudo o que tem de fazer é pressionar f5 para executar a aplicação. Não é necessária nenhuma subscrição ou inscrição.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) é uma amostra mais antiga que contém código C# e Java. Também demonstra uma construção sugestionária, consultas sugeridas, autocompleta e navegação facial. Esta amostra de código utiliza os dados da amostra [de NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) hospedados. 
++ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) é uma amostra mais antiga que contém código C# e Java. Também demonstra uma construção sugestiva, consultas sugeridas, navegação autocompleta e facetada. Esta amostra de código utiliza os dados da amostra [do NYCJobs hospedados.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Recomendamos que o seguinte artigo saiba mais sobre como solicita a formulação.
+Recomendamos o seguinte artigo para saber mais sobre como os pedidos de formulação.
 
 > [!div class="nextstepaction"]
-> [Adicione autocompleta e sugestões ao código do cliente](search-autocomplete-tutorial.md) 
+> [Adicionar autocompleto e sugestões ao código do cliente](search-autocomplete-tutorial.md) 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cf997cbe16f7ff4bfe75f90d3797ec97e7d5069
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563272"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -152,7 +152,7 @@ Se a imagem renderizada se parece com esta: ![ Tabuleiro de ](../reference/media
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada na Unidade está de cabeça para baixo
 
-Certifique-se de seguir o [guia de configuração](../tutorials/unity/project-setup.md) do projeto exatamente. Uma imagem de cabeça para baixo indica que a Unidade é necessária para criar um alvo de renderização fora do ecrã. Este comportamento não é atualmente suportado e cria um enorme impacto de desempenho no HoloLens 2.
+Certifique-se de seguir o [Tutorial de Unidade: Ver exatamente os modelos remotos.](../tutorials/unity/view-remote-models/view-remote-models.md) Uma imagem de cabeça para baixo indica que a Unidade é necessária para criar um alvo de renderização fora do ecrã. Este comportamento não é atualmente suportado e cria um enorme impacto de desempenho no HoloLens 2.
 
 As razões para esta edição podem ser MSAA, HDR ou habilitar o processamento pós-processamento. Certifique-se de que o perfil de baixa qualidade é selecionado e definido como padrão na Unidade. Para isso vá a *Editar > Definições de Projeto... > Qualidade*.
 
@@ -236,7 +236,7 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

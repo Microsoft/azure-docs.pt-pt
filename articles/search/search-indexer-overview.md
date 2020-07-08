@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 28f5bac80529306fc11eb7eb059b6f25071efd41
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a728eff7addc7f835f82e795457e722fd60d2e30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564593"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -32,7 +32,7 @@ Pode criar e gerir indexadores com estas abordagens:
 
 * [Portal > Assistente de Dados de Importação](search-import-data-portal.md)
 * [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 
 Inicialmente, um indexador novo é anunciado como uma funcionalidade de pré-visualização. As funcionalidades de pré-visualização são introduzidas em APIs (REST e .NET) e, em seguida, são integradas no portal, após passarem para disponibilidade geral. Se estiver a avaliar um indexador novo, deverá planear sobre como escrever código.
 
@@ -42,13 +42,13 @@ Todas as operações relacionadas com indexantes, incluindo pedidos get para o e
 
 <a name="supported-data-sources"></a>
 
-## <a name="supported-data-sources"></a>Origens de dados suportadas
+## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
 
 Indexantes rastejam lojas de dados em Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Azure SQL Database e SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -77,7 +77,7 @@ A definição indexante é uma construção que reúne todos os elementos relaci
 
 Embora seja comum agendar indexação, um indexante também pode ser invocado a pedido usando o [comando Run](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Pode monitorizar o estado do indexante no portal ou através da API do Estado do
 Pode recuperar o estado e o histórico de execução de um indexante através do [comando 'Obter Indexer Status'](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 A resposta contém o estado global do indexante, a última invocação indexante (ou em curso) e a história das recentes invocações indexantes.
@@ -125,12 +125,12 @@ A resposta contém o estado global do indexante, a última invocação indexante
 
 O histórico de execução contém até as 50 execuções concluídas mais recentes, que são ordenadas por ordem cronológica inversa (assim, a última execução vem em primeiro lugar na resposta).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.
 
 * [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
 * [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

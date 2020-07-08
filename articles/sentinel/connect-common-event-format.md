@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados do CEF à Pré-visualização do Azure Sentinel. Microsoft Docs
-description: Saiba como ligar dados cef ao Azure Sentinel.
+title: Ligue os dados do CEF à pré-visualização do Azure Sentinel. Microsoft Docs
+description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel utilizando uma máquina Linux como procuração.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563932"
 ---
-# <a name="connect-your-external-solution-using-common-event-format"></a>Conecte a sua solução externa utilizando o formato de evento comum
+# <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
 
-Quando conecta uma solução externa que envia mensagens CEF, existem três passos para se conectar com o Azure Sentinel:
+Quando liga uma solução externa que envia mensagens CEF, existem três passos para a ligação com o Azure Sentinel:
 
-PASSO 1: [Ligar o CEF implantando o agente](connect-cef-agent.md) STEP 2: Executar [passos específicos da solução](connect-cef-solution-config.md) PASSO 3: [Verificar a conectividade](connect-cef-verify.md)
+PASSO 1: [Ligue o CEF implantando o agente](connect-cef-agent.md) STEP 2: Executar [passos específicos da solução](connect-cef-solution-config.md) PASSO 3: [Verificar conectividade](connect-cef-verify.md)
 
-Este artigo descreve como a ligação funciona, fornece pré-requisitos e dá-lhe os passos para implementar o agente em soluções de segurança que enviam mensagens de Formato De Evento Comum (CEF) em cima do Syslog. 
+Este artigo descreve como a ligação funciona, fornece pré-requisitos e dá-lhe os passos para implantar o agente em soluções de segurança que enviam mensagens common Event Format (CEF) em cima do Syslog. 
 
 > [!NOTE] 
 > Os dados são armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
 
-Para efetuar esta ligação, é necessário colocar um agente numa máquina Linux dedicada (VM ou no local) para apoiar a comunicação entre o aparelho e o Azure Sentinel. O diagrama seguinte descreve a configuração no caso de um Linux VM em Azure.
+Para fazer esta ligação, é necessário colocar um agente numa máquina Linux dedicada (VM ou no local) para apoiar a comunicação entre o aparelho e o Azure Sentinel. O diagrama seguinte descreve a configuração no caso de um Linux VM em Azure.
 
  ![CEF em Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Em alternativa, esta configuração existirá se utilizar um VM noutra nuvem ou numa máquina no local. 
+Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem ou uma máquina no local. 
 
  ![CEF nas instalações](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança de rede corporativa e alterar as portas e protocolos do daemon para alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), [As melhores práticas para a segurança da rede](../security/fundamentals/network-best-practices.md).
+Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/linux/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
 
-Para utilizar a comunicação TLS entre a solução de segurança e a máquina Syslog, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: Encriptar tráfego [syslog com TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [encriptar mensagens de registo com TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Para utilizar a comunicação TLS entre a solução de segurança e a máquina Syslog, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: [Encriptar o tráfego de syslog com TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [encriptar as mensagens de registo com TLS -syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que a máquina Linux que utiliza como procuração está a funcionar num dos seguintes sistemas operativos:
+Certifique-se de que a máquina Linux que utiliza como representante está a executar um dos seguintes sistemas operativos:
 
 - 64 bits
   - CentOS 6 e 7
@@ -59,9 +59,9 @@ Certifique-se de que a máquina Linux que utiliza como procuração está a func
   - Red Hat Enterprise Linux Server 6 e 7
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12
 - 32 bits
-   - Centos 6
+   - CentOS 6
    - Oracle Linux 6
    - Red Hat Enterprise Linux Server 6
    - Debian GNU/Linux 8 e 9
@@ -71,20 +71,20 @@ Certifique-se de que a máquina Linux que utiliza como procuração está a func
    - Syslog-ng: 2.1 - 3.22.1
    - Rsyslog: v8
   
- - Syslog RFCs suportados
+ - Syslog RFCs apoiados
    - Syslog RFC 3164
    - Syslog RFC 5424
  
-Certifique-se de que a sua máquina também satisfaz os seguintes requisitos: 
+Certifique-se de que a sua máquina também cumpre os seguintes requisitos: 
 - Permissões
     - Deve ter permissões elevadas (sudo) na sua máquina. 
 - Requisitos de software
-    - Certifique-se de ter Python a funcionar na sua máquina
+    - Certifique-se de que tem Python a funcionar na sua máquina
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+## <a name="next-steps"></a>Próximos passos
+Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
 

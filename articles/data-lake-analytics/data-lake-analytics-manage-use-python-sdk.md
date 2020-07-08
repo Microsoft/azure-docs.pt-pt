@@ -10,12 +10,12 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 34b3801d32720b8512f056ad16e3b3e3a979ee4b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 055d43c4df2b642c55f58ba16eaf7cba02b36bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564713"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir a Azure Data Lake Analytics usando Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -40,7 +40,7 @@ Instalar os seguintes módulos:
 
 Em primeiro lugar, certifique-se de que tem as últimas `pip` informações executando o seguinte comando:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -48,7 +48,7 @@ Este documento foi escrito utilizando `pip version 9.0.1` .
 
 Utilize os `pip` seguintes comandos para instalar os módulos a partir da linha de comando:
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store
@@ -260,7 +260,7 @@ adlaAccountClient.computePolicies.createOrUpdate(
     rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para ver o mesmo tutorial, utilizando outras ferramentas, clique nos seletores de separador no topo da página.
 - Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

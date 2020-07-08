@@ -1,18 +1,18 @@
 ---
-title: Funções de matriz na linguagem de consulta de Azure Cosmos DB
-description: Saiba como as funções de matriz permitem realizar operações em matrizes em Azure Cosmos DB
+title: Funções de matriz na linguagem de consulta DB do Cosmos Azure
+description: Saiba como as funções de matriz permitem executar operações em matrizes em Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a0256470892d634361498f1632027aff562c7761
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a4033088a9152363a91c368109136062cace4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74871810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563514"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Funções de matriz (Azure Cosmos DB)
 
@@ -20,17 +20,20 @@ As funções de matriz permitem-lhe executar operações em matrizes em Azure Co
 
 ## <a name="functions"></a>Funções
 
-As seguintes funções escalar executam uma operação sobre um valor de entrada de matriz e retorno valor numérico, booleano ou matriz:
+As seguintes funções de escalar executam uma operação sobre um valor de entrada de matriz e valor numérico de retorno, boolean ou matriz:
+
+* [ARRAY_CONCAT](sql-query-array-concat.md)
+* [ARRAY_CONTAINS](sql-query-array-contains.md)
+* [ARRAY_LENGTH](sql-query-array-length.md)
+* [ARRAY_SLICE](sql-query-array-slice.md)
+
+
   
-||||  
-|-|-|-|  
-|[ARRAY_CONCAT](sql-query-array-concat.md)|[ARRAY_CONTAINS](sql-query-array-contains.md)|[ARRAY_LENGTH](sql-query-array-length.md)|  
-|[ARRAY_SLICE](sql-query-array-slice.md)|||  
   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Funções Definidas pelo Utilizador](sql-query-udfs.md)
+- [Funções definidas pelo utilizador](sql-query-udfs.md)
 - [Agregados](sql-query-aggregates.md)

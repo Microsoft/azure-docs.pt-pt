@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Data Lake Analytics - Portal Azure
-description: Este artigo descreve como usar o portal Azure para resolver os empregos do Azure Data Lake Analytics.
+description: Este artigo descreve como usar o portal Azure para resolver problemas de trabalhos do Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -8,43 +8,48 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: cab647f6102187b094806db0b17c6f781ea27484
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71316591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564755"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorizar tarefas no Azure Data Lake Analytics com o Portal do Azure
 
-**Para ver todos os trabalhos**
+## <a name="to-see-all-the-jobs"></a>Para ver todos os trabalhos
 
 1. A partir do portal Azure, clique no **Microsoft Azure** no canto superior esquerdo.
-2. Clique no mosaico com o nome da sua conta de Data Lake Analytics.  O resumo do trabalho é mostrado no azulejo da Gestão de **Emprego.**
 
-    ![Gestão de trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
+2. Clique no mosaico com o nome da sua conta de Data Lake Analytics.  O resumo do trabalho é mostrado no azulejo de Gestão de **Emprego.**
 
-    A Gestão do Emprego dá-lhe uma olhada no estado do trabalho. Reparem que há um trabalho falhado.
-3. Clique no azulejo de **Gestão** de Emprego para ver os trabalhos. Os trabalhos são categorizados em **Running,** **Fila,** e **Terminados.** Verá o seu trabalho falhado na secção **Final.** Será o primeiro da lista. Quando tiver muitos empregos, pode clicar em **Filtro** para ajudá-lo a localizar empregos.
+   ![Gestão de empregos Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    ![Trabalhos de filtro azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+    A gestão do trabalho dá-lhe um olhar sobre o estado de trabalho. Reparem que há um trabalho falhado.
+3. Clique no azulejo de **Gestão** de Emprego para ver os trabalhos. Os trabalhos são categorizados em **Running,** **Queued**e **Ended**. Verá o seu trabalho fracassado na secção **"Fim".** Será o primeiro da lista. Quando tem muitos empregos, pode clicar em **Filter** para ajudá-lo a localizar empregos.
+
+   ![Azure Data Lake Analytics filtram trabalhos](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+
 4. Clique no trabalho falhado da lista para abrir os detalhes do trabalho:
 
-    ![Azure Data Lake Analytics falhou no emprego](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
+   ![Azure Data Lake Analytics falhou no trabalho](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Repare no botão **Reenviar.** Depois de resolver o problema, pode reenviar o trabalho.
-5. Clique na parte realçada da imagem anterior para abrir os detalhes do erro.  Verá algo como:
+    Reparem no botão **Resubmit.** Depois de resolver o problema, pode voltar a apresentar o trabalho.
 
-    ![Azure Data Lake Analytics falhou detalhes do trabalho](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
+5. Clique na parte realçada da imagem anterior para abrir os detalhes de erro.  Verá algo como:
 
-    Diz-lhe que a pasta de origem não foi encontrada.
-6. Clique no **Script Duplicado**.
-7. Atualize o caminho **FROM** para:
+   ![Azure Data Lake Analytics falhou detalhes do trabalho](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    "/Amostras/Dados/SearchLog.tsv"
+   Diz-lhe que a pasta de origem não foi encontrada.
+
+6. Clique **em Script Duplicado**.
+
+7. Atualize o caminho **FROM** para:`/Samples/Data/SearchLog.tsv`
+
 8. Clique em **Submeter Tarefa**.
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral do Lago de Dados Azure](data-lake-analytics-overview.md)
+## <a name="next-steps"></a>Próximos passos
+
+* [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introdução ao Azure Data Lake Analytics com o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Gerir o Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
+* [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)

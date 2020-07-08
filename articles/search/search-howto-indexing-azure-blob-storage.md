@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 413f8d02420b5442b5ffa1491f4312292e8b3a0e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6c7e1fcaebd415fcacfffcef62ca25cccde3e476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563174"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
 
@@ -53,7 +53,7 @@ Para a indexação de bolhas, a fonte de dados deve ter as seguintes propriedade
 
 Para criar uma fonte de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -85,7 +85,7 @@ O índice especifica os campos num documento, atributos e outras construções q
 
 Aqui está como criar um índice com um `content` campo pesquisável para armazenar o texto extraído de bolhas:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -104,7 +104,7 @@ Um indexante conecta uma fonte de dados com um índice de pesquisa de alvo, e fo
 
 Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -181,7 +181,7 @@ Para este exemplo, vamos escolher o `metadata_storage_name` campo como chave de 
 
 Para juntar tudo isto, eis como pode adicionar mapeamentos de campo e ativar a codificação de chaves base-64 para um indexante existente:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -207,7 +207,7 @@ Pode controlar quais as bolhas indexadas e que são ignoradas.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexar apenas as bolhas com extensões de ficheiros específicas
 Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica utilizando o parâmetro de configuração do `indexedFileNameExtensions` indexante. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar apenas o . PDF e . Bolhas DOCX, faça isto:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -219,7 +219,7 @@ Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica 
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir bolhas com extensões de ficheiros específicas
 Pode excluir blobs com extensões específicas de nome de ficheiros de indexação utilizando o `excludedFileNameExtensions` parâmetro de configuração. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar todas as bolhas exceto aquelas com o . PNG e . Extensões JPEG, faça isto:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -241,7 +241,7 @@ Pode controlar quais as partes das bolhas indexadas utilizando o `dataToExtract`
 
 Por exemplo, para indexar apenas os metadados de armazenamento, utilize:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -264,7 +264,7 @@ Os parâmetros de configuração acima descritos aplicam-se a todas as bolhas. �
 
 Por predefinição, o indexante blob para assim que encontra uma bolha com um tipo de conteúdo não suportado (por exemplo, uma imagem). É claro que pode utilizar o `excludedFileNameExtensions` parâmetro para saltar certos tipos de conteúdo. No entanto, poderá ser necessário indexar as bolhas sem conhecer antecipadamente todos os tipos de conteúdo possíveis. Para continuar a indexar quando for encontrado um tipo de conteúdo não suportado, defina o `failOnUnsupportedContentType` parâmetro de configuração `false` para:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -302,7 +302,7 @@ Existem duas formas de implementar a abordagem de eliminação suave. Ambos são
 ### <a name="native-blob-soft-delete-preview"></a>Exclusão suave de blob nativo (pré-visualização)
 
 > [!IMPORTANT]
-> O suporte para a eliminação suave de blob nativo está em pré-visualização. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
+> O suporte para a eliminação suave de blob nativo está em pré-visualização. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
 
 > [!NOTE]
 > Ao utilizar a política de exclusão suave de blob nativa, as chaves do documento para os documentos no seu índice devem ser uma propriedade blob ou metadados blob.
@@ -315,7 +315,7 @@ Utilize os passos seguintes:
 1. Executar o indexante ou definir o indexante para executar em um horário. Quando o indexante executa e processa a bolha, o documento será removido do índice.
 
     ```
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -345,7 +345,7 @@ Utilize os passos seguintes:
 
 Por exemplo, a seguinte política considera que uma bolha deve ser eliminada se tiver uma propriedade de metadados `IsDeleted` com o `true` valor:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -396,7 +396,7 @@ Para que isto funcione, todos os indexantes e outros componentes têm de concord
 
 Se todas as suas bolhas contiverem texto simples na mesma codificação, pode melhorar significativamente o desempenho da indexação utilizando o **modo de análise de texto**. Para utilizar o modo de análise de texto, desa ajuste a `parsingMode` propriedade de configuração para `text` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

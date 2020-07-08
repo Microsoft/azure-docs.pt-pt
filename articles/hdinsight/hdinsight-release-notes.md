@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: c7bc818133a0bd708f9f850f0ad258dccc6c02cc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a4faab9ac6d5e1c39c1120e09dae792b95892d60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564402"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -58,6 +58,9 @@ Após a fase **operacional,** o cluster espera mais 60 minutos para os restantes
  
 ### <a name="create-new-service-principal-through-hdinsight"></a>Criar novo diretor de serviço através do HDInsight
 Anteriormente, com a criação de clusters, os clientes podem criar um novo principal serviço para aceder à conta ADLS Gen 1 conectada no portal Azure. A partir de 15 de junho de 2020, os clientes não podem criar um novo principal serviço no fluxo de trabalho de criação hdInsight, apenas o principal de serviço existente é suportado. Consulte [Criar O Título principal e Certificados de Utilização do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+### <a name="time-out-for-script-actions-with-cluster-creation"></a>Time out para ações de script com criação de cluster
+HDInsight suporta executar ações de script com criação de cluster. A partir desta versão, todas as ações de script com criação de cluster devem terminar dentro de **60 minutos**, ou eles estão fora de tempo. As ações de script submetidas a clusters de execução não são impactadas. Saiba mais detalhes [aqui.](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process)
  
 ## <a name="upcoming-changes"></a>Próximas alterações
 Sem próximas alterações de rutura a que tens de prestar atenção.
@@ -77,3 +80,7 @@ A versão Kafka é atualizada da versão 2.1.0 para 2.1.1.
  
 Pode encontrar as versões componentes atuais para HDInsight 4.0 ad HDInsight 3.6 [neste doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## <a name="known-issues"></a>Problemas conhecidos
+
+### <a name="hive-warehouse-connector-issue"></a>Problema do conector do Armazém da Colmeia
+Há um problema para o Conector do Armazém da Colmeia nesta versão. A correção será incluída no próximo lançamento. Os aglomerados existentes criados antes desta libertação não são impactados. Evite largar e recriar o cluster, se possível. Por favor, abra o bilhete de apoio se precisar de mais ajuda.

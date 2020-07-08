@@ -1,24 +1,24 @@
 ---
 title: Configurar o Remote Rendering para o Unity
-description: Como inicializar a Renderização Remota Azure num projeto de Unidade
+description: Como rubricar a renderização remota do Azure num projeto de unidade
 author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 0415c0e7ee1432521c3cc2026feff5fc2a41d77e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3400d82a6aa184daabfa2ebbe6b775b8e4c1562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565454"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Configurar o Remote Rendering para o Unity
 
-Para permitir a renderização remota azure (ARR) em Unidade, fornecemos métodos dedicados que cuidam de alguns aspetos específicos da Unidade.
+Para permitir a renderização remota de Azure (ARR) na Unidade, fornecemos métodos dedicados que cuidam de alguns aspetos específicos da Unidade.
 
 ## <a name="startup-and-shutdown"></a>Arranque e encerramento
 
-Para inicializar a renderização remota, utilize `RemoteManagerUnity`. Esta classe chama `RemoteManager` para o genérico, mas já implementa detalhes específicos da Unidade para si. Por exemplo, a Unidade usa um sistema de coordenadas específico. Ao `RemoteManagerUnity.Initialize`ligar, será criada a convenção adequada. A chamada também requer que forneça a câmara Unidade que deve ser utilizada para exibir o conteúdo renderizado remotamente.
+Para rubricar a renderização remota, utilize `RemoteManagerUnity` . Esta classe chama para o `RemoteManager` genérico, mas já implementa detalhes específicos da unidade para si. Por exemplo, a Unidade usa um sistema de coordenadas específico. Ao `RemoteManagerUnity.Initialize` ligar, a convenção adequada será criada. A chamada também requer que forneça a câmara Unidade que deve ser usada para exibir o conteúdo prestado remotamente.
 
 ```cs
 // initialize Azure Remote Rendering for use in Unity:
@@ -27,9 +27,9 @@ RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
 ```
 
-Para desligar a renderização `RemoteManagerStatic.ShutdownRemoteRendering()`remota, ligue.
+Para desligar a renderização remota, `RemoteManagerStatic.ShutdownRemoteRendering()` ligue.
 
-Depois `AzureSession` de ter sido criado e escolhido como a sessão `RemoteManagerUnity`de renderização primária, deve ser registado com:
+Depois de ter `AzureSession` sido criada e escolhida como a sessão de renderização primária, deve ser registada `RemoteManagerUnity` em:
 
 ```cs
 RemoteManagerUnity.CurrentSession = ...
@@ -37,7 +37,7 @@ RemoteManagerUnity.CurrentSession = ...
 
 ### <a name="full-example-code"></a>Código de exemplo completo
 
-O código abaixo demonstra todos os passos necessários para inicializar a renderização remota azure em unidade:
+O código abaixo demonstra todos os passos necessários para rubricar a renderização remota do Azure na Unidade:
 
 ```cs
 // initialize Remote Rendering
@@ -64,19 +64,19 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 ## <a name="convenience-functions"></a>Funções de conveniência
 
-### <a name="session-state-events"></a>Eventos estatais de sessão
+### <a name="session-state-events"></a>Eventos do estado da sessão
 
-`RemoteManagerUnity.OnSessionUpdate`emite eventos para quando a sua sessão de estado mudar, consulte a documentação do código para detalhes.
+`RemoteManagerUnity.OnSessionUpdate`emite eventos para quando o seu estado de sessão muda, consulte a documentação do código para mais detalhes.
 
 ### <a name="arrserviceunity"></a>ARRServiceUnity
 
-`ARRServiceUnity`é um componente opcional para agilizar a configuração e a gestão da sessão. Contém opções para parar automaticamente a sua sessão quando a aplicação está a sair ou o modo de reprodução é exited no editor, bem como renovar automaticamente o aluguer de sessão quando necessário. Caches dados como as propriedades da `LastProperties` sessão (ver a sua variável), e expõe eventos para alterações de estado de sessão e erros de sessão.
+`ARRServiceUnity`é um componente opcional para simplificar a configuração e gestão da sessão. Contém opções para interromper automaticamente a sessão quando a aplicação está a sair ou o modo de reprodução é saída no editor, bem como renovar automaticamente o arrendamento da sessão quando necessário. Caches dados como as propriedades da sessão (ver a sua `LastProperties` variável) e expõe eventos para alterações de estado de sessão e erros de sessão.
 
-Não pode haver mais do `ARRServiceUnity` que um exemplo de cada vez. Destina-se a começar mais rápido implementando alguma funcionalidade comum. Para uma aplicação maior, pode ser preferível fazer essas coisas por si mesmo, no entanto.
+Não pode haver mais do que um caso de `ARRServiceUnity` cada vez. Destina-se a começar mais rapidamente, implementando alguma funcionalidade comum. Para uma aplicação maior, pode ser preferível fazer essas coisas por si mesmo.
 
-Por exemplo, como configurar `ARRServiceUnity` e usar ver [Tutorial: Criar um projeto de Unidade do zero](../../tutorials/unity/project-setup.md).
+Para um exemplo, como configurar e utilizar `ARRServiceUnity` ver [Tutorial: Visualização remota de modelos renderizados](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Instalar o pacote do Remote Rendering para o Unity](install-remote-rendering-unity-package.md)
-* [Tutorial: Criação de um projeto de unidade do zero](../../tutorials/unity/project-setup.md)
+* [Tutorial: Visualização remota de modelos renderizados](../../tutorials/unity/view-remote-models/view-remote-models.md)

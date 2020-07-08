@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/13/2020
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e911bf6e3736c931ca5c1563ab42f52ecb5cf3c1
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564061"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configure um túnel de dispositivo Always On VPN para O WAN Virtual
 
@@ -24,7 +24,7 @@ ms.locfileid: "84750574"
 Tem de criar uma configuração ponto-a-local e editar a atribuição do hub virtual. Consulte as seguintes secções para obter instruções:
 
 * [Criar uma configuração P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Editar a atribuição do hub](virtual-wan-point-to-site-portal.md#edit)
+* [Criar hub com gateway P2S](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-the-device-tunnel"></a>Configure o túnel do dispositivo
 
@@ -36,6 +36,6 @@ Para remover o perfil, executar o seguinte comando:
 
 ![Limpeza](./media/howto-always-on-device-tunnel/cleanup.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)

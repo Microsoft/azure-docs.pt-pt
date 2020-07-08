@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: efef4a5e3fd846b06d73211bc6cf63a8ecf24438
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564091"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta lucene em Pesquisa Cognitiva Azure
 
@@ -46,13 +46,13 @@ O exemplo a seguir encontra documentos no índice utilizando a sintaxe de consul
 O `searchMode=all` parâmetro é relevante neste exemplo. Sempre que os operadores estiverem em consulta, deve geralmente definir `searchMode=all` para garantir que todos *os* critérios são compatíveis.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Em alternativa, utilize o POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -189,7 +189,7 @@ A correspondência de sufixos, onde `*` ou precede a corda `?` (como `search=/.*
 
 A Azure Cognitive Search utiliza pontuação baseada em frequência[(TF-IDF)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)para consultas de texto. No entanto, para consultas de wildcard e regex onde o âmbito de termos pode potencialmente ser amplo, o fator de frequência é ignorado para evitar que o ranking seja tendencioso para jogos de termos mais raros. Todos os jogos são tratados igualmente para pesquisas wildcard e regex.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para pesquisa completa de Lucene](search-query-lucene-examples.md)
