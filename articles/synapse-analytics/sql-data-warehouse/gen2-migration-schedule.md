@@ -13,10 +13,10 @@ ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207724"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Atualize a sua piscina SQL para a Gen2
@@ -124,7 +124,7 @@ Para mais informações, consulte [Upgrade para a Gen2](upgrade-to-latest-genera
 
 - R: Não. Após a atualização de uma região, a criação de novos casos da Gen1 será desativada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar passos](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)

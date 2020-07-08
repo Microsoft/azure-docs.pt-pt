@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210666"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concência para Azure Synapse Analytics
@@ -127,7 +127,7 @@ A tabela a seguir mostra as consultas simultâneas máximas e as faixas horária
 
 Quando não há slots de concuncy suficientes para iniciar a execução de consultas, as consultas são filas e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas numa base de primeira e primeira saída.  À medida que as consultas terminam e o número de consultas e slots ficam abaixo dos limites, o SQL Data Warehouse lança consultas em fila.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como aproveitar as classes de recursos para otimizar ainda mais a sua carga de trabalho, reveja os seguintes artigos:
 

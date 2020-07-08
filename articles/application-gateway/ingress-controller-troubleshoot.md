@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207860"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Resolução de problemas comuns ou problemas com o Controlador Ingress
@@ -236,7 +236,7 @@ O nível 5, por outro lado, exibiria todos os registos, incluindo o conteúdo hi
 A comunidade Kubernetes estabeleceu 9 níveis de registo para a ferramenta [kubectl.](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) Neste repositório estamos a utilizar 3 destes, com semântica semelhante:
 
 
-| Verbosidade | Description |
+| Verbosidade | Descrição |
 |-----------|-------------|
 |  1        | Nível de registo predefinido; mostra detalhes de arranque, avisos e erros |
 |  3        | Informação alargada sobre eventos e alterações; listas de objetos criados |

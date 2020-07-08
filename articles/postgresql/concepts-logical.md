@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213691"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
@@ -162,7 +162,7 @@ SELECT pg_drop_replication_slot('test_slot');
 > Se parar de descodição lógica, mude a azure.replication_support de volta para `replica` ou `off` . Os detalhes do WAL retidos são `logical` mais verbosos, e devem ser desativados quando a descodão lógica não estiver a ser utilizada. 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Visite a documentação postgres para [saber mais sobre a descodagem lógica.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html)
 * Contacte a [nossa equipa](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se tiver dúvidas sobre descodição lógica.

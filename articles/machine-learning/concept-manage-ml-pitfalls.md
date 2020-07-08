@@ -11,10 +11,10 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
 ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210189"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Prevenir a sobremontagem e os dados desequilibrados com a aprendizagem automática de máquinas
@@ -81,7 +81,7 @@ Os dados desequilibrados são geralmente encontrados em dados para cenários de 
 
 Além disso, as correções automáticas de ML geram automaticamente os seguintes gráficos, o que pode ajudá-lo a compreender a correção das classificações do seu modelo, e identificar modelos potencialmente impactados por dados desequilibrados.
 
-Gráfico| Description
+Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia as etiquetas corretamente classificadas com as etiquetas reais dos dados. 
 [Recuperação de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a relação entre as etiquetas corretas com a relação entre as instâncias de etiqueta encontradas dos dados 
@@ -103,7 +103,7 @@ As seguintes técnicas são opções adicionais para lidar com dados desequilibr
 
 - Rever métricas de desempenho para dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e recordação. A precisão mede a exatidão de um classificador- a baixa precisão indica um elevado número de falsos positivos--, enquanto a recuperação mede a completude de um classificador-- a baixa recuperação indica um elevado número de falsos negativos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja exemplos e aprenda a construir modelos utilizando machine learning automatizado:
 

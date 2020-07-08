@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212773"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave única na piscina Sinaapse SQL
@@ -175,6 +175,6 @@ Crie uma mesa de bilhar Synapse SQL com uma restrição única:
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar as tabelas para a sua piscina Synapse SQL, o próximo passo é carregar dados na tabela. Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina Sinaapse SQL](load-data-wideworldimportersdw.md).

@@ -12,17 +12,17 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213572"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração contínua e implantação para armazenamento de dados
 
 Este simples tutorial descreve como integrar o seu projeto de base de dados sql server (SSDT) com Azure DevOps e alavancar a Azure Pipelines para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu oleoduto de integração e implantação contínua para armazenamento de dados.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 - Passe pelo tutorial de [integração](sql-data-warehouse-source-control-integration.md) de controlo de fonte
 
@@ -58,9 +58,9 @@ Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo 
 
    Corra e valide o seu oleoduto. Pode escoar alterações localmente e verificar alterações no seu controlo de origem que devem gerar uma construção e implantação automáticas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore a [arquitetura MPP da piscina Sinaapse SQL](massively-parallel-processing-mpp-architecture.md)
 - Crie rapidamente [uma piscina SQL](create-data-warehouse-portal.md)
-- [Carregar dados de amostras](load-data-from-azure-blob-storage-using-polybase.md)
+- [Carregar dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [vídeos](sql-data-warehouse-videos.md)

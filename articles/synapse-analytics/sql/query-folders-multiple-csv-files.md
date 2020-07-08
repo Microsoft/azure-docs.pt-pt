@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207636"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
@@ -230,6 +230,6 @@ ORDER BY
 
 Uma vez que tem apenas uma pasta que corresponde aos critérios, o resultado da consulta é o mesmo que ler o [subconjunto de ficheiros na pasta](#read-subset-of-files-in-folder) e [ler todos os ficheiros de uma pasta específica](#read-all-files-from-specific-folder). Cenários de utilização wildcard mais complexos são cobertos por [ficheiros Parquet De consulta.](query-parquet-files.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Mais informações podem ser encontradas no artigo de [ficheiros específicos](query-specific-files.md) em Consulta.

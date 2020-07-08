@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85209883"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versão da aplicação de pré-visualização da azure Blockchain Workbench
@@ -54,6 +54,6 @@ Por predefinição, a versão mais recente da aplicação ativada é utilizada n
 
     Pode criar novos contratos ou tomar medidas em contratos de versão anteriores. A versão da aplicação é apresentada seguindo o nome da aplicação e é apresentado um aviso sobre a versão mais antiga.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Blockchain Workbench resolução de problemas](troubleshooting.md)

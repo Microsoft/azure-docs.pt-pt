@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248977"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transforme os dados utilizando a atividade do Procedimento Armazenado do SqL Server na Azure Data Factory
@@ -70,12 +70,12 @@ A tabela a seguir descreve estas propriedades JSON:
 
 | Propriedade                  | Descrição                              | Necessário |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Yes      |
-| descrição               | Texto que descreve para que a atividade é usada | No       |
-| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Yes      |
-| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)** ou **SQL Server** registada como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
-| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Yes      |
-| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | No       |
+| name                      | Nome da atividade                     | Sim      |
+| descrição               | Texto que descreve para que a atividade é usada | Não       |
+| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
+| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)** ou **SQL Server** registada como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
+| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | Não       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados de parâmetro
 O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que está a usar. Pode encontrar os mapeamentos do tipo de dados para a sua fonte de dados na área dos conectores. Alguns exemplos são
@@ -92,7 +92,7 @@ O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory qu
 
 Quando um procedimento armazenado falha e retorna os detalhes de erro, não é possível capturar a informação de erro diretamente na saída da atividade. No entanto, a Data Factory bombeia todos os seus eventos de atividade para o Azure Monitor. Entre os eventos que a Data Factory bombeia para o Azure Monitor, empurra os detalhes de erro para lá. Pode, por exemplo, configurar alertas de e-mail desses eventos. Para obter mais informações, consulte [as fábricas de dados Alert e Monitor utilizando o Azure Monitor](monitor-using-azure-monitor.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

@@ -4,10 +4,10 @@ description: Descreve os benefícios usando modelos de Gestor de Recursos Azure 
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210223"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
@@ -124,7 +124,7 @@ Se imaginar as suas camadas com ciclos de vida separados, pode implementar as tr
 
 Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos ligados com o Azure Resource Manager](linked-templates.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
 * Para obter informações sobre as propriedades em ficheiros de modelos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

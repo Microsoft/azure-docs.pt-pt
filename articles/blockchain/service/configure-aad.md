@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85208778"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Como configurar o acesso ao Azure Ative Directory para o Serviço Azure Blockchain
@@ -35,7 +35,7 @@ Para conceder permissão de acesso ao nível dos membros.
 
     | Objeto AD de Azure | Exemplo |
     |-----------------|---------|
-    | Utilizador Azure AD   | `kim@contoso.onmicrosoft.com` |
+    | Utilizador do Azure Active Directory   | `kim@contoso.onmicrosoft.com` |
     | Grupo AD AZure  | `sales@contoso.onmicrosoft.com` |
     | ID da Aplicação  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
@@ -105,6 +105,6 @@ Para gerar a senha, **substitua o código aadauth por** **aaddevice**. Substitua
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a segurança de dados no Serviço Azure Blockchain, consulte [a segurança do Serviço Azure Blockchain](data-security.md).

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85211664"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a qualidade do grupo de remo para a loja de colunas
@@ -163,6 +163,6 @@ Para aumentar o subsídio de memória para uma consulta de carga, pode aumentar 
 - Para aumentar os DWUs, veja [como dimensionar o desempenho?](quickstart-scale-compute-portal.md)
 - Para alterar a classe de recursos para uma consulta, consulte [Alterar um exemplo de classe de recursos do utilizador](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para encontrar mais formas de melhorar o desempenho da piscina SQL, consulte a [visão geral](cheat-sheet.md)do Desempenho.

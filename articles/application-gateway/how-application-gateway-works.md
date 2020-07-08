@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
 ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85250235"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicações
@@ -64,6 +64,6 @@ Os valores válidos para x-forward-proto são HTTP ou HTTPS. A porta x-reencamin
 
 Pode configurar o gateway de aplicações para modificar os cabeçalhos utilizando [cabeçalhos HTTP de reescrita](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou modificar o caminho URI utilizando uma definição de sobreposição de caminhos. No entanto, a menos que configurado para fazê-lo, todos os pedidos de entrada são proxiemente para o backend.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre os componentes do gateway de aplicações](application-gateway-components.md)

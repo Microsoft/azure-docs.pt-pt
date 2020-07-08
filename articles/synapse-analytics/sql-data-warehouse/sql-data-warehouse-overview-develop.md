@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85211498"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para uma piscina Sinaapse SQL em Azure Synapse Analytics 
@@ -45,5 +45,5 @@ Os seguintes artigos apresentam técnicas de codificação específicas, dicas e
 * [grupo por opções](sql-data-warehouse-develop-group-by-options.md)
 * [atribuição variável](sql-data-warehouse-develop-variable-assignment.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações de referência, consulte [as declarações T-SQL](sql-data-warehouse-reference-tsql-statements.md).

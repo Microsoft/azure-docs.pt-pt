@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210699"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização da piscina SQL Azure Synapse Analytics
@@ -31,7 +31,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 > [!IMPORTANT]
 > Esta atualização aplica-se a piscinas SQL de nível SQL otimizados compute em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 1. Verifique se a sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é apoiada para a migração GEN1 para GEN2. Note as datas de migração automática. Para evitar conflitos com o processo automatizado, planeie a sua migração manual antes da data de início do processo automatizado.
 2. Se você estiver em uma região que ainda não está apoiada, continue a verificar se a sua região deve ser adicionada ou [upgrade usando o restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) para uma região apoiada.
@@ -61,7 +61,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 - A migração da Gen1 para a Gen2 através do portal Azure é permanente. Não há um processo para regressar à Gen1.
 - Piscina SQL deve estar correndo para migrar para a Gen2
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -244,6 +244,6 @@ A base de dados recuperada será ativada pelo TDE se a base de dados de origem e
 
 Se sentir algum problema com a sua piscina SQL, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "atualização Gen2" como a causa possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua piscina SQL melhorada está online. Para tirar partido da arquitetura melhorada, consulte as [classes de Recursos para Gestão da Carga de Trabalho.](resource-classes-for-workload-management.md)
