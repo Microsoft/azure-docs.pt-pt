@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 189ebcc74461a57a4e91bf50262c377540cf885b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 873f871625b812937d1e6ac360f7e0565121a4eb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367840"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045999"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
@@ -113,7 +113,7 @@ Execute o comando modificado para invocar o Método Direto especificado. Os pedi
 > O exemplo acima demonstra a invocação de um Método Direto num dispositivo.  Se desejar invocar um Método Direto num Módulo IoT Edge, terá de modificar o pedido de url como mostrado abaixo:
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### <a name="response"></a>Resposta
 
@@ -218,7 +218,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar métodos diretos, poderá estar interessado no seguinte artigo de guia de desenvolvimento do IoT Hub:
 

@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 36b3f20b866e7bad1d27f9fa92c02601ec21602c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125434"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054394"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -31,11 +31,34 @@ A definição máxima de pods por nó é de 110 por defeito se implementar um cl
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou a receber um erro insuficiente de SubnetSize enquanto implanto um cluster AKS com rede avançada. O que devo fazer?
 
-Ao utilizar o plugin de rede CNI Azure, o AKS atribui endereços IP com base no parâmetro "--max-pods" por nó. O tamanho da sub-rede deve ser maior do que o número de nós vezes o máximo de pods por nó. A seguinte equação descreve-a:
+Este erro indica que uma sub-rede em uso para um cluster já não tem IPs disponíveis no seu CIDR para uma atribuição bem sucedida de recursos. Para os clusters Kubenet, o requisito é espaço IP suficiente para cada nó no cluster. Para os agrupamentos CNI Azure, a exigência é espaço IP suficiente para cada nó e vagem no cluster.
+Leia mais sobre o [design da Azure CNI para atribuir IPs a cápsulas](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-O tamanho da sub-rede > número de nós no cluster (tendo em conta os futuros requisitos de escala) * cápsulas max por conjunto de nós.
+Estes erros também são surgidos em [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics) que proativamente surgem problemas como um tamanho de sub-rede insuficiente.
 
-Para mais informações, consulte [o Endereço IP do Plano para o seu cluster.](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)
+Os seguintes três (3) casos causam um erro de tamanho da sub-rede insuficiente:
+
+1. Escala AKS ou escala de nodepool AKS
+   1. Se utilizar o Kubenet, isto ocorre quando `number of free IPs in the subnet` o é **inferior** ao `number of new nodes requested` .
+   1. Se utilizar o Azure CNI, isto ocorre quando o `number of free IPs in the subnet` é **inferior** ao `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. Atualização AKS ou atualização de nodepool AKS
+   1. Se utilizar o Kubenet, isto ocorre quando `number of free IPs in the subnet` o é **inferior** ao `number of buffer nodes needed to upgrade` .
+   1. Se utilizar o Azure CNI, isto ocorre quando o `number of free IPs in the subnet` é **inferior** ao `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   Por padrão, os clusters AKS definem um valor de aumento máximo (tampão de upgrade) de um (1), mas este comportamento de upgrade pode ser personalizado definindo o [valor máximo de um conjunto de nós](upgrade-cluster.md#customize-node-surge-upgrade-preview) que irá aumentar o número de IPs disponíveis necessários para completar uma atualização.
+
+1. AKS criar ou adicionar AKS Nodepool
+   1. Se utilizar o Kubenet, isto ocorre quando `number of free IPs in the subnet` o é **inferior** ao `number of nodes requested for the node pool` .
+   1. Se utilizar o Azure CNI, isto ocorre quando o `number of free IPs in the subnet` é **inferior** ao `number of nodes requested times (*) the node pool's --max-pod value` .
+
+A seguinte mitigação pode ser tomada através da criação de novas sub-redes. A permissão para criar uma nova sub-rede é necessária para mitigação devido à incapacidade de atualizar a gama CIDR de uma sub-rede existente.
+
+1. Reconstruir uma nova sub-rede com uma gama CIDR maior suficiente para os objetivos de operação:
+   1. Crie uma nova sub-rede com uma nova gama não sobreposta desejada.
+   1. Crie uma nova rede na nova sub-rede.
+   1. As cápsulas de drenagem da antiga nodepool que reside na antiga sub-rede a serem substituídas.
+   1. Apague a antiga sub-rede e a velha nodepool.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>A minha cápsula está presa no modo CrashLoopBackOff. O que devo fazer?
 
@@ -126,6 +149,7 @@ As restrições de nomeação são implementadas tanto pela plataforma Azure com
 * O nome do grupo*MC_* de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hífens (-). O *dnsPrefix* não pode incluir caracteres especiais como um período (.).
 * Os nomes do AKS Node Pool devem ser todos minúsculos e ser caracteres de 1-11 para piscinas de nóleiros linux e 1-6 caracteres para piscinas de nó de janelas. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
+* O *nome de administração-utilizador*, que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, escalar, eliminar ou atualizar o cluster, essa operação não é permitida à medida que outra operação está em andamento.
 

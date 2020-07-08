@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 26456c09975fa49bae17a3cfeef8ecc1ef913815
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315881"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045948"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Linha de base de segurança Azure para Azure SQL Base de dados & SQL Caso gerido
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -639,7 +639,7 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
-**Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nas instâncias de produção de Bases de Dados Azure SQL e outros recursos críticos ou relacionados.
+**Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nas instâncias de produção da Base de Dados Azure SQL e outros recursos críticos ou relacionados.
 
 Como criar alertas para eventos de Registo de Atividades Azure:
 
@@ -657,7 +657,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Orientação**: Ativar a Segurança Avançada de Dados para a Base de Dados Azure SQL e seguir recomendações do Azure Security Center sobre a realização de avaliações de vulnerabilidade nos seus servidores.
 
-Como executar avaliações de vulnerabilidade nas suas Bases de Dados Azure SQL:
+Como executar avaliações de vulnerabilidade na Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
@@ -1069,7 +1069,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Execute cópias de segurança completas do sistema e faça backups de backups de qualquer tecla gerida pelo cliente
 
-**Orientação**: A Azure SQL Database cria automaticamente as cópias de dados que são mantidas entre 7 e 35 dias, e utiliza o armazenamento geo-redundante de acesso de leitura Azure (RA-GRS) para garantir que são preservados mesmo que o centro de dados não esteja disponível. Estas cópias de segurança são criadas automaticamente. Se necessário, ative cópias de segurança geo-redundantes a longo prazo para as suas Bases de Dados Azure SQL.
+**Orientação**: A Azure SQL Database cria automaticamente as cópias de dados que são mantidas entre 7 e 35 dias, e utiliza o armazenamento geo-redundante de acesso de leitura Azure (RA-GRS) para garantir que são preservados mesmo que o centro de dados não esteja disponível. Estas cópias de segurança são criadas automaticamente. Se necessário, ative cópias de segurança geo-redundantes a longo prazo para as suas bases de dados Azure SQL.
 
 Se utilizar as teclas geridas pelo cliente para encriptação de dados transparentes, certifique-se de que as suas chaves estão a ser apoiadas.
 
@@ -1207,7 +1207,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

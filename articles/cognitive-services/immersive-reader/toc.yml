@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
+    - name: Iniciar a Leitura Avançada (Android)
+      href: tutorial-android.md
+    - name: Iniciar a Leitura Avançada (iOS)
+      href: tutorial-ios.md
     - name: Iniciar a Leitura Avançada (Python)
       href: tutorial-python.md
     - name: Utilizar vários recursos de Leitura Avançada

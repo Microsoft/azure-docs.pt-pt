@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 87f1fcfa08ef2b7d2e4f72588eff8576c5ace146
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254298"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054445"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes
 
@@ -30,7 +30,6 @@ Além da proteção DDoS de núcleo na plataforma, a [Azure DDoS Protection Stan
 
 ![O papel da Azure DDoS Protection na proteção dos clientes e de uma rede virtual de um intruso](./media/ddos-best-practices/image1.png)
 
-Para recomendações de segurança relativas a esta tecnologia, consulte a [linha de base de segurança Azure para a Proteção DDoS](ddos-protection-security-baseline.md).
 
 ## <a name="fundamental-best-practices"></a>Boas práticas fundamentais
 
@@ -267,9 +266,8 @@ Para obter mais informações sobre esta arquitetura de referência, consulte o 
 > [!NOTE]
 > O Azure App Service Environment for PowerApps ou a gestão de API numa rede virtual com um IP público não são ambos suportados de forma nativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Linha de segurança Azure para a Proteção DDoS](ddos-protection-security-baseline.md)
 * [Responsabilidade partilhada na cloud](shared-responsibility.md)
 * [Página de produto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 * [Documentação de proteção Azure DDoS](/azure/virtual-network/ddos-protection-overview)

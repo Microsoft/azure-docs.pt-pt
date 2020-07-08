@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/26/2020
-ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 7/6/2020
+ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506706"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045965"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Serverless é um nível de cálculo para bases de dados Azure SQL únicas que escala automaticamente o cálculo com base na procura de carga de trabalho e contas pela quantidade de cálculo utilizado por segundo. O nível de computação sem servidor também interrompe automaticamente as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade retorna.
+Serverless é um nível de cálculo para bases de dados individuais na Base de Dados Azure SQL que escala automaticamente o cálculo com base na procura de carga de trabalho e contas para a quantidade de cálculo utilizado por segundo. O nível de computação sem servidor também interrompe automaticamente as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade retorna.
 
 ## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 
@@ -88,9 +88,9 @@ A memória para bases de dados sem servidor é recuperada com mais frequência d
 
 #### <a name="cache-reclamation"></a>Recuperação de cache
 
-Ao contrário das bases de dados de computação a provisionadas, a memória da cache SQL é recuperada a partir de uma base de dados sem servidor quando a utilização de CPU ou cache é baixa.
+Ao contrário das bases de dados de computação a provisionadas, a memória da cache SQL é recuperada a partir de uma base de dados sem servidor quando a CPU ou a utilização ativa da cache são baixas.  Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.
 
-- A utilização da cache é considerada baixa quando o tamanho total das entradas de cache mais recentemente utilizadas fica abaixo de um limiar por um período de tempo.
+- A utilização ativa da cache é considerada baixa quando o tamanho total das entradas de cache mais recentemente utilizadas fica abaixo de um limiar por um período de tempo.
 - Quando a recuperação da cache é desencadeada, o tamanho da cache alvo é reduzido gradualmente para uma fração do seu tamanho anterior e a recuperação só continua se o uso permanecer baixo.
 - Quando ocorre a recuperação de cache, a política de seleção de entradas de cache para despejar é a mesma política de seleção que para bases de dados de computação a provisionadas quando a pressão da memória é elevada.
 - O tamanho da cache nunca é reduzido abaixo do limite de memória min como definido por min vCores que podem ser configurados.
@@ -112,7 +112,7 @@ A automatização automática é desencadeada se todas as seguintes condições 
 
 É fornecida uma opção para desativar a autopausing se desejar.
 
-As seguintes funcionalidades não suportam a automatização.  Ou seja, se alguma das seguintes funcionalidades forem utilizadas, a base de dados permanece on-line independentemente da duração da inatividade da base de dados:
+As seguintes funcionalidades não suportam a autopausing, mas suportam a auto-escala.  Ou seja, se alguma das seguintes funcionalidades forem utilizadas, a base de dados permanece on-line independentemente da duração da inatividade da base de dados:
 
 - Geo-replicação (geo-replicação ativa e grupos de falha automática).
 - Retenção de backup a longo prazo (LTR).
@@ -349,7 +349,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).
