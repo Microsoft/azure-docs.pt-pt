@@ -1,5 +1,5 @@
 ---
-title: Centro de gestão
+title: Hub de gestão
 description: Gerir as suas ligações, configuração de controlo de fontes e propriedades de autoria global no centro de gestão da Azure Data Factory
 services: data-factory
 ms.service: data-factory
@@ -10,10 +10,9 @@ ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
 ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84346046"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de gestão na Azure Data Factory
@@ -46,7 +45,7 @@ Ver e editar as definições configuradas do repositório de git no centro de ge
 
 ### <a name="parameterization-template"></a>Modelo de parametrização
 
-Para anular os parâmetros do modelo gerados do Gestor de Recursos ao publicar a partir do ramo de colaboração, pode gerar ou editar um ficheiro de parâmetros personalizados. Para obter mais informações, aprenda a [usar parâmetros personalizados no modelo de Gestor de Recursos.](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template) O modelo de parametrização só está disponível quando se trabalha num repositório de git. Se o ficheiro de *definição de parâmetros de modelo de braço* não existir no ramo de trabalho, a edição do modelo predefinido gera-o.
+Para anular os parâmetros do modelo gerados do Gestor de Recursos ao publicar a partir do ramo de colaboração, pode gerar ou editar um ficheiro de parâmetros personalizados. Para obter mais informações, aprenda a [usar parâmetros personalizados no modelo de Gestor de Recursos.](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template) O modelo de parametrização só está disponível quando se trabalha num repositório de git. Se o *arm-template-parameters-definition.jsno* ficheiro não existir no ramo de trabalho, a edição do modelo predefinido gera-o.
 
 ![Gerir params personalizados](media/author-management-hub/management-hub-custom-parameters.png)
 

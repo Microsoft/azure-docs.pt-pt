@@ -10,10 +10,9 @@ ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
 ms.openlocfilehash: 74c0f5be7998450b0fb868ff4969e412fdaa4788
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414475"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)

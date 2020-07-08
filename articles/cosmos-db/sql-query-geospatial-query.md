@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764983"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consulta de dados geoespaciais com Azure Cosmos DB
@@ -176,7 +175,7 @@ Da mesma forma, aqui está uma consulta para encontrar todos os documentos que `
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a começar com o suporte geoespacial em Azure Cosmos DB, a seguir pode:
 

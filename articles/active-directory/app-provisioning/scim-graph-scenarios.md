@@ -12,10 +12,9 @@ ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
 ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781689"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utilizando o SCIM e o Microsoft Graph em conjunto para obter utilizadores e enriquecer a sua aplicação com os dados de que necessita

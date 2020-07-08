@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: ce9ab972d961a9193c3aa568878f9c93ccdcf6b1
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988015"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurar alertas sobre métricas VPN Gateway
@@ -19,7 +18,7 @@ ms.locfileid: "84988015"
 Este artigo ajuda-o a configurar alertas sobre as métricas do Gateway Azure VPN. O Azure Monitor fornece a capacidade de configurar alertas para os recursos do Azure. Pode configurar alertas para gateways de rede virtuais do tipo "VPN".
 
 
-|**Métricas**   | **Unidade** | **Granularidade** | **Descrição** | 
+|**Métrica**   | **Unidade** | **Granularidade** | **Descrição** | 
 |---       | ---        | ---       | ---            | ---       |
 |**Largura média da largura**| Bytes/s  | 5 minutos| Utilização média combinada da largura de banda de todas as ligações site-to-site no gateway.     |
 |**P2SBandwidth**| Bytes/s  | 1 minuto  | Utilização média combinada da largura de banda de todas as ligações ponto-a-local no gateway.    |
@@ -50,11 +49,11 @@ Os seguintes passos de exemplo criarão um alerta num gateway para:
 
 2. Selecione o seu gateway VPN como o recurso.
 
-   ![O botão Select e a porta de entrada VPN na lista de recursos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Selecione")
+   ![O botão Select e a porta de entrada VPN na lista de recursos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Selecionar")
 
 3. Selecione uma métrica para configurar para o alerta.
 
-   ![Métrica selecionada na lista de métricas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Selecione")
+   ![Métrica selecionada na lista de métricas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Selecionar")
 4. Configure a lógica do sinal. Há três componentes:
 
     a. **Dimensões**: Se a métrica tiver dimensões, pode selecionar valores de dimensão específicas para que o alerta avalie apenas dados dessa dimensão. Estes são opcionais.
@@ -63,12 +62,12 @@ Os seguintes passos de exemplo criarão um alerta num gateway para:
 
     c. **Tempo**: Especificar a granularidade dos dados métricos e o período de tempo para avaliar o alerta.
 
-   ![Detalhes para configurar a lógica do sinal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Selecione")
+   ![Detalhes para configurar a lógica do sinal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Selecionar")
 
 5. Para ver as regras configuradas, **selecione Gerir as regras de alerta**.
 
-   ![Botão para gerir regras de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Selecione")
+   ![Botão para gerir regras de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Selecionar")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar alertas nos registos de recursos do túnel, consulte [Configurar alertas nos registos de recursos do Gateway VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

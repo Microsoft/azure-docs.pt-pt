@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340873"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Grelha de evento de função Azure desencadeia depuração local
@@ -105,7 +104,7 @@ Uma vez que a Grelha de Eventos reconheça que um novo ficheiro é enviado para 
 
 Para limpar os recursos criados neste artigo, elimine o recipiente **de teste** na sua conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Gatilho da grelha de evento para funções Azure](./functions-bindings-event-grid.md)

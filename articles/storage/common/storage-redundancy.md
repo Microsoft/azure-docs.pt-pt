@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213997"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
@@ -161,7 +160,7 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 | Cenário de paralisação                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Um nó dentro de um centro de dados torna-se indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                 |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Yes                                  |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Sim                                  |
 | Uma paralisação em toda a região ocorre na região primária                                                                                     | Não                              | Não                               | Sim<sup>1</sup>                                  | Sim<sup>1</sup>                                  |
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
 
@@ -186,7 +185,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

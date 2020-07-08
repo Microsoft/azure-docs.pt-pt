@@ -8,53 +8,56 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 8a23974e55c599585fc247a97db66ff76bf93e76
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734593"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040032"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
-Como a Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de autenticação e gestão a outras aplicações e cargas de trabalho, a conectividade da rede é um componente fundamental. Sem recursos de rede virtuais corretamente configurados, as aplicações e cargas de trabalho não conseguem comunicar e utilizar as funcionalidades fornecidas pela Azure AD DS. Planeie os seus requisitos de rede virtual para garantir que o Azure AD DS possa servir as suas aplicações e cargas de trabalho conforme necessário.
+A Azure Ative Directory Domain Services (Azure AD DS) presta serviços de autenticação e gestão a outras aplicações e cargas de trabalho. A conectividade da rede é um componente chave. Sem recursos de rede virtuais corretamente configurados, as aplicações e cargas de trabalho não conseguem comunicar e utilizar as funcionalidades fornecidas pela Azure AD DS. Planeie os seus requisitos de rede virtual para garantir que o Azure AD DS possa servir as suas aplicações e cargas de trabalho conforme necessário.
 
 Este artigo descreve considerações e requisitos de design para uma rede virtual Azure para apoiar Azure AD DS.
 
 ## <a name="azure-virtual-network-design"></a>Design de rede virtual Azure
 
-Para fornecer conectividade de rede e permitir que aplicações e serviços autensem contra o Azure AD DS, utilize uma rede virtual Azure e uma sub-rede. Idealmente, o Azure AD DS deve ser implantado na sua própria rede virtual. Pode incluir uma sub-rede de aplicações separada na mesma rede virtual para hospedar o seu VM de gestão ou cargas de trabalho de aplicação leve. Uma rede virtual separada para cargas de trabalho de aplicações maiores ou complexas, espreitadas para a rede virtual Azure AD DS, é geralmente o design mais adequado. Outras escolhas de design são válidas, desde que cumpra os requisitos descritos nas seguintes secções para a rede virtual e sub-rede.
+Para fornecer conectividade de rede e permitir que aplicações e serviços autensem contra um domínio gerido AZure AD DS, utilize uma rede virtual Azure e uma sub-rede. Idealmente, o domínio gerido deve ser implantado na sua própria rede virtual.
+
+Pode incluir uma sub-rede de aplicações separada na mesma rede virtual para hospedar o seu VM de gestão ou cargas de trabalho de aplicação leve. Uma rede virtual separada para cargas de trabalho de aplicações maiores ou complexas, espreitadas para a rede virtual Azure AD DS, é geralmente o design mais adequado.
+
+Outras escolhas de design são válidas, desde que cumpra os requisitos descritos nas seguintes secções para a rede virtual e sub-rede.
 
 Ao conceber a rede virtual para Azure AD DS, aplicam-se as seguintes considerações:
 
 * O Azure AD DS deve ser implantado na mesma região do Azure que a sua rede virtual.
-    * Neste momento, você só pode implementar um Azure AD DS gerido domínio por inquilino AZure AD. O domínio gerido é implantado numa única região. Certifique-se de que cria ou seleciona uma rede virtual numa [região que suporta O AZURE AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
+    * Neste momento, você só pode implementar um domínio gerido por inquilino AZure AD. O domínio gerido é implantado numa única região. Certifique-se de que cria ou seleciona uma rede virtual numa [região que suporta O AZURE AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Considere a proximidade de outras regiões do Azure e as redes virtuais que acolhem as cargas de trabalho da sua aplicação.
     * Para minimizar a latência, mantenha as suas aplicações centrais perto ou na mesma região que a sub-rede de rede virtual para o seu domínio gerido. Pode utilizar ligações de rede virtual ou de rede privada virtual (VPN) entre redes virtuais Azure. Estas opções de ligação são discutidas numa secção seguinte.
-* A rede virtual não pode contar com serviços DNS que não os fornecidos pela Azure AD DS.
+* A rede virtual não pode contar com serviços DNS que não os serviços prestados pelo domínio gerido.
     * A Azure AD DS fornece o seu próprio serviço DNS. A rede virtual deve ser configurada para utilizar estes endereços de serviço DNS. A resolução de nomes para espaços de nome adicionais pode ser realizada usando reencaminhadores condicionalistas.
-    * Não é possível utilizar as definições personalizadas do servidor DNS para consultas diretas de outros servidores DNS, incluindo em VMs. Os recursos na rede virtual devem utilizar o serviço DNS fornecido pela Azure AD DS.
+    * Não é possível utilizar as definições personalizadas do servidor DNS para consultas diretas de outros servidores DNS, incluindo em VMs. Os recursos na rede virtual devem utilizar o serviço DNS fornecido pelo domínio gerido.
 
 > [!IMPORTANT]
 > Não é possível mover o Azure AD DS para uma rede virtual diferente depois de ter ativado o serviço.
 
 Um domínio gerido conecta-se a uma sub-rede numa rede virtual Azure. Desenhe esta sub-rede para Azure AD DS com as seguintes considerações:
 
-* O Azure AD DS deve ser implantado na sua própria sub-rede. Não utilize uma sub-rede existente ou uma sub-rede de gateway.
+* Um domínio gerido deve ser implantado na sua própria sub-rede. Não utilize uma sub-rede existente ou uma sub-rede de gateway.
 * Um grupo de segurança de rede é criado durante a implantação de um domínio gerido. Este grupo de segurança de rede contém as regras necessárias para uma comunicação correta do serviço.
     * Não crie nem utilize um grupo de segurança de rede existente com as suas próprias regras personalizadas.
-* O Azure AD DS requer endereços IP 3-5. Certifique-se de que o intervalo de endereços IP da sua sub-rede pode fornecer este número de endereços.
-    * Restringir os endereços IP disponíveis pode impedir que os Serviços de Domínio AD do Azure mantenham dois controladores de domínio.
+* Um domínio gerido requer endereços IP 3-5. Certifique-se de que o intervalo de endereços IP da sua sub-rede pode fornecer este número de endereços.
+    * Restringir os endereços IP disponíveis pode impedir que o domínio gerido mantenha dois controladores de domínio.
 
-O diagrama de exemplo a seguir descreve um design válido onde o Azure AD DS tem a sua própria sub-rede, há uma sub-rede de gateway para conectividade externa, e as cargas de trabalho da aplicação estão numa sub-rede conectada dentro da rede virtual:
+O diagrama de exemplo a seguir descreve um design válido onde o domínio gerido tem a sua própria sub-rede, há uma sub-rede de gateway para conectividade externa, e as cargas de trabalho de aplicação estão numa sub-rede conectada dentro da rede virtual:
 
 ![Design recomendado de sub-redes](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 ## <a name="connections-to-the-azure-ad-ds-virtual-network"></a>Ligações à rede virtual Azure AD DS
 
-Como indicado na secção anterior, só é possível criar um domínio gerido pelos Serviços de Domínio AD Azure numa única rede virtual em Azure, e apenas um domínio gerido pode ser criado por inquilino Azure AD. Com base nesta arquitetura, poderá ter de ligar uma ou mais redes virtuais que hospedam as cargas de trabalho da sua aplicação à sua rede virtual Azure AD DS.
+Como indicado na secção anterior, só é possível criar um domínio gerido numa única rede virtual em Azure, e apenas um domínio gerido pode ser criado por inquilino AZure AD. Com base nesta arquitetura, poderá ter de ligar uma ou mais redes virtuais que hospedam as cargas de trabalho da sua aplicação à rede virtual do seu domínio gerido.
 
 Pode ligar cargas de trabalho de aplicação hospedadas noutras redes virtuais Azure utilizando um dos seguintes métodos:
 
@@ -71,7 +74,7 @@ Para obter mais informações, consulte [a visão geral da rede virtual Azure.](
 
 ### <a name="virtual-private-networking-vpn"></a>Rede Privada Virtual (VPN)
 
-Pode ligar uma rede virtual a outra rede virtual (VNet-to-VNet) da mesma forma que pode configurar uma rede virtual para uma localização no local. Ambas as ligações utilizam uma porta de entrada VPN para criar um túnel seguro utilizando o IPsec/IKE. Este modelo de ligação permite-lhe implantar O Azure AD DS numa rede virtual Azure e, em seguida, ligar locais no local ou outras nuvens.
+Pode ligar uma rede virtual a outra rede virtual (VNet-to-VNet) da mesma forma que pode configurar uma rede virtual para uma localização no local. Ambas as ligações utilizam uma porta de entrada VPN para criar um túnel seguro utilizando o IPsec/IKE. Este modelo de ligação permite-lhe implantar o domínio gerido numa rede virtual Azure e, em seguida, ligar locais no local ou outras nuvens.
 
 ![Conectividade de rede virtual usando um Gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
@@ -79,15 +82,15 @@ Para obter mais informações sobre a utilização de redes privadas virtuais, l
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Resolução de nomes ao ligar redes virtuais
 
-As redes virtuais ligadas à rede virtual Azure AD Domain Services normalmente têm as suas próprias definições de DNS. Quando liga redes virtuais, não configura automaticamente a resolução de nomes para a rede virtual de ligação para resolver os serviços prestados pelo domínio gerido. A resolução de nomes nas redes virtuais de ligação deve ser configurada para permitir que as cargas de trabalho das aplicações localizem os Serviços de Domínio AD Azure.
+As redes virtuais ligadas à rede virtual do domínio gerido normalmente têm as suas próprias definições de DNS. Quando liga redes virtuais, não configura automaticamente a resolução de nomes para a rede virtual de ligação para resolver os serviços prestados pelo domínio gerido. A resolução de nomes nas redes virtuais de ligação deve ser configurada para permitir que as cargas de trabalho da aplicação localizem o domínio gerido.
 
-Pode ativar a resolução de nomes utilizando reencaminhadores DNS condicional no servidor DNS que suportam as redes virtuais de ligação ou utilizando os mesmos endereços DNS IP da rede virtual Azure AD Domain Service.
+Pode ativar a resolução de nomes utilizando reencaminhadores DENS condicional no servidor DNS que suportam as redes virtuais de ligação ou utilizando os mesmos endereços DNS IP da rede virtual do domínio gerido.
 
 ## <a name="network-resources-used-by-azure-ad-ds"></a>Recursos de rede utilizados pela Azure AD DS
 
 Um domínio gerido cria alguns recursos de networking durante a implantação. Estes recursos são necessários para o funcionamento e gestão bem sucedidos do domínio gerido, e não devem ser configurados manualmente.
 
-| Recurso azul                          | Description |
+| Recurso azul                          | Descrição |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -100,18 +103,18 @@ Um domínio gerido cria alguns recursos de networking durante a implantação. E
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança de rede e portas necessárias
 
-Um [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa O Azure AD DS que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
+Um [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa um domínio gerido que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
-São necessárias as seguintes regras do grupo de segurança da rede para que a Azure AD DS forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
+São necessárias as seguintes regras do grupo de segurança da rede para que o domínio gerido forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
 | Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Sincronização com o seu inquilino AZure AD. |
-| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino AZure AD. |
+| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
 
 > [!WARNING]
-> Não edite manualmente estes recursos e configurações de rede. Quando associar um grupo de segurança de rede mal configurado ou uma tabela de rotas definida pelo utilizador com a sub-rede em que o Azure AD DS está implantado, poderá perturbar a capacidade da Microsoft de servir e gerir o domínio. A sincronização entre o seu inquilino Azure AD e o seu domínio gerido também é interrompida.
+> Não edite manualmente estes recursos e configurações de rede. Quando associar um grupo de segurança de rede mal configurado ou uma tabela de rotas definida pelo utilizador com a sub-rede em que o domínio gerido é implantado, poderá perturbar a capacidade da Microsoft de servir e gerir o domínio. A sincronização entre o seu inquilino Azure AD e o seu domínio gerido também é interrompida.
 >
 > Se utilizar LDAP seguro, pode adicionar a regra 636 da porta TCP necessária para permitir o tráfego externo, se necessário. Adicionar esta regra não coloca as regras do seu grupo de segurança de rede num estado não apoiado. Para mais informações, consulte [Lock Down Secure Acesso LDAP através da internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
@@ -151,14 +154,14 @@ São necessárias as seguintes regras do grupo de segurança da rede para que a 
 
 ## <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-As rotas definidas pelo utilizador não são criadas por padrão e não são necessárias para que o Azure AD DS funcione corretamente. Se for obrigado a utilizar as tabelas de rotas, evite fazer alterações na rota *0.0.0.0.* As alterações nesta rota perturbam os Serviços de Domínio Azure AD e colocam o domínio gerido num estado não suportado.
+As rotas definidas pelo utilizador não são criadas por padrão e não são necessárias para que o Azure AD DS funcione corretamente. Se for obrigado a utilizar as tabelas de rotas, evite fazer alterações na rota *0.0.0.0.* As alterações nesta rota perturbam o Azure AD DS e colocam o domínio gerido num estado não suportado.
 
-Também deve encaminhar o tráfego de entrada dos endereços IP incluídos nas respetivas etiquetas de serviço Azure para a sub-rede Azure AD Domain Services. Para obter mais informações sobre as etiquetas de serviço e o endereço IP associado, consulte [as Gamas IP E Tags de Serviço Azure - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+Também deve encaminhar o tráfego de entrada dos endereços IP incluídos nas respetivas etiquetas de serviço Azure para a sub-rede do domínio gerido. Para obter mais informações sobre as etiquetas de serviço e o endereço IP associado, consulte [as Gamas IP E Tags de Serviço Azure - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 > [!CAUTION]
 > Estes intervalos IP do datacenter Azure podem ser alterados sem aviso prévio. Certifique-se de que tem processos para validar que tem os mais recentes endereços IP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão utilizadas pela Azure AD DS, consulte os seguintes artigos:
 

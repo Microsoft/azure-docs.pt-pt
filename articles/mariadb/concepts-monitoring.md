@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85413200"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na Base de Dados Azure para MariaDB
@@ -24,7 +23,7 @@ Para orientação passo a passo, consulte [como configurar alertas](howto-alert-
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database for MariaDB:
 
-|Métrica|Nome de exibição métrica|Unidade|Descrição|
+|Metric|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -79,7 +78,7 @@ Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, 
 > [!IMPORTANT]
 > As notificações de manutenção previstas estão atualmente disponíveis em pré-visualização em todas as **regiões, exceto** no Centro-Oeste dos EUA
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
   - Veja [como configurar alertas](howto-alert-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.

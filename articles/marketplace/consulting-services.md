@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: fb2031072ce93fcacdf52f8f0fad68f836049b22
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560894"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957993"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
 
@@ -22,11 +21,11 @@ As ofertas de serviços de consultoria são compromissos específicos do cliente
 
 ## <a name="compare-consulting-services"></a>Comparar serviços de consultoria
 
-As lojas de marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas com o público e produtos na nuvem para ajudar os clientes a encontrar o que precisam. Cada montra tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento editorial. Para saber mais sobre a diferença entre as duas montras, consulte [Comparar o Microsoft AppSource e o Azure Marketplace.](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+As lojas de marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas com o público e produtos na nuvem para ajudar os clientes a encontrar o que precisam. Cada montra tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento editorial. Para saber mais sobre a diferença entre as duas montras, consulte [Comparar o Microsoft AppSource e o Azure Marketplace.](comparing-appsource-azure-marketplace.md)
 
 As ofertas de serviços de consultoria baseadas em Dynamics 365, Power Apps e Power BI são elegíveis para serem listadas no AppSource. Para mais informações, descarregue o ficheiro PDF de [serviços de consultoria microsoft AppSource.](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)
 
-Serviços de consultoria e ofertas de serviços geridos baseados no Microsoft Azure são elegíveis para serem listados no Azure Marketplace. Para mais informações, consulte [publicar uma oferta de serviço de consultoria Azure](./partner-center-portal/create-consulting-service-offer.md) e publicar uma oferta de [serviços geridos para o Azure Marketplace.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
+Serviços de consultoria e ofertas de serviços geridos baseados no Microsoft Azure são elegíveis para serem listados no Azure Marketplace. Para mais informações, consulte [publicar uma oferta de serviço de consultoria Azure](./partner-center-portal/create-consulting-service-offer.md) e publicar uma oferta de [serviços geridos para o Azure Marketplace.](../lighthouse/how-to/publish-managed-services-offers.md)
 
 > [!Note]
 > Os serviços de consultoria no Azure Marketplace devem focar-se em ofertas para um público técnico e enfatizar as soluções e serviços técnicos da Azure.
@@ -57,7 +56,7 @@ Para o AppSource, as competências elegíveis estão listadas no quadro seguinte
 |---------|---------|
 | Vendas do Dynamics 365<br>Dinâmica 365 Marketing<br>Dinâmico 365 Atendimento ao Cliente<br>Serviço de Campo Dinâmico 365<br>Dinâmica 365 Recursos Humanos |   Deve ser gold ou prata certificada na [competência cloud business applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de Envolvimento do Cliente.    | 
 | Dinâmica 365 Finanças<br>Dinâmica 365 Gestão da Cadeia de Abastecimento<br>Dinâmica 365 Comércio<br>Dinâmica 365 Recursos Humanos<br>Dinâmica 365 Automação do Serviço de Projeto |  Deve ser gold ou prata certificada na [competência cloud business applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção Operações Unificadas.       |
-| Dynamics 365 for Customer Insights | Deve ter pelo menos uma implementação bem sucedida na produção da [Dynamics 365 Customer Insights,](https://dynamics.microsoft.com/ai/customer-insights/)com pelo menos cinco medidas e cinco segmentos. |
+| Dynamics 365 Customer Insights | Deve ter pelo menos uma implementação bem sucedida na produção da [Dynamics 365 Customer Insights,](https://dynamics.microsoft.com/ai/customer-insights/)com pelo menos cinco medidas e cinco segmentos. |
 | Dynamics 365 Business Central | Deve ser gold ou prata certificada na [competência de Planeamento de Recursos empresariais,](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)e deve ser o Fornecedor de Soluções Cloud para pelo menos três clientes business central.<br><br>ou <br><br>Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/). |
 | Power BI | Deve estar listado no showcase do [parceiro Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
 |Power Apps | Deve ser elegível para benefícios avançados no Programa de [Parceria de Aplicações de Energia](https://aka.ms/PowerAppsPartner) (PDF). |
@@ -72,7 +71,7 @@ Para obter mais informações sobre competências, aceda à página [microsoft P
 
 Os parceiros integradores de sistemas podem apresentar ofertas de serviços de consultoria para os seguintes 20 países/regiões:
 
-|   |   |   |   |
+| Países  | (continuou..)   | (continuou..)  | (continuou..)  |
 |---------|----------|----------|----------|
 | Austrália | Bélgica | Canadá | Dinamarca |
 | Finlândia  | França | Alemanha  | Índia   |
@@ -83,7 +82,7 @@ Os parceiros integradores de sistemas podem apresentar ofertas de serviços de c
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registar-se para serviços de consultoria no mercado comercial
 
-Comece por [registar a](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informação da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Torne-se um editor no mercado.](https://docs.microsoft.com/azure/marketplace/become-publisher) 
+Comece por [registar a](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informação da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Torne-se um editor no mercado.](become-publisher.md) 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Prepare os seus artefactos editoriais
 Antes de se registar, pode começar a recolher e preparar o conteúdo que ajudará a sua listagem a articular o valor do seu serviço e solução para o seu cliente-alvo. 
@@ -169,7 +168,7 @@ Aqui estão algumas dicas de Markdown:
 * Adicione uma rutura de linha após cada direção.
 * Para formatação **ousada,** adicione um asterisco duplo \* \* (), sem espaço, no início e no fim de uma palavra ou série de palavras (por exemplo, escreva \* \* conteúdo para \* \* formatar uma palavra como **conteúdo).**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

@@ -4,10 +4,9 @@ description: Este artigo fornece uma lista de exceções de mensagens Azure Serv
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340451"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
@@ -74,7 +73,7 @@ Para resolver este erro, instale a biblioteca [Microsoft.Azure.Services.AppAuthe
 
 Para aprender a atribuir permissões a funções, consulte [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus](service-bus-managed-service-identity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 
 - [Exceções do Gestor de Recursos Azure](service-bus-resource-manager-exceptions.md). Lista exceções geradas ao interagir com o Azure Service Bus utilizando o Azure Resource Manager (através de modelos ou chamadas diretas).

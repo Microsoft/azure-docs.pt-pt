@@ -4,10 +4,9 @@ description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052461"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
@@ -26,7 +25,7 @@ O script configura o aparelho Azure Migrate numa máquina física ou VM existent
 
 - A máquina que funcionará como aparelho deve satisfazer os seguintes requisitos de hardware e so:
 
-Cenário | Requisitos
+Scenario | Requirements
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
 Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
@@ -49,7 +48,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
     - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 3. Verifique a versão e o script mais recente do aparelho para a nuvem pública Azure:
 
-    **Algoritmo** | **Transferir** | **SHA256**
+    **Algoritmo** | **Transferência** | **SHA256**
     --- | --- | ---
     VMware (63.1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac088850567cb57c9906fbc3b85a0
 
@@ -98,7 +97,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
 3. Verifique a versão e o script mais recente do aparelho para a nuvem pública Azure:
 
-    **Cenário** | **Transferir** | **SHA256**
+    **Cenário** | **Transferência** | **SHA256**
     --- | --- | ---
     Hiper-V (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2105112) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
 
@@ -127,7 +126,7 @@ Para executar o script:
 
 Certifique-se de que o aparelho pode ligar-se aos URLs Azure para a nuvem [pública.](migrate-appliance.md#public-cloud-urls)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 

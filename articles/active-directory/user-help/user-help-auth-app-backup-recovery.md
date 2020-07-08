@@ -12,10 +12,9 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84416020"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer o back up e recuperar as credenciais de conta usando a app Microsoft Authenticator
@@ -120,7 +119,7 @@ Existem algumas razões pelas quais o seu backup pode não estar disponível
 
 - **A cópia de segurança está desatualizada**: Se as suas informações de backup estiverem desatualizadas, poderá ser-lhe pedido que reacmem as informações, insinuá-la novamente na sua conta de Recuperação da Microsoft. A sua conta de recuperação é a conta pessoal da Microsoft que usou inicialmente para armazenar a sua cópia de segurança. Se for necessário um início de sposição, verá um ponto vermelho no seu menu ou barra de ação, ou verá um ícone de marca de exclamação que o leva a iniciar sposição para terminar a restauração da cópia de segurança. Depois de selecionar o ícone apropriado, será solicitado que faça sedudas novamente para atualizar as suas informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que fez o back up e recuperou as credenciais da sua conta para o seu novo dispositivo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade. Para obter mais informações, consulte [iniciar sôm nas suas contas utilizando a aplicação Microsoft Authenticator](user-help-sign-in.md).
 

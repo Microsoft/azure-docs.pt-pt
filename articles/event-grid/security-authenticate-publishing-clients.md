@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: spelluru
 ms.openlocfilehash: 7805c9b9096cb52fcef3dad8eb0bdd9509cbce47
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414887"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticar clientes editoriais (Azure Event Grid)
@@ -83,5 +82,5 @@ Aqui está um exemplo de passar o símbolo SAS como um valor para o `Authorizati
 Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte [a autenticação de entrega do Evento](security-authentication.md) para saber sobre a autenticação com os manipuladores de eventos para entregar eventos. 

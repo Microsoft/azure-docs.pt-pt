@@ -1,5 +1,5 @@
 ---
-title: Phoenix Query Server REST SDK - Azure HDInsight
+title: Phoenix Consulta Server REST SDK - Azure HDInsight
 description: Instale e utilize o REST SDK para o Servidor de Consulta Phoenix em Azure HDInsight.
 author: ashishthaps
 ms.author: ashishth
@@ -8,51 +8,52 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa94b7461907a2337ba448a91d67fe93c5ab2f8f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612262"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957567"
 ---
-# <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Consulta Server REST SDK
+# <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Consulta Servidor REST SDK
 
-[Apache Phoenix](https://phoenix.apache.org/) é uma camada de base de dados relacional massivamente paralela em cima de [Apache HBase](apache-hbase-overview.md). A Phoenix permite-lhe utilizar consultas semelhantes a SQL com HBase através de ferramentas SSH, como [o SQLLine](apache-hbase-query-with-phoenix.md). A Phoenix também fornece um servidor HTTP chamado Phoenix Query Server (PQS), um cliente fino que suporta dois mecanismos de transporte para a comunicação do cliente: JSON e Protocol Buffers. O Protocolo Buffers é o mecanismo padrão, e oferece uma comunicação mais eficiente do que a JSON.
+[Apache Phoenix](https://phoenix.apache.org/) é uma camada de base de dados relacional massivamente paralela em cima da [Apache HBase](apache-hbase-overview.md). A Phoenix permite-lhe utilizar consultas semelhantes a SQL com HBase através de ferramentas SSH como [SQLLine.](apache-hbase-query-with-phoenix.md) A Phoenix também fornece um servidor HTTP chamado Phoenix Query Server (PQS), um cliente fino que suporta dois mecanismos de transporte para a comunicação do cliente: JSON e Buffers de Protocolo. Os Buffers protocolares são o mecanismo padrão, e oferece uma comunicação mais eficiente do que o JSON.
 
-Este artigo descreve como usar o PQS REST SDK para criar tabelas, linhas de upsert individualmente e a granel, e selecionar dados usando declarações SQL. Os exemplos usam o [controlador Microsoft .NET para Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Este SDK é construído com as [APIs Avatica da Apache Calcite,](https://calcite.apache.org/avatica/) que utilizam exclusivamente buffers protocolares para o formato de serialização.
+Este artigo descreve como usar o PQS REST SDK para criar tabelas, upsert rows individualmente e a granel, e selecione dados usando declarações SQL. Os exemplos utilizam o [controlador Microsoft .NET para o Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Este SDK é construído em [APIs Avatica da Apache Calcite,](https://calcite.apache.org/avatica/) que usam exclusivamente Tampões de Protocolo para o formato de serialização.
 
-Para mais informações, consulte [Apache Calcite Avatica Protocol Buffers Reference](https://calcite.apache.org/avatica/docs/protobuf_reference.html).
+Para mais informações, consulte [a Referência de Buffers do Protocolo Avatica Apache Calcite](https://calcite.apache.org/avatica/docs/protobuf_reference.html).
 
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
-O controlador Microsoft .NET para apache Phoenix Query Server é fornecido como um pacote NuGet, que pode ser instalado a partir da Consola de **Pacotes NuGet** do Estúdio Visual com o seguinte comando:
+O controlador Microsoft .NET para Apache Phoenix Query Server é fornecido como um pacote NuGet, que pode ser instalado a partir da Consola visual Studio **NuGet Package Manager** com o seguinte comando:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
-## <a name="instantiate-new-phoenixclient-object"></a>Instantiate novo objeto PhoenixClient
+## <a name="instantiate-new-phoenixclient-object"></a>Novo objeto PhoenixClient instantâneo
 
-Para começar a usar a `PhoenixClient` biblioteca, instantaneamente um novo objeto, passando `ClusterCredentials` contendo o `Uri` seu cluster e o nome de utilizador e senha de utilizador Apache Hadoop do cluster.
+Para começar a usar a biblioteca, instantânea um novo `PhoenixClient` objeto, passando `ClusterCredentials` a conter o seu cluster e o nome de utilizador e senha apache `Uri` Hadoop do cluster.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
-Substitua o CLUSTERNAME pelo nome do cluster HDInsight HBase e userNAME e PASSWORD pelas credenciais Hadoop especificadas na criação do cluster. O nome de utilizador de Hadoop predefinido é **administrador**.
+Substitua o CLUSTERNAME pelo seu nome de cluster HDInsight HBase e USERNAME e PASSWORD pelas credenciais Hadoop especificadas na criação do cluster. O nome de utilizador hadoop predefinido é **administrador.**
 
-## <a name="generate-unique-connection-identifier"></a>Gerar identificador de ligação único
+## <a name="generate-unique-connection-identifier"></a>Gerar identificador de conexão único
 
-Para enviar um ou mais pedidos para PQS, você precisa incluir um identificador de ligação único para associar o(s) pedido com a conexão.
+Para enviar um ou mais pedidos para pQS, você precisa incluir um identificador de conexão único para associar o(s) pedido(s) com a ligação.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
-Cada exemplo primeiro faz `OpenConnectionRequestAsync` uma chamada para o método, passando no identificador de ligação único. Em seguida, defina `ConnectionProperties` e, `RequestOptions`passando esses objetos e o identificador de ligação gerado ao `ConnectionSyncRequestAsync` método. O objeto do `ConnectionSyncRequest` PQS ajuda a garantir que tanto o cliente como o servidor têm uma visão consistente das propriedades da base de dados.
+Cada exemplo faz primeiro uma chamada para o `OpenConnectionRequestAsync` método, passando no identificador de ligação único. Em seguida, defina `ConnectionProperties` e `RequestOptions` passe esses objetos e o identificador de conexão gerado para o `ConnectionSyncRequestAsync` método. O objeto do PQS `ConnectionSyncRequest` ajuda a garantir que tanto o cliente como o servidor têm uma visão consistente das propriedades da base de dados.
 
-## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest e as suas Propriedades de Conexão
+## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConexõesSSyncRequest e suas ConexõesProperties
 
-Para `ConnectionSyncRequestAsync`ligar, passe `ConnectionProperties` um objeto.
+Para `ConnectionSyncRequestAsync` ligar, passe num `ConnectionProperties` objeto.
 
 ```csharp
 ConnectionProperties connProperties = new ConnectionProperties
@@ -73,9 +74,9 @@ Aqui estão algumas propriedades de interesse:
 
 | Propriedade | Descrição |
 | -- | -- |
-| AutoCommit | Uma booleana denotando se `autoCommit` está habilitado para transações phoenix. |
+| AutoCommit | Um booleano denotando se `autoCommit` está habilitado para transações Phoenix. |
 | ReadOnly | Um booleano denotando se a ligação é apenas leitura. |
-| Isolamento de Transações | Um inteiro que denote o nível de isolamento de transações de acordo com a especificação JDBC - consulte a tabela seguinte.|
+| TransaçãoIsolação | Um número inteiro que denota o nível de isolamento de transações de acordo com a especificação JDBC - consulte a tabela seguinte.|
 | Catálogo | O nome do catálogo a utilizar ao recolher propriedades de ligação. |
 | Esquema | O nome do esquema a utilizar ao recolher propriedades de ligação. |
 | IsDirty | Um booleano denotando se as propriedades foram alteradas. |
@@ -84,17 +85,17 @@ Aqui estão os `TransactionIsolation` valores:
 
 | Valor de isolamento | Descrição |
 | -- | -- |
-| 0 | As transações não são apoiadas. |
-| 1 | Leituras sujas, leituras não repetíveis e leituras fantasma podem ocorrer. |
-| 2 | São evitadas leituras sujas, mas podem ocorrer leituras não repetíveis e leituras fantasma. |
-| 4 | Leituras sujas e leituras não repetíveis são evitadas, mas podem ocorrer leituras fantasma. |
-| 8 | Leituras sujas, leituras não repetíveis e leituras fantasma são todas evitadas. |
+| 0 | As transações não são suportadas. |
+| 1 | Leituras sujas, leituras não repetíveis, e leituras fantasma podem ocorrer. |
+| 2 | As leituras sujas são prevenidas, mas podem ocorrer leituras não repetíveis e leituras fantasma. |
+| 4 | São evitadas leituras sujas e leituras não repetíveis, mas podem ocorrer leituras fantasma. |
+| 8 | Leituras sujas, leituras não repetíveis, e leituras fantasma são todas evitadas. |
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
-HBase, como qualquer outro RDBMS, armazena dados em tabelas. Phoenix usa consultas Padrão SQL para criar novas tabelas, ao mesmo tempo que define a chave primária e os tipos de colunas.
+A HBase, como qualquer outro RDBMS, armazena dados em tabelas. Phoenix usa consultas SQL padrão para criar novas tabelas, ao mesmo tempo que define os tipos de chave e colunas primárias.
 
-Este exemplo e todos os exemplos posteriores, use o `PhoenixClient` objeto instantâneo como definido em [Instantiate um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
+Este exemplo e todos os exemplos posteriores, utilize o objeto instantâneo `PhoenixClient` como definido em [Instantiate um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -160,17 +161,17 @@ finally
 }
 ```
 
-O exemplo anterior cria uma `Customers` nova `IF NOT EXISTS` tabela chamada usando a opção. A `CreateStatementRequestAsync` chamada cria uma nova declaração no servidor Avitica (PQS). O `finally` quarteirão fecha `CreateStatementResponse` o `OpenConnectionResponse` devolvido e os objetos.
+O exemplo anterior cria uma nova tabela com o `Customers` nome usando a `IF NOT EXISTS` opção. A `CreateStatementRequestAsync` chamada cria uma nova declaração no servidor Avitica (PQS). O `finally` bloco fecha o devolvido e os `CreateStatementResponse` `OpenConnectionResponse` objetos.
 
 ## <a name="insert-data-individually"></a>Inserir dados individualmente
 
-Este exemplo mostra uma inserção individual de dados, referindo uma `List<string>` coleção de abreviaturas de estado e território americanos:
+Este exemplo mostra uma inserção de dados individual, referindo uma `List<string>` recolha de abreviaturas do estado e do território americano:
 
 ```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-O valor `StateProvince` da coluna da tabela será utilizado numa operação posteriormente selecionada.
+O valor da coluna da tabela `StateProvince` será utilizado numa operação selecionada posterior.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,11 +278,11 @@ finally
 }
 ```
 
-A estrutura para executar uma declaração de inserção é semelhante à criação de uma nova tabela. No final do `try` bloco, a transação é explicitamente comprometida. Este exemplo repete uma transação de inserção 300 vezes. O exemplo seguinte mostra um processo de inserção de lote mais eficiente.
+A estrutura para executar uma declaração de inserção é semelhante à criação de uma nova tabela. No final do `try` quarteirão, a transação é explicitamente comprometida. Este exemplo repete uma transação de inserção 300 vezes. O exemplo a seguir mostra um processo de inserção de lote mais eficiente.
 
-## <a name="batch-insert-data"></a>Dados de inserção do lote
+## <a name="batch-insert-data"></a>Dados de inserção de lote
 
-O código que se segue é quase idêntico ao código de inserção individual dos dados. Este exemplo `UpdateBatch` utiliza o objeto `ExecuteBatchRequestAsync`numa chamada para, em vez de ligar `ExecuteRequestAsync` repetidamente com uma declaração preparada.
+O código seguinte é quase idêntico ao código para a inserção individual dos dados. Este exemplo usa o `UpdateBatch` objeto numa chamada para , em vez de chamar `ExecuteBatchRequestAsync` repetidamente com uma declaração `ExecuteRequestAsync` preparada.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -391,15 +392,15 @@ finally
 }
 ```
 
-Num ambiente de teste, inserir individualmente 300 novos registos demorou quase 2 minutos. Em contraste, inserir 300 discos como lote requer apenas 6 segundos.
+Num ambiente de teste, inserir individualmente 300 novos registos demorou quase 2 minutos. Em contraste, inserir 300 registos como um lote necessário apenas 6 segundos.
 
 ## <a name="select-data"></a>Selecionar dados
 
 Este exemplo mostra como reutilizar uma ligação para executar múltiplas consultas:
 
-1. Selecione todos os registos e, em seguida, obter os registos restantes após a dposição do máximo de 100.
-2. Utilize uma declaração selecionada para a contagem total da linha para recuperar o resultado único do escalar.
-3. Execute uma declaração selecionada que deretenha o número total de clientes por estado ou território.
+1. Selecione todos os registos e, em seguida, pegue os registos restantes após a devolvição do máximo de 100.
+2. Utilize uma declaração selecionada de contagem total de linhas para recuperar o resultado do único escalar.
+3. Execute uma declaração selecionada que devolva o número total de clientes por estado ou território.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -492,9 +493,9 @@ finally
 }
 ```
 
-A saída `select` das declarações deve ser o seguinte resultado:
+A saída das `select` declarações deve ser o seguinte resultado:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10
@@ -537,7 +538,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-* [Usando o Apache HBase REST SDK](apache-hbase-rest-sdk.md)
+* [Utilizando o Apache HBase REST SDK](apache-hbase-rest-sdk.md)

@@ -5,10 +5,9 @@ ms.date: 09/09/2019
 ms.topic: how-to
 ms.reviewer: mmercuri
 ms.openlocfilehash: dc7a1dc7e4a083ef8f5f7650f29ed1430b32e88b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214201"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar a firewall da base de dados do Azure Blockchain Workbench
@@ -50,7 +49,7 @@ Para criar uma regra de firewall:
 1. Para guardar a configuração da firewall, selecione **Guardar**.
 2. Teste o intervalo de endereços IP que configurou para a base de dados ao ligar a uma aplicação ou ferramenta. Por exemplo, SQL Server Management Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

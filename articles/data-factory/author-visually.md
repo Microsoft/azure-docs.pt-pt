@@ -11,10 +11,9 @@ ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
 ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343123"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
@@ -43,7 +42,7 @@ Para recursos de alto nível, tais como oleodutos, conjuntos de dados e fluxos d
 
 O painel de propriedades só abre por defeito na criação de recursos. Para editá-lo, clique no ícone do painel de propriedades localizado no canto superior direito da tela.
 
-## <a name="management-hub"></a>Centro de gestão
+## <a name="management-hub"></a>Hub de gestão
 
 O centro de gestão, acedido pelo *separador Manage* no Azure Data Factory UX, é um portal que acolhe ações de gestão global para a sua fábrica de dados. Aqui, pode gerir as suas ligações a lojas de dados e cálculos externos, configuração de controlo de fontes e definições de gatilho. Para mais informações, saiba mais sobre as capacidades do centro de [gestão.](author-management-hub.md)
 
@@ -67,7 +66,7 @@ Para obter informações sobre a linguagem de expressão, consulte [Expressões 
 
 Selecione **Feedback** para comentar funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
 
-![Comentários](media/author-visually/provide-feedback.png)
+![Feedback](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Próximos passos
 

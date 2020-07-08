@@ -12,10 +12,9 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781604"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
@@ -257,7 +256,7 @@ Por predefinição, a aplicação de conector de provisionamento mapeia o estado
 
 Quando iniciar o processo Joiners-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processo | Requirements |
 | - | - |
 | **Marceneiros** | Do ponto de vista do ciclo de vida da identidade, como lida com as recontratadas? As recontratadas mantêm as suas antigas identificações de empregados? |
 | | Processa contratações futuras e cria contas de Ative Directory para elas com antecedência? Estas contas são criadas num estado ativado ou deficiente? |
@@ -276,7 +275,7 @@ Cada aplicativo hr em nuvem envia com app de RH em nuvem padrão para mapeamento
 
 Quando iniciar o processo Joiners-Movers-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processo | Requirements |
 | - | - |
 | **Marceneiros** | O processo de criação de conta Ative Directory é manual, automatizado ou parcialmente automatizado? |
 | | Planeia propagar atributos personalizados da aplicação cloud HR para Ative Directory? |
@@ -414,7 +413,7 @@ Para resolver problemas que possam surgir durante o provisionamento, consulte os
 - [Compreensão de registos para operações de atualização do Gestor](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolução de erros geralmente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 - [Expressãos de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização AZure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

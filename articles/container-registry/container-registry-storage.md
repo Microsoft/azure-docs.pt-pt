@@ -4,10 +4,9 @@ description: Detalhes sobre como as imagens do seu contentor Docker são armazen
 ms.topic: article
 ms.date: 06/18/2020
 ms.openlocfilehash: d51014e9e0769091aba42682cce3a6a01cfa19de
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214065"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no registo do contentor de Azure
@@ -36,7 +35,7 @@ Um número muito elevado de repositórios e tags pode ter impacto no desempenho 
 
 Para obter todos os detalhes sobre os preços, consulte [os preços do registo do contentor Azure.][pricing]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os registos básicos, standard e premium dos contentores, consulte [os níveis de serviço de registo de contentores Azure.](container-registry-skus.md)
 

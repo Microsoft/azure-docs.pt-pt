@@ -4,10 +4,9 @@ description: Este artigo explica como usar o Azure Monitor para monitorizar as e
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340295"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
@@ -56,8 +55,8 @@ Conta o número de pedidos de dados e operações de gestão.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Pedidos de Entrada| O número de pedidos feitos ao serviço service bus durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Pedidos de Sucesso|O número de pedidos bem sucedidos feitos ao serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+| Pedidos Recebidos| O número de pedidos feitos ao serviço service bus durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|Pedidos Com Êxito|O número de pedidos bem sucedidos feitos ao serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |Erros do servidor|O número de pedidos não processados devido a um erro no serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |Erros do utilizador (ver a seguinte subsecção)|O número de pedidos não processados devido a erros do utilizador durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |Pedidos de Aceleração|O número de pedidos que foram estrangulados porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
@@ -74,8 +73,8 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Mensagens de saída|O número de eventos ou mensagens recebidas da Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|Mensagens Recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|Mensagens Enviadas|O número de eventos ou mensagens recebidas da Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 | Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da Entidade |
 | ActiveMessages| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da Entidade |
 | Mensagens com letras mortas| Contagem de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: Nome da Entidade |
@@ -166,7 +165,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
 
     ![Criar botão de regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a visão geral do [Monitor Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

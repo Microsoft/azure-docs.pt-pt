@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85413642"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
@@ -300,7 +299,7 @@ service "party-clippy" deleted
 ingress "party-clippy" deleted
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como instalar um controlador Ingress protegido pelo HTTPS em AKS, consulte [HTTPS Ingress no Serviço Azure Kubernetes (AKS)][ingress-https].
 

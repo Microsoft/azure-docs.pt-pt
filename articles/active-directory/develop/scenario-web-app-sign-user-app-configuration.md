@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052230"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
@@ -27,7 +26,7 @@ Saiba como configurar o código da sua aplicação web que assina nos utilizador
 <!-- This section can be in an include for web app and web APIs -->
 As bibliotecas que são usadas para proteger uma aplicação web (e uma API web) são:
 
-| Plataforma | Biblioteca | Description |
+| Plataforma | Biblioteca | Descrição |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [Extensões de modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Utilizados diretamente por ASP.NET e ASP.NET Core, as extensões do modelo de identidade da Microsoft para .NET propõe um conjunto de DLLs em execução tanto no .NET Framework como no .NET Core. A partir de uma aplicação web core ASP.NET ou ASP.NET, pode controlar a validação de tokens utilizando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Suporte para aplicações web java |
@@ -325,7 +324,7 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo artigo, aprenderá a desencadear o sº de sção e a assinatura.
 

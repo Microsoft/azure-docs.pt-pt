@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
 ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414193"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
@@ -195,7 +194,7 @@ AzureDiagnostics 
 | where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explore o Monitor Azure para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Monitore e depure com métricas em Azure Cosmos DB](use-metrics.md)

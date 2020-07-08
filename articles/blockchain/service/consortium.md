@@ -5,10 +5,9 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712535"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consórcio Azure Blockchain Service
@@ -34,10 +33,10 @@ Os participantes num consórcio podem ser indivíduos ou organizações e podem 
 | Ação | Função de utilizador | Função de administrador
 |--------|:----:|:------------:|
 | Criar novo membro | Sim | Sim |
-| Convidar novos membros | Não | Yes |
-| Definir ou alterar o papel de participante do membro | Não | Yes |
+| Convidar novos membros | Não | Sim |
+| Definir ou alterar o papel de participante do membro | Não | Sim |
 | Alterar nome de exibição de membro | Apenas para o próprio membro | Apenas para o próprio membro |
-| Remover membros | Apenas para o próprio membro | Yes |
+| Remover membros | Apenas para o próprio membro | Sim |
 | Participar em transações blockchain | Sim | Sim |
 
 ### <a name="user-role"></a>Função de utilizador
@@ -77,6 +76,6 @@ A conta de membro pode ser vista no portal Azure. A conta do membro está na sec
 
 Pode redefinir a sua conta Ethereum clicando na sua conta de membro e introduzindo uma nova palavra-passe. Tanto o endereço da conta Ethereum como a palavra-passe serão reiniciados.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 As ações de gestão do consórcio podem ser acedidas através da PowerShell. Para obter mais informações, consulte [Gerir membros do consórcio no Serviço Azure Blockchain utilizando o PowerShell](manage-consortium-powershell.md).

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.openlocfilehash: 0c77864acd53976b9108a77198f645c419763b21
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414458"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Gestor de Recursos Azure
@@ -68,7 +67,7 @@ Em seguida, sSH para o seu VM normalmente. Fornecer-lhe endereço IP público a 
 ssh <adminUsername>@<ipAddress>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste exemplo, criou um Linux VM básico. Para mais modelos de Gestor de Recursos que incluam quadros de aplicações ou crie ambientes mais complexos, navegue nos [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 

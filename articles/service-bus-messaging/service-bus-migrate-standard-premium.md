@@ -4,10 +4,9 @@ description: Guia para permitir a migração dos espaços de nome padrão do Azu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340751"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar espaços de nome padrão Azure Service Bus existentes para o nível premium
@@ -208,7 +207,7 @@ No entanto, se puder migrar durante uma janela de manutenção/limpeza planeada,
     >
     > Após a migração estar concluída, as aplicações do recetor desligar-se-ão do espaço de nome padrão e ligar-se-ão automaticamente ao espaço de nomes premium.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as [diferenças entre mensagens standard e premium.](./service-bus-premium-messaging.md)
 * Conheça os [aspetos de alta disponibilidade e recuperação de geo-desastres para o prémio de ônibus de serviço.](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)

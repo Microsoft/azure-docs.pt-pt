@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343834"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
@@ -212,7 +211,7 @@ Para obter mais informações sobre parâmetros valorizados por tabela, consulte
 
 ### <a name="sql-bulk-copy"></a>Cópia a granel SQL
 
-A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **A SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **bcp.exe,** ou à declaração Transact-SQL, **BULK INSERT**. O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable**de origem, tabela, para a tabela de destino, MyTable.
+A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **Bcp.exe, **ou à declaração Transact-SQL, **BULK INSERT**. O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable**de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))

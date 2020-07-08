@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339829"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge"></a>Gerir o cálculo no seu Azure Stack Edge
@@ -129,6 +128,6 @@ Tome os seguintes passos no portal Azure para sincronizar as teclas de acesso do
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como gerir a [rede de computação Edge através do portal Azure](azure-stack-edge-extend-compute-access-modules.md).

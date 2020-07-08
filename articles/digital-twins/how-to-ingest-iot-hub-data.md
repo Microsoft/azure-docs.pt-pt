@@ -7,17 +7,13 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 4d2b849df7371815a120e59cfff3d8bc7596b1ed
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725856"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 A Azure Digital Twins é conduzida com dados de dispositivos IoT e outras fontes. Uma fonte comum para os dados do dispositivo a utilizar em Azure Digital Twins é [o IoT Hub](../iot-hub/about-iot-hub.md).
 
@@ -273,7 +269,7 @@ Agora tem uma função Azure que está equipada para ler e interpretar os dados 
 
 É possível depurar funções de Azure com um gatilho de Grade de Eventos localmente. Para obter mais informações sobre isto, consulte [o gatilho da Grelha de Eventos de Debug localmente.](../azure-functions/functions-debug-event-grid-trigger-local.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre a entrada de dados e saída com a Azure Digital Twins:
 * [Conceitos: Integração com outros serviços](concepts-integration.md)

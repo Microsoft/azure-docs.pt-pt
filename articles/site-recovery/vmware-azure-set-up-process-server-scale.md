@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711957"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escala com servidores de processos adicionais
@@ -101,5 +100,5 @@ Se precisar de configurar um representante, o parâmetro ProxySettingsFilePath t
 * ProxyPassword="Password"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [a gestão das definições do servidor de processos](vmware-azure-manage-process-server.md)

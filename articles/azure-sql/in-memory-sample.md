@@ -12,10 +12,9 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84345279"
 ---
 # <a name="in-memory-sample"></a>Amostra na memória
@@ -49,7 +48,7 @@ Para uma demonstração de desempenho mais simplista, mas visualmente mais apela
 
 1. No [portal Azure,](https://portal.azure.com/)crie uma base de dados Premium ou Business Critical num servidor. Desa estada a **Fonte** para a base de dados de amostras AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar a sua primeira base de dados na Base de Dados Azure SQL](database/single-database-create-quickstart.md).
 
-2. Conecte-se à base de dados com o SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
+2. Ligue-se à base de dados com o SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Copie o [script OLTP Transact-SQL na](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) sua área de transferência. O script T-SQL cria os objetos in-memory necessários na base de dados de amostras AdventureWorksLT que criou no passo 1.
 
@@ -109,9 +108,9 @@ A única diferença entre os dois *procedimentos armazenados seguintes* é que o
 - SalesLT **.** _inmem**usp_InsertSalesOrder**
 - SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
-Nesta secção, você vê como usar o utilitário **ostress.exe** útil para executar os dois procedimentos armazenados em níveis stressantes. Pode comparar o tempo que as duas corridas de stress demoram a terminar.
+Nesta secção, você vê como usar a utilidade **ostress.exe** útil para executar os dois procedimentos armazenados em níveis stressantes. Pode comparar o tempo que as duas corridas de stress demoram a terminar.
 
-Quando executar ostress.exe, recomendamos que passe valores de parâmetros concebidos para ambos os seguintes:
+Quando correr ostress.exe, recomendamos que passe valores de parâmetros concebidos para ambos os seguintes:
 
 - Executar um grande número de ligações simultâneas, utilizando -n100.
 - Tenha cada ciclo de ligação centenas de vezes, utilizando -r500.
@@ -120,7 +119,7 @@ No entanto, é melhor começar com valores muito menores como -n10 e -r50 para g
 
 ### <a name="script-for-ostressexe"></a>Roteiro para ostress.exe
 
-Esta secção apresenta o script T-SQL que está incorporado na nossa linha de comando ostress.exe. O script utiliza itens que foram criados pelo script T-SQL que instalou anteriormente.
+Esta secção exibe o script T-SQL que está incorporado na nossa linha de comando ostress.exe. O script utiliza itens que foram criados pelo script T-SQL que instalou anteriormente.
 
 O seguinte script insere uma ordem de venda de amostra com cinco itens de linha nas seguintes *tabelas*otimizadas pela memória:
 
@@ -154,15 +153,15 @@ Para fazer a versão *_ondisk* do script T-SQL anterior para ostress.exe, substi
 
 #### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e`ostress`
 
-Idealmente, você planeja executar ostress.exe em uma máquina virtual Azure (VM). Criaria um [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica de Azure onde reside a sua base de dados AdventureWorksLT. Mas podes correr ostress.exe no teu portátil.
+Idealmente, você planeja executar ostress.exe numa máquina virtual Azure (VM). Criaria um [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica de Azure onde reside a sua base de dados AdventureWorksLT. Mas podes correr ostress.exe no teu portátil.
 
-No VM, ou em qualquer anfitrião que escolher, instale os utilitários Replay Markup Language (RML). Os utilitários incluem ostress.exe.
+No VM, ou em qualquer anfitrião que escolher, instale os utilitários Replay Markup Language (RML). Os serviços públicos incluem ostress.exe.
 
 Para obter mais informações, consulte:
 
-- A discussão ostress.exe na [Base de Dados de Amostras para OLTP in-memory](https://msdn.microsoft.com/library/mt465764.aspx).
+- O ostress.exe discussão na [Base de Dados de Amostras para OLTP in-memory](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Base de dados de amostras para OLTP na memória.](https://msdn.microsoft.com/library/mt465764.aspx)
-- O [blog para instalar ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
+- O [blog para instalar ostress.exe. ](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910)
 
 <!--
 dn511655.aspx is for SQL 2014,
@@ -217,7 +216,7 @@ Depois de ter o resultado da *_inmem* correr, execute os seguintes passos para a
 
 2. Edite a linha de comando ostress.exe para substituir todas as *_inmem* por *_ondisk*.
 
-3. Repercuta ostress.exe pela segunda vez e capture o resultado da duração.
+3. Re-run ostress.exe pela segunda vez, e capture o resultado da duração.
 
 4. Mais uma vez, reinicie a base de dados (para eliminar de forma responsável o que pode ser uma grande quantidade de dados de teste).
 
@@ -333,7 +332,7 @@ GO
 
 Numa base de dados com o nível de preços P2, pode esperar cerca de nove vezes o ganho de desempenho desta consulta utilizando o índice de colunas agrupadas em comparação com o índice tradicional. Com o P15, pode esperar cerca de 57 vezes o ganho de desempenho utilizando o índice de loja de colunas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart 1: In-Memory OLTP Technologies para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
 

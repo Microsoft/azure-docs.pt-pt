@@ -15,10 +15,9 @@ ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669363"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
@@ -89,7 +88,7 @@ Para criar a rede virtual no portal Azure:
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereço** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Admin |
+   | **Nome da sub-rede** |Administrador |
    | **Gama de endereços de sub-rede** |10.33.0.0/29 |
    | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** está em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **Utilizar o nome existente** e escolher o nome do grupo de recursos. |

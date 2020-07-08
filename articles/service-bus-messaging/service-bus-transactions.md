@@ -4,10 +4,9 @@ description: Este artigo dá-lhe uma visão geral do processamento de transaçõ
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340512"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de autocarros de serviço
@@ -90,7 +89,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 ## <a name="timeout"></a>Tempo Limite
 Uma transação acaba após 2 minutos. O temporizador de transações começa quando a primeira operação da transação começa. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para obter mais informações sobre as filas do Service Bus:
 

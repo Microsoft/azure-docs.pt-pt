@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e48c9ae3ff9697faa6c652794df78deb52e94a73
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734661"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040083"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar a Política de Grupo num domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -25,9 +24,7 @@ Num ambiente híbrido, as políticas de grupo configuradas num ambiente AD DS no
 
 Este artigo mostra-lhe como instalar as ferramentas de Gestão de Políticas de Grupo, em seguida, editar os GPOs incorporados e criar GPOs personalizados.
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -118,7 +115,7 @@ Para agrupar definições de políticas semelhantes, muitas vezes criaSGOs adici
 
     Quando terminar, escolha **'>', guarde** para guardar a política. Os computadores atualizam a Política de Grupo por predefinição a cada 90 minutos e aplicam as alterações efetuadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as definições de Política de Grupo disponíveis que possa configurar utilizando a Consola de Gestão de Políticas de Grupo, consulte [itens de preferência de Gestão de Políticas de Grupo][group-policy-console].
 

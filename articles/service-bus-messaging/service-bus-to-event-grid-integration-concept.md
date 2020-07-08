@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340573"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
@@ -167,7 +166,7 @@ New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTIO
 
 A partir de aqui, pode explorar as outras opções de configuração ou testar se os eventos estão a fluir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha [exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e Event Grid.
 * Saiba mais sobre o [Event Grid](https://docs.microsoft.com/azure/event-grid/).

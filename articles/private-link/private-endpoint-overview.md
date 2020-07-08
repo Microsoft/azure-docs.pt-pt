@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414152"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
@@ -58,14 +57,14 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Automatização do Azure** |  Microsoft.Automation/automation | Webhook, DSCAndHybridWorker |
 |**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        | 
-|**Storage do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
+|**Armazenamento do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**BD do Cosmos para o Azure** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |
 |**Azure IoT Hub** | Microsoft.Devices/IotHubs    | IotHub |
-|**Cofre da Chave Azure** | Microsoft.KeyVault/cofres    | cofre |
+|**Azure Key Vault** | Microsoft.KeyVault/cofres    | cofre |
 |**Serviço Azure Kubernetes - Kubernetes API** | Microsoft.ContainerService/managedClusters    | geridoCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Registo de Contentores do Azure** | Microsoft.ContainerRegistry/registries    | registry |
@@ -124,7 +123,7 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 |As regras do Grupo de Segurança de Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado    |O NSG não é suportado em pontos finais privados. Embora as sub-redes que contenham o ponto final privado possam ter NSG associada, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter [políticas de rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa sub-rede. O NSG ainda é aplicado em outras cargas de trabalho alojoadas na mesma sub-rede. As rotas em qualquer sub-rede de clientes usarão um prefixo /32, alterando o comportamento de encaminhamento padrão requer um UDR semelhante  | Controle o tráfego utilizando as regras NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para substituir rotas privadas de ponto final. Os registos do NSG Flow e as informações de monitorização das ligações de saída ainda são suportados e podem ser utilizados        |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Criar um ponto de final privado para base de dados SQL utilizando o Portal](create-private-endpoint-portal.md)
 - [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)

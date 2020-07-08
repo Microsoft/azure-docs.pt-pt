@@ -10,10 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988635"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
@@ -170,7 +169,7 @@ Resposta:
 
 Consulte [os cenários de autenticação para Azure AD,](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)para obter exemplos mais detalhados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

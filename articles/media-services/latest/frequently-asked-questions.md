@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
 ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987233"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
@@ -267,6 +266,6 @@ Existem duas formas de melhorar a velocidade de descarregamento:
   * Controlado pelo cliente: A aplicação do jogador seleciona automaticamente, ou o utilizador seleciona, a camada de qualidade de vídeo e as faixas de áudio para descarregar.
   * Controlado por serviço: Pode utilizar a função Dynamic Manifest nos Serviços Azure Media para criar um filtro (global), que limita a lista de reprodução HLS ou o MPD do DASH a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, o URL de descarregamento apresentado aos utilizadores incluirá este filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

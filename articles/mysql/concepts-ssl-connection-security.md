@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.openlocfilehash: 2421f8a9396b47d04db35a7cad843f6baa6f6177
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84416108"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS na Base de Dados Azure para o MySQL
@@ -52,7 +51,7 @@ Por exemplo, definir o valor da versão mínima de definição de TLS para TLS 1
 
 Para saber como definir a definição de TLS para a sua Base de Dados Azure para o MySQL, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Bibliotecas de conexão para Azure Database para MySQL](concepts-connection-libraries.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)

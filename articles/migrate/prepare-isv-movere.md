@@ -4,10 +4,9 @@ description: Este artigo descreve como preparar o Azure Migrate para trabalhar c
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770378"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Prepare-se para trabalhar com uma ferramenta ISV ou Movere
@@ -56,7 +55,7 @@ management.azure.com | Faça chamadas Azure Resource Manager para o Projeto Azur
 1. Se ainda não tiver licença ou teste gratuito para a ferramenta, na entrada da ferramenta em Azure Migrate, no **Registo**, selecione **Saiba mais**.
 2. Na ferramenta, siga as instruções para ligar da ferramenta ao projeto Azure Migrate e enviar dados para a Azure Migrate.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga as instruções do seu ISV ou Movere para enviar dados para Azure Migrate.
 

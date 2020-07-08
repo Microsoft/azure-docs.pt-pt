@@ -12,10 +12,9 @@ ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
 ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214371"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Resolução de problemas Colocação de Docker de modelos com serviço Azure Kubernetes e Instâncias de Contentores Azure 
@@ -48,7 +47,7 @@ A abordagem recomendada para a implementação do modelo é através da [API mod
 
 Saiba mais sobre este processo na introdução da [Gestão](concept-model-management-and-deployment.md) de Modelos.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se encontrar algum problema, a primeira coisa a fazer é quebrar a tarefa de implantação (anteriormente descrita) em passos individuais para isolar o problema.
 
@@ -451,7 +450,7 @@ Para parar o recipiente, utilize o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a implementação:
 

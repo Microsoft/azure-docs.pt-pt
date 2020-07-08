@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e7b15f79d8b63c13718d309a16eb9b71648699a1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734321"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039879"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Desative cifras fracas e sincronização de hash de palavra-passe para garantir um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -75,7 +74,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 
 Leva alguns momentos para que as definições de segurança sejam aplicadas ao domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o processo de sincronização, consulte [como os objetos e credenciais são sincronizados num domínio gerido][synchronization].
 

@@ -4,10 +4,9 @@ description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: c4184628739b6c47b35263fe99285b05b9e0a190
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84769732"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
@@ -172,6 +171,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

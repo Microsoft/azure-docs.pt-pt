@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 5844fca371680ce02e6628d9cacbf50ebe4c8ed0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734831"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040117"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure
 
-Se já não necessitar de um domínio gerido, pode eliminar um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS). Não há opção para desligar ou desativar temporariamente um domínio gerido pela Azure AD DS. A eliminação do domínio gerido não apaga ou afeta negativamente o inquilino da AD Azure. Este artigo mostra-lhe como usar o portal Azure para eliminar um domínio gerido.
+Se já não necessitar de um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS), pode eliminá-lo. Não há opção para desligar ou desativar temporariamente um domínio gerido pela Azure AD DS. A eliminação do domínio gerido não apaga ou afeta negativamente o inquilino da AD Azure.
+
+Este artigo mostra-lhe como usar o portal Azure para eliminar um domínio gerido.
 
 > [!WARNING]
 > **A eliminação é permanente e não pode ser revertida.**
+> 
 > Quando elimina um domínio gerido, ocorrem os seguintes passos:
 >   * Os controladores de domínio para o domínio gerido são desavisionados e removidos da rede virtual.
 >   * Os dados sobre o domínio gerido são eliminados permanentemente. Estes dados incluem OUs personalizados, GPOs, registos de DNS personalizados, diretores de serviço, GMSAs, etc. que criou.
@@ -40,7 +42,7 @@ Para eliminar um domínio gerido, complete os seguintes passos:
 
 Pode levar 15-20 minutos ou mais para eliminar o domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Considere [partilhar feedback][feedback] para as funcionalidades que gostaria de ver no Azure AD DS.
 

@@ -9,10 +9,9 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052455"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizar dados da Time Series Insights no Power BI

@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.openlocfilehash: 4111b0b01690097535412205b60619172e2c100a
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84416661"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
@@ -50,7 +49,7 @@ Por exemplo, definir o valor da versão de definição mínima de TLS para TLS 1
 
 Para aprender a configurar a definição de TLS para a sua Base de Dados Azure para MariaDB, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [as regras de firewall do servidor](concepts-firewall-rules.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)
 - Saiba como [configurar o TLS](howto-tls-configurations.md)

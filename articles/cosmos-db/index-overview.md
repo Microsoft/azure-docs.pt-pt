@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: bea6d01a8363dd68cff33435335391e0fb0f76c7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798158"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 
@@ -51,14 +50,14 @@ A razão pela qual a Azure Cosmos DB transforma itens em árvores é porque perm
 
 Aqui estão os caminhos para cada propriedade a partir do item de exemplo acima descrito:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /localizações/0/país: "Alemanha"
+- /localizações/0/cidade: "Berlim"
+- /localizações/1/país: "França"
+- /localizações/1/cidade: "Paris"
+- /sede/país: "Bélgica"
+- /sede/empregados: 250
+- /exportações/0/cidade: "Moscovo"
+- /exportações/1/cidade: "Atenas"
 
 Quando um item é escrito, a Azure Cosmos DB indexa eficazmente o caminho de cada propriedade e o seu valor correspondente.
 
@@ -186,7 +185,7 @@ Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN co
 > [!NOTE]
 > Uma `ORDER BY` cláusula que ordena por uma única propriedade *sempre* precisa de um índice de alcance e falhará se o caminho que referenciar não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre a indexação nos seguintes artigos:
 

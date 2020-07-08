@@ -5,10 +5,9 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214048"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitor Azure Blockchain Service através do Azure Monitor  
@@ -79,7 +78,7 @@ Todos os registos de recursos partilham um esquema comum de alto nível com pouc
 A tabela que se segue lista as propriedades dos registos de procuração Azure Blockchain quando são recolhidas em Registos monitores Azure ou Azure Storage.  
 
 
-| Nome da propriedade  | Description |
+| Nome da propriedade  | Descrição |
 |:---|:---|
 | hora | A data e a hora (UTC) quando ocorreu a operação. |
 | recursoID  | O recurso Azure Blockchain Service para o qual os registos estão ativados.  |
@@ -105,7 +104,7 @@ A tabela que se segue lista as propriedades dos registos de procuração Azure B
 A tabela que se segue lista as propriedades dos registos de aplicações do Azure Blockchain.
 
 
-| Nome da propriedade  | Description |
+| Nome da propriedade  | Descrição |
 |:---|:---|
 | hora | A data e a hora (UTC) quando ocorreu a operação. |
 | recursoID  | O recurso Azure Blockchain Service para o qual os registos estão ativados.|
@@ -131,7 +130,7 @@ Para obter uma lista de todas as métricas suportadas pelo Azure Monitor (inclui
 A tabela seguinte especifica a lista de métricas blockchain que são recolhidas para o recurso membro do Serviço Azure Blockchain.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description   |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
 | Transações Pendentes   | Contagem  |  Média | O número de transações que estão à espera de ser minadas.   |
 | Blocos processados   | Contagem  | Soma  |  O número de blocos processados em cada intervalo de tempo. Atualmente o tamanho do bloco é de 5 segundos, portanto, em um minuto cada nó irá processar 12 blocos e 60 blocos em 5 minutos.   |
@@ -143,7 +142,7 @@ A tabela seguinte especifica a lista de métricas blockchain que são recolhidas
 A tabela que se segue lista as diferentes métricas de ligação que são recolhidas para o recurso membro do Serviço Azure Blockchain. Estas são métricas de procuração NGINX.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
 |---|---|---|---|
 | Conexões Aceites   | Contagem  |  Soma | O número total de ligações de clientes aceites.   |
 | Ligações Ativas  | Contagem  | Média  |  O número atual de ligações ativas ao cliente, incluindo ligações de espera.    |
@@ -156,7 +155,7 @@ A tabela que se segue lista as diferentes métricas de ligação que são recolh
 A tabela seguinte lista as métricas de desempenho que são recolhidas para cada um dos nós do recurso membro do Azure Blockchain.  
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description   |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
 | Percentagem de utilização do CPU   | Percentagem  |  Máx. | A percentagem do uso do CPU.     |
 | IO Ler Bytes   | Kilobytes   | Soma  |  A soma de IO lê bytes em todos os nós do recurso membro blockchain.      |

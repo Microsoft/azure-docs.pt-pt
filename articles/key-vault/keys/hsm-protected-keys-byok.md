@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: 52214d42467dfa86b5e085a660a9416904b7de59
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84416703"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
@@ -68,7 +67,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 ## <a name="supported-key-types"></a>Tipos-chave suportados
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Description|
+|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure|
 |Chave-alvo|RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o Cofre Azure-Key HSM|
@@ -131,7 +130,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 
 Se o upload for bem sucedido, o Azure CLI exibe as propriedades da chave importada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora pode utilizar esta chave protegida pelo HSM no seu cofre de chaves. Para mais informações, consulte [este preço e comparação de recursos.](https://azure.microsoft.com/pricing/details/key-vault/)
 

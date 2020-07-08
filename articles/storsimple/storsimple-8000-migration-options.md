@@ -14,10 +14,9 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514659"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options to migrate data from StorSimple 5000-7000 series (Opções para migrar dados das séries 5000-7000 do StorSimple) 
@@ -125,6 +124,6 @@ R. O tempo para migrar dados depende da quantidade dos dados e da opção de upg
 R. A data de fim de suporte para a série StorSimple 8000 é publicada [aqui.](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  - [Migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](storsimple-8000-migrate-from-5000-7000.md).
  - [Migrar dados de uma série StorSimple 5000-7000 para Azure File Sync](storsimple-5000-7000-afs-migration.md)

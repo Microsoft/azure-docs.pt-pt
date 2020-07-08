@@ -12,10 +12,9 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 4b2d79b24263a848d146bbbe8d42f23ec28f49b8
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84415887"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
@@ -103,7 +102,7 @@ O método padrão de verificação de dois fatores requer que introduza o seu no
 
 Para os passos necessários para iniciar singing no seu trabalho ou escola ou na sua conta pessoal, utilizando os vários métodos de verificação de dois fatores, consulte [Iniciar sing usando a verificação em duas etapas ou informações de segurança](user-help-sign-in.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 | Pergunta | Solução |
 | -------- | -------- |
@@ -115,7 +114,7 @@ Para os passos necessários para iniciar singing no seu trabalho ou escola ou na
 | Por que não posso usar mais do que uma conta de trabalho ou escola para iniciar sôm- insusição telefónica? | Um telefone deve estar registado numa única conta de trabalho ou escola. Se pretender iniciar sposição telefónica para um trabalho diferente ou conta escolar, tem de não registar a sua conta a partir deste dispositivo através da página **Definições.** |
 | Posso entrar no meu computador usando o meu telefone? | Para o seu computador, recomendamos iniciar sessão utilizando o Windows Hello no Windows 10. O Windows Hello permite-lhe usar o seu rosto, impressão digital ou PIN para iniciar sôm. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se tiver dificuldades em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de verificação do código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de [códigos de verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 

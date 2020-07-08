@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 9044380ec4f8f28a2056ab1e30a9fec3081ad204
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 923502132fdbe0b4a56c0fc23c19475e9074b8ff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734882"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040253"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Criar uma conta de serviço gerida pelo grupo (gMSA) em Azure Ative Directory Domain Services
 
@@ -26,7 +25,7 @@ Em vez disso, uma conta de serviço gerida pelo grupo (gMSA) pode ser criada no 
 
 Este artigo mostra-lhe como criar um gMSA num domínio gerido usando a Azure PowerShell.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -95,7 +94,7 @@ New-ADServiceAccount -Name WebFarmSvc `
 
 As aplicações e serviços podem agora ser configurados para utilizar o gMSA conforme necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os gMSAs, consulte [começar com contas de serviço geridas pelo grupo.][gmsa-start]
 

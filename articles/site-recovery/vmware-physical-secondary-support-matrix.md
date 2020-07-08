@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711889"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para um site secundário
@@ -68,14 +67,14 @@ Apenas as máquinas Linux com o seguinte armazenamento podem ser replicadas:
 
 **Configuração** | **Suportado**  
 --- | --- 
-Anfitrião - EQUIPA NIC | Yes 
-Anfitrião - VLAN | Yes 
-Anfitrião - IPv4 | Yes 
-Anfitrião - IPv6 | No 
-VM convidado - EQUIPA NIC | No
-VM convidado - IPv4 | Yes
-VM convidado - IPv6 | No
-VM convidado - Windows/Linux - Endereço IP estático | Yes
+Anfitrião - EQUIPA NIC | Sim 
+Anfitrião - VLAN | Sim 
+Anfitrião - IPv4 | Sim 
+Anfitrião - IPv6 | Não 
+VM convidado - EQUIPA NIC | Não
+VM convidado - IPv4 | Sim
+VM convidado - IPv6 | Não
+VM convidado - Windows/Linux - Endereço IP estático | Sim
 VM convidado - Multi-NIC | Sim
 
 
@@ -85,37 +84,37 @@ VM convidado - Multi-NIC | Sim
 
 **Armazenamento (hospedeiro)** | **Suportado** 
 --- | --- 
-NFS | Yes 
+NFS | Sim 
 SMB 3.0 | N/D 
-SAN (ISCSI) | Yes 
-Multi-caminhos (MPIO) | Yes 
+SAN (ISCSI) | Sim 
+Multi-caminhos (MPIO) | Sim 
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores físicos ou de hóspedes
 
 **Configuração** | **Suportado** 
 --- | --- 
-VMDK | Yes 
+VMDK | Sim 
 VHD/VHDX | N/D 
 Gen 2 VM | N/D 
-Disco de cluster compartilhado | Yes 
-Disco encriptado | No 
-UEFI| Yes 
-NFS | No 
-SMB 3.0 | No 
-RDM | Yes 
-Disco > 1 TB | Yes 
-Volume com disco listrado > 1 TB<br/><br/> LVM | Yes 
-Espaços de Armazenamento | No 
-Disco de adicionar/remover quente | Yes 
-Excluir o disco | Yes 
+Disco de cluster compartilhado | Sim 
+Disco encriptado | Não 
+UEFI| Sim 
+NFS | Não 
+SMB 3.0 | Não 
+RDM | Sim 
+Disco > 1 TB | Sim 
+Volume com disco listrado > 1 TB<br/><br/> LVM | Sim 
+Espaços de Armazenamento | Não 
+Disco de adicionar/remover quente | Sim 
+Excluir o disco | Sim 
 Multi-caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres
 
 **Ação** | **Suportado** 
 --- | --- 
-Mover cofres através de grupos de recursos (dentro ou em todas as subscrições) | No 
-Mover armazenamento, rede, VMs Azure em grupos de recursos (dentro ou em todas as subscrições) | No 
+Mover cofres através de grupos de recursos (dentro ou em todas as subscrições) | Não 
+Mover armazenamento, rede, VMs Azure em grupos de recursos (dentro ou em todas as subscrições) | Não 
 
 ## <a name="mobility-service-and-updates"></a>Serviço de mobilidade e atualizações
 
@@ -127,7 +126,7 @@ O serviço Mobility coordena a replicação entre servidores VMware no local ou 
 |Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de processo e alvo principal, servidores vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Descarregue o [guia de utilizador inMage Scout](https://aka.ms/asr-scout-user-guide)
 

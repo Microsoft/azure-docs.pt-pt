@@ -7,17 +7,13 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 8788dcc1ec09580aa0da7c68665433dfe4a1d563
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725589"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este artigo aprofunda-se na utilização do [idioma Azure Digital Twins Query Store](concepts-query-language.md) para consultar o [gráfico gémeo](concepts-twins-graph.md) para obter informações. Execute consultas no gráfico utilizando as [**APIs de Consulta**](how-to-use-apis-sdks.md)de Gémeos Digitais Azure .
 
@@ -168,6 +164,6 @@ Abaixo estão algumas dicas para consulta com Azure Digital Twins.
 * Os nomes e valores dos imóveis são sensíveis ao caso, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as [APIs e SDKs das Gémeas Digitais Azure,](how-to-use-apis-sdks.md)incluindo a API de Consulta, que é usada para executar as consultas deste artigo.

@@ -7,17 +7,13 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3d6fa1660f5204137dbebeae36f6d06852d88412
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725805"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Crie SDKs personalizados para Azure Digital Twins com AutoRest
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Neste momento, o único plano de dados publicado SDK para interagir com as APIs das Gémeas Digitais Azure é para .NET (C#). Pode ler sobre os .NET SDK e as APIs em geral, em [Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure](how-to-use-apis-sdks.md). Se estiver a trabalhar noutra língua, este artigo irá mostrar-lhe como gerar o seu próprio SDK na linguagem à sua escolha, utilizando o AutoRest.
 
@@ -182,7 +178,7 @@ try
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Caminhe pelos degraus para criar uma aplicação para clientes onde pode utilizar o seu SDK:
 * [Tutorial: Código de uma aplicação de cliente](tutorial-code.md)

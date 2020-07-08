@@ -4,10 +4,9 @@ description: Visão geral dos diagnósticos de clientes do Service Bus e rastrei
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340737"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação através de mensagens de Bus de Serviço
@@ -221,7 +220,7 @@ Também pode utilizar `IsEnabled` estratégias de amostragem. A amostragem com b
 
 Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é suficiente para apenas um ouvinte aceitar o evento, por isso `IsEnabled` não é garantido que seja chamado,
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Correlação de Insights de Aplicação](../azure-monitor/app/correlation.md)
 * [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasá-lo.

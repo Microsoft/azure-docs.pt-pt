@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: 504f4f2b2a0aa1fa8cd654c422e7ce8a00593b21
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84985281"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política IPsec/IKE para ligações VPN S2S ou VNet a VNet
@@ -115,7 +114,7 @@ Esta secção acompanha-o através dos passos de criação de uma ligação S2S 
 
 Consulte [Criar uma ligação S2S VPN](vpn-gateway-create-site-to-site-rm-powershell.md) para obter instruções mais detalhadas passo a passo para criar uma ligação S2S VPN.
 
-### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+### <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Instale os cmdlets PowerShell do Gestor de Recursos Azure. Consulte [a visão geral do Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre a instalação dos cmdlets PowerShell.
@@ -400,7 +399,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 Pode utilizar o mesmo script para verificar se a apólice foi removida da ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [os dispositivos VPN baseados em políticas para ligar vários dispositivos VPN baseados em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre os seletores de tráfego baseados em políticas.
 

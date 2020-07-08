@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 ms.openlocfilehash: b316d2579e1dde98b04a2dc7652a9721c7f8de77
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214218"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilizar os dados do Azure Blockchain Workbench com o SQL Server Management Studio
@@ -44,7 +43,7 @@ O Microsoft SQL Server Management Studio fornece a capacidade de escrever e test
 9. Selecione **Nova Janela do Editor de Consultas**.
 10. É possível criar uma nova consulta ao selecionar **Nova Consulta**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

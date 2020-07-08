@@ -12,10 +12,9 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781638"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
@@ -326,7 +325,7 @@ Consulte os seguintes links para resolver problemas que possam surgir durante o 
 
 * [Stack transbordar Azure AD fórum](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configure o provisionamento automático do utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 * [Exporte ou importe a sua configuração de provisionamento utilizando a Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md)

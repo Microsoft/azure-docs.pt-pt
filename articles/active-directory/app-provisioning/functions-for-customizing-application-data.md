@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.openlocfilehash: 47f0502226e4227c6b94920da6f040004beb41f1
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781672"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Como fazer: Escrever expressões para mapeamentos de atributos em Azure AD
@@ -174,7 +173,7 @@ Devoluções "cn=Joe,dc=contoso,dc=com"
 
 | Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
-| **valor** |Necessário | Date | Data AD a converter para o tipo DateTime |
+| **valor** |Necessário | Data | Data AD a converter para o tipo DateTime |
 
 **Exemplo:**<br>
 DataFromNum ([lastLogonTimestamp])                                                                                                   

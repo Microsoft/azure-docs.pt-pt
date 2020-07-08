@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: 803437cc45fce9ab850682cf4725c0bf0d21bed6
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414118"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na Base de Dados Azure para o MySQL
@@ -22,7 +21,7 @@ Todas as métricas Azure têm uma frequência de um minuto, e cada métrica forn
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database para MySQL:
 
-|Métrica|Nome de exibição métrica|Unidade|Descrição|
+|Metric|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -75,7 +74,7 @@ Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, 
 > [!IMPORTANT]
 > As notificações de manutenção previstas estão atualmente disponíveis em pré-visualização em todas as **regiões, exceto** no Centro-Oeste dos EUA
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Leia o nosso blog sobre [as melhores práticas para monitorizar o seu servidor.](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)

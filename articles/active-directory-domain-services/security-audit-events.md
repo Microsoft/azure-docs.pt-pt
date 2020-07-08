@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e79156e6e9f1283dfc7b8801820e3335f31afa9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734304"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039896"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
 
@@ -36,7 +35,7 @@ A tabela seguinte descreve cenários para cada tipo de recurso de destino.
 > [!IMPORTANT]
 > Tem de criar o recurso-alvo antes de ativar as auditorias de segurança da Azure AD DS. Pode criar estes recursos utilizando o portal Azure PowerShell ou o Azure CLI.
 
-| Recurso-alvo | Cenário |
+| Recurso-alvo | Scenario |
 |:---|:---|
 |Storage do Azure| Este alvo deve ser utilizado quando a sua necessidade principal é armazenar eventos de auditoria de segurança para fins de arquivo. Outros alvos podem ser usados para fins de arquivo, no entanto esses alvos fornecem capacidades para além da necessidade primária de arquivamento. <br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, primeiro [Crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Este alvo deve ser utilizado quando a sua necessidade principal é partilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gestão de eventos (SIEM).<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um centro de eventos usando o portal Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
@@ -159,11 +158,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Consulta de amostra 2
 
-Veja todos os eventos de bloqueio de conta *(4740*) entre 3 de fevereiro de 2020 às 9 da manhã. e 10 de fevereiro de 2020 meia-noite, classificado subindo pela data e hora:
+Veja todos os eventos de bloqueio de conta *(4740*) entre 3 de junho de 2020 às 9 da manhã. e 10 de junho de 2020 meia-noite, classificado subindo pela data e hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
@@ -217,7 +216,7 @@ As auditorias de segurança Azure AD DS alinham-se com a auditoria tradicional p
 
 Estão disponíveis as seguintes categorias de eventos de auditoria:
 
-| Nome da categoria de auditoria | Description |
+| Nome da categoria de auditoria | Descrição |
 |:---|:---|
 | Início de conta|As auditorias tentam autenticar dados de conta num controlador de domínio ou num Gestor de Contas de Segurança local (SAM).</p>As definições de políticas de logon e logoff rastreiam as tentativas de acesso a um determinado computador. As configurações e eventos desta categoria concentram-se na base de dados de conta que é utilizada. Esta categoria inclui as seguintes subcategorias:<ul><li>[Auditar validação de credenciais](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Auditar serviço de autenticação do Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Auditar operações de permissão de serviço do Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Auditoria Outros Eventos logon/Logoff](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Gestão de Contas|Auditorias alterações nas contas e grupos de utilizadores e computadores. Esta categoria inclui as seguintes subcategorias:<ul><li>[Auditar gestão de grupo de aplicações](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditar gestão de contas de computador](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Auditar gestão de grupo de distribuição](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditoria Outra Gestão de Contas](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditar gestão de grupos de segurança](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditar gestão de conta de utilizadores](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -237,15 +236,15 @@ Estão disponíveis as seguintes categorias de eventos de auditoria:
 |:---|:---|
 |Segurança de logon conta|4767, 4774, 4775, 4776, 4777|
 |Segurança de gestão de conta|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Segurança de rastreio de detalhes|Nenhum|
+|Segurança de rastreio de detalhes|Nenhuma|
 |Segurança de acesso DS|5136, 5137, 5138, 5139, 5141|
 |Segurança logon-logoff|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Segurança de acesso a objetos|Nenhum|
+|Segurança de acesso a objetos|Nenhuma|
 |Segurança de mudança de política|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Segurança de uso de privilégios|4985|
 |Segurança do sistema|4612, 4621|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações específicas sobre Kusto, consulte os seguintes artigos:
 

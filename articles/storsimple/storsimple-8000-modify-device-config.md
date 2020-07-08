@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514670"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilize o serviço StorSimple Device Manager para modificar a configuração do seu dispositivo StorSimple
@@ -165,7 +164,7 @@ Execute os seguintes passos para trocar ou reatribuir os VIPs para qualquer uma 
 1. Limpe o endereço IP para ambas as interfaces.
 2. Após a apuração dos endereços IP, atribua os novos endereços IP às respetivas interfaces.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [configurar o MPIO para o seu dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

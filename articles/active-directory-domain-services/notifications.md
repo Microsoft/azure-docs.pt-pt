@@ -1,5 +1,5 @@
 ---
-title: Notificações de email para Serviços de Domínio AZure AD / Microsoft Docs'
+title: Notificações de email para Serviços de Domínio AZure AD / Microsoft Docs
 description: Saiba como configurar notificações de email para alertá-lo sobre problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 4dc1cdd760c3d370c31b5c77db56df7df3ab6c1d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 149de14ed2430613e9ca6d5d12f8dce6ba425dfe
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734576"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039998"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configure notificações de e-mail para problemas nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -66,7 +65,7 @@ Para rever os destinatários de notificação de e-mail existentes ou adicionar 
 > [!WARNING]
 > Quando altera as definições de notificação, as definições de notificação para todo o domínio gerido são atualizadas e não apenas a si mesmo.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Recebi uma notificação por e-mail para um alerta, mas quando entrei no portal Azure não houve alerta. O que aconteceu?
 
@@ -74,13 +73,13 @@ Se um alerta for resolvido, o alerta é limpo do portal Azure. A razão mais pro
 
 ### <a name="why-can-i-not-edit-the-notification-settings"></a>Por que não posso editar as definições de notificação?
 
-Se não conseguir aceder à página de definições de notificação no portal Azure, não tem as permissões para editar o domínio gerido. Deve contactar um administrador global para obter permissões para editar o recurso Azure AD DS ou ser removido da lista de destinatários.
+Se não conseguir aceder à página de definições de notificação no portal Azure, não tem as permissões para editar o domínio gerido. Contacte um administrador global para obter permissões para editar o recurso Azure AD DS ou ser removido da lista de destinatários.
 
 ### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não parece estar a receber notificações por e-mail, apesar de ter fornecido o meu endereço de e-mail. Porquê?
 
 Verifique o seu spam ou pasta de lixo no seu e-mail para obter a notificação e certifique-se de permitir o remetente de `azure-noreply@microsoft.com` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a resolução de problemas sobre alguns dos problemas que podem ser relatados, consulte [alertas resolvendo num domínio gerido][troubleshoot-alerts].
 

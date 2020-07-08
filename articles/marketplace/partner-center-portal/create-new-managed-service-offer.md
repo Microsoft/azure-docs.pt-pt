@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373459"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957584"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
-O Serviço Gerido oferece ajuda para ativar cenários [do Farol Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerido, pode então embarcar recursos para [a gestão de recursos delegados da Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md) Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+O Serviço Gerido oferece ajuda para ativar cenários [do Farol Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerido, pode então embarcar recursos para [a gestão de recursos delegados da Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md) Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platform-competency) de competência silver ou gold cloud platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
 
@@ -103,7 +102,7 @@ Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser
 
 Forneça uma descrição mais longa da sua oferta (até 256 caracteres). Este longo resumo também pode ser usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -162,7 +161,7 @@ Pode, opcionalmente, adicionar até cinco vídeos que demonstrem a sua oferta. E
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-- [Melhores práticas para anúncios de oferta de mercado](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Melhores práticas para anúncios de oferta de mercado](../gtm-offer-listing-best-practices.md)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -264,7 +263,7 @@ Quando um cliente implementar a sua oferta, poderá delegar subscrições ou gru
 
 Pode [publicar uma versão atualizada da sua oferta a](update-existing-offer.md) qualquer momento. Por exemplo, pode querer adicionar uma nova definição de papel a uma oferta publicada anteriormente. Quando o fizer, os clientes que já adicionaram a oferta verão um ícone na página de fornecedores de [**Serviços**](../../lighthouse/how-to/view-manage-service-providers.md) no portal Azure que lhes permite saber que uma atualização está disponível. Cada cliente poderá rever as alterações e decidir se pretende atualizar para a nova versão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)
 - [Saiba mais sobre o Farol de Azure](../../lighthouse/overview.md)

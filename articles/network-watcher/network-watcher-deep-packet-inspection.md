@@ -13,23 +13,22 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725060"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com O Observador da Rede Azure
 
 Utilizando a funcionalidade de captura de pacotes do Network Watcher, pode iniciar e gerir sessões de capturas nos seus VMs Azure a partir do portal, PowerShell, CLI e programáticamente através da API SDK e REST. A captura de pacotes permite-lhe abordar cenários que requerem dados de nível de pacote, fornecendo as informações num formato facilmente utilizável. Aproveitando as ferramentas disponíveis livremente para inspecionar os dados, pode examinar as comunicações enviadas de e para os seus VMs e obter informações sobre o tráfego da sua rede. Alguns exemplos de utilização de dados de captura de pacotes incluem: investigar problemas de rede ou aplicações, detetar uso indevido da rede e tentativas de intrusão, ou manter a conformidade regulamentar. Neste artigo, mostramos como abrir um ficheiro de captura de pacotes fornecido pelo Network Watcher utilizando uma popular ferramenta open source. Também forneceremos exemplos que mostram como calcular uma latência de ligação, identificar tráfego anormal e examinar estatísticas de networking.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo passa por alguns cenários pré-configurados numa captura de pacotes que foi executado anteriormente. Estes cenários ilustram as capacidades que podem ser acedidas através da revisão de uma captura de pacotes. Este cenário utiliza [o WireShark](https://www.wireshark.org/) para inspecionar a captura do pacote.
 
 Este cenário pressupõe que já executou uma captura de pacotes numa máquina virtual. Para aprender a criar uma visita de captura de [pacotes, gerencie os pacotes com o portal](network-watcher-packet-capture-manage-portal.md) ou com o REST visitando [Managing Packet Captures com REST API](network-watcher-packet-capture-manage-rest.md).
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Neste cenário, você:
 
@@ -121,7 +120,7 @@ Introduzimos o texto do filtro de cima na caixa de texto do filtro e entramos.
 
 Pelos resultados, podemos ver que todo o tráfego vem de uma máquina virtual local na mesma sub-rede. Se ainda não entendermos porque é que este tráfego está a ocorrer, podemos inspecionar os pacotes para determinar porque está a fazer estas chamadas no porto 111. Com esta informação podemos tomar as medidas apropriadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça as outras funcionalidades de diagnóstico do Network Watcher visitando a [visão geral de monitorização da rede Azure](network-watcher-monitoring-overview.md)
 

@@ -6,10 +6,9 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340842"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas de programador no Serviço Azure Kubernetes (AKS)
@@ -179,7 +178,7 @@ Um bom exemplo é uma aplicação web que também usa um Cache Azure para Redis.
 
 Este exemplo é uma implementação mais complexa do que a utilização de seletores de nó ou afinidade de nó. A implementação dá-lhe controlo sobre como Kubernetes programa cápsulas em nós e pode logicamente isolar recursos. Para um exemplo completo desta aplicação web com Azure Cache para exemplo Redis, consulte [cápsulas de Co-localização no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo focou-se nas funcionalidades avançadas do programador Kubernetes. Para obter mais informações sobre as operações de cluster em AKS, consulte as seguintes boas práticas:
 
