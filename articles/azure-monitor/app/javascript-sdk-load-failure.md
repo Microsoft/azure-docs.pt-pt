@@ -6,10 +6,9 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84451068"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Falha de carga SDK na resolução de problemas para aplicações web JavaScript
@@ -29,7 +28,7 @@ A exceção de falha de carga SDK é criada e reportada pelo snippet JavaScript 
 
 Os detalhes da pilha incluem as informações básicas com os URLs a serem usados pelo utilizador final.
 
-| Nome                      | Descrição                                                                                                  |
+| Name                      | Descrição                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;Ponto &nbsp; final do CDN&gt; | O URL que foi usado (e falhou) para descarregar o SDK.                                                      |
 | &lt;Link de ajuda &nbsp;&gt;    | Um URL que se liga à documentação de resolução de problemas (esta página).                                              |
@@ -101,7 +100,7 @@ As secções abaixo incluem diferentes opções de reporte, recomendará a cria�
 
 Primeiro permite verificar se existem exceções javaScript, utilizando um navegador que suporta ferramentas de desenvolvimento (F12) carregar a página e rever se ocorrerem exceções.
 
-Se houver exceções a serem reportadas no script SDK (por exemplo, ai.2.min.js), então isto pode indicar que a configuração passada para o SDK contém configuração inesperada ou em falta ou foi implantada uma versão defeituosa para o CDN.
+Se houver exceções a serem reportadas no script SDK (por exemplo ai.2.min.js), então isto pode indicar que a configuração transmitida para o SDK contém configuração inesperada ou em falta ou uma versão defeituosa foi implantada no CDN.
 
 Para verificar se há uma configuração defeituosa, altere a configuração passada para o corte (se não já for) de modo a que inclua apenas a sua chave de instrumentação como um valor de cadeia.
 
@@ -194,7 +193,7 @@ Se os seus utilizadores finais estão numa rede corporativa, então é provavelm
 
 #### <a name="host-the-sdk-on-your-own-cdn"></a>Apresente o SDK no seu próprio CDN
 
- Em vez de os seus utilizadores finais descarregarem o SDK Application Insights a partir do CDN público, poderá hospedar o SDK Application Insights a partir do seu próprio ponto final CDN. Recomenda-se que utilize uma versão específica (ai.2.#.#.min.js) para que seja mais fácil identificar a versão que está a utilizar. Também atualize-o regularmente para a versão atual (ai.2.min.js) para que possa aproveitar quaisquer correções de bugs e novas funcionalidades que se tornem disponíveis.
+ Em vez de os seus utilizadores finais descarregarem o SDK Application Insights a partir do CDN público, poderá hospedar o SDK Application Insights a partir do seu próprio ponto final CDN. Recomenda-se que utilize uma versão específica (ai.2.#.#.min.js) para que seja mais fácil identificar a versão que está a utilizar. Também atualize-o regularmente para a versão atual (ai.2.min.js) para que possa aproveitar quaisquer correções de bugs e novas funcionalidades que fiquem disponíveis.
 
 #### <a name="use-npm-packages-to-embed-the-application-insight-sdk"></a>Utilize pacotes NPM para incorporar o SDK Application Insight
 

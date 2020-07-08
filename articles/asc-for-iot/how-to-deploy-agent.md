@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84456798"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
@@ -60,7 +59,7 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 
-Para **o Windows**: O script Install SecurityAgent.ps1 deve ser executado a partir de uma janela PowerShell do administrador.
+Para **o Windows**: O script de instalação SecurityAgent.ps1 deve ser executado a partir de uma janela PowerShell do administrador.
 
 Para **Linux:** O InstallSecurityAgent.sh deve ser executado como super-portador. Recomendamos a pré-fixação do comando de instalação com "sudo".
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457138"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service
@@ -215,7 +214,7 @@ O cliente JavaScript/TypeScript faz pedidos HTTP à função de negociação par
 
 #### <a name="localhost"></a>Localhost
 
-Ao executar a aplicação Função no seu computador local, pode adicionar uma `Host` secção a *local.settings.json* para ativar o CORS. Na `Host` secção, adicione duas propriedades:
+Ao executar a aplicação Função no seu computador local, pode adicionar uma `Host` secção para *local.settings.js* para ativar o CORS. Na `Host` secção, adicione duas propriedades:
 
 * `CORS`- inserir o URL base que é a origem da aplicação do cliente
 * `CORSCredentials`- defini-lo `true` para permitir pedidos "com OsCredentais"

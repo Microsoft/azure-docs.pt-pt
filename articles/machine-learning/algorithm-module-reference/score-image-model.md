@@ -1,5 +1,5 @@
 ---
-title: Modelo de imagem de pontuação
+title: Classificar o Modelo de Imagem
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo De Modelo de Imagem de Pontuação em Azure Machine Learning para gerar previsões usando um modelo de imagem treinado.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450718"
 ---
-# <a name="score-image-model"></a>Modelo de imagem de pontuação
+# <a name="score-image-model"></a>Classificar o Modelo de Imagem
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
 

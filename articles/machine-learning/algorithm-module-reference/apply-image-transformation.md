@@ -1,5 +1,5 @@
 ---
-title: Aplicar a transformação da imagem
+title: Aplicar a Transformação da Imagem
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo De Transformação de Imagem Aplicar para aplicar uma transformação de imagem a um diretório de imagem.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450725"
 ---
-# <a name="apply-image-transformation"></a>Aplicar a transformação da imagem 
+# <a name="apply-image-transformation"></a>Aplicar a Transformação da Imagem 
 
 Este artigo descreve como usar o módulo de transformação de imagem aplicar no designer de aprendizagem automática Azure (pré-visualização), para modificar um diretório de imagem de entrada baseado numa transformação de imagem previamente especificada.  
 
@@ -47,20 +46,20 @@ Este artigo descreve como usar o módulo de transformação de imagem aplicar no
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome | Intervalo | Tipo | Predefinição                   | Descrição                              |
+| Name | Intervalo | Tipo | Predefinição                   | Descrição                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Modo | Qualquer   | Modo | (Exigir que o utilizador especifique) | Para que fim usa a transformação de entrada. Deve excluir operações de transformação 'Random' em inferência, mas mantê-las em treino |
 
 ### <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome                       | Tipo                    | Descrição                       |
+| Name                       | Tipo                    | Descrição                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Transformação de imagem de entrada | Diretório de Transformação | Transformação de imagem de entrada        |
 | Diretório de imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
 ### <a name="outputs"></a>Saídas  
 
-| Nome                   | Tipo           | Descrição            |
+| Name                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
