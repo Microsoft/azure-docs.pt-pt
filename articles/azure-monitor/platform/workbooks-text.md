@@ -1,6 +1,6 @@
 ---
-title: Parâmetros de texto dos livros Azure Monitor
-description: Simplificar relatórios complexos com livros pré-construídos e parametrizados personalizados. Saiba mais sobre os parâmetros de texto do livro.
+title: Parâmetros de texto dos livros do Azure Monitor
+description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados. Saiba mais sobre os parâmetros de texto do livro.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,37 +10,36 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687334"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto do livro
 
-Os parâmetros da caixa de texto fornecem uma forma simples de recolher a entrada de texto dos utilizadores de livros. São utilizados quando não é prático utilizar uma gota para recolher a entrada (por exemplo, um limiar arbitrário ou filtros genéricos). Os livros permitem que os autores obtenha o valor padrão da caixa de texto a partir de uma consulta. Isto permite cenários interessantes como definir o limiar padrão com base no p95 da métrica.
+Os parâmetros da caixa de texto fornecem uma forma simples de recolher a entrada de texto dos utilizadores do livro. São utilizados quando não é prático utilizar uma gota para recolher a entrada (por exemplo, um limiar arbitrário ou filtros genéricos). Os livros permitem que os autores obtenham o valor padrão da caixa de texto a partir de uma consulta. Isto permite cenários interessantes como a definição do limiar padrão com base no p95 da métrica.
 
-Uma utilização comum das caixas de texto é como variáveis internas utilizadas por outros controlos de livro. Isto é feito aproveitando uma consulta para valores padrão, e tornando o controlo de entrada invisível no modo de leitura. Por exemplo, um utilizador pode querer que um limiar venha de uma fórmula (não um utilizador) e, em seguida, utilizar o limiar em consultas subsequentes.
+Um uso comum de caixas de texto é como variáveis internas usadas por outros controlos de livros. Isto é feito aproveitando uma consulta para valores predefinidos, e tornando o controlo de entrada invisível em modo de leitura. Por exemplo, um utilizador pode querer que um limiar venha de uma fórmula (não um utilizador) e, em seguida, utilizar o limiar em consultas posteriores.
 
 ## <a name="creating-a-text-parameter"></a>Criação de um parâmetro de texto
 1. Comece com um livro vazio no modo de edição.
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
-3. Clique no botão azul _Adicionar Parâmetro._
-4. Na nova vidraça de parâmetroque aparece:
+3. Clique no botão azul _adicionar parâmetro._
+4. No novo painel de parâmetros que aparece, insira:
     1. Nome do parâmetro:`SlowRequestThreshold`
     2. Tipo de parâmetro:`Text`
     3. Necessário:`checked`
-    4. Obtenha valor predefinido a partir de consulta:`unchecked`
+    4. Obtenha o valor predefinido da consulta:`unchecked`
 5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
     ![Imagem mostrando a criação de um parâmetro de texto](./media/workbooks-text/text-create.png)
 
-É assim que o livro vai ficar em modo de leitura.
+É assim que o livro será em modo de leitura.
 
 ![Imagem mostrando um parâmetro de texto no modo de leitura](./media/workbooks-text/text-readmode.png)
 
 ## <a name="referencing-a-text-parameter"></a>Referenciando um parâmetro de texto
-1. Adicione um controlo de consulta ao livro, `Add query` selecionando o link azul e selecione um recurso Desinformação de Aplicação.
+1. Adicione um controlo de consulta ao livro de trabalho selecionando o link azul `Add query` e selecione um recurso Application Insights.
 2. Na caixa KQL, adicione este corte:
     ```kusto
     requests
@@ -48,29 +47,29 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-3. Ao utilizar o parâmetro de texto com um valor de 500 associado ao controlo de consulta, executa efetivamente a consulta abaixo:
+3. Ao utilizar o parâmetro de texto com um valor de 500 juntamente com o controlo de consulta, executa efetivamente a consulta abaixo:
     ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= 500) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-4. Corra para ver os resultados
+4. Fazer consulta para ver os resultados
 
     ![Imagem mostrando um parâmetro de texto referenciado em KQL](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> No exemplo acima, `{SlowRequestThreshold}` representa um valor inteiro. Se estivesse a pedir uma `{ComputerName}` corda como esta teria de modificar a sua `"{ComputerName}"` consulta kusto para adicionar aspas para que o campo de parâmetros fosse aceite sem citações.
+> No exemplo acima, `{SlowRequestThreshold}` representa um valor inteiro. Se estivesse a consultar uma cadeia como `{ComputerName}` precisaria de modificar a sua consulta Kusto para adicionar cotações `"{ComputerName}"` para que o campo de parâmetros aceitasse uma entrada sem cotações.
 
 ## <a name="setting-default-values"></a>Definição de valores predefinidos
 1. Comece com um livro vazio no modo de edição.
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
-3. Clique no botão azul _Adicionar Parâmetro._
-4. Na nova vidraça de parâmetroque aparece:
+3. Clique no botão azul _adicionar parâmetro._
+4. No novo painel de parâmetros que aparece, insira:
     1. Nome do parâmetro:`SlowRequestThreshold`
     2. Tipo de parâmetro:`Text`
     3. Necessário:`checked`
-    4. Obtenha valor predefinido a partir de consulta:`checked`
+    4. Obtenha o valor predefinido da consulta:`checked`
 5. Na caixa KQL, adicione este corte:
     ```kusto
     requests
@@ -80,12 +79,12 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
 6. Executar consulta para ver o resultado
 7. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
-    ![Imagem mostrando um parâmetro de texto com valor padrão da KQL](./media/workbooks-text/text-default-value.png)
+    ![Imagem mostrando um parâmetro de texto com valor padrão de KQL](./media/workbooks-text/text-default-value.png)
 
 > [!NOTE]
-> Embora este exemplo questione os dados da Aplicação Insights, a abordagem pode ser usada para qualquer fonte de dados baseada em registo - Log Analytics, Azure Resource Graph, etc.
+> Embora este exemplo questione os dados do Application Insights, a abordagem pode ser usada para qualquer fonte de dados baseada em registos - Log Analytics, Azure Resource Graph, etc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
-* [Controle](workbooks-access-control.md) e partilhe o acesso aos recursos do seu livro.
+* [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

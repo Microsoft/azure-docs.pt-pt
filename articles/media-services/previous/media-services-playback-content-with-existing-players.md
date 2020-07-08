@@ -1,5 +1,5 @@
 ---
-title: Utilize os jogadores existentes para reproduzir o seu conteúdo - Azure / Microsoft Docs
+title: Utilize jogadores existentes para reproduzir o seu conteúdo - Azure / Microsoft Docs
 description: Este artigo lista os jogadores existentes que pode utilizar para reproduzir o seu conteúdo.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686929"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com os leitores existentes
-A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta-o para os jogadores existentes que pode usar para testar os seus fluxos.
+A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para os jogadores existentes que pode usar para testar os seus streams.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>O leitor de conteúdos do portal Azure Media Services
-O portal **Azure** fornece um leitor de conteúdos que pode utilizar para testar o seu vídeo.
+O portal **Azure** fornece um leitor de conteúdos que pode usar para testar o seu vídeo.
 
-Clique no vídeo desejado (certifique-se de que foi [publicado)](media-services-portal-publish.md)e clique no botão **Reproduzir** na parte inferior do portal.
+Clique no vídeo pretendido (certifique-se de que foi [publicado)](media-services-portal-publish.md)e clique no botão **Reproduzir** na parte inferior do portal.
 
 São aplicáveis algumas considerações:
 
@@ -37,12 +36,12 @@ São aplicáveis algumas considerações:
 
 ### <a name="azure-media-player"></a>Media Player do Azure
 
-Utilize o [Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir o seu conteúdo (claro ou protegido) em qualquer um dos seguintes formatos:
+Utilize [o Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir o seu conteúdo (claro ou protegido) em qualquer um dos seguintes formatos:
 
 * Transmissão em Fluxo Uniforme
 * MPEG DASH
 * HLS
-* MP4 progressista
+* MP4 progressivo
 
 ### <a name="flash-player"></a>Flash Player
 

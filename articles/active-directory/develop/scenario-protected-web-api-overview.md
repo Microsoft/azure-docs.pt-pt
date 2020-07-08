@@ -1,7 +1,7 @@
 ---
-title: API da web protegida - visão geral
+title: API web protegida - visão geral
 titleSuffix: Microsoft identity platform
-description: Aprenda a construir uma API web protegida (visão geral).
+description: Saiba como construir uma API web protegida (visão geral).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,17 +13,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: cf66757d28a3883664aaacd85baad9cc0dea6956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537207"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API web protegida
 
-Neste cenário, aprende-se a expor uma API web. Também aprende como proteger a API web para que apenas os utilizadores autenticados possam aceder a ela.
+Neste cenário, aprende-se a expor uma API web. Também aprende a proteger a API web para que apenas os utilizadores autenticados possam aceder à sua rede.
 
-Para utilizar a sua API web, precisa de ativar utilizadores autenticados com contas de trabalho e de escola ou ativar contas pessoais da Microsoft.
+Para utilizar a sua API web, precisa de ativar utilizadores autenticados com contas de trabalho e escola ou ativar contas pessoais da Microsoft.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,12 +30,12 @@ Para utilizar a sua API web, precisa de ativar utilizadores autenticados com con
 
 ## <a name="specifics"></a>Especificidades
 
-Aqui está uma informação específica que precisa de saber para proteger as APIs web:
+Aqui estão informações específicas que precisa de saber para proteger as APIs da web:
 
-- O registo da sua aplicação deve expor pelo menos um âmbito. A versão simbólica aceite pela sua Web API depende do público de inscrição.
-- A configuração do código para a Web API deve validar o token utilizado quando a Web API é chamada.
+- O registo da sua aplicação deve expor pelo menos um âmbito. A versão simbólica aceite pela sua API web depende do público de inscrição.
+- A configuração de código para a API web deve validar o token utilizado quando a API web é chamada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Registo da aplicação](scenario-protected-web-api-app-registration.md)
+> [Registo de aplicações](scenario-protected-web-api-app-registration.md)

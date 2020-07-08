@@ -1,6 +1,6 @@
 ---
 title: Instale & implementar o agente Linux C#
-description: Aprenda a instalar o Centro de Segurança Azure para agente IoT em Linux de 32 bits e 64 bits.
+description: Saiba como instalar o Centro de Segurança Azure para agente IoT em Linux de 32 e 64 bits.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311134"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar um agente de segurança baseado em C# do Centro de Segurança do Azure para IoT para o Linux
@@ -36,7 +35,7 @@ Neste guia, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para outras plataformas e sabores de agente, consulte [Escolha o agente de segurança certo](how-to-deploy-agent.md).
+Para outras plataformas e sabores de agente, consulte [Escolha o agente de segurança certo.](how-to-deploy-agent.md)
 
 1. Para implantar o agente de segurança, são necessários direitos de administração locais na máquina que pretende instalar.
 
@@ -52,13 +51,13 @@ Para implantar o agente de segurança, utilize os seguintes passos:
 
 1. Adicione permissões de execução ao **script InstallSecurityAgent** executando`chmod +x InstallSecurityAgent.sh`
 
-1. Em seguida, executar o seguinte comando com **privilégios de raiz:**
+1. Em seguida, executar o seguinte comando com **privilégios de raiz**:
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
 
-   para mais informações sobre parâmetros de autenticação, consulte [Como configurar a autenticação](concept-security-agent-authentication-methods.md).
+   para obter mais informações sobre parâmetros de autenticação, consulte [Como configurar a autenticação.](concept-security-agent-authentication-methods.md)
 
 Este script executa as seguintes ações:
 
@@ -66,9 +65,9 @@ Este script executa as seguintes ações:
 
 - Adiciona um utilizador de serviço (com sinal interativo em desativado).
 
-- Instala o agente como **Daemon** - assume que o dispositivo utiliza **o sistema para** modelo de implementação clássico.
+- Instala o agente como Um **Daemon** - assume que o dispositivo utiliza **sistema para** modelo de implementação clássico.
 
-- Configures **sudoers** para permitir que o agente faça certas tarefas como raiz.
+- Configura **sudoers** para permitir que o agente faça certas tarefas como raiz.
 
 - Configura o agente com os parâmetros de autenticação fornecidos.
 
@@ -76,10 +75,10 @@ Para obter ajuda adicional, execute o script com o parâmetro de ajuda:`./Instal
 
 ### <a name="uninstall-the-agent"></a>Desinstalar o agente
 
-Para desinstalar o agente, execute o `./InstallSecurityAgent.sh -u`script com o parâmetro -u: .
+Para desinstalar o agente, execute o script com o parâmetro -u: `./InstallSecurityAgent.sh -u` .
 
 > [!NOTE]
-> A desinstalação não remove quaisquer pré-requisitos em falta que tenham sido instalados durante a instalação.
+> Desinstalar não remove quaisquer pré-requisitos em falta que foram instalados durante a instalação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -87,10 +86,10 @@ Para desinstalar o agente, execute o `./InstallSecurityAgent.sh -u`script com o 
 
     `systemctl status ASCIoTAgent.service`
 
-1. Ativar a exploração madeireira.
-   Se o agente não começar, ligue a exploração de madeira para obter mais informações.
+1. Ativar o registo.
+   Se o agente não iniciar, ligue o registo para obter mais informações.
 
-   Ligue a exploração madeireira por:
+   Ligue o registo por:
 
    1. Abra o ficheiro de configuração para edição em qualquer editor do Linux:
 
@@ -105,12 +104,12 @@ Para desinstalar o agente, execute o `./InstallSecurityAgent.sh -u`script com o 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
 
-       O valor **do logFilePath** é configurável.
+       O **valor logFilePath** é configurável.
 
        > [!NOTE]
-       > Recomendamos que desligue **o** registo após a resolução de problemas. Deixar o registo **em** aumentos do tamanho do ficheiro de registo e utilização de dados.
+       > Recomendamos que desligue **o** registo após a resolução de problemas. Deixar o registo **no** aumento do tamanho do ficheiro de registo e do uso de dados.
 
-   1. Reiniciar o agente executando:
+   1. Reinicie o agente executando:
 
        `systemctl restart ASCIoTAgent.service`
 
@@ -120,9 +119,9 @@ Para desinstalar o agente, execute o `./InstallSecurityAgent.sh -u`script com o 
 
        Altere o caminho de localização do ficheiro de acordo com o nome que escolheu para o **logFilePath** no passo 2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Leia o Centro de Segurança Azure para a [visão geral](overview.md) do serviço IoT
+- Leia o Centro de Segurança Azure para o serviço IoT [Visão geral](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
 - Ativar o [serviço](quickstart-onboard-iot-hub.md)
 - Leia as [FAQ](resources-frequently-asked-questions.md)

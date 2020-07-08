@@ -1,6 +1,6 @@
 ---
-title: Configure os codificadores no local ao utilizar os Serviços De Mídia Azure para criar fluxos multibitantes [ Microsoft Docs
-description: Este tópico lista no local codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único stream bitrate ao vivo para os canais AMS (que estão habilitados para codificação ao vivo) para posterior processamento. O tópico liga-se a tutoriais que mostram como configurar codificadores listados.
+title: Configurar codificadores no local ao utilizar os Serviços de Media Azure para criar fluxos multi-bitrates [ Microsoft Docs
+description: Este tópico lista os codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único bitrate live stream para canais AMS (que estão ativados em codificação ao vivo) para posterior processamento. O tópico liga-se a tutoriais que mostram como configurar codificadores listados.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,23 +15,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687151"
 ---
-# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Serviços De Mídia Azure para criar fluxos multibitantes
-Este tópico lista no local codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único stream bitrate ao vivo para os canais AMS (que estão habilitados para codificação ao vivo) para posterior processamento. O tópico também se liga a tutoriais que mostram como configurar codificadores listados.
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Azure Media Services para criar fluxos multi-bitrates
+Este tópico lista os codificadores ao vivo que pode usar para capturar os seus eventos ao vivo e enviar um único bitrate live stream para canais AMS (que estão ativados em codificação ao vivo) para posterior processamento. O tópico também se liga a tutoriais que mostram como configurar codificadores listados.
 
 > [!NOTE]
 > Ao transmitir em fluxo através de RTMP, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
 
-## <a name="haivision-kb-encoder"></a>Codificador Haivision KB
-Para obter informações sobre como configurar o [codificador de codificador Haivision KB](https://www.haivision.com/products/kb-series/) para enviar um único stream bitrate ao vivo para um canal AMS, consulte [Configurar o Codificador Haivision KB](media-services-configure-kb-live-encoder.md).
+## <a name="haivision-kb-encoder"></a>Codificação Haivision KB
+Para obter informações sobre como configurar o codificadora [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) para enviar um único bitrate live stream para um canal AMS, consulte [o Codificante Haivision KB Encoder](media-services-configure-kb-live-encoder.md).
 
-## <a name="telestream-wirecast"></a>Difusão telestream
-Para obter informações sobre como configurar o codificador [telestream wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar um único fluxo ao vivo bitrate para um canal AMS, consulte [configurar a wirecast](media-services-configure-wirecast-live-encoder.md).
+## <a name="telestream-wirecast"></a>Telestream Wirecast
+Para obter informações sobre como configurar o codificadora [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma única transmissão em direto para um canal AMS, consulte [a Configuração da Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Para mais informações, consulte [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
@@ -42,7 +41,7 @@ Para mais informações, consulte [Elemental Live](https://www.elemental.com/pro
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Streaming ao vivo utilizando o Azure Media Services para criar fluxos multibitantes.](media-services-manage-live-encoder-enabled-channels.md)
+[Streaming ao vivo usando a Azure Media Services para criar streams multi-bitrates](media-services-manage-live-encoder-enabled-channels.md).
 
