@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356309"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD Agente de autenticação pass-through: histórico de lançamento de versão 
@@ -84,6 +84,6 @@ Aqui estão os tópicos relacionados:
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
 - Versão GA do agente de autenticação Azure AD Pass-through 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)

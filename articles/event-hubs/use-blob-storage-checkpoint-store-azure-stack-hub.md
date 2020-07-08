@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o Blob Storage como uma loja de chec
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 0990941191827c66cd51d70216c75e106d0448fd
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322361"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Use o Blob Storage como loja de ponto de verificação - Centros de eventos no Azure Stack Hub (pré-visualização)
@@ -57,6 +57,6 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte artigo aprender sobre partição e checkpointing: Equilibrar a [carga de partição em vários casos da sua aplicação](event-processor-balance-partition-load.md)

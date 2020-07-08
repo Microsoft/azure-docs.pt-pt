@@ -4,10 +4,10 @@ description: Este artigo explica como os assinantes podem definir quais as mensa
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339968"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
@@ -57,7 +57,7 @@ O encaminhamento utiliza filtros para distribuir mensagens através de subscriç
 > [!NOTE]
 > Como o portal Azure suporta agora a funcionalidade Service Bus Explorer, os filtros de subscrição podem ser criados ou editados a partir do portal. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte as seguintes amostras: 
 
 - [.NET - Envio básico e receber tutorial com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)

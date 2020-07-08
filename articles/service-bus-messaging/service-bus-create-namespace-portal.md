@@ -4,10 +4,10 @@ description: Este artigo fornece instruções para a criação de um espaço de 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3c665dad06ca7cf7bba39b5e1a0f748b420ad770
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337759"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um espaço de nomes do Service Bus com o portal do Azure
@@ -18,7 +18,7 @@ O espaço de nomes é um contentor para todos os componentes de mensagens. Um ú
 
 Parabéns! Criou um espaço de nomes de Mensagens do Service Bus.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja os [exemplos do GitHub][github-samples] do Service Bus, que mostram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

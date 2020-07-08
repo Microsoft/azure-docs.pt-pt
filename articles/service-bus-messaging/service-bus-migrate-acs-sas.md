@@ -4,10 +4,10 @@ description: Saiba como migrar do Serviço de Controlo de Acesso ao Diretório A
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340125"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus - Migrar do Azure Ative Directory Access Control Service para autorização de assinatura de acesso partilhado
@@ -50,7 +50,7 @@ Você pode fazer esta configuração nova e adicional de SAS no lugar em qualque
 
 As regras da SAS não se destinam a ser contas, mas são nomeadas chaves de assinatura associadas a direitos. Como tal, os cenários em que a aplicação cria muitas identidades de serviço e lhes concede direitos de acesso a várias entidades ou a todo o espaço de nome ainda requerem um intermediário de emissão de fichas. Pode obter orientação para tal intermediário [contactando o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a autenticação do Service Bus, consulte os seguintes tópicos:
 

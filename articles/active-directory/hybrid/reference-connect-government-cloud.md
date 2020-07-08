@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0120bf3f2bd347ae60677b89ec658f08140af49
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356360"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
@@ -100,7 +100,7 @@ Se tiver ultrapassado as  `AuthNegotiateDelegateAllowlist`   definições ou
 
 Se tiver ultrapassado as  `AuthNegotiateDelegateWhitelist`   definições ou `AuthServerWhitelist`   definições de política no seu ambiente, certifique-se de que lhe adiciona o URL AD `https://autologon.microsoft.us` Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação pass-through](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
 - [Único sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)

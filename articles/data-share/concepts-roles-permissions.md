@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322056"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
@@ -37,7 +37,7 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 |Azure Data Lake Gen1 | Proprietário | Não suportado
 |Azure Data Lake Gen2 | Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
 |Azure SQL Server | Colaborador do SQL DB | Colaborador do SQL DB
-|Cluster do Azure Data Explorer | Contribuinte | Contribuinte
+|Cluster do Azure Data Explorer | Contribuidor | Contribuidor
 |
 
 Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados Azure SQL com o mesmo nome que o recurso Azure Data Share. Abaixo está um resumo da permissão exigida pelo utilizador SQL.
@@ -100,7 +100,7 @@ Para ver o convite Azure Data Share pela primeira vez no seu inquilino Azure, po
 1. Procure por Microsoft.DataShare.
 1. Clique em **Registar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre papéis no Azure - [Entenda as definições de funções](../role-based-access-control/role-definitions.md)
 

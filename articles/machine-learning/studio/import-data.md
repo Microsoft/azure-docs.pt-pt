@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: fa031e6e23c218ff2ca8e2ef3e778768fabb1ebb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321480"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe os seus dados de formação em Azure Machine Learning Studio (clássico) de várias fontes de dados
@@ -155,7 +155,7 @@ As fontes de dados online que são suportadas estão itemadas na tabela abaixo. 
 ### <a name="supported-online-data-sources"></a>Fontes de dados online suportadas
 O módulo Azure Machine Learning Studio (clássico) **Import Data** suporta as seguintes fontes de dados:
 
-| Origem de Dados | Description | Parâmetros |
+| Origem de Dados | Descrição | Parâmetros |
 | --- | --- | --- |
 | Web URL via HTTP |Lê dados em valores separados por vírgula (CSV), valores separados por separados por separados de separados por separados (TSV), formato de ficheiro de relação de atributos (ARFF) e Máquinas de Vetores de Suporte (luz SVM), a partir de qualquer URL web que utilize HTTP |<b>URL</b>: Especifica o nome completo do ficheiro, incluindo o URL do site e o nome do ficheiro, com qualquer extensão. <br/><br/><b>Formato de dados</b>: Especifica um dos formatos de dados suportados: CSV, TSV, ARFF ou SVM-light. Se os dados ímis ímis agem, é utilizado para atribuir nomes de colunas. |
 | Hadoop/HDFS |Lê dados de armazenamento distribuído em Hadoop. Especifica os dados que pretende utilizando o HiveQL, uma linguagem de consulta semelhante ao SQL. O HiveQL também pode ser usado para agregar dados e realizar a filtragem de dados antes de adicionar os dados ao Studio (clássico). |<b>Consulta da base de dados da colmeia</b>: Especifica a consulta de Colmeia utilizada para gerar os dados.<br/><br/><b>HCatalog servidor URI</b> : Especificou o nome do seu cluster utilizando o formato do * &lt; seu nome de cluster &gt; .azurehdinsight.net.*<br/><br/><b>Nome da conta do utilizador Hadoop</b>: Especifica o nome da conta de utilizador Hadoop utilizado para a provisionação do cluster.<br/><br/><b>Palavra-passe da conta de utilizador Hadoop</b> : Especifica as credenciais utilizadas no fornecimento do cluster. Para obter mais informações, consulte [os clusters Create Hadoop em HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Localização dos dados de saída</b>: Especifica se os dados são armazenados num sistema de ficheiros distribuídos por Hadoop (HDFS) ou em Azure. <br/><ul>Se armazenar dados de saída em HDFS, especifique o servidor HDFS URI. (Certifique-se de que utiliza o nome do cluster HDInsight sem o prefixo HTTPS://). <br/><br/>Se armazenar os seus dados de saída no Azure, tem de especificar o nome da conta de armazenamento Azure, a chave de acesso ao armazenamento e o nome do contentor de armazenamento.</ul> |
@@ -176,7 +176,7 @@ Haverá alturas em que vai querer tirar um resultado intermédio de uma experiê
 
 Quando a poupança terminar, o conjunto de dados estará disponível para utilização em qualquer experiência no seu espaço de trabalho. Pode encontrá-lo na lista **de conjuntos de dados guardados** na paleta de módulos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implementação de serviços web Azure Machine Learning Studio que utilizam módulos de importação de dados e exportação de dados](web-services-that-use-import-export-modules.md)
 

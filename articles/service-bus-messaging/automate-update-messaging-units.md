@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como pode utilizar um runbook da Azure Autom
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341493"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus 
@@ -172,5 +172,5 @@ O procedimento a seguir mostra como criar um alerta que desencadeie o livro de v
     > [!NOTE]
     > Agora, quando o uso do CPU de espaço de nome ultrapassa os 75, o alerta desencadeia o runbook de automação, o que aumenta as unidades de mensagens do espaço de nomes do Service Bus. Da mesma forma, pode criar um alerta para outro runbook de automação, que diminui as unidades de mensagens se o uso do CPU de espaço de nome for inferior a 25. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para conhecer as unidades de mensagens, consulte as [mensagens Premium](service-bus-premium-messaging.md)

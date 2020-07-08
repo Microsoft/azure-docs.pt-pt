@@ -4,10 +4,10 @@ description: Descreve como dividir filas e tópicos do Service Bus usando vário
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339636"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
@@ -141,7 +141,7 @@ Atualmente, a Service Bus impõe as seguintes limitações em filas e tópicos d
 * Filas e tópicos divididos não suportam o envio de mensagens que pertencem a diferentes sessões numa única transação.
 * Atualmente, o Service Bus permite até 100 filas ou tópicos particionados por espaço de nomes. Cada fila ou tópico dividido conta para a quota de 10.000 entidades por espaço de nome (não se aplica ao nível Premium).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre os conceitos fundamentais da especificação de mensagens AMQP 1.0 no guia do [protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md).
 

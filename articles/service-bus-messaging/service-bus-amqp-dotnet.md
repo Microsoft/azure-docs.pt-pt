@@ -4,10 +4,10 @@ description: Este artigo descreve como utilizar o Azure Service Bus a partir de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340191"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilize o ônibus de serviço de .NET com AMQP 1.0
@@ -101,7 +101,7 @@ As [APIs .NET](/dotnet/api/) expõem várias configurações para controlar o co
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Se as transferências forem lotáveis, este valor determina o atraso máximo para o envio de disposições. Herdado por remetentes/recetores por defeito. O remetente/recetor individual pode anular o padrão, que é de 20 milissegundos.
 * **[MensagensFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controla se as ligações AMQP são estabelecidas sobre uma ligação TLS. O padrão é **verdadeiro.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está pronto para saber mais? Visite os seguintes links:
 

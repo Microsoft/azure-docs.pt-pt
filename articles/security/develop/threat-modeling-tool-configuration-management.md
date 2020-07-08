@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322629"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de Segurança: Gestão de Configuração / Mitigações 
@@ -33,7 +33,7 @@ ms.locfileid: "85322629"
 | **Gateway de campo IoT** | <ul><li>[Encripte o SO e divisórias adicionais de IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login predefinidos do gateway de campo são alteradas durante a instalação](#default-change)</li></ul> |
 | **Gateway de nuvem IoT** | <ul><li>[Certifique-se de que o Cloud Gateway implementa um processo para manter o firmware de dispositivos conectados atualizado](#cloud-firmware)</li></ul> |
 | **Limite de confiança da máquina** | <ul><li>[Certifique-se de que os dispositivos têm controlos de segurança de ponto final configurados de acordo com as políticas organizacionais](#controls-policies)</li></ul> |
-| **Storage do Azure** | <ul><li>[Garantir uma gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver ativado no armazenamento do Azure](#cors-storage)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Garantir uma gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver ativado no armazenamento do Azure](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Ativar a funcionalidade de estrangulamento de serviço da WCF](#throttling)</li><li>[Divulgação de informação do WCF através de metadados](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementar a Política de Segurança de Conteúdos (CSP) e desativar o javascript inline

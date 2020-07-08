@@ -4,10 +4,10 @@ description: Estes artigos fornecem técnicas para proteger as aplicações cont
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339651"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
@@ -76,7 +76,7 @@ A geo-replicação dos pontos finais da [Azure Relay](../service-bus-relay/relay
 
 O serviço então ouve em ambos os pontos finais, e um cliente pode invocar o serviço através de qualquer ponto final. Uma aplicação de cliente escolhe aleatoriamente um dos retransmissores como ponto final primário, e envia o seu pedido para o ponto final ativo. Se a operação falhar com um código de erro, esta falha indica que o ponto final do relé não está disponível. A aplicação abre um canal para o ponto final de reserva e reedita o pedido. Nessa altura, o ponto final ativo e o backup trocam as funções: a aplicação do cliente considera o antigo ponto final ativo como o novo ponto final de backup, e o antigo ponto final de backup é o novo ponto final ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecem inalteradas e um erro é devolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a recuperação de desastres, consulte estes artigos:
 
 * [Recuperação de geo-desastre de autocarro de serviço Azure](service-bus-geo-dr.md)

@@ -10,17 +10,17 @@ description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azur
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
 ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341390"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
 Ligue um cluster Kubernetes ao Arco de Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Verifique se tem os seguintes requisitos prontos:
 
@@ -226,7 +226,7 @@ Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o po
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

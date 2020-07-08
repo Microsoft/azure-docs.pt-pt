@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/28/2020
 ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339887"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó de nó do Windows Server e cargas de trabalho de aplicações no Serviço Azure Kubernetes (AKS)
@@ -107,7 +107,7 @@ Sim, pode, no entanto, o Azure Monitor está em pré-visualização pública par
 
 Trabalhamos arduamente para trazer todas as funcionalidades que precisa para windows em AKS, mas se encontrar lacunas, o projeto de [motor aks de][aks-engine] código aberto e a montante fornece uma maneira fácil e totalmente personalizável de executar Kubernetes em Azure, incluindo suporte ao Windows. Por favor, certifique-se de verificar o nosso roteiro de funcionalidades que estão a chegar [ao roteiro da AKS.][aks-roadmap]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com os recipientes do Windows Server em AKS, [crie uma piscina de nó que executa o Windows Server em AKS][windows-node-cli].
 

@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre problemas de conectividade 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322379"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Problemas de conectividade de resolução de problemas - Azure Event Hubs
@@ -162,7 +162,7 @@ Problemas de conectividade transitórios podem ocorrer devido a atualizações e
 
 Se o código de aplicação utilizar o SDK, a política de retíria já está incorporada e ativa. A aplicação reconectará-se sem impacto significativo na aplicação/fluxo de trabalho. Caso contrário, volte a tentar ligar-se ao serviço após alguns minutos para ver se os problemas desaparecem. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 * [Resolver problemas de autenticação e autorização](troubleshoot-authentication-authorization.md)

@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322040"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolução de problemas problemas comuns na Azure Data Share 
@@ -87,7 +87,7 @@ O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma
 
 Se a mensagem de erro estiver relacionada com a permissão, verifique se o serviço de Partilha de Dados tem a permissão necessária. Consulte [funções e requisitos](concepts-roles-permissions.md) para mais detalhes. Se esta for a primeira vez que está a tirar uma fotografia, pode levar alguns minutos para que o recurso Data Share tenha acesso à loja de dados Azure. Espere alguns minutos e tente de novo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md) 
 

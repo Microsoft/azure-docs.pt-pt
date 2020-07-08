@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339728"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
@@ -380,7 +380,7 @@ Algumas organizações têm inquilinos de teste para este fim. No entanto, pode 
 
 O plano de ensaio é importante para ter uma comparação entre os resultados esperados e os resultados reais. Deve sempre ter uma expectativa antes de testar algo. A tabela a seguir descreve casos de teste de exemplo. Ajuste os cenários e os resultados esperados com base na configuração das suas políticas de CA.
 
-| Política| Cenário| Resultado Esperado |
+| Política| Scenario| Resultado Esperado |
 | - | - | - |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto está numa localização/trabalho de confiança| O utilizador não é solicitado ao MFA |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto não está numa localização/trabalho fidedigna| O utilizador é solicitado ao MFA e pode assinar com sucesso |

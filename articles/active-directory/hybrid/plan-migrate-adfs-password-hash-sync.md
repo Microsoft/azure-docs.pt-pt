@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fe9fe10b66aa6eb5fcdaafbf8e0132918e9645c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356684"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de haxixe de palavra-passe para o Azure Ative Directory
@@ -59,7 +59,7 @@ Agora é uma boa hora para verificar se estas permissões estão em vigor para t
 
 Pode escolher entre dois métodos para migrar da gestão de identidade federada para a sincronização de hash de palavra-passe e um único sign-on sem emenda (SSO). O método que utiliza depende de como a sua instância AD FS foi originalmente configurada.
 
-* **Azure AD Connect**. Se originalmente configurar o AD FS utilizando o Azure AD Connect, *tem de* alterar para sincronização de hash de palavra-passe utilizando o assistente Azure AD Connect.
+* **Azure Ad Connect**. Se originalmente configurar o AD FS utilizando o Azure AD Connect, *tem de* alterar para sincronização de hash de palavra-passe utilizando o assistente Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o **cmdlet de set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
 
@@ -476,7 +476,7 @@ Inicie a capotagem da chave de desencriptação SSO Kerberos sem costura no serv
 
 Para mais informações, veja [como é que revoco a chave de desencriptação kerberos da conta de computador AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre os conceitos de [design Azure AD Connect](plan-connect-design-concepts.md).
 * Escolha a [autenticação certa.](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)

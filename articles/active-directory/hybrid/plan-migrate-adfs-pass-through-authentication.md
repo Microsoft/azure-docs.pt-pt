@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 626bc12b01428b90de1cbafe28bd7493e7ed1743
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356649"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Azure Ative Directory
@@ -52,7 +52,7 @@ Para a maioria dos clientes, dois ou três agentes de autenticação são sufici
 
 Pode escolher entre dois métodos para migrar da gestão de identidade federada para a autenticação pass-through e um único sign-on sem emenda (SSO). O método que utiliza depende de como a sua instância AD FS foi originalmente configurada.
 
-* **Azure AD Connect**. Se configurar originalmente o AD FS utilizando o Azure AD Connect, *tem* de alterar para autenticação de passagem utilizando o assistente Azure AD Connect.
+* **Azure Ad Connect**. Se configurar originalmente o AD FS utilizando o Azure AD Connect, *tem* de alterar para autenticação de passagem utilizando o assistente Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o **cmdlet de set-MsolDomainAuthentication** quando altera o método de entrada do utilizador. A azure AD Connect não mantém automaticamente todos os domínios federados verificados no seu inquilino AD Azure.
 
@@ -455,7 +455,7 @@ Também pode ligar o registo para resolução de problemas.
 
 Para mais informações, consulte [a autenticação pass-through do Troubleshoot Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre os conceitos de [design Azure AD Connect](plan-connect-design-concepts.md).
 * Escolha a [autenticação certa.](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)

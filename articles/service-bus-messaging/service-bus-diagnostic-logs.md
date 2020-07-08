@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os registos operacion
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337528"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus
@@ -25,7 +25,7 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON) 
 
 As cordas JSON de registo operacional incluem os elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ------- | ------- |
 | ActivityId | ID interno, usado para identificar a atividade especificada |
 | EventName | Nome da operação |
@@ -103,7 +103,7 @@ As novas definições fazem efeito em cerca de 10 minutos. Os registos são apre
 
 Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Service Bus, consulte:
 

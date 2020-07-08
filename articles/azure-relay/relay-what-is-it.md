@@ -4,10 +4,10 @@ description: Este artigo fornece uma descrição geral do serviço Azure Relay, 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322651"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
@@ -75,7 +75,7 @@ O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são pr
 8. O portal envia todas as mensagens do cliente que o ouve para o cliente que envia. 
 9. O gateway encaminha qualquer outra forma de mensagens do cliente de envio para o cliente de escuta.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Começar com .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução aos Pedidos de HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Começar com Node WebSockets](relay-hybrid-connections-node-get-started.md)

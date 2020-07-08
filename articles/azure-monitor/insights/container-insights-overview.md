@@ -4,10 +4,10 @@ description: Este artigo descreve o Azure Monitor para recipientes que monitoriz
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337923"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Descrição geral do Azure Monitor para contentores
@@ -68,6 +68,6 @@ Pode aceder ao Azure Monitor para obter recipientes de duas maneiras, a partir d
 
 Se estiver interessado em monitorizar e gerir os seus anfitriões de contentores Docker e Windows que estão fora da AKS para visualizar a configuração, auditoria e utilização de recursos, consulte a [solução de Monitorização](../../azure-monitor/insights/containers.md)do Contentor .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a monitorizar o seu cluster Kubernetes, [reveja como permitir que o Monitor Azure para os recipientes](container-insights-onboard.md) compreendam os requisitos e métodos disponíveis para permitir a monitorização.

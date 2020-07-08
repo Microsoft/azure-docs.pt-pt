@@ -4,10 +4,10 @@ description: Este artigo explica como adiar a entrega de mensagens Azure Service
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341227"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
@@ -31,7 +31,7 @@ Para recuperar uma mensagem diferida, o seu proprietário é responsável por le
 Se uma mensagem não puder ser processada porque um determinado recurso para o manuseamento dessa mensagem está temporariamente indisponível, mas o processamento de mensagens não deve ser sumariamente suspenso, uma forma de colocar essa mensagem no lado durante alguns minutos é lembrar o **SequenceNumber** numa [mensagem programada](message-sequencing.md) a ser publicada em poucos minutos e recuperar a mensagem diferida quando a mensagem programada chegar. Se um manipulador de mensagens depender de uma base de dados para todas as operações e essa base de dados estiver temporariamente indisponível, não deve utilizar o adiamento, mas sim suspender a receção de mensagens completamente até que a base de dados esteja novamente disponível.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

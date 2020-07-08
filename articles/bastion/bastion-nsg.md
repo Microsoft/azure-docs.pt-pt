@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: charwen
 ms.openlocfilehash: e4782213b38ad9e265cc66c3073dc5f357c50561
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321655"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
@@ -52,6 +52,6 @@ Esta é a sub-rede que contém a máquina virtual alvo a que pretende fazer RDP/
    * **Tráfego ingresso de Azure Bastion:** Azure Bastion chegará ao VM alvo em vez de IP privado. As portas RDP/SSH (portas 3389/22, respectivamente) precisam de ser abertas no lado alvo do VM em vez de IP privado. Como uma boa prática, pode adicionar o intervalo de endereço IP da Subnet Azure Bastion nesta regra para permitir que apenas Bastion possa abrir estas portas nos VMs-alvo na sub-rede VM alvo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre O Azure Bastion, consulte as [FAQ](bastion-faq.md).

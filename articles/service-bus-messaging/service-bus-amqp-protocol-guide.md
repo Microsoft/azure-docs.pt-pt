@@ -4,10 +4,10 @@ description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337893"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
@@ -359,10 +359,10 @@ A mensagem de pedido tem as seguintes propriedades de aplicação:
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |No |string |**put-token** |
-| tipo |No |string |O tipo de símbolo que está a ser colocado. |
-| name |No |string |O "público" a que o símbolo se aplica. |
-| expiração |Yes |carimbo de data/hora |O prazo de validade do token. |
+| operação |Não |string |**put-token** |
+| tipo |Não |string |O tipo de símbolo que está a ser colocado. |
+| name |Não |string |O "público" a que o símbolo se aplica. |
+| expiração |Sim |carimbo de data/hora |O prazo de validade do token. |
 
 O *nome* da propriedade identifica a entidade com a qual o símbolo deve ser associado. No Service Bus é o caminho para a fila, ou tópico/subscrição. A propriedade *tipo* identifica o tipo de símbolo:
 
@@ -378,8 +378,8 @@ A mensagem de resposta tem os seguintes valores *de propriedades de aplicação*
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |No |int |Código de resposta HTTP **[RFC2616]**. |
-| descrição do estado |Yes |string |Descrição do estado. |
+| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| descrição do estado |Sim |string |Descrição do estado. |
 
 O cliente pode ligar *para o put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens são telescópios para o cliente atual e ancorados na ligação atual, o que significa que o servidor deixa cair quaisquer fichas retidas quando a ligação cai.
 
@@ -404,7 +404,7 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre AMQP, visite os seguintes links:
 
