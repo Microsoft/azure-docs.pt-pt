@@ -10,6 +10,7 @@ ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: b317c2a43352a750d4700fad56d5f7d741b2cc7d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85805451"

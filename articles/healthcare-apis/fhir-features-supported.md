@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: 034fbf93c4a73b5ee733c72ab6d1f458c3ae003b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84872119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85808034"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -40,16 +40,16 @@ As versões anteriores também suportadas incluem:`3.0.2`
 | criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | pesquisar                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa acorrentada                 | No        | Yes       | No        |                                           |
+| pesquisa acorrentada                 | Não        | Sim       | Não        |                                           |
 | pesquisa acorrentada inversa         | Não        | Não        | Não        |                                            |
 | capacidades                   | Sim       | Sim       | Sim       |                                                     |
 | lote                          | Sim       | Sim       | Sim       |                                                     |
-| transação                    | No        | Yes       | No        |                                                     |
+| transação                    | Não        | Sim       | Não        |                                                     |
 | histórico                        | Sim       | Sim       | Sim       |                                                     |
 | paging                         | Parcial   | Parcial   | Parcial   | `self`e `next` são apoiados                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 Todos os tipos de parâmetros de pesquisa são suportados. 
 
@@ -90,7 +90,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
-| `_list`                 | Não        | Não        | Não        |         |
+| `_list`                 | Não        | Sim       | Sim       |         |
 | `_has`                  | Não        | Não        | Não        |         |
 | `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |
@@ -102,7 +102,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_score`                | Não        | Não        | Não        |         |
 | `_count`                | Sim       | Sim       | Sim       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count`é apoiado |
-| `_include`              | No        | Yes       | Não        |         |
+| `_include`              | Não        | Sim       | Não        |         |
 | `_revinclude`           | Não        | Não        | Não        |         |
 | `_contained`            | Não        | Não        | Não        |         |
 | `_elements`             | Não        | Não        | Não        |         |
@@ -121,7 +121,7 @@ O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/se
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

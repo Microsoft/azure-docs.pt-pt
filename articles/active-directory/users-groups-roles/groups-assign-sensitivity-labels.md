@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32dad942cf79933b2c44d3bc2d23581ead1238d6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807809"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir etiquetas de sensibilidade aos grupos office 365 no Azure Ative Directory (pré-visualização)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade aos grupos office 365 no Azure Ative Directory
 
-O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo [microsoft 365 compliance center](https://sip.protection.office.com/homepage) aos grupos Office 365. As etiquetas de sensibilidade aplicam-se ao grupo em todos os serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em visualização pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte [o suporte do Office 365 para etiquetas de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo [microsoft 365 compliance center](https://sip.protection.office.com/homepage) aos grupos Office 365. As etiquetas de sensibilidade aplicam-se ao grupo em todos os serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em GA pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte [o suporte do Office 365 para etiquetas de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esta funcionalidade, deve existir pelo menos uma licença ativa do Azure Ative Directory Premium P1 na sua organização Azure AD.
@@ -143,7 +143,7 @@ Como uma boa prática, não recomendamos que altere as definições de grupo par
 
 Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente atualizações aos grupos impactados. Este método assegura que todos os grupos existentes impõem a nova definição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use etiquetas de sensibilidade com equipas da Microsoft, grupos office 365 e sites SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Atualizar grupos após a alteração da política do rótulo manualmente com o script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)

@@ -1,56 +1,64 @@
 ---
-title: Avaliar e mitigar a equidade nos modelos de aprendizagem automática
+title: Avaliar e mitigar questões de equidade em modelos de aprendizagem automática
 titleSuffix: Azure Machine Learning
-description: Aprenda sobre a equidade nos modelos de machine learning e como o pacote Fairlearn Python pode ajudá-lo a construir modelos mais justos.
+description: Saiba mais sobre a equidade nos modelos de machine learning e como o pacote Fairlearn Python pode ajudá-lo a construir modelos mais justos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/02/2020
-ms.openlocfilehash: c21ec0329a7b5716a00262b7422296df3afe208b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 06/30/2020
+ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611786"
 ---
-# <a name="fairness-in-machine-learning-models"></a>Equidade nos modelos de aprendizagem automática
+# <a name="build-fairer-machine-learning-models"></a>Construa modelos de aprendizagem automática mais justos
 
-Saiba mais sobre justiça na aprendizagem automática e como o pacote Fairlearn de open-source Python pode ajudá-lo a construir modelos mais justos.
+Saiba mais sobre a equidade na aprendizagem automática e como o pacote De pitão de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a construir modelos que sejam mais justos. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos. 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>O que é a justiça nos sistemas de aprendizagem automática?
+O seguinte resumo do guia de [utilizador](https://fairlearn.github.io/user_guide/index.html) para o pacote fairlearn open-source, descreve como usá-lo para avaliar a equidade dos sistemas de IA que está a construir.  O pacote fairlearn open-source também pode oferecer opções para ajudar a mitigar, ou ajudar a reduzir, quaisquer problemas de equidade que você observa.  Consulte os cadernos [de como fazer](how-to-machine-learning-fairness-aml.md) e [amostrar](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para permitir a avaliação da equidade dos sistemas de IA durante a formação em Azure Machine Learning.
 
-Os sistemas de inteligência artificial e aprendizagem automática podem apresentar comportamentos injustos. Uma maneira de definir comportamentos injustos é pelo seu mal, ou impacto nas pessoas. Há muitos tipos de danos que os sistemas de IA podem dar origem. Dois tipos comuns de danos causados pela IA são:
 
-- Danos na atribuição: Um sistema de IA alarga ou retém oportunidades, recursos ou informações. Exemplos incluem contratação, admissão na escola e empréstimos onde um modelo poderia ser muito melhor na escolha de bons candidatos entre um grupo específico de pessoas do que entre outros grupos.
-
-- Danos à qualidade do serviço: Um sistema de IA não funciona tão bem para um grupo de pessoas como para outro. A seu favor, um sistema de reconhecimento de voz pode não funcionar tão bem para as mulheres como para os homens.
-
-Para reduzir comportamentos injustos nos sistemas de IA, tem de avaliar e mitigar estes danos.
+## <a name="what-is-fairness-in-machine-learning-systems"></a>O que é a equidade nos sistemas de aprendizagem automática?
 
 >[!NOTE]
-> A justiça é um desafio sociotécnico. Muitos aspetos da equidade, como a justiça e o devido processo, não são capturados em métricas quantitativas de equidade. Além disso, muitas métricas de equidade quantitativa não podem ser satisfeitas simultaneamente. O objetivo é permitir que os humanos avaliem diferentes estratégias de mitigação e, em seguida, fazer trocas adequadas ao seu cenário.
+> A justiça é um desafio sociotérmico. Muitos aspetos da equidade, como a justiça e o devido processo, não são capturados em métricas de justiça quantitativa. Além disso, muitas métricas de justiça quantitativa não podem ser satisfeitas simultaneamente. O objetivo com o pacote fairlearn open-source é permitir que os humanos avaliem diferentes estratégias de impacto e mitigação. Em última análise, cabe aos utilizadores humanos construir em inteligência artificial e modelos de machine learning fazer trocas adequadas ao seu cenário.
 
-## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação da equidade com fairlearn
+A inteligência artificial e os sistemas de aprendizagem automática podem apresentar comportamentos injustos. Uma maneira de definir comportamentos injustos é pelo seu dano, ou impacto nas pessoas. Há muitos tipos de danos que os sistemas de IA podem dar origem. Veja o [keynote NeurIPS 2017 de Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) para saber mais.
+
+Dois tipos comuns de danos causados pela IA são:
+
+- Prejuízo da atribuição: Um sistema de IA alarga ou retém oportunidades, recursos ou informações para determinados grupos. Exemplos incluem contratação, admissões escolares, e empréstimos onde um modelo pode ser muito melhor na escolha de bons candidatos entre um grupo específico de pessoas do que entre outros grupos.
+
+- Danos à qualidade de serviço: Um sistema de IA não funciona tão bem para um grupo de pessoas como para outro. A seu favor, um sistema de reconhecimento de voz pode não funcionar tão bem para as mulheres como para os homens.
+
+Para reduzir comportamentos injustos nos sistemas de IA, é preciso avaliar e mitigar estes danos.
+
+
+## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação da equidade com Fairlearn
 
 Fairlearn é um pacote python de código aberto que permite aos desenvolvedores de sistemas de aprendizagem automática avaliar a equidade dos seus sistemas e mitigar as questões de equidade observadas.
 
-Fairlearn tem dois componentes:
+O pacote fairlearn open-source tem dois componentes:
 
 - Painel de avaliação: Um widget de caderno Jupyter para avaliar como as previsões de um modelo afetam diferentes grupos. Também permite comparar vários modelos utilizando métricas de equidade e desempenho.
-- Algoritmos de Mitigação: Um conjunto de algoritmos para mitigar a injustiça na classificação binária e na regressão.
+- Algoritmos de mitigação: Um conjunto de algoritmos para mitigar a injustiça na classificação binária e regressão.
 
-Juntos, estes componentes permitem aos cientistas de dados e líderes empresariais navegar em quaisquer trocas entre a equidade e o desempenho, e selecionar a estratégia de mitigação que melhor se adequa às suas necessidades.
+Juntos, estes componentes permitem que cientistas de dados e líderes empresariais naveguem em quaisquer trocas entre justiça e desempenho, e selecionem a estratégia de mitigação que melhor se adequa às suas necessidades.
 
 ## <a name="fairness-assessment"></a>Avaliação da equidade
+No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
 
-Em Fairlearn, a equidade é conceptualizada embora uma abordagem conhecida como justiça de **grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos?
+Algo a ter em conta é se estas funcionalidades contêm implicações de privacidade devido a dados privados. Mas a palavra "sensível" não implica que estas características não devam ser usadas para fazer previsões.
 
-Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. Características sensíveis são passadas para um estimador fairlearn como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a estas características ao avaliar a equidade do grupo. Algo a ter em conta é se estas funcionalidades contêm implicações de privacidade devido a informações pessoalmente identificáveis. Mas a palavra "sensível" não implica que estas características não devam ser usadas para fazer previsões.
+>[!NOTE]
+> Uma avaliação da equidade não é um exercício puramente técnico.  O pacote fairlearn open-source pode ajudá-lo a avaliar a equidade de um modelo, mas não irá realizar a avaliação para si.  O pacote fairlearn de código aberto ajuda a identificar métricas quantitativas para avaliar a equidade, mas os desenvolvedores também devem realizar uma análise qualitativa para avaliar a equidade dos seus próprios modelos.  As características sensíveis acima referidas são um exemplo deste tipo de análise qualitativa.     
 
-Durante a fase de avaliação, a equidade é quantificada através de métricas de disparidade. **As métricas** de disparidade podem avaliar e comparar o comportamento do modelo em diferentes grupos, quer como rácios, quer como diferenças. Fairlearn apoia duas classes de métricas de disparidade:
+Durante a fase de avaliação, a equidade é quantificada através de métricas de disparidade. **As métricas de disparidade** podem avaliar e comparar o comportamento do modelo em diferentes grupos, quer como rácios, quer como diferenças. O pacote fairlearn open-source suporta duas classes de métricas de disparidade:
 
 
 - Disparidade no desempenho do modelo: Estes conjuntos de métricas calculam a disparidade (diferença) nos valores da métrica de desempenho selecionada em diferentes subgrupos. Alguns exemplos incluem:
@@ -58,41 +66,48 @@ Durante a fase de avaliação, a equidade é quantificada através de métricas 
   - disparidade na taxa de precisão
   - disparidade na taxa de erro
   - disparidade na precisão
-  - disparidade na recuperação
+  - disparidade na recordação
   - disparidade no MAE
   - muitos outros
 
-- Disparidade na taxa de seleção: Esta métrica contém a diferença na taxa de seleção entre os diferentes subgrupos. Um exemplo disso é a disparidade na taxa de aprovação de empréstimos. Taxa de seleção: a fração de pontos de dados em cada classe classificada como 1 (em classificação binária) ou a distribuição dos valores de previsão (em regressão).
+- Disparidade na taxa de seleção: Esta métrica contém a diferença na taxa de seleção entre diferentes subgrupos. Um exemplo disso é a disparidade na taxa de aprovação dos empréstimos. Taxa de seleção: a fração de pontos de dados em cada classe classificada como 1 (na classificação binária) ou distribuição dos valores de previsão (em regressão).
 
 ## <a name="unfairness-mitigation"></a>Mitigação da injustiça
 
 ### <a name="parity-constraints"></a>Restrições de paridade
 
-Fairlearn inclui uma variedade de algoritmos de mitigação da injustiça. Estes algoritmos suportam um conjunto de restrições no comportamento do preditor chamado **simpalidade seletiva ou critérios.** As restrições de paridade requerem que alguns aspetos do comportamento do preditor sejam comparáveis entre os grupos que as características sensíveis definem (por exemplo, raças diferentes). Os algoritmos de mitigação da Fairlearn usam tais restrições de paridade para mitigar as questões de equidade observadas.
+O pacote fairlearn open-source inclui uma variedade de algoritmos de mitigação de injustiças. Estes algoritmos suportam um conjunto de restrições no comportamento do preditor **chamados restrições** ou critérios de paridade. Os constrangimentos de paridade requerem que alguns aspetos do comportamento do preditor sejam comparáveis entre os grupos que as características sensíveis definem (por exemplo, raças diferentes). Os algoritmos de mitigação no pacote de código aberto fairlearn usam tais restrições de paridade para mitigar as questões de equidade observadas.
 
-A Fairlearn suporta os seguintes tipos de restrições de paridade:
+>[!NOTE]
+> Atenuar a injustiça num modelo significa reduzir a injustiça, mas esta mitigação técnica não pode eliminar completamente esta injustiça.  Os algoritmos de mitigação da injustiça no pacote fairlearn open-source podem fornecer estratégias de mitigação sugeridas para ajudar a reduzir a injustiça num modelo de aprendizagem automática, mas não são soluções para eliminar completamente a injustiça.  Pode haver outros constrangimentos ou critérios de paridade que devem ser considerados para o modelo de aprendizagem automática de cada desenvolvedor. Os desenvolvedores que usam a Azure Machine Learning devem determinar por si mesmos se a mitigação elimina suficientemente qualquer injustiça na utilização e implantação de modelos de aprendizagem automática.  
+
+O pacote fairlearn open-source suporta os seguintes tipos de restrições de paridade: 
 
 |Restrição de paridade  | Objetivo  |Tarefa de aprendizagem automática  |
 |---------|---------|---------|
-|Paridade demográfica     |  Atenuar os danos na atribuição | Classificação binária, Regressão |
-|Probabilidades igualizadas  | Atribuição de diagnóstico e danos de qualidade de serviço | Classificação binária        |
-|Perda de grupo limitada     |  Atenuar os danos de qualidade de serviço | Regressão |
+|Paridade demográfica     |  Mitigar os danos de atribuição | Classificação binária, Regressão |
+|Probabilidades iguais  | Alocação de diagnóstico e danos de qualidade de serviço | Classificação binária        |
+|Igualdade de oportunidades | Alocação de diagnóstico e danos de qualidade de serviço | Classificação binária        |
+|Perda de grupo limitada     |  Mitigar danos de qualidade de serviço | Regressão |
+
+
 
 ### <a name="mitigation-algorithms"></a>Algoritmos de mitigação
 
-Fairlearn fornece algoritmos de mitigação pós-processamento e redução da injustiça:
+O pacote fairlearn open-source fornece algoritmos de mitigação pós-processamento e redução de injustiças:
 
-- Redução: Estes algoritmos pegam num estimador de ml de caixa preta padrão (por exemplo, um modelo LightGBM) e geram um conjunto de modelos retreinados utilizando uma sequência de conjuntos de dados de treino reponderados. Por exemplo, os candidatos a um determinado género podem ser ponderados ou ponderados para reconverter modelos e reduzir as disparidades entre diferentes grupos de género. Os utilizadores podem então escolher um modelo que proporcione a melhor compensação entre precisão (ou outra métrica de desempenho) e disparidade, que geralmente teria de se basear em regras de negócio e cálculos de custos.  
-- Pós-processamento: Estes algoritmos tomam um classificador existente e a funcionalidade sensível como entrada. Depois, derivam de uma transformação da previsão do classificador para impor os restrições de equidade especificados. A maior vantagem da otimização do limiar é a sua simplicidade e flexibilidade, uma vez que não precisa de retreinar o modelo. 
+- Redução: Estes algoritmos tomam um estimador padrão de aprendizagem de máquinas de caixa preta (por exemplo, um modelo LightGBM) e geram um conjunto de modelos retreinados usando uma sequência de conjuntos de dados de treino re-ponderados. Por exemplo, os candidatos de um determinado género podem ser ponderados ou ponderados para reformular modelos e reduzir as disparidades entre diferentes grupos de género. Os utilizadores podem então escolher um modelo que proporcione a melhor compensação entre precisão (ou outra métrica de desempenho) e disparidade, que geralmente teria de se basear em regras de negócio e cálculos de custos.  
+- Pós-processamento: Estes algoritmos tomam um classificador existente e a característica sensível como entrada. Em seguida, derivam uma transformação da previsão do classificador para impor as restrições de equidade especificadas. A maior vantagem da otimização dos limiares é a sua simplicidade e flexibilidade, uma vez que não necessita de reconverter o modelo. 
 
-| Algoritmo | Descrição | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade suportadas | Tipo de algoritmo |
+| Algoritmo | Descrição | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade apoiadas | Tipo de algoritmo |
 | --- | --- | --- | --- | --- | --- |
-| `ExponentiatedGradient` | Abordagem black-box para uma classificação justa descrita em [A Reduções Abordagem à Classificação Justa](https://arxiv.org/abs/1803.02453) | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
-| `GridSearch` | Abordagem black-box descrita em Uma Abordagem de [Reduções à Classificação Justa](https://arxiv.org/abs/1803.02453)| Classificação binária | Binário | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
-| `GridSearch` | Abordagem black-box que implementa uma variante de pesquisa de grelha de regressão justa com o algoritmo de perda de grupo limitada descrito em [Regressão Justa: Definições Quantitativas e Algoritmos baseados em Redução](https://arxiv.org/abs/1905.12843) | Regressão | Binário | [Perda de grupo limitada](#parity-constraints) | Redução |
-| `ThresholdOptimizer` | Algoritmo pós-processamento baseado no papel [Igualdade de Oportunidade sintetizada em Aprendizagem Supervisionada.](https://arxiv.org/abs/1610.02413) Esta técnica toma como entrada um classificador existente e a característica sensível, e deriva de uma transformação monótona da previsão do classificador para impor as restrições de paridade especificadas. | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Pós-processamento |
+| `ExponentiatedGradient` | Abordagem da caixa preta para uma classificação justa descrita na [Abordagem de Reduções A para classificação justa](https://arxiv.org/abs/1803.02453) | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
+| `GridSearch` | Abordagem da caixa preta descrita na [abordagem de reduções a uma classificação justa](https://arxiv.org/abs/1803.02453)| Classificação binária | Binário | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
+| `GridSearch` | Abordagem black-box que implementa uma variante de pesquisa de grelha de Regressão Justa com o algoritmo para perda de grupo delimitada descrita em [Regressão Justa: Definições Quantitativas e Algoritmos baseados na Redução](https://arxiv.org/abs/1905.12843) | Regressão | Binário | [Perda de grupo limitada](#parity-constraints) | Redução |
+| `ThresholdOptimizer` | Algoritmo pós-processamento baseado no artigo [Igualdade de Oportunidades em Aprendizagem Supervisionada.](https://arxiv.org/abs/1610.02413) Esta técnica toma como entrada um classificador existente e a característica sensível, e deriva uma transformação monotone da previsão do classificador para impor as restrições de paridade especificadas. | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Pós-processamento |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para aprender a usar os diferentes componentes, consulte os cadernos de [rectório saqueado do Fairlearn GitHub](https://github.com/fairlearn/fairlearn/) e [amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
-- Aprenda a preservar a privacidade dos dados utilizando a [privacidade diferencial e o pacote WhisperNoise](concept-differential-privacy.md).
+- Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/user_guide/index.html) [exemplos](https://fairlearn.github.io/auto_examples/notebooks/index.html)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
+- Saiba como permitir [a](how-to-machine-learning-fairness-aml.md) avaliação da equidade dos modelos de aprendizagem automática em Azure Machine Learning.
+- Consulte os cadernos de amostras para obter [cenários](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) adicionais de avaliação da equidade no Azure Machine Learning. 

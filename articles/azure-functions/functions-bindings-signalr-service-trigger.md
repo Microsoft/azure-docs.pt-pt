@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f68a3c8bb70c720f9d0c1870ead723b7b4c179c
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830711"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Serviço SignalR aciona a ligação para funções Azure
 
@@ -67,9 +67,9 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -101,9 +101,9 @@ public static void Run(InvocationContext invocation, string message, ILogger log
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -130,9 +130,9 @@ module.exports = function (context, invocation) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsem* arquivo:
 
-Função exemplo.json:
+Exemplo function.js:
 
 ```json
 {
@@ -166,9 +166,9 @@ def main(invocation) -> None:
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `SignalRTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `SignalRTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**| n/a | Deve ser definido para `SignalRTrigger` .|
 |**direção**| n/a | Deve ser definido para `in` .|
@@ -222,7 +222,9 @@ Para a ligação do parâmetro, a ordem importa. Se estiver `ParameterNames` a u
 
 A Função Azure gera um URL para a ligação do gatilho do serviço SignalR e é formatada como seguinte:
 
-    https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```
 
 O `API_KEY` é gerado pela Função Azure. Pode obter o `API_KEY` portal Azure enquanto está a utilizar a ligação do dispositivo SignalR.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Chave API":::

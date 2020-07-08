@@ -6,6 +6,7 @@ ms.date: 2/14/2020
 ms.author: rohink
 ms.openlocfilehash: 434b79a2b178defd9543e1d3ad087bb5282cb287
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85805984"

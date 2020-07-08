@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491a8f00de2fcd4c977a1856005b4358a4b62bd6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807592"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
@@ -86,15 +86,10 @@ Este instalador cria uma tarefa programada no sistema do dispositivo que funcion
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurar a política de grupo para permitir o registo do dispositivo
 
-* Crie um objeto de política de grupo no seu Diretório Ativo, se ainda não for criado.
-* Nomeá-lo (ex-Hybrid Azure AD aderir).
-* Editar & ir para: Políticas de configuração de computador > > modelos administrativos > componentes do Windows > registo do dispositivo
-* Ativar: Registar computadores unidos pelo domínio como dispositivos
-* Aplique e clique OK.
-* Ligue o GPO à localização da sua escolha (unidade organizacional, grupo de segurança ou ao domínio para todos os dispositivos).
+Para obter informações sobre como permitir a junção híbrida Azure AD para dispositivos individuais, consulte [validação controlada da ad híbrida Azure](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->Para 2012R2 as definições de política estão na **Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Workplace Juntam-se > automaticamente no local de trabalho juntam-se a computadores clientes**
+> [!NOTE]
+> As definições de política para 2012 R2 estão na **Configuração do Computador > Políticas > Modelos Administrativos > componentes do Windows > Workplace Join > automaticamente no local de trabalho junte-se aos computadores clientes.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Configurar a redução do dispositivo](how-to-connect-device-writeback.md)

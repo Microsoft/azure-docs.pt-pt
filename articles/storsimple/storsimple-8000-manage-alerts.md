@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4956c511f67fc5929eef2e39797cbe93b5b1d73e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830048"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
@@ -120,6 +120,7 @@ As tabelas que se seguem listam alguns dos alertas Microsoft Azure StorSimple qu
 * [Alertas de desempenho](#performance-alerts)
 * [Alertas de segurança](#security-alerts)
 * [Alertas de pacote de apoio](#support-package-alerts)
+* [Alertas ambientais do recinto](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividade na nuvem
 
@@ -225,6 +226,6 @@ Se a conectividade em nuvem falhar no seu dispositivo de produção StorSimple, 
 |:--- |:--- |:--- |
 | Componente de hardware O sensor de temperatura ambiente reporta o estado falhado.  | Tipo de recinto: Recinto principal | Este alerta é acionado quando a temperatura ambiente exterior em torno de StorSimple está acima de um alcance aceitável. Verifique a temperatura exterior ambiente ou o fluxo de ar da ventilação cacífa no centro de dados. Quando a temperatura volta ao normal, o alerta é automaticamente apagado após algum tempo decorrido. Se o problema persistir, contacte o suporte da Microsoft.   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [erros StorSimple e problemas de implementação do dispositivo de resolução de problemas](storsimple-8000-troubleshoot-deployment.md).

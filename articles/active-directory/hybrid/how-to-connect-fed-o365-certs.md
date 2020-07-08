@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04f523a2615892268d56c167a682987453dc997c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830456"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados da federação para o Office 365 e o Azure Ative Directory
 ## <a name="overview"></a>Descrição geral
@@ -62,7 +62,9 @@ A Azure AD tenta monitorizar os metadados da federação e atualizar os certific
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Passo 1: Verifique o estado de AutoCertateRollover
 No seu servidor AD FS, abra o PowerShell. Verifique se o valor AutoCertateRollover está definido para True.
 
-    Get-Adfsproperties
+```azurepowershell-interactive
+Get-Adfsproperties
+```
 
 ![AutoCertateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
@@ -78,16 +80,22 @@ No seu servidor AD FS, abra o pedido MSOnline PowerShell e ligue-se ao Azure AD.
 > 
 >
 
-    Install-Module MSOnline
+```azurepowershell-interactive
+Install-Module MSOnline
+```
 
 Ligue-se ao Azure AD utilizando o Módulo MSOnline PowerShell.
 
-    Import-Module MSOnline
-    Connect-MsolService
+```azurepowershell-interactive
+Import-Module MSOnline
+Connect-MsolService
+```
 
 Verifique os certificados configurados em propriedades fidedignos AD FS e Azure AD para o domínio especificado.
 
-    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```azurepowershell-interactive
+Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```
 
 ![Get-MsolFederationProperty](./media/how-to-connect-fed-o365-certs/certsync.png)
 
@@ -99,8 +107,8 @@ Na saída de Get-MsolFederationProperty ou Get-AdfsCertificate, verifique a data
 | AutoCertateRollover | Certificados em sincronização com Azure AD | Metadados da Federação são acessíveis ao público | Validade | Ação |
 |:---:|:---:|:---:|:---:|:---:|
 | Sim |Sim |Sim |- |Não é necessária uma ação. Consulte [automaticamente o certificado de assinatura de fichas de renovação](#autorenew). |
-| Yes |Não |- |Menos de 15 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
-| No |- |- |Menos de 30 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
+| Sim |Não |- |Menos de 15 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
+| Não |- |- |Menos de 30 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
 
 \[-] Não importa
 

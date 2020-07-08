@@ -3,12 +3,12 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 874069ec9ce9870c3deba37387ee470de1d1699f
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807269"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -40,13 +40,13 @@ Segue-se um resumo do que pode usufruir:
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
 | Pedidos e exceções |Sim |Sim |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
+| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
 | [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
-| [API para telemetria personalizada][api] |Yes |Não |
-| [Integração de registo de rastreio](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Não |
-| [Dados de utilizador e vista de página](../../azure-monitor/app/javascript.md) |Yes |Não |
-| É necessário reprogramar o código |Yes | Não |
+| [API para telemetria personalizada][api] |Sim |Não |
+| [Integração de registo de rastreio](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
+| [Dados de utilizador e vista de página](../../azure-monitor/app/javascript.md) |Sim |Não |
+| É necessário reprogramar o código |Sim | Não |
 
 
 
@@ -298,7 +298,7 @@ Para aplicações já instrumentadas no momento da compilação:
  * Chamadas de dependência (.NET 4.5); valores de devolução em chamadas de dependência (.NET 4.6).
  * Valores de rastreio de pilha de exceção.
 
-[Saiba mais](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Saiba mais](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 
@@ -310,7 +310,7 @@ Para aplicações já instrumentadas no momento da compilação:
 - Descarregue e execute o [instalador status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Ou executar [o Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquisar nele para o Monitor de Estado de Insights de Aplicação.
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 
 Ver a telemetria:
 

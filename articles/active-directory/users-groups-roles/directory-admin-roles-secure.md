@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b448ef83752c3ffd7be992bc5fc3c376a641101
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807864"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -90,8 +90,8 @@ Depois de ligar a Azure AD Gestão de Identidade Privilegiada, consulte os utili
 
 * Administrador global
 * Administrador privilegiado
-* Administrador de intercâmbio online
-* Administrador online do SharePoint
+* Administrador do Exchange
+* Administrador do SharePoint
 
 Se não tiver Azure AD Gestão de Identidade Privilegiada na sua organização, pode utilizar a [API powerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global porque um administrador global tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu. Estas permissões são concedidas independentemente do local onde foram atribuídas: no centro de administração microsoft 365, no portal Azure ou no módulo AD AD Azure para o Microsoft PowerShell.
 
@@ -114,7 +114,7 @@ Avaliar as contas que são atribuídas ou elegíveis para o papel de administrad
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ligue a autenticação de vários fatores e registe todas as outras contas de administração não federadas altamente privilegiadas
 
-Exija a autenticação multi-factor (MFA) no início de sessão para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administração Admin da Azure: Administrador global, administrador de funções privilegiadas, administrador online de câmbio e administrador online do SharePoint. Utilize o guia para ativar a [autenticação multi-factor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mais informações podem ser encontradas no passo 2 e no passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exija a autenticação multi-factor (MFA) no início de sessão para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administração Admin da Azure: Administrador global, administrador de funções privilegiadas, administrador de câmbio e administrador do SharePoint. Utilize o guia para ativar a [autenticação multi-factor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mais informações podem ser encontradas no passo 2 e no passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Fase 2: Mitigar ataques frequentemente utilizados
 
@@ -464,7 +464,7 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 **Resposta:** Utilize contas não privilegiadas para todos os utilizadores e a maioria dos administradores. Comece por desenvolver uma pegada da organização para determinar quais as poucas contas de administrador que devem ser privilegiadas. E monitor para utilizadores administrativos recém-criados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Funcionalidades de segurança dos produtos e serviços da Microsoft na nuvem
 

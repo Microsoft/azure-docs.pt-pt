@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 28d3aae402a7d091fdcbe07dd4699a6fd44b5b25
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807983"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -39,11 +39,11 @@ Quando possível, são fornecidos exemplos para ambas as versões 3. *x* e vers�
 
 O hospedeiro é um recipiente de tempo de funcionamento para funções.  Ouve funções de gatilhos e chamadas. Na versão 3. *x*, o hospedeiro é uma implementação de `IHost` . Na versão 2. *x,* usa-se o `JobHost` objeto. Cria uma instância de anfitrião no seu código e escreve código para personalizar o seu comportamento.
 
-Esta é uma diferença fundamental entre usar o WebJobs SDK diretamente e usá-lo indiretamente através de Funções Azure. Em Funções Azure, o serviço controla o anfitrião e não é possível personalizar o anfitrião escrevendo código. As Funções Azure permitem personalizar o comportamento do anfitrião através de definições no ficheiro host.json. Essas definições são cordas, não código, e isto limita os tipos de personalizações que você pode fazer.
+Esta é uma diferença fundamental entre usar o WebJobs SDK diretamente e usá-lo indiretamente através de Funções Azure. Em Funções Azure, o serviço controla o anfitrião e não é possível personalizar o anfitrião escrevendo código. As Funções Azure permitem personalizar o comportamento do anfitrião através de configurações no host.jsno ficheiro. Essas definições são cordas, não código, e isto limita os tipos de personalizações que você pode fazer.
 
 ### <a name="host-connection-strings"></a>Cadeias de conexão do anfitrião
 
-O WebJobs SDK procura as cordas de conexão Azure Storage e Azure Service Bus no ficheiro local.settings.json quando funciona localmente, ou no ambiente do WebJob quando corre em Azure. Por predefinição, é necessária uma definição de cadeia de ligação de armazenamento `AzureWebJobsStorage` nomeada.  
+O WebJobs SDK procura as cadeias de conexão Azure Storage e Azure Service Bus no local.settings.jsno ficheiro quando funciona localmente, ou no ambiente do WebJob quando corre em Azure. Por predefinição, é necessária uma definição de cadeia de ligação de armazenamento `AzureWebJobsStorage` nomeada.  
 
 Versão 2. *x* do SDK permite-lhe usar os seus próprios nomes para estas cordas de ligação ou armazená-las em outro lugar. Pode definir nomes em código usando o [`JobHostConfiguration`] , como mostrado aqui:
 
@@ -358,7 +358,7 @@ Pode configurar o comportamento de alguns gatilhos e encadernações. O processo
 * **Versão 3. *x*:** Definir a configuração quando o `Add<Binding>` método for chamado `ConfigureWebJobs` .
 * **Versão 2. *x*:** Definir a configuração definindo as propriedades num objeto de configuração para o que passa `JobHost` .
 
-Estas definições específicas de encadernação são equivalentes às definições no ficheiro do [projeto host.json](../azure-functions/functions-host-json.md) em Funções Azure.
+Estas definições específicas de encadernação equivalem às definições no [host.jsno ficheiro do projeto](../azure-functions/functions-host-json.md) em Funções Azure.
 
 Pode configurar as seguintes ligações:
 
@@ -470,7 +470,7 @@ static void Main(string[] args)
 }
 ```
 
-Para mais detalhes, consulte a [referência host.json v1.x](../azure-functions/functions-host-json-v1.md#queues).
+Para mais detalhes, consulte a [host.jsna referência v1.x](../azure-functions/functions-host-json-v1.md#queues).
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>Configuração de ligação SendGrid (versão 3.* x*)
 
@@ -832,7 +832,7 @@ Cada registo criado por um `ILogger` caso tem um associado e `Category` `Level` 
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhum        | 6 |
+|Nenhuma        | 6 |
 
 Pode filtrar independentemente cada categoria para um determinado [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Por exemplo, é melhor ver todos os registos para processamento de gatilhos blob, mas apenas `Error` e mais alto para tudo o resto.
 
@@ -959,7 +959,7 @@ Na versão 3. *x*, já não é preciso descarregar o [`TelemetryClient`] quando 
 
 #### <a name="version-2x"></a>Versão 2. *x*
 
-Na versão 2. *x*, criado [`TelemetryClient`] internamente pelo fornecedor application insights para as utilizações webJobs SDK [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll) . Quando o ponto final do Application Insights não está disponível ou a estrangular os pedidos de entrada, este canal [guarda pedidos no sistema de ficheiros da aplicação web e reenvia-os mais tarde.](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)
+Na versão 2. *x*, criado [`TelemetryClient`] internamente pelo fornecedor application insights para as utilizações webJobs SDK [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll) . Quando o ponto final do Application Insights não está disponível ou a estrangular os pedidos de entrada, este canal [guarda pedidos no sistema de ficheiros da aplicação web e reenvia-os mais tarde.](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/)
 
 O [`TelemetryClient`] é criado por uma classe que `ITelemetryClientFactory` implementa. Por padrão, este é o [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/) .
 

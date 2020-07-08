@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85507947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830065"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o seu recurso-alvo se desloca para uma região de Azure diferente
 
@@ -68,6 +68,8 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 ### <a name="identifying-rules-associated-with-a-moved-resource-from-the-azure-portal"></a>Identificar regras associadas a um recurso movido a partir do portal Azure
 
 - **Para regras de alerta** - Navegue para Alertas > Gerir as regras de alerta > filtrar pela subscrição contendo e pelo recurso movido.
+> [!NOTE]
+> As regras de alerta de registo de atividades não suportam este processo. Não é possível atualizar o âmbito de uma regra de alerta de registo de atividade e fazê-la apontar para um recurso em outra subscrição. Em vez disso, pode criar uma nova regra que substituirá a antiga.
 
 - **Para regras de ação** - Navegue para alertas > Gerir as ações > Regras de Ação (pré-visualização) > filtro pela subscrição contendo e pelo recurso movido.
 
@@ -108,6 +110,6 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 2.  Atualizar o âmbito de regras diretamente[(alertas métricos,](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [alertas de registo de atividade)](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)
 3.  Se necessário, divida em duas regras (relevantes para alguns casos de alertas métricos, como referido acima).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba a resolução de outros problemas com [notificações de alerta,](alerts-troubleshoot.md) [alertas métricos](alerts-troubleshoot-metric.md)e alertas de [registo.](alerts-troubleshoot-log.md) 

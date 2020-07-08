@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: cd636ed1ff4369360fb5faae02e8095983cad043
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611769"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -157,6 +157,49 @@ Os seguintes comandos demonstram como usar o CLI para gerir os recursos utilizad
     ```
 
     Para obter mais informações, consulte [o az ml computetarget criar amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+
++ <a id="computeinstance"></a>Gerir casos de computação.  Em todos os exemplos abaixo, o nome da instância computacional é **cpu**
+
+    + Criar uma nova computação.
+
+        ```azurecli-interactive
+        az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+        ```
+    
+        Para obter mais informações, consulte [o az ml computetarget criar computação](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+
+    + Pare com uma computação.
+    
+        ```azurecli-interactive
+        az ml computetarget stop computeinstance -n cpu -v
+        ```
+    
+        Para obter mais informações, consulte [a az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    
+    + Inicie uma intromissão de computação.
+    
+        ```azurecli-interactive
+        az ml computetarget start computeinstance -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [a az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    
+    + Reinicie uma insímia computestance.
+    
+        ```azurecli-interactive
+        az ml computetarget restart computeinstance -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [a az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    
+    + Elimine uma insístance computestance.
+    
+        ```azurecli-interactive
+        az ml computetarget delete -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [az ml computetarget eliminar a computação](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Executar experiências
 
@@ -305,7 +348,7 @@ Se usou o `az ml environment scaffold` comando, gera um ficheiro de modelo `azur
 
 A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo, e uma descrição. Se um tipo de objeto estiver ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear para um argumento de construtor em vez de uma variável de classe. Por exemplo, o `environmentVariables` campo mapeia para a `environment_variables` variável na [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) classe.
 
-| Campo JSON | Tipo | Description |
+| Campo JSON | Tipo | Descrição |
 |---|---|---|
 | `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |
@@ -402,7 +445,7 @@ Os seguintes comandos demonstram como registar um modelo treinado e, em seguida,
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Referência de comando para a extensão CLI de aprendizagem automática](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 

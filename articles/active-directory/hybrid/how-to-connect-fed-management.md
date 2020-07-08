@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64be7350b373dcceb8c192f0859fa2ee7f47334
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360083"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830932"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os Serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect
 Este artigo descreve como gerir e personalizar os Serviços da Federação de Diretório Ativo (AD FS) utilizando o Azure Ative Directory (Azure AD) Connect. Também inclui outras tarefas comuns de AD FS que você pode precisar fazer para uma configuração completa de uma fazenda AD FS.
@@ -192,7 +192,9 @@ Para alterar o logótipo da empresa que está na página **de início de sposiç
 > [!NOTE]
 > As dimensões recomendadas para o logótipo são de 260 x \@ 35 96 dpi com um tamanho de ficheiro não superior a 10 KB.
 
-    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```azurepowershell-interactive
+Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```
 
 > [!NOTE]
 > É necessário o parâmetro *TargetName.* O tema padrão que é lançado com AD FS chama-se Predefinido.
@@ -200,7 +202,9 @@ Para alterar o logótipo da empresa que está na página **de início de sposiç
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Adicione uma descrição de inscrição 
 Para adicionar uma descrição da página de entrada na **página de iniciar sing,** utilize o cmdlet e sintaxe do Windows PowerShell.
 
-    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```azurepowershell-interactive
+Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar as regras de reclamação da AD FS 
 A AD FS suporta uma linguagem de reivindicação rica que pode usar para criar regras de reivindicação personalizadas. Para mais informações, consulte [O Papel da Língua de Regra de Reclamação.](https://technet.microsoft.com/library/dd807118.aspx)
@@ -214,8 +218,10 @@ Por exemplo, pode selecionar **o ms-ds-consistência como** o atributo para a â
 
 **Regra 1: Atributos de consulta**
 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
-    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```claim-rule-language
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
+=> add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```
 
 Nesta regra, está a consultar os **valores de ms-ds-consistência e** **objectGuid** para o utilizador do Ative Directory. Mude o nome da loja para um nome de loja apropriado na sua implementação AD FS. Altere também o tipo de reclamações para um tipo de reclamação adequado para a sua federação, conforme definido para **objectGuid** e **ms-ds-consistênciaguid**.
 
@@ -223,23 +229,29 @@ Além disso, ao utilizar **o add** e não **emitir,** evita adicionar um problem
 
 **Regra 2: Verifique se existe um guia de consistência ms-ds para o utilizador**
 
-    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
-    => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```claim-rule-language
+NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
+=> add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```
 
 Esta regra define uma bandeira temporária chamada **idflag** que é definida para **usar o guia** se não houver **ms-ds-consistência-yguid** povoada para o utilizador. A lógica por trás disto é o facto de a AD FS não permitir reclamações vazias. Assim, quando se adicionam reclamações `http://contoso.com/ws/2016/02/identity/claims/objectguid` e `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` na regra 1, acaba-se com uma reclamação **de msdsconsistencyguid apenas** se o valor for preenchido para o utilizador. Se não for povoado, a AD FS vê que terá um valor vazio e o deixará cair imediatamente. Todos os objetos terão **objecteGuid,** de modo que a reivindicação estará sempre lá depois da regra 1 ser executada.
 
 **Regra 3: Emite ms-ds-consistênciaguid como ID imutável se estiver presente**
 
-    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```claim-rule-language
+c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```
 
 Este é um cheque implícito **exist.** Se o valor da reclamação existir, então emita-o como imutável IM. O exemplo anterior utiliza a **alegação do identificador de nomes.** Terá de alterar isto para o tipo de reclamação apropriado para o imutável ID no seu ambiente.
 
 **Regra 4: Emitir objectGuid como ID imutável se ms-ds-consistênciaGuid não estiver presente**
 
-    c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
-    && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```claim-rule-language
+c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
+&& c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```
 
 Nesta regra, está simplesmente a verificar a **idflag**temporária da bandeira. Decide se emite a reclamação com base no seu valor.
 
@@ -250,5 +262,5 @@ Nesta regra, está simplesmente a verificar a **idflag**temporária da bandeira.
 
 Pode adicionar mais do que um domínio a ser federado utilizando o Azure AD Connect, conforme descrito no [Add um novo domínio federado](how-to-connect-fed-management.md#addfeddomain). Azure AD Connect versão 1.1.553.0 e mais recente cria automaticamente a regra de reclamação correta para o emitenteID. Se não puder utilizar a versão 1.1.553.0 ou mais recente do Azure AD, recomenda-se que a ferramenta [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) seja utilizada para gerar e definir regras de reclamação corretas para a confiança do partido Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [as opções de inscrição do utilizador](plan-connect-user-signin.md).

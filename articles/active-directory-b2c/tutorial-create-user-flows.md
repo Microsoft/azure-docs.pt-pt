@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d9fb98da40602837eee57914036742994b4eb9c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 63c15b13134f17cd2e1d0bf7b8d11a168dca5b2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829970"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -46,7 +46,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
     ![Inquilina B2C, Diretório e Painel de Assinatura, Portal Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Em **Políticas**, selecione **fluxos de utilizador (políticas)** e, em seguida, selecione **Novo fluxo de utilizador**.
+1. Em **Políticas**, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
 
     ![Página de fluxos de utilizador no portal com novo botão de fluxo do utilizador realçado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,7 +82,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 
 Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize um fluxo de utilizador de edição de perfil.
 
-1. No menu da página geral do inquilino Azure AD B2C, selecione **fluxos de utilizador (políticas)** e, em seguida, selecione **Novo fluxo de utilizador**.
+1. No menu da página geral do inquilino Azure AD B2C, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
 1. Selecione o fluxo do utilizador **de edição de perfil** no **separador Recomendado.**
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *perfilando1*.
 1. Para **fornecedores de identidade**, selecione Local Account **SignIn**.
@@ -100,7 +100,7 @@ Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize
 
 Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe, utilize uma palavra-passe para redefinir o fluxo do utilizador.
 
-1. No menu geral do inquilino Azure AD B2C, selecione **fluxos de utilizador (políticas)** e, em seguida, selecione **Novo fluxo de utilizador**.
+1. No menu geral do inquilino Azure AD B2C, selecione **os fluxos do utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
 1. Selecione o fluxo do utilizador **de redefinição de palavra-passe** no **separador Recomendado.**
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *passwordreste1*.
 1. Para **os fornecedores de identidade,** ative **a palavra-passe Reset utilizando o endereço de e-mail.**
@@ -115,7 +115,7 @@ Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe
 1. Clique **no fluxo do utilizador**executar, verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continue**.
 1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e **selecione Continue**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a:
 

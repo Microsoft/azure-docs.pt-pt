@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611735"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do tecido de serviço
 
@@ -116,7 +116,7 @@ Leia o [Artigo de aplicação](service-fabric-deploy-remove-applications.md) imp
 
 **Serviço de Gestor de Reparação**: Trata-se de um serviço de sistema opcional que permite ações de reparação num cluster de forma segura, automável e transparente. O gestor de reparação é utilizado em:
 
-   - Realização de reparações de manutenção Azure em clusters de tecido de serviço de [durabilidade prateada e dourada.](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)
+   - Realização de reparações de manutenção Azure em clusters de tecido de serviço de [durabilidade prateada e dourada.](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)
    - Execução de ações de reparação para [aplicação de orquestração de remendos](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Modelos de implementação e aplicação
@@ -174,7 +174,7 @@ A tabela a seguir descreve os diferentes modelos de aplicação e a ferramenta q
 | Aplicações de malha de tecido de serviço | Modelo de recursos (YAML & JSON) | VS 2017 |Não suportado |Não suportado | Suportado - Ambiente de malha apenas | Não suportado|
 |Aplicações nativas do tecido de serviço | Modelo de aplicação nativa (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Suportado|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Tecido de Serviço:
 

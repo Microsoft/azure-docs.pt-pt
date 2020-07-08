@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cd0116a417d2710d330c4be406a5d9d770f76461
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829419"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ As transações elásticas de base de dados visam os seguintes cenários:
 
 ## <a name="installation-and-migration"></a>Instalação e migração
 
-As capacidades para transações de bases de dados elásticas na Base de Dados SQL são fornecidas através de atualizações ao Sistema.Data.dll e System.Transactions.dll. Os DLLs asseguram que o compromisso bifástico é utilizado sempre que necessário para garantir a atomicidade. Para começar a desenvolver aplicações utilizando transações elásticas de base de dados, instale [o Quadro .NET 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) ou uma versão posterior. Ao executar uma versão anterior do quadro .NET, as transações não promoverão uma transação distribuída e uma exceção será levantada.
+As capacidades para transações de bases de dados elásticas na Base de Dados SQL são fornecidas através de atualizações às bibliotecas .NET System.Data.dll e System.Transactions.dll. Os DLLs asseguram que o compromisso bifástico é utilizado sempre que necessário para garantir a atomicidade. Para começar a desenvolver aplicações utilizando transações elásticas de base de dados, instale [o Quadro .NET 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) ou uma versão posterior. Ao executar uma versão anterior do quadro .NET, as transações não promoverão uma transação distribuída e uma exceção será levantada.
 
 Após a instalação, pode utilizar as APIs de transação distribuídas no System.Transactions com ligações à Base de Dados SQL. Se tiver aplicações MSDTC existentes utilizando estas APIs, basta reconstruir as aplicações existentes para .NET 4.6 após a instalação do Quadro 4.6.1. Se os seus projetos tiverem como alvo .NET 4.6, utilizarão automaticamente os DLLs atualizados a partir da nova versão Framework e as chamadas de API de transação distribuída em combinação com as ligações à Base de Dados SQL serão agora bem sucedidas.
 
@@ -50,6 +50,7 @@ Lembre-se que as transações elásticas da base de dados não requerem a instal
 
 O seguinte código de amostra utiliza a experiência de programação familiar com .NET System.Transactions. A classe TransactionScope estabelece uma transação ambiente em .NET. (Uma "transação ambiente" é uma que vive no fio atual.) Todas as ligações abertas no TransactionScope participam na transação. Se diferentes bases de dados participarem, a transação é automaticamente elevada a uma transação distribuída. O resultado da transação é controlado definindo o âmbito de aplicação para completar para indicar um compromisso.
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = new SqlConnection(connStrDb1))
@@ -70,12 +71,14 @@ O seguinte código de amostra utiliza a experiência de programação familiar c
 
         scope.Complete();
     }
+```
 
 ### <a name="sharded-database-applications"></a>Aplicações de base de dados de sharded
 
 As transações elásticas de base de dados para a Base de Dados SQL também suportam a coordenação de transações distribuídas onde utiliza o método OpenConnectionForKey da biblioteca de clientes de base de dados elástica para abrir ligações para um nível de dados escalonado. Considere os casos em que precisa de garantir a consistência transacional para alterações em vários valores chave de fragmentos diferentes. As ligações aos fragmentos que hospedam os diferentes valores-chave de fragmentos são intermediadas através do OpenConnectionForKey. No caso geral, as ligações podem ser de diferentes fragmentos, de modo a que garantir garantias transacionais requer uma transação distribuída.
 A seguinte amostra de código ilustra esta abordagem. Assume que uma variável chamada shardmap é usada para representar um mapa de fragmentos da biblioteca de clientes de base de dados elástica:
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
@@ -96,6 +99,7 @@ A seguinte amostra de código ilustra esta abordagem. Assume que uma variável c
 
         scope.Complete();
     }
+```
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação .NET para Serviços Azure Cloud
 
@@ -105,6 +109,7 @@ Para o Azure App Service, as atualizações para o SO convidado não são suport
 
 Note que o instalador para .NET 4.6.1 pode necessitar de um armazenamento mais temporário durante o processo de armadilhagem de botas nos serviços de nuvem Azure do que o instalador para .NET 4.6. Para garantir uma instalação bem sucedida, é necessário aumentar o armazenamento temporário para o seu serviço de nuvem Azure no seu ficheiro ServiceDefinition.csdef na secção LocalResources e nas definições ambientais da sua tarefa de arranque, como mostra a seguinte amostra:
 
+```xml
     <LocalResources>
     ...
         <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
@@ -123,6 +128,7 @@ Note que o instalador para .NET 4.6.1 pode necessitar de um armazenamento mais t
             </Environment>
         </Task>
     </Startup>
+```
 
 ## <a name="transactions-across-multiple-servers"></a>Transações em vários servidores
 
