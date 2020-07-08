@@ -6,19 +6,18 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123629"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
-As Funções Azure permitem executar o seu código num ambiente sem servidores sem ter de criar primeiro uma máquina virtual (VM) ou publicar uma aplicação web. Neste artigo, aprende-se a usar funções Azure para criar uma função de gatilho HTTP "olá mundo" no portal Azure.
+As Funções Azure permitem executar o seu código num ambiente sem servidor sem ter de criar primeiro uma máquina virtual (VM) ou publicar uma aplicação web. Neste artigo, aprende a usar as Funções Azure para criar uma função de gatilho HTTP "hello world" no portal Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Se é um desenvolvedor de C#, considere criar a [sua primeira função no Visual Studio 2019](functions-create-your-first-function-visual-studio.md) em vez de no portal. 
+Se é um desenvolvedor C#, considere [criar a sua primeira função no Visual Studio 2019](functions-create-your-first-function-visual-studio.md) em vez de no portal. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -26,25 +25,25 @@ Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta Azure.
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para uma gestão mais fácil, implementação, escalae e partilha de recursos.
+Precisa de uma aplicação Function App para alojar a execução das suas funções. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para facilitar a gestão, implementação, escala e partilha de recursos.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-Em seguida, crie uma função na nova aplicação de funções.
+Em seguida, crie uma função na nova aplicação de função.
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Criar uma função de gatilho HTTP
 
-1. A partir do menu esquerdo da janela **Funções,** selecione **Funções**e, em seguida, selecione **Adicionar** a partir do menu superior. 
+1. A partir do menu esquerdo da janela **Funções,** selecione **Funções**e selecione **Adicione** no menu superior. 
  
-1. A partir da janela **New Function,** selecione **Http trigger**.
+1. A partir da janela **Nova Função,** selecione **'Desír do gatilho'.**
 
-    ![Escolha função de gatilho HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
+    ![Escolha a função de gatilho HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Na janela **New Function,** aceite o nome predefinido para **New Function**, ou introduza um novo nome. 
+1. Na janela **Nova Função,** aceite o nome predefinido para **Nova Função,** ou introduza um novo nome. 
 
-1. Escolha o **Anonymous** na lista de desistência do **nível** de autorização e, em seguida, selecione **Criar Função**.
+1. Escolha **o Anónimo** na lista de abandono do **nível** de autorização e, em seguida, selecione **Criar Função**.
 
-    O Azure cria a função de gatilho HTTP. Agora, pode enviar um pedido HTTP para executar a função nova.
+    Azure cria a função de gatilho HTTP. Agora, pode enviar um pedido HTTP para executar a função nova.
 
 ## <a name="test-the-function"></a>Testar a função
 
@@ -52,11 +51,11 @@ Em seguida, crie uma função na nova aplicação de funções.
 
     ![Selecione Obter URL de função](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
 
-1. Na caixa de diálogo URL da **função Get,** selecione **predefinido** da lista de drop-down e, em seguida, selecione o ícone **copy para clipboard.** 
+1. Na caixa de diálogo URL da **função Get,** selecione o **predefinimento** da lista de drop-down e, em seguida, selecione a Cópia para o ícone **da área de transferência.** 
 
     ![Copiar o URL da função a partir do portal do Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Cole o URL da função na barra de endereço do navegador. Adicione o valor de cadeia de consulta `?name=<your_name>` ao final deste URL e prima Introduza para executar o pedido. 
+1. Cole o URL da função na barra de endereço do navegador. Adicione o valor da cadeia de consulta `?name=<your_name>` ao final deste URL e prima Enter para executar o pedido. 
 
     O exemplo seguinte mostra a resposta no browser:
 
@@ -64,7 +63,7 @@ Em seguida, crie uma função na nova aplicação de funções.
 
     O URL do pedido inclui uma chave que é necessária, por predefinição, para aceder à sua função através de HTTP.
 
-1. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída do rastreio, volte à página **Code + Test** no portal e expanda a seta de **Registos** na parte inferior da página.
+1. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de **vestígios,** volte à página **Code + Test** no portal e expanda a seta de Logs na parte inferior da página.
 
    ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -72,7 +71,7 @@ Em seguida, crie uma função na nova aplicação de funções.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

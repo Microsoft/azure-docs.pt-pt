@@ -1,6 +1,6 @@
 ---
-title: Lidar com eventos de mapas [ Microsoft Azure Maps
-description: Neste artigo, você aprenderá a fazer um mapa Web SDK interativo com eventos de mapas usando o Web SDK do Microsoft Azure Maps.
+title: Lidar com eventos de mapas / Microsoft Azure Maps
+description: Neste artigo, você vai aprender a fazer um mapa Web SDK interativo com eventos de mapa usando o Microsoft Azure Maps web SDK.
 author: Philmea
 ms.author: philmea
 ms.date: 09/10/2019
@@ -10,15 +10,14 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124011"
 ---
 # <a name="interact-with-the-map"></a>Interaja com o mapa
 
-Este artigo mostra-lhe como usar a classe de [eventos de mapas.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) A propriedade destaca eventos no mapa e em diferentes camadas do mapa. Também pode destacar eventos quando interage com um marcador HTML.
+Este artigo mostra-lhe como usar a [classe de eventos de mapas.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) A propriedade destaca eventos no mapa e em diferentes camadas do mapa. Também pode destacar eventos quando interage com um marcador HTML.
 
 ## <a name="interact-with-the-map"></a>Interaja com o mapa
 
@@ -26,95 +25,95 @@ Jogue com o mapa abaixo e veja os eventos correspondentes do rato realçados à 
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interagir com o mapa – eventos</a> de rato por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa - eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact com o mapa – eventos de rato</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="interact-with-map-layers"></a>Interaja com camadas de mapa
+## <a name="interact-with-map-layers"></a>Interaja com as camadas de mapa
 
-O código seguinte destaca o evento disparado enquanto interage com a Camada de Símbolo. O símbolo, bolha, linha e camada de polígono suportam o mesmo conjunto de eventos. O mapa de calor e as camadas de azulejos não suportam nenhum destes eventos.
+O código seguinte realça o evento disparado à medida que interage com a Camada de Símbolo. O símbolo, a bolha, a linha e a camada de polígono suportam todos o mesmo conjunto de eventos. O mapa de calor e as camadas de azulejos não suportam nenhum destes eventos.
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa – Eventos de Camadas' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Eventos de Camadas</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa - Eventos de Camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Layer Events</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interaja com o marcador HTML
 
-O código seguinte adiciona eventos de mapas Javascript a um marcador HTML. Também destaca o nome dos eventos que são disparados à medida que interage com o marcador HTML.
+O código seguinte adiciona eventos de mapa Javascript a um marcador HTML. Também destaca o nome dos eventos que são disparados à medida que interage com o marcador HTML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagindo com o mapa - Eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interagindo com o mapa - EVENTOS DE Marcador HTML</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagindo com o mapa - eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting com o mapa - HTML Marker events</a> by Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-A tabela seguinte lista todos os eventos de classe de mapas suportados.
+A tabela que se segue lista todos os eventos de classe de mapas suportados.
 
 | Evento               | Descrição |
 |---------------------|-------------|
 | `boxzoomend`        | Disparado quando termina uma interação de "zoom de caixa".|
-| `boxzoomstart`      | Disparado quando começa uma interação de "zoom de caixa".|
-| `click`             | Disparado quando um dispositivo de ponta é pressionado e libertado no mesmo ponto do mapa.|
-| `close`             | Disparado quando o pop-up é fechado manualmente ou programaticamente.|
-| `contextmenu`       | Disparado quando o botão certo do rato é clicado.|
-| `data`              | Disparado quando qualquer mapa de dados carrega ou muda. |
+| `boxzoomstart`      | Disparado quando uma interação de "zoom de caixa" começa.|
+| `click`             | Disparado quando um dispositivo de apontamento é pressionado e libertado no mesmo ponto do mapa.|
+| `close`             | Disparado quando o pop-up estiver fechado manualmente ou programaticamente.|
+| `contextmenu`       | Disparado quando o botão direito do rato é clicado.|
+| `data`              | Disparado quando qualquer dado do mapa carrega ou muda. |
 | `dataadded`         | Disparado quando as formas são adicionadas ao `DataSource` .|
 | `dataremoved`       | Disparado quando as formas são removidas do `DataSource` .|
-| `datasourceupdated` | Disparado quando o `DataSource` objeto é atualizado.|
-| `dblclick`          | Disparado quando um dispositivo de pontaé clicado duas vezes no mesmo ponto do mapa.|
+| `datasourceupdated` | Disparado quando o `DataSource` objeto for atualizado.|
+| `dblclick`          | Disparado quando um dispositivo de apontamento é clicado duas vezes no mesmo ponto do mapa.|
 | `drag`              | Disparado repetidamente durante uma interação "arrastar para pan" no mapa, popup ou marcador HTML.|
-| `dragend`           | Disparado quando uma interação "arrastar para a panela" termina no mapa, popup ou marcador HTML.|
-| `dragstart`         | Disparado quando uma interação "arrastar para a panela" começa no mapa, popup ou marcador HTML.|
+| `dragend`           | Disparado quando uma interação "arrastar para pan" termina no mapa, popup ou marcador HTML.|
+| `dragstart`         | Disparado quando uma interação "arrastar para pan" começa no mapa, popup ou marcador HTML.|
 | `error`             | Disparado quando ocorre um erro.|
-| `idle`              | <p>Disparado após a última moldura prestada antes do mapa entrar num estado "inativo":<ul><li>Não estão a decorrer transições de câmaras.</li><li>Todos os azulejos atualmente solicitados carregaram.</li><li>Todas as animações de desvanecimento/transição terminaram.</li></ul></p>|
-| `keydown`           | Disparada quando uma chave é pressionada para baixo.|
-| `keypress`          | Disparada quando é premida uma chave que produz um carácter tipível (uma tecla ANSI).|
-| `keyup`             | Disparada quando uma chave é libertada.|
+| `idle`              | <p>Disparado após o último quadro prestado antes do mapa entrar num estado "ocioso":<ul><li>Não há transições de câmaras em andamento.</li><li>Todos os azulejos atualmente solicitados carregaram.</li><li>Todas as animações de fade/transição completaram.</li></ul></p>|
+| `keydown`           | Disparado quando uma chave é pressionada para baixo.|
+| `keypress`          | Disparado quando uma tecla que produz um carácter tipível (uma tecla ANSI) é pressionada.|
+| `keyup`             | Disparado quando uma chave é libertada.|
 | `layeradded`        | Disparado quando uma camada é adicionada ao mapa.|
 | `layerremoved`      | Disparado quando uma camada é removida do mapa.|
-| `load`              | Disparado imediatamente após todos os recursos necessários terem sido descarregados e a primeira renderização visualmente completa do mapa ocorreu.|
-| `mousedown`         | Disparado quando um dispositivo de ponta é pressionado dentro do mapa ou quando em cima de um elemento.|
-| `mouseenter`        | Disparado quando um dispositivo de ponta é inicialmente movido sobre o mapa ou um elemento. |
-| `mouseleave`        | Disparado quando um dispositivo de ponta é movido para fora do mapa ou um elemento. |
-| `mousemove`         | Disparado quando um dispositivo de ponta é movido dentro do mapa ou de um elemento.|
-| `mouseout`          | Disparado quando um dispositivo de ponto deixa a tela do mapa, o nosso deixa um elemento.|
-| `mouseover`         | Disparado quando um dispositivo de ponta é movido sobre o mapa ou um elemento.|
-| `mouseup`           | Disparado quando um dispositivo de ponta é libertado dentro do mapa ou quando em cima de um elemento.|
-| `move`              | Disparado repetidamente durante uma transição animada de uma vista para outra, como resultado da interação do utilizador ou dos métodos.|
-| `moveend`           | Disparado logo após o mapa completar uma transição de uma vista para outra, como resultado de uma interação ou métodos do utilizador.|
-| `movestart`         | Disparado pouco antes do mapa iniciar uma transição de uma vista para outra, como resultado de uma interação ou métodos do utilizador.|
+| `load`              | Disparado imediatamente após todo o necessário recursos ter sido descarregado e ocorreu a primeira renderização visualmente completa do mapa.|
+| `mousedown`         | Disparado quando um dispositivo de apontamento é pressionado dentro do mapa ou quando em cima de um elemento.|
+| `mouseenter`        | Disparado quando um dispositivo de apontamento é inicialmente movido sobre o mapa ou um elemento. |
+| `mouseleave`        | Disparado quando um dispositivo de apontamento é movido para fora do mapa ou um elemento. |
+| `mousemove`         | Disparado quando um dispositivo de apontamento é movido dentro do mapa ou de um elemento.|
+| `mouseout`          | Disparado quando um dispositivo de ponto sai da tela do mapa, deixamos um elemento.|
+| `mouseover`         | Disparado quando um dispositivo de apontamento é movido sobre o mapa ou um elemento.|
+| `mouseup`           | Disparado quando um dispositivo de apontamento é lançado dentro do mapa ou quando em cima de um elemento.|
+| `move`              | Disparado repetidamente durante uma transição animada de uma vista para outra, como resultado da interação ou métodos do utilizador.|
+| `moveend`           | Disparado logo após o mapa completar uma transição de uma vista para outra, como resultado da interação ou métodos do utilizador.|
+| `movestart`         | Disparado pouco antes do mapa iniciar uma transição de uma vista para outra, como resultado da interação ou métodos do utilizador.|
 | `open`              | Disparado quando o pop-up é aberto manualmente ou programaticamente.|
-| `pitch`             | Disparado sempre que o tom (inclinação) do mapa muda como resultado da interação ou métodos do utilizador.|
-| `pitchend`          | Disparado imediatamente após o pitch (inclinação) do mapa termina a mudança como resultado de uma interação ou métodos do utilizador.|
-| `pitchstart`        | Disparado sempre que o tom do mapa (inclinação) inicia uma mudança como resultado de uma interação ou métodos do utilizador.|
-| `ready`             | Disparado quando os recursos mínimos necessários são carregados antes que o mapa esteja pronto para ser interagido programáticamente com.|
+| `pitch`             | Disparado sempre que o tom do mapa (inclinação) se alterar como resultado da interação ou métodos do utilizador.|
+| `pitchend`          | Disparado imediatamente após o pitch (inclinação) do mapa terminar a mudança como resultado da interação do utilizador ou dos métodos.|
+| `pitchstart`        | Disparado sempre que o tom do mapa (inclinação) começa a ser alterado como resultado da interação ou métodos do utilizador.|
+| `ready`             | Disparado quando os recursos mínimos necessários do mapa são carregados antes que o mapa esteja pronto para ser interagido programáticamente com.|
 | `render`            | <p>Disparado sempre que o mapa é desenhado para o ecrã, como resultado de:<ul><li>Uma mudança na posição do mapa, zoom, pitch ou rolamento.</li><li>Uma mudança no estilo do mapa.</li><li>Uma mudança para uma `DataSource` fonte.</li><li>O carregamento de um azulejo vetorial, arquivo GeoJSON, glifo ou sprite.</li></ul></p>|
 | `resize`            | Disparado imediatamente após o mapa ter sido redimensionado.|
-| `rotate`            | Disparado repetidamente durante uma interação "arrastar para rodar".|
-| `rotateend`         | Disparado quando termina uma interação "arrastar para rodar".|
-| `rotatestart`       | Disparado quando começa uma interação "arrastar para rodar".|
+| `rotate`            | Disparado repetidamente durante uma interação de "arrastar para rodar".|
+| `rotateend`         | Disparado quando termina uma interação de "arrastar para rodar".|
+| `rotatestart`       | Disparado quando começa uma interação de "arrastar para rodar".|
 | `shapechanged`      | Disparado quando uma propriedade de objeto de forma é alterada.|
 | `sourcedata`        | Disparado quando uma das fontes do mapa carrega ou muda, incluindo se um azulejo pertencente a uma fonte carrega ou muda. |
-| `sourceadded`       | Disparado quando a `DataSource` ou é adicionado ao `VectorTileSource` mapa.|
-| `sourceremoved`     | Disparado quando `DataSource` a ou é removido do `VectorTileSource` mapa.|
-| `styledata`         | Disparado quando o estilo do mapa carrega ou muda.|
+| `sourceadded`       | Disparado quando um `DataSource` ou é adicionado ao `VectorTileSource` mapa.|
+| `sourceremoved`     | Disparado quando um `DataSource` ou é removido do `VectorTileSource` mapa.|
+| `styledata`         | Disparado quando o estilo do mapa é carregado ou muda.|
 | `styleimagemissing` | Disparado quando uma camada tenta carregar uma imagem do sprite de imagem que não existe |
 | `tokenacquired`     | Disparado quando um sinal de acesso AAD é obtido.|
-| `touchcancel`       | Disparado quando ocorre um evento de cancelamento de toque dentro do mapa.|
-| `touchend`          | Disparado quando ocorre um evento de toque dentro do mapa.|
-| `touchmove`         | Disparado quando ocorre um evento touchmove dentro do mapa.|
+| `touchcancel`       | Disparado quando um evento de touchcancel ocorre dentro do mapa.|
+| `touchend`          | Disparado quando um evento touchend ocorre dentro do mapa.|
+| `touchmove`         | Disparado quando um evento touchmove ocorre dentro do mapa.|
 | `touchstart`        | Disparado quando um evento touchstart ocorre dentro do mapa.|
 | `wheel`             | Disparado quando ocorre um evento de roda de rato dentro do mapa.|
-| `zoom`              | Disparado repetidamente durante uma transição animada de um nível de zoom para outro, como resultado de uma interação ou métodos do utilizador.|
-| `zoomend`           | Disparado logo após o mapa completar uma transição de um nível de zoom para outro, como resultado de uma interação ou métodos do utilizador.|
-| `zoomstart`         | Disparado pouco antes do mapa iniciar uma transição de um nível de zoom para outro, como resultado de uma interação ou métodos do utilizador.|
+| `zoom`              | Disparado repetidamente durante uma transição animada de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|
+| `zoomend`           | Disparado logo após o mapa completar uma transição de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|
+| `zoomstart`         | Disparado pouco antes do mapa iniciar uma transição de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Utilização do módulo Deserviços Azure Maps](./how-to-use-services-module.md)
+> [Utilizando o módulo Azure Maps Services](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

@@ -1,6 +1,6 @@
 ---
-title: Encriptação de disco azure e escala de máquina virtual Azure define sequenciação de extensão
-description: Este artigo fornece instruções sobre a ativação da encriptação do disco Microsoft Azure para VMs Linux IaaS.
+title: Encriptação do disco Azure e escala de máquina virtual Azure conjuntos de sequenciação de extensão
+description: Este artigo fornece instruções para permitir a encriptação do disco do Microsoft Azure para Os VMs Linux IaaS.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,26 +10,25 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117262"
 ---
-# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Utilize encriptação de disco azure com sequência de extensão de extensão de conjunto de máquina virtual
+# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Use encriptação de disco Azure com sequenciação de extensão de conjunto de escala de máquina virtual
 
-Extensões como encriptação de disco Azure podem ser adicionadas a uma escala de máquinas virtuais Azure definida numa ordem especificada. Para isso, utilize a sequenciação de [extensões.](virtual-machine-scale-sets-extension-sequencing.md) 
+Extensões como encriptação de disco Azure podem ser adicionadas a uma escala de máquinas virtuais Azure definida numa ordem especificada. Para tal, utilize [a sequência de extensão](virtual-machine-scale-sets-extension-sequencing.md). 
 
 Em geral, a encriptação deve ser aplicada a um disco:
 
-- Depois de extensões ou scripts personalizados que preparem os discos ou volumes.
-- Antes de extensões ou scripts personalizados que acedem ou consumam os dados nos discos ou volumes encriptados.
+- Após extensões ou scripts personalizados que preparam os discos ou volumes.
+- Antes de extensões ou scripts personalizados que acedam ou consomem os dados nos discos ou volumes encriptados.
 
 Em qualquer dos `provisionAfterExtensions` casos, a propriedade designa qual extensão deve ser adicionada mais tarde na sequência.
 
-## <a name="sample-azure-templates"></a>Modelos de amostra Azure
+## <a name="sample-azure-templates"></a>Modelos de Azure de amostra
 
-Se desejar que a Encriptação do Disco Azure seja aplicada após outra extensão, coloque a propriedade no bloco de `provisionAfterExtensions` extensão AzureDiskEncryption. 
+Se desejar que a Encriptação do Disco Azure seja aplicada após outra extensão, coloque a `provisionAfterExtensions` propriedade no bloco de extensão AzureDiskEncryption. 
 
 Aqui está um exemplo usando "CustomScriptExtension", um script Powershell que inicializa e forma um disco Windows, seguido de "AzureDiskEncryption":
 
@@ -89,7 +88,7 @@ Aqui está um exemplo usando "CustomScriptExtension", um script Powershell que i
 
 Se desejar que a Encriptação do Disco Azure seja aplicada antes de outra extensão, coloque a `provisionAfterExtensions` propriedade no bloco da extensão a seguir.
 
-Aqui está um exemplo usando "AzureDiskEncryption" seguido por "VMDiagnosticsSettings", uma extensão que fornece capacidades de monitorização e diagnóstico num Azure VM baseado no Windows:
+Aqui está um exemplo usando "AzureDiskEncryption" seguido de "VMDiagnosticsSettings", uma extensão que fornece capacidades de monitorização e diagnóstico num Azure VM baseado no Windows:
 
 
 ```json
@@ -154,14 +153,14 @@ Aqui está um exemplo usando "AzureDiskEncryption" seguido por "VMDiagnosticsSet
 }
 ```
 
-Para um modelo mais aprofundado, consulte:
-* Aplique a extensão de encriptação do disco Azure após um script personalizado de concha que formata o disco (Linux): [implemente-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+Para obter um modelo mais aprofundado, consulte:
+* Aplique a extensão de encriptação do disco Azure após um script de concha personalizado que formata o disco (Linux): [deploy-extseq-linux-ADE-after-customscript.jsem](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre a sequenciação de extensões: [Fornecimento de extensão de sequência em conjuntos de escala](virtual-machine-scale-sets-extension-sequencing.md)de máquinavirtual .
-- Saiba mais sobre a `provisionAfterExtensions` propriedade: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
-- [Encriptação de disco azure para conjuntos de escala de máquina virtual](disk-encryption-overview.md)
-- [Criptografe um conjunto de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
-- [Criptografe um conjunto de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)
-- [Crie e configure um cofre chave para encriptação de disco azure](disk-encryption-key-vault.md)
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre a sequência de extensão: [Provisão de extensão de sequência em conjuntos de escala de máquina virtual](virtual-machine-scale-sets-extension-sequencing.md).
+- Saiba mais sobre a `provisionAfterExtensions` propriedade: [Microsoft.Compute virtualMachineScaleSets/extensions referência do modelo](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- [Encriptação do disco Azure para conjuntos de escala de máquinas virtuais](disk-encryption-overview.md)
+- [Criptografe conjuntos de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
+- [Criptografe conjuntos de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)
+- [Criar e configurar um cofre chave para encriptação de disco Azure](disk-encryption-key-vault.md)

@@ -1,6 +1,6 @@
 ---
-title: Cobertura render [ cobertura de renderização ] Microsoft Azure Maps
-description: Neste artigo, conheça regiões com o Microsoft Azure Maps que prestam cobertura juntamente com o seu nível de detalhes renderizados.
+title: Cobertura de renderização / Microsoft Azure Maps
+description: Neste artigo, conheça as regiões com o Microsoft Azure Maps para fazer cobertura juntamente com o seu nível de detalhes renderizados.
 author: Philmea
 ms.author: philmea
 ms.date: 03/22/2019
@@ -9,17 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123943"
 ---
-# <a name="azure-maps-render-coverage"></a>Azure Maps renderiza cobertura
+# <a name="azure-maps-render-coverage"></a>Azure Maps render cobertura
 
-O Azure Maps usa azulejos raster e azulejos vetores para criar mapas. Na resolução mais baixa, o mundo inteiro encaixa num único azulejo. Na resolução mais alta, um único azulejo representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que você zoom no mapa. Para mais informações sobre azulejos, consulte os níveis de [zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
+Azure Maps usa azulejos raster e azulejos vetoriais para criar mapas. Na resolução mais baixa, o mundo inteiro cabe num único azulejo. Na resolução mais elevada, um único azulejo representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que você zoom no mapa. Para obter mais informações sobre azulejos, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-No entanto, o Maps não tem o mesmo nível de informação e precisão para todas as regiões. As tabelas seguintes detalham o nível de informação que pode fornecer para cada região.
+No entanto, o Maps não tem o mesmo nível de informação e precisão para todas as regiões. As tabelas a seguir detalham o nível de informação que pode fornecer para cada região.
 
 ## <a name="legend"></a>Legenda
 
@@ -32,7 +31,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 ## <a name="africa"></a>África 
 
 
-| País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
+| País/Região | Azulejos Raster Unificados | Azulejos do vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Argélia                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -62,10 +61,10 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Libéria                          | ✓ | Ø |
 | Líbia                            | ✓ | Ø |
 | Madagáscar                       | ✓ | Ø |
-| Malawi                           | ✓ | ✓ |
+| Maláui                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
-| Maurícia                        | ✓ | ✓ |
+| Maurícias                        | ✓ | ✓ |
 | Maiote                          | ✓ | ✓ |
 | Marrocos                          | ✓ | ✓ |
 | Moçambique                       | ✓ | ✓ |
@@ -92,7 +91,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 
 ## <a name="americas"></a>Américas
 
-| País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
+| País/Região | Azulejos Raster Unificados | Azulejos do vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Anguila                  | ✓ | ✓ |
 | Antígua e Barbuda       | ✓ | ✓ |
@@ -102,7 +101,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
 | Bermudas                   | ✓ | ✓ |
-| Estado Plurinacional da Bolívia | ✓ | ✓ |
+| Estado plurinacional da Bolívia | ✓ | ✓ |
 | Bonaire, Sint Eustatius e Saba | ✓ | ✓ |
 | Brasil                    | ✓ | ✓ |
 | Canadá                    | ✓ | ✓ |
@@ -111,7 +110,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Colômbia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
-| Curaçau                   | ✓ | ✓ |
+| Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
@@ -134,19 +133,19 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Paraguai                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Porto Rico               | ✓ | ✓ |
-| Quebec (Canadá)           | ✓ | ✓ |
+| Quebeque (Canadá)           | ✓ | ✓ |
 | São Barthélemy          | ✓ | ✓ |
 | São Cristóvão e Neves     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | São Martinho (Francês)     | ✓ | ✓ |
-| São Pierre e Miquelon | ✓ | ✓ |
+| São Pedro e Miquelon | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (Holandês)      | ✓ | ✓ |
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trindade e Tobago       | ✓ | ✓ |
 | Ilhas Turcas e Caicos  | ✓ | ✓ |
-| Estados Unidos             | ✓ | ✓ |
+| Estados Unidos da América             | ✓ | ✓ |
 | Uruguai                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Ilhas Virgens Britânicas   | ✓ | ✓ |
@@ -154,11 +153,11 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 
 ## <a name="asia"></a>Ásia 
 
-| País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
+| País/Região | Azulejos Raster Unificados | Azulejos do vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Afeganistão               |   | Ø |
 | Barém                   | ✓ | ✓ |
-| Bangladeche                |   | Ø |
+| Bangladesh                |   | Ø |
 | Butão                    |   | Ø |
 | Território Britânico do Oceano Índico |   | Ø |
 | Brunei                    | ✓ | ✓ |
@@ -166,7 +165,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | China                     |   | Ø |
 | Ilhas dos Cocos (Keeling)   |   | Ø |
 | República Popular Democrática da Coreia |   | Ø |
-| RAE de Hong Kong             | ✓ | ✓ |
+| R.A.E. de Hong Kong             | ✓ | ✓ |
 | Índia                     | Ø | ✓ | 
 | Indonésia                 | ✓ | ✓ |
 | Irão                      |   | Ø |
@@ -175,7 +174,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Japão                     |   | Ø |
 | Jordânia                    | ✓ | ✓ |
 | Cazaquistão                |   | ✓ |
-| Kuwait                    | ✓ | ✓ |
+| Koweit                    | ✓ | ✓ |
 | Quirguistão                |   | Ø |
 | República Democrática Popular do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
@@ -183,7 +182,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Malásia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongólia                  |   | Ø |
-| Myanmar                   |   | Ø |
+| Mianmar                   |   | Ø |
 | Nepal                     |   | Ø |
 | Omã                      | ✓ | ✓ |
 | Paquistão                  |   | Ø |
@@ -193,7 +192,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Arábia Saudita              | ✓ | ✓ |
 | Ilhas Senkaku           |   | ✓ |
 | Singapura                 | ✓ | ✓|
-| Sri Lanka                 |   | Ø |
+| Sri Lanca                 |   | Ø |
 | República Árabe Síria      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tajiquistão                |   | Ø |
@@ -201,14 +200,14 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Timor-Leste               |   | Ø |
 | Turquemenistão              |   | Ø |
 | Emirados Árabes Unidos      | ✓ | ✓ |
-| Ilhas Periféricas menores dos Estados Unidos |   | Ø |
-| Uzbequistão                |   | Ø |
+| Ilhas Menores dos Estados Unidos |   | Ø |
+| Usbequistão                |   | Ø |
 | Vietname                   | ✓ | ✓ |
 | Iémen                     | ✓ | ✓ |
 
 ## <a name="oceania"></a>Oceânia
 
-| País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
+| País/Região | Azulejos Raster Unificados | Azulejos do vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Samoa Americana            |   | ✓ |
 | Austrália                 | ✓ | ✓ |
@@ -216,7 +215,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Fiji                      |   | Ø |
 | Polinésia Francesa          |   | Ø |
 | Guame                      | ✓ | ✓ |
-| Kiribati                  |   | Ø |
+| Quiribáti                  |   | Ø |
 | Ilhas Marshall          |   | Ø |
 | Micronésia                |   | Ø |
 | Nauru                     |   | Ø |
@@ -238,7 +237,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 
 ## <a name="europe"></a>Europa
 
-| País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
+| País/Região | Azulejos Raster Unificados | Azulejos do vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Albânia                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -270,7 +269,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Jan Mayen                 | ✓ | ✓ |
 | Jersey                    | ✓ | ✓ |
 | Letónia                    | ✓ | ✓ |
-| Liechtenstein             | ✓ | ✓ |
+| Listenstaine             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
 | Macedónia do Norte           | ✓ | ✓ |
@@ -290,7 +289,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Eslovénia                  | ✓ | ✓ |
 | Curdos do Sul           | ✓ | ✓ |
 | Espanha                     | ✓ | ✓ |
-| Rio Svalbard                  | ✓ | ✓ |
+| Svalbard                  | ✓ | ✓ |
 | Suécia                    | ✓ | ✓ |
 | Suíça               | ✓ | ✓ |
 | Turquia                    | ✓ | ✓ |
@@ -298,8 +297,8 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a renderização do Azure Maps, consulte os níveis de [zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
+Para obter mais informações sobre a renderização do Azure Maps, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-Conheça as áreas de cobertura do serviço de [encaminhamento maps.](routing-coverage.md) 
+Conheça as [áreas de cobertura do serviço de encaminhamento Maps.](routing-coverage.md) 

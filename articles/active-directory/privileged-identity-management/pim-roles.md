@@ -1,5 +1,5 @@
 ---
-title: Funções que não pode gerir na Gestão de Identidade Privilegiada - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+title: Funções que não pode gerir em Gestão de Identidade Privilegiada - Diretório Ativo Azure Microsoft Docs
 description: Descreve as funções que não pode gerir na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,14 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83115647"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
 
-O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe gerir todas as [funções da Azure AD](../users-groups-roles/directory-assign-admin-roles.md) e todas as [funções Azure.](../../role-based-access-control/built-in-roles.md) As funções Azure também podem incluir as suas funções personalizadas anexadas aos seus grupos de gestão, subscrições, grupos de recursos e recursos. No entanto, há poucos papéis que não consegues gerir. Este artigo descreve os papéis que não consegue gerir na Gestão de Identidade Privilegiada.
+O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe gerir todas as [funções de AD Azure](../users-groups-roles/directory-assign-admin-roles.md) e todas as [funções de Azure](../../role-based-access-control/built-in-roles.md). As funções Azure também podem incluir as suas funções personalizadas anexadas aos seus grupos de gestão, subscrições, grupos de recursos e recursos. No entanto, há poucos papéis que não consegues gerir. Este artigo descreve os papéis que não pode gerir na Gestão de Identidade Privilegiada.
 
 ## <a name="classic-subscription-administrator-roles"></a>Funções de administrador de subscrição clássica
 
@@ -33,16 +32,16 @@ Não é possível gerir as seguintes funções clássicas de administrador de su
 - Administrador de Serviços
 - Coadministrador
 
-Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte funções de administrador de [subscrição Classic, funções de Azure RBAC e funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)de administrador da AD Azure.
+Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte [as funções de administrador de subscrição clássica, funções de administrador de RBAC Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="what-about-office-365-admin-roles"></a>E os papéis de administrador do Office 365?
 
-Apoiamos todas as funções do Office365 na experiência do portal DeFunções e Administradores do Azure, como o Administrador de Intercâmbio e administrador de SharePoint, mas não apoiamos funções específicas dentro do Exchange RBAC ou do SharePoint RBAC. Para obter mais informações sobre estes serviços do Office 365, consulte as [funções de administrador do Office 365.](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles)
+Apoiamos todas as funções do Office365 na experiência do portal AD Roles e Administradores do Azure, como o Administrador de Câmbio e o Administrador SharePoint, mas não apoiamos funções específicas dentro do RBAC de Câmbio ou do SharePoint RBAC. Para mais informações sobre estes serviços do Office 365, consulte [as funções de administrador do Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Os utilizadores elegíveis para o papel de administrador do SharePoint, a função de administrador do Dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center poderão sofrer atrasos até algumas horas após a ativação do seu papel. Estamos a trabalhar com essas equipas para resolver os problemas.
+> Os utilizadores elegíveis para a função de administrador do SharePoint, a função de administrador do dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center podem sofrer atrasos de até algumas horas após a ativação da sua função. Estamos a trabalhar com essas equipas para resolver os problemas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
-- [Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)
+- [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
+- [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)
