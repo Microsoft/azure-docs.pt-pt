@@ -17,10 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: allensu
 ms.openlocfilehash: c34ab73422d8dd41feb9da542ed63fdba060fe3f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708166"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configure endereços IP privados para uma máquina virtual usando o Azure CLI
@@ -234,6 +233,6 @@ Para alterar o NIC para o VM utilizado nos comandos anteriores, complete os segu
     > [!NOTE]
     > Se o VM for suficientemente grande para ter mais do que um NIC, executar o comando **de eliminação do nic de rede** azul para eliminar o antigo NIC.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a gestão das [definições de endereço IP](virtual-network-network-interface-addresses.md).

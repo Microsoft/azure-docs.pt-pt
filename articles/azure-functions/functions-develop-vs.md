@@ -5,10 +5,9 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 0df65c4cdbf40b49bc265f4accafde67f41dafb7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731074"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as Funções do Azure com o Visual Studio  
@@ -235,7 +234,7 @@ A forma recomendada de monitorizar a execução das suas funções é integrando
 
 Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as ferramentas principais do Azure Functions, consulte [Ferramentas Principais de Trabalho com Funções Azure](functions-run-local.md).
 

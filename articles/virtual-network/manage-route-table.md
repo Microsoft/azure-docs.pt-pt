@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708268"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
 O Azure liga automaticamente o tráfego entre sub-redes Azure, redes virtuais e redes no local. Se quiser alterar qualquer um dos roteamentos padrão do Azure, fá-lo criando uma tabela de rotas. Se você é novo em encaminhamento em redes virtuais, você pode aprender mais sobre isso em [encaminhamento de tráfego de rede virtual](virtual-networks-udr-overview.md) ou completando um [tutorial](tutorial-create-route-table-portal.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se não tiver uma, crie uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Em seguida, complete uma destas tarefas antes de iniciar etapas em qualquer secção deste artigo:
 
@@ -345,7 +344,7 @@ Para realizar tarefas em tabelas e rotas de rota, a sua conta deve ser atribuíd
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Obtenha a tabela de rotas eficaz para uma interface de rede |
 | Microsoft.Network/networkWatchers/nextHop/action                |   Recebe o próximo salto de um VM                           |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie uma tabela de rotas utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md) ou [modelos](template-samples.md) de Gestor de Recursos Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

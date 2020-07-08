@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712229"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnósticos para O Tecido de Serviço Azure
@@ -83,7 +82,7 @@ Embora as duas soluções que recomendamos, os registos do [Azure Monitor](servi
 
 Os pontos-chave para qualquer plataforma que escolher devem incluir o quão confortável você está com a interface do utilizador, as capacidades de consulta, as visualizações personalizadas e dashboards disponíveis, e as ferramentas adicionais que eles fornecem para melhorar a sua experiência de monitorização. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar a instrumentar as suas aplicações, consulte [o evento de nível de aplicação e a geração de registos.](service-fabric-diagnostics-event-generation-app.md)
 * Percora as etapas para configurar o Application Insights para a sua aplicação com [o Monitor e diagnosticar uma aplicação core ASP.NET no Tecido de Serviço.](service-fabric-tutorial-monitoring-aspnet.md)

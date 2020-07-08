@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
 ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735052"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gestão para contas de utilizador, palavras-passe e administração em Azure Ative Directory Domain Services
@@ -104,7 +103,7 @@ A frequência de backup determina a frequência com que é tirada uma imagem do 
 
 A secção anterior detalhava os fundos florestais de saída de uma só ida de um domínio gerido para um ambiente AD DS no local (atualmente em pré-visualização). O SKU determina o número máximo de fundos florestais que pode criar para um domínio gerido. Reveja os requisitos de negócio e aplicação para determinar quantos fundos precisa, e escolha o Azure AD DS SKU apropriado. Mais uma vez, se os requisitos do seu negócio mudarem e precisar de criar fundos florestais adicionais, pode mudar para um SKU diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, [crie um domínio gerido Azure AD DS][create-instance].
 

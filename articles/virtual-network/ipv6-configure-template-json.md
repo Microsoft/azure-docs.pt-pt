@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 51d43a1cdb24455c12717f4db50955fc7bc738f8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707451"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Implementar uma aplicação de pilha dupla IPv6 com balanceador de carga básica em Azure - Modelo
@@ -180,6 +179,6 @@ Se estiver a utilizar um aparelho virtual de rede, adicione as rotas IPv6 na Tab
 ## <a name="sample-vm-template-json"></a>Modelo de VM da amostra JSON
 Para implementar uma aplicação de pilha dupla IPv6 com Balancer de Carga Básica na rede virtual Azure utilizando o modelo do Gestor de Recursos Azure, consulte o modelo da amostra [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Balancer de Carga.](https://azure.microsoft.com/pricing/details/load-balancer/)

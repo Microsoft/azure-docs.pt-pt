@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 6/11/2020
 ms.openlocfilehash: fef5e6e3ea1a6f0ccc9213c13a129fab77af5274
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736157"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Configurar parâmetros de servidor na Base de Dados Azure para MariaDB utilizando o Azure CLI
@@ -105,6 +104,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação MariaDB para [funções de data e hora](https://mariadb.com/kb/en/library/date-time-functions/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Como configurar [parâmetros do servidor no portal Azure](howto-server-parameters.md)

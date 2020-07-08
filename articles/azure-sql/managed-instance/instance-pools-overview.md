@@ -13,10 +13,9 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708846"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é uma piscina Azure SQL Managed Instance (pré-visualização)?
@@ -148,7 +147,7 @@ Se criar conjuntos de casos em [subscrições elegíveis para benefício de test
 
 Para obter detalhes completos sobre o preço da piscina, consulte a secção *de piscinas de instância* na página de preços da [SQL Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com piscinas de exemplo, consulte [piscinas sql Managed Instance como guiar.](instance-pools-configure.md)
 - Para aprender a criar o seu primeiro exemplo gerido, consulte o [guia Quickstart](instance-create-quickstart.md).

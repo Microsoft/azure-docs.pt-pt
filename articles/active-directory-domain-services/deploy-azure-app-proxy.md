@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734848"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementar Proxy de aplicação AD Azure para acesso seguro a aplicações internas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -26,7 +25,7 @@ Se é novo no Azure AD Application Proxy e quer saber mais, consulte [Como forne
 
 Este artigo mostra-lhe como criar e configurar um conector Proxy aplicação AD Azure para fornecer acesso seguro a aplicações num domínio gerido.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -111,7 +110,7 @@ Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount 
 
 Se implementar vários conectores proxy de aplicação AD Azure, tem de configurar kCD baseado em recursos para cada instância do conector.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com o Azure AD Application Proxy integrado com Azure AD DS, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
 

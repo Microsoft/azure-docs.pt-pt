@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711294"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerir blobs no Azure Blob Storage utilizando apps Azure Logic
@@ -121,10 +120,10 @@ Este exemplo só obtém o conteúdo de uma bolha. Para visualizar o conteúdo, a
 
 1. Quando for solicitado a criar a ligação, forneça esta informação:
 
-   | Propriedade | Necessário | Valor | Description |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome para criar para a sua ligação |
-   | **Conta de Armazenamento** | Yes | <*conta de armazenamento*> | Selecione a sua conta de armazenamento na lista. |
+   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome para criar para a sua ligação |
+   | **Conta de Armazenamento** | Sim | <*conta de armazenamento*> | Selecione a sua conta de armazenamento na lista. |
    ||||
 
    Por exemplo:
@@ -204,6 +203,6 @@ Para estabelecer a exceção e o apoio à identidade gerido, siga estes passos g
 
 Se utilizar um nível dedicado para [a Gestão da API,](../api-management/api-management-key-concepts.md)pode fazer frente à API de Armazenamento utilizando a API Management e permitindo que os endereços IP deste último passem pela firewall. Basicamente, adicione a rede virtual Azure que é usada pela API Management na definição de firewall da conta de armazenamento. Em seguida, pode utilizar a ação de Gestão da API ou a ação HTTP para chamar as APIs de Armazenamento Azure. No entanto, se escolher esta opção, tem de lidar com o processo de autenticação sozinho. Para mais informações, consulte [a arquitetura de integração simples da empresa.](https://aka.ms/aisarch)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

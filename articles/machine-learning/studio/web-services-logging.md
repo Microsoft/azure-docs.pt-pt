@@ -12,10 +12,9 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
 ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705836"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar o registo de serviços web do Azure Machine Learning Studio (clássico)

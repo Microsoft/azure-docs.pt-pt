@@ -12,10 +12,9 @@ ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
 ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735001"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas principais de serviço nos Serviços de Domínio do Diretório Ativo Azure
@@ -107,7 +106,7 @@ Para recriar a aplicação AD AD Azure utilizada para a sincronização de crede
 
 Depois de eliminar ambas as aplicações, a plataforma Azure recria-as automaticamente e tenta retomar a sincronização da palavra-passe. A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

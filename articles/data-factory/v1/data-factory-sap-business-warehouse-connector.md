@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707281"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando a Azure Data Factory
@@ -63,12 +62,12 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor em que reside a instância SAP BW. | string | Yes
-sistemaNumbre | Número do sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma corda. | Yes
-clientId | Identificação do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma corda. | Yes
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Yes
-palavra-passe | A palavra-passe do utilizador. | string | Yes
-gatewayName | Nome do gateway que o serviço data factory deve usar para ligar ao caso SAP BW no local. | string | Yes
+servidor | Nome do servidor em que reside a instância SAP BW. | string | Sim
+sistemaNumbre | Número do sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma corda. | Sim
+clientId | Identificação do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma corda. | Sim
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
+palavra-passe | A palavra-passe do utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço data factory deve usar para ligar ao caso SAP BW no local. | string | Sim
 criptografadoCredential | A cadeia de credencial encriptada. | cadeia (de carateres) | No
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
@@ -86,7 +85,7 @@ Quando a origem na atividade de cópia é do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Consulta MDX. | Yes |
+| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Consulta MDX. | Sim |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo JSON: Copiar dados do SAP Business Warehouse para a Azure Blob

@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/10/2020
 ms.openlocfilehash: ddcfea684a22c9ad06197086b3e74700df755da1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707996"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o ALI ELI e REST API
@@ -41,7 +40,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 O `az mariadb server replica create` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
@@ -71,7 +70,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 O `az mariadb server replica list` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | server-name | mydemoserver | O nome ou identificação do servidor principal. |
@@ -89,7 +88,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 O `az mariadb server replica stop` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de réplica.  |
 | name | mydemoreplicaserver | O nome do servidor de réplica para parar a replicação. |
@@ -178,6 +177,6 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

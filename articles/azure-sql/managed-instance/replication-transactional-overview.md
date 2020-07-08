@@ -13,10 +13,9 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
 ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708504"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com Azure SQL Caso Gerido
@@ -43,9 +42,9 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 | Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| **Publisher** | No | Yes |
-| **Distribuidor** | No | Yes|
-| **Puxe o assinante** | No | Yes|
+| **Publisher** | Não | Sim |
+| **Distribuidor** | Não | Sim|
+| **Puxe o assinante** | Não | Sim|
 | **Empurre o assinante**| Sim | Sim|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -72,11 +71,11 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
+| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
+| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
 | [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
 | [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -137,7 +136,7 @@ Editor e distribuidor são configurados em duas instâncias geridas. Existem alg
 
 Nesta configuração, uma base de dados na Base de Dados Azure SQL ou Azure SQL Managed Instance é um assinante. Esta configuração suporta a migração de instalações para Azure. Se um assinante for uma base de dados na Base de Dados Azure SQL, deve estar no modo de pressão.  
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 - Utilize a autenticação SQL para conectividade entre os participantes da replicação.
 - Utilize uma parte da Conta de Armazenamento Azure para o diretório de trabalho utilizado por replicação.
@@ -189,7 +188,7 @@ Se a geo-replicação for ativada numa instância **de assinante** num grupo de 
 - Para uma falha com a perda de dados, a replicação também funcionará. Vai replicar as mudanças perdidas novamente.
 - Para uma falha com a perda de dados, mas a perda de dados está fora do período de retenção da base de dados de distribuição, o administrador da SQL Managed Instance terá de reinitializar a base de dados de subscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a configuração da replicação transacional, consulte os seguintes tutoriais:
 
@@ -198,7 +197,7 @@ Para obter mais informações sobre a configuração da replicação transaciona
 - [Criar uma publicação.](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks**. )
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
 
 - [Replicação com uma SQL Managed Instance e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para a Base de Dados SQL](../database/replication-to-sql-database.md)

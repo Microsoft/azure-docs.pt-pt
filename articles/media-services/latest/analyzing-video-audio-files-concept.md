@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708965"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
@@ -67,7 +66,7 @@ A saída inclui um ficheiro JSON (insights.jsligado) com todas as informações 
 
 ### <a name="transcript"></a>transcrição
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação da linha.|
 |texto|A transcrição em si.|
@@ -105,7 +104,7 @@ Exemplo:
 
 ### <a name="ocr"></a>ocr
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação da linha OCR.|
 |texto|O texto do OCR.|
@@ -148,7 +147,7 @@ Exemplo:
 
 ### <a name="faces"></a>rostos
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação do rosto.|
 |name|O nome do rosto. Pode ser 'Unknown #0', uma celebridade identificada, ou uma pessoa treinada por um cliente.|
@@ -193,7 +192,7 @@ Exemplo:
 
 ### <a name="shots"></a>tiros
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação do tiro.|
 |keyFrames|Uma lista de quadros chave dentro do tiro (cada um tem um ID e uma lista de intervalos de tempo de instâncias). As instâncias de quadros-chave têm um campo miniaturaid com o ID da miniatura do KeyFrame.|
@@ -250,7 +249,7 @@ Exemplo:
 
 ### <a name="statistics"></a>estatísticas
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |Conta de Correspondência|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por orador.|
@@ -263,7 +262,7 @@ Exemplo:
 
 Os sentimentos são agregados pelo seu campo de sentimentoType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação do sentimento.|
 |médiaScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Positivo/Neutro/Negativo|
@@ -298,7 +297,7 @@ Os sentimentos são agregados pelo seu campo de sentimentoType (Positivo/Neutro/
 
 ### <a name="labels"></a>rótulos
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação da etiqueta.|
 |name|O nome da etiqueta (por exemplo, 'Computador', 'TV').|
@@ -356,7 +355,7 @@ Os sentimentos são agregados pelo seu campo de sentimentoType (Positivo/Neutro/
 
 ### <a name="keywords"></a>keywords
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|A identificação da palavra-chave.|
 |texto|O texto da palavra-chave.|
@@ -407,7 +406,7 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou picante podem estar disponíveis apenas para visualização privada. Os utilizadores podem submeter um pedido de revisão humana do conteúdo, caso em que o `IsAdult` atributo conterá o resultado da revisão humana.
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |ID|O ID de moderação de conteúdo visual.|
 |adultScore|A pontuação adulta (do moderador de conteúdo).|
@@ -440,6 +439,6 @@ Os vídeos que contêm conteúdo adulto ou picante podem estar disponíveis apen
 }
 ] 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: analisar vídeos com os Serviços de Multimédia do Azure](analyze-videos-tutorial-with-api.md)

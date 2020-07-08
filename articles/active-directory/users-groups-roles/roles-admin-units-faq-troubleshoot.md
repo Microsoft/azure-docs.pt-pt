@@ -15,17 +15,16 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0db710385448ed3cdd54e3cbe692ea8b610741af
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84732247"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas AZure AD: Resolução de problemas e FAQ
 
 Para um controlo administrativo mais granular em Azure Ative Directory (Azure AD), pode atribuir os utilizadores a uma função AD Azure com um âmbito limitado a uma ou mais unidades administrativas (UA). Para obter scripts PowerShell para tarefas comuns, consulte [Trabalhar com unidades administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Por que sou incapaz de criar uma unidade administrativa?**
 
@@ -71,7 +70,7 @@ Para evitar uma elevação de privilégios, um administrador administrativo não
 
 Encontre suporte para o [tipo de recurso administrativoU no](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) Microsoft Graph.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restringir o âmbito de funções utilizando unidades administrativas](directory-administrative-units.md)
 - [Gerir unidades administrativas](roles-admin-units-manage.md)

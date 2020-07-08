@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709203"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
@@ -262,7 +261,7 @@ Sim. Você pode usar O Azure CLI para importar as zonas DNS existentes em Azure 
 
 Para obter mais informações, consulte [Importar e exportar um ficheiro de zona DNS utilizando o Azure CLI](dns-import-export.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre DNS invertidos, consulte [a pesquisa reversa do DNS na Wikipédia.](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)
 <br>

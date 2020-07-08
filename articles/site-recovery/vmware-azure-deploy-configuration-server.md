@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704442"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
@@ -121,7 +120,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 4. Na **Instalação de software de terceiros:**
 
-    |Cenário   |Passos a seguir  |
+    |Scenario   |Passos a seguir  |
     |---------|---------|
     |Posso descarregar e instalar o MySQL manualmente?     |  Sim. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
     |Posso evitar o download do MySQL online?     |   Sim. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
@@ -193,6 +192,6 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
 
 Para obter mais PERGUNTAS Frequentes nos servidores de [configuração, consulte as perguntas comuns do servidor de configuração](vmware-azure-common-questions.md#configuration-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confiúdo de recuperação de [VMware VMs](vmware-azure-tutorial.md) para Azure.

@@ -6,10 +6,9 @@ ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707979"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
@@ -17,7 +16,7 @@ A Interface de Linha de Rede de Malha de Tecido de Serviço (CLI) é necessária
 
 Existem três tipos de CLI que podem ser usados e são resumidos na tabela abaixo.
 
-| Módulo CLI | Ambiente-alvo |  Description | 
+| Módulo CLI | Ambiente-alvo |  Descrição | 
 |---|---|---|
 | malha az | Malha de tecido de serviço Azure | O CLI primário que lhe permite implementar as suas aplicações e gerir recursos contra o ambiente de malha de tecido de serviço Azure. 
 | sfctl | Aglomerados locais | CLI de Tecido de Serviço que permite a implantação e teste dos recursos do Tecido de Serviço contra clusters locais.  
@@ -82,7 +81,7 @@ Para utilizar o plugin Maven na sua aplicação Maven Java, adicione o seguinte 
 
 Leia a secção [de referência do Maven CLI](service-fabric-mesh-reference-maven.md) para saber mais sobre o uso detalhado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode também configurar o seu [ambiente de desenvolvimento no Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 

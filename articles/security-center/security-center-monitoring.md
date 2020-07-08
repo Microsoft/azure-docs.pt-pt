@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718704"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Reforce a sua postura de segurança com o Centro de Segurança do Azure
@@ -45,7 +44,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.

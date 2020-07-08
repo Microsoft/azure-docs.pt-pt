@@ -13,10 +13,9 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707366"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Mover dados da Sybase usando a Azure Data Factory
@@ -65,14 +64,14 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesSybase** |Yes |
-| servidor |Nome do servidor Sybase. |Yes |
-| base de dados |Nome da base de dados Sybase. |Yes |
-| esquema |O nome do esquema na base de dados. |No |
-| authenticationType |Tipo de autenticação usada para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, Básico e Windows. |Yes |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |No |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |No |
-| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Sybase no local. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesSybase** |Sim |
+| servidor |Nome do servidor Sybase. |Sim |
+| base de dados |Nome da base de dados Sybase. |Sim |
+| esquema |O nome do esquema na base de dados. |Não |
+| authenticationType |Tipo de autenticação usada para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
+| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
+| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Sybase no local. |Sim |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, etc.).

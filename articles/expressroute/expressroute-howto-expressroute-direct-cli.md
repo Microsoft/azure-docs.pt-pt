@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: 343b63f960ccc458b1b1603f924b890366982477
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736276"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure ExpressRoute Direct usando o Azure CLI
@@ -331,6 +330,6 @@ Criar um circuito no recurso ExpressRoute Direct:
   }  
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [visão geral.](expressroute-erdirect-about.md)

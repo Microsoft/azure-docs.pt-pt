@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/10/2020
 ms.openlocfilehash: 0280d69dc552b776457ff28d19968f6494a846ee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707953"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando PowerShell
@@ -53,7 +52,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O `New-AzMariaDbServerReplica` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde o servidor de réplica é criado.  |
 | Name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
@@ -82,7 +81,7 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 O `Get-AzMariaDReplica` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | ServerName | mydemoserver | O nome ou identificação do servidor principal. |
@@ -106,7 +105,7 @@ Para eliminar um servidor principal, pode executar o `Remove-AzMariaDbServer` cm
 Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Reinicie a base de dados do Azure para o servidor MariaDB utilizando o PowerShell](howto-restart-server-powershell.md)

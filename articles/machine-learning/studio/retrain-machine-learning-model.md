@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
 ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706091"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
@@ -188,7 +187,7 @@ Por fim, utilize o [cmdlet Update-AzMlWebService](https://docs.microsoft.com/pow
 
     Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como gerir serviços web ou acompanhar várias experiências, consulte os seguintes artigos:
 

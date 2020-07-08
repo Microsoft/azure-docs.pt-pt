@@ -8,10 +8,9 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 5/26/2020
 ms.openlocfilehash: 53ef9f66034d40e221a9ae4c8647cecdfe709107
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84726893"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Configurar parâmetros de servidor na Base de Dados Azure para MariaDB usando PowerShell
@@ -65,7 +64,7 @@ Para atualizar o parâmetro de configuração do servidor de ** \_ \_ registo** 
 Update-AzMariaDbConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Armazenamento de crescimento automático na Base de Dados Azure para servidor MariaDB utilizando PowerShell](howto-auto-grow-storage-powershell.md).

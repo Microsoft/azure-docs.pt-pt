@@ -4,10 +4,9 @@ description: Analise a utilização e o desempenho da sua aplicação de ambient
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718789"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
@@ -174,7 +173,7 @@ namespace WindowsFormsApp2
 > [!NOTE]
 > Embora possa utilizar tecnicamente um processador de telemetria como descrito acima, mesmo que esteja no [nível de preços da Legacy Enterprise (Per Node),](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier)isso resultará no potencial de faturação excessiva devido à incapacidade de distinguir adequadamente os nós para o preço por nó.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Create a dashboard (Criar um dashboard)](../../azure-monitor/app/overview-dashboard.md)
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)

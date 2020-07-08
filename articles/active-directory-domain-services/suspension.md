@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734287"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Compreenda os estados de saúde e resolva domínios suspensos nos Serviços de Domínio do Diretório Ativo do Azure
@@ -116,7 +115,7 @@ Quando um domínio gerido entra no estado *eliminado,* vê-se o seguinte comport
 * Não é possível restaurar o domínio gerido e precisa de criar um domínio gerido de substituição para reutilizar o Azure AD DS.
 * Depois de ser apagado, não é cobrado para o domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para manter o seu domínio gerido saudável e minimizar o risco de ser suspenso, aprenda a [resolver alertas para o seu domínio gerido][resolve-alerts].
 

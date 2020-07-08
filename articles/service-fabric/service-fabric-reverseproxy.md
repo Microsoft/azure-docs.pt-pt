@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735341"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Procuração inversa no tecido de serviço Azure
@@ -149,7 +148,7 @@ Para o aglomerado local, `Fabric_NodeIPOrFQDN` está definido para "localhost" p
 
 Os serviços de tecido de serviço que funcionam dentro de recipientes Docker Compose requerem uma secção especial de estiva-compose.yml *Ports* http: ou https: configuração. Para mais informações, consulte [o suporte de implementação do Docker Compose no Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configurar e configurar](service-fabric-reverseproxy-setup.md)o proxy inverso num cluster .
 * [Configurar o encaminhamento para garantir o serviço HTTP com o proxy invertido](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnosticar eventos de proxy inverso](service-fabric-reverse-proxy-diagnostics.md)

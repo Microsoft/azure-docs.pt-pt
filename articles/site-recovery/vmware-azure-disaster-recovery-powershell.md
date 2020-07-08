@@ -8,10 +8,9 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704391"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de VMware VMs para Azure com a PowerShell
@@ -496,5 +495,5 @@ Neste passo, falhamos sobre a máquina virtual Win2K12VM1 para um ponto de recup
 
 2. Uma vez falhado com sucesso, pode cometer a operação de failover e configurar a replicação inversa do Azure de volta para o local de VMware no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como automatizar mais tarefas utilizando a [referência PowerShell de recuperação do local de Azure](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

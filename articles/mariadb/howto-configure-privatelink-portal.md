@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: b8c649a232baeafeaf1f53753af6653bf9edd9c1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736191"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
@@ -249,7 +248,7 @@ Quando terminar de usar o ponto final privado, o servidor MariaDB e o VM, elimin
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para MariaDB e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MariaDB utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 

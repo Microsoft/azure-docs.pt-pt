@@ -11,10 +11,9 @@ ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: 659011a13be310512ace68d2e020eaebff9a10ee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706040"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreine e implemente um serviço web clássico do Studio (clássico)
@@ -130,7 +129,7 @@ Se o seu token SAS expirar antes de terminar de atualizar o ponto final, tem de 
 
 Quando o código tiver sido executado com sucesso, o novo ponto final deve começar a utilizar o modelo retreinado em aproximadamente 30 segundos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como gerir serviços web ou acompanhar várias experiências, consulte os seguintes artigos:
 

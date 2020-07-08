@@ -9,10 +9,9 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706686"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux em Azure com vários cartões de interface de rede
@@ -241,7 +240,7 @@ Confirme que a rota que adicionou persiste através de reboots, verificando nova
 ping bing.com -c 4 -I eth1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Reveja [os tamanhos linux VM](sizes.md) ao tentar criar um VM com vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta.
 
 Para proteger ainda mais os seus VMs, utilize o acesso vm mesmo a tempo. Esta funcionalidade abre as regras do grupo de segurança de rede para o tráfego de SSH quando necessário, e por um período de tempo definido. Para obter mais informações, veja [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Gerir o acesso da máquina virtual através do just in time).

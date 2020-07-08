@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710886"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegado um subdomínio Azure DNS
@@ -68,6 +67,6 @@ Use nslookup para testar a delegação.
 2. No comando rápido, tipo`nslookup www.engineering.contoso.com.`
 3. Deverá receber uma resposta não autorizada que mostre o endereço **10.10.10.10.10**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [configurar DNS invertidos para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

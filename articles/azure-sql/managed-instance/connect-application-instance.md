@@ -13,10 +13,9 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706380"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligue a sua aplicação a Azure SQL Gestded Instance
@@ -30,7 +29,7 @@ Seja qual for a escolha que fizer, pode ligá-la ao Azure SQL Managed Instance.
 
 ![Elevada disponibilidade](./media/connect-application-instance/application-deployment-topologies.png)
 
-Este artigo descreve como ligar uma aplicação ao Azure SQL Managed Instance em vários cenários de aplicação diferentes. 
+Este artigo descreve como ligar uma aplicação ao Azure SQL Managed Instance em vários cenários de aplicação diferentes. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Ligar dentro do mesmo VNet
 
@@ -154,7 +153,7 @@ Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se 
 |SSMS| 18.0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre a SQL Managed Instance, consulte [o que é a Sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

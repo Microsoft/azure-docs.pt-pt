@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734797"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configure Azure Ative Directory Domain Services para suportar a sincronização do perfil do utilizador para o SharePoint Server
@@ -24,7 +23,7 @@ O SharePoint Server inclui um serviço para sincronizar os perfis dos utilizador
 
 Este artigo mostra-lhe como configurar Azure AD DS para permitir o serviço de sincronização de perfil de utilizador do SharePoint Server.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -69,7 +68,7 @@ A partir da sua VM de gestão AZure AD, complete os seguintes passos:
 
     ![Adicione a conta de serviço SharePoint ao grupo de segurança de contas de serviço AAD DC](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [permissões de Grant Ative Directory Domain Services para sincronização de perfis no SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
 

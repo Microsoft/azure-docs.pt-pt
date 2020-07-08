@@ -12,17 +12,16 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708285"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
 As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Para saber mais sobre os grupos de segurança de rede, consulte [a visão geral do grupo de segurança da rede.](security-overview.md) Em seguida, complete o tutorial [de tráfego da rede Filter](tutorial-filter-network-traffic.md) para ganhar alguma experiência com grupos de segurança de rede.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -380,7 +379,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 | Microsoft.Network/applicationSecurityGroups/write                          | Criar ou atualizar um grupo de segurança de aplicações           |
 | Microsoft.Network/applicationSecurityGroups/delete                         | Excluir um grupo de segurança de aplicações                     |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie um grupo de segurança de rede ou aplicação utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou [modelos de Gestor de Recursos](template-samples.md) Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

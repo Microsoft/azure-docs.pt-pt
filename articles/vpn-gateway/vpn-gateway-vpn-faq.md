@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708931"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
@@ -247,7 +246,7 @@ Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de ender
 
 Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o Gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 * Para obter mais informações sobre as definições de configuração do Gateway de VPN, veja [About VPN Gateway configuration settings (Acerca das definições de configuração do gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).

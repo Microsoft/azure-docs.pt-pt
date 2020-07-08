@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
 ms.openlocfilehash: 4a9081b3d3c1c925efb4cc80201e6154752dc628
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734780"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
@@ -156,7 +155,7 @@ Consulte os [Serviços Azure por página](https://azure.microsoft.com/regions/#s
 
 Consulte o [guia de resolução de problemas](troubleshoot.md) para encontrar soluções para questões comuns com a configuração ou administração de Serviços de Domínio Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os Serviços de Domínio AD Azure, veja [o que é o Azure Ative Directory Domain Services?](overview.md)
 

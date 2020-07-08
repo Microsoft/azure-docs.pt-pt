@@ -13,10 +13,9 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708679"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
@@ -46,7 +45,7 @@ A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida
 
 |           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Yes|No |Yes|No|
+|**Portal do Azure**| Sim|Não |Sim|Não|
 |**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
@@ -251,6 +250,6 @@ Utilize um dos seguintes métodos para ligar à sua base de dados em SQL Managed
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais [sobre cópias de segurança automatizadas.](../database/automated-backups-overview.md)

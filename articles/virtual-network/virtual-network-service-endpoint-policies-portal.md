@@ -13,17 +13,16 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708183"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço utilizando o portal Azure
 
 As políticas de ponto final de serviço permitem filtrar o tráfego de rede virtual para recursos específicos do Azure, sobre os pontos finais do serviço. Se não está familiarizado com as políticas de ponto final de serviço, consulte a [visão geral das políticas de ponto final do serviço](virtual-network-service-endpoint-policies-overview.md) para saber mais.
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma política de ponto final de serviço
@@ -112,5 +111,5 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 >[!WARNING] 
 >O acesso aos recursos de armazenamento Azure em todas as regiões será restringido de acordo com a Política de Ponto de Serviço a partir desta sub-rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, criou uma política de ponto final de serviço e associou-a a uma sub-rede. Para saber mais sobre as políticas de ponto final de serviço, consulte a [visão geral das políticas de ponto final do serviço.](virtual-network-service-endpoint-policies-overview.md)

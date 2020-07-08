@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
 ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708234"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o PowerShell

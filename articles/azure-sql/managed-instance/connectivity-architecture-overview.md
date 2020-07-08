@@ -13,13 +13,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706210"
 ---
-# <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade para Azure SQL Gerenciada Instância
+# <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica a comunicação em Azure SQL Managed Instance. Também descreve a arquitetura de conectividade e como os componentes direcionam o tráfego para uma instância gerida.  
@@ -523,7 +522,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 |mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba como [configurar uma nova rede virtual Azure](virtual-network-subnet-create-arm-template.md) ou uma [rede virtual Azure existente](vnet-existing-add-subnet.md) onde pode implementar a SQL Managed Instance.

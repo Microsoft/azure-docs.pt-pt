@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: aae9b282c22b405eeebc2719e377a3091fc9d12e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84724955"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise a segurança da sua máquina virtual com vista do grupo de segurança usando o Azure CLI
@@ -30,11 +29,11 @@ A visão do grupo de segurança devolve regras de segurança configuradas e efic
 
 Para executar os passos neste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário abordado neste artigo recupera as regras de segurança configuradas e eficazes para uma determinada máquina virtual.
 
@@ -152,7 +151,7 @@ O exemplo a seguir é uma resposta mais reduzida dos resultados devolvidos. Os r
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Visite [grupos de segurança de rede de auditoria (NSG) com o Observador de Rede](network-watcher-nsg-auditing-powershell.md) para aprender a automatizar a validação de Grupos de Segurança da Rede.
 

@@ -13,10 +13,9 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706363"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Quickstart: Configurar um Azure VM para ligar à Azure SQL Managed Instance
@@ -53,10 +52,10 @@ Os passos seguintes criam uma nova sub-rede no SQL Managed Instance VNet para qu
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor predefinido é bom para este arranque rápido.|
-   | **Grupo de segurança de rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
-   | **Tabela de rota** | Nenhum | O valor predefinido é bom para este arranque rápido.|
+   | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Tabela de rota** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor predefinido é bom para este arranque rápido.|
-   | **Delegação de sub-rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
+   | **Delegação de sub-rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
 
    ![Nova sub-rede sql de instância gerida para cliente VM](./media/connect-vm-instance-configure/new-subnet.png)
 
@@ -144,7 +143,7 @@ Está ligado à sua máquina virtual no painel do Gestor do Servidor.
 
 Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó de bases de dados e vários objetos em nós de Segurança, Objetos de Servidor, Replicação, Gestão, SQL Server Agent e Gerador de Perfis de XEvent.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter um arranque rápido que mostre como ligar a partir de um computador cliente no local utilizando uma ligação ponto-a-local, consulte [configurar uma ligação ponto-a-local](point-to-site-p2s-configure.md).
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

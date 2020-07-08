@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734865"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implementação e gestão de serviços de domínio de diretório ativo Azure para fornecedores de soluções de nuvem Azure
@@ -93,6 +92,6 @@ Aplicam-se as seguintes considerações importantes ao administrar um domínio g
     
     Para que um parceiro da CSP execute estas tarefas num domínio gerido, deve ser criada uma conta de utilizador dentro do inquilino AZure AD do cliente. As credenciais desta conta devem ser partilhadas com os agentes administrativos do parceiro da CSP. Além disso, esta conta de utilizador deve ser adicionada ao grupo *de administradores AAD DC* para permitir que as tarefas de configuração no domínio gerido sejam executadas usando esta conta de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, [inscreva-se no programa Azure CSP](/partner-center/enrolling-in-the-csp-program). Em seguida, pode ativar os Serviços de Domínio AZure AD utilizando [o portal Azure](tutorial-create-instance.md) ou [Azure PowerShell](powershell-create-instance.md).

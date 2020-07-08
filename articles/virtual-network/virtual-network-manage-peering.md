@@ -16,17 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711107"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
 Aprenda a criar, alterar ou apagar um olhar de rede virtual. O espreitamento de redes virtuais permite-lhe ligar redes virtuais na mesma região e em regiões (também conhecidas como Global VNet Peering) através da rede de espinha dorsal Azure. Uma vez espreitadas, as redes virtuais ainda são geridas como recursos separados. Se é novo na rede virtual a espreitar, pode saber mais sobre isso na rede virtual que espreita a [visão geral](virtual-network-peering-overview.md) ou completando um [tutorial](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -154,7 +153,7 @@ Se a sua conta não for atribuída a uma das funções anteriores, deve ser atri
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Leia uma rede virtual a espreitar   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Excluir um olhar de rede virtual |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 

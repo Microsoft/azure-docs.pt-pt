@@ -18,10 +18,9 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708200"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando a Azure PowerShell
@@ -382,6 +381,6 @@ Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/power
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aplicou uma política de ponto final de serviço sobre um ponto final de serviço de rede virtual Azure ao Azure Storage. Criou contas de Armazenamento Azure e acesso limitado à rede a determinadas contas de armazenamento (e assim negou outras) a partir de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto final de serviço, consulte [a visão geral das políticas de pontos finais](virtual-network-service-endpoint-policies-overview.md)do Serviço .

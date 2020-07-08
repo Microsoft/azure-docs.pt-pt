@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734967"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Alterar o SKU para um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure existentes
@@ -23,7 +22,7 @@ Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), o desempenho 
 
 Este artigo mostra-lhe como mudar o SKU para um domínio gerido Azure AD DS existente usando o portal Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -62,7 +61,7 @@ Para alterar o SKU para um domínio gerido utilizando o portal Azure, complete o
 
 Pode levar um minuto ou dois para mudar o tipo SKU.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver uma floresta de recursos e quiser criar fundos adicionais após a mudança do SKU, consulte [Criar uma confiança florestal de saída para um domínio no local em Azure AD DS (pré-visualização)][create-trust].
 

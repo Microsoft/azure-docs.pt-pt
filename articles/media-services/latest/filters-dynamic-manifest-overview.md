@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
 ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705207"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar os seus manifestos usando o Dynamic Packager
@@ -148,7 +147,7 @@ Para mais informações, consulte [este post de blog.](https://azure.microsoft.c
     - Para determinar as propriedades das faixas num ativo, [obtenha e examine o ficheiro manifesto.](#get-and-examine-manifest-files)
     - A fórmula para definir as propriedades do carimbo de tempo do filtro do ativo é: <br/>startTimestamp = &lt; tempo de início no manifesto tempo de início do filtro esperado em &gt;  +   &lt; segundos &gt; * escala de tempo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes artigos mostram como criar filtros programáticamente:  
 

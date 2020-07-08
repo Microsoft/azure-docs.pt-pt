@@ -11,10 +11,9 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ms.openlocfilehash: a3339d03607c2286dabbac73fd0b683c61552dc0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708608"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Use Azure SQL Gestd Instance de forma segura com pontos finais públicos
@@ -52,6 +51,6 @@ Quando os clientes precisarem de iniciar uma ligação a partir de uma rede no l
 
 Se as ligações forem iniciadas a partir do Azure, recomendamos que o tráfego provém de um [conhecido endereço IP virtual](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) atribuído (por exemplo, uma máquina virtual). Para facilitar a gestão dos endereços IP virtuais (VIP), poderá querer utilizar [prefixos de endereço IP públicos](../../virtual-network/public-ip-address-prefix.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como configurar o ponto final público para gerir casos: [Configurar o ponto final público](public-endpoint-configure.md)

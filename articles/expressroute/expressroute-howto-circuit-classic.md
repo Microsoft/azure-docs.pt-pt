@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: 2f2aac6dd7e073634d4114d33fae6bebd51fe176
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736327"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito ExpressRoute utilizando o PowerShell (clássico)
@@ -33,7 +32,7 @@ Este artigo percorre os passos para verificar o estado, atualizar ou eliminar e 
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 

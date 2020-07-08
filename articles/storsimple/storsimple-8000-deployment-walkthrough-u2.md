@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707400"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementar o dispositivo StorSimple no local (Atualização 3 e posterior)
@@ -34,7 +33,7 @@ Necessita de privilégios de administrador para concluir o processo de instalaç
 ## <a name="deployment-steps"></a>Passos da implementação
 Efetue estes passos obrigatórios para configurar o dispositivo StorSimple e ligá-lo ao serviço Gestor de Dispositivos do StorSimple. Para além dos passos obrigatórios, existem passos e procedimentos opcionais que poderão ser necessários durante a implementação. As instruções passo-a-passo para a implementação indicam quando deve efetuar cada um dos seguintes passos opcionais.
 
-| Passo | Description |
+| Passo | Descrição |
 | --- | --- |
 | **Pré-requisitos** |Estes têm de ser concluídos no processo de preparação para a implementação futura. |
 | [Lista de verificação das configurações de implementação](#deployment-configuration-checklist) |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
@@ -204,7 +203,7 @@ Considera-se que a extremidade da tomada estéreo é PIN 3 RX, o meio é PIN 2 T
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configure uma StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * [Utilize o serviço StorSimple Device Manager para gerir o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

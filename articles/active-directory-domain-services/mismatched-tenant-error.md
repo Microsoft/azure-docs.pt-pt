@@ -12,10 +12,9 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734610"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelo Azure Ative Directory Domain Services
@@ -58,6 +57,6 @@ As duas opções seguintes resolvem o erro de diretório desajustado:
 * [Elimine o domínio gerido](delete-aadds.md) do seu diretório AD Azure existente. [Crie um domínio gerido por substituição](tutorial-create-instance.md) no mesmo diretório AD Azure que a rede virtual que pretende utilizar. Quando estiver pronto, junte todas as máquinas previamente unidas ao domínio eliminado ao domínio gerido recriado.
 * [Mover a assinatura Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contendo a rede virtual para o mesmo diretório AD Azure que o domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre problemas de resolução de problemas com a Azure AD DS, consulte o [guia de resolução de problemas](troubleshoot.md).

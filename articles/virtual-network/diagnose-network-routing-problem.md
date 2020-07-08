@@ -16,17 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705054"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquinas virtuais
 
 Neste artigo, aprende-se a diagnosticar um problema de encaminhamento visualizando as rotas que são eficazes para uma interface de rede numa máquina virtual (VM). O Azure cria várias rotas predefinidas para cada sub-rede de rede virtual. Pode sobrepor as rotas padrão da Azure definindo rotas numa tabela de rotas e, em seguida, associando a tabela de rotas a uma sub-rede. A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas propagadas a partir da sua rede no local através de um gateway Azure VPN (se a sua rede virtual estiver ligada à sua rede no local) através do protocolo gateway fronteiriço (BGP), são as rotas eficazes para todas as interfaces de rede numa sub-rede. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou encaminhamento, consulte [a visão geral da rede virtual,](virtual-networks-overview.md) [a interface da rede](virtual-network-network-interface.md)e a [visão geral do encaminhamento](virtual-networks-udr-overview.md).
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Tenta-se ligar-se a um VM, mas a ligação falha. Para determinar por que não consegue ligar-se ao VM, pode visualizar as rotas eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure , [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 
@@ -137,7 +136,7 @@ Considere os seguintes pontos ao resolver problemas de comunicação:
 * Se estiver a forçar o tráfego [de túneis](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para um dispositivo no local através de um gateway VPN, ou NVA, poderá não conseguir ligar-se a um VM a partir da internet, dependendo da configuração do encaminhamento para os dispositivos. Confirme que o encaminhamento configurado para o tráfego das rotas do dispositivo para um endereço IP público ou privado para o VM.
 * Utilize a capacidade de resolução de problemas de [ligação](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede para determinar as causas do encaminhamento, filtragem e in-OS dos problemas de comunicação de saída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre todas as tarefas, propriedades e configurações para uma [tabela de rotas e rotas.](manage-route-table.md)
 - Saiba mais sobre todos os [próximos tipos de lúpulo, rotas do sistema e como a Azure seleciona uma rota.](virtual-networks-udr-overview.md)

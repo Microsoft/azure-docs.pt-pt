@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 1e725fb483afed0f126248737c2e9121ce823a45
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734695"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure utilizando um modelo de Gestor de Recursos
@@ -135,7 +134,7 @@ Para juntar um VM do Servidor do Windows existente a um domínio gerido, complet
 
 Leva alguns momentos para que a implantação termine com sucesso. Quando terminados, os VMs do Windows especificados são unidos ao domínio gerido e podem ser geridos ou assinados através de contas de domínio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você usou o portal Azure para configurar e implementar recursos usando modelos. Também pode implementar recursos com modelos de Gestor de Recursos utilizando [a Azure PowerShell][deploy-powershell] ou o [Azure CLI][deploy-cli].
 

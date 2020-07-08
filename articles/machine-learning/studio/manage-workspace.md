@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ms.openlocfilehash: 4d12b5fbfb934106f7c18edb2996b51e8f6a57f6
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705139"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gerir um espaço de trabalho Azure Machine Learning Studio (clássico)
@@ -48,5 +47,5 @@ Para gerir os serviços web associados a este espaço de trabalho Studio (cláss
 > 
 >Para obter mais informações sobre a definição de permissões de acesso, consulte [Gerir o acesso através do RBAC e do portal Azure.](../../role-based-access-control/role-assignments-portal.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [a implementação de Machine Learning com modelos de gestor de recursos Azure.](deploy-with-resource-manager-template.md) 

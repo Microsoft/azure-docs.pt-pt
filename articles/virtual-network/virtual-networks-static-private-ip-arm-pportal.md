@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707859"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para um VM utilizando o portal Azure
@@ -128,6 +127,6 @@ De dentro do sistema operativo de um VM, não deve atribuir estáticamente o IP 
 
 Além disso, nunca deve atribuir manualmente o endereço IP *público* atribuído a uma máquina virtual Azure dentro do sistema operativo da máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a gestão das [definições de endereço IP](virtual-network-network-interface-addresses.md).

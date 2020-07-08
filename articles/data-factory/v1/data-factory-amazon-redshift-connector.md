@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710155"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
@@ -61,12 +60,12 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Yes |
-| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Yes |
+| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Sim |
+| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Sim |
 | **porta** |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
-| **base de dados** |O nome da base de dados Amazon Redshift. |Yes |
-| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Yes |
-| **palavra-passe** |A palavra-passe para a conta de utilizador. |Yes |
+| **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
+| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |Sim |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -87,7 +86,7 @@ Para a Atividade de Cópia, quando a fonte é do tipo **AmazonRedshiftSource,** 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | **consulta** | Utilize a consulta personalizada para ler os dados. |Não (se for especificada a propriedade do nome de **tabela** de um conjunto de dados) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | No |
+| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | Não |
 | **s3LinkedServiceName** | O Amazon S3 para usar como loja provisória. O serviço ligado é especificado utilizando um nome Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 | **baldeName** | Indica o balde Amazon S3 para utilizar para armazenar os dados provisórios. Se esta propriedade não for fornecida, copy Activity gera automaticamente um balde. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 
@@ -351,5 +350,5 @@ Ao copiar dados de uma loja de dados relacional, tenha em mente a repetibilidade
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Conheça os factores-chave que afetam o desempenho da Copy Activity e formas de otimizar o desempenho no [Copy Activity Performance and Afinando Guide](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções passo a passo para a criação de um oleoduto com a Atividade de Cópia, consulte o [tutorial de Atividade de Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

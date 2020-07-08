@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704187"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Transmissão em Fluxo
@@ -145,7 +144,7 @@ Os dados de referência na ASA são carregados na memória para uma procura ráp
 ### <a name="use-of-udf-functions"></a>Utilização de funções UDF
 Quando adiciona uma função UDF, o Azure Stream Analytics carrega o tempo de execução JavaScript na memória. Isto vai afetar a SU.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)
 

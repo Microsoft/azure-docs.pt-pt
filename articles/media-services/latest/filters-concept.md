@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708302"
 ---
 # <a name="filters"></a>Filtros
@@ -47,7 +46,7 @@ Dependendo do seu cenário, decide que tipo de filtro é mais adequado (Filtro d
 
 Utiliza as seguintes propriedades para descrever os filtros. 
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |primeira Igualdade|O primeiro bitrate de qualidade do filtro.|
 |apresentaçãoTimeRange|O intervalo de tempo de apresentação. Esta propriedade é utilizada para filtrar pontos de partida/fim manifestos, comprimento da janela de apresentação e posição de arranque ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -57,7 +56,7 @@ Utiliza as seguintes propriedades para descrever os filtros.
 
 Utilize esta propriedade com **filtros de ativos.** Não é aconselhável definir o imóvel com **Filtros de Conta.**
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |**endTimestamp**|Aplica-se a Vídeo a Pedido (VoD).<br/>Para a apresentação live streaming, é silenciosamente ignorado e aplicado quando a apresentação termina e o fluxo torna-se VoD.<br/>Este é um valor longo que representa um ponto final absoluto da apresentação, arredondado para o próximo gop arranque mais próximo. A unidade é o calendário, por isso um fimtimestamp de 180000000000 seria por 3 minutos.<br/>Utilize o startTimestamp e endTimestamp para aparar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp=400000000 e endTimestamp=10000000000, utilizando o calendário padrão, gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação do VoD. Se um fragmento se desbardar no limite, todo o fragmento será incluído no manifesto.|
 |**forceEndTimestamp**|Aplica-se apenas ao Live Streaming.<br/>Indica se a propriedade endTimestamp deve estar presente. Se for verdade, o fimtimestamp deve ser especificado ou um código de pedido mau é devolvido.<br/>Valores permitidos: falsos, verdadeiros.|
@@ -72,11 +71,11 @@ Especifica uma lista de condições de propriedade da faixa de filtro (FilterTra
 
 As condições de propriedade da faixa de filtro descrevem tipos de faixas, valores (descritos na tabela seguinte) e operações (Equal, NotEqual). 
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |**Bitrate**|Utilize o bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
-|**Idioma**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
+|**Linguagem**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
 |**Nome**|Utilize o nome da faixa para filtragem.|
 |**Tipo**|Utilize o tipo de faixa para filtragem.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "texto".|
 
@@ -154,7 +153,7 @@ Não é aconselhável atualizar a definição de filtros associados a um **local
 
 Se a definição do filtro tiver de ser alterada, considere criar um novo filtro e adicioná-lo ao URL **do localizador de streaming** ou publicar um novo **Localizador de Streaming** que faz referência direta ao filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes artigos mostram como criar filtros programáticamente.  
 

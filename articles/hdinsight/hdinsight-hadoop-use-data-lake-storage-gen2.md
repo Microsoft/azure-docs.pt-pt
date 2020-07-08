@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 4a9a3aaecc854ddb710f19bcb3d455c63b3a8bef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706176"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
@@ -100,7 +99,7 @@ Atribua a identidade gerida à função **de Proprietário de Dados de Armazenam
 
 Você pode [baixar um ficheiro de modelo de amostra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e descarregar um ficheiro de [parâmetros de amostra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de utilizar o modelo e o corte de código Azure CLI abaixo, substitua os seguintes espaços reservados pelos seus valores corretos:
 
-| Marcador de posição | Description |
+| Marcador de posição | Descrição |
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCEGROUPNAME>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |
@@ -254,7 +253,7 @@ LOCATION 'abfs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Integração Azure HDInsight com pré-visualização da Data Lake Storage Gen2 - ACL e atualização de segurança](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

@@ -9,10 +9,9 @@ ms.date: 4/3/2019
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709101"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure
@@ -177,7 +176,7 @@ Para exportar a zona de DNS existente **contoso.com** no grupo de recursos **myr
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [gerir recordes e registos](dns-getstarted-create-recordset-cli.md) na sua zona de DNS.
 

@@ -9,13 +9,12 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704527"
 ---
-# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções em Azure Logic Apps
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps
 
 A forma como qualquer arquitetura de integração lida adequadamente com o tempo de inatividade ou problemas causados por sistemas dependentes pode representar um desafio. Para ajudá-lo a criar integrações robustas e resilientes que lidam graciosamente com problemas e falhas, a Logic Apps proporciona uma experiência de primeira classe para lidar com erros e exceções.
 
@@ -27,7 +26,7 @@ Para obter a exceção mais básica e o tratamento de erros, pode utilizar uma *
 
 Aqui estão os tipos de política de relíndi:
 
-| Tipo | Description |
+| Tipo | Descrição |
 |------|-------------|
 | **Predefinição** | Esta política envia até quatro retrações em intervalos *exponencialmente crescentes,* que escalam 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de um intervalo exponencialmente crescente antes de enviar o próximo pedido. |
@@ -69,7 +68,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Necessário*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*retrip-política tipo*> | String | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou`exponential` |
 | <*retrip-intervalo*> | String | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +77,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Opcional*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -112,7 +111,7 @@ Embora não explicitamente definida na sua ação ou gatilho, eis como a políti
 }
 ```
 
-### <a name="none"></a>Nenhum
+### <a name="none"></a>Nenhuma
 
 Para especificar que a ação ou o gatilho não recandidam os pedidos falhados, desaccione o <> *de política de retry para* `none` .
 
@@ -366,7 +365,7 @@ Os padrões anteriores são uma ótima maneira de lidar com erros e exceções d
 
 Para avaliar os estados de execução, pode monitorizar os registos e métricas ou publicá-los em qualquer ferramenta de monitorização que prefira. Uma opção potencial é transmitir todos os eventos através de Event Hubs para [a Azure Stream Analytics.](https://azure.microsoft.com/services/stream-analytics/) No Stream Analytics, pode escrever consultas ao vivo com base em quaisquer anomalias, médias ou falhas dos registos de diagnóstico. Pode utilizar o Stream Analytics para enviar informações para outras fontes de dados, tais como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Veja como um cliente constrói o tratamento de erros com apps Azure Logic](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Encontre mais exemplos e cenários de Apps Lógicas](../logic-apps/logic-apps-examples-and-scenarios.md)

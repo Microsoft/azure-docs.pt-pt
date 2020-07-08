@@ -4,10 +4,9 @@ description: Saiba como usar a API REST para restaurar ações de ficheiros Azur
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710580"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar ações de arquivo Azure usando REST API
@@ -160,7 +159,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para desencadear uma restauração de uma partilha de ficheiros Azure, são os seguintes os componentes do organismo de pedido:
 
-Name |  Tipo   |   Description
+Name |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Restaurar propriedades RequestResource
 
@@ -370,7 +369,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para desencadear uma restauração de uma partilha de ficheiros Azure, são os seguintes os componentes do organismo de pedido:
 
-Name |  Tipo   |   Description
+Name |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Restaurar propriedades RequestResource
 
@@ -433,6 +432,6 @@ Criar corpo de pedido
 
 A resposta deve ser tratada da mesma forma que explica acima para [a totalidade das ações restauradas](#full-share-recovery-using-rest-api).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como gerir a [cópia de segurança do ficheiro Azure utilizando a API rest](manage-azure-file-share-rest-api.md).

@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
 ms.openlocfilehash: 1d463242c923d766b500c1ede796e399e7af9c54
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735936"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
@@ -357,6 +356,6 @@ Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d
 * Pode definir o modo de persistência utilizando `nvidia-smi` para que a saída do comando seja mais rápida quando necessitar de consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1` . Note que se o VM for reiniciado, a definição de modo desaparece. Pode sempre escrever a definição de modo para executar no arranque.
 * Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobriu que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

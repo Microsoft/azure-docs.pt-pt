@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710308"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilização de identidades geridas para Azure com Tecido de Serviço
@@ -59,7 +58,7 @@ Os seguintes cenários não são suportados ou não recomendados; note que estas
 
 - O suporte do Tecido de Serviço para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar um novo cluster de tecidos de serviço Azure com suporte de identidade gerido](./configure-new-azure-service-fabric-enable-managed-identity.md)
 - [Permitir o suporte de identidade gerido num cluster de tecido de serviço Azure existente](./configure-existing-cluster-enable-managed-identity-token-service.md)

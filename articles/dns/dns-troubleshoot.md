@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711192"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas do Azure DNS
@@ -89,7 +88,7 @@ Exemplos de nomes de registos SRV (“sip” do nome do serviço, “tcp” do p
 * [Tipo de registo SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [as zonas e registos do Azure DNS](dns-zones-records.md)
 * Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DE DNS](dns-getstarted-create-dnszone-portal.md) e crie [registos DNS](dns-getstarted-create-recordset-portal.md).

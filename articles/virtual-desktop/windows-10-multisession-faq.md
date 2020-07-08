@@ -9,10 +9,9 @@ ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735103"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
@@ -98,7 +97,7 @@ Para desativar a aplicação Store:
 5. Selecione **Desativado**e, em seguida, selecione **OK**.
 6. Selecione **Aplicar**.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Windows Virtual Desktop e o Windows 10 Enterprise multi-sessão:
 

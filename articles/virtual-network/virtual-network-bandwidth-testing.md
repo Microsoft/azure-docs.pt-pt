@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708251"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testes de largura de banda/produção (NTTTCP)
@@ -165,7 +164,7 @@ Tem de adicionar a seguinte secção no seu ServiceDefinition.csdef
 </Endpoints> 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Dependendo dos resultados, pode haver espaço para [otimizar as máquinas de produção de rede](virtual-network-optimize-network-bandwidth.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)
