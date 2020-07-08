@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d2864fa272a2f5504c0274655b0f12abdd494e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388396"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
@@ -224,7 +224,7 @@ Se o sinal em processo for bem sucedido, o seu navegador é redirecionado para `
 
 Para testar a capacidade de inscrição de vários inquilinos, execute os dois últimos passos usando as credenciais para um utilizador que existe outro inquilino AD AZure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ao trabalhar com políticas personalizadas, pode por vezes precisar de informações adicionais quando se trata de resolver problemas de uma política durante o seu desenvolvimento.
 

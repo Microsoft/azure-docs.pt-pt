@@ -12,10 +12,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389314"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Desativar a verificação de e-mail durante a inscrição do cliente usando uma política personalizada no Azure Ative Directory B2C
@@ -58,6 +58,6 @@ O perfil técnico **LocalAccountSignUpWithLogonEmail** é um perfil [autoafirmad
 3. Você deve ser capaz de se inscrever usando um endereço de e-mail sem a validação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [perfil técnico autoafirmado](self-asserted-technical-profile.md) na referência IEF.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387355"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicações SaaS para colaboração B2B
@@ -32,7 +32,7 @@ Antes de olhar para instruções específicas da aplicação, aqui estão alguma
 * Nos atributos do utilizador, para mitigar quaisquer problemas com o disco de perfil de utilizador mutilado (UPD) nos utilizadores convidados, coloque sempre **o Identificador do Utilizador** no **user.mail**.
 
 
-## <a name="dropbox-business"></a>Negócio dropbox
+## <a name="dropbox-business"></a>Dropbox Business
 
 Para permitir que os utilizadores entrem a trabalhar na sua conta de organização, tem de configurar manualmente o Dropbox Business para utilizar o Azure AD como fornecedor de identidade de marcação de afirmação de segurança (SAML). Se o Dropbox Business não tiver sido configurado para o fazer, não pode solicitar ou permitir que os utilizadores entrem a trabalhar através do Azure AD.
 
@@ -98,7 +98,7 @@ Pode permitir que os utilizadores autentiquem os utilizadores da Box com a sua c
 
 Tal como os convites do Dropbox, os convites da Box devem resgatar o seu convite da aplicação Box.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 

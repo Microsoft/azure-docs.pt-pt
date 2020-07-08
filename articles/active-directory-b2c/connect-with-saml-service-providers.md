@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389383"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
@@ -36,7 +36,7 @@ Azure AD B2C alcança a interoperabilidade da SAML de uma de duas maneiras:
 
 Resumindo os dois cenários centrais não exclusivos com a SAML:
 
-| Cenário | Papel de Azure AD B2C | Procedimentos |
+| Scenario | Papel de Azure AD B2C | Procedimentos |
 | -------- | ----------------- | ------- |
 | A minha candidatura espera que uma afirmação da SAML complete uma autenticação. | **AZure AD B2C atua como fornecedor de identidade (IdP)**<br />A Azure AD B2C atua como um IdP SAML para as aplicações. | Este artigo. |
 | Os meus utilizadores precisam de um único sinal com um fornecedor de identidade compatível com SAML, como a ADFS, a Salesforce ou a Shibboleth.  | **A Azure AD B2C atua como prestador de serviços (SP)**<br />O Azure AD B2C atua como prestador de serviços ao ligar-se ao fornecedor de identidade SAML. É um representante da federação entre o seu pedido e o fornecedor de identidade SAML.  | <ul><li>[Configurar o súps com a ADFS como um IdP SAML utilizando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar o sôm-in com um fornecedor de SAML salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
@@ -370,7 +370,7 @@ Os seguintes cenários de partidos de suporte SAML (RP) são suportados através
 * Especifique a chave de assinatura para verificar os pedidos de RP no objeto principal de aplicação/serviço.
 * Especifique a chave de encriptação simbólica no objeto principal de aplicação/serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 - Obtenha a aplicação web de teste SAML da [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).

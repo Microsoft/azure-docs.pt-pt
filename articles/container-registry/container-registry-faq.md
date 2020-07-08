@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
 ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390368"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
@@ -503,8 +503,8 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
 | Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Não |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | Não |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 
@@ -517,6 +517,6 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais](container-registry-intro.md) sobre o Registo de Contentores Azure.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387376"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permissões a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory
@@ -35,7 +35,7 @@ Os utilizadores de colaboração B2B do Azure Ative Directory (Azure AD) são ad
 
 ![Screenshot mostrando o papel de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Propriedades do utilizador de colaboração B2B](user-properties.md)

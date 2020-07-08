@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387733"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso do utilizador em Azure Ative Directory B2C
@@ -173,7 +173,7 @@ Segue-se um exemplo de um consentimento de utilização baseado em versão numa 
 </ClaimsTransformations>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como eliminar e exportar dados do utilizador, consulte [Gerir os dados do utilizador.](manage-user-data.md)
 - Para uma política personalizada por exemplo que implementa um pedido de utilização, consulte [Uma Política Personalizada B2C IEF - Inscreva-se e inscreva-se com o pedido de "Termos de Utilização".](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)

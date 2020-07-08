@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390895"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um recipiente Azure Cosmos
@@ -169,9 +169,9 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com uma conta do Azure Cosmos](account-overview.md)

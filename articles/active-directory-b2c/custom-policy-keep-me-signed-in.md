@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389195"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Enable Keep me signed in (KMSI) in Azure Ative Directory B2C
@@ -134,6 +134,6 @@ Recomendamos que defina o valor do SessionExpiryInSegundos para um período curt
 1. Na barra de endereços do navegador, remova o `&prompt=login` parâmetro de cadeia de consulta, o que obriga o utilizador a introduzir as suas credenciais nesse pedido.
 1. No navegador, clique em **Go**. Agora, o Azure AD B2C emitirá um token de acesso sem o levar a iniciar novamente a sua inscrição. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre a política da amostra [aqui.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in)

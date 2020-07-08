@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389025"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
@@ -180,6 +180,6 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 2. Para **Candidatura**, selecione a sua candidatura que já se registou anteriormente. Para ver o símbolo, a **URL de resposta** deve mostrar `https://jwt.ms` .
 3. Clique em **Executar agora**. Inscreva-se com o acouunt que criou anteriormente. Deve agora ter a oportunidade de alterar a palavra-passe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como pode [configurar a complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-complexity.md).

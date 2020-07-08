@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389569"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Fichas de configuração no Azure Ative Directory B2C
@@ -52,7 +52,7 @@ Pode configurar a vida útil do símbolo em qualquer fluxo de utilizador.
 
 5. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [solicitar fichas de acesso.](access-tokens.md)
 

@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387631"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft
@@ -59,7 +59,7 @@ Um utilizador com uma conta de cliente pode iniciar súmuta com múltiplas ident
 
 Na API do Gráfico da Microsoft, as identidades locais e federadas são armazenadas no atributo do `identities` utilizador, que é de tipo [objetoIdentity][graph-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para iniciar scontabilidade de um utilizador. Esta recolha permite ao utilizador iniciar seduções na conta do utilizador com qualquer uma das suas identidades associadas.
 
-| Propriedade   | Tipo |Description|
+| Propriedade   | Tipo |Descrição|
 |:---------------|:--------|:----------|
 |signInType|string| Especifica os tipos de inscrição do utilizador no seu diretório. Para a conta local: `emailAddress` , , , , ou qualquer outro tipo que você `emailAddress1` `emailAddress2` `emailAddress3` `userName` goste. A conta social deve ser definida para `federated` .|
 |issuer|string|Especifica o emitente da identidade. Para contas locais (onde **o signInType** não `federated` está), esta propriedade é o nome de domínio padrão do inquilino B2C local, por `contoso.onmicrosoft.com` exemplo. Para a identidade social (onde **o signInType** `federated` é) o valor é o nome do emitente, por exemplo`facebook.com`|
@@ -204,7 +204,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 
 [Fazer chamadas API utilizando os SDKs do Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) inclui informações sobre como ler e escrever informações a partir do Microsoft Graph, usar `$select` para controlar as propriedades devolvidas, fornecer parâmetros de consulta personalizados e usar os `$filter` parâmetros e `$orderBy` consultar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter um índice completo das operações da Microsoft Graph API suportadas para os recursos AZure AD B2C, consulte [as operações do Microsoft Graph disponíveis para Azure AD B2C](microsoft-graph-operations.md).
 

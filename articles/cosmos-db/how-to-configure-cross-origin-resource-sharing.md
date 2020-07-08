@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
 ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390878"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configure a partilha de recursos de origem cruzada (CORS)
@@ -83,7 +83,7 @@ module.exports = {
 Aqui está uma [amostra de código](https://github.com/christopheranderson/cosmos-browser-sample) que utiliza o TypeScript e o Webpack com a biblioteca SDK SDK Azure Cosmos DB Para construir uma aplicação Todo que envia atualizações em tempo real quando novos itens são criados.
 Como uma boa prática, não use a chave primária para comunicar com a Azure Cosmos DB do navegador. Em vez disso, use fichas de recursos para comunicar. Para obter mais informações sobre fichas de recursos, consulte Garantir o acesso ao artigo [da Azure Cosmos DB.](secure-access-to-data.md#resource-tokens)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outras formas de garantir a sua conta Azure Cosmos, consulte os seguintes artigos:
 

@@ -8,10 +8,10 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: e52307c92d9371af6479f64841c6f269ed10e4b4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390827"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autenticar uma aplicação de cliente com Azure Digital Twins
@@ -250,7 +250,7 @@ Note mais uma vez que quando o código acima coloca o ID do cliente, iD do inqui
 
 A MSAL tem muitas mais opções que pode usar, para implementar coisas como caching e outros fluxos de autenticação. Para obter mais informações sobre este documento, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](../active-directory/develop/msal-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [Conceitos: Segurança para soluções Azure Digital Twins](concepts-security.md)

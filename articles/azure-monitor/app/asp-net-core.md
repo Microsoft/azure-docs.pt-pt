@@ -4,10 +4,10 @@ description: Monitorize ASP.NET aplicações web Core para disponibilidade, dese
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: f9e51521e9bd35c6afb3dbe7cafb1e56e847756a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390130"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
@@ -201,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Lista completa de configurações em`ApplicationInsightsServiceOptions`
 
-|Definição | Description | Predefinição
+|Definição | Descrição | Predefinição
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Ativar/Desativar`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Ativar/Desativar`RequestTrackingTelemetryModule` | true
@@ -363,7 +363,7 @@ Se pretender desativar a telemetria de forma condicional e dinâmica, poderá re
 
 O acima referido não impede que quaisquer módulos de recolha de automóveis recolham telemetria. Apenas o envio de telemetria para Application Insights é desativado com a abordagem acima. Se não for desejado um determinado módulo de recolha de automóveis, o melhor é [remover o módulo de telemetria](#configuring-or-removing-default-telemetrymodules)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
@@ -457,7 +457,7 @@ Este SDK requer `HttpContext` , e, portanto, não funciona em nenhuma aplicaçã
 
 [Leia e contribua para o código.](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explore os fluxos dos utilizadores](../../azure-monitor/app/usage-flows.md) para entender como os utilizadores navegam através da sua aplicação.
 * [Configure uma coleção instantânea](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) para ver o estado do código fonte e as variáveis no momento em que uma exceção é lançada.

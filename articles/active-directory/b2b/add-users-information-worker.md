@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387393"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma aplicação
@@ -113,7 +113,7 @@ A gestão de aplicativos self-service requer alguma configuração inicial por u
 7. Em **Manage**, selecione **Utilizadores e grupos**, e verifique se o grupo de self-service que criou aparece na lista.
 8. Para adicionar a aplicação ao Painel de Acesso do proprietário do grupo, **selecione Adicionar**  >  **utilizadores e grupos**. Procure o proprietário do grupo e selecione o utilizador, clique em **Selecionar**e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 

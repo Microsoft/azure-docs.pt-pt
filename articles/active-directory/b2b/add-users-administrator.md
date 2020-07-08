@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387427"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração Azure Ative Directory B2B no portal Azure
@@ -27,7 +27,7 @@ Depois de adicionar um utilizador convidado ao diretório, pode enviar ao utiliz
 > [!IMPORTANT]
 > Deve seguir os passos em [Como-a: Adicione as informações de privacidade da sua organização no Azure Ative Directory](https://aka.ms/adprivacystatement) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convites pela primeira vez, um utilizador convidado deve consentir com os seus termos de privacidade para continuar. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Certifique-se de que as configurações de colaboração externa da sua organização estão configuradas de modo a que possa convidar os hóspedes. Por predefinição, todos os utilizadores e administradores podem convidar os hóspedes. Mas as políticas de colaboração externa da sua organização podem ser configuradas para evitar que certos tipos de utilizadores ou administradores convidem os hóspedes. Para saber como visualizar e definir estas políticas, consulte [a colaboração externa do Enable B2B e gerir quem pode convidar os hóspedes.](delegate-invitations.md)
 
@@ -120,7 +120,7 @@ Se um utilizador convidado ainda não tiver resgatado o seu convite, pode reensi
 > [!NOTE]
 > Se reencaminhar um convite que inicialmente direcionou o utilizador para uma aplicação específica, entenda que o link no novo convite leva o utilizador ao Painel de Acesso de nível superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como os administradores não-AD não-Azure podem adicionar utilizadores convidados B2B, veja [como é que os trabalhadores da informação adicionam utilizadores de colaboração B2B?](add-users-information-worker.md)
 - Para obter informações sobre o e-mail de convite, consulte [os elementos do e-mail de convite de colaboração B2B.](invitation-email-elements.md)

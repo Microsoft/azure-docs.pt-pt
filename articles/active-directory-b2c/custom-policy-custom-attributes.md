@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389331"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Ative Directory B2C: Ative atributos personalizados numa política de perfil personalizado
@@ -135,7 +135,7 @@ O exemplo a seguir demonstra a utilização de um atributo personalizado na pol�
 Siga as orientações para adicionar [reclamações e personalizar](custom-policy-configure-user-input.md)a entrada do utilizador utilizando políticas personalizadas . Esta amostra usa uma reivindicação incorporada de "cidade". Para utilizar um atributo personalizado, substitua a 'cidade' com os seus próprios atributos personalizados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

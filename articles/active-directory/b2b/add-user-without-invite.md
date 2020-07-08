@@ -13,10 +13,10 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387308"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicione utilizadores convidados de colaboração B2B sem um link de convite ou e-mail
@@ -33,7 +33,7 @@ Este método original ainda funciona. No entanto, há uma pequena diferença de 
 
 Se convidar um utilizador para o diretório, o utilizador convidado deve aceder diretamente ao URL do portal Azure específico do inquilino (como https://portal.azure.com/ *o recurso*(onmicrosoft.com) para visualizar e concordar com os termos de privacidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)

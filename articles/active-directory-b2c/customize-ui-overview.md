@@ -12,10 +12,10 @@ ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388906"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
@@ -235,7 +235,7 @@ Pode encontrar vários ficheiros de modelos de amostra no repositório [B2C-Azur
 
 Os ficheiros HTML e CSS da amostra nos modelos estão localizados no [diretório /sample_templates.](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se estiver a utilizar **fluxos de utilizador,** pode começar a personalizar a sua UI com o tutorial:
 

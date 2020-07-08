@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390606"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da grelha de eventos 
@@ -42,7 +42,7 @@ Para subscrições, aqui estão algumas das métricas:
 
 Se publicou um tópico personalizado, pode ver as métricas para o mesmo. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 2. Na barra de pesquisa do tópico, escreva **Tópicos de Grelha de Eventos**e, em seguida, selecione Tópicos de Grelha de **Eventos** da lista de drop-down. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
@@ -81,7 +81,7 @@ Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publi
 
 ## <a name="view-system-topic-metrics"></a>Ver métricas de tópicos do sistema
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 2. Na barra de pesquisa do tópico, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, selecione Tópicos do Sistema de Grelha de **Eventos** da lista de drop-down. 
 
     :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Procurar e selecionar tópicos do sistema de grelha de eventos":::
@@ -99,7 +99,7 @@ Pode criar gráficos com métricas suportadas utilizando o separador **Métricas
 Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - Para aprender a criar alertas sobre métricas e operações de registo de [atividades, consulte Alertas definidos](set-alerts.md).

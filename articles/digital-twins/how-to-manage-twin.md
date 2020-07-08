@@ -1,5 +1,5 @@
 ---
-title: Gerir gémeos digitais
+title: Gerir duplos digitais
 titleSuffix: Azure Digital Twins
 description: Veja como recuperar, atualizar e eliminar gémeos e relacionamentos individuais.
 author: baanders
@@ -8,13 +8,13 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 707cfb2e9bea3286daa92ea54f7bb9659a455caf
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390521"
 ---
-# <a name="manage-digital-twins"></a>Gerir gémeos digitais
+# <a name="manage-digital-twins"></a>Gerir duplos digitais
 
 As entidades do seu ambiente são representadas por [gémeos digitais.](concepts-twins-graph.md) Gerir os seus gémeos digitais pode incluir criação, modificação e remoção. Para estas operações, pode utilizar as [**APIs DigitalTwins,**](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md).
 
@@ -146,7 +146,7 @@ O resultado de chamar `object result = await client.DigitalTwins.GetByIdAsync("m
 
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
-* Outras propriedades numa `$metadata` secção. Isto inclui:
+* Outras propriedades numa `$metadata` secção. O que está incluído:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -341,7 +341,7 @@ Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a 
 
 Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [Como fazer: Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md)

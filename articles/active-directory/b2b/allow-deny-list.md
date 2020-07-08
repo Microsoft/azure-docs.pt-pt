@@ -13,13 +13,13 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387291"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Allow or block invitations to B2B users from specific organizations (Permitir ou bloquear convites para utilizadores B2B de organizações específicas)
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicas
 
 Pode utilizar uma lista de autorizações ou uma lista de negação para permitir ou bloquear convites a utilizadores B2B de organizações específicas. Por exemplo, se pretender bloquear domínios pessoais de endereços de e-mail, pode configurar uma lista de negação que contenha domínios como Gmail.com e Outlook.com. Ou, se o seu negócio tem uma parceria com outros negócios como Contoso.com, Fabrikam.com e Litware.com, e quer restringir convites apenas a essas organizações, pode adicionar Contoso.com, Fabrikam.com e Litware.com à sua lista de admissões.
   
@@ -158,7 +158,7 @@ Para remover a política, utilize o [cmdlet Remove-AzureADPolicy.](https://docs.
 Remove-AzureADPolicy -Id $currentpolicy.Id 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral do Azure AD B2B, veja [o que é a colaboração Azure AD B2B?](what-is-b2b.md)
 - Para obter informações sobre acesso condicional e colaboração B2B, consulte [Acesso Condicional para utilizadores de colaboração B2B](conditional-access.md).

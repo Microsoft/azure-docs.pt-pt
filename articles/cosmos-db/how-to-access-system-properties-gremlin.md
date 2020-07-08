@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390351"
 ---
 # <a name="system-document-properties"></a>Propriedades de documento do sistema
@@ -40,6 +40,6 @@ O vértice criado com o percurso abaixo será eliminado automaticamente em **123
 g.addV('vertex-one').property('ttl', 123)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Simultaneidade Otimista do Cosmos DB](faq.md#how-does-the-sql-api-provide-concurrency)
 * [Tempo para Viver (TTL)](time-to-live.md) em Azure Cosmos DB

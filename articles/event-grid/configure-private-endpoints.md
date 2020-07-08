@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
 ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390470"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
@@ -71,7 +71,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos link privado. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -483,6 +483,6 @@ Invoke-RestMethod -Method 'Get'
 
 Pode aprovar a ligação mesmo depois de rejeitada através da API. Se usar o portal Azure, não pode aprovar um ponto final que foi rejeitado. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para saber como configurar as definições de firewall IP, consulte [a firewall IP configurar para tópicos ou domínios da Grelha de Eventos Azure](configure-firewall.md).
 * Para resolver problemas de conectividade da rede, consulte [problemas de conectividade da rede troubleshoot](troubleshoot-network-connectivity.md)

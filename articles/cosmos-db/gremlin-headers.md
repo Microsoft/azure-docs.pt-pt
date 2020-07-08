@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390861"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta do servidor Azure Cosmos DB Gremlin
@@ -106,7 +106,7 @@ try {
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Códigos de estado HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
 * [Cabeçalhos de resposta Common Azure Cosmos DB REST](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [Requisitos do fornecedor do controlador de gráficos TinkerPop]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)

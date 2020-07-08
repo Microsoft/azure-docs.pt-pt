@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387206"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directy B2B colaboração API e personalização
@@ -115,11 +115,11 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Certifique-se de que tem a versão mais recente do módulo AzureAD PowerShell ou do módulo AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 Confira a referência a API do convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Os elementos do e-mail de convite de colaboração B2B](invitation-email-elements.md)

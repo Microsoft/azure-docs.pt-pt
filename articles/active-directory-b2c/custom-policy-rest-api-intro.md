@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388940"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar as bolsas de reclamações da REST API na sua política personalizada Azure AD B2C
@@ -179,7 +179,7 @@ O pedido para o seu serviço REST API provém de servidores Azure AD B2C. O serv
 
 Desenhe o seu serviço REST API e os seus componentes subjacentes (como a base de dados e o sistema de ficheiros) para estar altamente disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para exemplos de utilização de um perfil técnico RESTful:
 
