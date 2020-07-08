@@ -3,12 +3,12 @@ title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: a590e8102bce45e577f1a827c09e752eb0a13139
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676612"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962072"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
@@ -332,7 +332,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
@@ -1846,7 +1846,7 @@ Esta função é útil quando precisa de criar um nome único para um recurso. F
 
 O valor devolvido não é uma corda aleatória, mas sim o resultado de uma função de haxixe. O valor devolvido tem 13 caracteres de comprimento. Não é globalmente único. Você pode querer combinar o valor com um prefixo da sua convenção de nomeação para criar um nome que seja significativo. O exemplo a seguir mostra o formato do valor devolvido. O valor real varia de acordo com os parâmetros fornecidos.
 
-    tcvhiyu5h2o5o
+`tcvhiyu5h2o5o`
 
 Os exemplos a seguir mostram como usar o UniqueString para criar um valor único para níveis comumente usados.
 
