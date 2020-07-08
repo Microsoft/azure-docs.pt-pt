@@ -11,10 +11,9 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987786"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory

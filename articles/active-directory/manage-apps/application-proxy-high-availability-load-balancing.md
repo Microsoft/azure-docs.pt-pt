@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764592"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e equilíbrio de carga dos conectores e aplicações Proxy da aplicação
@@ -92,7 +91,7 @@ Aqui estão algumas opções para o cenário 2:
 
 Consulte a documentação do seu fornecedor de software para entender os requisitos de equilíbrio de carga da aplicação back-end.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ativar procuração de aplicação](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)

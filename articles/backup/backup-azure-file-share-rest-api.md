@@ -4,10 +4,9 @@ description: Saiba como usar a API REST para apoiar as ações de ficheiros Azur
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710614"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando Azure Backup via Rest API
@@ -467,7 +466,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para desencadear uma cópia de segurança a pedido, seguem-se os componentes do corpo de pedido.
 
-| Name       | Tipo                       | Description                       |
+| Name       | Tipo                       | Descrição                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Propriedades | AzurefilesharebackupReques | BackupRequestResource propriedades |
 
@@ -542,6 +541,6 @@ Uma vez concluída a operação, retorna 200 (OK) com o ID do trabalho de backup
 
 Uma vez que o trabalho de backup é uma operação de longa duração, tem de ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [restaurar as ações de ficheiros Azure utilizando a API rest](restore-azure-file-share-rest-api.md).

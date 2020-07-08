@@ -10,10 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: d33fbdf2e95faaa82c13b4fc0d52ea3f188c3f86
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988620"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como garantir uma aplicação de uma única página com o sign-in não interativo
@@ -115,7 +114,7 @@ Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identida
 > [!WARNING]
 > As definições de funções incorporadas Azure Maps proporcionam um acesso de autorização muito grande a muitas APIs DE REST Azure Maps. Para restringir o acesso das APIs ao mínimo, consulte [criar uma definição de função personalizada e atribuir a identidade atribuída ao sistema](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) à definição de função personalizada. Isto permitirá o menor privilégio necessário para a aplicação aceder ao Azure Maps.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Maior compreensão do cenário de aplicação de página única:
 > [!div class="nextstepaction"]

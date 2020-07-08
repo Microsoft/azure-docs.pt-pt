@@ -11,10 +11,9 @@ ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: dcf80ffa26ecaeb0f4481b3997146c07bd89be10
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392934"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TNA da tipografia com o Azure Ative Directory B2C
@@ -190,7 +189,7 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 
 • Inscreva-se [aqui](https://b2cprod.b2clogin.com/b2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SU_TDNA&client_id=51d907f8-db14-4460-a1fd-27eaeb2a74da&nonce=defaultNonce&redirect_uri=https://jwt.ms/&scope=openid&response_type=id_token&prompt=login) e inscreva-se [aqui](https://b2cprod.b2clogin.com/b2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SI_TDNA&client_id=51d907f8-db14-4460-a1fd-27eaeb2a74da&nonce=defaultNonce&redirect_uri=https://jwt.ms/&scope=openid&response_type=id_token&prompt=login)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

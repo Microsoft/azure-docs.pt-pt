@@ -14,10 +14,9 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa0fdddbf31cadad55582f4d45c8e536ce74acd9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667435"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligue-se a uma máquina virtual SQL Server no Azure

@@ -8,10 +8,9 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85336830"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Crie um espaço de nome de ônibus de serviço usando um modelo de gestor de recursos Azure
@@ -92,7 +91,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou um espaço de nomes de Service Bus. Veja os outros quickstarts para aprender a criar filas, tópicos/subscrições e use-as:
 

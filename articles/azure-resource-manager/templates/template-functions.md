@@ -4,10 +4,9 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84331411"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
@@ -66,7 +65,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
 
 * [coalesce](template-functions-comparison.md#coalesce)
-* [é igual a](template-functions-comparison.md#equals)
+* [equals](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
@@ -232,7 +231,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](template-functions-string.md#skip)
 * [divisão](template-functions-string.md#split)
 * [começacom](template-functions-string.md#startswith)
-* [cadeia](template-functions-string.md#string)
+* [string](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
 * [tomar](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)

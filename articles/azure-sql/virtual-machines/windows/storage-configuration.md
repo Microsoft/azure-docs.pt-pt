@@ -13,10 +13,9 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667374"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
@@ -142,7 +141,7 @@ O quadro a seguir descreve as três opções de tipo de carga de trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
-| **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
+| **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhuma |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |
 | **Armazenagem de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e reportando |Bandeira de traço 610<br/>Bandeira de traço 1117 |
 

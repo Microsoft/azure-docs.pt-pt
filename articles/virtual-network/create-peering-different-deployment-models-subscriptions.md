@@ -14,10 +14,9 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412503"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação e subscrições
@@ -323,7 +322,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
    > [!WARNING]
    > Importar um ficheiro de configuração de rede alterado pode causar alterações nas redes virtuais existentes (clássicas) na sua subscrição. Certifique-se de que remove apenas a rede virtual anterior e que não altera ou remove quaisquer outras redes virtuais existentes da sua subscrição. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Familiarize-se completamente com [importantes restrições e comportamentos de observação de rede virtuais](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual que espreita para uso de produção.
 - Saiba mais sobre todas as [definições de observação de rede virtual](virtual-network-manage-peering.md#create-a-peering).

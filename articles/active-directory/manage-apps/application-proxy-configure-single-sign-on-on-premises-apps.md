@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764830"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML único sinal de inscrição para aplicações no local com Proxy de aplicação
@@ -95,7 +94,7 @@ Quando tiver completado todos estes passos, a sua aplicação deve estar a funci
 1. Abra um navegador e navegue para o **URL Externo** que criou quando publicou a aplicação. 
 1. Inscreva-se na conta de teste que atribuiu à aplicação. Deverá ser capaz de carregar a aplicação e ter SSO na aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como é que o Azure AD Application Proxy fornece um único sinal de inscrição?](application-proxy-single-sign-on.md)
 - [Resolver problemas do Proxy de Aplicações](application-proxy-troubleshoot.md)

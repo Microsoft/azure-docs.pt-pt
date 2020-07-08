@@ -12,10 +12,9 @@ ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d2716c49c72674b53e52b021972a90cf89bd843a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392946"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação personalizada de e-mail com SendGrid
@@ -480,7 +479,7 @@ Para localizado o e-mail, tem de enviar cordas localizadas para a SendGrid ou pa
     </InputClaimsTransformations>
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
 

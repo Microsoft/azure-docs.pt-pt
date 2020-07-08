@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f8037ef1324cb10777511c4c363a62a2edab438
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078429"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Auto-revisão de um pacote de acesso na gestão de direitos Azure AD
@@ -60,6 +59,6 @@ Assim que abrir a revisão de acesso, poderá ver o seu acesso. Utilize o seguin
 
 Pode voltar à revisão se mudar de ideias e decidir alterar a sua resposta antes do final da revisão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Rever o acesso aos pacotes de acesso](entitlement-management-access-reviews-review-access.md) 

@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324865"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
@@ -120,13 +119,13 @@ Se configurar o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-
 
    ![Criar projeto do Grupo de Recursos do Azure](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. Depois de a solução ser criada, no Solution Explorer, abra o ficheiro **LogicApp.json,** se o ficheiro ainda não estiver aberto.
+1. Depois de a solução ser criada, no Solution Explorer, abra a **LogicApp.jsem** ficheiro, caso o ficheiro ainda não esteja aberto.
 
-1. Copie o conteúdo do modelo exportado e substitua o conteúdo no ficheiro **LogicApp.json.**
+1. Copie o conteúdo do modelo exportado e substitua o conteúdo do **LogicApp.jsem** ficheiro.
 
 1. Antes de implementar a sua aplicação lógica, autorize quaisquer novas ligações seguindo estes passos:
 
-   1. Abra o menu de atalho **LogicApp.json** e, em seguida, **selecione Open With Logic App Designer**.
+   1. Abra a **LogicApp.jsno** menu de atalho e, em seguida, selecione Open With Logic **App Designer**.
 
       ![Modelo aberto com designer de aplicativos de lógica](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 

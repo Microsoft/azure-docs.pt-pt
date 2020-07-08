@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 44923a124b864083b1badfc617ce0303be66a10e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84985342"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: Criar e gerir chaves SSH para autenticação num Linux VM em Azure 
@@ -231,7 +230,7 @@ ssh myvm
 
 A primeira vez que iniciar súm na sômência de um servidor utilizando uma chave SSH, o comando indica-lhe a palavra-passe para o ficheiro de teclas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O passo seguinte consiste na criação de VMs com Linux do Azure utilizando a nova chave pública SSH. Os VMs Azure que são criados com uma chave pública SSH, uma vez que o sign-in é melhor seguro do que os VMs criados com o método de entrada padrão, palavras-passe.
 

@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710036"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
@@ -25,7 +24,7 @@ ms.locfileid: "84710036"
 
 Saiba como criar e eliminar uma rede virtual e alterar definições, como servidores DNS e espaços de endereço IP, para uma rede virtual existente. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [tutorial](quick-create-portal.md). Uma rede virtual contém sub-redes. Para aprender a criar, alterar e eliminar sub-redes, consulte [Gerir sub-redes](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Complete as seguintes tarefas antes de completar etapas em qualquer secção deste artigo:
 
@@ -177,7 +176,7 @@ Para executar tarefas em redes virtuais, a sua conta deve ser atribuída à [fun
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
 |Microsoft.Network/virtualNetworks/delete |   Eliminar uma rede virtual            |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie uma rede virtual utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou usando [modelos de Gestor de Recursos](template-samples.md) Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987681"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conecte redes virtuais de diferentes modelos de implementação usando o portal
@@ -28,7 +27,7 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+### <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 
 

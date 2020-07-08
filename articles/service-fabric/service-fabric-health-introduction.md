@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392765"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
@@ -294,7 +293,7 @@ Outros sistemas têm um serviço único e centralizado ao nível do cluster que 
 
 O modelo de saúde é fortemente utilizado para monitorização e diagnóstico, para avaliar a saúde do cluster e da aplicação, e para atualizações monitorizadas. Outros serviços utilizam dados de saúde para realizar reparações automáticas, construir histórico de saúde do cluster e emitir alertas em determinadas condições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Ver relatórios de saúde do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Utilize relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

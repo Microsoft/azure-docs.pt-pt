@@ -6,10 +6,9 @@ ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712246"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Aplicações de malha de tecido de serviço de escala
@@ -33,6 +32,6 @@ Uma política de escala automática é definida por serviço no ficheiro de recu
 
 Para aprender a definir uma política de autoescala para o seu serviço, leia [os serviços de autoescala](service-fabric-mesh-howto-auto-scale-services.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre o modelo de aplicação, consulte [os recursos do Service Fabric](service-fabric-mesh-service-fabric-resources.md)

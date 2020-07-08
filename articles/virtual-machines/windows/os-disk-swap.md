@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: c96fa4c453911c4ca4b8cf6d8f74647b4532109f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711549"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Alterar o disco OS utilizado por um Azure VM utilizando o PowerShell

@@ -5,10 +5,9 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85336627"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
@@ -36,7 +35,7 @@ Um cluster Kubernetes é dividido em dois componentes:
 
 ![Kubernetes controlam os componentes do plano e do nó](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="control-plane"></a>Avião de controlo
+## <a name="control-plane"></a>Plano de controlo
 
 Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e configurado. Este plano de controlo é fornecido como um recurso Azure gerido abstraído do utilizador. Não há custo para o avião de controlo, apenas os nós que fazem parte do aglomerado AKS.
 
@@ -252,7 +251,7 @@ Quando cria um cluster AKS, os seguintes espaços de nome estão disponíveis:
 
 Para mais informações, consulte [os espaços de nomes de Kubernetes.][kubernetes-namespaces]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 

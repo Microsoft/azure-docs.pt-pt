@@ -8,17 +8,16 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: 6cbfac4794a685e5858e689c20d6603807edcedf
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987989"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)
 
 Pode utilizar o Azure CLI para ativar o addon [do Controlador de Entrada de Entrada de Aplicação (AGIC),](ingress-controller-overview.md) que está atualmente em pré-visualização, para o seu cluster [Azure Kubernetes Services (AKS).](https://azure.microsoft.com/services/kubernetes-service/) Neste tutorial, você aprenderá a usar o addon AGIC para expor a sua aplicação Kubernetes num cluster AKS existente através de um Gateway de aplicação existente implantado em redes virtuais separadas. Começará por criar um cluster AKS numa rede virtual e um Gateway de aplicação numa rede virtual separada para simular os recursos existentes. Em seguida, irá ativar o add-on AGIC, acompanhar as duas redes virtuais em conjunto, e implementar uma aplicação de amostra que será exposta através do Gateway de Aplicação utilizando o addon AGIC. Se estiver a ativar o addon AGIC para um Gateway de aplicação existente e o cluster AKS existente na mesma rede virtual, então pode saltar o passo de observação abaixo. O addon fornece uma forma muito mais rápida de implementar a AGIC para o seu cluster AKS do que [anteriormente através do Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e também oferece uma experiência totalmente gerida.  
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de recursos 
@@ -150,7 +149,7 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroup 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Saiba mais sobre a desativação do addon AGIC](./ingress-controller-disable-addon.md)
 * [Saiba mais sobre quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
 * [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)

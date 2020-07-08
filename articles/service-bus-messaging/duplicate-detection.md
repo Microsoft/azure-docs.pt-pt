@@ -4,10 +4,9 @@ description: Este artigo explica como pode detetar duplicados em mensagens de au
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337902"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
@@ -50,7 +49,7 @@ Permitir a deteção duplicada e o tamanho da janela impactam diretamente a entr
 
 Manter a janela pequena significa que menos ids de mensagens devem ser mantidos e combinados, e a produção é menos impactada. Para entidades de alta produção que necessitem de deteção duplicada, deve manter a janela o mais pequena possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

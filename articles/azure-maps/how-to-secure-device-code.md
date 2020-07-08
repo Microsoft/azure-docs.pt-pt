@@ -10,10 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: b9e75a25237a76c7fa6d300e01bb4d42db75fe08
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988631"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteja um dispositivo restrito de entrada com Azure AD e Azure Maps REST APIs
@@ -112,7 +111,7 @@ Corpo:
 
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

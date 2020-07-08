@@ -9,16 +9,15 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412639"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [SDK v2 de .NET](sql-api-sdk-dotnet.md)
+> * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
 > * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -138,5 +137,5 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)

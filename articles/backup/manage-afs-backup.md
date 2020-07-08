@@ -4,10 +4,9 @@ description: Este artigo descreve tarefas comuns para gerir e monitorizar as aç
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712093"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerir cópias de segurança de partilha de ficheiros do Azure
@@ -163,6 +162,6 @@ Para desregistralmente a conta de armazenamento:
 
    ![Selecione Unregister](./media/manage-afs-backup/select-unregister.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [a Troubleshoot Azure file shares backup](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).

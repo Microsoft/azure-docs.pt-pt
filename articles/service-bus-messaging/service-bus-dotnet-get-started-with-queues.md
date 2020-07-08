@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337544"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
@@ -387,7 +386,7 @@ Parabéns! Criou agora uma fila, enviou um conjunto de mensagens para aquela fil
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem facilmente a um espaço de nomes de Service Bus e administram entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o nosso [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

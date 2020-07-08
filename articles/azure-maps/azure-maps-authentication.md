@@ -11,10 +11,9 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987539"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
@@ -90,7 +89,7 @@ Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma t
 
 Existem os seguintes tipos de definição de função para apoiar cenários de aplicação.
 
-| Definição de papel azul       | Description                                                                                              |
+| Definição de papel azul       | Descrição                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Leitor de dados Azure Maps      | Fornece acesso a APIs de REST Imutável do Azure Maps.                                                       |
 | Colaborador de dados do Azure Maps | Fornece acesso a AZure Maps REST APIs mutáveis. A mutabilidade é definida pelas ações: escrever e apagar. |
@@ -114,7 +113,7 @@ A definição de função personalizada pode então ser usada numa atribuição 
 
 Aqui estão alguns cenários de exemplo onde as funções personalizadas podem melhorar a segurança da aplicação.
 
-| Cenário                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
+| Scenario                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | Uma página web de inscrição pública ou interativa com azulejos de mapa base e nenhuma outra APIs de REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | Uma aplicação que requer apenas geocoding inverso e nenhuma outra APIs de REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
@@ -129,7 +128,7 @@ Atribuir uma atribuição de funções a um grupo de recursos pode permitir o ac
 > [!Tip]
 > A recomendação geral da Microsoft é atribuir acesso ao âmbito da conta Azure Maps porque impede **o acesso não intencional a outras contas do Azure Maps existentes** na mesma subscrição do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o RBAC, consulte [a visão geral do controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

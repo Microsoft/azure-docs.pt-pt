@@ -12,10 +12,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: 8d87052ecfe85fa35c41c8b306bb48551fd06be9
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322846"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Descrição geral dos pré-requisitos para utilizar o Azure Database Migration Service
@@ -140,6 +139,6 @@ Ao utilizar o Serviço de Migração da Base de Dados Azure para realizar migra�
    > [!NOTE]
    > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para SQL Managed Instance, consulte o [tutorial Migrate SQL Server para SQL Managed Instance](https://aka.ms/migratetomiusingdms).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)

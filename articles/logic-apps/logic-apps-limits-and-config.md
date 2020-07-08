@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
 ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412700"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
@@ -40,7 +39,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Prazos de duração e retenção
+## <a name="run-duration-and-retention-limits"></a>Executar limites de duração e retenção
 
 Aqui estão os limites para uma única aplicação lógica executada:
 
@@ -127,7 +126,7 @@ Para ultrapassar estes limites no processamento normal, ou executar testes de ca
 
 <a name="gateway-limits"></a>
 
-## <a name="gateway-limits"></a>Limites de gateway
+## <a name="gateway-limits"></a>Limites do gateway
 
 A Azure Logic Apps suporta operações de escrita, incluindo inserções e atualizações, através do gateway. No entanto, estas operações têm [limites no seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
@@ -190,7 +189,7 @@ Aqui estão os limites para uma aplicação lógica que começa com um gatilho r
 
 <a name="custom-connector-limits"></a>
 
-## <a name="custom-connector-limits"></a>Limites de conector personalizados
+## <a name="custom-connector-limits"></a>Limites dos conectores personalizados
 
 Aqui estão os limites para conectores personalizados que pode criar a partir de APIs web.
 
@@ -212,7 +211,7 @@ Aqui estão os limites para conectores personalizados que pode criar a partir de
 
 <a name="integration-account-limits"></a>
 
-## <a name="integration-account-limits"></a>Limites da conta de integração
+## <a name="integration-account-limits"></a>Limites das contas de integração
 
 Cada subscrição do Azure tem estes limites de conta de integração:
 
@@ -222,7 +221,7 @@ Cada subscrição do Azure tem estes limites de conta de integração:
 
 * Cada ISE, quer [seja Desenvolvedor ou Premium,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)está limitado a 5 contas totais de integração:
 
-  | ISE SKU | Limites da conta de integração |
+  | ISE SKU | Limites das contas de integração |
   |---------|----------------------------|
   | **Premium** | 5 total - [Contas standard](../logic-apps/logic-apps-pricing.md#integration-accounts) apenas, incluindo uma conta Standard gratuitamente. Não são permitidas contas Gratuitas ou Básicas. |
   | **Programador** | 5 total - [Grátis](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinados, ou todas as contas Standard. Não são permitidas contas básicas. Utilize o [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desenvolvimento e testes, mas não para testes de produção ou desempenho. |
@@ -244,7 +243,7 @@ Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://
 |----------|------|-------|----------|
 | Acordos de negociação do EDI | 10 | 1 | 1,000 |
 | Parceiros comerciais EDI | 25 | 2 | 1,000 |
-| Mapas | 25 | 500 | 1,000 |
+| Maps | 25 | 500 | 1,000 |
 | Esquemas | 25 | 500 | 1,000 |
 | Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 1,000 |
@@ -439,7 +438,7 @@ Esta secção lista os endereços IP de saída para o serviço Azure Logic Apps 
 | US Gov - Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44 | 52.127.42.128 - 52.127.42.143, 52.227.143.61, 52.227.162.91 |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Conheça os [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

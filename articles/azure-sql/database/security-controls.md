@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84668428"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Controlos de segurança para Azure SQL Database e SQL Managed Instance
@@ -46,7 +45,7 @@ Este artigo documenta os controlos de segurança que são incorporados na Base d
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Autenticação| Sim | Azure Active Directory (Azure AD) |
-| Autorização| Sim | Nenhum |
+| Autorização| Sim | Nenhuma |
 
 ## <a name="data-protection"></a>Proteção de dados
 
@@ -62,7 +61,7 @@ Este artigo documenta os controlos de segurança que são incorporados na Base d
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte à gestão de configurações, como a versão da configuração| Não  | Nenhum |
+| Suporte à gestão de configurações, como a versão da configuração| Não  | Nenhuma |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Controlos de segurança adicionais para base de dados SQL
 

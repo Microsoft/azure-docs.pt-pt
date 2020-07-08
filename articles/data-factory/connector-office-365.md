@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513305"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para a Azure usando a Azure Data Factory
@@ -65,8 +64,8 @@ Se a ADF for criada como parte de uma aplicação gerida e as atribuições de p
 Pode criar um pipeline com a atividade da cópia utilizando uma das seguintes ferramentas ou SDKs. Selecione um link para ir a um tutorial com instruções passo a passo para criar um pipeline com uma atividade de cópia. 
 
 - [Portal do Azure](quickstart-create-data-factory-portal.md)
-- [SDK .NET](quickstart-create-data-factory-dot-net.md)
-- [SDK Python](quickstart-create-data-factory-python.md)
+- [SDK do .NET](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
 - [API REST](quickstart-create-data-factory-rest-api.md)
 - [Modelo de Gestor de Recursos Azure](quickstart-create-data-factory-resource-manager-template.md). 
@@ -79,12 +78,12 @@ As seguintes propriedades são suportadas para o serviço ligado ao Office 365:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Office365** | Yes |
-| office365TenantId | Identificação do inquilino Azure à qual pertence a conta do Office 365. | Yes |
-| serviçoPrincipalTenantId | Especifique as informações do inquilino sob as quais a sua aplicação web Azure AD reside. | Yes |
-| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Yes |
-| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. | Yes |
-| connectVia | O tempo de execução de integração a ser utilizado para ligar à loja de dados.  Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No |
+| tipo | A propriedade tipo deve ser definida para: **Office365** | Sim |
+| office365TenantId | Identificação do inquilino Azure à qual pertence a conta do Office 365. | Sim |
+| serviçoPrincipalTenantId | Especifique as informações do inquilino sob as quais a sua aplicação web Azure AD reside. | Sim |
+| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. | Sim |
+| connectVia | O tempo de execução de integração a ser utilizado para ligar à loja de dados.  Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não |
 
 >[!NOTE]
 > A diferença entre **office365TenantId** e **servicePrincipalTenantId** e o valor correspondente para fornecer:
@@ -119,8 +118,8 @@ Para copiar dados do Office 365, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Office365Table** | Yes |
-| tableName | Nome do conjunto de dados para extrair do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista dos conjuntos de dados do Office 365 disponíveis para extração. | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Office365Table** | Sim |
+| tableName | Nome do conjunto de dados para extrair do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista dos conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 
 Se estiver a configurar `dateFilterColumn` , e em conjunto de `startTime` `endTime` `userScopeFilterUri` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo na fonte de atividade que vai para a frente.
 
@@ -153,13 +152,13 @@ Para copiar dados do Office 365, as seguintes propriedades são suportadas na se
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Office365Source** | Yes |
-| permitidos Grupos | Predicado de seleção de grupo.  Utilize esta propriedade para selecionar até 10 grupos de utilizadores para os quais os dados serão recuperados.  Se nenhum grupo for especificado, então os dados serão devolvidos para toda a organização. | No |
-| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão predicado que é aplicada em todo o inquilino para filtrar as linhas específicas para extrair do Office 365. O formato predicado deve coincidir com o formato de consulta das APIs do Microsoft Graph, por `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` exemplo. | No |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Office365Source** | Sim |
+| permitidos Grupos | Predicado de seleção de grupo.  Utilize esta propriedade para selecionar até 10 grupos de utilizadores para os quais os dados serão recuperados.  Se nenhum grupo for especificado, então os dados serão devolvidos para toda a organização. | Não |
+| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão predicado que é aplicada em todo o inquilino para filtrar as linhas específicas para extrair do Office 365. O formato predicado deve coincidir com o formato de consulta das APIs do Microsoft Graph, por `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` exemplo. | Não |
 | dataFilterColumn | Nome da coluna do filtro DateTime. Utilize esta propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim, se o conjunto de dados tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) a lista de conjuntos de dados que requerem este filtro DateTime. |
 | startTime | Valor de início do Tempo de Data para filtrar. | Sim, se `dateFilterColumn` for especificado |
 | endTime | Valor de fim de data para filtrar. | Sim, se `dateFilterColumn` for especificado |
-| outputColumns | Matriz das colunas para copiar para afundar. | No |
+| outputColumns | Matriz das colunas para copiar para afundar. | Não |
 
 **Exemplo:**
 
@@ -303,5 +302,5 @@ Para copiar dados do Office 365, as seguintes propriedades são suportadas na se
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

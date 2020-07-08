@@ -8,10 +8,9 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987929"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
@@ -121,6 +120,6 @@ Fragmento da regra PathBasedRouting:
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de saber mais sobre o encaminhamento de conteúdo baseado em URL, aceda a [Criar um gateway de aplicação com encaminhamento baseado em URL](create-url-route-portal.md) para criar um gateway de aplicação com regras de encaminhamento do URL.

@@ -15,10 +15,9 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986251"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>ListE Azure atribui funções usando Azure CLI
@@ -185,6 +184,6 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
     az role assignment list --assignee {objectId}
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione ou remova atribuições de funções Azure usando Azure CLI](role-assignments-cli.md)

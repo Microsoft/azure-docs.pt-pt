@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392748"
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de saúde do Service Fabric
@@ -1227,7 +1226,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Use system health reports to troubleshoot (Utilizar relatórios de estado de funcionamento do sistema para resolver problemas)](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Adicionar relatórios de saúde personalizados do Service Fabric](service-fabric-report-health.md)

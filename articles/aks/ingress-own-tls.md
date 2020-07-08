@@ -4,13 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de entrada NGINX que utiliza os seus próprios certificados num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: e909a65488ff2651ed3a16943a81747fac6ece0f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.date: 07/02/2020
+ms.openlocfilehash: 4e87a4005a2f6428123b852c2ff505a30c7e36fd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920325"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS e utilizar os seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -25,7 +24,7 @@ Também pode:
 - [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
 - Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX. Certifique-se de que está a utilizar a última versão do Helm. Para obter instruções de atualização, consulte os [docs de instalação helm][helm-install]. Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -46,6 +45,9 @@ O controlador de entrada também tem de estar agendado num nó do Linux. Os nós
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -366,7 +368,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

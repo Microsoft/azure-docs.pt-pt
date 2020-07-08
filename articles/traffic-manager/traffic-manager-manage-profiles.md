@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: rohink
 ms.openlocfilehash: 9da534642bc2e48878667d262309037963fcdc62
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711583"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
@@ -68,7 +67,7 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 3. Clique **em visão geral**  >  **Eliminar**.
 4. Confirme para eliminar o perfil do Gestor de Tráfego.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar um ponto final](traffic-manager-endpoints.md)
 * [Configure método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md)

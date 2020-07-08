@@ -13,10 +13,9 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669006"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerir VMs de servidor SQL em Azure utilizando o portal Azure

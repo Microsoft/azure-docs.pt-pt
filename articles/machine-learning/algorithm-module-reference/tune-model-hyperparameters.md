@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
 ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983411"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros do modelo
@@ -149,7 +148,7 @@ No entanto, durante o treino, deve escolher uma *única* métrica para utilizar 
 Quase todos os alunos do Azure Machine Learning apoiam a validação cruzada com uma varredura de parâmetros integrada, que permite escolher os parâmetros para pipeline com. Se o aprendiz não suportar a definição de uma gama de valores, ainda pode usá-lo em validação cruzada. Neste caso, é selecionada uma gama de valores permitidos para a varredura. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

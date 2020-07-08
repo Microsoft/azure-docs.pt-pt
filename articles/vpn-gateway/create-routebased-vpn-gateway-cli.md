@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987699"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um gateway VPN baseado em rotas usando CLI
@@ -179,7 +178,7 @@ Quando já não precisar dos recursos criados, utilize [o grupo AZ para eliminar
 az group delete --name TestRG1 --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez que o gateway tenha terminado de criar, pode criar uma ligação entre a sua rede virtual e outro VNet. Ou criar uma ligação entre a sua rede virtual e um local no local.
 

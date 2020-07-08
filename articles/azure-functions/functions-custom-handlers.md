@@ -6,10 +6,9 @@ ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
 ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052583"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (pré-visualização)

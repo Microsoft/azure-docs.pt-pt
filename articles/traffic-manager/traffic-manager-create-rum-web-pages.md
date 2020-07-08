@@ -14,10 +14,9 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: f297057549263cd62783778b363665bfb4368c91
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711651"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medições reais do utilizador para O Gestor de Tráfego Azure usando páginas web
@@ -64,7 +63,7 @@ Depois de ter obtido a tecla RUM, o próximo passo é incorporar este JavaScript
 4. Da próxima vez que esta página for renderizada num navegador web, o JavaScript referenciado é descarregado e o script executará as operações de medição e reporte.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [as Medições Reais do Utilizador](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de encaminhamento de tráfego suportados](traffic-manager-routing-methods.md) pelo Traffic Manager

@@ -4,10 +4,9 @@ description: Fornece uma lista de erros amqp que pode receber ao utilizar o Azur
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9680e930dd8c1cb8cbd062f029af9d674d62c0e2
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337828"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erros da AMQP no Azure Service Bus
@@ -34,7 +33,7 @@ Vê este erro quando é criada uma nova ligação AMQP, mas não é criado um li
 Error{condition=amqp:connection:forced, description='The connection was inactive for more than the allowed 60000 milliseconds and is closed by container 'LinkTracker'. TrackingId:0000000000000000000000000000000000000_G21, SystemTracker:gateway5, Timestamp:2019-03-06T18:41:51', info=null}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre AMQP e Service Bus, visite os seguintes links:
 

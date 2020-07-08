@@ -12,10 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 26eb3a495fd1c896416265687d92da66dfc3599b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212297"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Vistas para a piscina Synapse SQL
@@ -85,6 +84,6 @@ As vistas podem ser usadas para fornecer aos utilizadores uma camada de apresent
 
 Esta camada proporciona uma experiência consistente do utilizador, garantindo ao mesmo tempo que os designers de armazéns de dados podem evoluir o modelo de dados. Ser capaz de evoluir as tabelas subjacentes significa que os designers podem usar CTAS para maximizar o desempenho durante o processo de carregamento de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento da piscina SQL.](sql-data-warehouse-overview-develop.md)

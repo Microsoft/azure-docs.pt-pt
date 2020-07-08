@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 3a17b56d3abed30ccb495fd9111ff1299165175c
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988087"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure uma ligação VPN ponto-a-local a um VNet utilizando a autenticação de certificado azure nativo: PowerShell
@@ -30,7 +29,7 @@ As ligações de autenticação de certificados nativos do Azure Ponto a Site ut
 * Um certificado de cliente que é gerado a partir do certificado de raiz. O certificado de cliente instalado em cada computador cliente que vai ligar à VNet. Este certificado é utilizado para autenticação de cliente.
 * Uma configuração de cliente VPN. Os ficheiros de configuração de cliente VPN contêm as informações necessárias para o cliente se ligar à VNet. Os ficheiros configuram o cliente VPN existente que é nativo ao sistema operativo. Cada cliente que estabelece ligação tem de ser configurado com as definições dos ficheiros de configuração.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
@@ -408,7 +407,7 @@ Pode restabelecer um certificado de cliente, removendo o thumbprint da lista de 
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

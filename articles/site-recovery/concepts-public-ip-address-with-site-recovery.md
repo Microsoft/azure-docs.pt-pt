@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712178"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após falha
@@ -53,7 +52,7 @@ A configuração é a seguinte:
 - O ponto final **primário** pode ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ou [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) dependendo se o seu ambiente de origem está dentro ou fora de Azure.
 - O ponto final **failover** é criado como um ponto final **Azure.** Utilize um **endereço IP público estático,** pois este será o ponto final externo virado para o Gestor de Tráfego no evento de desastre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o Gestor de Tráfego com recuperação do site Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
 - Saiba mais sobre [os métodos de encaminhamento](../traffic-manager/traffic-manager-routing-methods.md)do Traffic Manager .
 - Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover da aplicação.

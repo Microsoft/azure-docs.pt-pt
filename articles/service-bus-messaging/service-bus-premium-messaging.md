@@ -4,10 +4,9 @@ description: Este artigo descreve os níveis standard e premium da Azure Service
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337417"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
@@ -92,7 +91,7 @@ A introdução às Mensagens Premium é simples e o processo é semelhante ao da
 
 Também pode criar [espaços de nomes Premium com modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre Mensagens do Service Bus, veja as ligações seguintes:
 

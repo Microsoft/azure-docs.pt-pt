@@ -12,10 +12,9 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213317"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de retalho contoso para Synapse SQL 
@@ -28,7 +27,7 @@ Neste tutorial você:
 2. Carregue os dados públicos na sua base de dados
 3. Execute otimizações após o fim da carga.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para executar este tutorial, você precisa de uma conta Azure que já tem um armazém de dados Synapse SQL. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
 
@@ -352,7 +351,7 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para carregar o conjunto completo de dados, executar o exemplo [carregue o armazém completo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) de dados de retalho Contoso do repositório de amostras do Microsoft SQL Server.
 Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para armazéns de dados.](sql-data-warehouse-overview-develop.md)

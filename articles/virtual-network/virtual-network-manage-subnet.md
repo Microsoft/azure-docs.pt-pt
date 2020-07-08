@@ -14,17 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
 ms.openlocfilehash: b43fb027116d746a60c9cd4e690e63181fff4ade
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711022"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
 Saiba como adicionar, alterar ou eliminar uma sub-rede de rede virtual. Todos os recursos do Azure implementados numa rede virtual são implementados numa sub-rede dentro dessa rede virtual. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [quickstart](quick-create-portal.md). Para saber mais sobre a gestão de uma rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual.](manage-virtual-network.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se não tiver uma, crie uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Em seguida, complete uma destas tarefas antes de iniciar etapas em qualquer secção deste artigo: 
 
@@ -78,7 +77,7 @@ A conta a que insinou ou se liga ao Azure deve ser atribuída à [função de co
 
 5. Na página da sub-rede, altere qualquer uma das seguintes definições:
 
-    | Definição | Description |
+    | Definição | Descrição |
     | --- | --- |
     | **Intervalo de endereços** | Se não forem utilizados recursos dentro da sub-rede, pode alterar o intervalo de endereços. Se existirem recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro da sub-rede. Os passos que toma para mover ou eliminar um recurso variam consoante o recurso. Para aprender a mover ou apagar recursos que estão em sub-redes, leia a documentação para cada um desses tipos de recursos. Consulte os constrangimentos para **o intervalo de endereços** no passo 4 de [Adicionar uma sub-rede](#add-a-subnet). |
     | **Utilizadores** | Pode controlar o acesso à sub-rede utilizando funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e utilizadores para aceder à sub-rede, consulte [Adicionar uma atribuição de funções](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
@@ -129,7 +128,7 @@ Para realizar tarefas em sub-redes, a sua conta deve ser atribuída à [função
 |Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Ativar um ponto final de serviço para uma sub-rede     |
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Obtenha as máquinas virtuais numa sub-rede       |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie uma rede virtual e sub-redes utilizando scripts de [amostras PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou utilizando [modelos de Gestor de Recursos](template-samples.md) Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

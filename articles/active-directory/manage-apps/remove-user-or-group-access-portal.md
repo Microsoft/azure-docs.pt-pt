@@ -17,10 +17,9 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a09b3307403cb78da3bd22f3cc85bd75d7ebd858
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763062"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remova uma atribuição de utilizador ou grupo de uma aplicação empresarial no Azure Ative Directory
@@ -64,7 +63,7 @@ ms.locfileid: "84763062"
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)

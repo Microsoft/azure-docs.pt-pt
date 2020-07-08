@@ -8,10 +8,9 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392306"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
@@ -109,7 +108,7 @@ Aqui está um exemplo de um modelo típico, escrito como uma interface DTDL. O m
 
 Os campos do modelo são:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | `@id` | Um identificador para o modelo. Deve estar no `dtmi:<domain>:<unique model identifier>;<model version number>` formato. |
 | `@type` | Identifica o tipo de informação que está a ser descrita. Para uma interface, o tipo é *Interface.* |
@@ -201,7 +200,7 @@ Existe uma amostra disponível para validar documentos de modelo para garantir q
 
 Ou, para obter mais informações sobre a biblioteca de parser, incluindo um exemplo de como usá-la diretamente, consulte [Como-a-fazer: Parse e valide modelos](how-to-use-parser.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
 * [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)

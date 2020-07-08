@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392816"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -115,7 +114,7 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | erroLevel | Nível de registo, exemplo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem de registo primário | 
 | Domain | Versão do servidor, exemplo: postgres-10 |
-| Detalhes | Mensagem de registo secundário (se aplicável) |
+| Detalhe | Mensagem de registo secundário (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | Nome de datatype | Nome do tipo de dados (se aplicável) |
@@ -124,7 +123,7 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | Prefixo | Prefixo da linha de registo |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o acesso a registos a partir do [portal Azure](howto-configure-server-logs-in-portal.md) ou [do Azure CLI](howto-configure-server-logs-using-cli.md).
 - Saiba mais sobre [os preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 - Saiba mais sobre [registos de auditoria](concepts-audit.md)

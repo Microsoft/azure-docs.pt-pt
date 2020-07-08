@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: dd246e4e6a59637c720cbaddf1258b6e01f709b0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986113"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma VNet com uma ligação de Rede de VPNs com o PowerShell
@@ -31,7 +30,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -259,7 +258,7 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 -ResourceGroupName TestRG1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 *  Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

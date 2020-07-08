@@ -8,10 +8,9 @@ ms.topic: reference
 ms.date: 05/04/2020
 ms.author: dsindona
 ms.openlocfilehash: 01ee0d6a0870cd4f212fc9d50dfe83e55c539af3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711124"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>ApIs de cumprimento saas (precotado)

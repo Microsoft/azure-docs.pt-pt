@@ -16,10 +16,9 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85077930"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Reveja o acesso a grupos ou aplicações em avaliações de acesso a Azure AD
@@ -163,6 +162,6 @@ Também pode ver os comentários de acesso pendentes utilizando o seu navegador 
     > [!NOTE]
     > Se indicou que já não precisa de acesso, não será removido imediatamente. É removido quando a revisão tiver terminado ou quando um administrador para a revisão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Complete uma revisão de acesso de grupos ou aplicações](complete-access-review.md)

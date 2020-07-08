@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988064"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações do dispositivo VPN parceiro
@@ -148,6 +147,6 @@ Ao criar a ligação S2S VPN, pode utilizar opcionalmente [o BGP para o gateway 
     New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções passo a passo para a configuração de gateways VPN ativas ativas, consulte [a configuração de gateways VPN ativas ativas para as instalações cruzadas e ligações VNet-to-VNet](vpn-gateway-activeactive-rm-powershell.md).
 

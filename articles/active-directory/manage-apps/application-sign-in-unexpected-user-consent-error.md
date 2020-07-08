@@ -17,10 +17,9 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763759"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao efetuar o consentimento de uma aplicação
@@ -76,7 +75,7 @@ Todos estes erros ocorrem quando a aplicação que um utilizador está a tentar 
 
     -   Adicionar o pedido da Galeria de Aplicações AD Azure
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 [Aplicativos, permissões e consentimento no Azure Ative Directory (v1 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 

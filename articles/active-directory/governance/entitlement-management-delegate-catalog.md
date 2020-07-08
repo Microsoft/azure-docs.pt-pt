@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02f44543f78789284e7b8d39471d1346ca7b8e74
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078364"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegar governação de acesso a criadores de catálogos na gestão de direitos da Ad Azure
@@ -63,7 +62,7 @@ Para permitir que funções delegadas, como criadores de catálogos e gestores d
 
     ![Definições de utilizador Azure AD - Portal da administração](./media/entitlement-management-delegate-catalog/user-settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)
 - [Delegar governação de acesso a gestores de pacotes de acesso](entitlement-management-delegate-managers.md)

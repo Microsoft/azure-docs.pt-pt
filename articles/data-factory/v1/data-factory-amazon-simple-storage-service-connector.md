@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711923"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
@@ -64,8 +63,8 @@ Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um servi
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |Identificação da chave de acesso secreta. |string |Yes |
-| SecretAccessKey |A chave de acesso secreto em si. |Cadeia secreta encriptada |Yes |
+| accessKeyID |Identificação da chave de acesso secreta. |string |Sim |
+| SecretAccessKey |A chave de acesso secreto em si. |Cadeia secreta encriptada |Sim |
 
 >[!NOTE]
 >Este conector requer chaves de acesso para conta IAM para copiar dados do Amazon S3. [A Credencial de Segurança Temporária](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é apoiada.
@@ -93,12 +92,12 @@ Secções como estrutura, disponibilidade e política são semelhantes para todo
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| baldeName |O nome do balde S3. |String |Yes |
-| chave |A chave do objeto S3. |String |No |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |No |
-| versão |A versão do objeto S3, se a versão S3 estiver ativada. |String |No |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |No |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |No |
+| baldeName |O nome do balde S3. |String |Sim |
+| key |A chave do objeto S3. |String |Não |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |Não |
+| versão |A versão do objeto S3, se a versão S3 estiver ativada. |String |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
 
 
 > [!NOTE]
@@ -174,7 +173,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Especifica se deve listar novamente os objetos S3 sob o diretório. |verdadeiro/falso |No |
+| recursivo |Especifica se deve listar novamente os objetos S3 sob o diretório. |verdadeiro/falso |Não |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon S3 para o armazenamento Azure Blob
 Esta amostra mostra como copiar dados do Amazon S3 para um armazenamento Azure Blob. No entanto, os dados podem ser copiados diretamente para [qualquer um dos lavatórios que são suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia na Data Factory.
@@ -359,7 +358,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 > Para mapear colunas de um conjunto de dados de origem para colunas de um conjunto de dados de sumidouro, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 * Para conhecer os factores-chave que impactam o desempenho do movimento de dados (atividade de cópia) na Data Factory, e várias formas de otimizá-lo, consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md)da atividade copy .

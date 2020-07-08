@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667884"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Configure a replicação para Azure SQL Edge (Pré-visualização) 
@@ -80,7 +79,7 @@ As seguintes opções não são suportadas para subscrições Azure SQL Edge:
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma publicação e uma subscrição push. Para obter mais informações, veja:
+Crie uma publicação e uma subscrição push. Para obter mais informações, consulte:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor Azure SQL Edge e IP como assinante (por exemplo, **myEdgeinstance,1433),** e um nome de base de dados na instância Azure SQL Edge como base de dados de destino (por exemplo, **AdventureWorks).**  

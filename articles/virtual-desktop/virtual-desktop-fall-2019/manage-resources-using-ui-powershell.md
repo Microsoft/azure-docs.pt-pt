@@ -9,10 +9,9 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513406"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão com o PowerShell
@@ -172,6 +171,6 @@ Agora que montou a ferramenta de gestão a qualquer momento, pode lançá-la a q
 
 Se encontrar problemas com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos [modelos do Gestor de Recursos Azure para serviços de ambiente de trabalho remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para os reportar no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a implantar e conectar-se à ferramenta de gestão, pode aprender a usar a Azure Service Health para monitorizar problemas de serviço e avisos de saúde. Para saber mais, consulte o nosso [serviço de alertas de serviço tutorial.](set-up-service-alerts-2019.md)

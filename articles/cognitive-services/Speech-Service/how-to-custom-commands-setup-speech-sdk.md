@@ -1,7 +1,7 @@
 ---
 title: Integrar numa aplicação cliente com o SDK de Voz
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, aprende-se a fazer pedidos para uma aplicação de Comandos Personalizados publicada a partir do SDK de fala em execução numa aplicação UWP.
+description: como fazer pedidos para uma aplicação de Comandos Personalizados publicada a partir do SDK de fala em execução numa aplicação UWP.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414369"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027635"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integre com uma aplicação de cliente usando a Speech SDK
 
-Neste artigo, aprende-se a fazer pedidos para uma aplicação de Comandos Personalizados publicada a partir do SDK de fala em execução numa aplicação UWP. Para estabelecer uma ligação à aplicação Comandos Personalizados, faz as seguintes tarefas:
+Neste artigo, aprende-se a fazer pedidos para uma aplicação de Comandos Personalizados publicada a partir do SDK de fala em execução numa aplicação UWP. Para estabelecer uma ligação à aplicação Comandos Personalizados, é necessário:
 
 - Publique uma aplicação de Comandos Personalizados e obtenha um identificador de aplicações (ID da aplicação)
 - Crie uma aplicação de cliente Universal Windows Platform (UWP) utilizando o Speech SDK para lhe permitir falar com a sua aplicação de Comandos Personalizados
@@ -32,13 +31,19 @@ Neste artigo, aprende-se a fazer pedidos para uma aplicação de Comandos Person
 
 Também vai precisar de:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia é baseado no Visual Studio 2019.
 > * Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
 > * [Ativar o seu dispositivo para o desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passo 1: Publicar aplicação de comandos personalizados
 
-1. Abra a sua aplicação de Comandos Personalizados previamente criada e **selecione Publicar**
+1. Abra a sua aplicação de Comandos Personalizados previamente criada
+1. Ir a **Definições**, selecione **recurso LUIS**
+1. Se **o recurso de previsão** não for atribuído, selecione uma chave de previsão de consulta ou crie uma nova
+
+    A chave de previsão de consulta é sempre necessária antes de publicar uma aplicação. Para mais informações sobre os recursos LUIS, consulte [o Recurso LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Volte a editar Comandos, **Selecione Publicar**
 
    > [!div class="mx-imgBorder"]
    > ![Publicar a aplicação](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ Adicione a fonte por trás do código da seguinte forma:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ Adicione a fonte por trás do código da seguinte forma:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
@@ -414,7 +416,7 @@ Adicione a fonte por trás do código da seguinte forma:
 
 1. **Selecione Talk**, e diga uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: enviar atividade para a aplicação do cliente (Pré-visualização)](./how-to-custom-commands-send-activity-to-client.md)

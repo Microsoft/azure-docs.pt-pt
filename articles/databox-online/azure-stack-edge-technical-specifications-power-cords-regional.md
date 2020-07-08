@@ -1,6 +1,6 @@
 ---
 title: Especificações técnicas do cabo de alimentação Microsoft Azure Stack Edge com base na localização Microsoft Docs
-description: Conheça as especificações técnicas dos cabos de alimentação Azure Stack Edge.
+description: Saiba mais sobre as especificações técnicas dos cabos de alimentação Azure Stack Edge.
 services: databox
 author: priestlg
 ms.service: databox
@@ -9,27 +9,26 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: v-grpr
 ms.openlocfilehash: 2fb28bcb1edb9a18b4d1628e211f87f2c772ef80
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664656"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Especificações do cabo de alimentação Azure Stack Edge
 
-O seu dispositivo Azure Stack Edge necessitará de um cabo de alimentação que variará dependendo da região do Azure.
+O seu dispositivo Azure Stack Edge necessitará de um cabo de alimentação que variará dependendo da região de Azure.
 
 ## <a name="supported-power-cords"></a>Cabos de alimentação suportados
 
-Pode utilizar a tabela seguinte para encontrar as especificações corretas do cabo para a sua região:
+Pode utilizar a seguinte tabela para encontrar as especificações corretas do cabo para a sua região:
 
-| País    | Tensão nominal (V)| Corrente Nominal (A)| Padrão do cordão umbilical |Conector de entrada|Conector de saída| Comprimento mm |  
+| País    | Tensão avaliada (V)| Corrente avaliada (A)| Padrão do cabo |Conector de entrada|Conector de saída| Comprimento mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albânia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Argélia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Angola|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Argentina|250|10|H05VV-F 3x1.00|IRAM 2073|C13|2500|
-|Austrália|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
+|Argentina|250|10|H05VV-F 3x1,00|IRAM 2073|C13|2500|
+|Austrália|250|10|H05VV-F 3x1,00|AS/NZS 3112|C13|2438|
 |Áustria|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Azerbaijão|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Baamas|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
@@ -76,7 +75,7 @@ Pode utilizar a tabela seguinte para encontrar as especificações corretas do c
 |Índia|250|10|IS694 3x0.75|É 1293|C13|1830|
 |Indonésia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Irlanda|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
-|Israel|250|2.5|H05VV-F 3x1.00|SI 32|C13|2000|
+|Israel|250|2.5|H05VV-F 3x1,00|SI 32|C13|2000|
 |Itália|250|10|H05VV-F 3x0.75|CEI 23-50|C13|1800|
 |Jamaica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Japão|125|15|VCTF 3x2.00|JIS C 8303|C13|2300|
@@ -104,7 +103,7 @@ Pode utilizar a tabela seguinte para encontrar as especificações corretas do c
 |Namíbia|250|10|H05VV-F 3x0.75|SANS 164-1|C13|1830|
 |Nepal|250|10|H05VV-F 3x0.75|SANS 164-1|C13|1830|
 |Países Baixos|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Nova Zelândia|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
+|Nova Zelândia|250|10|H05VV-F 3x1,00|AS/NZS 3112|C13|2438|
 |Nicarágua|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Nigéria|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Noruega|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -156,6 +155,6 @@ Pode utilizar a tabela seguinte para encontrar as especificações corretas do c
 |Zâmbia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Zimbabué|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Especificações técnicas azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
+[Especificações técnicas do Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
