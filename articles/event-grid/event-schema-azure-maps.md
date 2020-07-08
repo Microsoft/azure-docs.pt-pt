@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560679"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como fonte de grade de eventos
@@ -24,7 +23,7 @@ Este artigo fornece as propriedades e esquema para eventos Azure Maps. Para uma 
 
 Uma conta Azure Maps emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Levantado quando as coordenadas recebidas mudaram de fora de uma dada geofência para dentro |
 | Microsoft.Maps.GeofenceExited | Levantado quando as coordenadas recebidas mudaram de dentro de uma dada geofência para fora |
@@ -104,20 +103,20 @@ O exemplo a seguir mostra esquema para **GeofenceResult**
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados de eventos geofencing. |
+| dados | objeto | Dados de eventos geofencing. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | apiCategoria | string | Categoria API do evento. |
 | apiName | string | Nome da API do evento. |
@@ -127,13 +126,13 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de erro é devolvido quando ocorre um erro na API do Mapa. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | erro | ErrorDetails |Este objeto é devolvido quando ocorre um erro na API do Mapa  |
 
 O objeto ErrorDetails é devolvido quando ocorre um erro na API do Mapa. O ErrorDetails ou o objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | code | string | O código de estado HTTP. |
 | message | string | Se disponível, uma descrição legível humana do erro. |
@@ -171,7 +170,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Reagir aos eventos do Azure Maps utilizando a Grade de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração dos Mapas Azure com a Grade de Eventos. |
 | [Tutorial: Criar uma geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial acompanha-o através dos passos básicos para configurar a geofence usando o Azure Maps. Utiliza a Grelha de Eventos Azure para transmitir os resultados da geofência e configura uma notificação com base nos resultados da geofence. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558680"
 ---
 # <a name="logging-in-msal-applications"></a>Registo de aplicações MSAL
@@ -126,7 +125,7 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Ativar o registo em MSAL.js (JavaScript) passando um objeto de madeireira durante a configuração para criar um `UserAgentApplication` exemplo. Este objeto madeirão tem as seguintes propriedades:
+ Ativar o início de sessão em MSAL.js (JavaScript) passando um objeto de madeireira durante a configuração para criar um `UserAgentApplication` exemplo. Este objeto madeirão tem as seguintes propriedades:
 
 - `localCallback`: uma instância de callback que pode ser fornecida pelo desenvolvedor para consumir e publicar registos de forma personalizada. Implemente o método localCallback dependendo da forma como pretende redirecionar os registos.
 - `level`(opcional): o nível de registo configurável. Os níveis de registo suportados são: `Error` `Warning` , , e `Info` `Verbose` . A predefinição é `Info`.
@@ -210,7 +209,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Nível  |Description |
+|Nível  |Descrição |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |
@@ -287,7 +286,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Nível  |Description |
+|Nível  |Descrição |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |

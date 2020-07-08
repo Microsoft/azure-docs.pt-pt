@@ -15,10 +15,9 @@ ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558693"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração ADAL para MSAL para Python
@@ -120,6 +119,6 @@ print("Migration completed")
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte a [comparação v1.0 e v2.0](active-directory-v2-compare.md).

@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558927"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out
@@ -74,7 +73,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-No nosso arranque rápido java, o botão de início de sação está localizado no ficheiro [main/resources/templates/index.html.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html)
+No nosso quickstart Java, o botão de entrada está localizado no ficheiro [principal/recursos/modelos/index.html.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html)
 
 ```html
 <!DOCTYPE html>
@@ -291,7 +290,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-No nosso arranque rápido java, o botão de sinalização está localizado no ficheiro main/resources/templates/auth_page.html.
+No nosso quickstart Java, o botão de sinalização está localizado no ficheiro principal/recursos/modelos/auth_page.html.
 
 ```html
 <!DOCTYPE html>
@@ -306,7 +305,7 @@ No nosso arranque rápido java, o botão de sinalização está localizado no fi
 
 # <a name="python"></a>[Python](#tab/python)
 
-No quickstart Python, o botão de sinalização está localizado no ficheiro [modelo/index.html#L10.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10)
+No quickstart Python, o botão de sinalização está localizado nos [modelos/index.htmficheiro l#L10.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10)
 
 ```html
 <!DOCTYPE html>
@@ -335,7 +334,7 @@ Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador f
 - Chamadas `Signout()` , que permite que o middleware OpenID Connect contacte o ponto final da plataforma de identidade da `logout` Microsoft. O ponto final, então:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama de volta a URL logout. Por predefinição, o URL logout apresenta a página de visualização [assinada SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página também é fornecida como parte de MIcrosoft.Identity.Web.
+  - Chama de volta a URL logout. Por predefinição, o URL logout apresenta a página de visualização [assinadaSignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página também é fornecida como parte de MIcrosoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -418,11 +417,11 @@ public class AccountController : Controller
 
 # <a name="java"></a>[Java](#tab/java)
 
-No arranque rápido de Java, o redirecionamento de uri pós-logout apenas exibe a página index.html.
+No arranque rápido de Java, o redirecionamento de uri pós-logout apenas exibe a página de index.html.
 
 # <a name="python"></a>[Python](#tab/python)
 
-No quickstart Python, o redirecionamento uri pós-logout apenas exibe a página index.html.
+No quickstart Python, o redirecionamento de uri pós-logout apenas exibe a página de index.html.
 
 ---
 
@@ -430,7 +429,7 @@ No quickstart Python, o redirecionamento uri pós-logout apenas exibe a página 
 
 Se quiser saber mais sobre a assinatura, leia a documentação do protocolo disponível no [Open ID Connect](./v2-protocols-oidc.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-web-app-sign-user-production.md)
+> [Mover-se para a produção](scenario-web-app-sign-user-production.md)

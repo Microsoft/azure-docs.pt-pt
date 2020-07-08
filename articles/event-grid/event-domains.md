@@ -8,10 +8,9 @@ ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559515"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios do evento para gerir tópicos da Grelha de Eventos
@@ -112,6 +111,6 @@ Os domínios do evento utilizam os [mesmos preços de operações](https://azure
 
 As operações funcionam da mesma forma em domínios de eventos como em tópicos personalizados. Cada entrada de um evento para um domínio de evento é uma operação, e cada tentativa de entrega de um evento é uma operação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a configurar domínios de eventos, criar tópicos, criar subscrições de eventos e publicar eventos, consulte [gerir os domínios de eventos.](./how-to-event-domains.md)

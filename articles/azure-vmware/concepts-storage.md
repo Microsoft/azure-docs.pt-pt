@@ -4,10 +4,9 @@ description: Saiba mais sobre as principais capacidades de armazenamento em Azur
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604121"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (AVS) Pré-visualização de conceitos de armazenamento

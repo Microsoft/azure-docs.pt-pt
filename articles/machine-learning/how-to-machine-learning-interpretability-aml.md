@@ -12,10 +12,9 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560212"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Use o pacote de interpretação para explicar os modelos ML & previsões em Python
@@ -304,7 +303,7 @@ Depois de descarregar as explicações no seu caderno Jupyter local, pode utiliz
 
 Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente com as suas previsões e explicações.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Exploração de Dados| Apresenta uma visão geral do conjunto de dados juntamente com os valores de previsão.|
 |Importância Global|Os agregados apresentam valores importantes de pontos de dados individuais para mostrar as características importantes do modelo no topo do K (configurável K). Ajuda a compreender o comportamento geral do modelo subjacente.|
@@ -318,7 +317,7 @@ Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente
 
 Pode carregar o enredo de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais em qualquer um dos enredos globais.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Importância Local|Mostra as características importantes k (configurável K) para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente num ponto de dados específico.|
 |Exploração de Perturbação (e se análise)|Permite alterações aos valores de característica do ponto de dados selecionados e observa alterações resultantes ao valor de previsão.|
@@ -567,7 +566,7 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 
    Para eliminar um serviço web implantado, utilize `service.delete()` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre a interpretação do modelo](how-to-machine-learning-interpretability.md)
 

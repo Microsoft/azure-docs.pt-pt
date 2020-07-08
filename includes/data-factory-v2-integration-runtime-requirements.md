@@ -5,10 +5,9 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 0b03957178af0578d2c6cd91d7377c93f413cec3
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629507"
 ---
 <!--

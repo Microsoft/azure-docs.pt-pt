@@ -12,10 +12,9 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560414"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
@@ -294,7 +293,7 @@ Uma vez que a imagem esteja carregada e a aplicação esteja disponível, use os
 
 Para obter mais informações sobre a utilização de gatilhos blob, consulte a [Função Criar uma função desencadeada pelo artigo de armazenamento Azure Blob.](/azure/azure-functions/functions-create-storage-blob-triggered-function)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a configurar a sua App funções na documentação [funções.](/azure/azure-functions/functions-create-function-linux-custom-image)
 * Saiba mais sobre o armazenamento blob aciona [as ligações de armazenamento Azure Blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).

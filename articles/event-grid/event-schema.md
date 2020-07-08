@@ -9,10 +9,9 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: femila
 ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559420"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos Azure Event Grid
@@ -87,14 +86,14 @@ Todos os eventos têm os mesmos dados de alto nível:
 | eventType | string | Sim | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Sim | Identificador único para o evento. |
-| data | objeto | Não | Dados do evento específicos para o fornecedor de recursos. |
+| dados | objeto | Não | Dados do evento específicos para o fornecedor de recursos. |
 | dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | Não é necessário, mas se incluído, deve corresponder exatamente ao Esquema de Grelha de Evento `metadataVersion` (atualmente, `1` apenas). Se não estiver incluído, a Grade de Eventos irá carimbar o evento. | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a fonte do evento:
 
 * [Assinaturas Azure (operações de gestão)](event-schema-subscriptions.md)
-* [Registo de Contentor](event-schema-container-registry.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Armazenamento de bolhas](event-schema-blob-storage.md)
 * [Hubs de Eventos](event-schema-event-hubs.md)
 * [Hub IoT](event-schema-iot-hub.md)
@@ -110,7 +109,7 @@ Ao publicar eventos para tópicos personalizados, crie temas para os seus evento
 
 Às vezes, o seu assunto precisa de mais detalhes sobre o que aconteceu. Por exemplo, o editor **de Contas de Armazenamento** fornece o assunto quando um ficheiro é adicionado a um `/blobServices/default/containers/<container-name>/blobs/<file>` recipiente. Um assinante poderia filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para aquele contentor, mas não outros contentores na conta de armazenamento. Um assinante também pode filtrar ou encaminhar pelo sufixo `.txt` para apenas trabalhar com ficheiros de texto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

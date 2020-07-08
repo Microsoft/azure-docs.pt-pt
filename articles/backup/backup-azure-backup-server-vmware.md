@@ -4,10 +4,9 @@ description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer b
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84628449"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
@@ -62,7 +61,7 @@ Crie um canal seguro da seguinte forma:
 
 4. Guarde o ficheiro na máquina Azure Backup Server com uma extensão .zip.
 
-5. **Download.zip**  >  **Extract All**. O ficheiro .zip extrai o seu conteúdo para a pasta **certs,** que contém:
+5. **Clique **download.zipà direita  >  **Extrate All**. O ficheiro .zip extrai o seu conteúdo para a pasta **certs,** que contém:
    - O ficheiro do certificado raiz com uma extensão que começa com uma sequência numerada como .0 e .1.
    - O ficheiro CRL tem uma extensão que começa com uma sequência como .r0 ou .r1. O ficheiro CRL está associado a um certificado.
 
@@ -136,7 +135,7 @@ O Azure Backup Server necessita de uma conta de utilizador com permissões para 
 
 | Privilégios para conta de utilizador vCenter 6.7                     | Privilégios para conta de utilizador vCenter 6.5                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Agrupamento de datas. Configurar um cluster de datatstore            | Agrupamento de datas. Configurar um cluster de datatstore            |
+| Datastore cluster.Configure um cluster datatstore            | Datastore cluster.Configure um cluster datatstore            |
 | Datastore.AlocarSpace                                      | Datastore.AlocarSpace                                      |
 | Datastore.Navegue na loja de dados                                   | Datastore.Navegue na loja de dados                                   |
 | Datastore.Operações de ficheiros de baixo nível                          | Datastore.Operações de ficheiros de baixo nível                          |
@@ -152,15 +151,15 @@ O Azure Backup Server necessita de uma conta de utilizador com permissões para 
 | vApp.Adicionar máquina virtual                                     | vApp.Adicionar máquina virtual                                     |
 | vApp.Atribua o conjunto de recursos                                    | vApp.Atribua o conjunto de recursos                                    |
 | vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine.Configuração. Adicionar ou remover dispositivo          | VirtualMachine.Configuração. Adicionar ou remover dispositivo          |
-| Máquina virtual. Configuração.Adquirir arrendamento de discos            | Máquina virtual. Configuração.Aluguer de discos                     |
-| Máquina virtual. Configuração.Adicionar novo disco                   | Máquina virtual. Configuração.Adicionar novo disco                   |
-| Máquina virtual. Configuração.Configuração avançada        | Máquina virtual. Configuração.Avançado                       |
-| Máquina virtual. Configuração.Toggle rastreio de alteração de disco   | Máquina virtual. Rastreio de alteração de configuração.disco          |
-| Máquina virtual. Configuração.Configure o dispositivo USB do anfitrião     | Máquina virtual. Configuração.Host USB               |
-| Máquina virtual. Configuração.Estender o disco virtual           | Máquina virtual. Configuração.Estender o disco virtual           |
-| Máquina virtual. Configuração.Consulta ficheiros não-damedados           | Máquina virtual. Configuração.Consulta ficheiros não-damedados           |
-| Máquina virtual. Configuração.Alterar a colocação do ficheiro de swap     | Máquina virtual. Configuração.Troca de ficheiro            |
+| VirtualMachine.Configuration. Adicionar ou remover dispositivo          | VirtualMachine.Configuration. Adicionar ou remover dispositivo          |
+| Uration de machine.Configvirtual. Adquirir arrendamento em disco            | Uration de machine.Configvirtual. Arrendamento em disco                     |
+| Uration de machine.Configvirtual. Adicionar disco novo                   | Uration de machine.Configvirtual. Adicionar disco novo                   |
+| Uration de machine.Configvirtual. Configuração avançada        | Uration de machine.Configvirtual. Avançado                       |
+| Uration de machine.Configvirtual. Rastreio de mudança de disco toggle   | Uration de machine.Configvirtual. Rastreio de mudança de disco          |
+| Virtual machine.Configuration.Configure Host USB     | Uration de machine.Configvirtual. Dispositivo USB anfitrião               |
+| Uration de machine.Configvirtual. Estender o disco virtual           | Uration de machine.Configvirtual. Estender o disco virtual           |
+| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos           | Uration de machine.Configvirtual. Consulta de ficheiros não desnudos           |
+| Uration de machine.Configvirtual. Alterar colocação de swapfile     | Uration de machine.Configvirtual. Colocação de ficheiros de swap            |
 | Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado | Máquina virtual. Execução do Programa de Operações de Hóspedes.Programa de Operação convidado |
 | Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes | Máquina virtual. Operações de Hóspedes.Modificações da Operação de Hóspedes |
 | Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes    | Máquina virtual. Operações de Hóspedes.Consultas de Operação de Hóspedes    |
@@ -184,16 +183,16 @@ O Azure Backup Server necessita de uma conta de utilizador com permissões para 
 | ---------------------------------------------------------- | ------------------------------------------- |
 | Datastore.AlocarSpace                                    | Rede.Atribuir                              |
 | Global.Gerir atributos personalizados                           | Datastore.AlocarSpace                     |
-| Global.Definir atributo personalizado                               | VirtualMachine.Config.ChangeTracking        |
+| Global.Definir atributo personalizado                               | VirtualMachine.Config. ChangeTracking        |
 | Host.Operações locais. Criar máquina virtual              | VirtualMachine.State.RemoveSnapshot         |
 | A rede.  Atribuir rede                                   | VirtualMachine.State.CreateSnapshot         |
 | Recurso.  Atribuir máquina virtual ao pool de recursos         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Máquina virtual. Configuração.Adicionar novo disco                | VirtualMachine.Interact.PowerOff            |
-| Máquina virtual. Configuração.Avançado                    | VirtualMachine.Inventory.Create             |
-| Máquina virtual. Rastreio de alteração de configuração.disco        | VirtualMachine.Config.AddNewDisk            |
-| Máquina virtual. Configuração.Host USB             | VirtualMachine.Config.HostUSBDevice         |
-| Máquina virtual. Configuração.Consulta ficheiros não-damedados         | VirtualMachine.Config.AdvancedConfig        |
-| Máquina virtual. Configuração.Troca de ficheiro          | VirtualMachine.Config.SwapPlacement         |
+| Uration de machine.Configvirtual. Adicionar disco novo                | VirtualMachine.Interact.PowerOff            |
+| Uration de machine.Configvirtual. Avançado                    | VirtualMachine.Inventory.Create             |
+| Uration de machine.Configvirtual. Rastreio de mudança de disco        | VirtualMachine.Config. AddNewDisk            |
+| Uration de machine.Configvirtual. Dispositivo USB anfitrião             | VirtualMachine.Config. HostUSBDevice         |
+| Uration de machine.Configvirtual. Consulta de ficheiros não desnudos         | VirtualMachine.Config. Config Avançado        |
+| Uration de machine.Configvirtual. Colocação de ficheiros de swap          | VirtualMachine.Config. Troca de Substituição         |
 | Máquina virtual. Interação.Desligar                     | Global.ManageCustomFields                   |
 | Máquina virtual. O inventário. Criar novo                     |                                             |
 | Máquina virtual. Provisioning.Permitir o acesso ao disco            |                                             |
@@ -479,7 +478,7 @@ Navegue para o servidor MABS onde o VMware VMware está configurado para proteç
         Vcentervm1   TestVM4   VMware
         ```
 
-  4. Para excluir o disco, navegue na `Bin` pasta e execute o script *ExcludeDisk.ps1* com os seguintes parâmetros:
+  4. Para excluir o disco, navegue na `Bin` pasta e execute o *ExcludeDisk.ps1* script com os seguintes parâmetros:
 
         > [!NOTE]
         > Antes de executar este comando, pare o serviço DPMRA no servidor MABS. Caso contrário, o script retorna o sucesso, mas não atualiza a lista de exclusão. Certifique-se de que não há empregos em curso antes de parar o serviço.

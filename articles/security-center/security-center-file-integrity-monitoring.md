@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
 ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84628298"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
@@ -31,7 +30,7 @@ Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azur
 - Nuvens:
     - nuvens comerciais ✔
     - ✔ nuvem gov dos EUA
-    - ≡ China Gov / Outros Gov
+    - ✘ China Gov / Outros Gov
 
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM no Centro de Segurança?
@@ -62,7 +61,7 @@ O Centro de Segurança fornece a seguinte lista de itens recomendados para monit
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Criptografia\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Criptografia\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
-|/etc/*.conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
+|/etc/*.conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
 |/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Microsoft\Windows NT\CurrentVersion\Windows|
 |/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Microsoft\Windows NT\CurrentVersion\Winlogon|
 |/bin|C:\Windows\regedit.exe|HKLM\SOFTWARE\Microsoft\Microsoft\Windows\CurrentVersion\Explorer\Shell Pastas|

@@ -15,10 +15,9 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: tracking-python
 ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559343"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na Gestão API da Azure
@@ -90,7 +89,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`apis`|Recolha de entidades [sumárias da API.](api-management-template-data-model-reference.md#APISummary)|As APIs visíveis para o utilizador atual.|  
   
@@ -1473,5 +1472,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559202"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como ligar aplicações à Base de Dados do Azure para MySQL
@@ -67,5 +66,5 @@ No [portal Azure,](https://portal.azure.com)aceda à sua Base de Dados Azure par
 
 A cadeia fornece detalhes como o controlador, servidor e outros parâmetros de ligação da base de dados. Modifique estes exemplos para utilizar os seus próprios parâmetros, tais como nome de base de dados, palavra-passe, e assim por diante. Em seguida, pode utilizar este fio para ligar ao servidor a partir do seu código e aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para obter mais informações sobre bibliotecas de ligação, consulte [Conceitos - Bibliotecas de ligação.](./concepts-connection-libraries.md)

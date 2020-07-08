@@ -7,10 +7,9 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559984"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
@@ -59,9 +58,9 @@ Para obter mais informações sobre o `BlobTrigger` atributo, consulte [atributo
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho blob num ficheiro e código *de função.json* que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+O exemplo a seguir mostra uma ligação do gatilho de uma *function.jsno* ficheiro e no código que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -80,7 +79,7 @@ Aqui estão os dados de ligação no ficheiro *function.json:*
 
 A cadeia `{name}` no caminho do gatilho da bolha cria uma expressão de `samples-workitems/{name}` [ligação](./functions-bindings-expressions-patterns.md) que pode usar no código de função para aceder ao nome do ficheiro da bolha de desencadeamento. Para mais informações, consulte [os padrões de nome Blob](#blob-name-patterns) mais tarde neste artigo.
 
-Para obter mais informações sobre as propriedades do ficheiro *function.json,* consulte a secção [de Configuração](#configuration) que explica estas propriedades.
+Para obter mais informações sobre *function.jssobre* propriedades de ficheiros, consulte a secção [de Configuração](#configuration) que explica estas propriedades.
 
 Aqui está o código de script C# que se liga `Stream` a:
 
@@ -106,9 +105,9 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho blob num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` recipiente.
+O exemplo a seguir mostra uma ligação do gatilho blob numa *function.jsno* ficheiro e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` recipiente.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -127,7 +126,7 @@ Aqui está o ficheiro *function.json:*
 
 A cadeia `{name}` no caminho do gatilho da bolha cria uma expressão de `samples-workitems/{name}` [ligação](./functions-bindings-expressions-patterns.md) que pode usar no código de função para aceder ao nome do ficheiro da bolha de desencadeamento. Para mais informações, consulte [os padrões de nome Blob](#blob-name-patterns) mais tarde neste artigo.
 
-Para obter mais informações sobre as propriedades do ficheiro *function.json,* consulte a secção [de Configuração](#configuration) que explica estas propriedades.
+Para obter mais informações sobre *function.jssobre* propriedades de ficheiros, consulte a secção [de Configuração](#configuration) que explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -140,9 +139,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma ligação do gatilho blob num ficheiro *function.json* e [no código Python](functions-reference-python.md) que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+O exemplo a seguir mostra uma ligação do gatilho de uma *function.jsno* ficheiro e o [código Python](functions-reference-python.md) que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -162,7 +161,7 @@ Aqui está o ficheiro *function.json:*
 
 A cadeia `{name}` no caminho do gatilho da bolha cria uma expressão de `samples-workitems/{name}` [ligação](./functions-bindings-expressions-patterns.md) que pode usar no código de função para aceder ao nome do ficheiro da bolha de desencadeamento. Para mais informações, consulte [os padrões de nome Blob](#blob-name-patterns) mais tarde neste artigo.
 
-Para obter mais informações sobre as propriedades do ficheiro *function.json,* consulte a secção [de Configuração](#configuration) que explica estas propriedades.
+Para obter mais informações sobre *function.jssobre* propriedades de ficheiros, consulte a secção [de Configuração](#configuration) que explica estas propriedades.
 
 Aqui está o código Python:
 
@@ -273,9 +272,9 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `BlobTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `BlobTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blobTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. As exceções são anotados na secção [de utilização.](#usage) |
@@ -297,7 +296,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceder aos dados blob utilizando `context.bindings.<NAME>` o valor definido em `<NAME>` *função.json*.
+Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +310,7 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 
 ## <a name="blob-name-patterns"></a>Padrões de nome de blob
 
-Pode especificar um padrão de nome blob na `path` propriedade em *função.json* ou no `BlobTrigger` construtor de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
+Pode especificar um padrão de nome blob na `path` propriedade emfunction.js*sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha nome e extensão de ficheiros
 
@@ -321,7 +320,7 @@ O exemplo a seguir mostra como ligar-se ao nome do ficheiro blob e à extensão 
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Se a bolha for denominada *original-Blob1.txt,* os valores do código de `blobname` função e `blobextension` variáveis são *originais-Blob1* e *txt*.
+Se a bolha for nomeada *original-Blob1.txt, *os valores do código de `blobname` função e `blobextension` variáveis são *original-Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtro no nome blob
 
@@ -331,7 +330,7 @@ O exemplo a seguir dispara apenas em bolhas no `input` recipiente que começam c
 "path": "input/original-{name}",
 ```
 
-Se o nome blob for *original-Blob1.txt,* o valor da `name` variável no código de função é `Blob1` .
+Se o nome da bolha for *original-Blob1.txt, *o valor da `name` variável no código de função é `Blob1` .
 
 ### <a name="filter-on-file-type"></a>Filtro no tipo de ficheiro
 
@@ -349,9 +348,9 @@ Para procurar aparelhos encaracolados em nomes de ficheiros, escape o aparelho u
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se a bolha for denominada * {20140101} -soundfile.mp3,* o `name` valor variável no código de função é *soundfile.mp3*.
+Se a bolha for nomeada * {20140101}-soundfile.mp3, *o `name` valor variável no código de função é *soundfile.mp3*.
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadados
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -408,7 +407,7 @@ Se todas as 5 tentativas falharem, a Azure Functions adiciona uma mensagem a uma
 
 ## <a name="concurrency-and-memory-usage"></a>Concurrency e utilização da memória
 
-O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invocações de função simultânea é controlado pela configuração das [filas em host.json](functions-host-json.md#queues). As definições predefinitórias limitam a concordância a 24 invocações. Este limite aplica-se separadamente a cada função que utiliza um gatilho de bolha.
+O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invocações de função simultânea é controlado pela [configuração](functions-host-json.md#queues)de filas em host.jsem . As definições predefinitórias limitam a concordância a 24 invocações. Este limite aplica-se separadamente a cada função que utiliza um gatilho de bolha.
 
 [O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
 
@@ -424,7 +423,7 @@ As sondagens funcionam como um híbrido entre a inspeção de registos e a execu
 > Se necessitar de um processamento de bolhas mais rápido ou fiável, considere criar uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando criar a bolha. Em seguida, use um gatilho de [fila](functions-bindings-storage-queue.md) em vez de um gatilho blob para processar a bolha. Outra opção é utilizar a Grade de Eventos; ver o tutorial [Automatizar redimensionar imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Leia os dados de armazenamento de bolhas quando uma função é executado](./functions-bindings-storage-blob-input.md)
 - [Escreva dados de armazenamento de bolhas a partir de uma função](./functions-bindings-storage-blob-output.md)

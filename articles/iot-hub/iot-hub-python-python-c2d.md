@@ -10,10 +10,9 @@ ms.date: 04/09/2020
 ms.author: robinsh
 ms.custom: mqtt, tracking-python
 ms.openlocfilehash: 12d25fd06ddfa8265dbf046093d3854f7fde4f33
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609561"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Python)

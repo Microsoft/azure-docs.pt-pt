@@ -12,10 +12,9 @@ ms.author: daperlov
 manager: anandsub
 ms.custom: tracking-python
 ms.openlocfilehash: 983beb70ef1919dc3230d5daa6d29fb7209f69aa
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561225"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorize programáticamente uma fábrica de dados Azure
@@ -155,6 +154,6 @@ Para obter uma passagem completa da criação e monitorização de um gasoduto u
 
 Para obter documentação completa sobre cmdlets PowerShell, consulte [a referência cmdlet powershell da data factory](/powershell/module/az.datafactory).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os gasodutos Monitor utilizando o artigo [do Azure Monitor](monitor-using-azure-monitor.md) para saber se utiliza o Monitor Azure para monitorizar os oleodutos da Data Factory. 
 

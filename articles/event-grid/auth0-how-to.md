@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: femila
 ms.openlocfilehash: bd8cebaad27857dbd2fe3c5ed61be63d3700a688
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560751"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integre a grelha de eventos do Azure com a Auth0
@@ -91,7 +90,7 @@ Tente [invocar qualquer uma das ações do Auth0 que desencadeiam um evento a se
 ## <a name="delivery-attempts-and-retries"></a>Tentativas de entrega e retrações
 Os eventos Auth0 são entregues ao Azure através de um mecanismo de streaming. Cada evento é enviado como é desencadeado em Auth0. Se a Grade de Eventos não puder receber o evento, o Auth0 tentará até três vezes para entregar o evento. Caso contrário, a Auth0 registará a falha de entrega no seu sistema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tópico parceiro Auth0](auth0-overview.md)
 - [Visão geral dos tópicos do parceiro](partner-topics-overview.md)

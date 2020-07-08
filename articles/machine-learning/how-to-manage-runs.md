@@ -13,10 +13,9 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.custom: tracking-python
 ms.openlocfilehash: c6d2e05104e2801129544b1cc91d3d7a00161f86
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560157"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
@@ -403,7 +402,7 @@ Para obter mais informações sobre os resultados do Azure CLI, consulte [a saí
 
 1. Utilize a barra de pesquisa para filtrar os oleodutos utilizando etiquetas, descrições, nomes de experiências e nome do apresentador.
 
-## <a name="example-notebooks"></a>Cadernos de exemplo
+## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 Os seguintes cadernos demonstram os conceitos deste artigo:
 
@@ -411,7 +410,7 @@ Os seguintes cadernos demonstram os conceitos deste artigo:
 
 * Para obter mais informações sobre a gestão de corridas com o Azure Machine Learning SDK, consulte o [caderno de gestão](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a registar métricas para as suas experiências, consulte [as métricas do Registo durante os treinos](how-to-track-experiments.md).
 * Para aprender a monitorizar recursos e registos da Azure Machine Learning, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).

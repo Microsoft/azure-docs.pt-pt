@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558554"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
@@ -26,7 +25,7 @@ Saiba como configurar o código para a sua aplicação daemon que chama APIs web
 
 Estas bibliotecas da Microsoft suportam aplicações daemon:
 
-  Biblioteca MSAL | Description
+  Biblioteca MSAL | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core são suportadas para a construção de aplicações daemon. (UWP, Xamarin.iOS e Xamarin.Android não são suportados porque essas plataformas são usadas para construir aplicações de clientes públicos.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Apoio a aplicações daemon em Python.
@@ -57,7 +56,7 @@ O ficheiro de configuração define:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) da amostra [do daemon consola .NET Core.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+[appsettings.jsa](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) partir da amostra [do daemon da consola .NET Core.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 ```json
 {
@@ -73,7 +72,7 @@ Fornece um `ClientSecret` ou um `CertificateName` . Estas configurações são e
 
 # <a name="python"></a>[Python](#tab/python)
 
-Quando se constrói um cliente confidencial com segredos de cliente, o ficheiro [parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) config na amostra [do daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
+Quando se constrói um cliente confidencial com segredos de clientes, o [parameters.jsno](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) ficheiro config na amostra [do daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
 ```Json
 {
@@ -85,7 +84,7 @@ Quando se constrói um cliente confidencial com segredos de cliente, o ficheiro 
 }
 ```
 
-Quando constrói um cliente confidencial com certificados, o ficheiro [parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) config na amostra [do daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
+Quando se constrói um cliente confidencial com certificados, o [parameters.jsno](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) ficheiro config na amostra [do daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
 ```Json
 {
@@ -325,7 +324,7 @@ ConfidentialClientApplication cca =
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

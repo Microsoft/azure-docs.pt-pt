@@ -7,10 +7,9 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84635973"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Lojas de dados suportadas em Azure Data Share
@@ -26,8 +25,8 @@ A tabela abaixo detalha as fontes de dados suportadas para a Azure Data Share.
 | Arquivo de dados | Partilha baseada em instantâneos | Partilha no local 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure |✓ | |
-| Armazenamento do Azure Data Lake Ger1 |✓ | |
-| Armazenamento do Azure Data Lake Ger2 |✓ ||
+| Azure Data Lake Storage Gen1 |✓ | |
+| Azure Data Lake Storage Gen2 |✓ ||
 | Base de Dados SQL do Azure |Pré-visualização pública | |
 | Azure Synapse Analytics (anteriormente Azure SQL DW) |Pré-visualização pública | |
 | Azure Data Explorer | |Pré-visualização pública |
@@ -41,8 +40,8 @@ A tabela abaixo detalha diferentes combinações e escolhas que os consumidores 
 |  | Armazenamento de Blobs do Azure | Armazenamento do Azure Data Lake Ger1 | Armazenamento do Azure Data Lake Ger2 | Base de Dados SQL do Azure | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure | ✓ || ✓ ||
-| Armazenamento do Azure Data Lake Ger1 | ✓ | | ✓ ||
-| Armazenamento do Azure Data Lake Ger2 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
 | Base de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Data Explorer |||||| ✓ |

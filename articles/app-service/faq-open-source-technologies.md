@@ -10,10 +10,9 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559583"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de código aberto FAQs para Web Apps em Azure
@@ -31,8 +30,8 @@ Para ligar a registo de PHP:
 3. Selecione a pasta **'Site'.**
 4. Selecione a pasta **wwwroot.**
 5. Selecione o **+** ícone e, em seguida, selecione **Novo Ficheiro**.
-6. Desaveie o nome do ficheiro para **.user.ini**.
-7. Selecione o ícone do lápis ao lado **de .user.ini**.
+6. Desave o nome do ficheiro para **.user.ini**.
+7. Selecione o ícone do lápis ao lado **de.user.ini**.
 8. No ficheiro, adicione este código:`log_errors=on`
 9. Selecione **Guardar**.
 10. Selecione o ícone do lápis ao lado **de wp-config.php**.
@@ -55,24 +54,24 @@ Para alterar a versão da aplicação Node.js, pode utilizar uma das seguintes o
 * No portal Azure, utilize **as definições de App**.
   1. No portal Azure, vá à sua aplicação web.
   2. Na lâmina **Definições,** selecione **definições de aplicação**.
-  3. Nas **definições de App,** pode incluir WEBSITE_NODE_DEFAULT_VERSION como chave, e a versão de Node.js que pretende como valor.
+  3. Nas **definições de App,** pode incluir WEBSITE_NODE_DEFAULT_VERSION como chave, e a versão de Node.js deseja como valor.
   4. Vá para a sua **consola Kudu** `https://*yourwebsitename*.scm.azurewebsites.net` ().
   5. Para verificar a versão Node.js, insira o seguinte comando:  
      ```
      node -v
      ```
-* Modifique o ficheiro iisnode.yml. Alterar a versão Node.js no ficheiro iisnode.yml apenas define o ambiente de tempo de execução que o iisnode utiliza. O seu Kudu cmd e outros ainda utilizam a versão Node.js que está definida nas **definições de App** no portal Azure.
+* Modifique o ficheiro iisnode.yml. Alterar a versão Node.js no ficheiro iisnode.yml apenas define o ambiente de tempo de execução que o iisnode utiliza. O seu Kudu cmd e outros ainda utilizam a versão Node.js que está definida nas **definições** de App no portal Azure.
 
   Para definir o iisnode.yml manualmente, crie um ficheiro iisnode.yml na pasta raiz da sua aplicação. No ficheiro, inclua a seguinte linha:
   ```yml
   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
   ```
    
-* Desave o ficheiro iisnode.yml utilizando o package.json durante a implantação do controlo de origem.
+* Desave o ficheiro iisnode.yml utilizando package.jsdurante a colocação de controlo de origem.
   O processo de implantação do controlo de fontes Azure envolve as seguintes etapas:
   1. Move o conteúdo para a aplicação web Azure.
   2. Cria um script de implementação predefinido, se não houver um (implementar ficheiros.cmd, .deployment files) na pasta raiz da aplicação web.
-  3. Executa um script de implementação no qual cria um ficheiro iisnode.yml se mencionar a versão Node.js no ficheiro pacote.json > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Executa um script de implementação no qual cria um ficheiro iisnode.yml se mencionar a versão Node.js no package.jsno ficheiro > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. O ficheiro iisnode.yml tem a seguinte linha de código:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -89,7 +88,7 @@ Quando os registos estiverem ativados, reproduza o erro e, em seguida, verifique
 
 Se vir este erro nos ficheiros de debug.log ou php_errors.log, a sua aplicação excede o número de ligações. Se estiver hospedado no ClearDB, verifique o número de ligações disponíveis no seu [plano de serviço.](https://www.cleardb.com/pricing.view)
 
-## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Como depurar uma aplicação Node.js que está hospedada no Serviço de Aplicações?
+## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Como depurar uma Node.js aplicação que está hospedada no Serviço de Aplicações?
 
 1.  Vá para a sua **consola Kudu** `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ().
 2.  Aceda à pasta de registos de aplicações (D:\home\LogFiles\Application).
@@ -206,7 +205,7 @@ Para saber mais sobre as melhores práticas de segurança para o WordPress, cons
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Estou a tentar usar phpMyAdmin, e vejo a mensagem "Acesso negado". Como posso resolver isto?
 
-Poderá experimentar este problema se a funcionalidade de aplicação mySQL ainda não estiver em execução neste caso de Serviço de Aplicações. Para resolver o problema, tente aceder ao seu website. Isto inicia os processos necessários, incluindo o processo de aplicação MySQL. Para verificar se o MySQL in-app está em execução, no Process Explorer, certifique-se de que o mysqld.exe está listado nos processos.
+Poderá experimentar este problema se a funcionalidade de aplicação mySQL ainda não estiver em execução neste caso de Serviço de Aplicações. Para resolver o problema, tente aceder ao seu website. Isto inicia os processos necessários, incluindo o processo de aplicação MySQL. Para verificar se o MySQL in-app está em execução, no Process Explorer, certifique-se de que mysqld.exe está listado nos processos.
 
 Depois de garantir que o MySQL está em execução, tente utilizar PHPMyAdmin.
 

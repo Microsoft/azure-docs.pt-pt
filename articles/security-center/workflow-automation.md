@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629398"
 ---
 # <a name="workflow-automation"></a>Automatização de fluxos de trabalho
@@ -43,7 +42,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 - Nuvens: 
     - nuvens comerciais ✔
     - ✔ Gov dos EUA
-    - # China Gov, Outro Gov
+    - ✘ China Gov, Outro Gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma App Lógica e defina quando deve ser executado automaticamente 

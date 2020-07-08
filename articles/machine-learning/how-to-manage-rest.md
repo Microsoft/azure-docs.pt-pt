@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560164"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Azure ML usando REST
@@ -279,7 +278,7 @@ Para iniciar uma execução dentro de uma experiência, precisa de uma pasta zip
 print("Hello, REST!")
 ```
 
-Guarde este próximo corte como **definição.json.** Confirme que o valor "Script" corresponde ao nome do ficheiro Python que acabou de fechar. Confirme que o valor "Target" corresponde ao nome de um recurso de computação disponível. 
+Guarde este próximo corte enquanto **definition.js.** Confirme que o valor "Script" corresponde ao nome do ficheiro Python que acabou de fechar. Confirme que o valor "Target" corresponde ao nome de um recurso de computação disponível. 
 
 ```json
 {
@@ -420,7 +419,7 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore a referência completa da [AzureML REST API](https://docs.microsoft.com/rest/api/azureml/).
 - Saiba como utilizar o Studio & Designer para [prever o preço do automóvel com o designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).

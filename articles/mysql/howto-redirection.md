@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84610292"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ligue à Base de Dados Azure para o MySQL com a reorientação

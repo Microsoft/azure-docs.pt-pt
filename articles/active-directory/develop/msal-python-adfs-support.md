@@ -14,10 +14,9 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 2e5df49ea681eefeccaf621739de185767c0aa16
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558639"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Apoio ativo dos Serviços da Federação de Diretórios no MSAL para Python
@@ -59,6 +58,6 @@ MSAL Python suporta ADFS 2019.
 
 Não suporta uma ligação direta à ADFS 2016 ou à ADFS v2. Se precisar de suportar cenários que exijam uma ligação direta ao ADFS 2016, utilize a versão mais recente do ADAL Python. Uma vez atualizado o seu sistema no local para ADFS 2019, pode utilizar o MSAL Python.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

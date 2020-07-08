@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84610241"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verificação da consistência dos dados na atividade de cópia (Pré-visualização)
@@ -149,7 +148,7 @@ O exemplo de um ficheiro de registo é o seguinte:
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-A partir do ficheiro de registo acima, pode ver que a amostra1.csv foi ignorada porque não foi verificada para ser consistente entre a loja de origem e destino. Pode obter mais detalhes sobre o porquê da amostra1.csv se tornar inconsistente é porque estava a ser alterada por outras aplicações quando a atividade de cópias ADF está a copiar ao mesmo tempo. 
+A partir do ficheiro de registo acima, pode ver sample1.csv foi ignorado porque não foi verificado para ser consistente entre a loja de origem e destino. Pode obter mais detalhes sobre o porquê de sample1.csv se tornar inconsistente é porque estava a ser alterada por outras aplicações quando a atividade de cópias ADF está a copiar ao mesmo tempo. 
 
 
 

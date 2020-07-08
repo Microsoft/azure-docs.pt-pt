@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
 ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560186"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Como implementar um serviço web de inferenculação encriptado

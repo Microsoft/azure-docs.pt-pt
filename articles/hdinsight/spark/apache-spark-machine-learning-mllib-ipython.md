@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
 ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608422"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use Apache Spark MLlib para construir uma aplicação de machine learning e analisar um conjunto de dados
@@ -38,7 +37,7 @@ Em resumo, o processo de regressão logística produz uma *função logística.*
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exemplo de análise preditiva sobre os dados da inspeção alimentar
 
-Neste exemplo, você usa Spark para fazer algumas análises preditivas em dados de inspeção alimentar **(Food_Inspections1.csv).** Dados adquiridos através do [portal de dados da Cidade de Chicago.](https://data.cityofchicago.org/) Este conjunto de dados contém informações sobre inspeções de estabelecimentos alimentares que foram realizadas em Chicago. Incluindo informações sobre cada estabelecimento, as violações encontradas (se houver), e os resultados da inspeção. O ficheiro de dados CSV já está disponível na conta de armazenamento associada ao cluster em **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+Neste exemplo, você usa Spark para fazer algumas análises preditivas sobre os dados da inspeção alimentar** (Food_Inspections1.csv). ** Dados adquiridos através do [portal de dados da Cidade de Chicago.](https://data.cityofchicago.org/) Este conjunto de dados contém informações sobre inspeções de estabelecimentos alimentares que foram realizadas em Chicago. Incluindo informações sobre cada estabelecimento, as violações encontradas (se houver), e os resultados da inspeção. O ficheiro de dados CSV já está disponível na conta de armazenamento associada ao cluster em **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 Nos passos abaixo, desenvolve-se um modelo para ver o que é preciso para passar ou falhar uma inspeção alimentar.
 
@@ -252,7 +251,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Avaliar o modelo utilizando outro conjunto de dados
 
-Pode usar o modelo que criou anteriormente para *prever* quais serão os resultados de novas inspeções. As previsões baseiam-se nas violações que foram observadas. Treinou este modelo no conjunto de dados **Food_Inspections1.csv**. Pode utilizar um segundo conjunto de dados, **Food_Inspections2.csv,** para *avaliar* a força deste modelo nos novos dados. Este segundo conjunto de dados **(Food_Inspections2.csv)** encontra-se no recipiente de armazenamento predefinido associado ao cluster.
+Pode usar o modelo que criou anteriormente para *prever* quais serão os resultados de novas inspeções. As previsões baseiam-se nas violações que foram observadas. Treinou este modelo no conjunto de dados **Food_Inspections1.csv. ** Pode utilizar um segundo conjunto de dados, **Food_Inspections2.csv, **para *avaliar* a força deste modelo nos novos dados. Este segundo conjunto de dados** (Food_Inspections2.csv) **encontra-se no recipiente de armazenamento predefinido associado ao cluster.
 
 1. Executar o seguinte código para criar um novo dataframe, **previsõesDf** que contém a previsão gerada pelo modelo. O snippet também cria uma tabela temporária chamada **Previsões** com base no dataframe.
 

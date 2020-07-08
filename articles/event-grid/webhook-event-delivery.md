@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: femila
 ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558442"
 ---
 # <a name="webhook-event-delivery"></a>Entrega do Evento Webhook
@@ -88,7 +87,7 @@ Para um exemplo de manuseamento do aperto de mão de validação de assinatura, 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto final com CloudEvents v1.0
 Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção contra abusos](webhook-event-delivery.md) utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema cloudEvents para saída, a Grade de Eventos utiliza com a proteção de abuso cloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo para saber como resolver as validações de subscrição de eventos: 
 
 [Validações de subscrição de eventos de resolução de problemas](troubleshoot-subscription-validation.md)

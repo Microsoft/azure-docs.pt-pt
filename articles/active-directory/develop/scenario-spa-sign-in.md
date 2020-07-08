@@ -12,17 +12,16 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558752"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicação de uma página: Iniciar sção e sindes
 
 Saiba como adicionar o s-in ao código para a sua aplicação de uma página única.
 
-Antes de obter fichas para aceder a APIs na sua aplicação, precisa de um contexto autenticado do utilizador. Pode iniciar sôms nas suas aplicações em MSAL.js de duas formas:
+Antes de obter fichas para aceder a APIs na sua aplicação, precisa de um contexto autenticado do utilizador. Pode iniciar sôms nas suas aplicações MSAL.js de duas formas:
 
 * [Janela pop-up,](#sign-in-with-a-pop-up-window)usando o `loginPopup` método
 * [Redirecione,](#sign-in-with-redirect)utilizando o `loginRedirect` método
@@ -30,7 +29,7 @@ Antes de obter fichas para aceder a APIs na sua aplicação, precisa de um conte
 Também pode passar opcionalmente os âmbitos das APIs para as quais precisa que o utilizador consinta no momento da sua inscrição.
 
 > [!NOTE]
-> Se a sua aplicação já tiver acesso a um contexto de utilizador autenticado ou ficha de ID, pode saltar o passo de login e adquirir diretamente fichas. Para mais detalhes, consulte [SSO sem o login msal.js](msal-js-sso.md#sso-without-msaljs-login).
+> Se a sua aplicação já tiver acesso a um contexto de utilizador autenticado ou ficha de ID, pode saltar o passo de login e adquirir diretamente fichas. Para mais informações, consulte [sSO sem MSAL.js login](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Escolher entre uma experiência pop-up ou redirecionamento
 
@@ -205,7 +204,7 @@ this.authService.logout();
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adquirir um token para a aplicação](scenario-spa-acquire-token.md)

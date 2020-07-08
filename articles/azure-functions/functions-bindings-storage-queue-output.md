@@ -7,10 +7,9 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
 ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559963"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure
@@ -41,9 +40,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho HTTP num ficheiro *function.json* e [no código de script C# (.csx)](functions-reference-csharp.md) que utiliza a ligação. A função cria um item de fila com uma carga de objeto **CustomQueueMessage** para cada pedido HTTP recebido.
+O exemplo a seguir mostra uma ligação http num *function.jsno* ficheiro e o código de [script C# (.csx)](functions-reference-csharp.md) que utiliza a ligação. A função cria um item de fila com uma carga de objeto **CustomQueueMessage** para cada pedido HTTP recebido.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -102,9 +101,9 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho HTTP num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função cria um item de fila para cada pedido HTTP recebido.
+O exemplo a seguir mostra uma ligação do gatilho HTTP numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função cria um item de fila para cada pedido HTTP recebido.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -153,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir demonstra como desau o resultado de valores únicos e múltiplos para as filas de armazenamento. A configuração necessária para *a função.json* é a mesma de qualquer forma.
+O exemplo a seguir demonstra como desau o resultado de valores únicos e múltiplos para as filas de armazenamento. A configuração necessária para *function.jsé* a mesma de qualquer forma.
 
-Uma ligação de fila de armazenamento é definida em *função.json* onde *o tipo* está definido para `queue` .
+Uma ligação de fila de armazenamento é definida em *function.jsno* local onde *o tipo* está definido para `queue` .
 
 ```json
 {
@@ -313,9 +312,9 @@ O parâmetro associado à `QueueOutput` anotação é dactilografado como uma in
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Queue` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Queue` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `queue` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -345,7 +344,7 @@ No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes 
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . O `paramName` valor especificado na `name` propriedade da *função.json*. Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
+Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . O `paramName` valor especificado na `name` propriedade de *function.jsem*. Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
 * Um objeto serializável como JSON
 * `string`
@@ -361,13 +360,13 @@ No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O item da fila de saída está disponível através do `context.bindings.<NAME>` qual corresponde ao nome definido em `<NAME>` *função.json*. Pode utilizar uma corda ou um objeto serializável JSON para a carga útil do item da fila.
+O item da fila de saída está disponível através do `context.bindings.<NAME>` local onde corresponde ao nome definido emfunction.js`<NAME>` *em*. Pode utilizar uma corda ou um objeto serializável JSON para a carga útil do item da fila.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Existem duas opções para a saída de uma mensagem do Event Hub a partir de uma função:
 
-- **Valor de retorno**: Desa estale a `name` propriedade em *função.json* para `$return` . Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
+- **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
 - **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
 
@@ -391,12 +390,12 @@ Existem duas opções para a saída de uma mensagem Do Centro de Eventos a parti
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>configurações host.json
+## <a name="hostjson-settings"></a>host.jsnas definições
 
-Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O ficheiro host.json abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais nas versões 2.x e não só, consulte [a referência host.json para Funções Azure](functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O exemplo host.jsno ficheiro abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais nas versões 2.x e não só, consulte [host.jsem referência para Funções Azure](functions-host-json.md).
 
 > [!NOTE]
-> Para obter uma referência de host.json em Funções 1.x, consulte [a referência host.json para funções Azure 1.x](functions-host-json-v1.md).
+> Para obter uma referência de host.jsem Funções 1.x, consulte [host.jsem referência para as Funções Azure 1.x](functions-host-json-v1.md).
 
 ```json
 {
@@ -413,7 +412,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens. Mínimo é 00:00:00.100 (100 ms) e incrementos até 00:01:00 (1 min).  Em 1.x o tipo de dados é milissegundos, e em 2.x e superior é um TimeSpan.|
 |visibilidadeTimeout|00:00:00|O intervalo de tempo entre as recauchutagens ao processamento de uma mensagem falha. |
@@ -421,7 +420,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de veneno.|
 |newBatchThreshold|lotEsize/2|Sempre que o número de mensagens a ser processadas se descientemente a este número, o tempo de funcionamento recupera outro lote.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar uma função como alterações de dados de armazenamento de fila (Gatilho)](./functions-bindings-storage-queue-trigger.md)
 

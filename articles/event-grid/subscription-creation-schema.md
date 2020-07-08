@@ -8,10 +8,9 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: femila
 ms.openlocfilehash: 933987f405b306607ae36c3f7b626108d641abf9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558986"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de Grade de Eventos
@@ -32,21 +31,21 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
  
 ## <a name="event-subscription-properties"></a>Propriedades de subscrição de eventos
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | destino | objeto | O objeto que define o ponto final. |
 | filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | endpointType | string | O tipo de ponto final para a subscrição (webhook/HTTP, Event Hub ou fila). | 
 | endpointUrl | string | O URL de destino para eventos nesta subscrição do evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | incluieeventTypes | array | Corresponda quando o tipo de evento na mensagem do evento é uma correspondência exata com um destes nomes do tipo evento. Levanta um erro quando o nome do evento não corresponde aos nomes do tipo de evento registados para a fonte do evento. O predefinição corresponde a todos os tipos de eventos. |
 | assuntoScom | string | Um filtro de pré-jogo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. | 
@@ -75,6 +74,6 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grade de Eventos, veja [o que é a Grade de Eventos?](overview.md)

@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558852"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de desktop que chama APIs web: configuração de código
@@ -26,14 +25,14 @@ Agora que criou a sua aplicação, aprenderá a configurar o código com as coor
 
 As seguintes aplicações de suporte para bibliotecas de autenticação da Microsoft (MSALs).
 
-  Biblioteca de Autenticação da Microsoft | Description
+  Biblioteca de Autenticação da Microsoft | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporta a construção de uma aplicação para desktop em várias plataformas, como Linux, Windows e macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Suporta a construção de uma aplicação de desktop em várias plataformas.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Suporta a construção de uma aplicação de desktop em várias plataformas.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Suporta aplicações de desktop que funcionam apenas no macOS.
 
-## <a name="public-client-application"></a>Aplicação de cliente público
+## <a name="public-client-application"></a>Aplicação cliente pública
 
 Do ponto de vista do código, as aplicações para desktop são aplicações de clientes públicos. A configuração será um pouco diferente com base na utilização ou não de autenticação interativa.
 
@@ -103,7 +102,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Saber mais
+### <a name="learn-more"></a>Saiba mais
 
 Para saber mais sobre como configurar uma aplicação de ambiente de trabalho MSAL.NET:
 
@@ -259,7 +258,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adquira um símbolo para uma aplicação de desktop](scenario-desktop-acquire-token.md)

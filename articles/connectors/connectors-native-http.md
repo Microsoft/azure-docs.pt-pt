@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
 ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609534"
 ---
-# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Call service endpoints over HTTP ou HTTPS from Azure Logic Apps
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
 Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporados, pode criar tarefas automatizadas e fluxos de trabalho que enviam pedidos para pontos finais de serviço em HTTP ou HTTPS. Por exemplo, pode monitorizar o ponto final de serviço do seu website verificando esse ponto final num horário específico. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento desencadeia o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho. Se pretender receber e responder às chamadas HTTPS de entrada, utilize a ação [de detonador ou resposta incorporada](../connectors/connectors-native-reqres.md).
 

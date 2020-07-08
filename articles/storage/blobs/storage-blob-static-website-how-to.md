@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609935"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
@@ -34,7 +33,7 @@ O alojamento estático do site é uma funcionalidade que tem de ativar na conta 
 
 4. Selecione **Ativado** para permitir hospedagem estática do site para a conta de armazenamento.
 
-5. No campo **de nome do documento Índice,** especifique uma página de índice predefinido (por exemplo: *index.html*). 
+5. No campo **de nome do documento Index,** especifique uma página de índice predefinido (por exemplo:index.htm*l*). 
 
    A página de índice predefinido é apresentada quando um utilizador navega para a raiz do seu website estático.  
 
@@ -72,7 +71,7 @@ Pode ativar o alojamento estático do site utilizando a [Interface Azure Command
 
    * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá aos utilizadores quando um navegador solicita uma página no seu site que não existe.
 
-   * Substitua o `<index-document-name>` espaço reservado pelo nome do documento de índice. Este documento é geralmente "index.html".
+   * Substitua o `<index-document-name>` espaço reservado pelo nome do documento de índice. Este documento é comumente "index.html".
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -124,7 +123,7 @@ Pode ativar o alojamento estático do site utilizando o módulo Azure PowerShell
 
    * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá aos utilizadores quando um navegador solicita uma página no seu site que não existe.
 
-   * Substitua o `<index-document-name>` espaço reservado pelo nome do documento de índice. Este documento é geralmente "index.html".
+   * Substitua o `<index-document-name>` espaço reservado pelo nome do documento de índice. Este documento é comumente "index.html".
 
 ---
 

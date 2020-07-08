@@ -10,10 +10,9 @@ ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: tracking-python
 ms.openlocfilehash: f324b04dd87f84a07c07394f2ee7c3efdc30c3e1
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84607079"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Começa com a identidade do módulo IoT Hub e módulo twin (Python)

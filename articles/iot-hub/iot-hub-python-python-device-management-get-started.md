@@ -10,10 +10,9 @@ ms.date: 01/17/2020
 ms.author: robinsh
 ms.custom: mqtt, tracking-python
 ms.openlocfilehash: 3e48e52294884294a2e4649e8fc0e0b9c42e0c0a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608541"
 ---
 # <a name="get-started-with-device-management-python"></a>Começar com a gestão de dispositivos (Python)

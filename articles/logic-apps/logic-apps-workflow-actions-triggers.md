@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609417"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de Schema para tipos de gatilho e ação em Azure Logic Apps
@@ -826,7 +825,7 @@ Aqui estão alguns tipos de ação comumente usados:
 | [**Parse JSON**](#parse-json-action) | Cria fichas fáceis de usar a partir de propriedades em conteúdo JSON. Em seguida, pode referenciar essas propriedades incluindo os tokens na sua aplicação lógica. | 
 | [**Consulta**](#query-action) | Cria uma matriz a partir de itens em outra matriz com base numa condição ou filtro. | 
 | [**Resposta**](#response-action) | Cria uma resposta a uma chamada ou pedido de entrada. | 
-| [**Selecione**](#select-action) | Cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. | 
+| [**Selecionar**](#select-action) | Cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML a partir de uma matriz. | 
 | [**Terminar**](#terminate-action) | Impede um fluxo de trabalho ativamente em funcionamento. | 
 | [**Wait**](#wait-action) | Pausa o seu fluxo de trabalho durante uma duração especificada ou até à data e hora especificadas. | 

@@ -10,10 +10,9 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: tracking-python
 ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84606467"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Horários e trabalhos de transmissão (Python)

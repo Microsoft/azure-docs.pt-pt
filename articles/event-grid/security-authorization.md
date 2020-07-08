@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: femila
 ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559017"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
@@ -112,7 +111,7 @@ Se precisar de especificar permissões diferentes das funções incorporadas, po
 
 Seguem-se definições de funções de sample Event Grid que permitem aos utilizadores tomar diferentes ações. Estas funções personalizadas são diferentes das funções incorporadas porque concedem um acesso mais amplo do que apenas subscrições de eventos.
 
-**EventGridReadOnlyRole.json**: Apenas permitir operações de leitura.
+**EventGridReadOnlyRole.js:** Apenas permitir operações de leitura.
 
 ```json
 {
@@ -131,7 +130,7 @@ Seguem-se definições de funções de sample Event Grid que permitem aos utiliz
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Permitir ações postadas restritas, mas não permitir eliminar ações.
+**EventGridNoDeleteListKeysRole.jsem:** Permitir ações postadas restritas, mas não permitir a exclusão de ações.
 
 ```json
 {
@@ -154,7 +153,7 @@ Seguem-se definições de funções de sample Event Grid que permitem aos utiliz
 }
 ```
 
-**EventGridContributorRole.json**: Permite todas as ações da grelha de eventos.
+**EventGridContributorRole.jsem**: Permite todas as ações da grelha de eventos.
 
 ```json
 {
@@ -201,6 +200,6 @@ Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** preci
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grade de Eventos, consulte [Sobre a Grelha de Eventos](overview.md)

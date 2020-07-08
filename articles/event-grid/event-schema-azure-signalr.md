@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: femila
 ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560622"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de eventos Azure Event Grid para o Serviço SignalR
@@ -24,7 +23,7 @@ Este artigo fornece as propriedades e esquema para eventos do Serviço SignalR.P
 
 O Serviço SignalR emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.SignalRService.ClientConnectionConnected | Levantado quando uma ligação com o cliente está ligada. |
 | Microsoft.signalrService.ClientConnectionDis ligados | Levantado quando uma ligação do cliente foi desligada. |
@@ -83,7 +82,7 @@ Um evento tem os seguintes dados de alto nível:
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento do Serviço SignalR. |
+| dados | objeto | Dados do evento do Serviço SignalR. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
@@ -103,7 +102,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Reagir aos eventos do Serviço Azure SignalR utilizando a Grade de Eventos](../azure-signalr/signalr-concept-event-grid-integration.md) | Visão geral da integração do Serviço Azure SignalR com Grelha de Eventos. |
 | [Como enviar eventos do Serviço Azure SignalR para a Grelha de Eventos](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do Serviço Azure SignalR para uma aplicação através da Grade de Eventos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

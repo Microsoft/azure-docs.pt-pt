@@ -10,10 +10,9 @@ ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84607351"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreenda os IDs de exemplo para VMs de escala Azure

@@ -10,10 +10,9 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, tracking-python
 ms.openlocfilehash: 142ac150e863b69a4580812478828062c1f5c6c6
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84605600"
 ---
 # <a name="get-started-with-device-twins-python"></a>Começar com os gémeos do dispositivo (Python)

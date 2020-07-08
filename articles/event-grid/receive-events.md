@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: femila
 ms.openlocfilehash: dd7535030ea4f6d6769630e463618faab62944a0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558477"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
@@ -32,7 +31,7 @@ Se estiver a desenvolver em .NET, [adicione uma dependência](../azure-functions
 
 Os SDKs para outros idiomas estão disponíveis através da referência [Publish SDKs.](./sdk-overview.md#data-plane-sdks) Estes pacotes têm os modelos para tipos de eventos nativos `EventGridEvent` `StorageBlobCreatedEventData` como, e `EventHubCaptureFileCreatedEventData` .
 
-Clique no link "Ver Ficheiros" na sua Função Azure (painel de funções à direita no portal das funções Azure) e crie um ficheiro chamado project.json. Adicione o seguinte conteúdo ao `project.json` ficheiro e guarde-o:
+Clique no link "Ver Ficheiros" na sua Função Azure (painel de funções à direita no portal das funções Azure) e crie um ficheiro chamado project.jsligado. Adicione o seguinte conteúdo ao `project.json` ficheiro e guarde-o:
 
  ```json
 {
@@ -366,7 +365,7 @@ Finalmente, teste que a sua função pode agora lidar com o seu tipo de evento p
 
 Também pode testar esta funcionalidade ao vivo [enviando um evento personalizado com CURL a partir do Portal](./custom-event-quickstart-portal.md) ou [publicando para um tópico personalizado](./post-to-custom-topic.md) usando qualquer serviço ou aplicação que possa POSTar para um ponto final como o [Carteiro.](https://www.getpostman.com/) Crie um tópico personalizado e uma subscrição de eventos com o set de ponto final como URL de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore a [Azure Event Grid Management e publique SDKs](./sdk-overview.md)
 * Saiba como [publicar um tópico personalizado](./post-to-custom-topic.md)

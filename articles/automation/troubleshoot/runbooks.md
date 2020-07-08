@@ -10,10 +10,9 @@ ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
 ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84606892"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
@@ -625,7 +624,7 @@ Quando o seu runbook ou aplicação tenta funcionar numa caixa de areia Azure, o
 
 ### <a name="cause"></a>Causa
 
-Este problema pode ocorrer porque as caixas de areia Azure impedem o acesso a todos os servidores COM fora do processo. Por exemplo, uma aplicação ou um livro de bordo com caixa de areia não pode ligar para a Instrumentação de Gestão do Windows (WMI) ou para o serviço De instalador do Windows (msiserver.exe). 
+Este problema pode ocorrer porque as caixas de areia Azure impedem o acesso a todos os servidores COM fora do processo. Por exemplo, uma aplicação ou um livro de bordo com caixa de areia não pode ligar para a Instrumentação de Gestão do Windows (WMI) ou para o serviço de Instalador do Windows (msiserver.exe). 
 
 ### <a name="resolution"></a>Resolução
 

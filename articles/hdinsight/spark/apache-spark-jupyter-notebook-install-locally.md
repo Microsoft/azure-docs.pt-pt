@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604240"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o caderno Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
@@ -70,7 +69,7 @@ Descarregue o [instalador Daaconda](https://www.anaconda.com/download/) para a s
     |Kernel | Comando |
     |---|---|
     |Spark|`jupyter-kernelspec install sparkmagic/kernels/sparkkernel`|
-    |Faísca|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
+    |SparkR|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
@@ -100,7 +99,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
     exit()
     ```
 
-3. Dentro da `.sparkmagic` pasta, crie um ficheiro chamado **config.json** e adicione o seguinte corte JSON no seu interior.  
+3. Dentro da `.sparkmagic` pasta, crie um ficheiro chamado **config.js** e adicione o seguinte corte JSON no seu interior.  
 
     ```json
     {
@@ -135,7 +134,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
     |{BASE64ENCODEDPASSWORD}|Uma senha codificada base64 para a sua senha real.  Pode gerar uma palavra-passe base64 em [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
     |`"livy_server_heartbeat_timeout_seconds": 60`|Mantenha-se em utilização `sparkmagic 0.12.7` (agrupamentos v3.5 e v3.6).  Se utilizar `sparkmagic 0.2.3` (agrupamentos v3.4), substitua-o por `"should_heartbeat": true` .|
 
-    Pode ver um ficheiro de exemplo completo na [amostra config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    Pode ver um ficheiro de exemplo completo na [amostra config.jsem](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
    > Os batimentos cardíacos são enviados para garantir que as sessões não são vazadas. Quando um computador dorme ou é desligado, o batimento cardíaco não é enviado, resultando na limpeza da sessão. Para clusters v3.4, se desejar desativar este comportamento, pode definir o config Livy `livy.server.interactive.heartbeat.timeout` para a partir da `0` UI Ambari. Para os clusters v3.5, se não definir a configuração 3.5 acima, a sessão não será eliminada.
@@ -164,7 +163,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
 
     Se conseguir recuperar a saída com sucesso, a sua ligação ao cluster HDInsight é testada.
 
-    Se pretender atualizar a configuração do portátil para ligar a um cluster diferente, atualize o config.json com o novo conjunto de valores, como mostrado no Passo 3, acima.
+    Se pretender atualizar a configuração do portátil para ligar a um cluster diferente, atualize o config.jscom o novo conjunto de valores, como mostra o Passo 3, acima.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Porque haveria de instalar o Jupyter no meu computador?
 

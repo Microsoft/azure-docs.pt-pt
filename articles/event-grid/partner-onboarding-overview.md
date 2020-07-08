@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: femila
 ms.openlocfilehash: 47576feb7f3e4f2794aa06d52b4f5504c633ce96
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560316"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>A bordo como parceiro da Azure Event Grid
@@ -171,7 +170,7 @@ Depois de colocar no ponto final do ParceiroNamespace, recebe uma resposta. A re
   * [Ir](https://github.com/Azure/azure-sdk-for-go)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Visão geral dos tópicos do parceiro](partner-topics-overview.md)
 - [Formulário de tópicos de parceiros no formato de embarque](https://aka.ms/gridpartnerform)
 - [Tópico parceiro Auth0](auth0-overview.md)

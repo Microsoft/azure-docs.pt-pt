@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559485"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus como fonte de grade de eventos
@@ -24,7 +23,7 @@ Este artigo fornece as propriedades e esquema para eventos de Service Bus.Para u
 
 A Service Bus emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Levantado quando há mensagens ativas numa fila ou subscrição e não há recetores a ouvir. |
 | Microsoft.ServiceBus.DeadletterMessAvailableWithNoListener | Levantado quando há mensagens ativas numa fila de cartas mortas e sem ouvintes ativos. |
@@ -86,7 +85,7 @@ Um evento tem os seguintes dados de alto nível:
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de armazenamento de bolhas. |
+| dados | objeto | Dados do evento de armazenamento de bolhas. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
@@ -107,7 +106,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Tutorial: Azure Service Bus para Azure Event Grid exemplos de integração](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico Service Bus para a aplicação de funções e aplicação lógica. |
 | [Azure Service Bus para integração de Grade de Eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração de Service Bus com Grade de Eventos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

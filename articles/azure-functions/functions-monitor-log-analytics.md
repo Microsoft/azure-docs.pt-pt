@@ -7,10 +7,9 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561722"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções de Azure com registos do monitor Azure
@@ -121,7 +120,7 @@ FunctionAppLogs
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a [visão geral das funções Azure](functions-overview.md).
 - Saiba mais sobre [os Registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md).
