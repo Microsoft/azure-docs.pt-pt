@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados do Ponto de Verificação ao Azure Sentinel. Microsoft Docs
-description: Saiba como ligar os dados do Check Point ao Azure Sentinel.
+title: Ligue os dados do Check Point ao Azure Sentinel. Microsoft Docs
+description: Configure o seu aparelho Check Point para encaminhar mensagens Syslog em formato CEF para o seu espaço de trabalho Azure Sentinel através do agente Syslog.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588421"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566050"
 ---
-# <a name="connect-check-point-to-azure-sentinel"></a>Ligar ponto de verificação ao Sentinela Azure
+# <a name="connect-check-point-to-azure-sentinel"></a>Ligue o Ponto de Verificação ao Sentinela Azure
 
 
 
-Este artigo explica como ligar o seu aparelho Check Point ao Azure Sentinel. O conector de dados check Point permite-lhe ligar facilmente os seus registos de Check Point com o Azure Sentinel, ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Check Point no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
+Este artigo explica como ligar o seu aparelho Check Point ao Azure Sentinel. O conector de dados do Check Point permite-lhe ligar facilmente os seus registos de Check Point com o Azure Sentinel, para ver os dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Check Point no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
 
-## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Registos do Ponto de Verificação Para A Frente para o agente Syslog
+## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Registos de Ponto de Verificação para a frente para o agente Syslog
 
-Configure o seu aparelho Check Point para encaminhar mensagens Syslog em formato CEF para o seu espaço de trabalho Azure através do agente Syslog.
+Configure o seu aparelho Check Point para encaminhar mensagens Syslog no formato CEF para o seu espaço de trabalho Azure através do agente Syslog.
 
-1. Vá verificar a [exportação](https://aka.ms/asi-syslog-checkpoint-forwarding)de log de ponto .
-1. Desloque-se até à **implantação básica** e siga as instruções para configurar a ligação, utilizando as seguintes diretrizes:
-   - Desloque a **porta Syslog** para **514** ou a porta que definiu sobre o agente.
-     - Substitua o **nome** e o endereço IP do **servidor-alvo** no CLI com o nome do agente Syslog e o endereço IP.
-     - Detete o formato para **CEF**.
-1. Se estiver a utilizar a versão R77.30 ou R80.10, desloque-se até às **Instalações** e siga as instruções para instalar um Exportador de Registos para a sua versão.
-1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
+1. Vá à [Exportação de Registos de Pontos de Verificação.](https://aka.ms/asi-syslog-checkpoint-forwarding)
+1. Desloque-se até à **Implementação Básica** e siga as instruções para configurar a ligação, utilizando as seguintes orientações:
+   - Coloque a **porta Syslog** no **514** ou na porta que definiu no agente.
+     - Substitua o **nome** e o endereço IP do **servidor-alvo** no CLI pelo nome do agente Syslog e endereço IP.
+     - Desaceia o formato ao **CEF**.
+1. Se estiver a utilizar as versões R77.30 ou R80.10, percorra as **instalações** e siga as instruções para instalar um Exportador de Registos para a sua versão.
+1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
  
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar os aparelhos Check Point ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+## <a name="next-steps"></a>Próximos passos
+Neste documento, aprendeu a ligar os aparelhos check point ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - [Validar a conectividade.](connect-cef-verify.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 97b13118eb0299f042bdadfebecbc1a23d1ce59f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602521"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -62,7 +62,7 @@ Utilize estas ferramentas para aprendizagem automática Azure:
             * [Configuração de execução](#run-configurations)
             * [Instantâneo](#snapshots)
             * [Rastreio de Git](#github-tracking-and-integration)
-            * [Registo](#logging)
+            * [Registo de madeira](#logging)
     * [Pipelines de ML](#ml-pipelines)
     * [Modelos](#models)
         * [Ambientes](#environments)
@@ -212,7 +212,7 @@ Se tiver ativado a monitorização, o Azure recolhe dados de telemetria do model
 O Azure IoT Edge garante que o seu módulo está em funcionamento e monitoriza o dispositivo que o acolhe.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Instância de cálculo (pré-visualização)
+### <a name="compute-instance"></a><a name="compute-instance"></a>Instância de computação
 
 Um **caso de computação Azure Machine Learning** (anteriormente Notebook VM) é uma estação de trabalho totalmente gerida baseada na nuvem que inclui múltiplas ferramentas e ambientes instalados para machine learning. Os casos de cálculo podem ser usados como um alvo de computação para a formação e inferenção de empregos. Para grandes tarefas, [os clusters de cálculo Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) com capacidades de escala de múltiplos nós são uma melhor escolha de destino de computação.
 
@@ -234,7 +234,7 @@ Um [alvo de cálculo](concept-compute-target.md) permite especificar o recurso c
 
 Saiba mais sobre os [alvos de computação disponíveis para treino e implantação.](concept-compute-target.md)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Para começar com a Azure Machine Learning, consulte:
 

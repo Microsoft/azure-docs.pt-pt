@@ -2,13 +2,13 @@
 title: Retenção e armazenamento de dados no Azure Application Insights / Microsoft Docs
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.openlocfilehash: d77eaa32c8487d1aa87626683b4c29bf1cee0e75
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601365"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -18,8 +18,8 @@ Primeiro, a resposta curta:
 
 * É pouco provável que os módulos de telemetria padrão que ficam "fora da caixa" enviem dados sensíveis para o serviço. A telemetria diz respeito a métricas de carga, desempenho e utilização, relatórios de exceção e outros dados de diagnóstico. Os principais dados do utilizador visíveis nos relatórios de diagnóstico são URLs; mas a sua aplicação não deve, em caso algum, colocar dados sensíveis em texto simples num URL.
 * Pode escrever código que envia telemetria personalizada adicional para ajudá-lo com diagnósticos e monitorização do uso. (Esta extensibilidade é uma grande característica da Application Insights.) Seria possível, por engano, escrever este código de modo a incluir dados pessoais e outros dados sensíveis. Se a sua aplicação funcionar com esses dados, deverá aplicar um processo de revisão completa a todo o código que escreve.
-* Ao desenvolver e testar a sua aplicação, é fácil inspecionar o que está a ser enviado pelo SDK. Os dados aparecem nas janelas de saída depurativa do IDE e do browser. 
-* Os dados são guardados nos servidores do [Microsoft Azure](https://azure.com) nos EUA ou na Europa. (Mas a sua aplicação pode ser executada em qualquer lugar.) O Azure tem [processos de segurança fortes e cumpre uma ampla gama de normas de conformidade.](https://azure.microsoft.com/support/trust-center/) Só você e a sua equipa designada têm acesso aos seus dados. O pessoal da Microsoft só pode ter acesso restrito a ele em circunstâncias limitadas específicas com o seu conhecimento. Está encriptado em trânsito e em repouso.
+* Ao desenvolver e testar a sua aplicação, é fácil inspecionar o que está a ser enviado pelo SDK. Os dados aparecem nas janelas de saída depurativa do IDE e do browser.
+* Pode selecionar a localização quando criar um novo recurso Application Insights. Saiba mais sobre a disponibilidade de Insights de Aplicação por região [aqui.](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 *   Reveja os dados recolhidos, pois estes podem incluir dados que são permitidos em algumas circunstâncias, mas não em outros.  Um bom exemplo disso é o Nome do Dispositivo. O nome do dispositivo de um servidor não tem impacto na privacidade e é útil, mas um nome de dispositivo de um telefone ou portátil pode ter um impacto de privacidade e ser menos útil. Um SDK desenvolvido principalmente para direcionar os servidores, iria recolher o nome do dispositivo por padrão, e isso pode ter de ser substituído tanto em eventos normais como em exceções.
 
 O resto deste artigo elabora mais plenamente estas respostas. Foi concebido para ser autossuficiente, para que possa mostrá-lo a colegas que não fazem parte da sua equipa imediata.

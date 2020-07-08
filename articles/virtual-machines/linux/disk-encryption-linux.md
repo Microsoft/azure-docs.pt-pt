@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601395"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs do Linux
 
@@ -388,23 +388,7 @@ Em contraste com a sintaxe PowerShell, o CLI não requer que o utilizador forne�
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Desativar encriptação para Os VMs Linux
-Pode desativar a encriptação utilizando o Azure PowerShell, o Azure CLI ou com um modelo de Gestor de Recursos. 
-
->[!IMPORTANT]
->A encriptação incapacitante com encriptação de disco Azure em VMs Linux é suportada apenas para volumes de dados. Não é suportado em dados ou volumes de SO se o volume de SO tiver sido encriptado.  
-
-- **Desative a encriptação do disco com a Azure PowerShell:** Para desativar a encriptação, utilize o [cmdlet de desencriptação Disable-AzVMDiskEncryption.](/powershell/module/az.compute/disable-azvmdiskencryption) 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Desative a encriptação com o Azure CLI:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Desative a encriptação com um modelo de Gestor de Recursos:** Utilize a [encriptação de desativação num modelo de VM de Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) para desativar a encriptação.
-     1. Clique em **Implementar no Azure**.
-     2. Selecione a subscrição, grupo de recursos, localização, VM, termos legais e acordo.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
@@ -412,7 +396,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 
 - Encriptação de VM ou VMs básicos criados através do método clássico de criação de VM.
 - Desativar a encriptação numa unidade de SISTEMA ou unidade de dados de um Linux VM quando a unidade de SISTEMA estiver encriptada.
-- Encriptação da unidade DES para conjuntos de escala de máquina virtual Linux.
+- Encriptar a unidade de SISTEMA para conjuntos de escala de máquina virtual Linux.
 - Encriptar imagens personalizadas em VMs Linux.
 - Integração com um sistema de gestão chave no local.
 - Ficheiros Azure (sistema de ficheiros partilhados).
@@ -420,14 +404,17 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Volumes dinâmicos.
 - Discos efémeros de OS.
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB e CephFS.
-- Mover um VM encriptado para outra subscrição.
+- Mover um VM encriptado para outra subscrição ou região.
+- Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
 - Lixeira de colisão de Kernel (kdump).
 - Oracle ACFS (sistema de ficheiros de cluster ASM).
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - VMs da série Lsv2 (ver: [Série Lsv2](../lsv2-series.md)).
 - Um VM com "pontos de montagem aninhados"; ou seja, múltiplos pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
+- Um VM com uma unidade de dados montada em cima de uma pasta de SO.
+- VMs da série M com discos de acelerador de escrita.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da encriptação do disco Azure](disk-encryption-overview.md)
 - [Scripts de exemplo do Azure Disk Encryption](disk-encryption-sample-scripts.md)

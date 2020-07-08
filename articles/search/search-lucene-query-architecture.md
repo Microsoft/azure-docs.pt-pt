@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ab40b5c811fd75e6927be41d4cf4cc7524e868a1
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565915"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Pesquisa de texto completo em Azure Cognitive Search
 
@@ -52,7 +52,7 @@ Um pedido de pesquisa é uma especificação completa do que deve ser devolvido 
 O exemplo a seguir é um pedido de pesquisa que pode enviar para a Azure Cognitive Search utilizando a [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -379,7 +379,7 @@ Do ponto de vista técnico, a pesquisa completa de texto é altamente complexa, 
 
 Este artigo explorou a pesquisa completa de texto no contexto da Pesquisa Cognitiva Azure. Esperamos que lhe dê conhecimentos suficientes para reconhecer potenciais causas e resoluções para resolver problemas de consulta comuns. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Construa o índice de amostra, experimente diferentes consultas e analise os resultados. Para obter instruções, consulte [Construir e consultar um índice no portal](search-get-started-portal.md#query-index).
 
@@ -391,7 +391,7 @@ Este artigo explorou a pesquisa completa de texto no contexto da Pesquisa Cognit
 
 + [Configure os analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o processamento mínimo ou para o processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST) 
 

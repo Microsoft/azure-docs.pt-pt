@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: b39c935af1215445f4cd0e68df04b86254f1fe31
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601688"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretação do modelo em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,8 +44,6 @@ As aulas de interpretação são disponibilizadas através de vários pacotes SD
 
 * `azureml.contrib.interpret`, pré-visualização e funcionalidades experimentais que pode experimentar.
 
-* `azureml.train.automl.automlexplainer`pacote para interpretar modelos automatizados de aprendizagem automática de máquinas.
-
 Utilize `pip install azureml-interpret` e para uso `pip install azureml-interpret-contrib` geral, e para `pip install azureml-contrib-interpret` utilização Automática para obter os pacotes de interpretação.
 
 
@@ -72,7 +70,7 @@ Conheça técnicas de interpretação apoiadas, modelos de aprendizagem automát
 
  `azureml-interpret`utiliza as técnicas de interpretação desenvolvidas na [Interpret-Community,](https://github.com/interpretml/interpret-community/)um pacote de pitão de código aberto para a formação de modelos interpretáveis e ajuda a explicar os sistemas de IA blackbox. [A Interpret-Community](https://github.com/interpretml/interpret-community/) serve de anfitrião para os explicadores apoiados por este SDK, e apoia atualmente as seguintes técnicas de interpretação:
 
-|Técnica de Interpretação|Description|Tipo|
+|Técnica de Interpretação|Descrição|Tipo|
 |--|--|--------------------|
 |Explicador de árvores SHAP| O explicador de árvores [shap,](https://github.com/slundberg/shap)que se foca no tempo polinómico fast SHAP valor value value algoritmo específico para **árvores e conjuntos de árvores.**|Específico do modelo|
 |Explicador Profundo SHAP| Com base na explicação da SHAP, o Deep Explainer "é um algoritmo de aproximação de alta velocidade para valores SHAP em modelos de aprendizagem profunda que se baseia numa ligação com o DeepLIFT descrita no [papel SHAP NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Os modelos **TensorFlow** e **Keras** que utilizam o backend TensorFlow são suportados (existe também suporte preliminar para pyTorch)".|Específico do modelo|
@@ -118,7 +116,7 @@ O `azureml.interpret` pacote foi concebido para funcionar com alvos de computaç
 Pode executar a explicação remotamente no Azure Machine Learning Compute e registar a informação de explicação no Serviço de História da Aprendizagem da Máquina de Azure. Uma vez que esta informação é registada, relatórios e visualizações da explicação estão prontamente disponíveis no estúdio Azure Machine Learning para análise do utilizador.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o como permitir [a](how-to-machine-learning-interpretability-aml.md) interpretação para modelos que treinam localmente e em recursos de computação remota Azure Machine Learning. 
 - Consulte os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para obter cenários adicionais. 

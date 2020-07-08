@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 100e4b88589f3731d127ccb1060e556c1f3a2f39
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601637"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o sing-in sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -101,9 +101,9 @@ Os utilizadores finais que estão sujeitos a uma política que requer gestão de
 > [!NOTE]
 > O registo do dispositivo não é o mesmo que a gestão do dispositivo ou "MDM". Apenas associa um ID do dispositivo e um ID do utilizador no diretório AD Azure.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[O que é o modo sem palavra-passe?](concept-authentication-passwordless.md)
+[Saiba como funciona a autenticação sem palavras-passe](concept-authentication-passwordless.md)
 
 [Saiba mais sobre o registo do dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
 

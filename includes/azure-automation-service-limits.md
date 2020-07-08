@@ -1,63 +1,63 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570182"
 ---
 #### <a name="process-automation"></a>Automatização de processos
 
 | Recurso | Limite |Notas|
 | --- | --- |---|
-| Número máximo de novos postos de trabalho que podem ser submetidos a cada 30 segundos por conta Azure Automation (empregos não programados) |100 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
-| Número máximo de postos de trabalho correntes simultâneos no mesmo período de tempo por conta automation (empregos não programados) |200 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
+| Número máximo de novos postos de trabalho que podem ser submetidos a cada 30 segundos por conta da Azure Automation (empregos não programados) |100 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
+| Número máximo de postos de trabalho em funcionamento simultâneos no mesmo caso de tempo por conta de Automação (empregos não programados) |200 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
 | Tamanho máximo de armazenamento de metadados de trabalho para um período de 30 dias de rolamento | 10 GB (aproximadamente 4 milhões de empregos)|Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. |
-| Limite máximo de fluxo de emprego|1 MB|Um único fluxo não pode ser maior que 1 MB.|
+| Limite máximo de fluxo de trabalho|1 MiB|Um único fluxo não pode ser maior que 1 MB.|
 | Número máximo de módulos que podem ser importados a cada 30 segundos por conta de Automação |5 ||
 | Tamanho máximo de um módulo |100 MB ||
-| Tempo de execução de emprego, nível livre |500 minutos por subscrição por mês ||
-| Quantidade máxima de espaço em disco permitido por caixa de areia<sup>1</sup> |1 GB |Aplica-se apenas às caixas de areia Azure.|
-| Quantidade máxima de memória dada a uma caixa de areia<sup>1</sup> |400 MB |Aplica-se apenas às caixas de areia Azure.|
-| Número máximo de tomadas de rede permitidas por caixa de areia<sup>1</sup> |1,000 |Aplica-se apenas às caixas de areia Azure.|
-| Tempo máximo de execução permitido por livro<sup>de corridas 1</sup> |3 horas |Aplica-se apenas às caixas de areia Azure.|
+| Tempo de execução de trabalho, nível gratuito |500 minutos por subscrição por mês ||
+| Quantidade máxima de espaço em disco permitido por caixa de areia<sup>1</sup> |1 GB |Aplica-se apenas a caixas de areia Azure.|
+| Quantidade máxima de memória dada a uma caixa de areia<sup>1</sup> |400 MB |Aplica-se apenas a caixas de areia Azure.|
+| Número máximo de tomadas de rede permitidas por caixa de areia<sup>1</sup> |1,000 |Aplica-se apenas a caixas de areia Azure.|
+| Tempo máximo permitido por runbook<sup>1</sup> |3 horas |Aplica-se apenas a caixas de areia Azure.|
 | Número máximo de contas de Automação numa subscrição |Sem limite ||
-| Número máximo de Grupos de Trabalhadores Híbridos por Conta de Automação|4000||
-|Número máximo de empregos simultâneos que podem ser executados num único Trabalhador híbrido|50 ||
-| Tamanho máximo do parâmetro de trabalho do livro de corridas   | 512 quilobits||
-| Parâmetros máximos de escadirinco   | 50|Se atingir o limite de 50 parâmetros, pode passar uma corda JSON ou XML a um parâmetro e analisá-la com o livro de execução.|
-| Tamanho máximo da carga útil do webhook |  512 quilobits|
-| Máximo sem dias que os dados do trabalho são retidos|30 dias|
-| Tamanho máximo do estado do fluxo de trabalho PowerShell |5 MB| Aplica-se aos livros de fluxo de trabalho powerShell ao checkpoint do fluxo de trabalho.|
+| Número máximo de grupos híbridos de trabalhadores por conta de automação|4000||
+|Número máximo de empregos simultâneos que podem ser executados num único Trabalhador De Runbook Híbrido|50 ||
+| Tamanho máximo do parâmetro de trabalho do runbook   | 512 quilobytes||
+| Parâmetros máximos do runbook   | 50|Se atingir o limite de 50 parâmetros, pode passar uma corda JSON ou XML para um parâmetro e analisá-la com o livro de bordo.|
+| Tamanho máximo da carga útil webhook |  512 quilobytes|
+| Dias máximos para que os dados do emprego são mantidos|30 dias|
+| Tamanho máximo do estado do fluxo de trabalho PowerShell |5 MB| Aplica-se aos livros de fluxo de trabalho PowerShell ao checkpoint o fluxo de trabalho.|
 
-<sup>1</sup> Uma caixa de areia é um ambiente partilhado que pode ser usado por vários trabalhos. Os empregos que utilizam a mesma caixa de areia estão ligados às limitações de recursos da caixa de areia.
+<sup>1</sup> Uma caixa de areia é um ambiente partilhado que pode ser usado por vários trabalhos. Os postos de trabalho que utilizam a mesma caixa de areia estão vinculados às limitações de recursos da caixa de areia.
 
 #### <a name="change-tracking-and-inventory"></a>Controlo de Alterações e Inventário
 
-A tabela seguinte mostra os limites de item rastreados por máquina para o rastreio de alterações.
+A tabela a seguir mostra os limites de item rastreados por máquina para o rastreio de alterações.
 
 | **Recurso** | **Limite**| **Notas** |
 |---|---|---|
 |Ficheiro|500||
 |Registo|250||
-|Software windows|250|Não inclui atualizações de software.|
+|Software Windows|250|Não inclui atualizações de software.|
 |Pacotes Linux|1,250||
 |Serviços|250||
-|Daemon|250||
+|Rio Daemon|250||
 
 #### <a name="update-management"></a>Gestão de Atualizações
 
-O quadro seguinte mostra os limites para a Gestão de Atualizações.
+A tabela a seguir mostra os limites para a Gestão de Atualização.
 
 | **Recurso** | **Limite**| **Notas** |
 |---|---|---|
-|Número de máquinas por implementação de atualização|1000||
+|Número de máquinas por atualização|1000||

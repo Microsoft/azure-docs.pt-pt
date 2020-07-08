@@ -9,15 +9,15 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/21/2020
-ms.openlocfilehash: b8869eee4e44001f5d4aeafbbdb32f93f0a7e0c8
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601463"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Como executar Cadernos Jupyter no seu espaço de trabalho (pré-visualização)
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a executar os seus Cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [Jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
@@ -51,10 +51,12 @@ Para criar um novo caderno:
 1. Selecione um diretório de ficheiros.
 1. Selecione **Criar**.
 
-> [!TIP]
-> Também pode criar ficheiros de texto.  Selecione **Texto** como o tipo de ficheiro e adicione a extensão ao nome (por exemplo, myfile.py ou myfile.txt)  
+Também pode criar ficheiros de texto.  Selecione **Texto** como o tipo de ficheiro e adicione a extensão ao nome (por exemplo, myfile.py ou myfile.txt)  
 
 Também pode carregar pastas e ficheiros, incluindo cadernos, com as ferramentas no topo da página De Cadernos.  Os blocos de notas e a maioria dos tipos de ficheiros de texto são apresentados na secção de pré-visualização.  Não está disponível nenhuma pré-visualização para a maioria dos outros tipos de ficheiros.
+
+> [!IMPORTANT]
+> Os conteúdos em cadernos e scripts podem potencialmente ler dados das suas sessões e aceder a dados sem a sua organização em Azure.  Apenas carregue ficheiros de fontes fidedignas. Para obter mais informações, consulte [as melhores práticas do código Secure](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Amostras de clones
 
@@ -95,21 +97,43 @@ Copie e cole o URL para partilhar um caderno ou ficheiro.  Apenas outros utiliza
 
 Para editar um bloco de notas, abra qualquer caderno localizado na secção de **ficheiros** do Utilizador do seu espaço de trabalho. Clique na célula que deseja editar. 
 
+Pode editar o caderno sem se ligar a uma instância de computação.  Quando pretender executar as células no caderno, selecione ou crie uma instância de computação.  Se selecionar uma instância de computação parada, começará automaticamente quando executar a primeira célula.
+
 Quando uma instância computacional está em execução, também pode utilizar a conclusão de código, alimentada pelo [Intellisense,](https://code.visualstudio.com/docs/editor/intellisense)em qualquer Notebook Python.
 
 Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas Notebook.  O Azure Machine Learning não fornece atualizações e corre bugs do Jupyter ou do JupyterLab, uma vez que são produtos Open Source fora do limite do Microsoft Support.
+
+### <a name="use-intellisense"></a>Utilizar o IntelliSense
+
+[O IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui uma série de funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Estas funcionalidades ajudam-no a aprender mais sobre o código que está a usar, a acompanhar os parâmetros que está a digitar e a adicionar chamadas a propriedades e métodos com apenas algumas teclas.  
+
+Ao escrever código, utilize ctrl+Space para ativar o IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Guardar e checkpoint um caderno
+
+A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro *ipynb.*  
+
+Na barra de ferramentas do portátil, selecione o menu e, em seguida, ** &gt; Guarde e registe** para guardar manualmente o portátil e adicionará um ficheiro de verificação associado ao portátil.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot da ferramenta de salvamento na barra de ferramentas do portátil":::
+
+Todos os cadernos são automaticamente a cada 30 segundos.Faça automaticamente atualizações apenas no ficheiro *ipynb*   inicial, não no ficheiro de verificação.
+ 
+Selecione **Checkpoints** no menu do portátil para criar um ponto de verificação nomeado e reverter o caderno para um ponto de verificação guardado.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Atalhos de teclado úteis
 
 |Teclado  |Ação  |
 |---------|---------|
 |Shift+Enter     |  Executar uma célula       |
+|Ctrl+Espaço | Ativar o IntelliSense |
 |Ctrl+M(Janelas)     |  Ativar/desativar a aba de armadilhagem no caderno.       |
 |Ctrl+Shift+M(Mac & Linux)     |    Ativar/desativar a aba de armadilhagem no caderno.     |
 |Separador (quando a patilha estiver ativada) | Adicione um caráter '\t' (travessão)
 |Separador (quando a patilha é desativada) | Mude o foco para o próximo item focalizável (apagar botão de célula, botão de funcionação, etc.)
 
-## <a name="delete-a-notebook"></a>Apagar um caderno
+## <a name="delete-a-notebook"></a>Eliminar um bloco de notas
 
 *Não pode* apagar os cadernos **samples.**  Estes cadernos fazem parte do estúdio e são atualizados cada vez que um novo SDK é publicado.  
 
@@ -193,7 +217,7 @@ Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar a sua primeira experiência](tutorial-1st-experiment-sdk-train.md)
 * [Faça backup do armazenamento do seu ficheiro com instantâneos](../storage/files/storage-snapshots-files.md)

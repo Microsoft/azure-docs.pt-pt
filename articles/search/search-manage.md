@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565898"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
@@ -22,13 +22,12 @@ ms.locfileid: "85368282"
 >
 > * [PowerShell](search-manage-powershell.md)
 > * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 A Azure Cognitive Search é um serviço de pesquisa totalmente gerido e baseado na nuvem usado para construir uma rica experiência de pesquisa em apps personalizadas. Este artigo cobre as tarefas de administração de serviços que pode desempenhar no [portal Azure](https://portal.azure.com) para um serviço de pesquisa que já forjado. A administração de serviços é leve por design, limitada às seguintes tarefas:
 
-* Obtenha informações sobre o seu serviço e conteúdos na página inicial do **Overview.**
 * Verifique o armazenamento utilizando o link de **utilização de página** média.
 * Verifique os volumes de consulta e a latência utilizando o link de **monitorização** de página média e se os pedidos foram acelerados.
 * Gerencie o acesso utilizando a página **Keys** à esquerda.
@@ -138,7 +137,7 @@ Não existe um método de deteção que lhe diga quais os fragmentos de índice 
 
 Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Automatize com [PowerShell](search-manage-powershell.md)
 
