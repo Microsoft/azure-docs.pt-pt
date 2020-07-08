@@ -1,5 +1,5 @@
 ---
-title: Conceitos de Serviços Meteorológicos [ Serviços Meteorológicos] Microsoft Azure Maps
+title: Conceitos de Serviços Meteorológicos / Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre os conceitos que se aplicam aos Serviços Meteorológicos Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
@@ -9,19 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333808"
 ---
-# <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos em Mapas Azure
+# <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos em Azure Maps
 
-Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Do Azure Maps.](https://aka.ms/AzureMapsWeatherService) Recomendamos que se recorra a este artigo antes de começar com as APIs meteorológicas. 
+Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Azure Maps.](https://aka.ms/AzureMapsWeatherService) Recomendamos que se recomende a passar por este artigo antes de começar com as APIs meteorológicas. 
 
 ## <a name="unit-types"></a>Tipos de unidades
 
-Algumas das APIs do serviço Meteorológico permitem ao utilizador especificar se os dados são devolvidos em unidades métricas ou imperiais. As respostas devolvidas para estas APIs incluem o unitType e um valor numérico que pode ser usado para traduções unitárias. Veja a tabela abaixo para interpretar estes valores.
+Algumas das APIs do serviço meteorológico permitem ao utilizador especificar se os dados são devolvidos em unidades métricas ou imperiais. As respostas devolvidas para estas APIs incluem a unidadeType e um valor numérico que pode ser usado para traduções unitárias. Consulte a tabela abaixo para interpretar estes valores.
 
 |unitType|Descrição         |
 |--------|--------------------|
@@ -37,14 +36,14 @@ Algumas das APIs do serviço Meteorológico permitem ao utilizador especificar s
 |9       |milesPerHour        |
 |10      |metersPerSecond     |
 |11      |hectoPascals        |
-|12      |centímetrosMercúrio     |
+|12      |inchesOfMercury     |
 |13      |kiloPascals         |
 |14      |milibares           |
-|15      |milímetrosMero|
-|16      |librasPerSquareInch |
+|15      |milímetrosOfMercury|
+|16      |poundsPerSquareInch |
 |17      |celsius             |
 |18      |fahrenheit          |
-|19      |kelvin              |
+|19      |Kelvin              |
 |20      |por cento             |
 |21      |float               |
 |22      |número inteiro             |
@@ -52,15 +51,15 @@ Algumas das APIs do serviço Meteorológico permitem ao utilizador especificar s
 
 ## <a name="weather-icons"></a>Ícones meteorológicos
 
-Algumas das APIs do `iconCode` serviço meteorológico devolvem a resposta. É `iconCode` um valor numérico usado para definir o ícone. Não ligue diretamente a estas imagens a partir das suas aplicações, os URLs podem e vão mudar.
+Algumas das APIs do serviço meteorológico devolvem `iconCode` a resposta. É `iconCode` um valor numérico usado para definir o ícone. Não se ligue diretamente a estas imagens a partir das suas aplicações, os URLs podem e vão mudar.
 
 | Número de ícone |Ícone| Dia | Noite | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sim |  Não    | Ensolarado|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sim |  Não    | Maioritariamente Ensolarado|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sim |  Não    | Parcialmente ensolarado|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sim |  Não    | Nuvens Intermitentes|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sim |  Não    | Sol Nebuloso |
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sim |  Não    | Maioritariamente ensolarado|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sim |  Não    | Parcialmente Ensolarado|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sim |  Não    | Nuvens intermitentes|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sim |  Não    | Sol nebuloso |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sim |  Não    | Maioritariamente nublado|
 | 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | Nublado |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sim |  Sim   | Dreary (Nublado)|
@@ -72,22 +71,22 @@ Algumas das APIs do `iconCode` serviço meteorológico devolvem a resposta. É `
 | 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Sim |  Não    | Maioritariamente nublado com trovoadas|
 | 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Sim |  Não    | Parcialmente ensolarado com trovoadas|
 | 18           |![](./media/weather-services-concepts/rain-i.png)                      | Sim |  Sim   | Chuva|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Sim |  Sim   | Rioflurries|
+| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Sim |  Sim   | Flurries|
 | 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Sim |  Não    | Maioritariamente nublado com flurries|
 | 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sim |  Não    | Parcialmente ensolarado com flurries|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sim |  Sim   | Neve|
 | 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sim |  Não    | Maioritariamente nublado com neve|
 | 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Ferreira |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sim |  Sim   | Rio Sleet|
+| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sim |  Sim   | Granizo|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sim |  Sim   | Chuva congelada|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sim |  Sim   | Chuva e Neve|
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sim |  Sim   | Acesso Frequente|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sim |  Sim   | Cold|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sim |  Sim   | Vento|
+| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sim |  Sim   | Ventoso|
 | 33           |![](./media/weather-services-concepts/clear-night.png)                | Não  |  Sim   | Limpar|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Não  |  Sim   | Maioritariamente claro|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Não  |  Sim   | Maioritariamente clara|
 | 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Não  |  Sim   | Parcialmente nublado|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Não  |  Sim   | Nuvens Intermitentes|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Não  |  Sim   | Nuvens intermitentes|
 | 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Não  |  Sim   | Luar Nebuloso|
 | 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Não  |  Sim   | Maioritariamente nublado|
 | 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Não  |  Sim   | Parcialmente nublado com chuveiros|
@@ -98,36 +97,36 @@ Algumas das APIs do `iconCode` serviço meteorológico devolvem a resposta. É `
 | 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Não  |  Sim   | Maioritariamente nublado com neve|
 
 
-## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e satélite
+## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e de satélite
 
-Os utilizadores da API Via [Get Map Tile v2](https://aka.ms/AzureMapsWeatherTiles) podem solicitar imagens de satélite de radar e infravermelhos mais recentes. Consulte o guia abaixo para ajudar a interpretar as cores usadas para radares e azulejos de satélite.
+Através [do Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) os utilizadores podem solicitar imagens de satélite de radar e infravermelhos mais recentes. Consulte abaixo o guia para ajudar a interpretar as cores utilizadas para os azulejos de radar e satélite.
 
-### <a name="radar-images"></a>Imagens de radar
+### <a name="radar-images"></a>Imagens radar
 
 A tabela abaixo fornece orientação para interpretar as imagens de radar e criar uma lenda do mapa para dados de azulejos radar.
 
-| Código de cor hexaque | Amostra de cor | Condição meteorológica |
+| Código de cor hexáxia | Amostra de cor | Condição meteorológica |
 |----------------|--------------|-------------------|
 | #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Luz de chuva |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Chuva-moderada |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Chuva pesada |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Chuva severa |
+| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Chuva-Moderada |
+| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Chuva-Pesada |
+| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Chuva-Severa |
 | #9ec8f2        | ![](./media/weather-services-concepts/color-9ec8f2.png) | Luz de neve |
-| #2a8fdb        | ![](./media/weather-services-concepts/color-2a8fdb.png) | Neve-Moderada |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Neve pesada |
-| #020096        | ![](./media/weather-services-concepts/color-020096.png) | Snow-Severo |
+| #2a8fdb        | ![](./media/weather-services-concepts/color-2a8fdb.png) | Neve-Moderado |
+| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Neve-Pesada |
+| #020096        | ![](./media/weather-services-concepts/color-020096.png) | Neve-Severa |
 | #e6a5c8        | ![](./media/weather-services-concepts/color-e6a5c8.png) | Luz de gelo |
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Gelo-moderado |
-| #b71691        | ![](./media/weather-services-concepts/color-b71691.png) | Severo de gelo |
-| #7a1570        | ![](./media/weather-services-concepts/color-7a1570.png) | Gelo pesado |
+| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Gelo-Moderado |
+| #b71691        | ![](./media/weather-services-concepts/color-b71691.png) | Gelo-Severo |
+| #7a1570        | ![](./media/weather-services-concepts/color-7a1570.png) | Gelo-Pesado |
 | #c196e6        | ![](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
 | #ae6ee6        | ![](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderado |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
-| #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Misturador-Severo |
+| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mistura-Pesada |
+| #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mistura-Severa |
 
-A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e valores dBZ é mostrada abaixo. dBZ representa intensidade de precipitação no radar meteorológico. 
+Paleta de cores detalhada para azulejos de radar com códigos de cor Hex e valores dBZ é mostrada abaixo. dBZ representa intensidade de precipitação no radar meteorológico. 
 
-| **CHUVA**             | **GELO**              | **Neve**              | **MISTURADO**             |
+| **CHUVA**             | **ICE**              | **NEVE**              | **MISTURADO**             |
 |----------------------|----------------------|-----------------------|-----------------------|
 | **dBZ** **(cor)**  | **dBZ** **(cor)**  | **dBZ** **(cor)**   | **dBZ** **(cor)**   |
 | 1.25 (#93C701) | 1.25 (#E6A5C8) | 1.25 (#9EC8F2)  | 1.25 (#C196E6) |
@@ -138,7 +137,7 @@ A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e v
 | 6.75 (#92B403) | 7.5 (#E697C1)  | 7.5 (#82BDEB)   | 7.5 (#B883E6) |
 | 8 (#80AD02) | 8.75 (#E695C0) | 8.75 (#7DBAEA)  | 8.75 (#B680E6) |
 | 9.25 (#6FA602) | 10 (#E692BE) | 10 (#77B8E8)  | 10 (#B47CE6) |
-| 10,5 (#5EA002) | 11.25 (#E68FBD) | 11.25 (#72B6E7)  | 11.25 (#B378E6) |
+| 10.5 (#5EA002) | 11.25 (#E68FBD) | 11.25 (#72B6E7)  | 11.25 (#B378E6) |
 | 11.75 (#4D9902) | 12.5 (#E68DBC) | 12.5 (#6CB4E6)  | 12.5 (#B175E6) |
 | 12.25 (#479702) | 13.75 (#E68ABA) | 13.75 (#67B2E5)  | 13.75 (#AF71E6) |
 | 13.5 (#3D9202) | 15 (#E687B9) | 15 (#61AEE4)  | 15 (#AE6EE6) |
@@ -171,7 +170,7 @@ A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e v
 | 45 (#DF2D0F) | 48.75 (#A61688) | 48.75 (#0B32C9)  | 48.75 (#6C13B5) |
 | 45.5 (#DC250E) | 50 (#A41687) | 50 (#0A30C6)  | 50 (#6B12B5) |
 | 46.75 (#D21C0C) | 51.25 (#A21686) | 51.25 (#0A2EC4)  | 51.25 (#6B11B5) |
-| 48 (#C9140A) | 52.5 (#A01685) | 52.5 (#092BC1)  | 52.5 (#6B10B6) |
+| 48 (#C9140A) | 52,5 (#A01685) | 52.5 (#092BC1)  | 52.5 (#6B10B6) |
 | 49.25 (#BF0C09) | 53.75 (#9E1684) | 53.75 (#0929BF)  | 53.75 (#6A0FB6) |
 | 50 (#BA0808) | 55 (#9C1683) | 55 (#0826BC)  | 55 (#6A0EB6) |
 | 56.25 (#6f031b) | 56.25 (#9B1682) | 56.25 (#0824BA)  | 56.25 (#6A0DB6) |
@@ -179,7 +178,7 @@ A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e v
 | 58.75 (#c10060) | 58.75 (#96157F) | 58.75 (#071FB5)  | 58.75 (#690CB7) |
 | 60 (#e70086) | 60 (#94157E) | 60 (#071DB3)  | 60 (#690BB7) |
 | 61.25 (#e205a0) | 61.25 (#92157D) | 61.25 (#061AB0)  | 61.25 (#680AB7) |
-| 62.5 (#cc09ac) | 62.5 (#90157C) | 62.5 (#0618AE)  | 62.5 (#6809B7) |
+| 62,5 (#cc09ac) | 62,5 (#90157C) | 62,5 (#0618AE)  | 62,5 (#6809B7) |
 | 63.75 (#b50eb7) | 63.75 (#8D157A) | 63.75 (#0515AB)  | 63.75 (#6808B8) |
 | 65 (#9315c8) | 65 (#8B1579) | 65 (#0513A9)  | 65 (#6707B8) |
 | 66.25 (#8f21cc) | 66.25 (#891578) | 66.25 (#0410A6)  | 66.25 (#6706B8) |
@@ -187,7 +186,7 @@ A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e v
 | 68.75 (#9d49cb) | 68.75 (#851576) | 68.75 (#040CA2)  | 68.75 (#6604B8) |
 | 70 (#a661ca) | 70 (#821574) | 70 (#03099F)  | 70 (#6603B9) |
 | 71.25 (#ad72c9) | 71.25 (#801573) | 71.25 (#03079D)  | 71.25 (#6602B9) |
-| 72.5 (#b78bc6) | 72.5 (#7E1572) | 72.5 (#02049A)  | 72.5 (#6501B9) |
+| 72,5 (#b78bc6) | 72,5 (#7E1572) | 72,5 (#02049A)  | 72,5 (#6501B9) |
 | 73.75 (#bf9bc4) | 73.75 (#7C1571) | 73.75 (#020298)  | 73.75 (#6500B9) |
 | 75 (#c9b5c2) | 75 (#7A1570) | 75 (#020096)  | 75 (#6500BA) |
 
@@ -195,11 +194,11 @@ A paleta de cores detalhada para azulejos de radar com códigos de cores Hex e v
 
 ### <a name="satellite-images"></a>Imagens de satélite
 
-A tabela abaixo fornece orientação para interpretar as imagens de satélite infravermelhas mostrando nuvens pela sua temperatura e como criar uma lenda do mapa para estes azulejos. 
+A tabela abaixo fornece orientações para interpretar as imagens de satélite de infravermelhos mostrando nuvens pela sua temperatura e como criar uma lenda do mapa para estes azulejos. 
 
-| Código de cor hexaque | Amostra de cor | Temperatura da nuvem |
+| Código de cor hexáxia | Amostra de cor | Temperatura da nuvem |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura baixa | 
+| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura-Baixa | 
 | #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![](./media/weather-services-concepts/color-144bed.png) |  |
@@ -210,12 +209,12 @@ A tabela abaixo fornece orientação para interpretar as imagens de satélite in
 | #f05514        | ![](./media/weather-services-concepts/color-f05514.png) |  |
 | #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) |  |
 | #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura alta |
+| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura-Alta |
 
 
-A paleta de cores detalhada para azulejos por satélite infravermelhos é mostrada abaixo.
+Paleta de cores detalhada para azulejos de satélite infravermelhos é mostrada abaixo.
 
-|**Temperatura (K)**|**Código de cor hexaque**|
+|**Temperatura (K)**|**Código de cor hexáxia**|
 |--------|--------------|
 |198     |#fe050505     |
 |198.43  |#fe120505     |

@@ -1,54 +1,53 @@
 ---
-title: Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
+title: GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 services: azure-dev-spaces
 ms.date: 04/03/2020
 ms.topic: conceptual
-description: Alterações de revisão e teste de um pedido de pull diretamente no Serviço Azure Kubernetes utilizando gitHub Actions e Azure Dev Spaces
+description: Rever e testar alterações a partir de um pedido de pull diretamente no Serviço Azure Kubernetes usando GitHub Actions e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637951"
 ---
-# <a name="github-actions--azure-kubernetes-service-preview"></a>Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
+# <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 
-A Azure Dev Spaces fornece um fluxo de trabalho utilizando as Ações GitHub que lhe permite testar alterações a partir de um pedido de pull diretamente no AKS antes que o pedido de pull seja fundido no ramo principal do seu repositório. Ter uma aplicação em execução para rever alterações de um pedido de puxão pode aumentar a confiança tanto do desenvolvedor como dos membros da equipa. Esta aplicação de execução também pode ajudar os membros da equipa, tais como, gestores de produtos e designers, a tornarem-se parte do processo de revisão durante as fases iniciais de desenvolvimento.
+A Azure Dev Spaces fornece um fluxo de trabalho utilizando as Ações GitHub que permite testar alterações a partir de um pedido de puxar diretamente em AKS antes que o pedido de puxar seja fundido no ramo principal do seu repositório. Ter uma aplicação em execução para rever as alterações de um pedido de pull pode aumentar a confiança tanto do desenvolvedor como dos membros da equipa. Esta aplicação de execução também pode ajudar membros da equipa, tais como gestores de produtos e designers, a tornarem-se parte do processo de revisão durante as fases iniciais do desenvolvimento.
 
 Neste guia, vai aprender a:
 
-* Instale o Azure Dev Spaces num aglomerado de Kubernetes gerido em Azure.
-* Implemente uma grande aplicação com vários microserviços para um espaço de v.
-* Configurar CI/CD com ações GitHub.
-* Teste um único microserviço num espaço de v isolado no contexto da aplicação completa.
+* Instale Azure Dev Spaces num cluster gerido de Kubernetes em Azure.
+* Implemente uma grande aplicação com múltiplos microserviços para um espaço dev.
+* Configurar CI/CD com ações do GitHub.
+* Teste um único microserviço num espaço dev isolado no contexto da aplicação completa.
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 * A [CLI do Azure instalada][azure-cli-installed].
-* [Leme 3 instalado.][helm-installed]
-* Uma conta GitHub com [ações GitHub ativadas][github-actions-beta-signup].
-* A aplicação de partilha de [bicicletas Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) bike sharing em execução num cluster AKS.
+* [Leme 3 instalado][helm-installed].
+* Uma conta GitHub com [ações gitHub ativadas][github-actions-beta-signup].
+* A [aplicação de amostra de partilha de bicicletas Azure Dev Spaces em](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) execução num cluster AKS.
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 
-Criar um Registo de Contentores Azure (ACR):
+Criar um registo de contentores Azure (ACR):
 
 ```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
 > [!IMPORTANT]
-> O nome o seu ACR deve ser único dentro do Azure e conter 5-50 caracteres alfanuméricos. Qualquer carta que use deve ser minúscula.
+> O nome do seu ACR deve ser único dentro de Azure e conter 5-50 caracteres alfanuméricos. Todas as letras que utilizar devem ser mais baixas.
 
 Guarde o valor do *loginServer* da saída porque é utilizado num passo posterior.
 
-## <a name="create-a-service-principal-for-authentication"></a>Criar um serviço principal para autenticação
+## <a name="create-a-service-principal-for-authentication"></a>Criar um principal de serviço para a autenticação
 
 Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar um diretor de serviço. Por exemplo:
 
@@ -56,21 +55,21 @@ Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar um diretor d
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
-Guarde a saída JSON porque é usada num passo posterior.
+Guarde a saída JSON porque é utilizada num passo posterior.
 
-Use [az aks show][az-aks-show] para mostrar a *identificação* do seu cluster AKS:
+Use [az aks show][az-aks-show] para exibir o *ID* do seu cluster AKS:
 
 ```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Use [az acr show][az-acr-show] para exibir a *identificação* do ACR:
+Utilize [o az acr show][az-acr-show] para exibir o *ID* do ACR:
 
 ```azurecli
 az acr show --name <acrName> --query id
 ```
 
-Utilize a criação de [atribuição de funções az][az-role-assignment-create] para dar ao *Colaborador* acesso ao seu cluster AKS e acesso *AcrPush* ao seu ACR.
+Utilize [a az role assignment create][az-role-assignment-create] para dar ao *Colaborador* acesso ao seu cluster AKS e acesso *AcrPush* ao seu ACR.
 
 ```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
@@ -78,45 +77,45 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
 
 > [!IMPORTANT]
-> Você deve ser o proprietário do seu cluster AKS e ACR para dar ao seu serviço principal acesso a esses recursos.
+> Você deve ser o proprietário do seu cluster AKS e ACR de forma a dar ao seu serviço acesso principal a esses recursos.
 
 ## <a name="configure-your-github-action"></a>Configure a sua ação GitHub
 
 > [!IMPORTANT]
-> Você deve ter GitHub Actions habilitados para o seu repositório. Para ativar as Ações GitHub para o seu repositório, navegue para o seu repositório no GitHub, clique no separador Ações e opte por ativar ações para este repositório.
+> Você deve ter GitHub Actions habilitado para o seu repositório. Para ativar as Ações do GitHub para o seu repositório, navegue até ao seu repositório no GitHub, clique no separador Ações e escolha ativar ações para este repositório.
 
-Navegue para o seu repositório bifurcado e clique em *Definições*. Clique em *Segredos* na barra lateral esquerda. Clique *em Adicionar um novo segredo* para adicionar cada novo segredo abaixo:
+Navegue para o seu repositório forcado e clique em *Definições*. Clique em *Segredos* na barra lateral esquerda. Clique *Em Adicionar um novo segredo* para adicionar cada novo segredo abaixo:
 
 1. *AZURE_CREDENTIALS:* toda a produção da criação principal do serviço.
 1. *RESOURCE_GROUP*: o grupo de recursos para o seu cluster AKS, que neste exemplo é *o MyResourceGroup*.
 1. *CLUSTER_NAME:* o nome do seu cluster AKS, que neste exemplo é *MyAKS*.
 1. *CONTAINER_REGISTRY:* o *loginServer* para o ACR.
 1. *ANFITRIÃO*: o anfitrião do seu Espaço Dev, que assume a forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>, *que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *IMAGE_PULL_SECRET:* o nome do segredo que deseja utilizar, por exemplo, *demo-secreto*.
-1. *MASTER_SPACE:* o nome do seu progenitor Dev Space, que neste exemplo é *dev*.
-1. *REGISTRY_USERNAME*: o *clienteId* da saída JSON da criação principal do serviço.
-1. *REGISTRY_PASSWORD*: o *clienteSecret* da saída JSON a partir da criação principal do serviço.
+1. *IMAGE_PULL_SECRET:* o nome do segredo que pretende utilizar, por exemplo, *demo-secret*.
+1. *MASTER_SPACE:* o nome do seu pai Dev Space, que neste exemplo é *dev*.
+1. *REGISTRY_USERNAME:* o *clienteId* da saída JSON da criação principal do serviço.
+1. *REGISTRY_PASSWORD:* o *clienteSecret* da saída JSON da criação principal do serviço.
 
 > [!NOTE]
-> Todos estes segredos são usados pela ação GitHub e estão configurados em [.github/workflows/bikes.yml][github-action-yaml].
+> Todos estes segredos são usados pela ação do GitHub e são configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
-Opcionalmente, se quiser atualizar o espaço principal após a fusão do seu PR, adicione o *GATEWAY_HOST* segredo, que assume o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas alterações no ramo principal do garfo, outra ação correrá para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Opcionalmente, se pretender atualizar o espaço principal após a fusão do seu PR, adicione o *segredo GATEWAY_HOST,* que assume a forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>, *que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundires as tuas mudanças no ramo principal no teu garfo, outra ação será executada para reconstruir e executar toda a tua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
-Além disso, se quiser que as mudanças no seu PR corram num espaço de neto, atualize os segredos *MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver a funcionar em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil de *v/azureuser1:*
+Além disso, se quiser que as alterações no seu Pr decorram num espaço de neto, atualize os *segredos MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver em execução em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil *de dev/azureuser1*:
 
-* Atualização *MASTER_SPACE* ao espaço infantil que deseja como espaço para pais, neste exemplo *azureuser1*.
-* Update *HOST* to *<> GRANDPARENT_SPACE.<> APP_NAME.<HOST_SUFFIX>*, neste exemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+* Atualize *MASTER_SPACE* para o espaço infantil que deseja como espaço dos pais, neste exemplo *azureuser1*.
+* Atualizar *HOST* para *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, neste exemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Criar um novo ramo para alterações de código
 
-Navegue `BikeSharingApp/` e crie um novo ramo chamado *bike-images*.
+Navegue `BikeSharingApp/` para criar um novo ramo chamado *bike-images*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Editar [Bicicletas/servidor.js][bikes-server-js] para remover as linhas 232 e 233:
+Editar [Bicicletas/server.js][bikes-server-js] para remover as linhas 232 e 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -131,7 +130,7 @@ A secção deve agora parecer:
     delete theBike._id;
 ```
 
-Guarde o `git add` ficheiro `git commit` e, em seguida, utilize e faça as alterações.
+Guarde o ficheiro e use `git add` e en stage as suas `git commit` alterações.
 
 ```cmd
 git add Bikes/server.js 
@@ -140,26 +139,26 @@ git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 
 ## <a name="push-your-changes"></a>Empurre as suas alterações
 
-Use `git push` para empurrar o seu novo ramo para o seu repositório bifurcado:
+Use `git push` para empurrar o seu novo ramo para o seu repositório forcado:
 
 ```cmd
 git push origin bike-images
 ```
 
-Depois de o empurrão estar completo, navegue até ao seu repositório bifurcado no GitHub para criar um pedido de puxão com o ramo *principal* no seu repositório bifurcado como o ramo base em comparação com o ramo de *imagens de bicicleta.*
+Depois de o empurrão estar completo, navegue até ao seu repositório de garfos no GitHub para criar um pedido de puxar com o ramo *principal* no seu repositório de garfos como ramo base em comparação com o ramo *de imagens de bicicleta.*
 
-Depois de aberto o seu pedido de puxão, navegue para o separador *Ações.* Verifique se iniciou uma nova ação e está a construir o serviço *Bikes.*
+Depois de abrir o seu pedido de puxar, navegue para o *separador Ações.* Verifique se uma nova ação foi iniciada e está a construir o serviço *Bikes.*
 
-## <a name="view-the-child-space-with-your-changes"></a>Veja o espaço da criança com as suas mudanças
+## <a name="view-the-child-space-with-your-changes"></a>Veja o espaço da criança com as suas alterações
 
-Depois de concluída a ação, verá um comentário com uma URL para o seu novo espaço infantil baseado nas alterações no pedido de puxão.
+Após a conclusão da ação, verá um comentário com um URL ao seu novo espaço infantil baseado nas alterações no pedido de puxar.
 
 > [!div class="mx-imgBorder"]
 > ![Url de ação gitHub](../media/github-actions/github-action-url.png)
 
-Navegue para o serviço *bikesharingweb* abrindo o URL a partir do comentário. Selecione *Aurelia Briggs (cliente)* como utilizador e, em seguida, selecione uma bicicleta para alugar. Verifique se já não vê a imagem do espaço reservado para a bicicleta.
+Navegue para o serviço *de bikesharingweb* abrindo o URL a partir do comentário. Selecione *Aurelia Briggs (cliente)* como utilizador e, em seguida, selecione uma bicicleta para alugar. Verifique se já não vê a imagem do espaço reservado para a bicicleta.
 
-Se fundir as suas alterações no ramo *principal* do garfo, outra ação irá correr para reconstruir e executar toda a sua aplicação no espaço de dev dos pais. Neste exemplo, o espaço dos pais é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Se fundir as suas mudanças no ramo *principal* no seu garfo, outra ação será executada para reconstruir e executar toda a sua aplicação no espaço dos pais. Neste exemplo, o espaço dos pais é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Limpe os seus recursos Azure
 
@@ -167,12 +166,12 @@ Se fundir as suas alterações no ramo *principal* do garfo, outra ação irá c
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários recipientes e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
+Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento de equipa em Espaços Azure Dev][team-quickstart]
+> [Desenvolvimento de equipas em Espaços Azure Dev][team-quickstart]
 
 [azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac

@@ -1,7 +1,7 @@
 ---
-title: Autorizar contas de desenvolvimento utilizando o Diretório Ativo Azure B2C
+title: Autorizar contas de programadores utilizando o Azure Ative Directory B2C
 titleSuffix: Azure API Management
-description: Saiba como autorizar os utilizadores utilizando o Azure Ative Directory B2C na Gestão da API.
+description: Saiba como autorizar os utilizadores utilizando o Azure Ative Directory B2C em Gestão API.
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -14,87 +14,86 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b8215cd852d54283bfc6bd47e77d7d63ee4e2582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79475498"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar as contas de programador ao utilizar o Azure Active Directory B2C na Gestão de API do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-O Azure Ative Directory B2C é uma solução de gestão de identidade na nuvem para aplicações web e móveis viradas para o consumidor. Pode usá-lo para gerir o acesso ao seu portal de desenvolvimento. Este guia mostra-lhe a configuração necessária no seu serviço de Gestão API para integrar com o Diretório Ativo Azure B2C. Para obter informações sobre o acesso ao portal de desenvolvimento utilizando o classic Azure Ative Directory, consulte como autorizar contas de desenvolvimento utilizando o [Diretório Ativo do Azure].
+O Azure Ative Directory B2C é uma solução de gestão de identidade em nuvem para aplicações web e móveis viradas para o consumidor. Pode usá-lo para gerir o acesso ao seu portal de desenvolvedores. Este guia mostra-lhe a configuração necessária no seu serviço de Gestão API para integrar com o Azure Ative Directory B2C. Para obter informações sobre como permitir o acesso ao portal do desenvolvedor utilizando o clássico Azure Ative Directory, consulte [Como autorizar contas de programadores utilizando o Azure Ative Directory].
 
 > [!NOTE]
-> Para completar os passos deste guia, tem primeiro de ter um inquilino Azure Ative Directory B2C para criar uma candidatura. Além disso, é preciso ter políticas de inscrição e de inscrição prontas. Para mais informações, consulte a [visão geral do Azure Ative Directory B2C].
+> Para completar os passos neste guia, você deve primeiro ter um inquilino Azure Ative Diretório B2C para criar uma aplicação em. Além disso, precisa de ter as políticas de inscrição e inscrição prontas. Para mais informações, consulte [a visão geral do Azure Ative Directory B2C].
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
-## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizar contas de desenvolvimento utilizando o Diretório Ativo Azure B2C
+## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizar contas de programadores utilizando o Azure Ative Directory B2C
 
-1. Para começar, inicie sessão no [portal Azure](https://portal.azure.com) e localize a sua instância de Gestão API.
+1. Para começar, inicie seduca no [portal Azure](https://portal.azure.com) e localize a sua instância de Gestão API.
 
    > [!NOTE]
-   > Se ainda não criou uma instância de serviço de Gestão API, consulte [Create a API Management no][Create an API Management service instance] Get started with [Azure API Management tutorial][Get started with Azure API Management].
+   > Se ainda não criou uma instância de serviço de Gestão da API, consulte Criar uma instância de [serviço de Gestão da API][Create an API Management service instance] no [Tutorial de Gestão da API da Azure.][Get started with Azure API Management]
 
-1. Sob **identidades.** Clique **+Adicionar** no topo.
+1. Sob **identidades.** Clique **em +Adicionar** na parte superior.
 
-   O painel do fornecedor de **identidade Add** aparece à direita. Escolha **o Diretório Ativo Azure B2C**.
+   O **painel de fornecedor de identidade Add** aparece à direita. Escolha **O Azure Ative Directory B2C**.
     
    ![Adicionar AAD B2C como fornecedor de identidade][api-management-howto-add-b2c-identity-provider]
 
-1. Copiar o **URL de redirecionamento**.
+1. Copie o **URL de redirecionamento**.
 
-   ![Url de redirecionamento do fornecedor de identidade AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
+   ![URL de redirecionamento de fornecedor de identidade AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
 1. Num novo separador, aceda ao seu inquilino Azure Ative Directory B2C no portal Azure e abra a lâmina **aplicações.**
 
-   ![Registar uma nova candidatura 1][api-management-howto-aad-b2c-portal-menu]
+   ![Registar uma nova aplicação 1][api-management-howto-aad-b2c-portal-menu]
 
 1. Clique no botão **Adicionar** para criar uma nova aplicação Azure Ative Directory B2C.
 
-   ![Registe uma nova candidatura 2][api-management-howto-aad-b2c-add-button]
+   ![Registar uma nova aplicação 2][api-management-howto-aad-b2c-add-button]
 
-1. Na **lâmina de aplicação Nova,** introduza um nome para a aplicação. Escolha **Sim** em **Web App/Web API,** e escolha **Sim** sob permitir o **fluxo implícito**. Em seguida, colá-lo-redirecionamento do **URL** copiado no passo 3 na caixa de texto **URL resposta.**
+1. Na lâmina de **aplicação Nova,** insira um nome para a aplicação. Escolha **Sim** na **Web App/Web API,** e escolha **Sim** em Permitir o **fluxo implícito.** Em seguida, cole o **URL de redirecionamento** copiado no passo 3 na caixa de texto **URL de resposta.**
 
-   ![Registe uma nova candidatura 3][api-management-howto-aad-b2c-app-details]
+   ![Registar uma nova aplicação 3][api-management-howto-aad-b2c-app-details]
 
-1. Se estiver a utilizar o novo portal de desenvolvimento (não o portal de desenvolvimento legado), inclua o **Nome Dado,** **Apelido**e ID de Objeto do Utilizador nas alegações **da** aplicação.
+1. Se estiver a utilizar o novo portal de desenvolvedores (não o portal de desenvolvimento legado), inclua o **Nome Dado,** **Apelido**e **ID de Objeto do Utilizador** nas reclamações da aplicação.
 
     ![Afirmações da aplicação](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
 1. Clique no botão **Criar**. Quando a aplicação é criada, aparece na lâmina **aplicações.** Clique no nome da aplicação para ver os seus detalhes.
 
-   ![Registe uma nova candidatura 4][api-management-howto-aad-b2c-app-created]
+   ![Registar uma nova aplicação 4][api-management-howto-aad-b2c-app-created]
 
-1. A partir da lâmina **Propriedades,** copie o ID da **aplicação** para a área de reparação.
+1. A partir da lâmina **Propriedades,** copie o **ID da aplicação** para a área de transferência.
 
    ![ID de aplicação 1][api-management-howto-aad-b2c-app-id]
 
-1. Volte para a Gestão **aPi Adicionar** painel de fornecedor de identidade e colar o ID na caixa de texto **Id do cliente.**
+1. Volte para o painel de **fornecedor de identidade** API Add e cole o ID na caixa de texto do **Cliente.**
     
-1.  Volte para o registo da aplicação B2C, clique no botão **Teclas** e, em seguida, clique na **tecla Generate**. Clique em **Guardar** para guardar a configuração e exibir a **tecla App**. Copie a chave para a pasta.
+1.  Volte para o registo da aplicação B2C, clique no botão **Chaves** e, em seguida, clique na **tecla Gerar**. Clique em **Guardar** para guardar a configuração e exibir a **tecla App**. Copie a chave da pasta.
 
     ![Chave da aplicação 1][api-management-howto-aad-b2c-app-key]
 
-1.  Volte para a Gestão **aPi Adicionar** painel de fornecedor de identidade e colar a chave na caixa de texto Segredo do **Cliente.**
+1.  Volte para o painel de **fornecedor de identidade** API Add e cole a chave na caixa de texto Do Cliente **Secreto.**
     
-1.  Especifique o nome de domínio do inquilino Do Diretório Ativo Azure B2C em **inquilino Signin**.
+1.  Especificar o nome de domínio do inquilino B2C do Azure Ative Directory B2C no **inquilino de Signin.**
 
-1.  O campo **Authority** permite-lhe controlar o URL de login Azure AD B2C para utilizar. Detete o valor para **<your_b2c_tenant_name>.b2clogin.com**.
+1.  O campo **Autoridade** permite-lhe controlar o URL de login Azure AD B2C para usar. Desa codo o valor para **<your_b2c_tenant_name>.b2clogin.com**.
 
-1. Especifique a Política de **Inscrição** e A Política de **Inscrição** das políticas de inquilinos B2C. Opcionalmente, também pode fornecer a **Política de Edição de Perfil** e a Política de Reset de **Passwords.**
+1. Especifique a **Política de Inscrição** e Política de **Inscrição** das políticas de Inquilino B2C. Opcionalmente, também pode fornecer a **Política de Edição de Perfis** e a Política de Reset de **Password.**
 
-1. Depois de especificar a configuração desejada, clique em **Guardar**.
+1. Depois de ter especificado a configuração desejada, clique em **Guardar**.
 
-    Após a salvação das alterações, os desenvolvedores poderão criar novas contas e iniciar sessão no portal de desenvolvimento utilizando o Azure Ative Directory B2C.
+    Após a economização das alterações, os desenvolvedores poderão criar novas contas e iniciar sessão no portal do desenvolvedor utilizando o Azure Ative Directory B2C.
 
-## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal de desenvolvimento - adicione autenticação da conta Azure AD B2C
+## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal do desenvolvedor - adicione a autenticação da conta Azure AD B2C
 
-No portal de desenvolvimento, o iniciar sessão com a AAD B2C é possível com o **botão 'Iniciar sessão': Widget OAuth.** O widget já está incluído na página de iniciar sessão do conteúdo do portal de desenvolvimento predefinido.
+No portal do desenvolvedor, o s-in com AAD B2C é possível com o **botão de iniciar sposição: widget OAuth.** O widget já está incluído na página de inscrição do conteúdo do portal do desenvolvedor predefinido.
 
-Embora uma nova conta seja criada automaticamente sempre que um novo utilizador se inscreva no AAD B2C, poderá considerar adicionar o mesmo widget à página de inscrição.
+Apesar de uma nova conta ser criada automaticamente sempre que um novo utilizador entrar no AAD B2C, poderá considerar adicionar o mesmo widget à página de inscrição.
 
 O **formulário de inscrição: OAuth** widget representa um formulário usado para se inscrever na OAuth.
 
@@ -105,33 +104,33 @@ O **formulário de inscrição: OAuth** widget representa um formulário usado p
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-1. Para se inscrever numa conta de desenvolvedor usando o Azure Ative Directory B2C, abra uma nova janela de navegador e vá para o portal de desenvolvimento. Clique no botão **'Inscrever-se'.**
+1. Para se inscrever numa conta de programador utilizando o Azure Ative Directory B2C, abra uma nova janela do navegador e vá ao portal do desenvolvedor. Clique no botão **Iniciar sção.**
 
-   ![Portal de desenvolvimento 1][api-management-howto-aad-b2c-dev-portal]
+   ![Portal do Desenvolvedor 1][api-management-howto-aad-b2c-dev-portal]
 
-2. Opte por inscrever-se no **Azure Ative Directory B2C**.
+2. Opte por se inscrever no **Azure Ative Directory B2C**.
 
-   ![Portal de desenvolvimento 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
+   ![Portal do desenvolvedor 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-3. É redirecionado para a política de inscrição configurada na secção anterior. Opte por se inscrever utilizando o seu endereço de e-mail ou uma das suas contas sociais existentes.
+3. Está redirecionado para a política de inscrição que configura na secção anterior. Opte por se inscrever usando o seu endereço de e-mail ou uma das suas contas sociais existentes.
 
    > [!NOTE]
-   > Se o Azure Ative Directory B2C for a única opção que está ativada no separador **Identidades** no portal da editora, será redirecionado diretamente para a política de inscrição.
+   > Se o Azure Ative Directory B2C for a única opção ativada no separador **Identidades** no portal da editora, será redirecionado diretamente para a política de inscrição.
 
    ![Portal do programador][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-   Quando a inscrição estiver completa, é redirecionado de volta para o portal de desenvolvimento. Está agora inscrito no portal de desenvolvimento para a sua instância de serviço de Gestão API.
+   Quando a inscrição estiver completa, és redirecionado de volta para o portal do desenvolvedor. Está agora inscrito no portal do desenvolvedor para a sua instância de serviço de Gestão API.
 
     ![Inscrição completa][api-management-registration-complete]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-*  [Visão geral do Diretório Ativo Azure B2C]
-*  [Diretório Ativo Azure B2C: Quadro de política extensível]
-*  [Utilize uma conta Microsoft como fornecedor de identidade no Diretório Ativo Azure B2C]
-*  [Utilize uma conta Google como fornecedor de identidade no Azure Ative Directory B2C]
-*  [Utilize uma conta LinkedIn como fornecedor de identidade no Diretório Ativo Azure B2C]
-*  [Utilize uma conta no Facebook como fornecedor de identidade no Azure Ative Directory B2C]
+*  [Visão geral do Azure Ative Directory B2C]
+*  [Azure Ative Directory B2C: Quadro de política extensível]
+*  [Utilize uma conta Microsoft como fornecedor de identidade no Azure Ative Directory B2C]
+*  [Utilize uma conta google como fornecedor de identidade no Azure Ative Directory B2C]
+*  [Utilize uma conta LinkedIn como fornecedor de identidade no Azure Ative Directory B2C]
+*  [Utilize uma conta do Facebook como fornecedor de identidade no Azure Ative Directory B2C]
 
 
 
@@ -194,13 +193,13 @@ O **formulário de inscrição: OAuth** widget representa um formulário usado p
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Visão geral do Diretório Ativo Azure B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[Como autorizar contas de desenvolvimento usando o Diretório Ativo Azure]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Diretório Ativo Azure B2C: Quadro de política extensível]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Utilize uma conta Microsoft como fornecedor de identidade no Diretório Ativo Azure B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
-[Utilize uma conta Google como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
-[Utilize uma conta no Facebook como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Utilize uma conta LinkedIn como fornecedor de identidade no Diretório Ativo Azure B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
+[Visão geral do Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+[Como autorizar contas de programadores utilizando o Azure Ative Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[Azure Ative Directory B2C: Quadro de política extensível]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Utilize uma conta Microsoft como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
+[Utilize uma conta google como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
+[Utilize uma conta do Facebook como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Utilize uma conta LinkedIn como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

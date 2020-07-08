@@ -1,6 +1,6 @@
 ---
-title: No local, azure AD Password Protection FAQ
-description: A revisão frequentemente feita perguntas para a Proteção de Passwords AD Azure em um ambiente de Serviços de Domínio de Diretório Ativo no local
+title: No local Azure AD Password Protection FAQ
+description: Reveja perguntas frequentes para a proteção de senhas Azure AD num ambiente de Serviços de Domínio de Diretório Ativo no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,153 +12,152 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652646"
 ---
-# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Proteção de senhas azure AD no local frequentemente perguntas
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
 
-Esta secção fornece respostas a muitas perguntas comumente feitas sobre a Proteção de Passwords Azure AD.
+Esta secção fornece respostas a muitas perguntas comumente feitas sobre a Proteção de Passwords AZure AD.
 
 ## <a name="general-questions"></a>Perguntas gerais
 
-**P: Que orientações devem ser dadas aos utilizadores sobre como selecionar uma palavra-passe segura?**
+**P: Que orientação deve ser dada aos utilizadores sobre como selecionar uma palavra-passe segura?**
 
 A orientação atual da Microsoft sobre este tópico pode ser encontrada no seguinte link:
 
 [Orientação da palavra-passe da Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
-**P: No local, a Proteção de Senhas Azure AD é suportada em nuvens não públicas?**
+**P: No local a Proteção de Passwords Azure AD é suportada em nuvens não públicas?**
 
-Não - no local a Proteção de Senhas Azure AD só é suportada na nuvem pública. Não foi anunciada qualquer data para a disponibilidade de nuvens não públicas.
+Não - no local Azure AD Password Protection só é suportado na nuvem pública. Não foi anunciada qualquer data para a disponibilidade não pública de nuvem.
 
-O portal Azure AD permite a modificação da configuração "Password protection for Windows Server Ative Directory" específica para o Windows Server Ative Directory, mesmo em nuvens não públicas; tais alterações serão persistidas, mas de outra forma nunca produzirá efeito. O registo de agentes de procuração ou florestas no local não é suportado quando são utilizadas credenciais não públicas de nuvem, e tais tentativas de registo falharão sempre.
+O portal AD AZure permite a modificação da configuração "Password protection for Windows Server Ative Directory" específica para o Windows Server, mesmo em nuvens não públicas; tais alterações serão persistiu, mas de outra forma nunca produzirão efeito. O registo de agentes ou florestas no local não é suportado quando são utilizadas credenciais de nuvem não pública, e quaisquer tentativas de registo serão sempre falhadas.
 
-**P: Como posso aplicar benefícios de proteção de senhas Azure AD a um subconjunto dos meus utilizadores no local?**
+**P: Como posso aplicar benefícios de proteção de senha azure AD a um subconjunto dos meus utilizadores no local?**
 
-Não suportado. Uma vez implementado e ativado, a Proteção de Passwords Azure AD não discrimina - todos os utilizadores recebem benefícios de segurança iguais.
+Não suportado. Uma vez implementado e ativado, o Azure AD Password Protection não discrimina - todos os utilizadores recebem benefícios de segurança iguais.
 
-**P: Qual é a diferença entre uma alteração de palavra-passe e um conjunto de palavra-passe (ou reset)?**
+**P: Qual é a diferença entre uma alteração de senha e um conjunto de palavra-passe (ou reset)?**
 
-Uma alteração de palavra-passe é quando um utilizador escolhe uma nova senha depois de provar que tem conhecimento da antiga senha. Por exemplo, uma alteração de palavra-passe é o que acontece quando um utilizador inicia o login no Windows e é depois solicitado a escolher uma nova senha.
+Uma mudança de palavra-passe é quando um utilizador escolhe uma nova palavra-passe depois de provar que tem conhecimento da senha antiga. Por exemplo, uma alteração de palavra-passe é o que acontece quando um utilizador entra no Windows e é solicitado a escolher uma nova palavra-passe.
 
-Um conjunto de palavras-passe (por vezes chamado de reset de palavra-passe) é quando um administrador substitui a palavra-passe numa conta por uma nova palavra-passe, por exemplo, utilizando a ferramenta de gestão de Utilizadores de Diretório ativo e Computadores. Esta operação requer um alto nível de privilégio (geralmente Administração de Domínio), e a pessoa que realiza a operação geralmente não tem conhecimento da antiga senha. Os cenários de help-desk realizam frequentemente conjuntos de palavras-passe, por exemplo, quando ajudam um utilizador que se esqueceu da sua palavra-passe. Também verá eventos de definição de palavra-passe quando uma nova conta de utilizador está a ser criada pela primeira vez com uma palavra-passe.
+Um conjunto de palavra-passe (por vezes chamado de redefinição de palavra-passe) é quando um administrador substitui a palavra-passe numa conta por uma nova palavra-passe, por exemplo, utilizando a ferramenta de gestão de Utilizadores de Diretório Ativo e Computadores. Esta operação requer um elevado nível de privilégio (geralmente Domain Admin), e a pessoa que executa a operação geralmente não tem conhecimento da senha antiga. Os cenários de help-desk muitas vezes executam conjuntos de palavras-passe, por exemplo, quando ajudam um utilizador que se esqueceu da sua palavra-passe. Também verá eventos de definição de palavra-passe quando uma nova conta de utilizador estiver a ser criada pela primeira vez com uma palavra-passe.
 
-A política de validação de palavras-passe comporta-se da mesma forma, independentemente de estar a ser feita uma alteração ou um conjunto de palavras-passe. O serviço de proteção de senhas Azure AD DC agente regista diferentes eventos para informá-lo se foi feita uma alteração de senha ou uma operação definida.  Consulte a monitorização e o registo de [proteção de passwords AD Azure.](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)
+A política de validação de palavras-passe comporta-se da mesma forma, independentemente de estar a ser feita uma alteração ou um conjunto de palavras-passe. O serviço Azure AD Password Protection DC Agent regista eventos diferentes para informá-lo se foi feita uma alteração de senha ou uma operação de definição de palavras-passe.  Consulte [a monitorização e registo de registo de passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**P: Por que é que os eventos duplicados de rejeição de palavras-passe são registados ao tentar definir uma palavra-passe fraca usando o snap-in de gestão de utilizadores de diretório ativo e computadores?**
+**P: Por que razão são registados eventos duplicados de rejeição de palavras-passe ao tentar definir uma palavra-passe fraca utilizando o snap-in de gestão de Diretório Ativo e computadores?**
 
-O snap-in de gestão de Utilizadores de Diretório Ativo e Computadores tentará primeiro definir a nova palavra-passe utilizando o protocolo Kerberos. Após a falha, o snap-in fará uma segunda tentativa de definir a palavra-passe usando um protocolo legado (SAM RPC) (os protocolos específicos utilizados não são importantes). Se a nova palavra-passe for considerada fraca pela Proteção de Passwords AD do Azure, este comportamento instantâneo resultará em dois conjuntos de eventos de rejeição de reset de palavra-passe a serem registados.
+O snap-in de gestão de utilizadores e computadores de Diretório Ativo tentará primeiro definir a nova palavra-passe utilizando o protocolo Kerberos. Após a falha, o snap-in fará uma segunda tentativa para definir a palavra-passe usando um protocolo legado (SAM RPC) (os protocolos específicos utilizados não são importantes). Se a nova palavra-passe for considerada fraca pela Azure AD Password Protection, este comportamento de snap-in resultará em dois conjuntos de eventos de rejeição de redefinição de palavra-passe que estão a ser registados.
 
-**P: Porque é que os eventos de validação de passwords de proteção de senhas da Azure AD estão a ser registados com um nome de utilizador vazio?**
+**P: Porque é que os eventos de validação da palavra-passe Azure AD estão a ser registados com um nome de utilizador vazio?**
 
-O Ative Directy suporta a capacidade de testar uma palavra-passe para ver se passa nos atuais requisitos de complexidade da palavra-passe do domínio, por exemplo, utilizando o [api NetValidatePasswordPolicy.](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) Quando uma palavra-passe é validada desta forma, os testes também incluem validação por produtos baseados em password-filter-dll, como a Proteção de Passwords AD Azure - mas os nomes de utilizador passados para um determinado filtro de senha ficarão vazios. Neste cenário, a Proteção de Palavras-passe Da Azure AD ainda validará a palavra-passe utilizando a política de senha seletiva atualmente em vigor e emitirá uma mensagem de registo de eventos para capturar o resultado, no entanto a mensagem de registo de eventos terá campos de nome de utilizador vazios.
+O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se passa nos atuais requisitos de complexidade da palavra-passe do domínio, por exemplo, utilizando o [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. Quando uma palavra-passe é validada desta forma, o teste também inclui validação por produtos baseados em password-filter-dll, como a Proteção de PasswordS AD Azure - mas os nomes de utilizador passados para um dado filtro de senha dll estarão vazios. Neste cenário, o Azure AD Password Protection ainda validará a palavra-passe utilizando a política de senha atualmente em vigor e emitirá uma mensagem de registo de eventos para capturar o resultado, no entanto a mensagem de registo de eventos terá campos de nome de utilizador vazios.
 
-**P: É suportado para instalar a Proteção de Passwords Azure AD lado a lado com outros produtos baseados em filtros de palavra-passe?**
+**P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade principal do Windows e não específica para a Proteção de Passwords AD Azure. Todos os dlls de filtro de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
-**P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem utilizar o Azure?**
+**P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
-Não suportado. A Azure AD Password Protection é uma funcionalidade Azure que suporta ser estendida para um ambiente de Diretório Ativo no local.
+Não suportado. A azure AD Password Protection é uma funcionalidade Azure que suporta ser estendida para um ambiente de Diretório Ativo no local.
 
-**P: Como posso modificar o conteúdo da política ao nível do Diretório Ativo?**
+**P: Como posso modificar o conteúdo da política ao nível do Ative Directory?**
 
-Não suportado. A política só pode ser administrada através do portal Azure AD. Consulte também a pergunta anterior.
+Não suportado. A apólice só pode ser administrada utilizando o portal AZure AD. Consulte também a pergunta anterior.
 
-**P: Por que é necessário dfSR para replicação sysvol?**
+**P: Por que é necessário DFSR para a replicação sysvol?**
 
-FrS (a tecnologia antecessora para a DFSR) tem muitos problemas conhecidos e não suporta totalmente em versões mais recentes do Windows Server Ative Directory. Os testes zero da Proteção de Palavras-passe Azure AD serão feitos em domínios configurados por FRS.
+O FRS (a tecnologia antecessora da DFSR) tem muitos problemas conhecidos e não é totalmente suportado em versões mais recentes do Windows Server Ative Directory. Os testes zero da Proteção de Senha AD Azure serão feitos em domínios configurados por FRS.
 
 Para mais informações, consulte os seguintes artigos:
 
-[O caso da replicação sysvol migratória para a DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[O caso da replicação sysvol migratória para o DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
-[The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[O Fim é Nigh para FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-Se o seu domínio ainda não estiver a utilizar o DFSR, deve migrar para utilizar o DFSR antes de instalar a Proteção de Passwords Azure AD. Para mais informações, consulte o seguinte link:
+Se o seu domínio ainda não estiver a utilizar o DFSR, deve emigrá-lo para utilizar o DFSR antes de instalar a Proteção de Password AD Azure. Para mais informações, consulte o seguinte link:
 
-[Guia de migração de replicação SYSVOL: FRS para replicação DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Guia de migração de replicação SYSVOL: FRS à replicação de DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
-> O software Azure AD Password Protection DC Agent irá atualmente instalar em controladores de domínio em domínios que ainda estão a usar FRS para replicação sysvol, mas o software NÃO funcionará corretamente neste ambiente. Efeitos colaterais negativos adicionais incluem ficheiros individuais que não se replicam, e os procedimentos de restauro sysvol parecem ter sucesso, mas falhando silenciosamente em replicar todos os ficheiros. Deve migrar o seu domínio para utilizar o DFSR o mais rapidamente possível, tanto para os benefícios inerentes da DFSR como para desbloquear a implementação da Proteção de Passwords Azure AD. As futuras versões do software serão automaticamente desativadas quando estiverem a funcionar num domínio que ainda está a utilizar frs.
+> O software Azure AD Password Protection DC Agent irá atualmente instalar-se em controladores de domínio em domínios que ainda utilizam FRS para replicação sysvol, mas o software NÃO funcionará corretamente neste ambiente. Os efeitos colaterais negativos adicionais incluem ficheiros individuais que não conseguem replicar-se, e os procedimentos de restauro sysvol parecem ter sucesso, mas silenciosamente não conseguem replicar todos os ficheiros. Deve migrar o seu domínio para utilizar o DFSR o mais rapidamente possível, tanto para os benefícios inerentes da DFSR como também para desbloquear a implementação da Proteção de Password AD AD Azure. Futuras versões do software serão automaticamente desativadas quando estiverem a funcionar num domínio que ainda utiliza FRS.
 
-**P: Quanto espaço em disco a funcionalidade requer na partilha de sysvol de domínio?**
+**P: Quanto espaço em disco requer na partilha sysvol de domínio?**
 
-O uso preciso do espaço varia uma vez que depende de fatores como o número e o comprimento dos tokens banidos na lista global proibida da Microsoft e a lista personalizada por inquilino, além de encriptação. É provável que o conteúdo destas listas cresça no futuro. Com isso em mente, uma expectativa razoável é que a funcionalidade precisará de pelo menos cinco (5) megabytes de espaço na partilha de sysvol de domínio.
+O uso preciso do espaço varia, uma vez que depende de fatores como o número e a duração dos tokens proibidos na lista global de banidos da Microsoft e a lista personalizada por inquilino, além de encriptação por cima. É provável que o conteúdo destas listas cresça no futuro. Com isso em mente, uma expectativa razoável é que a funcionalidade precisará de pelo menos cinco (5) megabytes de espaço na partilha de domínios sysvol.
 
 **P: Por que é necessário um reboot para instalar ou atualizar o software do agente DC?**
 
-Este requisito é causado pelo comportamento do Núcleo do Windows.
+Este requisito é causado pelo comportamento do Core Windows.
 
-**P: Existe alguma maneira de configurar um agente de DC para usar um servidor de procuração específico?**
+**P: Existe alguma forma de configurar um agente de DC para usar um servidor de procuração específico?**
 
-Não. Uma vez que o servidor proxy é apátrida, não é importante qual servidor de procuração específico é usado.
+Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor de procuração específico seja usado.
 
-**P: Não há problema em implementar o serviço de proxy de proteção de senhas Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
+**P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Sim. O serviço de proxy de proteção de senhas Azure AD e azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
-Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço de atualização do Agente de AD Connect Da Microsoft Azure que é instalado pelo software Deproxy de Proteção de Passwords Azure AD e a versão do serviço que é instalado pelo software [Proxy de Aplicação de Aplicação de Diretório Ativo Do Azure.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Esta incompatibilidade pode resultar na incapacidade do serviço de Atualização de Agente para obter atualizações de software com a Azure. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
+Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 
-**P: Em que ordem devem ser instalados e registados os agentes e proxies de DC?**
+**P: Em que ordem devem os agentes e proxies de DC ser instalados e registados?**
 
-Qualquer ordenação da instalação do agente Proxy, instalação de agente dc, registo florestal e registo proxy é suportado.
+Qualquer encomenda de instalação de agente proxy, instalação de agente DC, registo florestal e registo proxy é suportado.
 
-**P: Devo preocupar-me com o desempenho dos meus controladores de domínio de implementar esta funcionalidade?**
+**P: Devo preocupar-me com o desempenho atingido pelos meus controladores de domínio ao implementar esta funcionalidade?**
 
-O serviço de agente DC de proteção de senhas Azure AD não deve ter um impacto significativo no desempenho do controlador de domínio numa implementação saudável do Diretório Ativo.
+O serviço Azure AD Password Protection DC Agent não deve ter um impacto significativo no desempenho do controlador de domínio numa implementação saudável do Ative Directory existente.
 
-Para a maioria das operações de alteração de palavras-passe do Diretório Ativo, uma pequena proporção da carga de trabalho global em qualquer controlador de domínio. Como exemplo, imagine um domínio de Diretório Ativo com 10000 contas de utilizador e uma política MaxPasswordAge definida para 30 dias. Em média, este domínio verá operações de alteração de senha 10000/30=~~333 por dia, o que é um número menor de operações para até mesmo um único controlador de domínio. Considere um potencial pior cenário: suponha que as alterações de senha de ~333 num único DC foram feitas ao longo de uma hora. Por exemplo, este cenário pode ocorrer quando muitos funcionários vêm trabalhar numa manhã de segunda-feira. Mesmo nesse caso, ainda estamos a olhar para ~333/60 minutos = seis alterações de senha por minuto, o que novamente não é uma carga significativa.
+Para a maioria das operações de alteração de passwords do Ative Directory são uma pequena proporção da carga de trabalho global em qualquer controlador de domínio. Como exemplo, imagine um domínio ative directory com 10000 contas de utilizador e uma política MaxPasswordAge definida para 30 dias. Em média, este domínio verá operações de mudança de senha de 10000/30=~333 por dia, o que é um número menor de operações para um único controlador de domínio. Considere um potencial pior cenário: suponha que as alterações de senha ~333 num único DC foram feitas durante uma hora. Por exemplo, este cenário pode ocorrer quando muitos funcionários vêm todos trabalhar numa manhã de segunda-feira. Mesmo nesse caso, ainda estamos a olhar para ~333/60 minutos = seis alterações de senha por minuto, o que mais uma vez não é uma carga significativa.
 
-No entanto, se os seus controladores de domínio atual já estiverem a funcionar a níveis limitados de desempenho (por exemplo, no limite em relação ao CPU, espaço do disco, disco I/O, etc.), é aconselhável adicionar controladores de domínio adicionais ou expandir o espaço disponível do disco, antes de implementar esta funcionalidade. Consulte também a questão acima sobre o uso do espaço do disco sysvol acima.
+No entanto, se os seus controladores de domínio atuais já estiverem a funcionar a níveis limitados de desempenho (por exemplo, no limite do limite em relação ao CPU, espaço em disco, disco I/O, etc.), é aconselhável adicionar controladores de domínio adicionais ou expandir o espaço de disco disponível, antes de implementar esta funcionalidade. Consulte também a pergunta acima sobre a utilização do espaço do disco sysvol acima.
 
-**P: Quero testar a Proteção de Senhas Azure AD em apenas alguns DCs no meu domínio. É possível forçar alterações de palavra-passe do utilizador a utilizar esses DCs específicos?**
+**P: Quero testar a Proteção de Passwords AZure AD em apenas alguns DCs no meu domínio. É possível forçar alterações na palavra-passe do utilizador para utilizar esses DCs específicos?**
 
-Não. O SISTEMA operativo cliente Windows controla o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directory e atribuições de sub-redes, configuração de rede específica para o ambiente, etc. A Proteção de Palavras-passe Azure AD não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
+Não. O sistema operativo do cliente Windows controla qual o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica do ambiente, etc. O Azure AD Password Protection não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
 
-Uma forma de atingir parcialmente este objetivo seria implementar a Proteção de Passwords Azure AD em todos os controladores de domínio num determinado site de Diretório Ativo. Esta abordagem proporcionará uma cobertura razoável para os clientes do Windows que estão atribuídos a esse site, e, portanto, também para os utilizadores que estão a aceder a esses clientes e a alterar as suas palavras-passe.
+Uma forma de alcançar parcialmente este objetivo seria implementar a Proteção de PasswordS Azure AD em todos os controladores de domínio num determinado site do Ative Directory. Esta abordagem proporcionará uma cobertura razoável para os clientes windows que são atribuídos a esse site, e, portanto, também para os utilizadores que estão a iniciar sessão nesses clientes e a alterar as suas palavras-passe.
 
-**P: Se eu instalar o serviço de agente DC de proteção de senhas Azure AD apenas no Controlador de Domínio Primário (PDC), todos os outros controladores de domínio no domínio também serão protegidos?**
+**P: Se eu instalar o serviço de agente DC de proteção de passwords Azure AD em apenas o Controlador de Domínio Primário (PDC), todos os outros controladores de domínio no domínio também serão protegidos?**
 
-Não. Quando a palavra-passe de um utilizador é alterada num determinado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova senha é aceite em um dado DC, que DC usa essa palavra-passe para criar as várias hashes específicas do protocolo de autenticação dessa palavra-passe e, em seguida, persiste essas hashes no diretório. A palavra-passe de texto claro não é persistiu. Os hashes atualizados são então replicados para o PDC. As palavras-passe dos utilizadores podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, como a topologia da rede e o design do site Ative Directory. (Ver a pergunta anterior.)
+Não. Quando a palavra-passe de um utilizador é alterada num dado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova palavra-passe é aceite em um dado DC, que DC usa essa palavra-passe para criar os vários hashes específicos do protocolo de autenticação dessa palavra-passe e, em seguida, persiste esses haeques no diretório. A palavra-passe de texto claro não persiste. Os hashes atualizados são então replicados no PDC. As palavras-passe do utilizador podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, tais como topologia de rede e design de site de ative diretório. (Ver a pergunta anterior.)
 
-Em resumo, a implementação do serviço de agente DC de proteção de senhas Azure AD no PDC é necessária para alcançar uma cobertura de segurança 100% da funcionalidade em todo o domínio. A implementação da funcionalidade no PDC apenas não fornece benefícios de proteção de senhas Azure AD para quaisquer outros DCs no domínio.
+Em resumo, a implementação do serviço de agente DC de proteção de passwords Azure AD no PDC é necessária para alcançar uma cobertura de segurança 100% da funcionalidade em todo o domínio. A implementação da funcionalidade no PDC apenas não fornece benefícios de segurança de proteção de senha azure AD para quaisquer outros DCs no domínio.
 
-**P: Porque é que o bloqueio inteligente personalizado não funciona mesmo depois de os agentes estarem instalados no meu ambiente de Diretório Ativo no local?**
+**P: Porque é que o bloqueio inteligente personalizado não funciona mesmo depois de os agentes serem instalados no meu ambiente de Ative Directory?**
 
-O bloqueio inteligente personalizado só é suportado em Azure AD. As alterações às definições de bloqueio inteligente personalizadas no portal Azure AD não têm qualquer efeito no ambiente ative diretório no local, mesmo com os agentes instalados.
+O bloqueio inteligente personalizado só é suportado no Azure AD. As alterações às definições de bloqueio inteligente personalizadas no portal AD AZure não têm qualquer efeito no ambiente de Ative Directory no local, mesmo com os agentes instalados.
 
-**P: Um pacote de gestão de gestão de gestão de operações do System Center está disponível para proteção de passwords AD Azure?**
+**P: Um pacote de gestão de gestão de operações do System Center Está disponível para proteção de senha AZure AD?**
 
 Não.
 
-**P: Porque é que o Azure AD continua a rejeitar senhas fracas, apesar de eu ter configurado a política para estar em modo de Auditoria?**
+**P: Porque é que a Azure AD continua a rejeitar senhas fracas, apesar de ter configurado a política para estar em modo de Auditoria?**
 
-O modo de auditoria só é suportado no ambiente de Diretório Ativo no local. O Azure AD está implicitamente sempre em modo de "impor" quando avalia as palavras-passe.
+O modo de auditoria só é suportado no ambiente ative directy no local. O Azure AD está implicitamente sempre no modo "enforce" quando avalia as palavras-passe.
 
-**P: Os meus utilizadores vêem a mensagem de erro tradicional do Windows quando uma palavra-passe é rejeitada pela Proteção de Passwords AD do Azure. É possível personalizar esta mensagem de erro para que os utilizadores saibam o que realmente aconteceu?**
+**P: Os meus utilizadores vêem a mensagem de erro tradicional do Windows quando uma palavra-passe é rejeitada pela Azure AD Password Protection. É possível personalizar esta mensagem de erro para que os utilizadores saibam o que realmente aconteceu?**
 
-Não. A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de diretório ativo padrão ou por uma solução baseada em filtro de senha, como a Proteção de Passwords Azure AD.
+Não. A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de ative do Diretório por defeito ou por uma solução baseada em filtro de palavra-passe, como a Proteção de Passwords AD Azure.
 
 ## <a name="additional-content"></a>Conteúdo adicional
 
-Os seguintes links não fazem parte da documentação de proteção de senhas azure ad central, mas podem ser uma fonte útil de informações adicionais sobre a funcionalidade.
+Os seguintes links não fazem parte da documentação de proteção de senha azure AD core, mas podem ser uma fonte útil de informações adicionais sobre a funcionalidade.
 
-[A Proteção de Passwords Azure AD já está geralmente disponível!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[A Azure AD Password Protection está disponível geralmente!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guia de proteção de phishing por e-mail – Parte 15: Implementar o Serviço de Proteção de Passwords AD da Microsoft Azure (também para as instalações!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Guia de Proteção de Phishing por E-mail – Parte 15: Implementar o Serviço de Proteção de Passwords AD do Microsoft Azure (também para instalações)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
-[A Proteção de Passwords Azure AD e o Smart Lockout estão agora em Pré-visualização pública!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+[A azure AD Password Protection e Smart Lockout estão agora em visualização pública!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
-## <a name="microsoft-premierunified-support-training-available"></a>Microsoft Premier\Unified support training disponível
+## <a name="microsoft-premierunified-support-training-available"></a>Microsoft Premier\Formação de suporte unificada disponível
 
-Se estiver interessado em saber mais sobre a Proteção de Passwords Azure AD e implementá-la no seu ambiente, pode aproveitar um serviço proactivo da Microsoft disponível para os clientes com um contrato de suporte Premier ou Unificado. O serviço chama-se Diretório Ativo Azure: Proteção de Passwords. Contacte o seu Gestor de Conta Técnica para obter mais informações.
+Se estiver interessado em saber mais sobre a Proteção de Passwords AZure AD e implementá-la no seu ambiente, pode aproveitar um serviço proativo da Microsoft disponível para os clientes com um contrato de apoio Premier ou Unificado. O serviço chama-se Azure Ative Directory: Password Protection. Contacte o seu Gestor técnico de conta para mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se tiver uma pergunta de proteção de senhas Azure AD que não seja respondida aqui, submeta um item de Feedback abaixo - obrigado!
+Se tiver uma questão de Proteção de Password Azure AD que não seja respondida aqui, envie um item de Feedback abaixo - obrigado!
 
 [Implementar proteção de palavras-passe do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

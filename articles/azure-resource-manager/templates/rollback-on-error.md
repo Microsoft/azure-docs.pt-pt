@@ -1,26 +1,25 @@
 ---
-title: Recue no erro para uma implementação bem sucedida
-description: Especifique que uma implantação falhada deve voltar a ser implantada com sucesso.
+title: Recue no erro para a implementação bem sucedida
+description: Especifique que uma implementação falhada deve voltar para uma implementação bem sucedida.
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460148"
 ---
-# <a name="rollback-on-error-to-successful-deployment"></a>Retrocesso no erro para implementação bem sucedida
+# <a name="rollback-on-error-to-successful-deployment"></a>Rollback no erro para implantação bem sucedida
 
-Quando uma implementação falha, pode recolocar automaticamente uma implementação mais precoce e bem sucedida do seu histórico de implantação. Esta funcionalidade é útil se tiver um bom estado conhecido para a sua implantação de infraestruturas e quiser voltar a este estado. Há uma série de ressalvas e restrições:
+Quando uma implementação falha, pode recolocar automaticamente uma implementação mais cedo e bem sucedida do seu histórico de implantação. Esta funcionalidade é útil se você tem um bom estado conhecido para a sua implementação de infraestrutura e quer reverter para este estado. Há uma série de ressalvas e restrições:
 
-- A recolocação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Não pode mudar os parâmetros.
-- A implementação anterior é executada utilizando o [modo completo](./deployment-modes.md#complete-mode). Quaisquer recursos não incluídos na implementação anterior são eliminados, e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende completamente os modos de [implantação](./deployment-modes.md).
-- A redistribuição apenas afeta os recursos, quaisquer alterações de dados não são afetadas.
-- Só pode utilizar esta funcionalidade com implementações de grupos de recursos, não com implementações de nível de grupo de subscrição ou de gestão. Para obter mais informações sobre a implementação do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição](./deploy-to-subscription.md).
-- Só pode utilizar esta opção com implementações de nível raiz. As implementações de um modelo aninhado não estão disponíveis para reafectação.
+- A reafectação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Não pode mudar os parâmetros.
+- A implementação anterior é executada utilizando o [modo completo](./deployment-modes.md#complete-mode). Quaisquer recursos não incluídos na implementação anterior são eliminados e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende completamente os [modos de implantação](./deployment-modes.md).
+- A reafectação só afeta os recursos, quaisquer alterações de dados não são afetadas.
+- Só pode utilizar esta funcionalidade com implementações de grupos de recursos, não implementações de grupos de subscrição ou gestão. Para obter mais informações sobre a implementação do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](./deploy-to-subscription.md)
+- Só pode utilizar esta opção com implementações de nível de raiz. As implementações de um modelo aninhado não estão disponíveis para redistribuição.
 
-Para utilizar esta opção, as suas implementações devem ter nomes únicos para que possam ser identificados na história. Se não tiver nomes únicos, a atual implementação falhada poderá substituir a implantação anteriormente bem sucedida na história.
+Para utilizar esta opção, as suas implementações devem ter nomes únicos para que possam ser identificadas na história. Se não tiver nomes únicos, a implementação falhada atual pode substituir a implementação anteriormente bem sucedida na história.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -33,7 +32,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollbackToLastDeployment
 ```
 
-Para reimplantar uma implantação `-RollBackDeploymentName` específica, utilize o parâmetro e forneça o nome da implantação. A implantação especificada deve ter sido bem sucedida.
+Para recolocar uma implantação específica, utilize o `-RollBackDeploymentName` parâmetro e forneça o nome da implantação. A implantação especificada deve ter sido bem sucedida.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -55,7 +54,7 @@ az deployment group create \
   --rollback-on-error
 ```
 
-Para reimplantar uma implantação `--rollback-on-error` específica, utilize o parâmetro e forneça o nome da implantação. A implantação especificada deve ter sido bem sucedida.
+Para recolocar uma implantação específica, utilize o `--rollback-on-error` parâmetro e forneça o nome da implantação. A implantação especificada deve ter sido bem sucedida.
 
 ```azurecli-interactive
 az deployment group create \
@@ -68,7 +67,7 @@ az deployment group create \
 
 ## <a name="rest-api"></a>API REST
 
-Para reimplantar a última implementação bem sucedida se a implementação atual falhar, utilize:
+Para recolocar a última implementação bem sucedida se a implementação atual falhar, utilize:
 
 ```json
 {
@@ -89,7 +88,7 @@ Para reimplantar a última implementação bem sucedida se a implementação atu
 }
 ```
 
-Para reimplantar uma implementação específica se a implementação atual falhar, utilize:
+Para recolocar uma implantação específica se a implementação atual falhar, utilize:
 
 ```json
 {
@@ -113,9 +112,9 @@ Para reimplantar uma implementação específica se a implementação atual falh
 
 A implantação especificada deve ter sido bem sucedida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para lançar com segurança o seu serviço para mais de uma região, consulte o Gestor de [Destacamento seleções do Azure.](deployment-manager-overview.md)
-- Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os modos de implementação do Gestor de [Recursos Do Azure](deployment-modes.md).
-- Para entender como definir parâmetros no seu modelo, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](template-syntax.md)de Recursos Azure .
-- Para obter informações sobre a implementação de um modelo que requer uma ficha SAS, consulte [Implementar modelo privado com token SAS](secure-template-with-sas-token.md).
+- Para lançar o seu serviço com segurança para mais de uma região, consulte [o Gestor de Implantação do Azure](deployment-manager-overview.md).
+- Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
+- Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+- Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).

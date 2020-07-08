@@ -1,6 +1,6 @@
 ---
-title: Gerir pontos finais de streaming com o Azure Media Services v3
-description: Este artigo demonstra como gerir os pontos finais de streaming com o Azure Media Services v3.
+title: Gerir pontos finais de streaming com a Azure Media Services v3
+description: Este artigo demonstra como gerir os pontos finais de streaming com a Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,27 +15,26 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
 ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461049"
 ---
-# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerir pontos finais de streaming com Media Services v3
+# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerir pontos finais de streaming com os Media Services v3
 
-Quando a sua conta De serviços de media é criada, um [Ponto final de streaming](streaming-endpoint-concept.md) **padrão** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo e tirar partido de [embalagens dinâmicas](dynamic-packaging-overview.md) e [encriptação dinâmica,](content-protection-overview.md)o ponto final de streaming a partir do qual pretende transmitir conteúdo tem de estar no estado **De Execução.**
+Quando a sua conta de Serviços de Media é criada, um [Ponto Final de Streaming](streaming-endpoint-concept.md) **predefinido** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo e tirar partido da [embalagem dinâmica](dynamic-packaging-overview.md) e da [encriptação dinâmica,](content-protection-overview.md)o ponto final de streaming a partir do qual pretende transmitir conteúdo tem de estar no estado **de Funcionamento.**
 
 Este artigo mostra-lhe como executar o comando [inicial](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) no seu ponto final de streaming usando diferentes tecnologias. 
  
 > [!NOTE]
-> Só é cobrado quando o seu Streaming Endpoint está em estado de funcionamento.
+> Só é cobrado quando o seu Streaming Endpoint está em funcionamento.
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Revisão: 
+Comentário: 
 
-* [Conceitos de Serviços de Media](concepts-overview.md)
-* [Conceito de Endpoint de streaming](streaming-endpoint-concept.md)
+* [Conceitos de Serviços de Mídia](concepts-overview.md)
+* [Conceito de endpoint de streaming](streaming-endpoint-concept.md)
 * [Empacotamento dinâmico](dynamic-packaging-overview.md)
 
 ## <a name="use-rest"></a>Utilizar REST
@@ -46,18 +45,18 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para obter mais informações, consulte: 
 
-* O início de uma documentação de referência [de StreamingEndpoint.](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* Começar um ponto final de streaming é uma operação assíncrona. 
+* Inicie uma documentação de referência [streamingEndpoint.](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* Iniciar um ponto final de streaming é uma operação assíncronea. 
 
-    Para obter informações sobre como monitorizar as operações de longo prazo, consulte [operações de longo prazo](media-services-apis-overview.md).
+    Para obter informações sobre como monitorizar as operações de longo prazo, consulte [operações de longo prazo.](media-services-apis-overview.md)
 * Esta [coleção de Carteiro](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contém exemplos de múltiplas operações REST, incluindo sobre como iniciar um ponto final de streaming.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure 
  
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Vá à sua conta azure media services.
-1. No painel esquerdo, selecione **Pontos Finais de Streaming**.
-1. Selecione o ponto final de streaming que pretende iniciar e, em seguida, selecione **Iniciar**.
+1. Vá à sua conta da Azure Media Services.
+1. No painel esquerdo, selecione **Streaming Endpoints**.
+1. Selecione o ponto final de streaming que pretende iniciar e, em seguida, selecione **Start**.
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -70,7 +69,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Para mais informações, consulte [o arranque do streaming az ams](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Para obter mais informações, consulte [o início do ponto de streaming az ams](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Utilizar SDKs
 
@@ -84,7 +83,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 }
 ```
 
-Consulte a amostra completa do [código Java](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
+Consulte a amostra completa do [código Java.](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128)
 
 ### <a name="net"></a>.NET
 
@@ -103,7 +102,7 @@ Consulte a amostra completa do [código .NET](https://github.com/Azure-Samples/m
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Media Services v3 OpenAPI Especificação (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Operações de Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Serviços de Mídia v3 Especificação OpenAPI (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
+* [Operações de streaming endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)

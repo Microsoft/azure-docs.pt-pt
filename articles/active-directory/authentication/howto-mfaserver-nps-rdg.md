@@ -1,5 +1,5 @@
 ---
-title: Servidor RDG e Azure MFA utilizando RADIUS - Diretório Ativo Azure
+title: Servidor RDG e Azure MFA usando RADIUS - Diretório Ativo Azure
 description: Esta é a página do Multi-Factor Authentication do Azure que irá ajudar a implementar o Gateway de Ambiente de Trabalho Remoto (RD) e o Servidor Multi-Factor Authentication do Azure com o RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,31 +12,30 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e2f7424464860b647883be2441e903900cb266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652890"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Ambiente de Trabalho Remoto e Servidor Multi-Factor Authentication do Azure com o RADIUS
 
-Muitas vezes, o Gateway Remote Desktop (RD) utiliza os Serviços de Política de [Rede locais (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) para autenticar os utilizadores. Este artigo descreve como encaminhar um pedido RADIUS fora do Gateway de Ambiente de Trabalho Remoto (através do NPS local) para o Servidor Multi-Factor Authentication. A combinação do MFA do Azure e o Gateway de RD significa que os utilizadores podem a aceder aos respetivos ambientes de trabalho a partir de qualquer lugar, executando a autenticação incontestável.
+Frequentemente, o Gateway remote desktop (RD) usa os Serviços de Política de Rede locais [(NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) para autenticar os utilizadores. Este artigo descreve como encaminhar um pedido RADIUS fora do Gateway de Ambiente de Trabalho Remoto (através do NPS local) para o Servidor Multi-Factor Authentication. A combinação do MFA do Azure e o Gateway de RD significa que os utilizadores podem a aceder aos respetivos ambientes de trabalho a partir de qualquer lugar, executando a autenticação incontestável.
 
 Uma vez que a Autenticação do Windows para os serviços de terminal não é suportada para o Server 2012 R2, utilize o Gateway de RD e RADIUS para integrar com o Servidor de MFA.
 
 Instale o Servidor Multi-Factor Authentication num servidor separado, o qual irá utilizar o proxy no pedido RADIUS de volta para o NPS no Servidor de Gateway de Ambiente de Trabalho Remoto. Após o NPS validar o nome de utilizador e a palavra-passe, ele devolve uma resposta ao Servidor Multi-Factor Authentication. Em seguida, o Servidor MFA realiza o segundo fator de autenticação e devolve um resultado ao gateway.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um Servidor de MFA do Azure associado a um domínio. Se ainda não tiver um instalado, siga os passos em [Getting started with the Azure Multi-Factor Authentication Server (Introdução ao Servidor Multi-Factor Authentication do Azure)](howto-mfaserver-deploy.md).
-- Um Servidor NPS configurado existente.
+- Um servidor NPS configurado existente.
 - Um Gateway de Ambiente de Trabalho Remoto que autentica com os Serviços de Política de Rede.
 
 > [!NOTE]
-> Este artigo deve ser utilizado apenas com implementações do MFA Server, e não com O MFA Azure (baseado em nuvem).
+> Este artigo deve ser utilizado apenas com implementações do MFA Server, e não com Azure MFA (baseado em nuvem).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurar o Gateway de Ambiente de Trabalho Remoto
 
@@ -56,7 +55,7 @@ O Gateway de RD utiliza o NPS para enviar o pedido RADIUS para o Multi-Factor Au
 1. No NPS, abra o menu **Clientes e Servidor RADIUS** na coluna esquerda e selecione em **Grupos de Servidores RADIUS Remotos**.
 2. Selecione o **GRUPO DE SERVIDOR DE GATEWAY DE TS**.
 3. Aceda ao separador **Balanceamento de Carga**.
-4. Altere tanto o **Número de Segundos sem resposta antes** de o pedido ser considerado diminuído e o número de segundos entre pedidos quando o servidor é identificado como **indisponível** entre 30 e 60 segundos. (Se achar que o servidor continua a exceder o tempo limite durante a autenticação, pode voltar aqui e aumentar o número de segundos.)
+4. Altere tanto o **Número de segundos sem resposta antes de o pedido ser considerado diminuído** e o Número de segundos entre pedidos quando o servidor é identificado como **indisponível** para entre 30 e 60 segundos. (Se achar que o servidor continua a exceder o tempo limite durante a autenticação, pode voltar aqui e aumentar o número de segundos.)
 5. Aceda ao separador **Autenticação/Conta** e certifique-se de que as portas RADIUS especificadas correspondem às portas em que o Servidor Multi-Factor Authentication está a escutar.
 
 ### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>Preparar o NPS para receber as autenticações a partir do Servidor de MFA
@@ -82,9 +81,9 @@ O Servidor Multi-Factor Authentication do Azure está configurado como um proxy 
 3. Aceda ao separador **Destino** e selecione o botão de rádio **Servidor(es) RADIUS**.
 4. Selecione **Adicionar** e introduza o segredo partilhado do endereço IP e as portas do servidor NPS. A menos que esteja a utilizar um NPS central, o cliente RADIUS e o destino RADIUS são os mesmos. O segredo partilhado tem de corresponder a uma configuração na secção Cliente RADIUS do servidor NPS.
 
-![Autenticação de raios no servidor MFA](./media/howto-mfaserver-nps-rdg/radius.png)
+![Autenticação de raio no Servidor MFA](./media/howto-mfaserver-nps-rdg/radius.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Integre a MFA do Azure e [aplicações Web do IIS](howto-mfaserver-iis.md)
 
