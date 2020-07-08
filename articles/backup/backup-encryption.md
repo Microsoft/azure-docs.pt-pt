@@ -4,10 +4,10 @@ description: Saiba como as funcionalidades de encriptação no Azure Backup ajud
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807721"
 ---
 # <a name="encryption-in-azure-backup"></a>Encriptação no Backup Azure
@@ -37,6 +37,6 @@ O Azure Backup também permite fazer backup dos seus VMs Azure que utilizam a su
 
 Com o Azure Backup, também pode fazer backup das suas máquinas Azure Virtual que têm o seu SISTEMA ou discos de dados encriptados através da Encriptação do Disco Azure. O ADE utiliza o BitLocker para VMs windows e DM-Crypt para os VMs do Linux para executar encriptação no hóspede. Para mais detalhes, consulte [Back up e restaure máquinas virtuais encriptadas com Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recue e restaure um Azure VM encriptado](backup-azure-vms-encryption.md)

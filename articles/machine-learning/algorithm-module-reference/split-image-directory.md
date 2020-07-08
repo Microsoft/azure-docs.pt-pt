@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84810195"
 ---
 # <a name="split-image-directory"></a>Dividir o Diretório da Imagem
@@ -35,24 +35,24 @@ Este módulo é particularmente útil quando é necessário separar os dados de 
 
 ### <a name="expected-inputs"></a>Entradas esperadas
 
-| Name                  | Tipo           | Description              |
+| Name                  | Tipo           | Descrição              |
 | --------------------- | -------------- | ------------------------ |
 | Diretório de imagem de entrada | ImageDirectory | Diretório de imagem para dividir |
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Name                                   | Tipo  | Intervalo | Opcional | Description                            | Predefinição |
+| Name                                   | Tipo  | Intervalo | Opcional | Descrição                            | Predefinição |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Fração de imagens na primeira saída | Float | 0-1   | Necessário | Fração de imagens na primeira saída | 0.9     |
 
 ### <a name="outputs"></a>Saídas
 
-| Name                    | Tipo           | Description                              |
+| Name                    | Tipo           | Descrição                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Diretório de imagem de saída1 | ImageDirectory | Diretório de imagem que contém imagens selecionadas |
 | Diretório de imagem de saída2 | ImageDirectory | Diretório de imagem que contém todas as outras imagens |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

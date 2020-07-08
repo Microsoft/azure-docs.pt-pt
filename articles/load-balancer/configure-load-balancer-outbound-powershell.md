@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: bd429ee5fc5564c55e6a9c758e1c53e821060f0e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84809535"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando a Azure PowerShell
@@ -160,7 +160,7 @@ Quando já não necessitar do grupo de recursos, do balanceador de carga e dos r
   Remove-AzResourceGroup -Name myresourcegroupoutbound
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, criou um equilibrador de carga padrão, configurado tanto as regras de tráfego de carregamento de entrada como de saída, e configura uma sonda de saúde para os VMs na piscina traseira. 
 
 Para saber mais, continue os [tutoriais para O Balancer de Carga Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md).

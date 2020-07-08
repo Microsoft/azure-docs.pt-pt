@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,37 +9,37 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471563"
 ---
-O Acesso Condicional permite um controlo de acesso de grãos finos por aplicação. Para utilizar o Acesso Condicional, deverá ter o Azure AD Premium 1 ou um maior licenciamento aplicado aos utilizadores que estarão sujeitos às regras de Acesso Condicional.
+O Acesso Condicional permite um controlo de acesso fino por aplicação. Para utilizar o Acesso Condicional, deverá ter o Azure AD Premium 1 ou um licenciamento superior aplicado aos utilizadores que estarão sujeitos às regras de Acesso Condicional.
 
-1. Navegue para as **aplicações da Enterprise - Todas as aplicações** página e clique em **Azure VPN**.
+1. Navegue para as **aplicações Da Enterprise - Todas as aplicações** página e clique em **Azure VPN**.
 
-   - Clique em **Acesso Condicional**.
-   - Clique em **Nova política** para abrir o **novo** painel.
-2. No **novo** painel, navegue para **Atribuições -> Utilizadores e grupos.** Nos **Utilizadores e grupos ->** **Incluir** o separador:
+   - Clique **em Acesso Condicional**.
+   - Clique **em Nova política** para abrir o Painel **Novo.**
+2. No **novo** painel, navegue para **atribuições -> utilizadores e grupos**. Nos **Utilizadores e grupos ->** **Incluir** o separador:
 
-   - Clique em **Selecionar utilizadores e grupos**.
-   - Verifique **os utilizadores e grupos**.
-   - Clique em **Selecionar** para selecionar um grupo ou conjunto de utilizadores para serem afetados pelo MFA.
+   - Clique **em Selecionar utilizadores e grupos.**
+   - Verifique **os Utilizadores e grupos.**
+   - Clique **em Selecionar** para selecionar um grupo ou conjunto de utilizadores a serem afetados por MFA.
    - Clique em **Concluído**.
 
    ![Atribuições](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
-3. No **painel Novo,** navegue para os controlos de **acesso -> painel Grant:**
+3. No **painel New,** navegue para os **controlos de acesso -> Grant** Pane:
 
-   - Clique no **acesso ao Grant**.
-   - Clique **Exigir autenticação de vários fatores.**
-   - Clique **Exigir todos os controlos selecionados**.
+   - Clique **no acesso ao Grant**.
+   - Clique **Em Requerer a autenticação de vários fatores.**
+   - Clique **Em Exigir todos os controlos selecionados.**
    - Clique em **Selecionar**.
    
-   ![Acesso à concessão - MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
-4. Na secção **política Enable:**
+   ![Acesso a subvenção - MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
+4. Na secção **de política ativa:**
 
-   - Selecione **on**.
+   - **Selecione on**.
    - Clique em **Criar**.
 
    ![Ativar a Política](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)

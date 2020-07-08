@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
 ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808470"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle"></a>Balanceador de Carga com Reposição de TCP quando Inativo
@@ -72,7 +72,7 @@ Disponível em todas as regiões.
 
 - TCP RST apenas enviado durante a ligação TCP em estado estabelecido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Balanceador de Carga Padrão](load-balancer-standard-overview.md).
 - Conheça as [regras de saída.](load-balancer-outbound-rules-overview.md)

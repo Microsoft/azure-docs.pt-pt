@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
 ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84816458"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
@@ -29,7 +29,7 @@ Azure Sentinel é construído em cima de um espaço de trabalho Log Analytics. V
 
 Você pode obter o benefício total da experiência Azure Sentinel ao usar um único espaço de trabalho. Mesmo assim, existem algumas circunstâncias que podem exigir que você tenha vários espaços de trabalho. O quadro que se segue enumera algumas destas situações e, quando possível, sugere como a exigência pode ser satisfeita com um único espaço de trabalho:
 
-| Requisito | Description | Formas de reduzir a contagem de espaço de trabalho |
+| Requisito | Descrição | Formas de reduzir a contagem de espaço de trabalho |
 |-------------|-------------|--------------------------------|
 | Soberania e conformidade regulamentar | Um espaço de trabalho está ligado a uma região específica. Se os dados tão devem ser mantidos em [diferentes geografias Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para satisfazer os requisitos regulamentares, devem ser divididos em espaços de trabalho separados. |  |
 | Propriedade de dados | Os limites da propriedade dos dados, por exemplo, por subsidiárias ou empresas afiliadas, são melhor delineados utilizando espaços de trabalho separados. |  |
@@ -103,7 +103,7 @@ Em seguida, pode escrever uma consulta em ambos os espaços de trabalho, começa
 
 Os livros de trabalho podem fornecer consultas de espaço de trabalho transversal num dos três métodos, cada um dos quais atende a diferentes níveis de experiência do utilizador final:
 
-| Método  | Description | Quando devo usar? |
+| Método  | Descrição | Quando devo usar? |
 |---------|-------------|--------------------|
 | Escreva consultas de espaço cross-work | O criador do livro pode escrever consultas de espaço de trabalho cruzada (descrito acima) no livro. | Esta opção permite que os criadores de livros de trabalho protejam o utilizador inteiramente da estrutura do espaço de trabalho. |
 | Adicione um seletor de espaço de trabalho ao livro | O criador do livro pode implementar um seletor de espaço de trabalho como parte do livro, como descrito [aqui.](https://techcommunity.microsoft.com/t5/azure-sentinel/making-your-azure-sentinel-workbooks-multi-tenant-or-multi/ba-p/1402357) | Esta opção proporciona ao utilizador o controlo sobre os espaços de trabalho mostrados pelo livro, através de uma caixa de entrega fácil de usar. |
@@ -131,7 +131,7 @@ Como mencionado acima, em muitos cenários, os diferentes espaços de trabalho A
 
 Ao utilizar o Farol Azure, recomenda-se criar um grupo para cada papel de Azure Sentinel e delegar permissões de cada inquilino para esses grupos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você descobriu como as capacidades de Azure Sentinel podem ser estendidas em vários espaços de trabalho e inquilinos. Para obter orientações práticas sobre a implementação da arquitetura cross-workspace de Azure Sentinel, consulte os seguintes artigos:
 
 - Aprenda a [trabalhar com vários inquilinos](./multiple-tenants-service-providers.md) em Azure Sentinel, usando o Farol de Azure.

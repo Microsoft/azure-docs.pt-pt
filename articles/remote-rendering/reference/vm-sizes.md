@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84810209"
 ---
 # <a name="vm-sizes"></a>Tamanhos de VM
@@ -82,7 +82,7 @@ Existem duas formas de determinar o número de polígonos de um modelo ou cena q
 
 Para uma repartição detalhada dos preços de cada tipo de VM, consulte a página [de preços de renderização remota.](https://azure.microsoft.com/pricing/details/remote-rendering)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)
 * [Conversão de modelo](../how-tos/conversion/model-conversion.md)
 

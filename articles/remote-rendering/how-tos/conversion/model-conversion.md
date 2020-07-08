@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808616"
 ---
 # <a name="convert-models"></a>Converter modelos
@@ -53,7 +53,7 @@ Para as várias opções de conversão, consulte [este capítulo.](configure-mod
 - [Quickstart: Converter um modelo de renderização](../../quickstarts/convert-model.md) é uma introdução passo a passo como converter um modelo.
 - [Os scripts Exemplo PowerShell](../../samples/powershell-example-scripts.md), que demonstram a utilização do serviço de conversão, podem ser encontrados no [repositório de amostras ARR](https://github.com/Azure/azure-remote-rendering) na pasta *Scripts.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)

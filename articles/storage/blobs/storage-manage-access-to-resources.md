@@ -10,10 +10,10 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: 61f27d81cda2e57eb5730016dcc22252508fdd01
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84809008"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
@@ -171,7 +171,7 @@ public static void DownloadBlobAnonymously()
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autorizar o acesso ao Armazenamento Azure](../common/storage-auth.md)
 - [Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)

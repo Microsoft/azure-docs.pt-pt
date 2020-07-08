@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 152f3c3254ab01c8aa61acd12c39bd98c8f55038
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808043"
 ---
 # <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configure o Serviço de Aplicações com Gateway de Aplicação usando o PowerShell
@@ -164,6 +164,6 @@ As aplicações web implementadas nestes exemplos utilizam endereços IP públic
 
 Uma forma de restringir o acesso às suas aplicações web é utilizar [as restrições estáticas ip do Azure App Service.](../app-service/app-service-ip-restrictions.md) Por exemplo, pode restringir a aplicação web para que apenas receba tráfego a partir do gateway da aplicação. Utilize a funcionalidade de restrição IP do serviço de aplicações para listar o gateway de aplicações VIP como o único endereço com acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de Aplicação com o PowerShell](redirect-overview.md).

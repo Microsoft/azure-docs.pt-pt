@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808715"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um equilibrador de carga externo para outra região utilizando o portal Azure
@@ -409,7 +409,7 @@ Se pretender descartar o IP público-alvo e o equilibrador de carga externo, eli
 
 Para comprometer as alterações e completar o movimento do equilibrador de carga público e externo, elimine a fonte de IP público e o equilibrador de carga externo ou grupo de recursos. Para tal, selecione o grupo de recursos do seu painel de instrumentos no portal e, em seguida, **selecione Delete** no topo de cada página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você moveu um equilibrador de carga externa Azure de uma região para outra e limpou os recursos de origem. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

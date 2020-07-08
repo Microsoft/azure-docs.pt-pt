@@ -11,10 +11,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807648"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure a proteção avançada de ameaças para o armazenamento de Azure
@@ -125,7 +125,7 @@ Pode rever e gerir os seus atuais alertas de segurança a partir do azulejo de [
 
 Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Para obter uma lista de alertas para o Armazenamento Azure, consulte a secção **de Armazenamento** na [proteção de ameaças para serviços de dados no Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [Registos em contas de Armazenamento Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 * Saiba mais sobre [o Azure Security Center](../../security-center/security-center-intro.md)

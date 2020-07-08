@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808042"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configure o TLS de ponta a ponta utilizando o Gateway de Aplicação com o portal
@@ -25,7 +25,7 @@ Este artigo descreve como usar o portal Azure para configurar a encriptação de
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para configurar o TLS de ponta a ponta com um gateway de aplicação, precisa de um certificado para o gateway. São também necessários certificados para os servidores de back-end. O certificado gateway é utilizado para obter uma chave simétrica em conformidade com a especificação do protocolo TLS. A chave simétrica é então usada para encriptar e desencriptar o tráfego enviado para o portal. 
 
@@ -121,7 +121,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
 8. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure](./tutorial-manage-web-traffic-cli.md)

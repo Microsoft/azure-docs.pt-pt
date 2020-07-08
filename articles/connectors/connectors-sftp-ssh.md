@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 06/17/2020
 tags: connectors
 ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807752"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere ficheiros SFTP utilizando apps SSH e Azure Logic
+# <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
 Para automatizar tarefas que monitorizem, criem, enviem e recebam ficheiros num servidor [de Protocolo de Transferência de Ficheiros Seguro (SFTP),](https://www.ssh.com/ssh/sftp/) utilizando o protocolo Secure Shell [(SSH),](https://www.ssh.com/ssh/protocol/) pode construir e automatizar fluxos de trabalho de integração utilizando apps Azure Logic e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável.
 
@@ -51,7 +51,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | No | Não aplicável |
+  | **Ficheiro de cópia** | Não | Não aplicável |
   | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
@@ -62,7 +62,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | No | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -108,7 +108,7 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
 
 * A aplicação lógica onde pretende aceder à sua conta SFTP. Para começar com um gatilho SFTP-SSH, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação SFTP-SSH, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **recorrência.**
 
-## <a name="how-sftp-ssh-triggers-work"></a>Como o SFTP-SSH desencadeia o funcionaamento
+## <a name="how-sftp-ssh-triggers-work"></a>Como os acionadores do SFTP-SSH funcionam
 
 A SFTP-SSH desencadeia o trabalho através da sondagem do sistema de ficheiros SFTP e à procura de qualquer ficheiro que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o tempo de tempo quando os ficheiros mudam. Nestes casos, tem de desativar esta funcionalidade para que o seu gatilho possa funcionar. Aqui estão algumas configurações comuns:
 
@@ -259,6 +259,6 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

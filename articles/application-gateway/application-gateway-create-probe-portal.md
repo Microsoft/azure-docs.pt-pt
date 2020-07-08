@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808223"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para o Application Gateway utilizando o portal
@@ -24,7 +24,7 @@ ms.locfileid: "84808223"
 
 Neste artigo, você adiciona uma sonda de saúde personalizada a uma porta de entrada de aplicação existente através do portal Azure. Utilizando as sondas de saúde, o Azure Application Gateway monitoriza a saúde dos recursos na piscina traseira.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se ainda não tiver um gateway de aplicações, visite [Criar um Gateway de Aplicação](application-gateway-create-gateway-portal.md) para criar uma porta de aplicação para trabalhar.
 
@@ -119,7 +119,7 @@ Agora que a sonda foi criada, é hora de adicioná-la ao portal. As definições
 2. Na página de definições de **configurações do AppGatewayBackEndHttpSettings,** verifique a caixa de verificação **da sonda personalizada Use** e escolha a sonda criada na secção ['Criar'](#createprobe) na secção **de sonda personalizada.**
    Quando estiver concluído, clique em **Guardar** e as definições são aplicadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja a saúde dos recursos de backend como determinado pela sonda utilizando a [visão de saúde backend](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
 

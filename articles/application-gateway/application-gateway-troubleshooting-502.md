@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808147"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway incorreto no Gateway de Aplicação
@@ -82,7 +82,7 @@ Quando uma instância de gateway de aplicação é a provisionada, configura aut
 
 A tabela a seguir lista os valores associados à sonda de saúde padrão:
 
-| Propriedade sonda | Valor | Description |
+| Propriedade sonda | Valor | Descrição |
 | --- | --- | --- |
 | URL da sonda |`http://127.0.0.1/` |Caminho url |
 | Intervalo |30 |Intervalo da sonda em segundos |
@@ -106,7 +106,7 @@ As sondas de saúde personalizadas permitem flexibilidade adicional ao comportam
 
 São adicionadas as seguintes propriedades adicionais:
 
-| Propriedade sonda | Description |
+| Propriedade sonda | Descrição |
 | --- | --- |
 | Name |O nome da sonda. Este nome é utilizado para se referir à sonda nas definições HTTP de fundo. |
 | Protocolo |Protocolo usado para enviar a sonda. A sonda utiliza o protocolo definido nas definições HTTP de back-end |
@@ -192,7 +192,7 @@ Se todas as instâncias do BackendAddressPool não forem saudáveis, então o ga
 
 Certifique-se de que as ocorrências são saudáveis e que a aplicação está devidamente configurada. Verifique se as instâncias de back-end podem responder a um ping de outro VM no mesmo VNet. Se configurado com um ponto final público, certifique-se de que um pedido de navegador para a aplicação web é útil.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
 

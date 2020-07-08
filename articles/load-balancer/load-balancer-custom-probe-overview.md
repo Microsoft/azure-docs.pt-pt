@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84809413"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
@@ -260,7 +260,7 @@ O Balancer de Carga Pública Básica expõe o estado da sonda de saúde resumido
 - As sondas HTTPS não suportam a autenticação mútua com um certificado de cliente.
 - Deve assumir que as sondas de saúde falharão quando os picos de tempo TCP estiverem ativados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - [Começar a criar um balanceador de carga pública em Resource Manager utilizando o PowerShell](quickstart-create-standard-load-balancer-powershell.md)
