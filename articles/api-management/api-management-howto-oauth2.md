@@ -1,7 +1,7 @@
 ---
-title: Autorizar contas de desenvolvimento usando OAuth 2.0 na Gestão API
+title: Autorizar contas de programadores utilizando OAuth 2.0 em Gestão de API
 titleSuffix: Azure API Management
-description: Saiba como autorizar utilizadores que utilizem o OAuth 2.0 na Gestão API.
+description: Saiba como autorizar os utilizadores a utilizarem o OAuth 2.0 em Gestão API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -14,93 +14,92 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430681"
 ---
-# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvimento utilizando o OAuth 2.0 na Azure API Management
+# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programadores utilizando o OAuth 2.0 na Azure API Management
 
-Muitas APIs suportam o [OAuth 2.0](https://oauth.net/2/) para garantir a API e garantir que apenas os utilizadores válidos têm acesso, e só podem aceder a recursos a que têm direito. Para utilizar a consola interativa de desenvolvimento da Azure API Management com tais APIs, o serviço permite configurar a sua instância de serviço para trabalhar com a sua API Ativada OAuth 2.0.
+Muitas APIs suportam [OAuth 2.0](https://oauth.net/2/) para garantir a API e garantir que apenas utilizadores válidos têm acesso, e só podem aceder aos recursos a que têm direito. Para utilizar a consola interativa de desenvolvimento da Azure API Management com tais APIs, o serviço permite-lhe configurar a sua instância de serviço para trabalhar com a sua API ativada pela OAuth 2.0.
 
 > [!IMPORTANT]
-> A autorização OAuth 2.0 ainda não está disponível na consola interativa do novo portal de desenvolvimento.
+> A autorização OAuth 2.0 ainda não se encontra disponível na consola interativa do novo portal de desenvolvimento.
 
 ## <a name="prerequisites"></a><a name="prerequisites"> </a>Pré-requisitos
 
-Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API para utilizar a autorização OAuth 2.0 para contas de desenvolvedor, mas não lhe mostra como configurar um fornecedor OAuth 2.0. A configuração para cada fornecedor OAuth 2.0 é diferente, embora os passos sejam semelhantes, e as peças de informação necessárias utilizadas na configuração do OAuth 2.0 na sua instância de serviço de Gestão API são as mesmas. Este tópico apresenta exemplos usando o Azure Ative Directory como fornecedor oAuth 2.0.
+Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API para utilizar a autorização OAuth 2.0 para contas de programadores, mas não mostra como configurar um provedor OAuth 2.0. A configuração para cada provedor OAuth 2.0 é diferente, embora os passos sejam semelhantes, e as peças de informação necessárias utilizadas na configuração da OAuth 2.0 na sua instância de serviço de API Management são as mesmas. Este tópico mostra exemplos usando o Azure Ative Directory como fornecedor OAuth 2.0.
 
 > [!NOTE]
-> Para obter mais informações sobre a configuração do OAuth 2.0 utilizando o Diretório Ativo Do Azure, consulte a amostra [WebApp-GraphAPI-DotNet.][WebApp-GraphAPI-DotNet]
+> Para obter mais informações sobre a configuração do OAuth 2.0 utilizando o Azure Ative Directory, consulte a amostra [WebApp-GraphAPI-DotNet.][WebApp-GraphAPI-DotNet]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="configure-an-oauth-20-authorization-server-in-api-management"></a><a name="step1"> </a>Configure um servidor de autorização OAuth 2.0 na Gestão API
+## <a name="configure-an-oauth-20-authorization-server-in-api-management"></a><a name="step1"> </a>Configurar um servidor de autorização OAuth 2.0 na Gestão da API
 
 > [!NOTE]
-> Se ainda não criou uma instância de serviço de Gestão API, consulte Criar uma instância de serviço de [Gestão API][Create an API Management service instance].
+> Se ainda não criou uma instância de serviço de Gestão API, consulte [criar uma instância de serviço de Gestão API.][Create an API Management service instance]
 
-1. Clique no separador OAuth 2.0 no menu à esquerda e clique em **+Add**.
+1. Clique no separador OAuth 2.0 no menu à esquerda e clique em **+Adicionar**.
 
     ![Menu OAuth 2.0](./media/api-management-howto-oauth2/oauth-01.png)
 
 2. Introduza um nome e uma descrição opcional nos campos **Nome** e **Descrição.**
 
     > [!NOTE]
-    > Estes campos são utilizados para identificar o servidor de autorização OAuth 2.0 dentro da atual instância de serviço de Gestão API e os seus valores não provêm do servidor OAuth 2.0.
+    > Estes campos são utilizados para identificar o servidor de autorização OAuth 2.0 dentro da atual instância de serviço de Gestão da API e os seus valores não provêm do servidor OAuth 2.0.
 
-3. Insira o URL da página de **registo do Cliente**. Esta página é onde os utilizadores podem criar e gerir as suas contas, e varia consoante o provedor OAuth 2.0 utilizado. O URL da página de **registo do Cliente** aponta para a página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam a gestão de contas do utilizador. Algumas organizações não configuram ou utilizam esta funcionalidade mesmo que o fornecedor OAuth 2.0 a suporte. Se o seu fornecedor OAuth 2.0 não tiver a gestão do utilizador das contas configuradas, introduza `https://placeholder.contoso.com`aqui um URL de espaço reservado, como o URL da sua empresa, ou um URL como .
+3. Insira o URL da **página de registo do Cliente.** Esta página é onde os utilizadores podem criar e gerir as suas contas, e varia consoante o provedor OAuth 2.0 utilizado. O URL da **página de registo** do Cliente aponta para a página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam a gestão de contas dos utilizadores. Algumas organizações não configuram ou utilizam esta funcionalidade mesmo que o provedor OAuth 2.0 a suporte. Se o seu fornecedor OAuth 2.0 não tiver a gestão do utilizador das contas configuradas, insira aqui um URL de espaços reservado, como o URL da sua empresa, ou um URL como `https://placeholder.contoso.com` .
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. A secção seguinte do formulário contém os tipos de **subvenção de autorização,** URL de ponto final de **autorização,** e definições de método de pedido de **autorização.**
+4. A secção seguinte do formulário contém os tipos de **concessão**de autorização, **URL de ponto final de autorização**e definições do método de pedido de **autorização.**
 
-    Especifique os tipos de **subvenção** de autorização verificando os tipos pretendidos. **O código** de autorização é especificado por defeito.
+    Especifique os **tipos de concessão de autorização** verificando os tipos pretendidos. **O código de autorização** é especificado por predefinição.
 
-    Introduza o URL do **ponto final**da Autorização . Para o Azure Ative Directory, este URL será `<tenant_id>` semelhante ao seguinte URL, onde é substituído pela identificação do seu inquilino Azure AD.
+    Introduza o **URL do ponto final de autorização**. Para o Azure Ative Directory, este URL será semelhante ao seguinte URL, onde `<tenant_id>` é substituído pelo ID do seu inquilino AZure AD.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
-    O método de pedido de **autorização** especifica como o pedido de autorização é enviado para o servidor OAuth 2.0. Por predefinição é selecionado **O GET.**
+    O **método de pedido de autorização** especifica como o pedido de autorização é enviado para o servidor OAuth 2.0. Por predefinição, **o GET** é selecionado.
 
-5. Em seguida, **TOKen endpoint URL,** métodos de **autenticação do cliente,** Método de **envio de fichas** de acesso e **âmbito padrão** devem ser especificados.
+5. Em seguida, **URL de ponto final token,** **métodos de autenticação do cliente,** **método de envio de token** de acesso e **âmbito padrão** devem ser especificados.
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Para um servidor Azure Ative Directory OAuth 2.0, o URL de `<TenantID>` ponto final `yourapp.onmicrosoft.com` **token** terá o seguinte formato, onde tem o formato de .
+    Para um servidor OAuth 2.0 do Azure Ative Directory, o URL do **ponto final token** terá o seguinte formato, onde `<TenantID>` tem o formato de `yourapp.onmicrosoft.com` .
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    A definição padrão para métodos de **autenticação do Cliente** é **Básica,** e o método de envio de **fichas** de acesso é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Predefinido**.
+    A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e **o método de envio de ficha de acesso** é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão**.
 
-6. A secção **de credenciais do Cliente** contém o ID do **Cliente** e o segredo do **Cliente,** que são obtidos durante o processo de criação e configuração do seu servidor OAuth 2.0. Uma vez especificado o ID do **Cliente** e o segredo do **Cliente,** gera-se a **redirect_uri** para o código de **autorização.** Este URI é utilizado para configurar o URL de resposta na configuração do servidor OAuth 2.0.
+6. A secção **de credenciais do Cliente** contém o **ID** do Cliente e o **segredo do Cliente,** que são obtidos durante o processo de criação e configuração do seu servidor OAuth 2.0. Uma vez especificado o **ID do Cliente** e **o segredo do Cliente,** o **redirect_uri** para o código **de autorização** é gerado. Este URI é utilizado para configurar o URL de resposta na configuração do servidor OAuth 2.0.
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Se os tipos de **concessão** de autorização forem definidos para a **palavra-passe do proprietário do Recurso,** a secção de **credenciais** de senha do proprietário do Recurso é usada para especificar essas credenciais; caso contrário, pode deixá-lo em branco.
+    Se **os tipos de concessão de autorização** forem definidos como **palavra-passe do proprietário do recurso,** a secção **de credenciais de senha do proprietário de recursos** é utilizada para especificar essas credenciais; caso contrário, pode deixá-lo em branco.
 
-    Assim que o formulário estiver completo, clique em **Criar** para salvar a configuração do servidor de autorização API Management OAuth 2.0. Uma vez que a configuração do servidor é guardada, pode configurar APIs para utilizar esta configuração, como mostrado na secção seguinte.
+    Assim que o formulário estiver completo, clique em **Criar** para guardar a configuração do servidor de autorização API Management OAuth 2.0. Uma vez guardada a configuração do servidor, pode configurar APIs para utilizar esta configuração, como mostrado na secção seguinte.
 
-## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Configure uma API para utilizar a autorização de utilizador oAuth 2.0
+## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Configurar uma API para utilizar a autorização do utilizador OAuth 2.0
 
-1. Clique em **APIs** no menu **de Gestão API** à esquerda.
+1. Clique **em APIs** a partir do menu **API Management** à esquerda.
 
     ![OAuth 2.0 APIs](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Clique no nome da API desejada e clique em **Definições**. Percorra a secção de **Segurança** e, em seguida, verifique a caixa para **OAuth 2.0**.
+2. Clique no nome da API desejada e clique em **Definições**. Percorra a secção **de Segurança** e, em seguida, verifique a caixa para **OAuth 2.0**.
 
     ![Definições OAuth 2.0](./media/api-management-howto-oauth2/oauth-06.png)
 
-3. Selecione o servidor de **Autorização** desejado a partir da lista de lançamentos e clique em **Guardar**.
+3. Selecione o **servidor de Autorização** pretendido da lista de drop-down e clique em **Guardar**.
 
     ![Definições OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Portal de desenvolvimento legado - teste a autorização de utilizador OAuth 2.0
+## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Legacy developer portal - teste a autorização do utilizador OAuth 2.0
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Depois de configurar o seu servidor de autorização OAuth 2.0 e configurar a Sua API para utilizar esse servidor, pode testá-lo indo ao Portal do Desenvolvimento e chamando uma API. Clique no **portal developer (legado)** no menu superior da sua página de **visão geral** da instância de Gestão API Azure.
+Uma vez configurado o seu servidor de autorização OAuth 2.0 e configurado a sua API para usar esse servidor, pode testá-lo indo para o Portal do Desenvolvedor e chamando uma API. Clique no **portal developer (legado)** no menu superior a partir da página de visão geral da sua página **de visão geral** da azure API Management.
 
 Clique em **APIs** no menu superior e selecione **Echo API**.
 
@@ -109,26 +108,26 @@ Clique em **APIs** no menu superior e selecione **Echo API**.
 > [!NOTE]
 > Se tiver apenas uma API configurada ou visível para a sua conta, clicar em APIs leva-o diretamente para as operações dessa API.
 
-Selecione a operação **GET Resource,** clique em **Open Console**e, em seguida, selecione código **de autorização** a partir da queda.
+Selecione a operação **de recurso GET,** clique em **Abrir Consola**e, em seguida, selecione código de **autorização** a partir do drop-down.
 
 ![Abrir consola][api-management-open-console]
 
-Quando o código de **autorização** é selecionado, é apresentada uma janela pop-up com a forma de inscrição do fornecedor OAuth 2.0. Neste exemplo, o formulário de entrada é fornecido pelo Azure Ative Directory.
+Quando o **código de autorização** é selecionado, é apresentada uma janela pop-up com a forma de inscrição do provedor OAuth 2.0. Neste exemplo, o formulário de inscrição é fornecido pela Azure Ative Directory.
 
 > [!NOTE]
-> Se tiver pop-ups desativados, será solicitado a os ativar pelo navegador. Depois de os ativar, selecione novamente **o código de autorização** e será apresentado o formulário de inscrição.
+> Se tiver pop-ups desativados, será solicitado para os ativar pelo navegador. Depois de os ativar, selecione novamente o **código de autorização** e o formulário de inscrição será apresentado.
 
 ![Iniciar sessão][api-management-oauth2-signin]
 
-Uma vez assinado, os **cabeçalhos do** `Authorization : Bearer` Pedido são preenchidos com um cabeçalho que autoriza o pedido.
+Uma vez que tenha assinado, os **cabeçalhos do Pedido** são preenchidos com um `Authorization : Bearer` cabeçalho que autoriza o pedido.
 
-![Peça ficha cabeçalho de pedido][api-management-request-header-token]
+![Pedido de sinal de cabeçalho][api-management-request-header-token]
 
-Neste ponto pode configurar os valores desejados para os restantes parâmetros e submeter o pedido.
+Neste ponto pode configurar os valores desejados para os parâmetros restantes, e submeter o pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre a utilização da OAuth 2.0 e da API Management, consulte o seguinte vídeo e [artigo](api-management-howto-protect-backend-with-aad.md)de acompanhamento.
+Para obter mais informações sobre a utilização da OAuth 2.0 e da API Management, consulte o seguinte vídeo e [artigo](api-management-howto-protect-backend-with-aad.md)de acompanhamento .
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png

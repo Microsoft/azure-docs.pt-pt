@@ -1,6 +1,6 @@
 ---
-title: MapReduce com Apache Hadoop no HDInsight
-description: Saiba como executar apache mapReduce empregos em Apache Hadoop em clusters HDInsight.
+title: MapReduce com Apache Hadoop em HDInsight
+description: Aprenda a gerir os trabalhos apache mapreduce em Apache Hadoop em clusters HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,24 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435710"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight
 
-Saiba como executar mapReduce empregos em clusters HDInsight.
+Aprenda a executar trabalhos mapReduce em clusters HDInsight.
 
 ## <a name="example-data"></a>Dados de exemplo
 
-O HDInsight fornece vários conjuntos de dados `/example/data` `/HdiSamples` de exemplo, que são armazenados no e no diretório. Estes diretórios estão no armazenamento padrão para o seu cluster. Neste documento, usamos `/example/data/gutenberg/davinci.txt` o ficheiro. Este ficheiro contém os cadernos de Leonardo da Vinci.
+O HDInsight fornece vários conjuntos de dados de exemplo, que são armazenados no diretório e no `/example/data` `/HdiSamples` diretório. Estes diretórios estão no armazenamento padrão para o seu cluster. Neste documento, usamos o `/example/data/gutenberg/davinci.txt` ficheiro. Este ficheiro contém os cadernos de Leonardo da Vinci.
 
 ## <a name="example-mapreduce"></a>Exemplo MapReduce
 
-Um exemplo MapReduce aplicação de contagem de palavras está incluído com o seu cluster HDInsight. Este exemplo está `/example/jars/hadoop-mapreduce-examples.jar` localizado no armazenamento predefinido para o seu cluster.
+Um exemplo da aplicação de contagem de palavras MapReduce está incluído com o seu cluster HDInsight. Este exemplo `/example/jars/hadoop-mapreduce-examples.jar` encontra-se no armazenamento predefinido para o seu cluster.
 
-O seguinte código Java é a fonte da `hadoop-mapreduce-examples.jar` aplicação MapReduce contida no ficheiro:
+O seguinte código Java é a fonte da aplicação MapReduce contida no `hadoop-mapreduce-examples.jar` ficheiro:
 
 ```java
 package org.apache.hadoop.examples;
@@ -101,22 +100,22 @@ public class WordCount {
 }
 ```
 
-Para obter instruções para escrever as suas próprias aplicações MapReduce, consulte [Desenvolver aplicações Java MapReduce para HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
+Para obter instruções para escrever as suas próprias aplicações MapReduce, consulte [develop Java MapReduce applications for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
 
 ## <a name="run-the-mapreduce"></a>Executar o MapReduce
 
-O HDInsight pode executar trabalhos da HiveQL utilizando vários métodos. Use a tabela seguinte para decidir qual o método certo para si e, em seguida, siga o link para uma passagem.
+HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a seguinte tabela para decidir qual o método certo para si e, em seguida, siga o link para uma passagem.
 
-| **Use isto...** | **... para fazer isso** |  ... deste **sistema operativo cliente** |
+| **Use isto...** | **... para fazer isto** |  ... deste **sistema operativo cliente** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use o comando Hadoop através **do SSH** |Linux, Unix, Mac OS X ou Windows |
-| [Caracol](apache-hadoop-use-mapreduce-curl.md) |Submeta o trabalho remotamente utilizando **o REST** |Linux, Unix, Mac OS X ou Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use o comando Hadoop através **de SSH** |Linux, Unix, Mac OS X ou Windows |
+| [Caracóis](apache-hadoop-use-mapreduce-curl.md) |Submeta o trabalho remotamente utilizando **REST** |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeta o trabalho remotamente utilizando **o Windows PowerShell**  |Windows |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre o trabalho com dados no HDInsight, consulte os seguintes documentos:
+Para saber mais sobre como trabalhar com os dados em HDInsight, consulte os seguintes documentos:
 
-* [Desenvolver java mapReduce programas para HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Desenvolver programas Java MapReduce para HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 * [Use a Colmeia Apache com HDInsight](./hdinsight-use-hive.md)

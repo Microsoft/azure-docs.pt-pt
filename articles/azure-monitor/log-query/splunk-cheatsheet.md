@@ -1,91 +1,90 @@
 ---
-title: Splunk para consulta de log Do Monitor Azure [ Splunk to Azure Monitor log consulta ] Microsoft Docs
-description: Ajuda para os utilizadores que estão familiarizados com splunk na aprendizagem de consultas de registo do Monitor Azure.
+title: Consulta de registo splunk para Azure Monitor Microsoft Docs
+description: Ajuda para utilizadores que estejam familiarizados com o Splunk na aprendizagem de consultas de registo do Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397751"
 ---
-# <a name="splunk-to-azure-monitor-log-query"></a>Splunk para consulta de log Do Monitor Azure
+# <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registo splunk para Azure Monitor
 
-Este artigo destina-se a ajudar os utilizadores que estão familiarizados com o Splunk a aprender a linguagem de consulta kusto a escrever consultas de registo no Monitor Azure. São feitas comparações diretas entre os dois para compreender as principais diferenças e também as semelhanças em que pode alavancar o seu conhecimento existente.
+Este artigo destina-se a ajudar os utilizadores que estão familiarizados com a Splunk a aprender a língua de consulta kusto para escrever consultas de log no Azure Monitor. São feitas comparações diretas entre os dois para compreender as principais diferenças e também semelhanças onde pode alavancar os seus conhecimentos existentes.
 
 ## <a name="structure-and-concepts"></a>Estrutura e conceitos
 
-A tabela seguinte compara conceitos e estruturas de dados entre os registos Splunk e Azure Monitor.
+A tabela a seguir compara conceitos e estruturas de dados entre os registos splunk e Azure Monitor.
 
  | Conceito  | Splunk | Azure Monitor |  Comentário
  | --- | --- | --- | ---
- | Unidade de implantação  | cluster |  cluster |  O Monitor Azure permite consultas arbitrárias de clusters cruzados. Splunk não. |
- | Caches de dados |  baldes  |  Políticas de caching e retenção |  Controla o período e o nível de cache para os dados. Esta definição impacta diretamente o desempenho das consultas e do custo da implantação. |
- | Partição lógica de dados  |  índice  |  base de dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem aos sindicatos e juntem-se a estas divisórias. |
- | Metadados estruturados de eventos | N/D | tabela |  A Splunk não tem o conceito exposto à linguagem de pesquisa dos metadados do evento. Os registos do Monitor Azure têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
+ | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias de clusters cruzados. Splunk não. |
+ | Caches de dados |  baldes  |  Política de caching e retenção |  Controla o período e o nível de caching para os dados. Esta definição impacta diretamente o desempenho das consultas e o custo da implantação. |
+ | Partição lógica de dados  |  índice  |  base de dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem aos sindicatos e juntam-se a estas divisórias. |
+ | Metadados de eventos estruturados | N/D | table |  Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de eventos. Os registos do Monitor Azure têm o conceito de tabela, que tem colunas. Cada instância do evento é mapeada para uma linha. |
  | Registo de dados | evento | linha |  A terminologia só muda. |
- | Atributo de registo de dados | campo |  coluna |  No Monitor Azure, este é predefinido como parte da estrutura da tabela. Em Splunk, cada evento tem o seu próprio conjunto de campos. |
- | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Monitor Azure são mais explícitos à medida que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com tipos de dados e um conjunto aproximadamente equivalente de tipos de dados, incluindo suporte JSON. |
- | Consulta e pesquisa  | pesquisar | consulta |  Os conceitos são essencialmente os mesmos entre o Monitor Azure e o Splunk. |
- | Tempo de ingestão de eventos | Tempo do sistema | ingestion_time() |  Em Splunk, cada evento obtém um carimbo de tempo do tempo que o evento foi indexado. No Monitor Azure, pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada através da função ingestion_time(). |
+ | Atributo de registo de dados | campo |  coluna |  No Azure Monitor, este é predefinido como parte da estrutura da mesa. Em Splunk, cada evento tem o seu próprio conjunto de campos. |
+ | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Monitor Azure são mais explícitos à medida que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com tipos de dados e um conjunto de tipos de dados aproximadamente equivalentes, incluindo suporte JSON. |
+ | Consulta e pesquisa  | pesquisar | consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
+ | Hora da ingestão de eventos | Tempo do sistema | ingestion_time() |  Em Splunk, cada evento obtém um relógio do sistema da época em que o evento foi indexado. No Azure Monitor, pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada através da função ingestion_time(). |
 
 ## <a name="functions"></a>Funções
 
-O quadro seguinte especifica funções no Monitor Azure que são equivalentes às funções Splunk.
+A tabela seguinte especifica funções no Monitor Azure que são equivalentes às funções splunk.
 
 |Splunk | Azure Monitor |Comentário
 |---|---|---
 |strcat | strcat()| (1) |
 |dividir  | split() | (1) |
 |if     | iff()   | (1) |
-|número | todouble()<br>tolong()<br>toint() | (1) |
-|superior<br>menor |toupper()<br>tolower()|(1) |
-| substituir | replace() | (1)<br> Note também `replace()` que, embora leve três parâmetros em ambos os produtos, os parâmetros são diferentes. |
-| substr | substring() | (1)<br>Note também que Splunk usa índices de base única. O Monitor Azure regista índices de base zero. |
+|tonumer | todouble()<br>tolong()<br>toint() | (1) |
+|superior<br>mais baixo |toupper()<br>tolower()|(1) |
+| substituir | replace() | (1)<br> Note também que, embora `replace()` tenha três parâmetros em ambos os produtos, os parâmetros são diferentes. |
+| substr | substring() | (1)<br>Note também que Splunk usa índices de uma base. O Monitor Azure regista índices baseados em zero. |
 | tolower |  tolower() | (1) |
-| toia | toupper() | (1) |
-| jogo | jogos regex |  (2)  |
-| regex | jogos regex | Em Splunk, `regex` é um operador. No Monitor Azure, é um operador relacional. |
+| toupper | toupper() | (1) |
+| combinar | corresponde ao regex |  (2)  |
+| regex | corresponde ao regex | Em Splunk, `regex` é um operador. No Azure Monitor, é um operador relacional. |
 | searchmatch | == | Em Splunk, `searchmatch` permite procurar a corda exata.
-| aleatório | rand()<br>rand(n) | A função de Splunk devolve um número de zero a 2<sup>31-1.</sup> O Azure Monitor devolve um número entre 0,0 e 1.0, ou se for fornecido um parâmetro, entre 0 e n-1.
+| aleatório | rand()<br>rand(n) | A função de Splunk devolve um número de zero a 2<sup>31</sup>-1. O Azure Monitor devolve um número entre 0,0 e 1.0, ou se for fornecido um parâmetro, entre 0 e n-1.
 | agora | now() | (1)
-| relative_time | totimespan() | (1)<br>No Monitor Azure, o equivalente da Splunk a relative_time (dataval, offsetVal) é dataVal + totimespan (offsetVal).<br>Por <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> exemplo, <code>...  &#124; extend myTime = now() - totimespan("1d")</code>torna-se .
+| relative_time | totimespan() | (1)<br>No Azure Monitor, o equivalente de Splunk a relative_time (datetimeVal, offsetVal) é datatimeVal + totimespan (offsetVal).<br>Por exemplo, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> torna-se <code>...  &#124; extend myTime = now() - totimespan("1d")</code> .
 
-(1) Em Splunk, a função `eval` é invocada com o operador. No Monitor Azure, é utilizado `extend` `project`como parte de ou .<br>(2) Em Splunk, a função `eval` é invocada com o operador. No Monitor Azure, pode ser `where` utilizado com o operador.
+(1) Em Splunk, a função é invocada com o `eval` operador. No Azure Monitor, é utilizado como parte `extend` ou `project` .<br>(2) Em Splunk, a função é invocada com o `eval` operador. No Azure Monitor, pode ser utilizado com o `where` operador.
 
 
 ## <a name="operators"></a>Operadores
 
-As seguintes secções dão exemplos da utilização de diferentes operadores entre o Splunk e o Monitor Azure.
+As seguintes secções dão exemplos de utilização de diferentes operadores entre o Splunk e o Azure Monitor.
 
 > [!NOTE]
-> Para efeitos do seguinte exemplo, a _regra_ do campo Splunk mapeia para uma mesa no Monitor Azure e os mapas padrão de carimbo de tempo de Splunk para a coluna Logs Analytics _ingestion_time()._
+> Para o seguinte exemplo, a _regra_ de campo splunk mapeia para uma tabela no Azure Monitor e os mapas de tempos padrão de Splunk para a coluna Logs Analytics _ingestion_time()._
 
 ### <a name="search"></a>Pesquisa
-Em Splunk, pode omiti-la a `search` palavra-chave e especificar uma corda não citada. No Monitor Azure deve iniciar `find`cada consulta com , uma corda não citada é um nome de coluna, e o valor de procura deve ser uma cadeia citada. 
+Em Splunk, pode omitir a `search` palavra-chave e especificar uma corda não citada. No Azure Monitor deve iniciar cada consulta com `find` , uma corda não citada é um nome de coluna, e o valor de procuração deve ser uma corda citada. 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **pesquisa** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| Splunk | **pesquisar** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
 | Azure Monitor | **encontrar** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filtro
-As consultas de registo do Monitor Azure partem de um conjunto de resultados tabular onde o filtro. Em Splunk, a filtragem é o funcionamento predefinido no índice atual. Também pode `where` utilizar o operador em Splunk, mas não é recomendado.
+### <a name="filter"></a>Filtrar
+As consultas de registo do Azure Monitor partem de um conjunto de resultados tabulares onde o filtro. Em Splunk, a filtragem é a operação predefinida no índice atual. Também pode utilizar `where` o operador em Splunk, mas não é recomendado.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **pesquisa** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
-| Azure Monitor | **onde onde** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
+| Splunk | **pesquisar** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| Azure Monitor | **onde** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
 
-### <a name="getting-n-eventsrows-for-inspection"></a>Obtenção n eventos/filas para inspeção 
-As consultas de registo `take` do Monitor Azure também suportam como pseudónimo para `limit`. Em Splunk, se os `head` resultados forem encomendados, devolverá os primeiros resultados n. No Monitor Azure, o limite não é encomendado, mas devolve as primeiras linhas n que são encontradas.
+### <a name="getting-n-eventsrows-for-inspection"></a>Obtenção de n eventos/linhas para inspeção 
+As consultas de registo do Azure Monitor também `take` suportam como `limit` pseudónimo. Em Splunk, se os resultados forem ordenados, `head` devolverá os primeiros n resultados. No Azure Monitor, o limite não é encomendado, mas devolve as primeiras linhas n que são encontradas.
 
 | |  | |
 |:---|:---|:---|
@@ -95,8 +94,8 @@ As consultas de registo `take` do Monitor Azure também suportam como pseudónim
 
 
 
-### <a name="getting-the-first-n-eventsrows-ordered-by-a-fieldcolumn"></a>Obter os primeiros eventos/linhas de n ordenadopor um campo/coluna
-Para os resultados inferiores, `tail`em Splunk utiliza-se . No Monitor Azure pode especificar `asc`a direção de encomenda com .
+### <a name="getting-the-first-n-eventsrows-ordered-by-a-fieldcolumn"></a>Obtenção dos primeiros eventos/linhas n ordenados por um campo/coluna
+Para obter resultados inferiores, em Splunk `tail` utilize. No Azure Monitor pode especificar a direção de encomenda com `asc` .
 
 | |  | |
 |:---|:---|:---|
@@ -107,8 +106,8 @@ Para os resultados inferiores, `tail`em Splunk utiliza-se . No Monitor Azure pod
 
 
 
-### <a name="extending-the-result-set-with-new-fieldscolumns"></a>Alargar o resultado definido com novos campos/colunas
-A Splunk `eval` também tem uma função, `eval` que não deve ser comparável com o operador. Tanto `eval` o operador da Splunk como o `extend` operador do Monitor Azure apenas suportam funções escalar e operadores aritméticos.
+### <a name="extending-the-result-set-with-new-fieldscolumns"></a>Alargamento do conjunto de resultados com novos campos/colunas
+Splunk também tem uma `eval` função, que não deve ser comparável com o `eval` operador. Tanto o `eval` operador em Splunk como o operador no `extend` Azure Monitor suportam apenas funções de escalar e operadores aritméticos.
 
 | |  | |
 |:---|:---|:---|
@@ -118,41 +117,41 @@ A Splunk `eval` também tem uma função, `eval` que não deve ser comparável c
 
 
 ### <a name="rename"></a>Mudar o Nome 
-O Monitor Azure utiliza o operador para mudar o `project-rename` nome de um campo. `project-rename`permite que a consulta aproveite quaisquer índices pré-construídos para um campo. A Splunk `rename` tem um operador para fazer o mesmo.
+O Azure Monitor utiliza o `project-rename` operador para mudar o nome de um campo. `project-rename`permite que a consulta tire partido de quaisquer índices pré-construídos para um campo. Splunk tem um `rename` operador para fazer o mesmo.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **renome** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **projeto-renome** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
+| Splunk | **mudar de nome** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
+| Azure Monitor | **projeto-renomeado** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 
 
 
-### <a name="format-resultsprojection"></a>Resultados do formato/projeção
-A Splunk não parece ter um `project-away`operador semelhante ao . Pode usar a UI para filtrar campos afastados.
+### <a name="format-resultsprojection"></a>Resultados do formato/Projeção
+Splunk não parece ter um operador semelhante a `project-away` . Pode utilizar a UI para filtrar campos afastados.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **tabela** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Azure Monitor | **projeto**<br>**projeto-longe** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Azure Monitor | **projeto**<br>**projeto-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
 
 ### <a name="aggregation"></a>Agregação
-Consulte as [agregações em consultas](aggregations.md) de registo do Monitor Azure para as diferentes funções de agregação.
+Consulte as [agregações em consultas de registo do Monitor Azure](aggregations.md) para as diferentes funções de agregação.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **estatísticas** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Azure Monitor | **resumo** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Splunk | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| Azure Monitor | **resumir** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
 
 ### <a name="join"></a>Associar
-Juntar-se em Splunk tem limitações significativas. O subquery tem um limite de 10000 resultados (definido no ficheiro de configuração de implementação), e há um número limitado de sabores de adesão.
+A join in Splunk tem limitações significativas. O subquery tem um limite de 10000 resultados (definido no ficheiro de configuração de implementação), e há um número limitado de sabores de junção.
 
 | |  | |
 |:---|:---|:---|
@@ -163,18 +162,18 @@ Juntar-se em Splunk tem limitações significativas. O subquery tem um limite de
 
 
 ### <a name="sort"></a>Ordenar
-Em Splunk, para ordenar em ordem `reverse` ascendente, deve utilizar o operador. O Azure Monitor também apoia a definição de onde colocar nulos, no início ou no final.
+Em Splunk, para ordenar por ordem ascendente, deve utilizar o `reverse` operador. O Azure Monitor também apoia a definição de onde colocar nulos, no início ou no fim.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **classificar** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
+| Splunk | **tipo** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
 | Azure Monitor | **ordem por** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
 | | |
 
 
 
-### <a name="multivalue-expand"></a>Expansão multivalorizar
-Trata-se de um operador semelhante tanto no Splunk como no Monitor Azure.
+### <a name="multivalue-expand"></a>Expansão multivalue
+Trata-se de um operador semelhante tanto no Splunk como no Azure Monitor.
 
 | |  | |
 |:---|:---|:---|
@@ -197,8 +196,8 @@ No Log Analytics no portal Azure, apenas a primeira coluna está exposta. Todas 
 
 
 
-### <a name="de-duplicate"></a>De-duplicado
-Pode utilizar `summarize arg_min()` para inverter a ordem de qual o registo é escolhido.
+### <a name="de-duplicate"></a>Des duplicado
+Em vez disso, pode utilizar `summarize arg_min()` para inverter a ordem de que o registo é escolhido.
 
 | |  | |
 |:---|:---|:---|
@@ -209,6 +208,6 @@ Pode utilizar `summarize arg_min()` para inverter a ordem de qual o registo é e
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Passe por uma lição sobre as consultas de registo de [escrita no Monitor Azure.](get-started-queries.md)
+- Passe por uma lição sobre as [consultas de registo de escrita no Azure Monitor](get-started-queries.md).

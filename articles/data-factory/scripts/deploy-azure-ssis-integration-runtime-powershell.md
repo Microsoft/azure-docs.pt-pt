@@ -1,6 +1,6 @@
 ---
-title: Implementar o tempo de execução de integração Azure SSIS utilizando o PowerShell
-description: Este script PowerShell cria um tempo de execução de integração Azure-SSIS que pode executar pacotes SSIS na nuvem.
+title: Implementar o tempo de integração do Azure SSIS utilizando o PowerShell
+description: Este script PowerShell cria um tempo de integração Azure-SSIS que pode executar pacotes SSIS na nuvem.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,15 +11,14 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74929810"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implemente o tempo de execução da integração Azure-SSIS
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar o tempo de execução da integração Azure-SSIS
 
-Este script powerShell de amostra cria um tempo de execução de integração Azure-SSIS que pode executar os seus pacotes SSIS em Azure.  
+Esta amostra O script PowerShell cria um tempo de integração Azure-SSIS que pode executar os seus pacotes SSIS em Azure.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +30,7 @@ Este script powerShell de amostra cria um tempo de execução de integração Az
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo:
+Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -50,14 +49,14 @@ Este script utiliza os seguintes comandos:
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar uma fábrica de dados. |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Cria um tempo de execução de integração Azure-SSIS que pode executar pacotes SSIS na nuvem |
-| [Início-AzDataFactoryV2IntegrationTempo decorrida](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Inicia o tempo de execução de integração Azure-SSIS. |
-| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Obtém informações sobre o tempo de execução da integração Azure-SSIS. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Cria um tempo de integração Azure-SSIS que pode executar pacotes SSIS na nuvem |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Inicia o tempo de integração Azure-SSIS. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Obtém informações sobre o tempo de integração do Azure-SSIS. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Amostras adicionais de script da Fábrica de Dados Azure PowerShell podem ser encontradas nas [amostras de PowerShell da Fábrica](../samples-powershell.md)de Dados Azure .
+Amostras adicionais de scripts powerShell da Fábrica de Dados Azure podem ser encontradas nas [amostras powerShell da Azure Data Factory](../samples-powershell.md).

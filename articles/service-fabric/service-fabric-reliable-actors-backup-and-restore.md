@@ -1,24 +1,23 @@
 ---
 title: Backup e restaurar atores de tecido de serviço Azure
-description: Aprenda a implementar backup e restaurar os seus atores Azure Service Fabric.
+description: Saiba como implementar backup e restaurar os seus atores Azure Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75370464"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauro de atores fiáveis
 
 > [!NOTE]
-> A Microsoft recomenda utilizar a [cópia de segurança periódica e restaurar](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar a cópia de segurança de dados de serviços fiáveis e atores fiáveis. 
+> A Microsoft recomenda a utilização [de backup periódico e restauro](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar a cópia de segurança de dados de serviços estatais fidedigtos e atores fiáveis. 
 > 
 
-No exemplo seguinte, um serviço de ator personalizado expõe um método para apoiar os dados `ActorService`do ator, tirando partido do ouvinte remoting já presente em:
+No exemplo seguinte, um serviço de ator personalizado expõe um método de apoio aos dados dos atores, tirando partido do ouvinte de remoting já presente em `ActorService` :
 
 ```csharp
 public interface IMyActorService : IService
@@ -94,7 +93,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-Neste exemplo, `IMyActorService` é um contrato de `IService` remoque implementa (C#) e `Service` `MyActorService`(Java), e é depois implementado por . Ao adicionar este contrato de `IMyActorService` remoing, os métodos estão agora `ActorServiceProxy`também disponíveis para um cliente através da criação de um proxy remoting via:
+Neste exemplo, `IMyActorService` é um contrato de remoing que implementa `IService` (C#) e `Service` (Java), e é então implementado por `MyActorService` . Ao adicionar este contrato de remoing, os métodos `IMyActorService` estão agora também disponíveis para um cliente, criando um proxy de remoting via `ActorServiceProxy` :
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -109,12 +108,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Para mais informações sobre atores fiáveis, leia os seguintes artigos:
-* [Gestão do Estado do ator](service-fabric-reliable-actors-state-management.md)
-* [Ciclo de vida do ator e recolha de lixo](service-fabric-reliable-actors-lifecycle.md)
+Para obter mais informações sobre atores fiáveis, leia os seguintes artigos:
+* [Gestão do estado do ator](service-fabric-reliable-actors-state-management.md)
+* [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de amostra .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código da amostra java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

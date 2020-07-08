@@ -1,19 +1,18 @@
 ---
 title: Pilha de comunicação WCF de serviços fiáveis
-description: A pilha de comunicações WCF incorporada no Service Fabric fornece comunicação WCF de serviço ao cliente para serviços fiáveis.
+description: A pilha de comunicação incorporada do WCF em Service Fabric fornece comunicação WCF de serviço ao cliente para serviços fiáveis.
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75433869"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicação baseada no WCF para Serviços Fiáveis
-O quadro de Serviços Fiáveis permite que os autores de serviços escolham a pilha de comunicação que pretendem utilizar para o seu serviço. Podem ligar a pilha de comunicação à sua escolha através do **ICommunicationListener** devolvido dos [métodos CreateServiceReplicaListeners ou CreateServiceInstanceListeners.](service-fabric-reliable-services-communication.md) O quadro fornece uma implementação da pilha de comunicação com base na Fundação de Comunicação do Windows (WCF) para autores de serviços que queiram utilizar a comunicação baseada no WCF.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicações baseada em WCF para serviços fiáveis
+O quadro de Serviços Fiáveis permite que os autores de serviços escolham a pilha de comunicação que querem usar para o seu serviço. Podem ligar a pilha de comunicação à sua escolha através dos **métodos ICommunicationListener** devolvidos dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners.](service-fabric-reliable-services-communication.md) O quadro fornece uma implementação da pilha de comunicação com base na Windows Communication Foundation (WCF) para autores de serviços que queiram utilizar comunicações baseadas em WCF.
 
 ## <a name="wcf-communication-listener"></a>Ouvinte de Comunicação WCF
 A implementação específica do **ICommunicationListener** é fornecida pela classe **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener.**
@@ -55,8 +54,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Escrever clientes para a pilha de comunicações wCF
-Para que os clientes de escrita comuniquem com os serviços utilizando o WCF, o quadro fornece **a WcfClientCommunicationFactory**, que é a implementação específica da WCF da [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Escrever clientes para a pilha de comunicação do WCF
+Para a escrita dos clientes para comunicar com os serviços utilizando o WCF, o quadro fornece **wcfClientCommunicationFactory,** que é a implementação específica do WCF da [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -68,7 +67,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-O canal de comunicação WCF pode ser acedido a partir do **WcfCommunicationClient** criado pela **WcfCommunicationClientFactory**.
+O canal de comunicação WCF pode ser acedido a **WcfCommunicationClientFactory**partir do **WcfCommunicationClientcientcory** .
 
 ```csharp
 
@@ -82,7 +81,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-O código do cliente pode usar a **WcfCommunicationClientFactory** juntamente com o **WcfCommunicationClient** que implementa o **ServicePartitionClient** para determinar o ponto final do serviço e comunicar com o serviço.
+O código do cliente pode utilizar o **WcfCommunicationClientFactory** juntamente com o **WcfCommunicationClient** que implementa **o ServicePartitionClient** para determinar o ponto final de serviço e comunicar com o serviço.
 
 ```csharp
 // Create binding
@@ -110,12 +109,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> O ServicePartitionResolver, default, assume que o cliente está a funcionar no mesmo cluster que o serviço. Se não for esse o caso, crie um objeto ServicePartitionResolver e passe nos pontos finais da ligação do cluster.
+> O ServicePartitionResolver predefinido assume que o cliente está a funcionar no mesmo cluster que o serviço. Se não for esse o caso, crie um objeto ServicePartitionResolver e passe nos pontos finais de ligação do cluster.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
-* [Chamada de procedimento remoto com serviços fiáveis remoting](service-fabric-reliable-services-communication-remoting.md)
+## <a name="next-steps"></a>Próximos passos
+* [Chamada de procedimento remoto com remoting de Serviços Fiáveis](service-fabric-reliable-services-communication-remoting.md)
 * [Web API com OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)
-* [Garantir a comunicação de serviços fiáveis](service-fabric-reliable-services-secure-communication-wcf.md)
+* [Assegurar a comunicação para serviços fiáveis](service-fabric-reliable-services-secure-communication-wcf.md)
 

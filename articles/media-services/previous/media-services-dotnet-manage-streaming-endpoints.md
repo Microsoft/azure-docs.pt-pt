@@ -1,5 +1,5 @@
 ---
-title: Gerencie os pontos finais de streaming com .NET SDK. | Microsoft Docs
+title: Gerir os pontos finais de streaming com .NET SDK. | Microsoft Docs
 description: Este artigo demonstra como gerir os pontos finais de streaming com o portal Azure.
 services: media-services
 documentationcenter: ''
@@ -16,35 +16,34 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74901279"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de streaming com .NET SDK  
 
 >[!NOTE]
->Certifique-se de rever o artigo sobre [visão geral.](media-services-streaming-endpoints-overview.md) Além disso, reveja [o StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Certifique-se de rever o artigo [geral.](media-services-streaming-endpoints-overview.md) Além disso, [reveja streamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-O código deste artigo mostra como fazer as seguintes tarefas utilizando o Azure Media Services .NET SDK:
+O código deste artigo mostra como fazer as seguintes tarefas utilizando os Azure Media Services .NET SDK:
 
-- Examine o ponto final de transmissão padrão.
+- Examine o ponto final de streaming predefinido.
 - Criar/adicionar novo ponto final de streaming.
 
-    Você pode querer ter vários pontos finais de streaming se você planeja ter cDNs diferentes ou um CDN e acesso direto.
+    É melhor ter vários pontos finais de streaming se pretender ter DIFERENTES CDNs ou um CDN e acesso direto.
 
     > [!NOTE]
-    > Só é cobrado quando o seu Streaming Endpoint está em estado de funcionamento.
+    > Só é cobrado quando o seu Streaming Endpoint está em funcionamento.
     
 - Atualize o ponto final de streaming.
     
-    Certifique-se de que liga para a função Atualização.
+    Certifique-se de chamar a função 'Atualização).).
 
 - Elimine o ponto final de streaming.
 
     >[!NOTE]
-    >O ponto final de transmissão predefinido não pode ser eliminado.
+    >O ponto final de streaming predefinido não pode ser eliminado.
 
 Para obter informações sobre como escalar o ponto final de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
@@ -143,7 +142,7 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

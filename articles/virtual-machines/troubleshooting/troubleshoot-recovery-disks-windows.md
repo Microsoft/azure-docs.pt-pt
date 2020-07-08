@@ -1,6 +1,6 @@
 ---
-title: Utilize um VM de resolução de problemas do Windows com a Azure PowerShell [ Microsoft Docs
-description: Saiba como resolver problemas com problemas com os problemas do Windows VM em Azure, ligando o disco OS a um VM de recuperação utilizando o Azure PowerShell
+title: Use um VM de resolução de problemas do Windows com Azure PowerShell Microsoft Docs
+description: Saiba como resolver problemas com o Windows VM em Azure ligando o disco OS a um VM de recuperação utilizando o Azure PowerShell
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,67 +13,66 @@ ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
 ms.openlocfilehash: 66cda98f272e7353b620059a731972714db585ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75374137"
 ---
-# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolução de problemas de um VM windows, ligando o disco OS a um VM de recuperação utilizando o Azure PowerShell
-Se a sua máquina virtual Windows (VM) em Azure encontrar um erro de arranque ou disco, poderá ter de executar passos de resolução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicação falhada que impede que o VM seja capaz de arrancar com sucesso. Este artigo detalha como utilizar o Azure PowerShell para ligar o disco a outro Windows VM para corrigir quaisquer erros e, em seguida, reparar o seu VM original. 
+# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolução de problemas de um VM do Windows, fixando o disco OS a um VM de recuperação utilizando a Azure PowerShell
+Se a sua máquina virtual Do Windows (VM) em Azure encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicação falhada que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o Azure PowerShell para ligar o disco a outro VM do Windows para corrigir eventuais erros e, em seguida, reparar o seu VM original. 
 
 > [!Important]
-> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido](../windows/managed-disks-overview.md). 
+> Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../windows/managed-disks-overview.md) 
 
  
 
 ## <a name="recovery-process-overview"></a>Descrição geral do processo de recuperação
-Agora podemos usar o Azure PowerShell para alterar o disco OS para um VM. Já não precisamos de apagar e recriar o VM.
+Agora podemos usar a Azure PowerShell para alterar o disco DE para um VM. Já não precisamos de apagar e recriar o VM.
 
 O processo de resolução de problemas é o seguinte:
 
 1. Pare o VM afetado.
-2. Crie uma imagem do Disco OS do VM.
+2. Crie uma imagem instantânea a partir do disco oss do VM.
 3. Crie um disco a partir do instantâneo do disco OS.
-4. Fixe o disco como um disco de dados a um VM de recuperação.
-5. Ligue-se ao VM de recuperação. Editar ficheiros ou executar quaisquer ferramentas para corrigir problemas no disco OS copiado.
-6. Desmontar e separar o disco da VM de recuperação.
-7. Altere o disco OS para o VM afetado.
+4. Anexar o disco como disco de dados a um VM de recuperação.
+5. Ligue-se ao VM de recuperação. Editar ficheiros ou executar quaisquer ferramentas para corrigir problemas no disco de SISTEMA copiado.
+6. Desmonte e retire o disco da recuperação VM.
+7. Altere o disco DE para o VM afetado.
 
-Pode utilizar os comandos de reparação vm para automatizar os passos 1, 2, 3, 4, 6 e 7. Para obter mais documentação e instruções, consulte [Reparar um VM do Windows utilizando os comandos de reparação](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)da Máquina Virtual Azure .
+Pode utilizar os comandos de reparação VM para automatizar os passos 1, 2, 3, 4, 6 e 7. Para obter mais documentação e instruções, consulte [reparar um VM do Windows utilizando os comandos de reparação da Máquina Virtual Azure](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Certifique-se de que tem [o mais recente Azure PowerShell](/powershell/azure/overview) instalado e iniciado sessão na sua subscrição:
+Certifique-se de que tem [o mais recente Azure PowerShell](/powershell/azure/overview) instalado e iniciado na sua subscrição:
 
 ```powershell
 Connect-AzAccount
 ```
 
-Nos seguintes exemplos, substitua os nomes dos parâmetros pelos seus próprios valores. 
+Nos exemplos seguintes, substitua os nomes dos parâmetros pelos seus próprios valores. 
 
 ## <a name="determine-boot-issues"></a>Determinar problemas de arranque
-Pode ver uma imagem do seu VM em Azure para ajudar a resolver problemas com a bota. Esta imagem pode ajudar a identificar por que um VM falha no arranque. O exemplo seguinte obtém a imagem `myVM` do Windows `myResourceGroup`VM nomeado no grupo de recursos chamado:
+Pode ver uma imagem do seu VM em Azure para ajudar a resolver problemas com a bota. Esta imagem pode ajudar a identificar por que um VM não é iniciado. O exemplo a seguir obtém a imagem do Windows VM nomeado `myVM` no grupo de recursos `myResourceGroup` denominado:
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
     -Name myVM -Windows -LocalPath C:\Users\ops\
 ```
 
-Reveja a imagem para determinar por que razão o VM está a falhar no arranque. Note quaisquer mensagens de erro específicas ou códigos de erro fornecidos.
+Reveja a imagem para determinar por que o VM está falhando no arranque. Note quaisquer mensagens de erro específicas ou códigos de erro fornecidos.
 
 ## <a name="stop-the-vm"></a>Parar a VM
 
-O exemplo que se segue `myVM` para o `myResourceGroup`VM nomeado pelo grupo de recursos denominado:
+O exemplo a seguir impede o VM nomeado `myVM` do grupo de recursos `myResourceGroup` denominado:
 
 ```powershell
 Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
-Espere até que o VM termine de apagar antes de passar para o próximo passo.
+Aguarde até que o VM termine de apagar antes de passar ao passo seguinte.
 
 
-## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Crie um instantâneo do Disco OS do VM
+## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Criar uma imagem instantânea a partir do disco oss do VM
 
-O exemplo seguinte cria `mySnapshot` um instantâneo com o nome do disco OS do VM chamado 'myVM'. 
+O exemplo a seguir cria um instantâneo com o nome `mySnapshot` do disco de SO do VM denominado 'myVM'. 
 
 ```powershell
 $resourceGroupName = 'myResourceGroup' 
@@ -99,11 +98,11 @@ New-AzSnapshot `
    -ResourceGroupName $resourceGroupName 
 ```
 
-Um instantâneo é uma cópia completa e só de leitura de um VHD. Não pode ser ligado a um VM. No próximo passo, criaremos um disco a partir deste instantâneo.
+Uma foto é uma cópia completa e só de leitura de um VHD. Não pode ser ligado a um VM. No próximo passo, criaremos um disco a partir deste instantâneo.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Criar um disco a partir do instantâneo
 
-Este script cria um disco `newOSDisk` gerido com `mysnapshot`o nome do instantâneo nomeado .  
+Este script cria um disco gerido com o nome `newOSDisk` a partir do instantâneo denominado `mysnapshot` .  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -140,14 +139,14 @@ $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -Cr
  
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
-Agora tem uma cópia do disco original do OS. Pode montar este disco noutro VM do Windows para fins de resolução de problemas.
+Agora tem uma cópia do disco original do SISTEMA. Pode montar este disco noutro VM do Windows para efeitos de resolução de problemas.
 
 ## <a name="attach-the-disk-to-another-windows-vm-for-troubleshooting"></a>Fixe o disco a outro VM do Windows para resolução de problemas
 
-Agora anexamos a cópia do disco osso original a um VM como um disco de dados. Este processo permite-lhe corrigir erros de configuração ou rever ficheiros de registo de aplicações ou sistemas adicionais no disco. O exemplo seguinte prende `newOSDisk` o disco nomeado `RecoveryVM`ao VM nomeado .
+Agora anexamos a cópia do disco de oss original a um VM como um disco de dados. Este processo permite-lhe corrigir erros de configuração ou rever ficheiros adicionais de aplicação ou registo do sistema no disco. O exemplo a seguir anexa o disco nomeado `newOSDisk` ao VM denominado `RecoveryVM` .
 
 > [!NOTE]
-> Para fixar o disco, a cópia do disco OS original e o VM de recuperação devem estar no mesmo local.
+> Para fixar o disco, a cópia do disco original de SO e o VM de recuperação devem estar no mesmo local.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -165,20 +164,20 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>Ligue-se ao VM de recuperação e corrija problemas no disco anexo
 
-1. RDP para a sua VM de recuperação usando as credenciais apropriadas. O exemplo seguinte descarrega o ficheiro de `RecoveryVM` ligação RDP `myResourceGroup`para o VM nomeado no grupo de recursos chamado , e descarrega-o para `C:\Users\ops\Documents`"
+1. RDP para a sua recuperação VM usando as credenciais apropriadas. O exemplo seguinte descarrega o ficheiro de conexão RDP para o VM nomeado `RecoveryVM` no grupo de recursos denominado , e `myResourceGroup` transfere-o para `C:\Users\ops\Documents` "
 
     ```powershell
     Get-AzRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
-2. O disco de dados deve ser automaticamente detetado e fixado. Consulte a lista de volumes anexados para determinar a letra de unidade da seguinte forma:
+2. O disco de dados deve ser automaticamente detetado e anexado. Consulte a lista de volumes anexos para determinar a letra de unidade da seguinte forma:
 
     ```powershell
     Get-Disk
     ```
 
-    A saída de exemplo seguinte mostra que o disco ligou um disco **2**. (Também pode `Get-Volume` usar para ver a letra de unidade):
+    A saída de exemplo a seguir mostra que o disco ligou um disco **2**. (Também pode usar `Get-Volume` para ver a letra de unidade):
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -189,18 +188,18 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
     2        newOSDisk                                  Healthy             Online       127 GB MBR
     ```
 
-Após a montagem da cópia do disco osso original, pode executar quaisquer passos de manutenção e resolução de problemas conforme necessário. Depois de corrigir esses problemas, avance para os passos seguintes.
+Depois de montada a cópia do disco sol original, pode efetuar quaisquer passos de manutenção e resolução de problemas conforme necessário. Depois de corrigir esses problemas, avance para os passos seguintes.
 
-## <a name="unmount-and-detach-original-os-disk"></a>Desmontar e desprender o disco original do OS
-Uma vez resolvidos os seus erros, desmonte e desmonta o disco existente do vM de recuperação. Não pode utilizar o disco com qualquer outro VM até que seja liberado o disco de aluguer do disco à VM de recuperação.
+## <a name="unmount-and-detach-original-os-disk"></a>Desmonte e desprete o disco de OS original
+Uma vez resolvidos os seus erros, desmonta e desmonta o disco existente do seu VM de recuperação. Não é possível utilizar o seu disco com qualquer outro VM até que o contrato de arrendamento que liga o disco ao VM de recuperação seja lançado.
 
-1. A partir da sua sessão de RDP, desmonte o disco de dados no seu VM de recuperação. Precisa do número do `Get-Disk` disco do cmdlet anterior. Em seguida, utilize `Set-Disk` para definir o disco como offline:
+1. A partir da sua sessão de PDR, desmonte o disco de dados no seu VM de recuperação. Precisa do número do disco do `Get-Disk` cmdlet anterior. Em seguida, use `Set-Disk` para definir o disco como offline:
 
     ```powershell
     Set-Disk -Number 2 -IsOffline $True
     ```
 
-    Confirme que o disco `Get-Disk` está agora definido como offline usando novamente. A saída de exemplo a seguir mostra que o disco está agora definido como offline:
+    Confirme que o disco está agora definido como offline `Get-Disk` novamente. A saída de exemplo a seguir mostra que o disco está agora definido como offline:
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -211,7 +210,7 @@ Uma vez resolvidos os seus erros, desmonte e desmonta o disco existente do vM de
     2        Msft Virtu...                                  Healthy             Offline      127 GB MBR
     ```
 
-2. Saia da sua sessão de RDP. A partir da sua sessão Azure PowerShell, retire o disco nomeado `newOSDisk` do VM denominado 'RecoveryVM'.
+2. Saia da sessão do PDR. Da sua sessão Azure PowerShell, remova o disco nomeado `newOSDisk` do VM denominado 'RecoveryVM'.
 
     ```powershell
     $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
@@ -219,11 +218,11 @@ Uma vez resolvidos os seus erros, desmonte e desmonta o disco existente do vM de
     Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
-## <a name="change-the-os-disk-for-the-affected-vm"></a>Alterar o disco OS para o VM afetado
+## <a name="change-the-os-disk-for-the-affected-vm"></a>Altere o disco DE para o VM afetado
 
 Pode utilizar o Azure PowerShell para trocar os discos OS. Não é preciso apagar e recriar o VM.
 
-Este exemplo para o `myVM` VM nomeado e `newOSDisk` atribui o disco nomeado como o novo disco OS. 
+Este exemplo para o nome VM `myVM` e atribui o disco nomeado como o novo disco `newOSDisk` OS. 
 
 ```powershell
 # Get the VM 
@@ -245,9 +244,9 @@ Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type
 Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
 
-## <a name="verify-and-enable-boot-diagnostics"></a>Verificar e ativar diagnósticos de arranque
+## <a name="verify-and-enable-boot-diagnostics"></a>Verifique e ative os diagnósticos de arranque
 
-O exemplo seguinte permite a extensão `myVMDeployed` de diagnóstico no `myResourceGroup`VM nomeado no grupo de recursos denominado:
+O exemplo a seguir permite a extensão de diagnóstico do VM nomeado `myVMDeployed` no grupo de recursos `myResourceGroup` denominado:
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
@@ -255,7 +254,7 @@ Set-AzVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Se tiver problemas de ligação ao seu VM, consulte [ligações RDP de Troubleshoot a um VM Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com o acesso a aplicações em execução no seu VM, consulte problemas de conectividade da [aplicação Troubleshoot num VM windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Próximos passos
+Se tiver problemas de ligação ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num VM do Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para mais informações sobre a utilização do Gestor de Recursos, consulte a [visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md).
+Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md).
