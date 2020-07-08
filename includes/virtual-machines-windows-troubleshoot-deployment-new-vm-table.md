@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 14abae6f6f72d724fffb1ccaa12f56fb6976f7a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184259"
 ---
-A tabela seguinte lista as possíveis combinações de upload e captura de imagens de Sistemas operativos (gen.) e especializadas (spec.) OS. As combinações que processam sem erros são indicadas por um Y, e as que vão lançar erros são indicadas por um N. As causas e resoluções para os diferentes erros que irá encontrar são dadas abaixo da tabela.
+A tabela que se segue lista as possíveis combinações de upload e captura de imagens de SISTEMA generalizadas (gen.) e especializadas (spec.) do WINDOWS. As combinações que irão processar sem erros são indicadas por um Y, e as que vão lançar erros são indicadas por um N. As causas e as resoluções para os diferentes erros que irá encontrar são dadas abaixo da tabela.
 
-| SO | Faça upload de especificações. | Faça upload gen. | Captar especificações. | Capture gen. |
+| SO | Enviar especificações. | O general de upload. | Especificação de captura. | Capturar o género. |
 | --- | --- | --- | --- | --- |
-| Windows gen. |N<sup>1</sup> |S |N<sup>3</sup> |S |
-| Especificação das janelas. |S |N<sup>2</sup> |S |N<sup>4</sup> |
+| O género windows. |N<sup>1</sup> |S |N<sup>3</sup> |S |
+| Especificação de janelas. |S |N<sup>2</sup> |S |N<sup>4</sup> |
 

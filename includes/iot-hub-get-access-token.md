@@ -5,16 +5,16 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70803011"
 ---
-## <a name="obtain-an-azure-resource-manager-token"></a>Obtenha um token Do Gestor de Recursos Azure
-O Azure Ative Directory deve autenticar todas as tarefas que executa em recursos utilizando o Gestor de Recursos Azure. O exemplo aqui apresentado utiliza a autenticação de senha, para outras abordagens ver [pedidos autenticados do Gestor][lnk-authenticate-arm]de Recursos Azure .
+## <a name="obtain-an-azure-resource-manager-token"></a>Obtenha um token Azure Resource Manager
+O Azure Ative Directory deve autenticar todas as tarefas que executa nos recursos utilizando o Gestor de Recursos Azure. O exemplo aqui mostrado utiliza a autenticação de palavra-passe, para outras abordagens ver [pedidos autenticadores do Gestor de Recursos Azure][lnk-authenticate-arm].
 
-1. Adicione o seguinte código ao método **Principal** em Program.cs para obter um símbolo da AD Azure utilizando o id de aplicação e a palavra-passe.
+1. Adicione o seguinte código ao método **Principal** em Program.cs para obter um token do AD Azure usando o id e senha da aplicação.
    
     ```csharp
     var authContext = new AuthenticationContext(string.Format  
@@ -29,14 +29,14 @@ O Azure Ative Directory deve autenticar todas as tarefas que executa em recursos
       return;
     }
     ```
-2. Crie um objeto **ResourceManagementClient** que utilize o símbolo adicionando o seguinte código ao fim do método **Principal:**
+2. Criar um objeto **ResourceManagementClient** que utiliza o token adicionando o seguinte código ao fim do método **Principal:**
    
     ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Crie ou obtenha uma referência ao grupo de recursos a que está a utilizar:
+3. Criar ou obter uma referência ao grupo de recursos que está a utilizar:
    
     ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

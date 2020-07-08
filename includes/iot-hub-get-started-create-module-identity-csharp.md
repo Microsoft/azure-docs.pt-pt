@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,33 +9,33 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68883791"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
 
-Nesta secção, cria-se uma aplicação de consola .NET que cria uma identidade de dispositivo e uma identidade de módulo no registo de identidade no seu hub. Um dispositivo ou módulo não pode ligar-se ao hub a menos que tenha uma entrada no registo de identidade. Para obter mais informações, veja a secção [Identity Registry (Registo de Identidades) do Hub IoT developer guide (Guia do programador do Hub IoT)](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+Nesta secção, cria-se uma aplicação de consola .NET que cria uma identidade do dispositivo e uma identidade de módulo no registo de identidade no seu hub. Um dispositivo ou módulo não pode ligar-se ao hub a menos que tenha uma entrada no registo de identidade. Para obter mais informações, veja a secção [Identity Registry (Registo de Identidades) do Hub IoT developer guide (Guia do programador do Hub IoT)](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O seu dispositivo e módulo utilizam estes valores para se identificarem quando enviam mensagens de dispositivo-nuvem para o IoT Hub. Os IDs são sensíveis às maiúsculas e minúsculas.
+Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O seu dispositivo e módulo utilizam estes valores para se identificarem quando envia mensagens dispositivo-a-nuvem para o IoT Hub. Os IDs são sensíveis às maiúsculas e minúsculas.
 
-1. Open Visual Studio, e selecione **Criar um novo projeto.**
+1. Abra o Estúdio Visual e selecione **Criar um novo projeto.**
 
-1. Em **Criar um novo projeto,** selecione App consola **(.NET Framework)**.
+1. In **Create a new project**, selecione Console App **(.NET Framework)**.
 
-1. Selecione **Next** para abrir **Configurar o seu novo projeto**. Atribua ao projeto o nome *CreateIdentities* e atribua à solução o nome *IoTHubGetStarted*. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework.
+1. Selecione **Next** para abrir **o seu novo projeto**. Atribua ao projeto o nome *CreateIdentities* e atribua à solução o nome *IoTHubGetStarted*. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework.
 
-    ![Insira o nome e a estrutura para a sua solução Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
+    ![Insira o nome e a estrutura para a sua solução visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. No Estúdio Visual, abrir **ferramentas** > **NuGet Package Manager** > **gere pacotes NuGet para solução**. Selecione o separador **Procurar**.
+1. No Estúdio Visual, open **Tools**  >  **NuGet Package Manager**  >  **Gerencie pacotes nuget para solução**. Selecione o separador **Procurar**.
 
-1. Pesquisa por **Microsoft.Azure.Devices**. Selecione-o e, em seguida, **selecione Instalar**.
+1. Procurar **dispositivos Microsoft.Azure..** Selecione-o e, em seguida, **selecione Instalar**.
 
-    ![Instale versão atual do serviço Azure IoT Hub .NET SDK](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
+    ![Instalar a versão atual do serviço SDK do Azure IoT .NET](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Adicione as `using` seguintes declarações na parte superior do ficheiro **Program.cs:**
+1. Adicione as `using` seguintes declarações no topo do ficheiro **Program.cs:**
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -102,13 +102,13 @@ Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusiv
     }
     ```
 
-    O `AddDeviceAsync` método cria uma identidade de dispositivo com ID **myFirstDevice**. Se esse id do dispositivo já existir no registo de identidade, o código simplesmente recupera as informações do dispositivo existentes. De seguida, a aplicação irá apresentar a chave primária para essa identidade. Utiliza esta tecla na aplicação simulada do dispositivo para se ligar ao seu hub.
+    O `AddDeviceAsync` método cria uma identidade do dispositivo com iD **myFirstDevice**. Se esse ID do dispositivo já existir no registo de identidade, o código simplesmente recupera as informações existentes do dispositivo. De seguida, a aplicação irá apresentar a chave primária para essa identidade. Utilize esta chave na aplicação do dispositivo simulado para se ligar ao seu hub.
 
-    O `AddModuleAsync` método cria uma identidade de módulo com ID **myFirstModule** no dispositivo **myFirstDevice**. Se esse id do módulo já existir no registo de identidade, o código simplesmente recupera a informação do módulo existente. De seguida, a aplicação irá apresentar a chave primária para essa identidade. Utiliza esta tecla na aplicação de módulosimulado para se ligar ao seu hub.
+    O `AddModuleAsync` método cria uma identidade de módulo com ID **myFirstModule** sob o dispositivo **myFirstDevice**. Se esse ID do módulo já existir no registo de identidade, o código simplesmente recupera as informações do módulo existentes. De seguida, a aplicação irá apresentar a chave primária para essa identidade. Utilize esta chave na aplicação do módulo simulado para se ligar ao seu hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. Execute esta aplicação e tome nota da chave do dispositivo e da chave do módulo.
+1. Executar esta aplicação e tomar nota da chave do dispositivo e da chave do módulo.
 
 > [!NOTE]
-> O registo de identidade IoT Hub apenas armazena identidades de dispositivos e módulos para permitir o acesso seguro ao hub. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação necessitar de armazenar outros metadados específicos do dispositivo, deverá utilizar uma loja específica para aplicações. Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, veja o [IoT Hub developer guide (Guia do programador do Hub IoT)](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+> O registo de identidade IoT Hub apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação necessitar de armazenar outros metadados específicos do dispositivo, deverá utilizar uma loja específica para aplicações. Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, veja o [IoT Hub developer guide (Guia do programador do Hub IoT)](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

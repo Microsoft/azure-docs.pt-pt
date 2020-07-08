@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: 8fcd85a42deab2ea5f7d8587b276eca106f6dd97
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184247"
 ---
-**Discos de máquinas virtuais não geridos padrão: limites por disco**
+**Discos de máquinas virtuais padrão não geridos: limites por disco**
 
-| VM nível | VM de nível básico | VM de nível padrão |
+| Nível VM | VM de nível básico | VM de nível padrão |
 | --- | --- | --- |
 | Tamanho do disco |4.095 GB |4.095 GB |
-| IOPS máximo de 8-KB por disco persistente |300 |500 |
-| Número máximo de discos que executam o IOPS máximo |66 |40 |
+| Máximo de 8 KB IOPS por disco persistente |300 |500 |
+| Número máximo de discos que realizam o máximo de IOPS |66 |40 |
 

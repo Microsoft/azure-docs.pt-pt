@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -9,49 +9,49 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184693"
 ---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
 
-Pode ver a telemetria enviada do seu dispositivo na página **do Device Explorer** na solução.
+Pode ver a telemetria enviada do seu dispositivo na página **Device Explorer** na solução.
 
-1. Selecione o dispositivo que aprovisionou na lista de dispositivos na página do Explorer do **Dispositivo.** Um painel exibe informações sobre o seu dispositivo, incluindo um enredo da telemetria do dispositivo:
+1. Selecione o dispositivo que forvisionou na lista de dispositivos na página **Device Explorer.** Um painel apresenta informações sobre o seu dispositivo, incluindo um enredo da telemetria do dispositivo:
 
     ![Ver detalhes do dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-1. Escolha **a Pressão** para alterar o visor de telemetria:
+1. Escolha a **pressão** para alterar o visor da telemetria:
 
     ![Ver telemetria de pressão](media/iot-suite-visualize-connecting/devicespressure.png)
 
-1. Para ver informações de diagnóstico sobre o seu dispositivo, desloque-se para **Diagnósticos:**
+1. Para visualizar informações de diagnóstico sobre o seu dispositivo, desloque-se até **ao Diagnóstico:**
 
     ![Ver diagnósticos do dispositivo](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
 
-## <a name="act-on-your-device"></a>Aja no seu dispositivo
+## <a name="act-on-your-device"></a>Agir no seu dispositivo
 
-Para invocar métodos nos seus dispositivos, utilize a página do Explorer do **Dispositivo** na solução de Monitorização Remota. Por exemplo, na solução de monitorização remota os dispositivos **Chiller** implementam um método **De reboot.**
+Para invocar métodos nos seus dispositivos, utilize a página Explorer do **Dispositivo** na solução de Monitorização Remota. Por exemplo, na solução de monitorização remota, os dispositivos **Chiller** implementam um método **reboot.**
 
-1. Escolha **dispositivos** para navegar na página **do Explorer** do Dispositivo na solução.
+1. Escolha **dispositivos** para navegar na página **device Explorer** na solução.
 
-1. Selecione o dispositivo que aprovisionou na lista de dispositivos na página do Explorer do **Dispositivo:**
+1. Selecione o dispositivo que alistou na lista de dispositivos na página **Device Explorer:**
 
     ![Selecione o seu verdadeiro dispositivo](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Para apresentar uma lista dos métodos que pode recorrer ao seu dispositivo, escolha **Jobs**, em seguida **Métodos**. Para agendar uma função para executar em vários dispositivos, pode selecionar vários dispositivos da lista. O painel **Jobs** mostra os tipos de método sumido a todos os dispositivos selecionados.
+1. Para apresentar uma lista dos métodos que pode recorrer no seu dispositivo, escolha **Jobs,** em seguida, **Métodos**. Para agendar um trabalho para executar em vários dispositivos, pode selecionar vários dispositivos na lista. O painel **Jobs** mostra os tipos de método comum a todos os dispositivos selecionados.
 
-1. Escolha **reiniciar,** detete o nome de trabalho para **RebootPhysicalChiller** e, em seguida, escolha **Aplicar:**
+1. Escolha **o Reboot,** despe um pouco o nome de trabalho para **RebootPhysicalChiller** e, em seguida, escolha **Aplicar**:
 
     ![Agende a atualização do firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Uma sequência de mensagens mostra na consola que executa o código do dispositivo enquanto o dispositivo simulado manuseia o método.
+1. Uma sequência de mensagens aparece na consola a executar o código do dispositivo enquanto o dispositivo simulado trata do método.
 
 > [!NOTE]
-> Para acompanhar o estado do trabalho na solução, escolha **Ver Estatuto de Emprego**.
+> Para acompanhar o estado do trabalho na solução, escolha **Ver Situação do Trabalho**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-O artigo [Personalize o acelerador de soluções de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.
+O artigo [Personalize o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.

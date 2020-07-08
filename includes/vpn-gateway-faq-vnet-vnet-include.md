@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,25 +9,25 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184080"
 ---
-O VNet-to-VNet FAQ aplica-se às ligações de gateway VPN. Para obter informações sobre o peering vNet, consulte [o peering](../articles/virtual-network/virtual-network-peering-overview.md)da rede virtual .
+O VNet-to-VNet FAQ aplica-se às ligações de gateway VPN. Para obter informações sobre o espremiamento da VNet, consulte [a rede virtual a espreitar](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>O Azure cobra o tráfego entre VNets?
 
-O tráfego VNet-to-VNet dentro da mesma região é gratuito para ambas as direções quando utilizar uma ligação de gateway VPN. O tráfego de egress VNet-to-VNet é cobrado com as taxas de transferência de dados inter-VNet de saída com base nas regiões de origem. Para mais informações, consulte [a página de preços vpN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/). Se estiver a ligar os seus VNets utilizando o vNet peering em vez de um gateway VPN, consulte os preços da [rede virtual](https://azure.microsoft.com/pricing/details/virtual-network/).
+O tráfego VNet-vNet dentro da mesma região é gratuito para ambas as direções quando utiliza uma ligação de gateway VPN. O tráfego de saída da VNet-to-VNet é cobrado com as taxas de transferência de dados inter-VNet de saída com base nas regiões de origem. Para obter mais informações, consulte [a página de preços da VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/). Se estiver a ligar os seus VNets utilizando o espremiamento VNet em vez de uma porta de entrada VPN, consulte [os preços da rede virtual](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>O tráfego VNet-to-VNet viaja pela internet?
 
-Não. O tráfego VNet-to-VNet viaja através da espinha dorsal do Microsoft Azure, não da internet.
+Não. O tráfego VNet-to-VNet atravessa a espinha dorsal do Microsoft Azure, não a internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Posso estabelecer uma ligação VNet-to-VNet através de inquilinos do Azure Ative Directory (AAD) ?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Posso estabelecer uma ligação VNet-para-VNet através dos inquilinos do Azure Ative Directory (AAD)?
 
-Sim, as ligações VNet-to-VNet que usam gateways Azure VPN funcionam em inquilinos DaAD.
+Sim, as ligações VNet-to-VNet que utilizam gateways Azure VPN funcionam em inquilinos da AAD.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>O tráfego VNet a VNet é seguro?
 
@@ -41,13 +41,13 @@ Não. A ligação de várias redes virtuais do Azure em conjunto não precisa de
 
 Não. As redes virtuais podem estar nas mesmas regiões ou em regiões (localizações) diferentes do Azure.
 
-### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Se os VNets não estiverem na mesma subscrição, as subscrições precisam de ser associadas ao mesmo inquilino do Diretório Ativo?
+### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Se os VNets não estiverem na mesma subscrição, as subscrições precisam de ser associadas ao mesmo inquilino ative directory?
 
 Não.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Posso utilizar VNet a VNet para ligar redes virtuais em instâncias do Azure separadas? 
 
-Não. A VNet a VNet suporta a ligação de redes virtuais na mesma instância do Azure. Por exemplo, não se pode criar uma ligação entre os casos globais do Azure e do governo chinês/alemão/norte-americano Azure. Considere utilizar uma ligação VPN site-to-site para estes cenários.
+Não. A VNet a VNet suporta a ligação de redes virtuais na mesma instância do Azure. Por exemplo, não é possível criar uma ligação entre os casos globais do Azure e do governo chinês/alemão/americano Azure. Considere utilizar uma ligação VPN site-to-site para estes cenários.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Pode utilizar a VNet a VNet juntamente com ligações de vários locais?
 
@@ -59,19 +59,19 @@ Consulte a tabela [de requisitos gateway.](../articles/vpn-gateway/vpn-gateway-a
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Posso utilizar a VNet a VNet para ligar VMs ou serviços cloud fora de uma VNet?
 
-Não. A VNet a VNet suporta a ligação de redes virtuais. Não suporta ligar máquinas virtuais ou serviços de nuvem que não estejam numa rede virtual.
+Não. A VNet a VNet suporta a ligação de redes virtuais. Não suporta a ligação de máquinas virtuais ou serviços em nuvem que não estejam numa rede virtual.
 
-### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Pode um serviço de nuvem ou um ponto final de equilíbrio de carga abrangem VNets?
+### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Um serviço de nuvem ou um ponto final de equilíbrio de carga VNets?
 
 Não. Um serviço de nuvem ou um ponto final de equilíbrio de carga não pode abranger redes virtuais, mesmo que estejam ligados entre si.
 
-### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Posso usar um tipo VPN baseado em políticas para ligações VNet-to-VNet ou multi-site?
+### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Posso utilizar um tipo VPN baseado em políticas para ligações VNet-to-VNet ou multi-site?
 
-Não. As ligações VNet-to-VNet e Multi-Site requerem gateways Azure VPN com tipos VPN baseados em rotas (anteriormente chamados de routing dinâmico).
+Não. As ligações VNet-to-VNet e Multi-Site requerem gateways VPN Azure com tipos de VPN RouteBased (anteriormente chamados de encaminhamento dinâmico).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Posso ligar uma VNet com um Tipo de VPN RouteBased a outra VNet com um tipo de VPN PolicyBased?
 
-Não, ambas as redes virtuais DEVEM utilizar VPNs baseadas em rotas (anteriormente chamadas de encaminhamento dinâmico).
+Não, ambas as redes virtuais DEVEM utilizar VPNs baseados em rotas (anteriormente chamados de encaminhamento dinâmico).
 
 ### <a name="do-vpn-tunnels-share-bandwidth"></a>Os túneis VPN partilham a largura de banda?
 

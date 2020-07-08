@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69014676"
 ---
 ### <a name="media-services-v3-latest"></a>Serviços de Multimédia do Azure v3 (mais recente)
