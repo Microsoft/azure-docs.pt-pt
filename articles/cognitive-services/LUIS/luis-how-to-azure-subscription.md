@@ -3,18 +3,19 @@ title: Como usar teclas de autoria e tempo de execução - LUIS
 description: Quando utiliza pela primeira vez a Compreensão linguística (LUIS), não precisa de criar uma chave de autoria. Quando pretende publicar a aplicação e, em seguida, utilizar o seu ponto final de tempo de execução, tem de criar e atribuir a chave de tempo de execução à aplicação.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560427"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055771"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
 Os recursos de prazo de previsão de autoria e consulta fornecem autenticação à sua app LUIS e ponto final de previsão.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -38,7 +39,7 @@ Quando o processo de criação de recursos Azure estiver concluído, [atribua a 
 
 Um recurso Azure, como um LUIS, é propriedade da subscrição que contém o recurso.
 
-Para transferir a propriedade de um recurso, ou pode:
+Para transferir a propriedade de um recurso, pode:
 * Transferir [propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua subscrição
 * Exporte a app LUIS como um ficheiro e, em seguida, importe a app numa subscrição diferente. A exportação está disponível na página **my apps** no portal LUIS.
 
@@ -70,6 +71,8 @@ Para aplicações que ainda não migraram: a chave é reposta em todas as suas a
 
 Regenerar as chaves Azure do portal Azure, na página **Keys.**
 
+
+<a name="securing-the-endpoint"></a>
 
 ## <a name="app-ownership-access-and-security"></a>Propriedade, acesso e segurança de aplicativos
 
@@ -158,11 +161,10 @@ Pode controlar quem pode ver a tecla de ponto final de previsão LUIS, chamando-
 1. Quando terminar o processo de seleção de recursos, [crie uma nova aplicação.](luis-how-to-start-new-app.md#create-new-app-in-luis)
 
 
-## <a name="create-azure-resources"></a>Criar recursos do Azure
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Criar recursos em Azure CLI
 
@@ -226,7 +228,7 @@ Para fins de automatização, como um pipeline CI/CD, pode querer automatizar a 
 
     ![Solicite ao Azure Resource Manager token e receba o token do Gestor de Recursos Azure](./media/luis-manage-keys/get-arm-token.png)
 
-1. Utilize o token para solicitar os recursos de execução LUIS através de subscrições, a partir das [contas API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)get LUIS, a que a sua conta de utilizador tem acesso.
+1. Utilize o token para solicitar os recursos de execução LUIS através de subscrições, a partir das [contas Get LUIS Azure API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a que a sua conta de utilizador tem acesso.
 
     Esta API POST requer as seguintes definições:
 
@@ -237,7 +239,7 @@ Para fins de automatização, como um pipeline CI/CD, pode querer automatizar a 
 
     Esta API devolve uma série de objetos JSON das suas assinaturas LUIS, incluindo ID de subscrição, grupo de recursos e nome de recurso, devolvidos como nome de conta. Encontre o único item na matriz que é o recurso LUIS para atribuir à app LUIS.
 
-1. Atribua o token ao recurso LUIS com as [contas Desatribuição de Azure a uma API de aplicação.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515)
+1. Atribua o token ao recurso LUIS com as [contas Atribuição de Uma Azure LUIS a uma API de aplicação.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515)
 
     Esta API POST requer as seguintes definições:
 
@@ -299,7 +301,7 @@ Se quiser saber quando atingiu um determinado limiar de transação, por exemplo
 
 Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é desencadeado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Migrar para o novo [recurso de autoria](luis-migration-authoring.md)

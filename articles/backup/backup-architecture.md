@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707928"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055261"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -61,7 +61,7 @@ A Azure Backup fornece diferentes agentes de backup, dependendo do tipo de máqu
 
 A tabela seguinte explica os diferentes tipos de backups e quando são usados:
 
-**Tipo de backup** | **Detalhes** | **Utilização**
+**Tipo de cópia de segurança** | **Detalhes** | **Utilização**
 --- | --- | ---
 **Completa** | Uma cópia de segurança completa contém toda a fonte de dados. É preciso mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado para reforço inicial.
 **Diferencial** |  Uma cópia de segurança diferencial armazena os blocos que mudaram desde a cópia de segurança inicial. Usa uma menor quantidade de rede e armazenamento, e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre cópias de segurança posteriores são transferidos e armazenados. | Não usado pela Azure Backup.
@@ -71,7 +71,7 @@ A tabela seguinte explica os diferentes tipos de backups e quando são usados:
 
 A tabela seguinte explica os diferentes tipos de cópias de segurança utilizadas para as bases de dados do SQL Server e a frequência com que são utilizadas:
 
-**Tipo de backup** | **Detalhes** | **Utilização**
+**Tipo de cópia de segurança** | **Detalhes** | **Utilização**
 --- | --- | ---
 **Cópia de segurança completa** | Uma cópia de segurança da base de dados completa confirma toda a base de dados. Contém todos os dados numa base de dados específica ou num conjunto de grupos de ficheiros ou ficheiros. Uma cópia de segurança completa também contém registos suficientes para recuperar esses dados. | No máximo, pode acionar uma cópia de segurança completa por dia.<br/><br/> Pode optar por fazer uma cópia de segurança completa num intervalo diário ou semanal.
 **Cópia de segurança diferencial** | Uma cópia de segurança diferencial baseia-se na cópia de segurança completa mais recente.<br/><br/> Captura apenas os dados que mudaram desde a cópia de segurança completa. |  No máximo, pode acionar uma cópia de segurança diferencial por dia.<br/><br/> Não pode configurar um backup completo e uma cópia de segurança diferencial no mesmo dia.
@@ -95,8 +95,8 @@ A tabela a seguir resume as funcionalidades suportadas para os diferentes tipos 
 **Funcionalidade** | **Cópia de segurança direta de ficheiros e pastas (utilizando o agente MARS)** | **Azure VM Backup** | **Máquinas ou aplicativos com DPM/MABS**
 --- | --- | --- | ---
 De volta ao cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Voltar para o disco DPM/MABS e depois para Azure | | | ![Yes][green]
-Dados de comprimir enviados para cópia de segurança | ![Yes][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Yes][green]
+Voltar para o disco DPM/MABS e depois para Azure | | | ![Sim][green]
+Dados de comprimir enviados para cópia de segurança | ![Sim][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Sim][green]
 Executar backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para servidores DPM/MABS implantados apenas no local.
 
@@ -105,9 +105,7 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 ## <a name="backup-policy-essentials"></a>Essencial da política de backup
 
 - Uma política de reserva é criada por cofre.
-- Uma política de backup pode ser criada para o backup de seguir cargas de trabalho
-  - VM do Azure
-  - SQL em Azure VM
+- Pode ser criada uma política de backup para a cópia de segurança das seguintes cargas de trabalho: Azure VMs, SQL em VMs Azure, SAP HANA em VMs Azure e ações de ficheiros Azure. A política de ficheiros e cópias de segurança de pastas utilizando o agente MARS é especificada na consola MARS.
   - Partilha de Ficheiros do Azure
 - Uma política pode ser atribuída a muitos recursos. Uma política de backup Azure VM pode ser usada para proteger muitos VMs Azure.
 - Uma política consiste em dois componentes
@@ -115,9 +113,12 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
   - Retenção: Por quanto tempo cada cópia de segurança deve ser mantida.
 - A programação pode ser definida como "diária" ou "semanal" com um ponto de tempo específico.
 - A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais", "anualmente".
-- "semanalmente" refere-se a um backup num determinado dia da semana, "mensalmente" significa um backup num determinado dia do mês e "anualmente" refere-se a um backup num determinado dia do ano.
-- A retenção para pontos de backup "mensais", "anualmente" é referida como "LongTermRetention".
-- Quando um cofre é criado, uma política para backups VM Azure chamado "DefaultPolicy" também é criada e pode ser usada para apoiar VMs Azure.
+  - "semanalmente" refere-se a um backup em um certo dia da semana
+  - "Mensalmente" refere-se a um backup num determinado dia do mês
+  - "Anualmente" refere-se a um backup em um determinado dia do ano
+- A retenção para pontos de backup "mensais", "anualmente" é referida como Retenção a Longo Prazo (LTR)
+- Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para apoiar recursos.
+- Quaisquer alterações introduzidas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos, para além dos novos.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: Backup Azure VM incorporado
 
@@ -210,7 +211,7 @@ Quando restaurar VMs com discos geridos, pode restaurar para um VM completo com 
 - Durante o processo de restauro, o Azure trata dos discos geridos. Se estiver a utilizar a opção de conta de armazenamento, gere a conta de armazenamento criada durante o processo de restauro.
 - Se restaurar um VM gerido que esteja encriptado, certifique-se de que as chaves e segredos do VM existem no cofre antes de iniciar o processo de restauro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a matriz de suporte para [saber sobre funcionalidades e limitações suportadas para cenários de backup](backup-support-matrix.md).
 - Configurar backup para um destes cenários:

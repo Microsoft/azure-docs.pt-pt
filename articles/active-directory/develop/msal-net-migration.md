@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533977"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054666"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Aplicações migratórias para MSAL.NET
 
@@ -131,7 +131,7 @@ Aqui estão as subvenções suportadas em ADAL.NET e MSAL.NET para aplicações 
 
 Tipo de App | Concessão | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-Web app, web API, daemon | Credenciais de Cliente | [A credencial do cliente flui em ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Fluxos de credencial de cliente em MSAL.NET)](msal-authentication-flows.md#client-credentials)
+Web app, web API, daemon | Credenciais de Cliente | [A credencial do cliente flui em ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [A credencial do cliente flui em MSAL.NET](msal-authentication-flows.md#client-credentials)
 API Web | Em nome de | [Serviço para chamadas de serviço em nome do utilizador com ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [Em nome de MSAL.NET](msal-authentication-flows.md#on-behalf-of)
 Aplicação Web | Código Auth | [Aquisição de fichas com códigos de autorização em aplicações web com ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Aquisição de fichas com códigos de autorização em aplicações web com A MSAL.NET](msal-authentication-flows.md#authorization-code)
 
@@ -264,6 +264,6 @@ Verá um token de acesso e um token de ID devolvidos no seu AuthenticationResult
 
 Você também pode usar este método para vários cenários de integração onde você tem um token de atualização disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode encontrar mais informações sobre os âmbitos de [aplicação em Scopes, permissões e consentimento no ponto final da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)

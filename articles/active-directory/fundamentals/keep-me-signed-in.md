@@ -5,19 +5,19 @@ services: active-directory
 author: CelesteDG
 manager: daveba
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339557"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054717"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configure o 'Stay signed in?' solicitação para contas AD AZure
 
@@ -55,9 +55,20 @@ Os detalhes sobre o erro de inscrição são os seguintes e realçados no exempl
 
 :::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exemplo de entrada de registo de login com o manter-me assinado em interrupção":::
 
-Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mostrar' para permanecerem assinados na** definição de **Nº** nas definições avançadas de marca.
+Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mostrar' para permanecerem assinados na** definição de **Nº** nas definições avançadas de marca. Isto desativa a solicitação KMSI para todos os utilizadores do seu diretório AD Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+Também pode utilizar os controlos persistentes da sessão do navegador no acesso condicional para impedir que os utilizadores possam ver a solicitação KMSI. Esta opção permite desativar a solicitação KMSI para um grupo selecionado de utilizadores (como os administradores globais) sem afetar o comportamento de inscrição para os restantes utilizadores no diretório. Para obter mais informações, consulte [a frequência de inscrição do utilizador.](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime) 
+
+Para garantir que o pedido KMSI só é mostrado quando pode beneficiar o utilizador, o pedido KMSI não é intencionalmente mostrado nos seguintes cenários:
+
+* O utilizador é assinado através de SSO sem costura e autenticação integrada do Windows (IWA)
+* O utilizador é assinado através dos Serviços da Federação de Diretórios Ativos e da IWA
+* O utilizador é um hóspede no inquilino
+* A pontuação de risco do utilizador é alta
+* O s-in ocorre durante o fluxo de consentimento do utilizador ou administração
+* O controlo persistente da sessão do navegador está configurado numa política de acesso condicional
+
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre outras definições que afetam o tempo limite da sessão de sessão de sessão:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712348"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056808"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilização de vários ficheiros de entrada e propriedades de componentes com Codificação Premium
 ## <a name="overview"></a>Descrição geral
@@ -366,7 +366,7 @@ Adicione agora os componentes **ISO Mpeg-4 Multiplexer** e **De saída de fichei
 
 Tem de definir o nome do ficheiro de saída. Clique no componente **de saída de ficheiro** e edite a expressão para o ficheiro:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![Nome de saída de ficheiro](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
@@ -466,7 +466,7 @@ Para codificar, siga estes passos:
 
 * O ativo codificado conterá faixas de áudio multi-idiomas e estas faixas devem ser selecionáveis no Azure Media Player.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Introdução da Codificação Premium nos Serviços Azure Media](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Como utilizar a Codificação Premium nos Serviços de Media Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codificação de conteúdos a pedido com a Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

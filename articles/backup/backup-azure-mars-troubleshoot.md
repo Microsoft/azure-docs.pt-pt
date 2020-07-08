@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na instalação e regist
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598016"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056623"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -166,6 +166,25 @@ Erro | Possíveis causas | Ações recomendadas
 --- | --- | ---
 A operação em curso falhou devido a um erro de serviço interno "Recurso não aprovisionado em carimbo de serviço". Por favor, recaia a operação depois de algum tempo. (ID: 230006) | O servidor protegido foi renomeado. | <li> Mude o nome do servidor para o nome original registado no cofre. <br> <li> Re-registrar o servidor para o cofre com o novo nome.
 
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>O trabalho não podia ser iniciado como outro trabalho estava em andamento
+
+Se notar uma mensagem de aviso na **consola MARS**História do  >  **trabalho**, dizendo que "Job não poderia ser iniciado como outro trabalho estava em andamento", então isso pode ser devido a uma instância duplicada do trabalho desencadeado pelo Agendador de Tarefas.
+
+![O trabalho não podia ser iniciado como outro trabalho estava em andamento](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Para resolver este problema:
+
+1. Lançar o snap-in do Agendador de Tarefas digitando *taskschd.msc* na janela Run
+1. No painel esquerdo, navegue para a **Biblioteca de Agendadores de**  ->  **Tarefas Microsoft**  ->  **OnlineBackup**.
+1. Para cada tarefa nesta biblioteca, clique duas vezes na tarefa de abrir propriedades e executar os seguintes passos:
+    1. Mudar para o separador **Definições**.
+
+         ![Separador de definições](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Altere a opção para **Se a tarefa já estiver em execução, então aplica-se a seguinte regra**. Escolha **Não iniciar uma nova instância**.
+
+         ![Alterar a regra para não iniciar uma nova instância](./media/backup-azure-mars-troubleshoot/change-rule.png)
+
 ## <a name="troubleshoot-restore-problems"></a>Resolução de problemas restabelece problemas
 
 A Azure Backup pode não montar com sucesso o volume de recuperação, mesmo após vários minutos. E pode receber mensagens de erro durante o processo. Para começar a recuperar normalmente, tome estes passos:
@@ -254,7 +273,7 @@ Mensagem de erro | Ação recomendada
 -- | --
 Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver este problema, verifique os passos abaixo e relemisse a operação:<br/> - [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Obtenha mais detalhes sobre como fazer backup do [Windows Server com o agente Azure Backup](tutorial-backup-windows-server-to-azure.md).
 - Se precisar de restaurar uma cópia de segurança, consulte [restaurar os ficheiros numa máquina Do Windows](backup-azure-restore-windows-server.md).

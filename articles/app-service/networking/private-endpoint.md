@@ -1,20 +1,20 @@
 ---
-title: Conecte-se privadamente a uma Aplicação Web usando o Azure Private Endpoint
+title: Conecte-se privadamente a uma App Web Azure usando o Ponto Final Privado
 description: Conecte-se privadamente a uma Aplicação Web usando o Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 462de426a365a2aca4572dae6bff9261e4ee37f7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445479"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054581"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -108,8 +108,6 @@ Para a consola Kudu, ou Kudu REST API (implementação com agentes auto-hospedad
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> Estes dois registos são automaticamente preenchidos se tiver uma zona privada de DNS chamada privatelink.azurewebsites.net ligada ao VNet onde cria o Ponto Final Privado.
 
 
 ## <a name="pricing"></a>Preços
@@ -124,10 +122,11 @@ Durante a pré-visualização, apenas a ranhura de produção é exposta por tr�
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para implementar o ponto final privado da sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web][howtoguide]
-
+- Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
+- Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]
+- Para implementar o Ponto Final Privado para a sua Aplicação Web utilizando o PowerShell, consulte [como ligar-se privadamente a uma Aplicação Web com o PowerShell][howtoguide3]
 
 
 
@@ -141,4 +140,6 @@ Para implementar o ponto final privado da sua Web App através do portal, consul
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

@@ -3,12 +3,12 @@ title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: d8e9617fca38ca2b1f16ba2c6c1599e3663347e7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445190"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056689"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -16,7 +16,7 @@ Para implementar soluções complexas, pode quebrar o seu modelo em muitos model
 
 Para soluções pequenas e médias, um único modelo é mais fácil de entender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos ligados permitem-lhe decompor a solução em componentes direcionados. Pode reutilizar facilmente estes modelos para outros cenários.
 
-Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](template-tutorial-create-linked-templates.md).
+Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > Para modelos ligados ou aninhados, só pode utilizar o modo de implementação [Incremental.](deployment-modes.md)
@@ -791,9 +791,9 @@ Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](template-tutorial-create-linked-templates.md).
+* Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 * Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [definindo dependências nos modelos do Gestor de Recursos Azure](define-resource-dependency.md).
 * Para aprender a definir um recurso mas criar muitos casos do mesmo, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager.](copy-resources.md)
 * Para etapas na configuração de um modelo numa conta de armazenamento e na geração de um token SAS, consulte [recursos de implantação com modelos de gestor de recursos e recursos Azure PowerShell](deploy-powershell.md) ou [Implementar recursos com modelos de Gestor de Recursos e Azure CLI](deploy-cli.md).

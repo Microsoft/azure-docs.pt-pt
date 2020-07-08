@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 459a34d104e01dca2cdf997c6aedd6f54f3adbaa
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677683"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055244"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência na nuvem
 
@@ -574,7 +574,7 @@ As mesmas alterações aplicam também [discos de dados.](../../virtual-machines
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verifique se as extensões VM estão disponíveis no Azure Stack
 
-Outra consideração para a consistência da nuvem é o uso de [extensões de máquinas virtuais](../../virtual-machines/windows/extensions-features.md) para configurar os recursos dentro de um VM. Nem todas as extensões VM estão disponíveis em Azure Stack. Um modelo pode especificar os recursos dedicados à extensão VM, criando dependências e condições dentro do modelo.
+Outra consideração para a consistência da nuvem é o uso de [extensões de máquinas virtuais](../../virtual-machines/extensions/features-windows.md) para configurar os recursos dentro de um VM. Nem todas as extensões VM estão disponíveis em Azure Stack. Um modelo pode especificar os recursos dedicados à extensão VM, criando dependências e condições dentro do modelo.
 
 Por exemplo, se pretender configurar um VM que executa o Microsoft SQL Server, a extensão VM pode configurar o SQL Server como parte da implementação do modelo. Considere o que acontece se o modelo de implementação também contiver um servidor de aplicação configurado para criar uma base de dados no VM que executa o SQL Server. Além de utilizar também uma extensão VM para os servidores de aplicações, pode configurar a dependência do servidor de aplicações na devolução bem sucedida do recurso de extensão VM do SQL Server. Esta abordagem garante que o VM que executa o SQL Server está configurado e disponível quando o servidor de aplicações é instruído para criar a base de dados.
 

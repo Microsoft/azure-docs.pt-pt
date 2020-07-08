@@ -3,12 +3,12 @@ title: Descubra propriedades de recursos
 description: Descreve como procurar propriedades de recursos.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e00ee875d9b0f7fadf27a44c55920872c815045
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668564"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057080"
 ---
 # <a name="discover-resource-properties"></a>Descubra propriedades de recursos
 
@@ -16,7 +16,7 @@ Antes de criar modelos de Gestor de Recursos, precisa entender que tipos de recu
 
 ## <a name="find-resource-provider-namespaces"></a>Encontre espaços de nome do fornecedor de recursos
 
-Os recursos num modelo ARM são definidos com um espaço de nome e tipo de recurso do fornecedor de recursos. Por exemplo, Microsoft.Storage/storageAcounts é o nome completo do tipo de recurso da conta de armazenamento. Microsoft.Storage é o espaço de nome. Se ainda não conhece os espaços de nome para os tipos de recursos que pretende utilizar, consulte [os fornecedores de recursos para os serviços Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers)
+Os recursos num modelo ARM são definidos com um espaço de nome e tipo de recurso do fornecedor de recursos. Por exemplo, Microsoft.Storage/storageAcounts é o nome completo do tipo de recurso da conta de armazenamento. Microsoft.Storage é o espaço de nome. Se ainda não conhece os espaços de nome para os tipos de recursos que pretende utilizar, consulte [os fornecedores de recursos para os serviços Azure.](../management/azure-services-resource-providers.md)
 
 ![Mapeamento do espaço de nome do fornecedor de recursos do gestor de recursos de recursos](./media/view-resources/resource-provider-namespace-and-azure-service-mapping.png)
 

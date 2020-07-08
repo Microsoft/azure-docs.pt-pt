@@ -13,16 +13,16 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d04953789dc3fc864dd2809783b0d214a91738f
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983124"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055397"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Quickstart: Veja a lista de aplicações que estão a usar o seu inquilino Azure Ative (Azure AD) para gestão de identidade
 
-Começa a usar o Azure AD como o seu sistema de Gestão de Identidade e Autorização (IAM) para as aplicações que a sua organização utiliza. Neste quickstart você verá as aplicações, também conhecidas como apps, que já estão configuradas para usar o inquilino Azure AD como seu fornecedor de identidade.
+Começa a usar o Azure AD como o seu sistema de Gestão de Identidade e Acesso (IAM) para as aplicações que a sua organização utiliza. Neste quickstart você verá as aplicações, também conhecidas como apps, que já estão configuradas para usar o inquilino Azure AD como seu fornecedor de identidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,11 +68,11 @@ Para procurar uma determinada aplicação:
 3. Experimente introduzir as primeiras letras do nome de uma aplicação. Este exemplo mostra todas as aplicações que começam com **Sales**.
     ![Exemplo mostra todas as aplicações que começam com Vendas](media/view-applications-portal/search-by-prefix.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, você aprendeu a ver as aplicações no seu inquilino AZure AD. Aprendeu a filtrar a lista de aplicações por tipo de aplicação, estado e visibilidade. Também aprendeu a procurar aplicações específicas.
 
 - [Adicionar uma aplicação](add-application-portal.md)
-- [Configure uma app](add-application-portal-configure.md)
+- [Configurar uma aplicação](add-application-portal-configure.md)
 - [Configurar o início de sessão único](add-application-portal-setup-sso.md)
 - [Eliminar uma aplicação](delete-application-portal.md)

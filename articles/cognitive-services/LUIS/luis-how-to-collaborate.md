@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344395"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055635"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicione colaboradores à sua app
 
@@ -97,6 +97,6 @@ Saiba mais sobre os utilizadores de diretórios ativos da Azure e o consentiment
 ## <a name="next-steps"></a>Próximos passos
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
-* Compreenda os conceitos, incluindo o [recurso de autoria](luis-concept-keys.md#authoring-key) e [os contribuintes](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
+* Compreenda os conceitos, incluindo o [recurso de autoria](luis-how-to-azure-subscription.md#authoring-key) e [os contribuintes](luis-how-to-azure-subscription.md#contributions-from-other-authors) nesse recurso.
 * Saiba [como criar](luis-how-to-azure-subscription.md) recursos de autoria e tempo de execução
 * Migrar para o novo [recurso de autoria](luis-migration-authoring.md)

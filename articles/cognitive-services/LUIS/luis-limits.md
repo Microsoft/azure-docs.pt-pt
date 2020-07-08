@@ -3,12 +3,12 @@ title: Limites - LUIS
 description: Este artigo contém os limites conhecidos da Azure Cognitive Services Language Understanding (LUIS). A LUIS tem várias áreas de limites. O limite de modelo controla as intenções, entidades e características no LUIS. Limites de quota baseados no tipo-chave. A combinação de teclado controla o website da LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976987"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055346"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
 O LUIS tem várias áreas limite. O primeiro é o limite do [modelo](#model-limits), que controla intenções, entidades e características no LUIS. A segunda área são [os limites de quota baseados](#key-limits) no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o website da LUIS. Uma quarta área é a [região mundial de mapeamento](luis-reference-regions.md) entre o site de autoria LUIS e as APIs [do ponto final](luis-glossary.md#endpoint) luis.
@@ -68,7 +68,7 @@ Não utilize os seguintes caracteres nos seguintes nomes.
 
 ## <a name="resource-usage-and-limits"></a>Utilização de recursos e limites
 
-A Linguagem Compreender tem recursos separados, um tipo para a autoria, e um tipo para consulta do ponto final de previsão. Para saber mais sobre as diferenças entre tipos-chave, consulte [as teclas de ponto final](luis-concept-keys.md)de autoria e previsão de consulta em LUIS .
+A Linguagem Compreender tem recursos separados, um tipo para a autoria, e um tipo para consulta do ponto final de previsão. Para saber mais sobre as diferenças entre tipos-chave, consulte [as teclas de ponto final](luis-how-to-azure-subscription.md)de autoria e previsão de consulta em LUIS .
 
 <a name="key-limits"></a>
 
@@ -106,7 +106,7 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 ## <a name="keyboard-controls"></a>Controlos de teclado
 
-|Entrada de teclado | Description |
+|Entrada de teclado | Descrição |
 |--|--|
 |Controlo+E|muda entre tokens e entidades na lista de expressões|
 

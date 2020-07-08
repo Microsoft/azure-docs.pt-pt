@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374883"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055465"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -25,7 +25,7 @@ A autenticação de autoria de Compreensão linguística (LUIS) passou de uma co
 
 ## <a name="what-is-migration"></a>O que é migração?
 
-Migração é o processo de alteração da autenticação de autoria de uma conta de e-mail para um recurso Azure. A sua conta estará ligada a uma subscrição do Azure e a um recurso de autoria do Azure após a sua migração. *Todos os utilizadores de LUIS (proprietários ou colaboradores) acabarão por precisar de migrar.* 
+Migração é o processo de alteração da autenticação de autoria de uma conta de e-mail para um recurso Azure. A sua conta estará ligada a uma subscrição do Azure e a um recurso de autoria do Azure após a sua migração. *Todos os utilizadores de LUIS (proprietários ou colaboradores) acabarão por precisar de migrar.*
 
 A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de autoria utilizando o CLI LUIS, por exemplo, terá de concluir o processo de migração no portal LUIS. Ainda pode ter coautores nas suas aplicações após a migração, mas estas serão adicionadas ao nível de recursos Azure em vez do nível de aplicação.
 
@@ -81,7 +81,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 3. Se alguma das suas aplicações tiver colaboradores, é-lhe pedido que envie um e-mail que os informe sobre a migração. Este é um passo opcional.
 
    Para cada colaborador e app, a aplicação de e-mail padrão abre com um e-mail levemente formatado. Pode editar o e-mail antes de enviá-lo. O modelo de e-mail inclui o ID de aplicação exato e o nome da aplicação.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > Depois de migrar a sua conta para o Azure, as suas aplicações deixarão de estar disponíveis para colaboradores.
 
@@ -162,7 +162,7 @@ A lista **My Apps** mostra as aplicações migradas para o novo recurso de autor
  > [!div class="mx-imgBorder"]
  > ![Caixas para recurso de subscrição e autoria](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-Não precisa de saber a chave do recurso de autoria para continuar a editar as suas apps no portal LUIS. 
+Não precisa de saber a chave do recurso de autoria para continuar a editar as suas apps no portal LUIS.
 
 Se pretende editar as suas aplicações programáticamente, precisará dos valores-chave de autoria. Estes valores são apresentados na página **Manage**  >  **Azure Resources** no portal LUIS. Também estão disponíveis no portal Azure na página **Keys** do recurso. Também pode criar mais recursos de autoria e atribuí-los a partir da mesma página.
 
@@ -244,7 +244,7 @@ Se vir o seguinte erro, verifique os [passos recomendados se é colaborador numa
 ![Erro que mostra que a migração falhou para os colaboradores](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-concept-keys.md) 
+* Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md).

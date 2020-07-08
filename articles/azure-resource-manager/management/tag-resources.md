@@ -2,13 +2,13 @@
 title: Etiquetar recursos, grupos de recursos e subscrições para organização lógica
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: c06bd5f44f01a98e3a39d0cf404713e0d0546192
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791933"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056927"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
 
@@ -17,7 +17,9 @@ Aplica etiquetas nos seus recursos Azure, grupos de recursos e subscrições par
 Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 > [!IMPORTANT]
-> Os nomes das etiquetas são insensíveis a casos. Os valores da etiqueta são sensíveis a maiôs.
+> Os nomes das etiquetas são insensíveis para operações. Uma etiqueta com um nome de etiqueta, independentemente do invólucro, é atualizada ou recuperada. No entanto, o fornecedor de recursos pode manter o invólucro que fornece para o nome da etiqueta. Verá o invólucro nos relatórios de custos.
+> 
+> Os valores da etiqueta são sensíveis a maiôs.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -576,7 +578,7 @@ As etiquetas aplicadas ao grupo de recursos ou subscrição não são herdadas p
 
 Pode utilizar etiquetas para agrupar os seus dados de faturação. Por exemplo, se estiver a executar múltiplas VMs para organizações diferentes, utilize as etiquetas para agrupar a utilização por centro de custos. Também pode utilizar etiquetas para categorizar os custos por ambiente de runtime, tal como a utilização de faturação das VMs executadas no ambiente de produção.
 
-Pode obter informações sobre tags através do [ficheiro Azure Resource Use and RateCard APIs](../../billing/billing-usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgula (CSV). Descarregue o ficheiro de utilização do Centro de [Contas Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte [Download ou consulte a sua faturação Azure e dados de utilização diários.](../../billing/billing-download-azure-invoice-daily-usage-date.md) Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **a Versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
+Pode obter informações sobre tags através do [ficheiro Azure Resource Use and RateCard APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgula (CSV). Descarregue o ficheiro de utilização do Centro de [Contas Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte [Download ou consulte a sua faturação Azure e dados de utilização diários.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md) Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **a Versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
 
 Para operações rest API, consulte [referência API API de Faturação AZure](/rest/api/billing/).
 
@@ -595,7 +597,7 @@ As seguintes limitações aplicam-se às etiquetas:
    >
    > AZure Front Door não suporta o uso `#` do nome da etiqueta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
 * Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)

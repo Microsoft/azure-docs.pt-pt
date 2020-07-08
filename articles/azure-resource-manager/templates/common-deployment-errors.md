@@ -4,16 +4,16 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 77a1359f81df1df9508e942ff6fa1f73ece51ca8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391235"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055669"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
-Este artigo descreve alguns erros comuns de implementação do Azure, e fornece informações para resolver os erros. Se não conseguir encontrar o código de erro do seu erro de implementação, consulte [o código de erro find](#find-error-code).
+Este artigo descreve alguns erros comuns de implementação do Azure, e fornece informações para resolver os erros. Se não encontrar o código de erro para o erro de implementação, veja [Localizar código de erro](#find-error-code).
 
 Se procura informações sobre um código de erro e essa informação não é fornecida neste artigo, avise-nos. Na parte inferior desta página, pode deixar feedback. O feedback é rastreado com problemas do GitHub.
 
@@ -25,7 +25,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomeação para contas de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | ContaPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [armazenamento Contas](/azure/templates/microsoft.storage/storageaccounts) |
-| AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md) [provisionamento e atribuição de](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md) [provisionamento e atribuição de](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | Outra OperaçãoInProgress | Aguarde que a operação simultânea esteja concluída. | |
 | Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
 | BadRequest | Enviaste valores de implantação que não correspondem ao esperado pelo Gestor de Recursos. Verifique a mensagem de estado interior para obter ajuda com a resolução de problemas. | [Referência do modelo](/azure/templates/) e [locais suportados](resource-location.md) |
@@ -246,7 +246,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

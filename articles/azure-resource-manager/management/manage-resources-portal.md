@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5e3cd30f2ed523584ae827f51d19c6acebf72abf
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706584"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055533"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerir os recursos do Azure utilizando o portal Azure
 
@@ -120,5 +120,5 @@ Pode selecionar o ícone do pino no canto superior direito dos gráficos para fi
 
 - Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).
-- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](/azure/azure-resource-manager/)
+- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](../index.yml)
 - Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte [a referência do modelo](/azure/templates/).

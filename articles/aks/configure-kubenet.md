@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079056"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055499"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como usar a rede *kubenet* para criar e utilizar uma sub-
 > [!WARNING]
 > Para utilizar as piscinas de nó do Windows Server, tem de utilizar o Azure CNI. A utilização do kubenet como modelo de rede não está disponível para recipientes windows Server.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -40,7 +40,7 @@ Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. C
 
 Em muitos ambientes, definiu redes virtuais e sub-redes com intervalos de endereço IP atribuídos. Estes recursos de rede virtual são usados para suportar vários serviços e aplicações. Para fornecer conectividade de rede, os clusters AKS podem usar *kubenet* (rede básica) ou Azure CNI *(networking avançado).*
 
-Com *kubenet,* apenas os nós recebem um endereço IP na sub-rede de rede virtual. As cápsulas não se comunicam diretamente umas com as outras. Em vez disso, o encaminhamento definido do utilizador (UDR) e o encaminhamento IP é utilizado para a conectividade entre cápsulas entre nós. Também pode implantar cápsulas atrás de um serviço que recebe um endereço IP atribuído e equilibra o tráfego para a aplicação. O diagrama que se segue mostra como os nóns AKS recebem um endereço IP na sub-rede de rede virtual, mas não nas cápsulas:
+Com *kubenet,* apenas os nós recebem um endereço IP na sub-rede de rede virtual. As cápsulas não se comunicam diretamente umas com as outras. Em vez disso, o encaminhamento definido do utilizador (UDR) e o encaminhamento IP é utilizado para a conectividade entre cápsulas entre nós. Por padrão, a configuração de reencaminhamento de UDRs e IP é criada e mantida pelo serviço AKS, mas tem a opção de trazer a [sua própria tabela de rotas para a gestão de rotas personalizadas.][byo-subnet-route-table] Também pode implantar cápsulas atrás de um serviço que recebe um endereço IP atribuído e equilibra o tráfego para a aplicação. O diagrama que se segue mostra como os nóns AKS recebem um endereço IP na sub-rede de rede virtual, mas não nas cápsulas:
 
 ![Modelo de rede Kubenet com um cluster AKS](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ Utilize *o CNI Azure* quando:
 
 - Tem espaço disponível para endereço IP.
 - A maior parte da comunicação da cápsula é para recursos fora do cluster.
-- Não queres gerir as UDRs.
+- Não pretende gerir rotas definidas pelo utilizador para a conectividade do pod.
 - Precisa de funcionalidades avançadas da AKS, como nós virtuais ou Política de Rede Azure.  Utilize [as políticas de rede Calico][calico-network-policies].
 
 Para obter mais informações para ajudá-lo a decidir qual o modelo de rede a utilizar, consulte [os modelos de rede Compare e o seu âmbito de suporte.][network-comparisons]
@@ -139,10 +139,10 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Agora atribua o principal de serviço para as permissões *de contribuinte de* cluster AKS na rede virtual utilizando o comando de [criação de função az.][az-role-assignment-create] Forneça o seu próprio *\<appId>* como mostrado na saída do comando anterior para criar o principal de serviço:
+Agora atribua o principal de serviço para as permissões *de contribuidores de rede de* cluster AKS na rede virtual utilizando o comando de [criação de função az.][az-role-assignment-create] Forneça o seu próprio *\<appId>* como mostrado na saída do comando anterior para criar o principal de serviço:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster AKS na rede virtual
@@ -233,7 +233,7 @@ az network vnet subnet list --resource-group
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode agora utilizar o cluster normalmente. Começa com [a construção de apps que utilizam o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando o Helm,][use-helm]ou [crie novas aplicações usando o Helm.][develop-helm]
 
@@ -253,6 +253,7 @@ Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode ag
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md

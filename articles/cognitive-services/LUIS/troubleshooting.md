@@ -4,12 +4,12 @@ description: Este artigo contém respostas a perguntas frequentes sobre compreen
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343545"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054853"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
@@ -43,7 +43,7 @@ Sim, é bom treinar a sua intenção **de Zero** com mais expressões à medida 
 Consulte o tutorial da [API V7 da Verificação Ortográfica de Bing.](luis-tutorial-bing-spellcheck.md) A LUIS impõe limites impostos pela Bing Spell Check API V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como edito a minha aplicação LUIS programáticamente?
-Para editar a sua aplicação LUIS programáticamente, utilize [a API autoria.](https://go.microsoft.com/fwlink/?linkid=2092087) Consulte [a Call LUIS autoria da API](./get-started-get-model-rest-apis.md) e [construa uma aplicação LUIS programáticamente utilizando o Node.js](./luis-tutorial-node-import-utterances-csv.md) para, por exemplo, como chamar a API de Autoria. A API autora requer que utilize uma [chave de autoria](luis-concept-keys.md#azure-resources-for-luis) em vez de uma chave de ponto final. A autoria programática permite até 1.000.000 chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as teclas que utiliza com o LUIS, consulte [as teclas Manage](./luis-concept-keys.md).
+Para editar a sua aplicação LUIS programáticamente, utilize [a API autoria.](https://go.microsoft.com/fwlink/?linkid=2092087) Consulte [a Call LUIS autoria da API](./get-started-get-model-rest-apis.md) e [construa uma aplicação LUIS programáticamente utilizando Node.js](./luis-tutorial-node-import-utterances-csv.md) por exemplo de como chamar a API de Autoria. A API autora requer que utilize uma [chave de autoria](luis-how-to-azure-subscription.md#azure-resources-for-luis) em vez de uma chave de ponto final. A autoria programática permite até 1.000.000 chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as teclas que utiliza com o LUIS, consulte [as teclas Manage](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Onde está a funcionalidade Padrão que proporcionava a correspondência regular da expressão?
 A **função Padrão** anterior é atualmente depreciada, substituída por **[Padrões.](luis-concept-patterns.md)**
@@ -123,7 +123,7 @@ Reveja as [melhores práticas](luis-concept-best-practices.md) para outras dicas
 LUIS [tokeniza](luis-glossary.md#token) a expressão baseada na [cultura.](luis-language-support.md#tokenization) Tanto o valor original como o valor simbólico estão disponíveis para [a extração de dados.](luis-concept-data-extraction.md#tokenized-entity-returned)
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como posso criar e atribuir uma chave de ponta LUIS?
-[Crie a chave de ponto final](luis-how-to-azure-subscription.md) em Azure para o seu nível de [serviço.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) [Atribua a chave](luis-how-to-azure-subscription.md) na página **[Recursos Azure.](luis-how-to-azure-subscription.md)** Não existe uma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova tecla de ponto final](luis-concept-keys.md).
+[Crie a chave de ponto final](luis-how-to-azure-subscription.md) em Azure para o seu nível de [serviço.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) [Atribua a chave](luis-how-to-azure-subscription.md) na página **[Recursos Azure.](luis-how-to-azure-subscription.md)** Não existe uma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova tecla de ponto final](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como interpreto as pontuações do LUIS?
 O seu sistema deve utilizar a maior intenção de pontuação, independentemente do seu valor. Por exemplo, uma pontuação abaixo de 0,5 (menos de 50%) não significa necessariamente que LUIS tem pouca confiança. Fornecer mais dados de treino pode ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais provável.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava a funcionar ontem, mas hoje estou a ter 403 erros. Não mudei a aplicação. Como posso corrigi-lo?
-Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponta LUIS e atribuí-la à aplicação. Em seguida, tem de alterar o pedido HTTP da aplicação do cliente para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md). Se criou um novo recurso numa região diferente, altere também a região do pedido do cliente HTTP.
+Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponta LUIS e atribuí-la à aplicação. Em seguida, tem de alterar o pedido HTTP da aplicação do cliente para o ponto final para [utilizar a nova chave de ponto final](luis-how-to-azure-subscription.md). Se criou um novo recurso numa região diferente, altere também a região do pedido do cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Como posso assegurar o meu ponto final LUIS?
-Ver [Assegurar o ponto final.](luis-concept-keys.md#securing-the-endpoint)
+Ver [Assegurar o ponto final.](luis-how-to-azure-subscription.md#securing-the-endpoint)
 
 ## <a name="working-within-luis-limits"></a>Trabalhar dentro dos limites luis
 
@@ -206,7 +206,7 @@ Se a sua aplicação existisse antes de o LUIS estar geralmente disponível (GA)
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como é que eu sei de que chave preciso, onde a consigo e o que faço com ela?
 
-Consulte [as teclas de ponto final de autoria e previsão de consulta no LUIS](luis-concept-keys.md) para saber mais sobre as diferenças entre a chave de autoria e a chave de tempo de execução de previsão.
+Consulte [as teclas de ponto final de autoria e previsão de consulta no LUIS](luis-how-to-azure-subscription.md) para saber mais sobre as diferenças entre a chave de autoria e a chave de tempo de execução de previsão.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Tenho um erro em não ter quota. Como posso corrigi-lo?
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2796a2be5c779124db4dd7f1137ebbff4094705d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69901782"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056706"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerir os ativos dos Serviços de Comunicação em várias contas de armazenamento  
 
@@ -27,7 +27,7 @@ Pode anexar várias contas de armazenamento a uma única conta de Serviços de M
 * Carregue o equilíbrio dos seus ativos em várias contas de armazenamento.
 * Dimensionamento de Serviços de Mídia para grandes quantidades de processamento de conteúdos (como atualmente uma única conta de armazenamento tem um limite máximo de 500 TB). 
 
-Este artigo demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia utilizando [APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell.](/powershell/module/az.media) Também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Media Services. 
+Este artigo demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia utilizando [APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) e [PowerShell](/powershell/module/az.media). Também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Media Services. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,21 +46,23 @@ Os Serviços de Comunicação Social utilizam o valor da propriedade **IAssetFil
 
 ## <a name="to-attach-storage-accounts"></a>Para anexar contas de armazenamento  
 
-Para anexar contas de armazenamento à sua conta AMS, utilize APIs e [Powershell](/powershell/module/az.media) [do Gestor de Recursos Azure,](/rest/api/media/operations/azure-media-services-rest-api-reference) como mostra o seguinte exemplo:
+Para anexar contas de armazenamento à sua conta AMS, utilize APIs e [PowerShell](/powershell/module/az.media) [do Gestor de Recursos Azure,](/rest/api/media/operations/azure-media-services-rest-api-reference) como mostra o seguinte exemplo:
 
-    $regionName = "West US"
-    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-    $resourceGroupName = "SkyMedia-USWest-App"
-    $mediaAccountName = "sky"
-    $storageAccount1Name = "skystorage1"
-    $storageAccount2Name = "skystorage2"
-    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-    $storageAccounts = @($storageAccount1, $storageAccount2)
+```azurepowershell
+$regionName = "West US"
+$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccount1Name = "skystorage1"
+$storageAccount2Name = "skystorage2"
+$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+$storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+$storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+$storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+```
 
 ### <a name="support-for-cool-storage"></a>Suporte para armazenamento fresco
 

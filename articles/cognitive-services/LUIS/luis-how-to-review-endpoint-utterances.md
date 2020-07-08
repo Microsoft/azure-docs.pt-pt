@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 687f2a80b362ca559d054b81d464daf2f6f85c09
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340611"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055618"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar a app LUIS através da revisão das expressões de ponto final
 
-O processo de revisão das proclamações de ponto final para previsões corretas chama-se [Aprendizagem Ativa](luis-concept-review-endpoint-utterances.md). A aprendizagem ativa captura consultas de ponto final e seleciona as expressões de ponto final do utilizador de que não tem a certeza. Você revê estas expressões para selecionar as intenções e marcar entidades para estas declarações do mundo da leitura. Aceite estas alterações nas suas declarações de exemplo e depois treine e publique. Luis identifica então as expressões com mais precisão.
+O processo de revisão das proclamações de ponto final para previsões corretas chama-se [Aprendizagem Ativa](luis-concept-review-endpoint-utterances.md). A aprendizagem ativa captura consultas de ponto final e seleciona as expressões de ponto final do utilizador de que não tem a certeza. Você revê estas expressões para selecionar as intenções e marcar entidades para estas expressões do mundo real. Aceite estas alterações nas suas declarações de exemplo e depois treine e publique. Luis identifica então as expressões com mais precisão.
 
 ## <a name="enable-active-learning"></a>Permitir a aprendizagem ativa
 

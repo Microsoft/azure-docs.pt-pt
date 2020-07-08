@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6c38f3bc695db0e27547e434a81f95fa556e84b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296003"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056791"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview
 
@@ -37,7 +37,7 @@ A tabela que se segue lista a localização adequada para colocar o seu _routes.
 |Quadro / biblioteca | Localização  |
 |---------|----------|
 | Angular | _ativos_   |
-| Reagir   | _público_  |
+| React   | _público_  |
 | Svelte  | _público_   |
 | Vue     | _público_ |
 
@@ -47,10 +47,10 @@ As rotas são definidas no _routes.jsarquivado_ como uma série de regras de rot
 
 | Propriedade de regra  | Necessário | Valor predefinido | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _ \* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
-| `serve`        | No       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve`os valores devem apontar para ficheiros reais.  |
-| `allowedRoles` | No       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
-| `statusCode`   | No       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
+| `route`        | Sim      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _ \* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
+| `serve`        | Não       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve`os valores devem apontar para ficheiros reais.  |
+| `allowedRoles` | Não       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
+| `statusCode`   | Não       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
 
 ## <a name="securing-routes-with-roles"></a>Assegurar rotas com funções
 
@@ -157,7 +157,7 @@ Os utilizadores podem encontrar uma série de situações diferentes que podem r
 
 A tabela a seguir enumera os erros da plataforma disponíveis:
 
-| Tipo de erro  | Código de estado de HTTP | Description |
+| Tipo de erro  | Código de estado de HTTP | Descrição |
 |---------|---------|---------|
 | `NotFound` | 404  | Não se encontra uma página no servidor. |
 | `Unauthenticated` | 401 | O utilizador não está a iniciar sessão com um [fornecedor de autenticação](authentication-authorization.md). |
@@ -166,6 +166,53 @@ A tabela a seguir enumera os erros da plataforma disponíveis:
 | `Unauthorized_MissingRoles` | 401 | O utilizador não é membro de uma função necessária. |
 | `Unauthorized_TooManyUsers` | 401 | O site atingiu o número máximo de utilizadores, e o servidor está a limitar mais adições. Este erro é exposto ao cliente porque não há limite para o número de convites que pode gerar, e [alguns](authentication-authorization.md) utilizadores podem nunca aceitar o seu convite.|
 | `Unauthorized_Unknown` | 401 | Existe um problema desconhecido ao tentar autenticar o utilizador. Uma das causas deste erro pode ser o facto de o utilizador não ser reconhecido por não ter dado consentimento à aplicação.|
+
+## <a name="custom-mime-types"></a>Tipos de mímica personalizados
+
+O `mimeTypes` objeto, listado ao mesmo nível da `routes` matriz, permite associar [tipos de MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) a extensões de ficheiros.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "custom": "text/html"
+    }
+}
+```
+
+No exemplo acima, todos os ficheiros com a `.custom` extensão são servidos com o `text/html` tipo MIME.
+
+As seguintes considerações são importantes porque trabalha com tipos de MIME:
+
+- As teclas não podem ser nulas ou vazias, ou mais de 50 caracteres
+- Valores não podem ser nulos ou vazios, ou mais de 1000 caracteres
+
+## <a name="default-headers"></a>Cabeçalhos predefinidos
+
+O `defaultHeaders` objeto, listado ao mesmo nível da `routes` matriz, permite-lhe adicionar, modificar ou remover [cabeçalhos de resposta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
+
+Fornecendo um valor para um cabeçalho adiciona ou modifica o cabeçalho. Fornecendo um valor vazio, remove o cabeçalho de ser servido ao cliente.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+No exemplo acima, é adicionado um novo `content-security-policy` cabeçalho, modifica `cache-control` o valor predefinido do servidor e o `x-dns-prefectch-control` cabeçalho é removido.
+
+As seguintes considerações são importantes porque trabalha com cabeçalhos:
+
+- As chaves não podem ser nulas ou vazias.
+- Valores nulos ou vazios removam um cabeçalho do processamento.
+- As teclas ou valores não podem exceder 8.000 caracteres.
+- Os cabeçalhos definidos são servidos com todos os pedidos.
+- Os cabeçalhos definidos em _routes.js_ aplicam-se apenas ao conteúdo estático. Pode personalizar cabeçalhos de resposta de um ponto final da API no código da função.
 
 ## <a name="example-route-file"></a>Arquivo de rota de exemplo
 
@@ -222,24 +269,33 @@ O exemplo a seguir mostra como construir regras de rotas para conteúdo estátic
       "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "custom": "text/html"
+  }
 }
 ```
 
 Os exemplos a seguir descrevem o que acontece quando um pedido corresponde a uma regra.
 
-|Pedidos para...  | Resultado em... |
-|---------|---------|---------|
+| Pedidos para... | Resultado em... |
+|--|--|--|
 | _/perfil_ | Os utilizadores autenticados são servidos o ficheiro _/perfil/index.html._ Utilizadores não autenticados redirecionados para _/login_. |
 | _/administração/relatórios_ | Os utilizadores autenticados na função de administradores são _servidos_ o ficheiro _/administrador/reports/index.html._ Os utilizadores autenticados que não estão na função de administrador são _servidos_ um erro 401<sup>2</sup>. Utilizadores não autenticados redirecionados para _/login_. |
 | _/api/administrador_ | Os pedidos de utilizadores autenticados na função de administradores são _enviados_ para a API. Os utilizadores autenticados que não estão na função _de administrador_ e os utilizadores não autenticados são notificados de um erro de 401. |
 | _/clientes/contoso_ | Os utilizadores autenticados que pertençam às funções de administradores ou _clientes \_ são_ _servidos_ os _/clientes/contoso/index.html_ file<sup>2</sup>. Os utilizadores autenticados que não estão nas funções de administradores ou _clientes \_ _ são _servidos_ um erro de 401. Utilizadores não autenticados redirecionados para _/login_. |
-| _/login_     | Os utilizadores não autenticados são desafiados a autenticar com o GitHub. |
-| _/.auth/login/twitter_     | A autorização com o Twitter é desativada. O servidor responde com um erro 404. |
-| _/logout_     | Os utilizadores são registados fora de qualquer fornecedor de autenticação. |
+| _/login_ | Os utilizadores não autenticados são desafiados a autenticar com o GitHub. |
+| _/.auth/login/twitter_ | A autorização com o Twitter é desativada. O servidor responde com um erro 404. |
+| _/logout_ | Os utilizadores são registados fora de qualquer fornecedor de autenticação. |
 | _/calendário/2020/01_ | O navegador é servido o ficheiro _/calendar.html._ |
 | _/especiais_ | O navegador é redirecionado para _/ofertas._ |
-| _/pasta desconhecida_     | O ficheiro _/custom-404.html_ é servido. |
+| _/pasta desconhecida_ | O ficheiro _/custom-404.html_ é servido. |
+| Ficheiros com a `.custom` extensão | São servidos com o `text/html` tipo MIME |
+
+- Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> As regras de rota para as funções de API [apenas suportam redirecionamentos](#redirects) e [asseguram rotas com funções.](#securing-routes-with-roles)
 
@@ -252,7 +308,7 @@ Os exemplos a seguir descrevem o que acontece quando um pedido corresponde a uma
 
 Consulte o [artigo Quotas](quotas.md) para restrições e limitações gerais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Autenticação e autorização de instalação](authentication-authorization.md)

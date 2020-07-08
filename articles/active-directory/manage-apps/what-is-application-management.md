@@ -1,6 +1,6 @@
 ---
 title: Gerir Aplicações com o Microsoft Azure Active Directory | Microsoft Docs
-description: Uma visão geral da utilização do Azure Ative Directory (AD) como um sistema de Gestão de Identidade e Autorização (IAM) para as suas aplicações em nuvem e no local.
+description: Uma visão geral da utilização do Azure Ative Directory (AD) como um sistema de Gestão de Identidade e Acesso (IAM) para as suas aplicações em nuvem e no local.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,16 +12,16 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d69da3f1e9a505d14974a7a3089acca0e17c713
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85549550"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055210"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
-A Azure AD é um sistema de Gestão de Identidade e Autorização (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas. 
+AZure AD é um sistema de Gestão de Identidade e Acesso (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas. 
 
 O Azure AD deve ser configurado para integrar-se com uma aplicação. Por outras palavras, precisa de saber que aplicações a estão a usar como sistema de identidade. O processo de manter a Azure AD ciente destas aplicações, e como deve lidar com elas, é conhecido como gestão de aplicações.
 
@@ -29,12 +29,12 @@ Gere aplicações na lâmina de **aplicações** da Enterprise localizada na sec
 
 ![A opção de aplicações da Enterprise sob a secção Gerir do portal AZure AD.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
-## <a name="what-is-an-identity-and-authorization-management-iam-system"></a>O que é um sistema de Gestão de Identidade e Autorização (IAM) ?
+## <a name="what-is-an-identity-and-access-management-iam-system"></a>O que é um sistema de Gestão de Identidade e Acesso (IAM) ?
 Uma aplicação é uma peça de software que é usada para algum propósito. A maioria das aplicações exige que os utilizadores entrem para que a aplicação possa fornecer uma experiência personalizada para esse utilizador em particular. Ou seja, a aplicação necessita de saber a identidade do utilizador através da aplicação. Porque sabe que funcionalidade oferecer, ou remover, para o utilizador.
 
 Se cada aplicação acompanhasse separadamente os utilizadores, o resultado seria um silo de diferentes nomes de utilizadores e logins para cada aplicação. Uma aplicação não saberia nada sobre os utilizadores noutras aplicações.
 
-Um sistema de identidade centralizado resolve este problema fornecendo um único local para armazenar informações dos utilizadores que podem ser usadas por todas as aplicações. Estes sistemas passaram a ser conhecidos como sistemas de Gestão de Identidade e Autorização (IAM). Azure Ative AD é o sistema IAM para a nuvem da Microsoft.
+Um sistema de identidade centralizado resolve este problema fornecendo um único local para armazenar informações dos utilizadores que podem ser usadas por todas as aplicações. Estes sistemas passaram a ser conhecidos como sistemas de Gestão de Identidade e Acesso (IAM). Azure Ative AD é o sistema IAM para a nuvem da Microsoft.
 
 >[!TIP]
 >Um sistema IAM fornece um único local para acompanhar as identidades dos utilizadores. Azure AD é o sistema IAM para a nuvem da Microsoft.
@@ -91,7 +91,7 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 Para aplicações focadas em Recursos Humanos, ou outras aplicações com um grande conjunto de utilizadores, pode aproveitar o fornecimento de App para automatizar o processo de provisionamento e desprovisionamento de utilizadores, ver O que é o provisionamento de [aplicações?](../app-provisioning/user-provisioning.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver aplicações já configuradas no seu inquilino Azure AD](view-applications-portal.md)
 - [Quickstart: Adicione uma aplicação de galeria ao seu inquilino Azure AD](add-application-portal.md)
