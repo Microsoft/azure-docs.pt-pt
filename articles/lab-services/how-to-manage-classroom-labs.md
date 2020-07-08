@@ -4,10 +4,10 @@ description: Aprenda a criar e configurar um laboratório de sala de aula, ver t
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445394"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Azure Lab Services 
@@ -91,7 +91,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 | Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
-| Small | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
+| Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise | 
 | Médio (virtualização aninhada) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise. Este tamanho também suporta a virtualização aninhada. <p>Este tamanho pode ser usado em cenários onde cada aluno precisa de vários VMs. Os educadores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequeno porte dentro da máquina virtual. </p> |
 | Pequena GPU (Computação) | 6 | 56 GB | <p>Este tamanho é mais adequado para aplicações intensivas de computação e de rede, como inteligência artificial e aplicações de aprendizagem profunda.</p><p>A Azure Lab Services instala e configura automaticamente os controladores de GPU necessários para si quando cria um laboratório com imagens de GPU. </p> | 
@@ -130,7 +130,7 @@ Também pode criar um novo laboratório usando o **novo laboratório** nesta lis
 
 Para mudar para outra conta de laboratório, selecione a entrega ao lado da conta do laboratório e selecione a outra conta de laboratório. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como dono de laboratório, crie e publique modelos](how-to-create-manage-template.md)

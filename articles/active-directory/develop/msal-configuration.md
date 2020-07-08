@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479424"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Ficheiro de configuração da Biblioteca de Autenticação do Microsoft Android
@@ -32,12 +32,12 @@ Este artigo irá ajudá-lo a compreender as várias definições no ficheiro de 
 
 | Propriedade | Tipo de Dados | Necessário | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | String | Yes | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String | Yes | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Lista\<Authority> | No | A lista de autoridades que a sua app precisa |
-| `authorization_user_agent` | AutorizaçãoAgent (enum) | No | Valores possíveis: `DEFAULT` `BROWSER` ,`WEBVIEW` |
-| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` e`read_timeout` |
-| `logging` | Configuação de Registos | No | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
+| `client_id` | String | Sim | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sim | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Lista\<Authority> | Não | A lista de autoridades que a sua app precisa |
+| `authorization_user_agent` | AutorizaçãoAgent (enum) | Não | Valores possíveis: `DEFAULT` `BROWSER` ,`WEBVIEW` |
+| `http` | HttpConfiguration | Não | Configure `HttpUrlConnection` `connect_timeout` e`read_timeout` |
+| `logging` | Configuação de Registos | Não | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -91,7 +91,7 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`é um pseudónimo inquilino para onde está a conta. Tal como um inquilino específico do Azure Ative Directory ou o sistema de conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Apenas as contas presentes em contoso.com podem adquirir um token. Qualquer domínio verificado, ou o inquilino GUID, pode ser usado como identificação do inquilino. |
 | AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Apenas as contas do Azure Ative Directory podem ser utilizadas com este ponto final. As contas da Microsoft podem ser membros de organizações. Para adquirir um token usando uma conta microsoft para um recurso numa organização, especifique o inquilino organizacional do qual deseja o token. |
-| AAD | Contagem pessoal daMicrosoft | | | `https://login.microsoftonline.com/consumers` | Apenas as contas da Microsoft podem utilizar este ponto final. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Apenas as contas da Microsoft podem utilizar este ponto final. |
 | B2C | | | Ver Ponto final resultante | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Apenas as contas presentes no contoso.onmicrosoft.com inquilino pode adquirir um token. Neste exemplo, a política B2C faz parte do caminho url da Autoridade. |
 
 > [!NOTE]
@@ -103,17 +103,17 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Propriedade | Tipo de dados  | Necessário | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | String | Yes | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` ,`B2C` |
-| `audience` | Objeto | No | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
-| `authority_url` | String | Yes | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
-| `default` | boolean | Yes | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
+| `type` | String | Sim | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` ,`B2C` |
+| `audience` | Objeto | Não | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
+| `authority_url` | String | Sim | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
+| `default` | boolean | Sim | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
 
 #### <a name="audience-properties"></a>Propriedades do Público
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 |-----------|-------------|------------|-------|
-| `type` | String | Yes | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
-| `tenant_id` | String | Yes | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
+| `type` | String | Sim | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | String | Sim | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -140,18 +140,18 @@ Configure as definições globais para intervalos http, tais como:
 
 | Propriedade | Tipo de dados | Necessário | Notas |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | No | Tempo em milissegundos |
-| `read_timeout` | int | No | Tempo em milissegundos |
+| `connect_timeout` | int | Não | Tempo em milissegundos |
+| `read_timeout` | int | Não | Tempo em milissegundos |
 
-### <a name="logging"></a>registo
+### <a name="logging"></a>registos
 
 As seguintes configurações globais são para a exploração madeireira:
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | No | Se emitir dados pessoais |
+| `pii_enabled`  | boolean | Não | Se emitir dados pessoais |
 | `log_level`   | cadeia (de carateres) | No | Que registar mensagens para a saída. Os níveis de registo suportados `ERROR` `WARNING` incluem, `INFO` `VERBOSE` e. |
-| `logcat_enabled` | boolean | No | Se a saída para registar o gato, além da interface de registo |
+| `logcat_enabled` | boolean | Não | Se a saída para registar o gato, além da interface de registo |
 
 ### <a name="account_mode"></a>account_mode
 

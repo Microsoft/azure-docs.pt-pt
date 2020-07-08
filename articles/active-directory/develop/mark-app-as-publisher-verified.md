@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85477690"
 ---
 # <a name="mark-your-app-as-publisher-verified-preview"></a>Marcar a sua aplicação como verificada pelo publicador (pré-visualização)
@@ -78,5 +78,5 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
 Já está! Informe-nos se tiver algum feedback sobre o processo, os resultados ou a funcionalidade em geral. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se tiver problemas, leia a [informação relativa à resolução de problemas.](troubleshoot-publisher-verification.md)

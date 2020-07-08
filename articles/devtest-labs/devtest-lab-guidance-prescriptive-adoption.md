@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 81767c36b2a5b46eb41be1e516a14fb3ebe3fb7f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476993"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs na empresa
@@ -31,5 +31,5 @@ Esta documentação destina-se a planeadores de TI empresariais, arquitetos e ge
 
 Muitos clientes empresariais da DevTest Labs atuais usam com sucesso a DevTest Labs para o desenvolvimento e para testar cargas de trabalho nas suas organizações. [Saiba mais](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Arquitetura de referência para uma empresa](devtest-lab-reference-architecture.md)

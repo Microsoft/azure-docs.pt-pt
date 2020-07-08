@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8b71774d9a833adefdd25214ea4f0e8bdaaba485
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480189"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referencia arquitetura para empresas
@@ -62,5 +62,5 @@ A DevTest Labs tem uma excelente interface de utilizador administrativa para tra
 ## <a name="security-considerations"></a>Considerações de segurança
 A Azure DevTest Labs utiliza recursos existentes em Azure (computação, networking, e assim por diante). Assim, beneficia automaticamente das funcionalidades de segurança que são incorporadas na plataforma. Por exemplo, para exigir que as ligações remotas de ambiente de trabalho tenham origem apenas a partir da rede corporativa, basta adicionar um grupo de segurança de rede à rede virtual no gateway remoto do ambiente de trabalho. A única consideração adicional de segurança é o nível de permissões que concede aos membros da equipa que usam os laboratórios no dia-a-dia. As permissões mais comuns são [ *o proprietário* e *o utilizador.*](devtest-lab-add-devtest-user.md) Para obter mais informações sobre estas funções, consulte [adicionar proprietários e utilizadores em Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja o próximo artigo desta série: [Dimensione a sua infraestrutura Azure DevTest Labs](devtest-lab-guidance-scale.md).

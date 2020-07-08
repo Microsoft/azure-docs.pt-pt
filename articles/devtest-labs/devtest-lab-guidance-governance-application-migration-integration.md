@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: cebc32edf78df1fa6a72876f8c8e5d23525942b7
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481583"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura Azure DevTest Labs - Migração e integração de aplicações
@@ -123,5 +123,5 @@ Este cenário pode não ser útil se estiver a usar a DevTest Labs para hospedar
 
 Vale também a pena notar que o número de máquinas virtuais por laboratório ou por opção de utilizador limita apenas o número de máquinas criadas nativamente no próprio laboratório, e não por quaisquer ambientes (modelos de Gestor de Recursos).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Ver [Ambientes de Utilização em Laboratórios DevTest](devtest-lab-test-env.md).

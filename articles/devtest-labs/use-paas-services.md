@@ -4,10 +4,10 @@ description: Saiba como utilizar os serviços Plataforma-as-a-Service (Pass) em 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478744"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utilizar serviços plataforma-as-a-service (PaaS) em Azure DevTest Labs
@@ -68,7 +68,7 @@ A automatização é um componente fundamental para um ecossistema em grande esc
 ### <a name="cicd-pipeline"></a>Gasoduto CI/CD
 Os serviços paaS em DevTest Labs podem ajudar a melhorar o oleoduto CI/CD, tendo implementações focadas onde o acesso é controlado pelo laboratório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos para mais detalhes sobre ambientes: 
 
 - 

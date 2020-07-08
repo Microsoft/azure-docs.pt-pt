@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: ee79333e1092cfcf2cd35e408f86dcfc9e1327cc
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479016"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Começar com o Azure Ative Directory (projetos WebApi)
@@ -31,7 +31,7 @@ Veja [o que aconteceu ao meu projeto WebAPI?](vs-active-directory-webapi-what-ha
 
 Todos os controladores do seu projeto foram adornados com o `[Authorize]` atributo. Este atributo requer que o utilizador seja autenticado antes de aceder às APIs definidas por estes controladores. Para permitir o acesso do controlador de forma anónima, remova este atributo do controlador. Se pretender definir as permissões a um nível mais granular, aplique o atributo a cada método que requer autorização em vez de a aplicar à classe do controlador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Cenários de autenticação para o Azure Ative Directory](authentication-scenarios.md)
 - [Adicione o s-in com a Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)

@@ -4,10 +4,10 @@ description: Aprenda a recolocar uma máquina virtual (passe de um nó Azure par
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480240"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Recolocar um VM num laboratório em Azure DevTest Labs
@@ -28,7 +28,7 @@ Para recolocar um VM num laboratório em Azure DevTest Labs, tome os seguintes p
 
     ![Estado de reimplantação](media/devtest-lab-redeploy-vm/redeploy-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aprenda a redimensionar um VM em Azure DevTest Labs, consulte [Redimensionar um VM](devtest-lab-resize-vm.md).
 
 

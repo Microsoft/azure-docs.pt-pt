@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476840"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
@@ -181,7 +181,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 >
 > Se o MFA for re-activado num objeto de utilizador que já tenha dados de registo, como telefone ou e-mail, então os administradores precisam de ter esse utilizador a re-registar MFA através do portal Azure ou powerShell. Se o utilizador não se re-registar, o seu estado de MFA não transita de *Enabled* para *Enforcado* na UI de gestão de MFA.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar as definições de autenticação multi-factor Azure, como IPs fidedignos, mensagens de voz personalizadas e alertas de fraude, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md). Para gerir as definições do utilizador para autenticação multi-factor Azure, consulte [gerir as definições do utilizador com autenticação multi-factor Azure](howto-mfa-userdevicesettings.md).
 

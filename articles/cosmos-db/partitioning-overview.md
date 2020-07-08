@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481838"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
@@ -84,7 +84,7 @@ Algumas coisas a ter em conta ao selecionar o *ID* do item como chave de partiç
 * Se tiver um recipiente de leitura pesado que tenha [muitas divisórias físicas,](partition-data.md#physical-partitions)as consultas serão mais eficientes se tiverem um filtro de igualdade com o *ID do artigo.*
 * Não é possível executar procedimentos armazenados ou gatilhos através de múltiplas divisórias lógicas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a partição e a escala horizontal em Azure Cosmos DB](partition-data.md).
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

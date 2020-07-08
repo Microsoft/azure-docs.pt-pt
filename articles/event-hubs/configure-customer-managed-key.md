@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como configurar a sua próp
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479832"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
@@ -101,7 +101,7 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON).
 | categoria | Define a classificação da tarefa. Por exemplo, se a chave do cofre está a ser desativada, então seria uma categoria de informação ou se uma chave não puder ser desembrulhada, pode cair sob erro. |
 | resourceId | Azure Resource Manager resource ID |
 | keyVault | Nome completo do cofre da chave. |
-| chave | O nome-chave que é usado para encriptar o espaço de nomes do Event Hubs. |
+| key | O nome-chave que é usado para encriptar o espaço de nomes do Event Hubs. |
 | versão | A versão da chave a ser usada. |
 | operação | A operação que é feita na chave do cofre. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
 | code | O código que está associado à operação. Exemplo: Código de erro, 404 significa que a chave não foi encontrada. |
@@ -415,7 +415,7 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 > [!IMPORTANT]
 > Para ativar o Geo-DR num espaço de nome que está a usar a encriptação BYOK, o espaço de nome secundário para emparelhamento deve estar num cluster dedicado e deve ter um sistema atribuído à identidade gerida ativada nele. Para saber mais, consulte [Identidades Geridas para Recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 - [Descrição geral dos Event Hubs](event-hubs-about.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

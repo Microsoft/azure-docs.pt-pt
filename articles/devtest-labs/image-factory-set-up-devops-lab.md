@@ -4,10 +4,10 @@ description: Este artigo abrange todos os preparativos necessários para gerir a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476143"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagens a partir do Azure DevOps
@@ -117,5 +117,5 @@ Vamos verificar se tem tudo preparado corretamente, fazendo fila para uma nova c
 
 ![VMs no laboratório](./media/set-up-devops-lab/vms-in-lab.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O primeiro passo para a criação da fábrica de imagens com base na Azure DevTest Labs está completo. No próximo artigo da série, obtém-se os VMs generalizados e guardados para imagens personalizadas. Depois, distribui-os a todos os outros laboratórios. Veja o próximo artigo da série: [Guarde imagens personalizadas e distribua para vários laboratórios](image-factory-save-distribute-custom-images.md).

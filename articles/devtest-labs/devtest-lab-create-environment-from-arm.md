@@ -4,10 +4,10 @@ description: Saiba como criar ambientes multi-VM e recursos PaaS em Azure DevTes
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bab107257a6233543cecfb664b3a6d313dd0e538
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481430"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager
@@ -282,7 +282,7 @@ Por exemplo, pode ter uma política de laboratório que um utilizador pode criar
 
   - Número de discos premium por utilizador de laboratório
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Uma vez criado um VM, pode ligar-se ao VM selecionando **Connect** no painel de gestão do VM.
 - Veja e gere recursos num ambiente selecionando o ambiente na lista **das minhas máquinas virtuais** no seu laboratório.
 - Explore os [modelos do Gestor de Recursos Azure da galeria de modelos Azure Quickstart.](https://github.com/Azure/azure-quickstart-templates)

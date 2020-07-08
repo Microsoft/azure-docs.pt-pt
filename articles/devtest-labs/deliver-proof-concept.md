@@ -4,10 +4,10 @@ description: Aprenda a entregar uma prova de conceito para que a Azure DevTest L
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: b0178d412154de556f25ab71bb30eed7be5e9ba6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481362"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entregar uma prova de conceito 
@@ -123,7 +123,7 @@ Antes de lançar uma solução completa da DevTest Labs, tem de tomar decisões 
 
 Depois das aprendizagens esperadas terem sido cobertas, é hora de completar o piloto. Este é o momento de recolher feedback dos utilizadores, determinar se o piloto foi bem sucedido, e decidir se a organização vai avançar com um lançamento em escala da DevTest Labs na empresa. É também um ótimo momento para considerar automatizar a implementação de DevTest Labs e recursos associados para garantir consistência em toda a escala. 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 * [Documentação da empresa DevTest Labs](devtest-lab-guidance-prescriptive-adoption.md)
 * [Arquitetura de referência para uma empresa](devtest-lab-reference-architecture.md)

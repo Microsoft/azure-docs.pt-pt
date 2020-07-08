@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478166"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registo de aplicações do portal Azure
@@ -121,6 +121,6 @@ A nova experiência tem as seguintes limitações:
    > [!NOTE]
    > Se você é um utilizador pessoal da conta da Microsoft no inquilino Azure AD, e o administrador inquilino tem acesso restrito ao portal Azure, você pode obter um acesso negado. No entanto, se você vier através do atalho digitando registos de App na barra de pesquisa ou fixando-o, você será capaz de aceder à nova experiência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a nova experiência de registo de aplicações, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft.](quickstart-register-app.md)

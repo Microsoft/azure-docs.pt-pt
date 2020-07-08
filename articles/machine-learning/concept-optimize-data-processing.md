@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481889"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
@@ -79,7 +79,7 @@ Para dados maiores que 10 GB| Mude-se para um cluster usando `Ray` `Dask` , ou`S
 
 Você pode criar `Dask` clusters em Azure ML compute cluster com o pacote [dask-cloudprovider.](https://cloudprovider.dask.org/en/latest/#azure) Ou pode correr `Dask` localmente numa instância computacional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Opções de ingestão de dados com Azure Machine Learning](concept-data-ingestion.md).
 * [Ingestão de dados com a Azure Data Factory](how-to-data-ingest-adf.md).

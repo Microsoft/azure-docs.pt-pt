@@ -4,10 +4,10 @@ description: Aprenda a criar horários para laboratórios de sala de aula em Azu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445785"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerir horários para laboratórios de sala de aula em Azure Lab Services 
@@ -71,7 +71,7 @@ Na página de **eventos agendada para Editar,** pode atualizar o horário e sele
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gere contas de laboratório](how-to-manage-lab-accounts.md)

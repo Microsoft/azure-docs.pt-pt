@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 36479acca56aa97a5453a9ab99691ed1993daaf3
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85477010"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Começar com O Diretório Ativo Azure (ASP.NET Projetos MVC)
@@ -80,7 +80,7 @@ Para adicionar os controlos SignIn/SignOut à sua vista, pode utilizar a `_Login
 </html>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Cenários de autenticação para o Azure Ative Directory](authentication-scenarios.md)
 - [Adicione o s-in com a Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)

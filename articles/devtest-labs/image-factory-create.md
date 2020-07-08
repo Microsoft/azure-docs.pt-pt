@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como configurar uma fábrica de imagem perso
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482076"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada em Azure DevTest Labs
@@ -48,5 +48,5 @@ Há uma implementação alternativa usando o script PowerShell para um cenário 
 - DevTest Labs que recebe imagens personalizadas pode não estar na mesma Subscrição Azure (subscrições de laboratórios abrangem)
 - Os scripts PowerShell devem ser reutilizáveis para que possamos girar fábricas adicionais conforme necessário
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Passe para o próximo artigo nesta secção: [Gere uma fábrica de imagem a partir de Azure DevOps](image-factory-set-up-devops-lab.md)

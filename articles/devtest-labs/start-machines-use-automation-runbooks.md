@@ -4,10 +4,10 @@ description: Aprenda a iniciar máquinas virtuais num laboratório em Azure DevT
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481906"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Inicie máquinas virtuais em laboratório para usar os runbooks da Azure Automation
@@ -128,5 +128,5 @@ Para que este script seja executado diariamente, [crie um horário](../automatio
 
 Numa situação em larga escala em que existem múltiplas subscrições com vários laboratórios, guarde a informação do parâmetro num ficheiro para diferentes laboratórios e passe o ficheiro para o script em vez dos parâmetros individuais. O guião teria de ser modificado, mas a execução do núcleo seria a mesma. Embora esta amostra utilize a Automatização Azure para executar o script PowerShell, existem outras opções como usar uma tarefa num pipeline Build/Release.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo para saber mais sobre a Azure Automation: [Uma introdução à Azure Automation](../automation/automation-intro.md).

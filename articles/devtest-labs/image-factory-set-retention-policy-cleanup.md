@@ -4,10 +4,10 @@ description: Aprenda a configurar uma política de retenção, limpe a fábrica 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476058"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Estabeleça a política de retenção na Azure DevTest Labs
@@ -63,7 +63,7 @@ Agora tem uma fábrica de imagem em execução que pode gerar e distribuir image
 Adicionar uma nova imagem à sua fábrica também é simples. Quando quiser incluir uma nova imagem na sua fábrica, abra o [portal Azure,](https://portal.azure.com)navegue na sua fábrica DevTest Labs, selecione o botão para adicionar um VM e escolha a imagem e artefactos de mercado desejados. Em vez de selecionar o botão **Criar** para fazer o novo VM, selecione **ver o modelo do Gestor de Recursos Azure**" e guarde o modelo como um ficheiro .json algures dentro da pasta **GoldenImages** no seu repositório. Da próxima vez que gerir a sua fábrica de imagens, criará a sua imagem personalizada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 1. [Agende a sua construção/lançamento](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagens. Atualiza regularmente as suas imagens geradas pela fábrica.
 2. Faça mais imagens douradas para a sua fábrica. Também pode considerar [a criação](devtest-lab-artifact-author.md) de artefactos para scripts adicionais das suas tarefas de configuração VM e incluir os artefactos nas suas imagens de fábrica.
 4. Crie uma [construção/versão separada](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o script **DistributeImages** separadamente. Pode executar este script quando fizer alterações para Labs.jse obter imagens copiadas para laboratórios-alvo sem ter que recriar todas as imagens novamente.

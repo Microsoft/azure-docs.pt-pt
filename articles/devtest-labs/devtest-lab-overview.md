@@ -4,10 +4,10 @@ description: Saiba como a DevTest Labs pode facilitar a criação, gestão e mon
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: b7e6493e5fb1c99dfa7962ed464dca3ebc6b0c7e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480206"
 ---
 # <a name="about-azure-devtest-labs"></a>Saiba mais sobre o Azure DevTest Labs
@@ -73,7 +73,7 @@ Os desenvolvedores também podem girar os recursos paaS, tais como clusters de t
 ## <a name="integrate-with-your-existing-toolchain"></a>Integre-se com a sua ferramenta existente
 Utilize plug-ins pré-fabricados ou a API para providenciar ambientes de desenvolvimento/teste diretamente da sua ferramenta de integração contínua preferida [(CI),](devtest-lab-integrate-ci-cd.md)ambiente de desenvolvimento integrado (IDE) ou gasoduto de libertação automatizado. Também pode utilizar a ferramenta de linha de comando abrangente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - Para saber mais sobre a DevTest Labs, consulte os [conceitos da DevTest Labs.](devtest-lab-concepts.md)

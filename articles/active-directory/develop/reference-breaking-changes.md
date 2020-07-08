@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85477248"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
@@ -193,7 +193,7 @@ Se a sua aplicação reutilizar códigos de autorização para obter fichas para
 
 Para obter mais informações sobre tokens de atualização, consulte [Refresh the access tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Se utilizar a ADAL ou a MSAL, esta é tratada por si pela biblioteca - substitua a segunda instância de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'.
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>May 2018
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Fichas de ID não podem ser usadas para o fluxo OBO
 

@@ -9,10 +9,10 @@ ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85448744"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:

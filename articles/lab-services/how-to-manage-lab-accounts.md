@@ -4,10 +4,10 @@ description: Saiba como criar uma conta de laboratório, ver todas as contas do 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445496"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Criar e gerir contas de laboratório
@@ -83,5 +83,5 @@ Siga as instruções da secção anterior que exibe contas de laboratório numa 
 > [!NOTE]
 > Também pode utilizar o módulo Az.LabServices PowerShell (pré-visualização) para gerir contas de laboratório. Para mais informações, consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outros artigos na secção **"Como-a-Guias**  ->  **Criar e configurar contas de laboratório" (dono** de conta de laboratório) da tabela de conteúdos (TOC). 

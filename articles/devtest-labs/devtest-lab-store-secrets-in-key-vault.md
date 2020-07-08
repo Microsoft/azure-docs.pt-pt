@@ -4,10 +4,10 @@ description: Aprenda a armazenar segredos num Cofre de Chaves Azure e use-os enq
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481651"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Guarde segredos em um cofre chave em Azure DevTest Labs
@@ -40,7 +40,7 @@ Pode especificar o seu nome secreto num modelo do Gestor de Recursos Azure que �
 
 ![Use segredo em fórmula ou ambiente](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um VM usando o segredo](devtest-lab-add-vm.md) 
 - [Criar uma fórmula usando o segredo](devtest-lab-manage-formulas.md)

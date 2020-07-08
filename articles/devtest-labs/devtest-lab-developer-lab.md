@@ -4,10 +4,10 @@ description: Conheça as funcionalidades da Azure DevTest Labs que podem ser usa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481039"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Use Azure DevTest Labs para desenvolvedores

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476772"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
@@ -127,7 +127,7 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 - [Visão geral das chaves da conta de armazenamento do cofre chave](../secrets/overview-storage-keys.md)) descreve as chaves de integração do Cofre chave Azure Storage Accounts.
 - [Os principais mundos de segurança do Cofre](overview-security-worlds.md) descrevem as relações entre regiões e áreas de segurança.
 
-## <a name="social"></a>Redes sociais
+## <a name="social"></a>Social
 
 - [Key Vault Blog](https://aka.ms/kvblog)
 - [Fórum do Cofre-Chave](https://aka.ms/kvforum)

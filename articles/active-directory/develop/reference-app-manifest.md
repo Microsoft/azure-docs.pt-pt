@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479254"
 ---
-# <a name="azure-active-directory-app-manifest"></a>Manifesto de aplicação Azure Ative Directory
+# <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
 O manifesto da aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade de aplicação da API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)do gráfico.
 
@@ -672,7 +672,7 @@ Quando vir um destes erros, recomendamos as seguintes ações:
 1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto previamente descarregado. Use a tabela [de referência manifesta](#manifest-reference) para entender a sintaxe e a semântica de atributos antigos e novos para que possa editar com sucesso os atributos em que está interessado. 
 1. Se o seu fluxo de trabalho exigir que guarde os manifestos no seu repositório de origem para utilização posterior, sugerimos a rebasão dos manifestos guardados no seu repositório com o que vê na experiência de registos da **App.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a relação entre a aplicação de uma aplicação e o objeto principal de serviço, consulte [aplicações e objetos principais de serviço em Azure AD](app-objects-and-service-principals.md).
 * Consulte o [glossário de desenvolvedores de plataformas de identidade](developer-glossary.md) da Microsoft para definições de alguns conceitos de desenvolvedores de plataformas de identidade da Microsoft.

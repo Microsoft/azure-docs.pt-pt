@@ -4,10 +4,10 @@ description: Saiba como ativar ou desativar o encerramento automático de VMs qu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0c5c22d5e4a9d66413e37cce095f5497915bd122
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445717"
 ---
 # <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Permitir o encerramento automático de VMs na desconexão
@@ -28,7 +28,7 @@ Pode configurar esta definição na página **Definições,** tal como mostrado 
 > [!WARNING]
 > Se desligar o sistema operativo Windows (OS) num VM antes de desligar uma sessão DE PDR para o VM, a função de autoshutdown não funcionará corretamente.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Painel para laboratórios de sala de aula](use-dashboard.md)

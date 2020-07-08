@@ -4,10 +4,10 @@ description: Saiba como usar o modelo Azure Resource Manager a partir de uma má
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476619"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo de Gestor de Recursos Azure 
@@ -57,7 +57,7 @@ Em cenários como treino, demonstrações e testes, pode querer criar máquinas 
 
 
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 * Saiba como [criar ambientes multi-VM com modelos de Gestor de Recursos.](devtest-lab-create-environment-from-arm.md)
 * [Implemente um modelo de Gestor de Recursos para criar um VM](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * Explore modelos mais rápidos de Gestor de Recursos para automação de DevTest Labs a partir do [repo de DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).

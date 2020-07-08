@@ -4,10 +4,10 @@ description: Saiba como adicionar um anúncio a um laboratório em Azure DevTest
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bac2b0a4e33a01977418b36ce6e3726999d10ed5
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478999"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publique um anúncio a um laboratório em Azure DevTest Labs
@@ -154,6 +154,6 @@ Pode implementar um modelo de Gestor de Recursos Azure utilizando uma das seguin
 - [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
 - [API REST](../azure-resource-manager/templates/deploy-rest.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Se alterar ou definir uma política de laboratório, é melhor publicar um anúncio para informar os utilizadores. [As políticas e horários definidos](devtest-lab-set-lab-policy.md) fornecem informações sobre a aplicação de restrições e convenções em toda a sua subscrição, utilizando políticas personalizadas.
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

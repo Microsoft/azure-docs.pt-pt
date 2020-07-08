@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como um administrador pode adicionar um util
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6671a3070dae672769eecf59d614d3b75455ef5a
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445870"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Como adicionar proprietários adicionais a um laboratório existente nos Serviços de Laboratório Azure
@@ -43,5 +43,5 @@ Para adicionar um utilizador como proprietário adicional a um laboratório exis
     2. Selecione o utilizador. 
     3. Selecione **Guardar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Confirme que o utilizador vê o laboratório ao iniciar sessão no [portal lab services](https://labs.azure.com).

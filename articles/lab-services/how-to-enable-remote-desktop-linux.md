@@ -4,10 +4,10 @@ description: Saiba como permitir o ambiente de trabalho remoto para máquinas vi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445768"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux nos Serviços Azure Lab
@@ -103,7 +103,7 @@ Siga os passos abaixo com base no tipo de computador utilizado para ligar ao mod
 
 O cliente X2Go é utilizado para ligar a um modelo VM que tem X2Go configurado.  Utilizando as informações de ligação SSH do modelo VM, siga os passos no artigo de como [ligar a um VM utilizando X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de um instrutor configurar RDP ou X2Go no seu modelo VM e publicar, os alunos podem ligar-se aos seus VMs através do ambiente de trabalho remoto gui ou SSH.
 
 Para obter mais informações, consulte:

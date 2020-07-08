@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85477860"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
@@ -169,7 +169,7 @@ Se um administrador consentir com uma aplicação para todos os utilizadores de 
 
 As aplicações multi-arrendadas também podem ter acesso a fichas para chamar APIs que estão protegidas pela Azure AD. Um erro comum ao utilizar a Biblioteca de Autenticação de Diretório Ativo (ADAL) com uma aplicação multi-arrendatário é solicitar inicialmente um token para um utilizador que utilize /comum, receber uma resposta e, em seguida, solicitar um token subsequente para esse mesmo utilizador também usando /comum. Porque a resposta da AZure AD vem de um inquilino, não /comum, ADAL caches o símbolo como sendo do inquilino. A chamada subsequente para /comum para obter um token de acesso para o utilizador falha a entrada de cache, e o utilizador é solicitado a iniciar novamente a sposição. Para evitar a falta da cache, certifique-se de que as chamadas subsequentes para um utilizador já assinado são feitas no ponto final do arrendatário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Office 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Office 365 como Exchange, SharePoint, OneDrive, OneNote, e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 

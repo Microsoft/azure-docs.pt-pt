@@ -4,10 +4,10 @@ description: Este artigo mostra como um dono de laboratório pode ativar identid
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476007"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Ativar identidades geridas atribuídas pelo utilizador em máquinas virtuais de laboratório em Azure DevTest Labs
@@ -58,7 +58,7 @@ Para adicionar um utilizador atribuído identidade gerida para VMs de laboratór
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre identidades geridas, veja [o que são identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 

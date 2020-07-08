@@ -4,10 +4,10 @@ description: Saiba como adicionar uma máquina virtual reclamada a um laboratór
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481311"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reclamais em Azure DevTest Labs
@@ -86,6 +86,6 @@ Isto é conhecido como "transferir o disco de dados". O disco de dados fica ent�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Uma vez criado, pode ligar-se ao VM selecionando **Connect** no seu painel de gestão.
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

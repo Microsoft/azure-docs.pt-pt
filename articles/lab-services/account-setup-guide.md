@@ -4,10 +4,10 @@ description: Este guia ajuda os administradores a criar rapidamente uma conta de
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445428"
 ---
 # <a name="lab-account-setup-guide"></a>Guia de configuração de conta de laboratório
@@ -97,7 +97,7 @@ Depois de entender os requisitos para a sua conta de laboratório, está pronto 
 
    ![Screenshot de Ativar imagens personalizadas numa galeria de imagens partilhada](./media/setup-guide/enable-sig-custom-images.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir contas de laboratório](how-to-manage-lab-accounts.md)
 

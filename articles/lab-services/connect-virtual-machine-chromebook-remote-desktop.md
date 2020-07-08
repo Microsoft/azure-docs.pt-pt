@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445666"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Conecte-se a um VM utilizando o Protocolo de Ambiente de Trabalho Remoto num Chromebook
@@ -37,7 +37,7 @@ Esta secção mostra como um aluno pode ligar-se a um laboratório de sala de au
 
 1. Deve ver o ambiente de trabalho do VM a que está a ligar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a ligação aos VMs Linux, consulte [as máquinas virtuais Connect to Linux](how-to-use-remote-desktop-linux-student.md)
 
 

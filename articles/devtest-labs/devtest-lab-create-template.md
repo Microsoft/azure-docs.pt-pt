@@ -4,10 +4,10 @@ description: Saiba como criar uma imagem personalizada em Azure DevTest Labs a p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba627421a43a8e4e7f193ad96da09da8934d028c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481277"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crie uma imagem personalizada a partir de um ficheiro VHD
@@ -72,6 +72,6 @@ Após alguns minutos, a imagem personalizada é criada e é armazenada dentro da
 - [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copiar imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione um VM ao seu laboratório](./devtest-lab-add-vm.md)

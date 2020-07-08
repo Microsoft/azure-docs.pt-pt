@@ -4,10 +4,10 @@ description: Este artigo descreve como pode escalar o seu laboratório em Azure 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85477096"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites em Laboratórios DevTest
@@ -56,5 +56,5 @@ Estes passos mostram como solicitar um aumento de quota através do [portal Azur
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

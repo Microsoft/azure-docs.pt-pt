@@ -4,10 +4,10 @@ description: Saiba como integrar a Azure DevTest Labs no seu pipelineS Azure e g
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480580"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integre a Azure DevTest Labs no seu pipeline Azure Pipelines CI/CD
@@ -215,7 +215,7 @@ Para criar e executar um desbloqueio utilizando o novo oleoduto:
 
 Pode utilizar a imagem personalizada para criar VMs sempre que precisar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [criar ambientes multi-VM com modelos de Gestor de Recursos.](devtest-lab-create-environment-from-arm.md)
 - Explore modelos mais rápidos de Gestor de Recursos para automação de DevTest Labs a partir do [repo de DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).
 - Se necessário, consulte a página [de resolução de problemas do Azure DevOps.](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting)

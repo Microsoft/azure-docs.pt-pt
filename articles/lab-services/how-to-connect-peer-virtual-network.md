@@ -4,10 +4,10 @@ description: Saiba como ligar a sua rede de laboratório a outra rede como um pa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 20e47113d5c2439c9c8ea355288442b5f41d90ca
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445836"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ligue a rede do seu laboratório a uma rede virtual de pares nos Serviços Azure Lab
@@ -71,7 +71,7 @@ Aqui estão algumas restrições ao especificar o intervalo de endereços que de
 
     ![Gama de endereços configurar](./media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos:
 

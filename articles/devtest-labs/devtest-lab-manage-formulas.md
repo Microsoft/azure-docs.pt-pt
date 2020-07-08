@@ -4,10 +4,10 @@ description: Este artigo ilustra como criar uma fórmula a partir de uma base (i
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480410"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas Azure DevTest Labs
@@ -124,6 +124,6 @@ Para eliminar uma fórmula, siga estes passos:
 ## <a name="related-blog-posts"></a>Publicações de blogs relacionadas
 * [Imagens ou fórmulas personalizadas?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de ter criado uma fórmula para usar ao criar um VM, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)
 
