@@ -1,5 +1,5 @@
 ---
-title: Listas de exclusão de firewall de aplicações web em Azure Front Door - portal Azure
+title: Listas de exclusão de firewall de aplicações web em Azure Front Door - Portal Azure
 description: Este artigo fornece informações sobre a configuração das listas de exclusão na Frente Azure com o portal Azure.
 services: web-application-firewall
 author: vhorne
@@ -8,44 +8,43 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925933"
 ---
-# <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Firewall de aplicação web (WAF) com listas de exclusão do Serviço da Porta Frontal 
+# <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Firewall de aplicação web (WAF) com listas de exclusão do Serviço de Porta Frontal 
 
-Por vezes, a Firewall de Aplicações Web (WAF) pode bloquear um pedido que pretende permitir para a sua aplicação. Por exemplo, o Diretório Ativo insere fichas que são usadas para autenticação. Estas fichas podem conter caracteres especiais que podem desencadear um falso positivo das regras da WAF. As listas de exclusão waf permitem-lhe omitir certos atributos de pedido de uma avaliação WAF.  Uma lista de exclusão pode ser configurada usando [PowserShell,](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0) [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add) [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal Azure. O exemplo que se segue mostra a configuração do portal Azure. 
-## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configure listas de exclusão utilizando o portal Azure
+Por vezes, a Firewall de Aplicações Web (WAF) pode bloquear um pedido que pretende permitir para a sua aplicação. Por exemplo, o Ative Directory insere fichas que são utilizadas para autenticação. Estes tokens podem conter caracteres especiais que podem desencadear um falso positivo das regras da WAF. As listas de exclusão da WAF permitem-lhe omitir determinados atributos de pedido de uma avaliação waf.  Uma lista de exclusão pode ser configurada usando [PowserShell,](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0) [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add) [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal Azure. O exemplo a seguir mostra a configuração do portal Azure. 
+## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurar listas de exclusão utilizando o portal Azure
 **Gerir exclusões** é acessível a partir do portal WAF de acordo com **as regras geridas**
 
-![Gerir](../media/waf-front-door-exclusion/exclusion1.png)
-![a exclusão Gerir exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
+![Gerir exclusão ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![ Gerir exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
 
- Uma lista de ![exclusão de exemplo: Gerir exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ Uma lista de exclusão de exemplo: ![ Gerir exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
-Este exemplo exclui o valor no campo de cabeçalho do *utilizador.* Um pedido válido pode incluir o campo de *utilizador* que contém uma cadeia que desencadeia uma regra de injeção SQL. Neste caso, pode excluir o parâmetro do *utilizador* para que a regra WAF não avalie nada no campo.
+Este exemplo exclui o valor no campo do cabeçalho do *utilizador.* Um pedido válido pode incluir o campo de *utilizador* que contém uma cadeia que desencadeia uma regra de injeção SQL. Pode excluir o parâmetro do *utilizador* neste caso para que a regra WAF não avalie nada no campo.
 
-Os seguintes atributos podem ser adicionados às listas de exclusão pelo nome. Os valores dos campos que usa não são avaliados contra as regras da WAF, mas os seus nomes são avaliados. As listas de exclusão removem a inspeção do valor do campo.
+Os seguintes atributos podem ser adicionados às listas de exclusão pelo nome. Os valores dos campos que utiliza não são avaliados contra as regras da WAF, mas os seus nomes são avaliados. As listas de exclusão removem a inspeção do valor do campo.
 
-* Pedir nome cabeçalho
-* Solicitar nome de cookie
-* Nome de args de corda de consulta
-* Solicitar o nome do post do corpo args
+* Pedido nome do cabeçalho
+* Solicitar nome de cookies
+* Nome de args de cadeia de consulta
+* Solicitar nome de args post do corpo
 
-Pode especificar um cabeçalho de pedido exato, corpo, cookie ou correspondência de atributo de corda de consulta.  Ou, pode especificar opcionalmente fósforos parciais. Os seguintes operadores são os critérios de correspondência suportados:
+Pode especificar um cabeçalho de pedido exato, corpo, cookie ou combinação de atributos de cadeia de consulta.  Ou, opcionalmente, pode especificar correspondências parciais. Os seguintes operadores são os critérios de correspondência suportados:
 
-- **Igual:** Este operador é utilizado para uma correspondência exata. Por exemplo, para selecionar um cabeçalho chamado **bearerToken,** utilize o operador igual com o seletor definido como **bearerToken**.
-- **Começa com:** Este operador corresponde a todos os campos que começam com o valor do seletor especificado.
-- **Termina com**: Este operador corresponde a todos os campos de pedidos que terminam com o valor do seletor especificado.
-- **Contém:** Este operador corresponde a todos os campos de pedidos que contenham o valor do seletor especificado.
-- **Igual a qualquer**um: Este operador corresponde a todos os campos de pedidos. * é o valor do seletor.
+- **Igual**: Este operador é utilizado para uma correspondência exata. Por exemplo, para selecionar um cabeçalho denominado **BearerToken**, utilize o operador de iguales com o seletor definido como **bearerToken**.
+- **Começa por:** Este operador corresponde a todos os campos que começam com o valor do seletor especificado.
+- **Termina com:** Este operador corresponde a todos os campos de pedido que terminam com o valor do seletor especificado.
+- **Contém**: Este operador corresponde a todos os campos de pedido que contêm o valor do seletor especificado.
+- **É igual a qualquer**: Este operador corresponde a todos os campos de pedido. * é o valor do seletor.
 
-Nomes de cabeçalho e biscoitos são insensíveis.
+Nomes de cabeçalho e biscoitos são insensíveis a caso.
 
-Pode aplicar a lista de exclusão a todas as regras dentro da regra gerida definida, às regras de um determinado grupo de regras, ou a uma regra única, como mostrado no exemplo anterior. 
+Pode aplicar a lista de exclusão a todas as regras dentro da regra gerida definida, às regras de um grupo de regras específicos, ou a uma única regra, como mostrado no exemplo anterior. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Depois de configurar as definições de WAF, aprenda a ver os seus registos WAF. Para mais informações, consulte os [diagnósticos da Porta da Frente](../afds/waf-front-door-monitor.md).
+Depois de configurar as definições de WAF, aprenda a visualizar os seus registos WAF. Para mais informações, consulte [os diagnósticos da Porta Frontal.](../afds/waf-front-door-monitor.md)

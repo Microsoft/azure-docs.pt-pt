@@ -1,5 +1,5 @@
 ---
-title: Log Analytics exemplos de análise inteligente / Microsoft Docs
+title: Log Analytics exemplos de análise inteligente Microsoft Docs
 description: Exemplos que utilizam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,20 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
 ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659837"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics exemplos de análise inteligente
-Este artigo inclui exemplos que utilizam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador. Pode utilizar estes exemplos para analisar as suas próprias aplicações monitorizadas por Application Insights ou utilizar os conceitos nestas consultas para análises semelhantes em outros dados. 
+Este artigo inclui exemplos que usam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador. Pode utilizar estes exemplos para analisar as suas próprias aplicações monitorizadas pela Application Insights ou utilizar os conceitos nestas consultas para análises semelhantes em outros dados. 
 
-Consulte a [referência linguística kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação](get-started-queries.md) de consultas se for novo no Log Analytics.
+Consulte a [referência linguística de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação de consultas](get-started-queries.md) se for novo no Log Analytics.
 
-## <a name="cohorts-analytics"></a>Análise de coortes
+## <a name="cohorts-analytics"></a>Coortes analíticos
 
-A análise de coorte sintetiza a atividade de grupos específicos de utilizadores, conhecidos como coortes. Tenta medir o quão apelativo é um serviço medindo a taxa de retornados dos utilizadores. Os utilizadores estão agrupados quando utilizaram o serviço pela primeira vez. Ao analisar coortes, esperamos encontrar uma diminuição da atividade ao longo dos primeiros períodos rastreados. Cada coorte é intitulada pela semana em que os seus membros foram observados pela primeira vez.
+A análise do coorte acompanha a atividade de grupos específicos de utilizadores, conhecidos como coortes. Tenta medir o quão apelativo é um serviço medindo a taxa de retorno dos utilizadores. Os utilizadores estão agrupados no momento em que utilizaram o serviço pela primeira vez. Ao analisar coortes, esperamos encontrar uma diminuição da atividade ao longo dos primeiros períodos rastreados. Cada coorte é intitulada pela semana em que os seus membros foram observados pela primeira vez.
 
 O exemplo seguinte analisa o número de atividades que os utilizadores realizam ao longo de 5 semanas, após a primeira utilização do serviço.
 
@@ -87,8 +86,8 @@ Este exemplo resulta na seguinte saída.
 
 ![Saída de análise de coorte](media/smart-analytics/cohorts.png)
 
-## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Utilizadores ativos mensais e stickiness do utilizador
-Os exemplos seguintes utilizam a análise da série de tempo com a função [series_fir](/azure/kusto/query/series-firfunction) que lhe permite realizar cálculos de janelas deslizantes. A aplicação de amostra seleção que está a ser monitorizada é uma loja online que rastreia a atividade dos utilizadores através de eventos personalizados. A consulta rastreia dois tipos de atividades do utilizador, _AddToCart_ e _Checkout,_ e define _os utilizadores ativos_ como aqueles que realizaram um check-out pelo menos uma vez num determinado dia.
+## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Utilizadores ativos mensais rolantes e pegajosa do utilizador
+Os exemplos a seguir utilizam a análise da série-tempo com a função [series_fir](/azure/kusto/query/series-firfunction) que lhe permite executar cálculos de janela deslizantes. A aplicação da amostra que está a ser monitorizada é uma loja online que rastreia a atividade dos utilizadores através de eventos personalizados. A consulta rastreia dois tipos de atividades de utilizador, _AddToCart_ e _Checkout,_ e define _os utilizadores ativos_ como aqueles que realizaram um check-out pelo menos uma vez num determinado dia.
 
 
 
@@ -133,9 +132,9 @@ customEvents
 
 Este exemplo resulta na seguinte saída.
 
-![Produção mensal de utilizadores](media/smart-analytics/rolling-mau.png)
+![Produção de utilizadores mensais rolantes](media/smart-analytics/rolling-mau.png)
 
-O exemplo do tHe transforma a consulta acima numa função reutilizável e usa-a para calcular a cisma do utilizador em rolo. Os utilizadores ativos nesta consulta são definidos como apenas os utilizadores que realizaram o check-out pelo menos uma vez num determinado dia.
+O exemplo seguinte transforma a consulta acima numa função reutilizável e usa-a para calcular a pegajosa do utilizador rolante. Os utilizadores ativos nesta consulta são definidos como apenas os utilizadores que realizaram check-out pelo menos uma vez num determinado dia.
 
 ``` Kusto
 let rollingDcount = (sliding_window_size: int, event_name:string)
@@ -175,15 +174,15 @@ on Timestamp
 
 Este exemplo resulta na seguinte saída.
 
-![Saída de stickiness do utilizador](media/smart-analytics/user-stickiness.png)
+![Saída de pegajosa do utilizador](media/smart-analytics/user-stickiness.png)
 
 ## <a name="regression-analysis"></a>Análise de regressão
-Este exemplo demonstra como criar um detetor automatizado para interrupções de serviço baseadas exclusivamente nos registos de rastreio de uma aplicação. O detetor procura aumentos repentinos anormais na quantidade relativa de erros e vestígios de aviso na aplicação.
+Este exemplo demonstra como criar um detetor automatizado para interrupções de serviço baseadas exclusivamente nos registos de vestígios de uma aplicação. O detetor procura aumentos bruscos anormais na quantidade relativa de erros e vestígios de aviso na aplicação.
 
 São utilizadas duas técnicas para avaliar o estado do serviço com base em dados de registos de rastreios:
 
-- Utilize [séries de make-series](/azure/kusto/query/make-seriesoperator) para converter os registos de traços textuais semi-estruturados numa métrica que represente a relação entre linhas de traços positivos e negativos.
-- Utilize [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) e [series_fit_line](/azure/kusto/query/series-fit-linefunction) para realizar uma deteção avançada de salto em passo utilizando uma análise da série de tempo com uma regressão linear de 2 linhas.
+- Utilize [séries de fazer](/azure/kusto/query/make-seriesoperator) para converter registos de vestígios texuais semi-estruturados numa métrica que represente a relação entre linhas de traços positivos e negativos.
+- Utilize [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) e [series_fit_line](/azure/kusto/query/series-fit-linefunction) para realizar uma deteção avançada de salto em passo utilizando análises de séries temporítem com uma regressão linear de 2 linhas.
 
 ``` Kusto
 let startDate = startofday(datetime("2017-02-01"));
@@ -212,7 +211,7 @@ traces
 | project PatternMatch = iff(RSquare2 > minRsquare and Slope>0, "Spike detected", "No Match")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte a referência linguística [do Data Explorer](/azure/kusto/query) para obter detalhes sobre o idioma.
-- Passeie por uma [lição sobre escrever consultas em Log Analytics.](get-started-queries.md)
+- Consulte a [referência linguística do Data Explorer](/azure/kusto/query) para obter mais detalhes sobre o idioma.
+- Caminhe por uma [lição sobre consultas de escrita no Log Analytics](get-started-queries.md).

@@ -1,60 +1,59 @@
 ---
-title: Envie alertas de saúde de serviço Azure com PagerDuty
-description: Obtenha notificações personalizadas sobre eventos de saúde de serviço para a sua instância PagerDuty.
+title: Enviar alertas de saúde do serviço Azure com PagerDuty
+description: Receba notificações personalizadas sobre eventos de saúde de serviço para o seu pagerDuty.
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654074"
 ---
-# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envie alertas de saúde de serviço Azure com PagerDuty usando webhooks
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envie alertas de saúde do serviço Azure com pagerDuty usando webhooks
 
-Este artigo mostra-lhe como configurar notificações de saúde do serviço Azure através do PagerDuty usando um webhook. Ao utilizar o tipo de integração personalizado do Microsoft Azure do [PagerDuty,](https://www.pagerduty.com/)pode adicionar sem esforço alertas de Saúde de Serviço aos seus novos ou já existentes serviços PagerDuty.
+Este artigo mostra-lhe como configurar notificações de saúde do serviço Azure através do PagerDuty usando um webhook. Ao utilizar o tipo de integração personalizada do Microsoft Azure do [PagerDuty,](https://www.pagerduty.com/)pode adicionar sem esforço alertas de Saúde de Serviço aos seus serviços de PagerDuty novos ou existentes.
 
-## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Criação de um URL de integração de saúde de serviço em PagerDuty
+## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Criar um URL de integração de saúde de serviço em PagerDuty
 1.  Certifique-se de que se inscreveu e está inscrito na sua conta [PagerDuty.](https://www.pagerduty.com/)
 
-1.  Navegue para a secção **de Serviços** em PagerDuty.
+1.  Navegue para a secção **serviço em** PagerDuty.
 
     ![A secção "Serviços" em PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
 
-1.  Selecione **Adicionar Novo Serviço** ou abra um serviço existente que tenha configurado.
+1.  **Selecione Adicionar Novo Serviço** ou abra um serviço existente que tenha criado.
 
 1.  Nas **Definições de Integração,** selecione o seguinte:
 
-    a. **Tipo de integração**: Microsoft Azure
+    a. **Tipo de Integração**: Microsoft Azure
 
-    b. **Nome de integração**: \<Nome\>
+    b. **Nome de integração**:\<Name\>
 
     ![As "Definições de Integração" no PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-1.  Preencha quaisquer outros campos necessários e selecione **Adicionar**.
+1.  Preencha quaisquer outros campos necessários e **selecione Adicionar**.
 
 1.  Abra esta nova integração e copie e guarde o **URL de Integração.**
 
     ![O "URL de Integração" em PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
-## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Criar um alerta usando pagerDuty no portal Azure
+## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Criar um alerta usando PagerDuty no portal Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 em Criar um alerta sobre uma notificação de [saúde de serviço para um novo grupo de ação utilizando o portal Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Siga os passos 1 a 8 no [Criar um alerta sobre uma notificação de saúde de serviço para um novo grupo de ação através do portal Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-1. Definir na lista de **Ações:**
+1. Definir na lista de **ações:**
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** O URL **de Integração** PagerDuty que guardou anteriormente.
+    b. **Detalhes:** O URL de **Integração** PagerDuty que guardou anteriormente.
 
-    c. **Nome:** O nome do Webhook, pseudónimo, ou identificador.
+    c. **Nome:** Nome de Webhook, pseudónimo ou identificador.
 
-1. Selecione **Guardar** quando estiver feito para criar o alerta.
+1. **Selecione Guardar** quando for feito para criar o alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para um grupo de ação existente:
 1. No [portal Azure,](https://portal.azure.com/)selecione **Monitor**.
 
-1. Na secção **Definições,** selecione **grupos de ação**.
+1. Na secção **Definições,** selecione **Grupos de Ação**.
 
 1. Encontre e selecione o grupo de ação que pretende editar.
 
@@ -62,14 +61,14 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** O URL **de Integração** PagerDuty que guardou anteriormente.
+    b. **Detalhes:** O URL de **Integração** PagerDuty que guardou anteriormente.
 
-    c. **Nome:** O nome do Webhook, pseudónimo, ou identificador.
+    c. **Nome:** Nome de Webhook, pseudónimo ou identificador.
 
-1. Selecione **Guardar** quando for feito para atualizar o grupo de ação.
+1. **Selecione Guardar** quando for feito para atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testar a sua integração webhook através de um pedido HTTP POST
-1. Crie a carga de saúde de serviço que pretende enviar. Pode encontrar uma carga útil de webhook de serviço de exemplo em Webhooks para alertas de registo de [atividade sinuosos do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Crie a carga útil de saúde do serviço que pretende enviar. Você pode encontrar um serviço de exemplo webhook payload em [Webhooks para alertas de registo de atividade Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie um pedido HTTP POST da seguinte forma:
 
@@ -80,12 +79,12 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
     BODY        <service health payload>
     ```
-1. Deve receber `202 Accepted` um com uma mensagem contendo o seu "ID do evento".
+1. Deve receber uma `202 Accepted` mensagem contendo o seu "ID do evento".
 
-1. Vá ao [PagerDuty](https://www.pagerduty.com/) para confirmar que a sua integração foi criada com sucesso.
+1. Vá ao [PagerDuty](https://www.pagerduty.com/) confirmar que a sua integração foi configurada com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba como [configurar notificações de webhook para sistemas de gestão de problemas existentes.](service-health-alert-webhook-guide.md)
-- Reveja o esquema de alerta de registo de [atividade](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Conheça as notificações de saúde de [serviço.](../azure-monitor/platform/service-notifications.md)
+## <a name="next-steps"></a>Próximos passos
+- Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
+- Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Saiba mais sobre [as notificações de saúde do serviço.](../azure-monitor/platform/service-notifications.md)
 - Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)

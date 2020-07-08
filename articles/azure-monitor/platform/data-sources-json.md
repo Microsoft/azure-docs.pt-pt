@@ -1,34 +1,33 @@
 ---
-title: Recolha de dados personalizados da JSON no Monitor Azure [ Monitor] Microsoft Docs
-description: As fontes de dados personalizadas da JSON podem ser recolhidas no Monitor Azure utilizando o Agente de Análise de Registo para o Linux.  Estas fontes de dados personalizadas podem ser scripts simples que devolvem a JSON, como o curl ou um dos mais de 300 plugins da FluentD. Este artigo descreve a configuração necessária para esta recolha de dados.
+title: Recolha de dados JSON personalizados no Azure Monitor Microsoft Docs
+description: As fontes de dados JSON personalizadas podem ser recolhidas no Azure Monitor utilizando o Agente de Análise de Registos para o Linux.  Estas fontes de dados personalizadas podem ser scripts simples que devolvem JSON, como o curl ou um dos plugins mais de 300 do FluentD. Este artigo descreve a configuração necessária para esta recolha de dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662166"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recolha de fontes de dados personalizadas da JSON com o agente Log Analytics para o Linux no Monitor Azure
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recolha de fontes de dados JSON personalizadas com o agente Log Analytics para Linux em Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-As fontes de dados personalizadas da JSON podem ser recolhidas no [Monitor Azure](data-platform.md) utilizando o agente Log Analytics para o Linux.  Estas fontes de dados personalizadas podem ser scripts simples que devolvem jSON, como [o caracol](https://curl.haxx.se/) ou um dos [mais de 300 plugins da FluentD.](https://www.fluentd.org/plugins/all) Este artigo descreve a configuração necessária para esta recolha de dados.
+As fontes de dados JSON personalizadas podem ser recolhidas no [Azure Monitor](data-platform.md) utilizando o agente Log Analytics para o Linux.  Estas fontes de dados personalizadas podem ser scripts simples que devolvem JSON, como [o curl](https://curl.haxx.se/) ou um dos [plugins mais de 300 da FluentD.](https://www.fluentd.org/plugins/all) Este artigo descreve a configuração necessária para esta recolha de dados.
 
 
 > [!NOTE]
-> O agente Delog Analytics para Linux v1.1.0-217+ é necessário para dados personalizados da JSON
+> O agente Log Analytics para Linux v1.1.0-217+ é necessário para dados JSON personalizados
 
 ## <a name="configuration"></a>Configuração
 
-### <a name="configure-input-plugin"></a>Configure plugin de entrada
+### <a name="configure-input-plugin"></a>Configurar plugin de entrada
 
-Para recolher dados da JSON `oms.api.` no Monitor Azure, adicione ao início de uma etiqueta FluentD num plugin de entrada.
+Para recolher os dados JSON no Azure Monitor, adicione `oms.api.` ao início de uma etiqueta FluentD num plugin de entrada.
 
-Por exemplo, segue-se `exec-json.conf` um `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`ficheiro de configuração separado em .  Isto utiliza o plugin `exec` FluentD para executar um comando de caracóis a cada 30 segundos.  A saída deste comando é recolhida pelo plugin de saída JSON.
+Por exemplo, segue-se um ficheiro de configuração separado `exec-json.conf` em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` .  Isto utiliza o plugin FluentD `exec` para executar um comando de caracóis a cada 30 segundos.  A saída deste comando é recolhida pelo plugin de saída JSON.
 
 ```
 <source>
@@ -52,12 +51,12 @@ Por exemplo, segue-se `exec-json.conf` um `/etc/opt/microsoft/omsagent/<workspac
   retry_wait 30s
 </match>
 ```
-O ficheiro de `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` configuração adicionado sob exigirá que a sua propriedade seja alterada com o seguinte comando.
+O ficheiro de configuração adicionado `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` abaixo requer que a sua propriedade seja alterada com o seguinte comando.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
-### <a name="configure-output-plugin"></a>Configure plugin de saída 
-Adicione a seguinte configuração de plugin de saída à configuração principal dentro `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ou como um ficheiro de configuração separado colocado em`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+### <a name="configure-output-plugin"></a>Configurar plugin de saída de configuração 
+Adicione a seguinte configuração plugin de saída à configuração principal dentro `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ou como um ficheiro de configuração separado colocado em`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -74,19 +73,19 @@ Adicione a seguinte configuração de plugin de saída à configuração princip
 </match>
 ```
 
-### <a name="restart-log-analytics-agent-for-linux"></a>Reiniciar o agente Delog Analytics para Linux
+### <a name="restart-log-analytics-agent-for-linux"></a>Reiniciar o agente de análise de log para Linux
 Reinicie o agente Log Analytics para o serviço Linux com o seguinte comando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Saída
-Os dados serão recolhidos no Monitor `<FLUENTD_TAG>_CL`Azure com um tipo de registo de .
+Os dados serão recolhidos no Azure Monitor com um tipo recorde de `<FLUENTD_TAG>_CL` .
 
-Por exemplo, a `tag oms.api.tomcat` etiqueta personalizada no Monitor `tomcat_CL`Azure com um tipo de registo de .  Pode recuperar todos os registos deste tipo com a seguinte consulta de registo.
+Por exemplo, a etiqueta personalizada `tag oms.api.tomcat` no Azure Monitor com um tipo de registo de `tomcat_CL` .  Pode recuperar todos os registos deste tipo com a seguinte consulta de registo.
 
     Type=tomcat_CL
 
-As fontes de dados da JSON são suportadas, mas são indexadas fora do campo dos pais. Por exemplo, os seguintes dados da JSON `tag_s : "[{ "a":"1", "b":"2" }]`são devolvidos de uma consulta de registo como .
+As fontes de dados do JSON aninhadas são suportadas, mas são indexadas fora do campo dos pais. Por exemplo, os seguintes dados JSON são devolvidos de uma consulta de registo como `tag_s : "[{ "a":"1", "b":"2" }]` .
 
 ```
 {
@@ -98,5 +97,5 @@ As fontes de dados da JSON são suportadas, mas são indexadas fora do campo dos
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre consultas de [registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes e soluções de dados. 
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

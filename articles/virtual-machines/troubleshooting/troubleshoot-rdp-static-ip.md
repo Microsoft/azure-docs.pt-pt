@@ -1,6 +1,6 @@
 ---
-title: Não é possível remota mente de trabalho para máquinas virtuais azure por causa de IP estático Microsoft Docs
-description: Saiba como resolver problemas de RDP que é causado por IP estático no Microsoft Azure.[ Microsoft Docs
+title: Não é possível um ambiente de trabalho remoto para máquinas virtuais Azure por causa de IP estático Microsoft Docs
+description: Saiba como resolver o problema do PDR que é causado por IP estático no Microsoft Azure.! Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,55 +13,54 @@ ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
 ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918194"
 ---
-#  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível remota mente de trabalho para máquinas virtuais azure por causa de IP estático
+#  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível desktop remoto para Azure Virtual Machines por causa de IP estático
 
-Este artigo descreve um problema no qual não é possível remotamente desktop para Máquinas Virtuais Do Windows (VMs) depois de um IP estático estar configurado no VM.
+Este artigo descreve um problema no qual não é possível evitar o ambiente de trabalho para Azure Windows Virtual Machines (VMs) depois de um IP estático estar configurado no VM.
 
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando efauma ligação RDP a um VM em Azure, recebe a seguinte mensagem de erro:
+Quando errar uma ligação RDP a um VM em Azure, recebe a seguinte mensagem de erro:
 
 **O Ambiente de Trabalho Remoto não pode ligar-se ao computador remoto por uma destas razões:**
 
 1. **O acesso remoto ao servidor não está ativado**
 
-2. **O computador remoto está desligado.**
+2. **O computador remoto está desligado**
 
 3. **O computador remoto não está disponível na rede**
 
 **Certifique-se de que o computador remoto está ligado e ligado à rede e que o acesso remoto está ativado.**
 
-Quando verifica a imagem nos diagnósticos da [Bota](../troubleshooting/boot-diagnostics.md) no portal Azure, vê normalmente as botas VM e aguarda-se por credenciais no ecrã de login.
+Quando verifica a imagem no [diagnóstico Boot](../troubleshooting/boot-diagnostics.md) no portal Azure, vê normalmente as botas VM e aguarda credenciais no ecrã de login.
 
 ## <a name="cause"></a>Causa
 
-O VM tem um endereço IP estático que está definido na interface de rede dentro do Windows. Este endereço IP difere do endereço definido no portal Azure.
+O VM tem um endereço IP estático definido na interface de rede dentro do Windows. Este endereço IP difere do endereço definido no portal Azure.
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire uma foto do disco osso do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para resolver este problema, utilize o controlo de série para ativar o DHCP ou [redefinir](reset-network-interface.md) a interface de rede para o VM.
+Para resolver este problema, utilize o controlo de série para ativar a interface de rede DHCP ou [reinicializar](reset-network-interface.md) o VM.
 
 ### <a name="use-serial-control"></a>Utilizar o controlo em série
 
-1. Ligue-se à consola em série e abra a [instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se a Consola série não estiver ativada no seu VM, consulte a [interface de rede Reset](reset-network-interface.md).
-2. Verifique se o DHCP está desativado na interface da rede:
+1. Ligue-se à [Consola em Série e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+). Se a Consola em Série não estiver ativada no seu VM, consulte [a interface de rede Reset](reset-network-interface.md).
+2. Verifique se o DHCP está desativado na interface de rede:
 
         netsh interface ip show config
 3. Se o DHCP estiver desativado, reverta a configuração da sua interface de rede para utilizar o DHCP:
 
         netsh interface ip set address name="<NIC Name>" source=dhc
 
-    Por exemplo, se a interface interwork nomear "Ethernet 2", executar o seguinte comando:
+    Por exemplo, se a interface inter-trabalhar nomear "Ethernet 2", executar o seguinte comando:
 
         netsh interface ip set address name="Ethernet 2" source=dhc
 
@@ -69,6 +68,6 @@ Para resolver este problema, utilize o controlo de série para ativar o DHCP ou 
 
         netsh interface ip show config
 
-    Não precisa reiniciar o VM neste momento. O VM estará de volta acessível.
+    Não tens de reiniciar o VM neste momento. O VM voltará a ser alcançável.
 
-Depois disso, se pretender configurar o IP estático para o VM, consulte os [endereços IP estáticos configurados para um VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
+Depois disso, se pretender configurar o IP estático para o VM, consulte [endereços IP estáticos de configuração para um VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).

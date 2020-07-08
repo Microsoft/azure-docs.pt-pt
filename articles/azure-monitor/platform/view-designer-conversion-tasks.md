@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor vê designer para reconversão de livros de livros tarefas comuns
+title: Azure Monitor vê designer para trabalhos de conversão de tarefas comuns
 description: ''
 author: austonli
 ms.author: aul
@@ -7,26 +7,25 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658749"
 ---
-# <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão tarefas comuns
-O designer de [visualização](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar vistas personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e cronologias. Estão a ser gradualmente eliminados e substituídos por livros de trabalho que fornecem funcionalidades adicionais. Este artigo detalha tarefas que são comuns na conversão de pontos de vista para livros de livros.
+# <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão de tarefas comuns
+[O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Estão a ser eliminados e substituídos por livros que fornecem funcionalidades adicionais. Este artigo detalha tarefas que são comuns na conversão de visualizações para livros de trabalho.
 
 
-## <a name="quickstart-with-preset-view-designer-templates"></a>Quickstart com modelos de design de vista predefinida
+## <a name="quickstart-with-preset-view-designer-templates"></a>Quickstart com modelos de design de vista predefinido
 
-Os livros de trabalho em espaços de trabalho de Log Analytics já têm modelos feitos para combinar com algumas das vistas do designer de visualização. Na categoria **Ver Designer Guides,** selecione Ver Guia de **Transição de Designers** para saber mais sobre as suas opções ou selecione um dos modelos predefinidos.
+Os livros de trabalho em log analytics já têm modelos feitos para combinar com algumas das vistas do designer de visualização. Na categoria **'Guias de Visualização',** selecione **o Guia de Transição do Designer** para saber mais sobre as suas opções ou selecione um dos modelos pré-conjuntos.
 
 ![Modelos de exemplo](media/view-designer-conversion-tasks/templates.png)
 
-## <a name="enabling-time-range-filter"></a>Filtrar o intervalo de tempo de ativação
-O designer de visualização tem um filtro de intervalo de tempo incorporado, no entanto, em livros de reposição esta definição não está ativada por padrão. Os livros de trabalho permitem que os utilizadores criem os seus filtros de intervalo de tempo próprios que possam ser mais aplicáveis aos seus registos de dados. Os passos para gerar o filtro estão listados abaixo:
+## <a name="enabling-time-range-filter"></a>Filtragem de intervalo de tempo ativada
+O view designer tem um filtro de intervalo de tempo incorporado, no entanto, nos livros de trabalho esta definição não é ativada por padrão. Os livros de trabalho permitem que os utilizadores criem os seus próprios filtros de intervalo de tempo que podem ser mais aplicáveis aos seus registos de dados. Os passos para gerar o filtro são listados abaixo:
 
-Selecione a opção **Adicionar parâmetros.** O **estilo** padrão está definido para *Comprimidos*.
+Selecione a opção **de parâmetros Adicionar.** O **estilo** predefinido é definido para *Pills*.
 
 ![Adicionar Param](media/view-designer-conversion-tasks/add-param.png)
 
@@ -34,23 +33,23 @@ Selecione a opção **Adicionar parâmetros.** O **estilo** padrão está defini
 
 ![Adicionar Parâmetro](media/view-designer-conversion-tasks/add-parameter.png)
 
-Do menu da barra lateral, na caixa de **texto do nome parametrómetro,** *digite TimeRange*. Definir **o tipo** de parâmetro como *picker*de intervalo de tempo . Selecione a caixa de verificação **Necessária?**
+A partir do menu da barra lateral, na caixa de texto **do nome parâmetro,** *escreva TimeRange*. Definir **o tipo de parâmetro** como *picker de intervalo de tempo*. Selecione a caixa de verificação **requerida?**
 
-![Menu parâmetro](media/view-designer-conversion-tasks/parameter-menu.png)
+![Menu de parâmetros](media/view-designer-conversion-tasks/parameter-menu.png)
 
-Guarde o parâmetro no canto superior esquerdo do menu da barra lateral. Pode deixar a queda como *desdefinida* por padrão ou selecionar um valor predefinido do **TimeRange,** como *24 horas*. Selecione **Edição Feita .**
+Guarde o parâmetro no canto superior esquerdo do menu da barra lateral. Pode deixar a entrega como *desativação* por predefinição ou selecionar um valor **timeRange** predefinido, tal como *24 horas*. Selecione **'Editar' Feito.**
 
-Os parâmetros podem ser usados em {} consultas adicionando aparelhos encaracolados em torno do nome do parâmetro. Mais detalhes sobre os parâmetros podem ser encontrados na documentação dos [Livros sobre parâmetros.](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)
+Os parâmetros podem ser usados em consultas adicionando chaves encaracoladas {} em torno do nome do seu parâmetro. Mais detalhes sobre os parâmetros podem ser encontrados na documentação dos [livros de trabalho sobre parâmetros.](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)
 
-## <a name="updating-queries-with-the-timerange-parameter"></a>Atualizar consultas com o parâmetro TimeRange
+## <a name="updating-queries-with-the-timerange-parameter"></a>Atualização de consultas com o parâmetro TimeRange
 
-### <a name="option-1-select-timerange-from-the-time-range-dropdown"></a>Opção 1: Selecione TimeRange a partir do intervalo de tempo dropdown
+### <a name="option-1-select-timerange-from-the-time-range-dropdown"></a>Opção 1: Selecione TimeRange a partir do dropdown do intervalo de tempo
 
-![Parâmetro do tempo](media/view-designer-conversion-tasks/time-parameter.png)
+![Parâmetro de tempo](media/view-designer-conversion-tasks/time-parameter.png)
 
 ### <a name="option-2-update-your-log-queries"></a>Opção 2: Atualizar as suas consultas de registo
 
-Na sua consulta adicione `| where TimeGenerated {TimeRange}` a linha: como no seguinte exemplo:
+Na sua consulta adicione a linha: `| where TimeGenerated {TimeRange}` como no exemplo seguinte:
 
 Consulta original
 ```KQL
@@ -65,16 +64,16 @@ search *
 | summarize count() by Type
 ```
 
-## <a name="including-a-list"></a>Incluindo uma lista
-A maioria das vistas do designer de visualização inclui uma lista, e você pode reproduzir esta lista padrão em um livro.
+## <a name="including-a-list"></a>Incluindo uma Lista
+A maioria das vistas do designer de visualizações inclui uma lista, e você pode reproduzir esta lista padrão em um livro.
 
 ![Lista de azulejos](media/view-designer-conversion-tasks/tile-list.png)
 
-Adicione uma visualização clicando **Em adicionar consulta** às opções celulares.
+Adicione uma visualização clicando **Em Adicionar consulta** a partir das opções celulares.
 
 ![Adicionar Param](media/view-designer-conversion-tasks/add-param.png)
 
-Ver designer emprega uma consulta padrão que corresponde à sintaxe do exemplo original. Isto pode ser atualizado alterando a consulta para o formulário atualizado como no seguinte exemplo:
+O designer de visualização emprega uma consulta padrão que corresponde à sintaxe do exemplo Original. Isto pode ser atualizado alterando a consulta para o formulário atualizado como no exemplo seguinte:
 
 Consulta original
 ```KQL
@@ -88,12 +87,12 @@ search *
 | summarize Count = count() by Type
 ```
 
-Isto gerará uma lista que se parece com a seguinte:
+Isto gerará uma lista que se parece com o seguinte:
 
-![Exemplo de lista](media/view-designer-conversion-tasks/list-example.png)
+![Exemplo da lista](media/view-designer-conversion-tasks/list-example.png)
 
-## <a name="enabling-sparklines"></a>Permitindo faíscas
-Uma característica comum para grelhas é adicionar linhas de brilho para resumir vários padrões de dados ao longo do tempo. O designer de visualização oferece a funcionalidade **Enable Sparklines** para todas as listas, assim como os livros de trabalho. Para incluir linhas de brilho nos seus dados que combinam com o designer de visualização, junte os dados com a sua consulta original como no seguinte exemplo:
+## <a name="enabling-sparklines"></a>Permitir linhas de faísca
+Uma característica comum para as grelhas é adicionar linhas de faísca para resumir vários padrões de dados ao longo do tempo. O designer de visualização oferece a funcionalidade **Enable Sparklines** para todas as listas, assim como os livros de trabalho. Para incluir faíscas nos seus dados que correspondem ao designer de visualização, junte os dados com a sua consulta original como no exemplo seguinte:
 
 Consulta original
 ```KQL
@@ -110,49 +109,49 @@ search *
 | project Type, AggregatedValue, Trend
 ```
 
-Selecione **Definições de Colunas**.
-![Definições da coluna](media/view-designer-conversion-tasks/column-settings.png)
+Selecione **Definições de colunas**.
+![Definições de colunas](media/view-designer-conversion-tasks/column-settings.png)
 
-Atualize a queda do **renderizador** da Coluna para ser uma *área spark*.
-![Linhas de faíscas](media/view-designer-conversion-tasks/sparkline.png)
+Atualize o dropdown **do renderizador da Coluna** para ser uma área de *faísca*.
+![Linhas de faísca](media/view-designer-conversion-tasks/sparkline.png)
 
-Guarde as definições e volte a executar a consulta para atualizar a sua tabela para incluir uma linha de ignição.
+Guarde as definições e volte a executar a consulta para atualizar a sua tabela para incluir uma linha de faísca.
 
-A grelha resultante será semelhante ![ao seguinte: Exemplo sparkline](media/view-designer-conversion-tasks/sparkline-example.png)
+A grelha resultante será semelhante a seguinte: ![ Exemplo sparkline](media/view-designer-conversion-tasks/sparkline-example.png)
 
-## <a name="advanced-cell-settings"></a>Definições celulares avançadas
-Para espelhar o designer de visualização, pode executar tarefas como alterar o tamanho das células do livro ou adicionar pinos e ligações externas a registos.
+## <a name="advanced-cell-settings"></a>Configurações avançadas de células
+Para espelhar o designer de visualização, pode executar tarefas como alterar o tamanho das células do livro ou adicionar pinos e links externos aos registos.
 
-Para aceder a **Definições Avançadas,** selecione o ícone de engrenagem na parte inferior de cada célula.
+Para aceder **a Definições Avançadas** selecione o ícone de engrenagem na parte inferior de cada célula.
 
 ![Definições avançadas](media/view-designer-conversion-tasks/advanced-settings.png)
 
-Isto apresentará um menu com várias opções:
+Isto irá exibir um menu com várias opções:
 
 ![Definições avançadas](media/view-designer-conversion-tasks/advanced-settings-settings.png)
 
-Para adicionar um pino e um link a uma consulta externa, selecione as caixas de verificação correspondentes. Para adicionar um título à sua célula, escreva o título desejado na secção **do título da Tabela.**
+Para adicionar um pino e um link a uma consulta externa selecione as caixas de verificação correspondentes. Para adicionar um título à sua célula, digite o título desejado na secção **de títulos** da Tabela.
 
-Por padrão, qualquer célula de livros de trabalho está definida para ocupar toda a largura da página, mas pode ajustá-lo escalando a célula sob o separador **Style** do menu **Definições Avançadas**
+Por predefinição, qualquer célula de livros de trabalho está definida para ocupar toda a largura da página, mas pode ajustá-la escalando a célula para baixo sob o **separador Estilo** do menu **Definições Avançadas**
 
 ![Estilo de configurações avançadas](media/view-designer-conversion-tasks/advanced-settings-style.png)
 
  
 ## <a name="additional-parameters"></a>Parâmetros adicionais
-**Selecione Adicionar parâmetro** para criar um novo parâmetro no seu livro. 
+Selecione **Adicionar Parâmetro** para criar um novo parâmetro no seu livro. 
 
-Para selecionar uma Subscrição, digite *a Subscrição* no campo de **nome parametrómetro** no menu lateral e selecione *Subscription Picker* do **tipo Parameter** dropdown
+Para selecionar uma Subscrição, *digite a Subscrição* no campo **de nomes de parâmetros** no menu lateral e selecione o Picker de *subscrição* a partir do dropdown **do tipo parâmetro**
 
-![Menu de subscrição](media/view-designer-conversion-tasks/subscription-filter.png)
+![Menu de Assinatura](media/view-designer-conversion-tasks/subscription-filter.png)
 
-Para selecionar um Recurso, digite *o Recurso* no campo de **nome parametrómetro** no menu lateral e selecione *Resource Picker* do **tipo Parameter** dropdown.
+Para selecionar um recurso, *digite o recurso* no campo **de nomes parâmetros** no menu lateral e selecione o *Apanhador* de Recursos a partir do dropdown **do tipo parâmetro.**
 
 ![Menu de Recursos](media/view-designer-conversion-tasks/resource-filter.png)
 
-Isto irá inserir dropdowns para permitir o acesso às suas várias subscrições e recursos.
+Isto irá inserir dropdowns para que possa aceder às suas várias subscrições e recursos.
 
 ![Dropdown de recursos de subscrição](media/view-designer-conversion-tasks/subscription-resource.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Conversões de mosaico](view-designer-conversion-tiles.md)

@@ -1,32 +1,31 @@
 ---
-title: Compreenda o esquema do webhook usado em alertas de registo de atividade
-description: Saiba mais sobre o esquema do JSON que é publicado num URL de webhook quando um alerta de registo de atividade ativa.
+title: Compreenda o esquema webhook usado em alertas de registo de atividade
+description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook quando um alerta de registo de atividade é ativado.
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669051"
 ---
-# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
-Como parte da definição de um grupo de ação, pode configurar pontos finais do webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para pós-processamento ou ações personalizadas. Este artigo mostra como é a carga para o HTTP POST para um webhook.
+# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
+Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
 
-Para obter mais informações sobre alertas de registo de atividade, consulte como criar alertas de registo de [atividade do Azure](activity-log-alerts.md).
+Para obter mais informações sobre alertas de registo de atividade, consulte como [criar alertas de registo de atividades do Azure](activity-log-alerts.md).
 
-Para obter informações sobre grupos de ação, consulte como [criar grupos](../../azure-monitor/platform/action-groups.md)de ação .
+Para obter informações sobre grupos de ação, consulte como [criar grupos de ação.](../../azure-monitor/platform/action-groups.md)
 
 > [!NOTE]
-> Também pode utilizar o esquema de [alerta comum,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Monitor Azure, para as suas integrações no webhook. [Conheça as definições comuns de esquemade alerta.](https://aka.ms/commonAlertSchemaDefinitions)
+> Também pode utilizar o [esquema de alerta comum,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta em Azure Monitor, para as suas integrações webhook. [Conheça as definições comuns de esquema de alerta.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
-O webhook pode utilizar opcionalmente uma autorização baseada em token para autenticação. O webhook URI é guardado com um `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`ID simbólico, por exemplo, .
+O webhook pode opcionalmente usar a autorização baseada em fichas para a autenticação. O webhook URI é salvo com um ID simbólico, por exemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue` .
 
 ## <a name="payload-schema"></a>Esquema de carga útil
-A carga útil JSON contida na operação POST difere com base nos dados da carga útil.contextLog.eventSource field.
+A carga útil JSON contida na operação POST difere com base no campo data.context.activityLog.eventSource da carga útil.
 
 ### <a name="common"></a>Common
 
@@ -171,7 +170,7 @@ A carga útil JSON contida na operação POST difere com base nos dados da carga
 }
 ```
 
-### <a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>Saúde de Serviço
 
 ```json
 {
@@ -214,9 +213,9 @@ A carga útil JSON contida na operação POST difere com base nos dados da carga
 }
 ```
 
-Para obter detalhes específicos sobre os alertas de registo de atividade de notificação de saúde do serviço, consulte notificações de [saúde](../../azure-monitor/platform/service-notifications.md)do serviço . Além disso, aprenda a configurar notificações de webhook de [saúde de serviço com as suas soluções de gestão de problemas existentes.](../../service-health/service-health-alert-webhook-guide.md)
+Para obter detalhes específicos sobre os alertas de registo de atividades de notificação de saúde do serviço, consulte [notificações de saúde do Serviço](../../azure-monitor/platform/service-notifications.md). Além disso, aprenda a [configurar notificações webhook de serviço com as suas soluções de gestão de problemas existentes.](../../service-health/service-health-alert-webhook-guide.md)
 
-### <a name="resourcehealth"></a>Saúde dos Recursos
+### <a name="resourcehealth"></a>RecursosHealth
 
 ```json
 {
@@ -258,38 +257,38 @@ Para obter detalhes específicos sobre os alertas de registo de atividade de not
 | --- | --- |
 | status |Usado para alertas métricos. Sempre definido para "ativado" para alertas de registo de atividade. |
 | contexto |Contexto do evento. |
-| nome fornecedor de recursos |O fornecedor de recursos do recurso impactado. |
-| condiçãoTipo |Sempre "Evento". |
-| nome |Nome da regra do alerta. |
-| ID |Identificação do recurso do alerta. |
+| nome de recursoProviderName |O fornecedor de recursos do recurso impactado. |
+| estadoTip |Sempre "Evento". |
+| name |O nome da regra de alerta. |
+| ID |Identificação de recursos do alerta. |
 | descrição |Descrição do alerta definida quando o alerta é criado. |
-| subscriptionId |Id de subscrição Azure. |
-| carimbo de data/hora |O momento em que o evento foi gerado pelo serviço Azure que processou o pedido. |
+| subscriptionId |ID de assinatura Azure. |
+| carimbo de data/hora |Momento em que o evento foi gerado pelo serviço Azure que processou o pedido. |
 | resourceId |Identificação de recursos do recurso impactado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso impactado. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto `Dictionary<String, String>`é, ) que inclui detalhes sobre o evento. |
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, `Dictionary<String, String>` ) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
-| autorização |As propriedades de Controlo de Acesso Baseado em Papel do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
-| categoria |Categoria do evento. Os valores suportados incluem Administrativo, Alerta, Segurança, Serviços De Saúde e Recomendação. |
+| autorização |As propriedades do Controlo de Acesso Baseado em Função do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
+| categoria |Categoria do evento. Os valores suportados incluem Administrativo, Alerta, Segurança, Saúde do Serviço e Recomendação. |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. Pode ser nulo para certas chamadas do sistema. |
-| correlationId |Normalmente um GUID em formato de corda. Os eventos com correlationId pertencem à mesma ação maior e geralmente partilham uma correlação. |
-| eventoDescrição |Descrição do texto estático do evento. |
-| eventoDataId |Identificador único para o evento. |
-| eventoSource |Nome do serviço Azure ou infraestrutura que gerou o evento. |
-| httpRequest |O pedido geralmente inclui o método clienteRequestId, clientIpAddress e HTTP (por exemplo, PUT). |
+| correlationId |Normalmente um GUID em formato de corda. Os eventos com correlationid pertencem à mesma ação maior e geralmente partilham uma correlaid. |
+| eventoDescrição |Descrição estática do texto do evento. |
+| eventDataId |Identificador único para o evento. |
+| eventSource |Nome do serviço Azure ou infraestrutura que gerou o evento. |
+| httpRequest |O pedido geralmente inclui o clienteRequestId, clienteIpAddress, e método HTTP (por exemplo, PUT). |
 | nível |Um dos seguintes valores: Crítico, Erro, Aviso e Informação. |
-| operationId |Normalmente, um GUID partilhou entre os eventos correspondentes a uma única operação. |
-| operationName |Nome da operação. |
+| operationId |Normalmente um GUID partilhado entre os eventos correspondentes a uma única operação. |
+| operationName |O nome da operação. |
 | propriedades |Propriedades do evento. |
 | status |Cadeia. Estado da operação. Os valores comuns incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
-| subEstatuto |Normalmente inclui o código de estado HTTP da chamada REPOUSA correspondente. Também pode incluir outras cordas que descrevem um subestatuto. Os valores comuns do subestatuto incluem OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Timeout gateway (Código de Estado HTTP) : 504). |
+| subStatus |Geralmente inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cordas que descrevem um substatus. Os valores comuns do substatus incluem OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (CÓDIGO DE Estado HTTP: 4), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Prazo de Gateway (Código de Estado HTTP : 504). |
 
-Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte a [visão geral do registo de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte [a visão geral do registo de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o registo de atividade](../../azure-monitor/platform/platform-logs-overview.md).
-* [Execute scripts de automação Azure (Livros de execução) em alertas Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
-* [Utilize uma aplicação lógica para enviar um SMS via Twilio a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para trabalhar com um alerta de registo de atividade.
-* [Utilize uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para trabalhar com um alerta de registo de atividade.
-* [Utilize uma aplicação lógica para enviar uma mensagem para uma fila Azure a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para trabalhar com um alerta de registo de atividade.
+## <a name="next-steps"></a>Próximos passos
+* [Saiba mais sobre o registo de atividades.](../../azure-monitor/platform/platform-logs-overview.md)
+* [Execute scripts de automatização Azure (Runbooks) em alertas Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
+* [Utilize uma aplicação lógica para enviar um SMS via Twilio a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
+* [Utilize uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
+* [Utilize uma aplicação lógica para enviar uma mensagem para uma fila Azure a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
 

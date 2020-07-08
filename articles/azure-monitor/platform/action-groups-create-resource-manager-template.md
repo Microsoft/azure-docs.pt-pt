@@ -1,6 +1,6 @@
 ---
 title: Criar grupos de ação com modelos de Gestor de Recursos
-description: Aprenda a criar um grupo de ação usando um modelo de Gestor de Recursos Azure.
+description: Aprenda a criar um grupo de ação utilizando um modelo de Gestor de Recursos Azure.
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
@@ -8,26 +8,25 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669085"
 ---
-# <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ação com um modelo de Gestor de Recursos
-Este artigo mostra-lhe como usar um modelo de Gestor de [Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ação. Ao utilizar modelos, pode configurar automaticamente grupos de ação que podem ser reutilizados em certos tipos de alertas. Estes grupos de ação asseguram que todas as partes corretas sejam notificadas quando é desencadeado um alerta.
+# <a name="create-an-action-group-with-a-resource-manager-template"></a>Crie um grupo de ação com um modelo de Gestor de Recursos
+Este artigo mostra-lhe como usar um [modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ação. Ao utilizar modelos, pode configurar automaticamente grupos de ação que podem ser reutilizados em certos tipos de alertas. Estes grupos de ação asseguram que todas as partes corretas sejam notificadas quando um alerta é desencadeado.
 
 Os passos básicos são:
 
 1. Crie um modelo como um ficheiro JSON que descreva como criar o grupo de ação.
 
-2. Implante o modelo utilizando [qualquer método de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implemente o modelo utilizando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Primeiro, descrevemos como criar um modelo de Gestor de Recursos para um grupo de ação onde as definições de ação são codificadas no modelo. Em segundo lugar, descrevemos como criar um modelo que toma a informação de configuração do webhook como parâmetros de entrada quando o modelo é implementado.
+Em primeiro lugar, descrevemos como criar um modelo de Gestor de Recursos para um grupo de ação onde as definições de ação são codificadas no modelo. Em segundo lugar, descrevemos como criar um modelo que leva a informação de configuração webhook como parâmetros de entrada quando o modelo é implementado.
 
-## <a name="resource-manager-templates-for-an-action-group"></a>Modelos de Gestor de Recursos para um grupo de ação
+## <a name="resource-manager-templates-for-an-action-group"></a>Modelos de gestor de recursos para um grupo de ação
 
-Para criar um grupo de ação usando um modelo `Microsoft.Insights/actionGroups`de Gestor de Recursos, você cria um recurso do tipo . Depois preenchetodas as propriedades relacionadas. Aqui estão dois modelos de amostra que criam um grupo de ação.
+Para criar um grupo de ação utilizando um modelo de Gestor de Recursos, cria-se um recurso do tipo `Microsoft.Insights/actionGroups` . Depois preenche todas as propriedades relacionadas. Aqui estão dois modelos de amostra que criam um grupo de ação.
 
 ```json
 {
@@ -162,8 +161,8 @@ Para criar um grupo de ação usando um modelo `Microsoft.Insights/actionGroups`
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [grupos de ação.](../../azure-monitor/platform/action-groups.md)
 * Saiba mais sobre [alertas.](alerts-overview.md)
-* Aprenda a adicionar [alertas utilizando um modelo](../../azure-monitor/platform/alerts-activity-log.md)de Gestor de Recursos .
+* Aprenda a adicionar [alertas utilizando um modelo de Gestor de Recursos.](../../azure-monitor/platform/alerts-activity-log.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Detete face e emoção com Azure Media Analytics [ Microsoft Docs
+title: Detetar Rosto e Emoção com Azure Media Analytics ! Microsoft Docs
 description: Este tópico demonstra como detetar rostos e emoções com a Azure Media Analytics.
 services: media-services
 documentationcenter: ''
@@ -16,60 +16,59 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919316"
 ---
-# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detete face e emoção com Azure Media Analytics
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detetar rosto e emoção com Azure Media Analytics
 
 > [!NOTE]
-> O processador de mídia **Azure Media Face Detetor** será retirado. Para a data da reforma, consulte o tema dos [componentes do legado.](legacy-components.md)
+> O processador **de mídia Azure Media Face Detetor** será retirado. Para a data da aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)
 
 ## <a name="overview"></a>Descrição geral
 
-O processador de mídia **Azure Media Face Detetor** (MP) permite-lhe contar, rastrear movimentos e até avaliar a participação e a reação do público através de expressões faciais. Este serviço contém duas funcionalidades: 
+O processador **de mídia Azure Media Face Detetor** (MP) permite-lhe contar, rastrear movimentos e até avaliar a participação e a reação do público através de expressões faciais. Este serviço contém duas características: 
 
 * **Deteção de rostos**
   
-    A deteção facial encontra e rastreia rostos humanos dentro de um vídeo. Várias faces podem ser detetadas e posteriormente rastreadas à medida que se deslocam, com a hora e os metadados de localização devolvidos num ficheiro JSON. Durante o rastreio, tenta dar um ID consistente ao mesmo rosto enquanto a pessoa se move no ecrã, mesmo que esteja obstruída ou deixe brevemente a moldura.
+    A deteção facial encontra e rastreia rostos humanos dentro de um vídeo. Várias faces podem ser detetadas e posteriormente rastreadas à medida que se deslocam, com os metadados de hora e localização devolvidos num ficheiro JSON. Durante o rastreio, tenta dar uma identificação consistente à mesma face enquanto a pessoa se desloca no ecrã, mesmo que esteja obstruída ou deixe brevemente a moldura.
   
   > [!NOTE]
-  > Este serviço não realiza reconhecimento facial. Um indivíduo que deixe a moldura ou fique obstruído por muito tempo receberá um novo ID quando regressar.
+  > Este serviço não realiza reconhecimento facial. Um indivíduo que sai da moldura ou fica obstruído por muito tempo receberá uma nova identificação quando regressar.
   > 
   > 
-* **Deteção de emoção**
+* **Deteção de emoções**
   
-    A Deteção de Emoções é um componente opcional do Processador de Media de Deteção facial que devolve a análise de múltiplos atributos emocionais dos rostos detetados, incluindo felicidade, tristeza, medo, raiva e muito mais. 
+    A Deteção de Emoção é um componente opcional do Processador de Meios de Deteção facial que devolve a análise de múltiplos atributos emocionais dos rostos detetados, incluindo felicidade, tristeza, medo, raiva e muito mais. 
 
-O Detetor de **Rosto Azure Media** está atualmente em Pré-visualização.
+O **Azure Media Face Detetor** MP encontra-se atualmente em Pré-visualização.
 
-Este artigo fornece detalhes sobre o Detetor de Rosto de **Mídia Azure** e mostra como usá-lo com Media Services SDK para .NET.
+Este artigo dá detalhes sobre **o Azure Media Face Detetor** e mostra como usá-lo com a Media Services SDK para .NET.
 
 ## <a name="face-detector-input-files"></a>Ficheiros de entrada do Detetor de Rosto
 Ficheiros de vídeo. Atualmente, os seguintes formatos são suportados: MP4, MOV e WMV.
 
 ## <a name="face-detector-output-files"></a>Ficheiros de saída do Detetor de Rosto
-A API de deteção e rastreio facial fornece deteção e rastreamento de localização facial de alta precisão que podem detetar até 64 rostos humanos num vídeo. Os rostos frontais fornecem os melhores resultados, enquanto rostos laterais e rostos pequenos (menos ou iguais a 24x24 pixels) podem não ser tão precisos.
+A API de deteção e rastreio do rosto fornece deteção e rastreamento de alta precisão que pode detetar até 64 rostos humanos num vídeo. As faces frontais fornecem os melhores resultados, enquanto as faces laterais e as faces pequenas (menos ou igual a 24x24 pixels) podem não ser tão precisas.
 
-Os rostos detetados e rastreados são devolvidos com coordenadas (esquerda, superior, largura e altura) indicando a localização dos rostos na imagem em pixels, bem como um número de identificação facial indicando o rastreio desse indivíduo. Os números de ID do rosto são propensos a repor em circunstâncias em que o rosto frontal é perdido ou sobreposto na moldura, resultando em alguns indivíduos que recebem vários IDs.
+Os rostos detetados e rastreados são devolvidos com coordenadas (esquerda, superior, largura e altura) indicando a localização das faces na imagem em pixels, bem como um número de identificação facial indicando o rastreio desse indivíduo. Os números de identificação facial são propensos a ser reiniciados em circunstâncias em que a face frontal é perdida ou sobreposta no quadro, resultando em alguns indivíduos que recebem vários IDs atribuídos.
 
 ## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do ficheiro JSON de saída
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-O Face Detetor utiliza técnicas de fragmentação (onde os metadados podem ser divididos em pedaços baseados no tempo e você pode descarregar apenas o que você precisa), e segmentação (onde os eventos são quebrados no caso de ficarem muito grandes). Alguns cálculos simples podem ajudá-lo a transformar os dados. Por exemplo, se um evento começou em 6300 (carrapatos), com um calendário de 2997 (tiquetaque/seg) e framerate de 29,97 (quadros/seg), então:
+O Detetor facial utiliza técnicas de fragmentação (onde os metadados podem ser divididos em pedaços baseados no tempo e só pode descarregar o que precisa) e segmentação (onde os eventos são interrompidos no caso de ficarem demasiado grandes). Alguns cálculos simples podem ajudá-lo a transformar os dados. Por exemplo, se um evento começou em 6300 (tiques), com um prazo de 2997 (carraças/seg) e framerate de 29,97 (quadros/seg), então:
 
 * Início/Escala temporal = 2,1 segundos
 * Segundos x Framerate = 63 quadros
 
-## <a name="face-detection-input-and-output-example"></a>Exemplo de entrada e saída de deteção facial
+## <a name="face-detection-input-and-output-example"></a>Entrada de deteção facial e exemplo de saída
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuração de tarefas (predefinição)
-Ao criar uma tarefa com **o Detetor de Rosto Azure Media,** deve especificar um predefinição de configuração. O predefinido de configuração seguinte é apenas para deteção facial.
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
+Ao criar uma tarefa com **o Azure Media Face Detetor,** tem de especificar uma pré-sintonia de configuração. A pré-sintonia seguinte é apenas para deteção facial.
 
 ```json
     {
@@ -80,13 +79,13 @@ Ao criar uma tarefa com **o Detetor de Rosto Azure Media,** deve especificar um 
     }
 ```
 
-#### <a name="attribute-descriptions"></a>Descrições de atributos
+#### <a name="attribute-descriptions"></a>Atribuir descrições
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Velocidade de processamento rápido , mas menos precisa (padrão).|
+| Modo |Velocidade de processamento rápida, mas menos precisa (predefinição).|
 
 ### <a name="json-output"></a>Saída JSON
-O exemplo seguinte da saída JSON foi truncado.
+O exemplo seguinte da produção de JSON foi truncado.
 
 ```json
     {
@@ -136,12 +135,12 @@ O exemplo seguinte da saída JSON foi truncado.
 ```
 
 
-## <a name="emotion-detection-input-and-output-example"></a>Exemplo de entrada e saída de deteção de emoções
+## <a name="emotion-detection-input-and-output-example"></a>Entrada de deteção de emoção e exemplo de saída
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuração de tarefas (predefinição)
-Ao criar uma tarefa com **o Detetor de Rosto Azure Media,** deve especificar um predefinição de configuração. O predefinido de configuração seguinte especifica para criar JSON com base na deteção de emoções.
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
+Ao criar uma tarefa com **o Azure Media Face Detetor,** tem de especificar uma pré-sintonia de configuração. A pré-configuração a seguir especifica para criar JSON com base na deteção de emoção.
 
 ```json
     {
@@ -155,23 +154,23 @@ Ao criar uma tarefa com **o Detetor de Rosto Azure Media,** deve especificar um 
 ```
 
 
-#### <a name="attribute-descriptions"></a>Descrições de atributos
+#### <a name="attribute-descriptions"></a>Atribuir descrições
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Rostos: Apenas deteção facial.<br/>PerFaceEmotion: Devolva a emoção de forma independente para cada deteção facial.<br/>AggregateEmotion: Retorno valores médios de emoção para todos os rostos no quadro. |
-| AggregateEmotionWindowMs |Utilize se o modo AggregateEmotion for selecionado. Especifica o comprimento do vídeo utilizado para produzir cada resultado agregado, em milissegundos. |
-| AgregadoEmotionIntervalMs |Utilize se o modo AggregateEmotion for selecionado. Especifica com que frequência produzir resultados agregados. |
+| Modo |Faces: Apenas deteção facial.<br/>PerFaceEmotion: Devolva a emoção de forma independente para cada deteção facial.<br/>AgregaçãoEmoção: Devolva valores médios de emoção para todos os rostos no quadro. |
+| AgregaçãoEmotionWindowMs |Utilize se o modo Agregação Emotion for selecionado. Especifica o comprimento do vídeo utilizado para produzir cada resultado agregado, em milissegundos. |
+| AgregadoEmotionIntervalMs |Utilize se o modo Agregação Emotion for selecionado. Especifica com que frequência produzir resultados agregados. |
 
 #### <a name="aggregate-defaults"></a>Incumprimentos agregados
-Abaixo estão os valores recomendados para as definições de janela e intervalo agregados. AgregaçõesEmotionWindowMs devem ser mais compridas do que as AggregateEmotionIntervalMs.
+Abaixo estão os valores recomendados para as definições de janela e intervalo agregados. AgregadoEmotionWindowMs deve ser mais longo do que aggregateEmotionIntervalMs.
 
-|| Incumprimentos(s) | Max(s) | Min(s) |
+|| Predefinições(s) | Max(s) | Min(s) |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AgregaçãoEmotionWindowMs |0,5 |2 |0,25|
 | AgregadoEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Saída JSON
-Saída JSON para emoção agregada (truncado):
+Saída JSON para emoção agregada (truncada):
 
 ```json
     {
@@ -328,16 +327,16 @@ Saída JSON para emoção agregada (truncado):
 
 ## <a name="limitations"></a>Limitações
 * Os formatos de vídeo de entrada suportados incluem MP4, MOV e WMV.
-* A gama de tamanho facial detetável é de 24x24 a 2048x2048 pixels. Os rostos fora desta gama não serão detetados.
+* A gama de tamanhos faciais detetáveis é de 24x24 a 2048x2048 pixels. Os rostos fora deste alcance não serão detetados.
 * Para cada vídeo, o número máximo de rostos devolvidos é de 64.
-* Alguns rostos não podem ser detetados devido a desafios técnicos; por exemplo, ângulos faciais muito grandes (pose na cabeça) e oclusão grande. Rostos frontais e próximos da frente têm os melhores resultados.
+* Algumas faces podem não ser detetadas devido a desafios técnicos; por exemplo, ângulos faciais muito grandes (pose de cabeça) e grande oclusão. Rostos frontais e quase frontais têm os melhores resultados.
 
-## <a name="net-sample-code"></a>Código de amostra .NET
+## <a name="net-sample-code"></a>.NET código de amostra
 
 O seguinte programa mostra como:
 
-1. Crie um ativo e faça upload de um ficheiro de mídia para o ativo.
-2. Crie um trabalho com uma tarefa de deteção facial com base num ficheiro de configuração que contenha o seguinte preset json: 
+1. Crie um ativo e carre faça o upload de um ficheiro de media para o ativo.
+2. Criar um trabalho com uma tarefa de deteção facial baseada num ficheiro de configuração que contenha a seguinte predefinição json: 
 
     ```json
             {
@@ -526,7 +525,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Visão geral da Análise de Serviços de Mídia Azure](media-services-analytics-overview.md)
+[Visão geral da Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Demonstrações azure Media Analytics](https://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

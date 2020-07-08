@@ -8,10 +8,9 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: dc334932bfd57bc81a58314ee68f02aeed520f41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670955"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
@@ -67,7 +66,7 @@ Para ver mais detalhes, clique no indicador de CodeLens de pedidos:
 * Escolha **Tendência** para ver uma visualização de tendência de pedidos, pedidos falhados ou tempos médios de resposta nas últimas 24 horas.
 * Escolha o nome do recurso Application Insights no canto superior esquerdo da vista de detalhes do CodeLens para alterar que recurso é a fonte de dados do CodeLens.
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 |  |  |
 | --- | --- |
 | **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Procure telemetria, veja dados no CodeLens e configure o Application Insights. Tudo isto no Visual Studio. |![Clique com o botão direito do rato no projeto e escolha Application Insights, Pesquisa](./media/visual-studio-codelens/34.png) |

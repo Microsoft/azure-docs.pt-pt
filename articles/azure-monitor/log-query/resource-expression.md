@@ -1,35 +1,34 @@
 ---
-title: expressão de recursos na consulta de registo do Monitor Azure ; Microsoft Docs
-description: A expressão de recursos é usada numa consulta de registo do Azure Monitor centrada em recursos para recuperar dados de vários recursos.
+title: () expressão em consulta de log do Azure Monitor / Microsoft Docs
+description: A expressão de recursos é usada numa consulta de registo do Monitor Azure centrado em recursos para obter dados de vários recursos.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665704"
 ---
-# <a name="resource-expression-in-azure-monitor-log-query"></a>expressão de recursos na consulta de registo do Monitor Azure
+# <a name="resource-expression-in-azure-monitor-log-query"></a>() expressão na consulta de registo do Monitor de Azure
 
-A `resource` expressão é usada numa consulta do Monitor [Azure, com recurso](scope.md#query-scope) para recolher dados de outros recursos. 
+A `resource` expressão é utilizada numa consulta do Azure [Monitor, a um recurso para](scope.md#query-scope) obter dados de outros recursos. 
 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 `resource(`*Identificador*`)`
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: Identificação de recurso de um recurso.
+- *Identificador*: Identificação de recursos de um recurso.
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|
-| Recurso | Inclui dados para o recurso. | recursos ("/subscrições/xxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
-| Grupo de Recursos ou Subscrição | Inclui dados para o recurso e todos os recursos que contém.  | recurso ("/subscrições/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/grupos de recursos/myresourcegroup) |
+| Recurso | Inclui dados para o recurso. | recurso ("/subscrições/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
+| Grupo de Recursos ou Subscrição | Inclui dados para o recurso e todos os recursos que contém.  | recurso ("/subscrições/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
 
 
 ## <a name="notes"></a>Notas
@@ -47,7 +46,7 @@ union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte o âmbito de consulta de registo e o intervalo de [tempo no Azure Monitor Log Analytics](scope.md) para obter detalhes sobre um âmbito de consulta.
-- Aceda à documentação completa para a [linguagem de consulta kusto.](/azure/kusto/query/)
+- Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](scope.md) para obter mais detalhes sobre um âmbito de consulta.
+- Aceda à documentação completa para a [língua de consulta kusto.](/azure/kusto/query/)

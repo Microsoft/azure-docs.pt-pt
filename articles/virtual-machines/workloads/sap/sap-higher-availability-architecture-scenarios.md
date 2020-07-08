@@ -1,6 +1,6 @@
 ---
-title: Utilizar VMs Azure reiniciam para "maior disponibilidade" de um sistema SAP Microsoft Docs
-description: Utilizar infraestrutura Azure VM reinicia para alcançar "maior disponibilidade" de aplicações SAP
+title: Utilizar VMs Azure reinicia para "maior disponibilidade" de um sistema SAP Microsoft Docs
+description: Utilizar a infraestrutura VM da utilização para alcançar uma "maior disponibilidade" de aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -17,13 +17,12 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77623806"
 ---
-# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reinicia para alcançar "maior disponibilidade" de um sistema SAP
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reiniciar para alcançar "maior disponibilidade" de um sistema SAP
 
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -125,7 +124,7 @@ ms.locfileid: "77623806"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade sap multi-SID)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade DE SAP multi-SID)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -213,73 +212,73 @@ ms.locfileid: "77623806"
 > ![Windows][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
 >
 
-Se decidir não utilizar funcionalidades como o Clustering failover do Windows Server (WSFC) ou o Pacemaker no Linux (atualmente suportado apenas para O Servidor Empresarial SUSE Linux [SLES] 12 ou posterior), o reinício do Azure VM é utilizado. Protege os sistemas SAP contra o tempo de inatividade planeado e não planeado da infraestrutura de servidores físicos Azure e a plataforma azure subjacente em geral.
+Se decidir não utilizar funcionalidades como o Windows Server Failover Clustering (WSFC) ou o Pacemaker no Linux (atualmente suportado apenas para o SUSE Linux Enterprise Server [SLES] 12 e posteriormente), o reinício do Azure VM é utilizado. Protege os sistemas SAP contra o tempo de inatividade planeado e não planeado da infraestrutura de servidores físicos Azure e da plataforma Azure subjacente.
 
 > [!NOTE]
-> O reinício do Azure VM protege principalmente os VMs e *não* as aplicações. Embora o reinício da VM não ofereça uma elevada disponibilidade para aplicações SAP, oferece um certo nível de disponibilidade de infraestrutura. Também oferece indiretamente uma "maior disponibilidade" de sistemas SAP. Também não existe SLA para o tempo que leva para reiniciar um VM após uma paragem planeada ou não planeada do hospedeiro, o que torna este método de alta disponibilidade inadequado para os componentes críticos de um sistema SAP. Exemplos de componentes críticos podem ser uma instância ASCS/SCS ou um sistema de gestão de bases de dados (DBMS).
+> O Azure VM reinicia principalmente protege vMs e *não* aplicações. Embora o reinício da VM não ofereça alta disponibilidade para aplicações SAP, oferece um certo nível de disponibilidade de infraestrutura. Também oferece indiretamente uma "maior disponibilidade" de sistemas SAP. Também não existe SLA durante o tempo que leva a reiniciar um VM após uma paragem planeada ou não planeada do hospedeiro, o que torna este método de alta disponibilidade inadequado para os componentes críticos de um sistema SAP. Exemplos de componentes críticos podem ser uma instância ASCS/SCS ou um sistema de gestão de bases de dados (DBMS).
 >
 >
 
-Outro elemento importante de infraestrutura para alta disponibilidade é o armazenamento. Por exemplo, o Azure Storage SLA tem 99,9% de disponibilidade. Se implementar todos os VMs e seus discos numa única conta de armazenamento Azure, a indisponibilidade potencial do Armazenamento Azure causará a indisponibilidade de todos os VMs que são colocados nessa conta de armazenamento e todos os componentes SAP que estão a funcionar dentro dos VMs.  
+Outro elemento importante da infraestrutura para a alta disponibilidade é o armazenamento. Por exemplo, o Azure Storage SLA tem 99,9% de disponibilidade. Se implementar todos os VMs e seus discos numa única conta de armazenamento Azure, a potencial indisponibilidade do Armazenamento Azure irá causar a indisponibilidade de todos os VMs colocados nessa conta de armazenamento e de todos os componentes SAP que estão a funcionar dentro dos VMs.  
 
-Em vez de colocar todos os VMs numa única conta de armazenamento Azure, pode utilizar contas de armazenamento dedicadas para cada VM. Ao utilizar várias contas de armazenamento independentes do Azure, aumenta a disponibilidade global de aplicações VM e SAP.
+Em vez de colocar todos os VMs numa única conta de armazenamento Azure, pode utilizar contas de armazenamento dedicadas para cada VM. Ao utilizar várias contas de armazenamento independentes da Azure, aumenta a disponibilidade global de aplicações VM e SAP.
 
-Os discos geridos pelo Azure são automaticamente colocados no domínio de avaria da máquina virtual a que estão ligados. Se colocar duas máquinas virtuais num conjunto de disponibilidade e utilizar discos geridos, a plataforma também cuida de distribuir os discos geridos em diferentes domínios de avaria. Se planeia utilizar uma conta de armazenamento premium, recomendamos vivamente a utilização de discos geridos.
+Os discos geridos Azure são automaticamente colocados no domínio de avaria da máquina virtual a que estão ligados. Se colocar duas máquinas virtuais num conjunto de disponibilidade e utilizar discos geridos, a plataforma também tem o cuidado de distribuir os discos geridos em diferentes domínios de avaria. Se pretender utilizar uma conta de armazenamento premium, recomendamos vivamente a utilização de discos geridos.
 
-Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza contas de alta disponibilidade e armazenamento da infraestrutura Azure pode parecer assim:
+Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza a infraestrutura Azure alta disponibilidade e contas de armazenamento pode ser assim:
 
-![Utilizar infraestrutura azure alta disponibilidade para alcançar aplicação SAP "maior disponibilidade"][planning-guide-figure-2900]
+![Utilizar infraestrutura Azure alta disponibilidade para alcançar aplicação SAP "maior disponibilidade"][planning-guide-figure-2900]
 
-Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza a alta disponibilidade da infraestrutura Azure e discos geridos pode parecer assim:
+Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza a infraestrutura Azure alta disponibilidade e discos geridos podem ser assim:
 
-![Utilizar infraestrutura azure alta disponibilidade para alcançar aplicação SAP "maior disponibilidade"][planning-guide-figure-2901]
+![Utilizar infraestrutura Azure alta disponibilidade para alcançar aplicação SAP "maior disponibilidade"][planning-guide-figure-2901]
 
-Para componentes SAP críticos, conseguiu o seguinte até agora:
+Para os componentes SAP críticos, alcançou até agora o seguinte:
 
 * Alta disponibilidade de servidores de aplicações SAP
 
-    As instâncias do servidor de aplicações SAP são componentes redundantes. Cada instância de servidor de aplicação SAP é implementada no seu próprio VM, que está a funcionar num domínio de falha e atualização do Azure diferente. Para mais informações, consulte as secções de [domínios de Falha][planning-guide-3.2.1] e [atualização.][planning-guide-3.2.2] 
+    As instâncias do servidor de aplicações SAP são componentes redundantes. Cada instância do servidor de aplicações SAP é implantada no seu próprio VM, que está a funcionar num domínio de avaria e atualização de Azure diferente. Para obter mais informações, consulte os [domínios 'Falha'][planning-guide-3.2.1] e as secções [de domínios de atualização.][planning-guide-3.2.2] 
 
-    Pode garantir esta configuração utilizando conjuntos de disponibilidade do Azure. Para mais informações, consulte a secção de conjuntos de [disponibilidade do Azure.][planning-guide-3.2.3] 
+    Pode garantir esta configuração utilizando conjuntos de disponibilidades Azure. Para mais informações, consulte a secção [de disponibilidades Azure.][planning-guide-3.2.3] 
 
-    A indisponibilidade planeada ou não planeada de um domínio de avaria ou atualização do Azure causará a indisponibilidade de um número restrito de VMs com as suas instâncias de servidor de aplicação SAP.
+    A potencial indisponibilidade planeada ou não planeada de um domínio de avaria ou atualização do Azure irá causar indisponibilidade de um número restrito de VMs com as suas instâncias de servidor de aplicações SAP.
 
-    Cada instância do servidor de aplicações SAP é colocada na sua própria conta de armazenamento Azure. A potencial indisponibilidade de uma conta de armazenamento Azure causará a indisponibilidade de apenas um VM com a sua instância de servidor de aplicação SAP. No entanto, esteja ciente de que existe um limite para o número de contas de armazenamento Azure dentro de uma subscrição Azure. Para garantir o arranque automático de uma instância ASCS/SCS após o reboot do VM, defina o parâmetro de arranque automático no perfil de início da instância ASCS/SCS que é descrito na secção [utilização automática para instâncias SAP.][planning-guide-11.5]
+    Cada instância do servidor de aplicações SAP é colocada na sua própria conta de armazenamento Azure. A potencial indisponibilidade de uma conta de armazenamento Azure irá causar a indisponibilidade de apenas um VM com a sua instância de servidor de aplicações SAP. No entanto, esteja ciente de que existe um limite para o número de contas de armazenamento Azure dentro de uma subscrição da Azure. Para garantir o início automático de uma instância ASCS/SCS após o reboot de VM, descreva o parâmetro De arranque Automático no perfil de início de instância ASCS/SCS descrito na secção [Utilização Automática para instâncias SAP.][planning-guide-11.5]
   
-    Para mais informações, consulte Alta disponibilidade para servidores de [aplicações SAP][planning-guide-11.4.1].
+    Para obter mais informações, consulte [Alta disponibilidade para servidores de aplicações SAP][planning-guide-11.4.1].
 
-    Mesmo que utilize discos geridos, os discos são armazenados numa conta de armazenamento Azure e podem não estar disponíveis em caso de falha de armazenamento.
+    Mesmo que utilize discos geridos, os discos são armazenados numa conta de armazenamento Azure e podem não estar disponíveis em caso de interrupção de armazenamento.
 
 * *Maior disponibilidade* de instâncias SAP ASCS/SCS
 
-    Neste cenário, utilize o reinício do Azure VM para proteger o VM com a instância SAP ASCS/SCS instalada. No caso de tempo de inatividade planeado ou não planeado dos servidores Azure, os VMs são reiniciados noutro servidor disponível. Como mencionado anteriormente, o Reinício da VM Azure protege principalmente os VMs e *não* as aplicações, neste caso a instância ASCS/SCS. Através do reinício do VM, você indiretamente alcança "maior disponibilidade" da instância SAP ASCS/SCS. 
+    Neste cenário, utilize o Azure VM para proteger o VM com a instância SAP ASCS/SCS instalada. No caso de tempo de inatividade planeado ou não planeado dos servidores Azure, os VMs são reiniciados noutro servidor disponível. Como mencionado anteriormente, o Azure VM reinicia principalmente protege vMs e *não* aplicações, neste caso o caso ASCS/SCS. Através do reinício do VM, atinge indiretamente a "maior disponibilidade" da instância SAP ASCS/SCS. 
 
-    Para garantir um início automático da instância ASCS/SCS após o reboot do VM, defina o parâmetro de arranque automático no perfil de início da instância ASCS/SCS, tal como descrito na secção [utilização automática para instâncias SAP.][planning-guide-11.5] Esta definição significa que a instância ASCS/SCS como um único ponto de falha (SPOF) em execução num único VM determinará a disponibilidade de toda a paisagem SAP.
+    Para garantir um início automático da instância ASCS/SCS após o reboot de VM, descreva o parâmetro De arranque Automático no perfil de início de instância ASCS/SCS, conforme descrito na secção [Utilização Automática para instâncias SAP.][planning-guide-11.5] Esta definição significa que a instância ASCS/SCS como um único ponto de falha (SPOF) em execução num único VM determinará a disponibilidade de toda a paisagem SAP.
 
 * *Maior disponibilidade* do servidor DBMS
 
-    Tal como no caso de utilização de instânciaS SAP ASCS/SCS anterior, utiliza o reinício do Azure VM para proteger o VM com o software DBMS instalado e obtém uma "maior disponibilidade" de software DBMS através do reinício do VM.
+    Tal como no caso anterior de utilização de instâncias SAP ASCS/SCS, utiliza o reinício do VM Azure para proteger o VM com o software DBMS instalado, e obtém uma "maior disponibilidade" de software DBMS através do reinício de VM.
   
-    Um DBMS que está a funcionar num único VM também é um SPOF, e é o fator determinante para a disponibilidade de toda a paisagem SAP.
+    Um DBMS que está a funcionar num único VM é também um SPOF, e é o fator determinante para a disponibilidade de toda a paisagem SAP.
 
-## <a name="using-autostart-for-sap-instances"></a>Utilização automática para instâncias SAP
-O SAP oferece uma definição que lhe permite iniciar as instâncias SAP imediatamente após o início do Sistema Operativo dentro do VM. As instruções estão documentadas no Artigo [1909114]da Base de Conhecimento sap. No entanto, a SAP já não recomenda a utilização da definição, uma vez que não permite o controlo da ordem da instância reinicia se for afetado mais de um VM ou se várias instâncias estiverem a decorrer por VM. 
+## <a name="using-autostart-for-sap-instances"></a>Utilização de Arranque Automático para casos SAP
+O SAP oferece uma definição que permite iniciar casos SAP imediatamente após o início do SO dentro do VM. As instruções estão documentadas no artigo [1909114]da Base de Conhecimento sapatado . No entanto, o SAP já não recomenda a utilização da definição, uma vez que não permite o reinício do controlo da ordem de instância se mais de um VM for afetado ou se estiverem a decorrer várias instâncias por VM. 
 
-Assumindo um cenário típico de Azure de uma instância de servidor de aplicação SAP num VM e um único VM eventualmente reiniciado, o Autostart não é crítico. Mas pode permitir-lhe adicionando o seguinte parâmetro no perfil inicial da Programação avançada de aplicações empresariais (ABAP) ou java:
+Assumindo um cenário típico de Azure de uma instância de servidor de aplicações SAP num VM e um único VM eventualmente reiniciado, o Autostart não é crítico. Mas pode capacitá-lo adicionando o seguinte parâmetro no perfil inicial da programação de aplicações empresariais avançadas da SAP (ABAP) ou da instância java:
 
       Autostart = 1
 
 
   > [!NOTE]
-  > O parâmetro Autostart também tem algumas deficiências. Especificamente, o parâmetro desencadeia o início de um caso SAP ABAP ou Java quando o serviço Windows ou Linux relacionado da instância é iniciado. Esta sequência ocorre quando o sistema operativo arranca. No entanto, o reinício dos serviços SAP é também uma ocorrência comum para a funcionalidade SAP Software Lifecycle Management, como a Atualização de Software Manger (SUM) ou outras atualizações ou atualizações. Estas funcionalidades não esperam que uma instância seja reiniciada automaticamente. Por isso, o parâmetro Autostart deve ser desativado antes de executar tais tarefas. O parâmetro Autostart também não deve ser utilizado para instâncias SAP que estejam agrupadas, tais como ASCS/SCS/CI.
+  > O parâmetro Autostart também tem certas deficiências. Especificamente, o parâmetro desencadeia o início de uma instância SAP ABAP ou Java quando o serviço relacionado Windows ou Linux da instância é iniciado. Esta sequência ocorre quando o sistema operativo arranca. No entanto, os reinícios dos serviços SAP são também uma ocorrência comum para a funcionalidade de Gestão de Ciclo de Vida do SOFTWARE SAP, como a Manger de Atualização de Software (SUM) ou outras atualizações ou atualizações. Estas funcionalidades não estão à espera que um caso seja reiniciado automaticamente. Portanto, o parâmetro De arranque Automático deve ser desativado antes de executar tais tarefas. O parâmetro De arranque Automático também não deve ser utilizado para casos SAP que estejam agrupados, tais como ASCS/SCS/CI.
   >
   >
 
-  Para obter mais informações sobre o Autostart para os casos SAP, consulte os seguintes artigos:
+  Para obter mais informações sobre o Autostart para casos SAP, consulte os seguintes artigos:
 
-  * [Iniciar ou parar o SAP juntamente com o seu Unix Server Start/Stop](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-  * [Iniciar e parar agentes de gestão SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
+  * [Iniciar ou parar o SAP juntamente com o seu Início/Paragem do Servidor Unix](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Iniciar e parar os agentes de gestão da SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter informações sobre a disponibilidade completa da aplicação SAP NetWeaver, consulte a elevada disponibilidade da [aplicação SAP no Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
+Para obter informações sobre a alta disponibilidade da aplicação SAP NetWeaver, consulte [a alta disponibilidade da aplicação SAP em Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
