@@ -15,16 +15,15 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78199500"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Media v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Descrição geral
@@ -98,7 +97,7 @@ Com a encriptação dinâmica, vai criar um elemento que contenha um conjunto de
 
 Para obter instruções sobre como codificar, veja [Encode an asset by using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) (Utilizar o Media Encoder Standard para codificar elementos).
 
-## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Crie uma chave de conteúdo e associe-a ao ativo codificado
 Nos Media Services, a chave de conteúdo contém a chave na qual pretende encriptar um elemento.
 
 Para obter mais informações, veja [Create a content key](media-services-dotnet-create-contentkey.md) (Criar chaves de conteúdo).
@@ -147,7 +146,7 @@ Pode utilizar o [Leitor dos Serviços de Multimédia do Azure](https://aka.ms/az
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
-1. Instale o seu ambiente de desenvolvimento e povoe o ficheiro app.config com informações de ligação, conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md).
+1. Configurar o seu ambiente de desenvolvimento e povoar o ficheiro app.config com informações de ligação, conforme descrito no [desenvolvimento dos Serviços de Comunicação Social com .NET](media-services-dotnet-how-to-use.md).
 
 2. Adicione os elementos seguintes a **appSettings** definidos no ficheiro app.config:
 
@@ -607,16 +606,16 @@ namespace DynamicEncryptionWithDRM
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
+* Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Utilizar a Encriptação Comum (CENC) com multi DRM e com controlo de acesso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configurar o empacotamento do Widevine com os Serviços de Multimédia)

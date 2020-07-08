@@ -1,6 +1,6 @@
 ---
 title: Descrição geral dos Serviços de Multimédia do Azure | Microsoft Docs
-description: Os Media Services do Microsoft Azure são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Este artigo dá uma visão geral da Azure Media Services.
+description: Os Media Services do Microsoft Azure são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Este artigo apresenta uma visão geral da Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,9 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78197509"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
@@ -27,7 +26,7 @@ ms.locfileid: "78197509"
 > * [Versão 2](media-services-overview.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Os Serviços de Multimédia são baseados nas APIs REST, que permitem carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para o envio de transmissão em fluxo, tanto a pedido como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -36,11 +35,11 @@ Pode compilar fluxos de trabalho ponto-a-ponto utilizando inteiramente os Media 
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
 
-Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua utilização da Azure Media Services, e você não pode usar Serviços de Media ou qualquer serviço Azure de uma forma que viole os direitos dos outros, ou que pode ser prejudicial para os outros.
+Como um importante lembrete, deve cumprir todas as leis aplicáveis na sua utilização da Azure Media Services, e não poderá utilizar os Serviços de Comunicação Social ou qualquer serviço Azure de forma a violar os direitos de outros, ou que possam ser prejudiciais para os outros.
 
-Antes de enviar qualquer vídeo/imagem para os Media Services, deve ter todos os direitos adequados para utilizar o vídeo/imagem, incluindo, sempre que tal seja exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/imagem, para uso, processamento e armazenamento dos seus dados nos Media Services e Azure. Algumas jurisdições podem impor requisitos legais especiais para a recolha, processamento e armazenamento on-line de determinadas categorias de dados, tais como dados biométricos. Antes de utilizar os Serviços de Media e azure para o tratamento e armazenamento de quaisquer dados sujeitos a requisitos legais especiais, deve garantir o cumprimento de quaisquer requisitos legais que possam ser aplicáveis a Si.
+Antes de enviar qualquer vídeo/imagem para os Serviços de Comunicação, deve ter todos os direitos adequados de utilização do vídeo/imagem, incluindo, sempre que tal seja exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/imagem, para a utilização, processamento e armazenamento dos seus dados nos Serviços de Comunicação Social e Azure. Algumas jurisdições podem impor requisitos legais especiais para a recolha, tratamento e armazenamento online de determinadas categorias de dados, tais como dados biométricos. Antes de utilizar os Media Services e a Azure para o processamento e armazenamento de quaisquer dados sujeitos a requisitos legais especiais, deve garantir o cumprimento de quaisquer requisitos legais que possam ser aplicáveis a Si.
 
-Para saber sobre conformidade, privacidade e segurança nos Serviços de Media visite o Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). Para as obrigações de privacidade da Microsoft, práticas de tratamento e retenção de dados, incluindo como eliminar os seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e o Tratamento de Dados [Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ao utilizar os Serviços de Comunicação Social, concorda em ficar vinculado pela OST, DPA e pela Declaração de Privacidade.
+Para saber mais sobre a conformidade, privacidade e segurança nos Serviços de Media, visite o Microsoft [Trust Center.](https://www.microsoft.com/trust-center/?rtc=1) Para as obrigações de privacidade da Microsoft, práticas de tratamento e retenção de dados, incluindo como eliminar os seus dados, por favor reveja a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, [os Termos dos Serviços Online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e a [adenda de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ao utilizar os Serviços de Comunicação Social, concorda em ficar vinculado pela OST, DPA e pela Declaração de Privacidade.
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +50,7 @@ Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 * (Opcional) Configurar o ambiente de desenvolvimento. Escolha .NET ou a API REST para o ambiente de desenvolvimento. Para obter mais informações, consulte [Configurar o ambiente](media-services-dotnet-how-to-use.md).
 
     Além disso, saiba como [estabelecer ligação através de programação à API AMS](media-services-use-aad-auth-to-access-ams-api.md).
-* Um ponto final de transmissão em fluxo standard ou premium no estado iniciado.  Para mais informações, consulte [Gerir pontos finais de streaming](media-services-portal-manage-streaming-endpoints.md)
+* Um ponto final de transmissão em fluxo standard ou premium no estado iniciado.  Para obter mais informações, consulte [Gerir os pontos finais de streaming](media-services-portal-manage-streaming-endpoints.md)
 
 ## <a name="sdks-and-tools"></a>SDKs e ferramentas
 

@@ -1,5 +1,5 @@
 ---
-title: StringToNull na linguagem de consulta de DD Do Cosmos de Azure
+title: StringToNull em Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre a função do sistema SQL StringToNull em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296444"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
- Expressão de devoluções traduzida para nulo. Se a expressão não puder ser traduzida, regressa indefinido.  
+ Expressão de devoluções traduzida para nulo. Se a expressão não puder ser traduzida, retorna indefinidamente.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,7 +25,7 @@ StringToNull(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de corda a ser analisada como uma expressão nula.
+   É uma expressão de corda para ser analisada como uma expressão nula.
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -34,11 +33,11 @@ StringToNull(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que `StringToNull` se segue mostra como se comporta em diferentes tipos. 
+  O exemplo a seguir mostra como `StringToNull` se comporta em diferentes tipos. 
 
 Seguem-se exemplos com entrada válida.
 
- O Espaço Branco só é permitido antes ou depois de "nulo".
+ Whitespace só é permitido antes ou depois de "nulo".
 
 ```sql
 SELECT 
@@ -55,7 +54,7 @@ SELECT
 
 Seguem-se exemplos com entrada inválida.
 
-Nulo é sensível ao caso e deve ser escrito com todos os caracteres minúsculos, ou seja, "nulo".
+O nulo é sensível a caso e deve ser escrito com todos os caracteres minúsculos, ou seja, "nulos".
 
 ```sql
 SELECT    
@@ -69,7 +68,7 @@ SELECT
 [{}]
 ```  
 
-A expressão aprovada será analisada como uma expressão nula; estas inputs não avaliam para escrever nulos e, assim, retornar indefinidos.
+A expressão passada será analisada como uma expressão nula; estas entradas não avaliam para escrever nulo e, assim, devolver indefinidamente.
 
 ```sql
 SELECT    
@@ -89,8 +88,8 @@ SELECT
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

@@ -1,6 +1,6 @@
 ---
-title: Verificação do sistema de ficheiros ao iniciar um VM Azure. Microsoft Docs
-description: Saiba como resolver o problema que a VM mostra o sistema de ficheiros de verificação no arranque Microsoft Docs
+title: Verificar sistema de ficheiros ao iniciar um VM Azure/ Microsoft Docs
+description: Saiba como resolver o problema que a VM mostra o sistema de ficheiros checking ao iniciar Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,34 +13,33 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921492"
 ---
-# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows mostra "sistema de ficheiros de verificação" ao iniciar um VM Azure
+# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows mostra "sistema de verificação de ficheiros" ao iniciar um VM Azure
 
-Este artigo descreve o erro do "Sistema de Ficheiros de Verificação" que poderá encontrar quando iniciar uma Máquina Virtual do Windows (VM) no Microsoft Azure.
+Este artigo descreve o erro "Verificar o sistema de ficheiros" que poderá encontrar quando iniciar uma Máquina Virtual do Windows (VM) no Microsoft Azure.
 
 
 ## <a name="symptom"></a>Sintoma 
 
-Um VM windows não começa. Quando verificar as imagens da bota nos [diagnósticos da Bota,](boot-diagnostics.md)verá que o processo Check Disk (chkdsk.exe) está a decorrer com uma das seguintes mensagens:
+Um VM do Windows não começa. Quando verificar as imagens de arranque nos [diagnósticos boot,](boot-diagnostics.md)verá que o processo do Disco de Verificação (chkdsk.exe) está a funcionar com uma das seguintes mensagens:
 
 - Unidade de digitalização e reparação (C:)
-- Verificação do sistema de ficheiros em C:
+- Sistema de ficheiros de verificação em C:
 
 ## <a name="cause"></a>Causa
 
-Se for encontrado um erro NTFS no sistema de ficheiros, o Windows verificará e reparará a consistência do disco no próximo reinício. Normalmente isto acontece se o VM teve algum recomeço inesperado, ou se o processo de encerramento do VM foi interrompido abruptamente.
+Se for encontrado um erro NTFS no sistema de ficheiros, o Windows verificará e reparará a consistência do disco no próximo reinício. Normalmente isto acontece se o VM teve algum reinício inesperado, ou se o processo de paragem de VM foi interrompido abruptamente.
 
 ## <a name="solution"></a>Solução 
 
-O Windows arrancará normalmente após o processo de Check Disk estar concluído. Se o VM estiver preso no processo check disk, tente executar o Disco de Verificação no VM offline:
-1.  Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
-2.  [Fixe o disco OS a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .  
-3.  No VM de recuperação, faça o Check Disk no disco OS anexado. Na amostra seguinte, a letra condutora do disco osso anexado é E: 
+O Windows iniciará normalmente depois de concluído o processo do Disco de Verificação. Se o VM estiver preso no processo do Disco de Verificação, tente executar o disco de verificação no VM offline:
+1.  Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+2.  [Fixe o disco DE A uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).  
+3.  Na recuperação VM, verifique o disco de verificação no disco oss anexado. Na amostra seguinte, a carta do condutor do disco oss anexado é E: 
         
         chkdsk E: /f
-4.  Depois de o Disco de Verificação estar concluído, retire o disco do VM de recuperação e, em seguida, volte a fixar o disco ao VM afetado como um disco OS. Para mais informações, consulte [Troubleshoot a Windows VM, ligando o disco OS a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
+4.  Após a conclusão do Disco de Verificação, retire o disco do VM de recuperação e, em seguida, volte a ligar o disco ao VM afetado como disco de oss. Para obter mais informações, consulte [Troubleshoot a Windows VM, fixando o disco OS a um VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
