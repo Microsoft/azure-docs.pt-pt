@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 8c57cf5054bea898370cdccc7bea4243877d27b5
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84947114"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mover uma app de Serviço de Aplicações para outra região
@@ -47,10 +47,10 @@ Certos recursos, tais como certificados importados ou ligações híbridas, cont
 
 1. Na página **'Restaurar cópia' de segurança,** configuure a operação de restauro de acordo com a tabela seguinte. Quando terminar, clique **em OK**.
 
-   | Definição | Valor | Description |
+   | Definição | Valor | Descrição |
    |-|-|-|
    | **Instantâneo (Pré-visualização)** | Selecione uma foto instantânea. | As duas fotos mais recentes estão disponíveis. |
-   | **Destino de restauração** | **App existente** | Clique na nota abaixo que diz **Clique aqui para alterar a aplicação de destino de restauro** e selecione a aplicação-alvo. Num cenário de desastre, só é possível restaurar o instantâneo para uma aplicação numa região de Azure diferente. |
+   | **Destino de restauração** | **Aplicação existente** | Clique na nota abaixo que diz **Clique aqui para alterar a aplicação de destino de restauro** e selecione a aplicação-alvo. Num cenário de desastre, só é possível restaurar o instantâneo para uma aplicação numa região de Azure diferente. |
    | **Restaurar a configuração do site** | **Sim** | |
 
     ![](media/manage-disaster-recovery/restore-configure.png)
@@ -86,5 +86,5 @@ Se quiser apenas recuperar os ficheiros da aplicação impactada sem a restaurar
 
     ![](media/manage-disaster-recovery/download-content.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Restaurar uma aplicação em Azure a partir de um instantâneo](app-service-web-restore-snapshots.md)

@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974845"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
@@ -48,7 +48,7 @@ Por exemplo, suponhamos que esteja a executar dois caches - um a 13 GB e o outro
 
 A tabela a seguir descreve os campos necessários.
 
-| Campo | Description |
+| Campo | Descrição |
 | :------------ | :------- |
 | Subscrição   | A subscrição utilizada para pagar a Cache Azure para reserva de capacidade reservada redis. O método de pagamento da subscrição é cobrado os custos iniciais da Cache Azure para reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Partilhado**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis que estão a decorrer em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis nesta subscrição. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado à Cache Azure para instâncias Redis na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.

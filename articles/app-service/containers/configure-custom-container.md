@@ -4,10 +4,10 @@ description: Saiba como configurar um recipiente Linux personalizado no Azure Ap
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905804"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente Linux personalizado para o Serviço de Aplicações Azure
@@ -162,7 +162,7 @@ A utilização de um recipiente personalizado com integração VNet pode requere
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implantação do repositório de contentores privados](tutorial-custom-docker-image.md)

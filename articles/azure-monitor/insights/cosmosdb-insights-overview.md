@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
 ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945499"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
@@ -72,7 +72,7 @@ Selecione **Falhas** no topo da página e a parte de **Falhas** do modelo de liv
 
 ![Screenshot de falhas com avaria por tipo de pedido HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código      |  Description       | 
+| Código      |  Descrição       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foi bem sucedida: </br>- Obter um recurso. </br> - Coloque um recurso. </br> - Post num recurso. </br> - POST num recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso é bem sucedida. |
@@ -124,7 +124,7 @@ Os livros de trabalho são guardados dentro de um grupo de recursos, quer na sec
 
 Para obter orientações sobre resolução de problemas, consulte o artigo dedicado baseado em insights baseados em [livros](troubleshoot-workbooks.md)de trabalho .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 

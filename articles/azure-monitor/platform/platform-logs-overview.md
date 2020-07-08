@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945312"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Visão geral dos registos da plataforma Azure
@@ -20,7 +20,7 @@ Os registos da plataforma fornecem informações detalhadas de diagnóstico e au
 ## <a name="types-of-platform-logs"></a>Tipos de registos de plataformas
 A tabela que se segue lista os registos específicos da plataforma que estão disponíveis em diferentes camadas de Azure.
 
-| Registar | Camada | Description |
+| Registar | Camada | Descrição |
 |:---|:---|:---|
 | [Registos do recurso](resource-logs.md) | Recursos do Azure | Forneça informações sobre as operações que foram realizadas dentro de um recurso Azure (o plano de *dados),* por exemplo, obter um segredo de um Cofre-Chave ou fazer um pedido para uma base de dados. O conteúdo dos registos de recursos varia consouros e de tipo de recurso.<br><br>*Os registos de recursos eram previamente referidos como registos de diagnóstico.*  |
 | [Registo de atividades](activity-log.md) | Subscrição do Azure | Fornece informações sobre as operações de cada recurso Azure na subscrição a partir do exterior (*o plano de gestão*) para além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o _que_, _quem_, e _quando_ para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Há um único registo de Atividade para cada subscrição do Azure. |
@@ -44,7 +44,7 @@ Existem diferentes opções para visualizar e analisar os diferentes registos da
 ## <a name="destinations"></a>Destinos
 Pode enviar registos de plataforma para um ou mais destinos na tabela seguinte, dependendo dos seus requisitos de monitorização. Configure destinos para registos de plataformas [criando uma definição de Diagnóstico](diagnostic-settings.md).
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
 | Área de trabalho do Log Analytics | Analise os registos de todos os seus recursos Azure em conjunto e aproveite todas as funcionalidades disponíveis para [os Registos do Monitor Azure,](data-platform-logs.md) incluindo [consultas de registo](../log-query/log-query-overview.md) e [alertas de registo.](alerts-log.md) Fixar os resultados de uma consulta de registo a um dashboard Azure ou incluí-lo num livro como parte de um relatório interativo. |  |
 | Hub de eventos | Envie dados de registo de plataforma fora do Azure, por exemplo, para uma plataforma de telemetria personalizada ou siem de terceiros.
@@ -58,7 +58,7 @@ Pode enviar registos de plataforma para um ou mais destinos na tabela seguinte, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Leia mais detalhes sobre o registo de atividades](activity-log.md)
 * [Leia mais detalhes sobre registos de recursos](resource-logs.md)

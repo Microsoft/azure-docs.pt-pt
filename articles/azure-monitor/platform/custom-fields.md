@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
 ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84906807"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados num espaço de trabalho log analytics em Azure Monitor (Pré-visualização)
@@ -127,7 +127,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade discogr
 
 ![Grupo por consulta](media/custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para construir consultas usando campos personalizados para critérios.
 * Monitorize [ficheiros de registo personalizados](data-sources-custom-logs.md) que analisa utilizando campos personalizados.
 

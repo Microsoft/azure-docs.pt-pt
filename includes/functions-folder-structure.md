@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
@@ -8,13 +8,13 @@ ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5f5f682c8c31c17f1a645bcdacdc78f32bd5c001
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77205709"
 ---
-O código para todas as funções de uma aplicação de função específica está localizado numa pasta de projeto de raiz que contém um ficheiro de configuração de hospedeiro e uma ou mais subpastas. Cada subpasta contém o código para uma função separada. A estrutura da pasta é mostrada na seguinte representação:
+O código para todas as funções numa aplicação de função específica está localizado numa pasta de projeto raiz que contém um ficheiro de configuração do anfitrião e uma ou mais sub-dobras. Cada sub-dobradeira contém o código para uma função separada. A estrutura da pasta é mostrada na seguinte representação:
 
 ```
 FunctionApp
@@ -29,11 +29,11 @@ FunctionApp
  | - bin
 ```
 
-Na versão 2.x e superior ao tempo de funcionamento das Funções, todas as funções na aplicação de função devem partilhar a mesma pilha de idiomas.  
+Na versão 2.x e superior do tempo de execução de Funções, todas as funções na aplicação de função devem partilhar a mesma pilha de idiomas.  
 
-O ficheiro [host.json](../articles/azure-functions/functions-host-json.md) contém configurações específicas do tempo de execução e está na pasta raiz da aplicação de função. Uma pasta *de caixotes* contém pacotes e outros ficheiros de biblioteca que a aplicação de função necessita. Consulte os requisitos específicos do idioma para um projeto de aplicação de funções:
+A [host.jsno](../articles/azure-functions/functions-host-json.md) ficheiro contém configurações específicas do tempo de execução e está na pasta raiz da aplicação de função. Uma pasta *de lixo* contém pacotes e outros ficheiros da biblioteca que a aplicação de função requer. Consulte os requisitos específicos da linguagem para um projeto de aplicação de função:
 
-* [Biblioteca de classe C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [Biblioteca de classes C#(.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [Script C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
 * [Roteiro F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)

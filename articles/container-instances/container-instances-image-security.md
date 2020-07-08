@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
 ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907028"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contentores Azure
@@ -142,7 +142,7 @@ Mantenha um rasto de auditoria preciso de acesso administrativo ao seu ecossiste
 * [Solução de monitorização do contentor Azure](../azure-monitor/insights/containers.md)
 * Registos de recursos para [instâncias de contentores Azure](container-instances-log-analytics.md) e [registo de contentores Azure](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte a [linha de base de segurança Azure para instâncias de contentores](security-baseline.md) para obter recomendações abrangentes que o ajudarão a melhorar a postura de segurança da sua implantação.
 

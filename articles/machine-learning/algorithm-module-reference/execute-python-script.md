@@ -11,10 +11,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
 ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907555"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
@@ -263,6 +263,6 @@ O módulo devolve dois conjuntos de dados:
 + **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

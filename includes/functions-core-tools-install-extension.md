@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -9,35 +9,35 @@ ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 94cac0932da5880e5e7b8a8fac3870b5bc464af9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75564746"
 ---
-## <a name="register-extensions"></a>Registar extensões
+## <a name="register-extensions"></a>Extensões de registo
 
-Com exceção dos gatilhos HTTP e temporizador, as ligações de funções na versão 2.x e superior são implementadas como pacotes de extensão. Na versão 2.x e além do tempo de funcionamento das Funções Azure, tem de registar explicitamente as extensões para os tipos de encadernação utilizados nas suas funções. As exceções a isto são ligações HTTP e gatilhos temporizadores, que não requerem extensões.
+Com exceção dos disparadores HTTP e timer, as ligações de funções na versão 2.x e superior são implementadas como pacotes de extensão. Na versão 2.x e além do tempo de funcionamento das Funções Azure, tem de registar explicitamente as extensões para os tipos de encadernação utilizados nas suas funções. As exceções a isto são ligações HTTP e gatilhos de temporizador, que não requerem extensões.
 
-Pode optar por instalar extensões de ligação individualmente, ou pode adicionar uma referência de extensão ao ficheiro do projeto host.json. Os feixes de extensão eliminam a possibilidade de ter problemas de compatibilidade do pacote ao utilizar vários tipos de encadernação. É a abordagem recomendada para o registo de extensões vinculativas. Os feixes de extensão também removem a exigência de instalação do .NET Core 2.x SDK. 
+Pode optar por instalar extensões de ligação individualmente, ou pode adicionar uma referência ao pacote de extensão à host.jsno ficheiro do projeto. Os pacotes de extensão eliminam a possibilidade de ter problemas de compatibilidade do pacote quando se utilizam vários tipos de ligação. É a abordagem recomendada para o registo de extensões vinculativas. Os pacotes de extensão também removem a exigência de instalação do .NET Core 2.x SDK. 
 
 ### <a name="extension-bundles"></a>Pacotes de extensão
 
 [!INCLUDE [Register extensions](functions-extension-bundles.md)]
 
-Para saber mais, consulte as [extensões de ligação das Funções Do Registo Azure](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Deve adicionar pacotes de extensão ao host.json antes de adicionar ligações ao ficheiro função.json.
+Para saber mais, consulte [as extensões de ligação do Registo Azure Functions](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Deve adicionar pacotes de extensão ao host.jsantes de adicionar encadernações ao function.jsno ficheiro.
 
 ### <a name="register-individual-extensions"></a>Registar extensões individuais
 
 Se precisar de instalar extensões que não estejam num pacote, pode registar manualmente pacotes de extensão individuais para encadernações específicas. 
 
 > [!NOTE]
-> Para registar manualmente as `func extensions install`extensões utilizando, deve ter instalado o .NET Core 2.x SDK.
+> Para registar manualmente as extensões `func extensions install` utilizando, tem de ter o .NET Core 2.x SDK instalado.
 
-Depois de ter atualizado o ficheiro *function.json* para incluir todas as encadernações de que a sua função necessita, execute o seguinte comando na pasta do projeto.
+Depois de ter atualizado o seu *function.jsno* ficheiro para incluir todas as encadernações de que a sua função necessita, execute o seguinte comando na pasta do projeto.
 
 ```bash
 func extensions install
 ```
 
-O comando lê o ficheiro *função.json* para ver quais os pacotes que precisa, instala-os e reconstrói o projeto de extensões. Adiciona novas ligações na versão atual, mas não atualiza as encadernações existentes. Utilize `--force` a opção de atualizar as ligações existentes para a versão mais recente ao instalar novas.
+O comando lê o *function.jsem* ficheiro para ver quais os pacotes de que necessita, instala-os e reconstrói o projeto de extensões. Adiciona quaisquer novas ligações na versão atual, mas não atualiza as ligações existentes. Utilize a `--force` opção para atualizar as ligações existentes para a versão mais recente ao instalar as novas.

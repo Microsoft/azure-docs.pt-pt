@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
 ms.openlocfilehash: 4edcb22ed6bd33b1174354cf0cbb9a590e35c207
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84906892"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
@@ -90,7 +90,7 @@ Pode verificar a ligação entre um espaço de trabalho Log Analytics e uma cont
 
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas.](#list-installed-monitoring-solutions) Clique no nome da solução para abrir a sua página de resumo e, em seguida, clique em **Apagar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha uma [lista de soluções de monitorização da Microsoft.](solutions-inventory.md)
 * Saiba como criar consultas para analisar [dados](../log-query/log-query-overview.md) recolhidos através da monitorização de soluções.

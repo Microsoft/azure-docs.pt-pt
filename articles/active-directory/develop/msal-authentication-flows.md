@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9a0315fadefac0269a6d9670844ef8c3886eef12
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975627"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
 A Microsoft Authentication Library (MSAL) suporta vários fluxos de autenticação para utilização em diferentes cenários de aplicação.
 
-| Fluxo | Description | Usado em|
+| Fluxo | Descrição | Usado em|
 | ---- | ----------- | ------- |
 | [Interativo](#interactive) | Obtém o símbolo através de um processo interativo que incita o utilizador a obter credenciais através de um navegador ou janela pop-up. | [Aplicativos para desktop,](scenario-desktop-overview.md) [aplicativos móveis](scenario-mobile-overview.md) |
 | [Subvenção implícita](#implicit-grant) | Permite que a aplicação obtenha fichas sem realizar uma troca de credenciais de servidor de back-end. Permite que a aplicação assine no utilizador, mantenha a sessão e obtenha fichas para outras APIs da web, tudo dentro do código JavaScript do cliente.| [Aplicações de uma só página (SPA)](scenario-spa-overview.md) |
@@ -236,7 +236,7 @@ Para além dos [constrangimentos integrados](#integrated-windows-authentication)
 
 Para obter mais informações sobre a utilização do ROPC em MSAL.NET e Azure AD B2C, consulte [utilizar o ROPC com Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os fluxos de autenticação suportados pela Microsoft Authentication Library (MSAL), saiba a aquisição e caching dos tokens utilizados nestes fluxos:
 

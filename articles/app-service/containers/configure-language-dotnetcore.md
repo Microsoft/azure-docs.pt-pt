@@ -5,10 +5,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: e009f5b1fc656f700b3f0e76dda6e545aed535d2
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905770"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação Linux ASP.NET Core para o Azure App Service
@@ -196,7 +196,7 @@ Para obter mais informações sobre resolução de problemas ASP.NET aplicaçõe
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app com base de dados SQL](tutorial-dotnetcore-sqldb-app.md)

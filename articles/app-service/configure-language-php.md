@@ -5,10 +5,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 1eb4e9d349fdd0097cbde4e4cef3d5c61a167193
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908142"
 ---
 # <a name="configure-a-windows-php-app-for-azure-app-service"></a>Configure um aplicativo Windows PHP para o Azure App Service
@@ -279,7 +279,7 @@ Quando uma aplicação PHP funcionada se comporta de forma diferente no Serviço
     - Certas estruturas web podem usar scripts de arranque personalizados quando estão em modo de produção.
 - Execute a sua aplicação no Serviço de Aplicações em modo de depuragem. Por exemplo, em [Laravel,](https://meanjs.org/)pode configurar a sua app para depurar mensagens de depuração de saída em [produção, definindo a `APP_DEBUG` `true` definição da app para ](configure-common.md#configure-app-settings).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: app PHP com MySQL](app-service-web-tutorial-php-mysql.md)

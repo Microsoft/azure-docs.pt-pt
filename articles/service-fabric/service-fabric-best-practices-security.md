@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84944326"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
 Para mais informações sobre [as melhores práticas da Azure Security,](https://docs.microsoft.com/azure/security/)reveja as [melhores práticas de segurança da Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
-## <a name="key-vault"></a>Key Vault
+## <a name="key-vault"></a>Cofre de Chaves
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) é o serviço de gestão de segredos recomendado para aplicações e clusters de tecido de serviço Azure.
 > [!NOTE]
@@ -270,7 +270,7 @@ Por predefinição, as aplicações do Service Fabric têm acesso ao próprio te
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie um cluster em VMs, ou computadores, executando o Windows Server: [Criação de cluster de tecido de serviço para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Crie um cluster em VMs, ou computadores, executando Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

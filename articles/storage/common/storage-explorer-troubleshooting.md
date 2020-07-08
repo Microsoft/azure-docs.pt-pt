@@ -9,15 +9,15 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974522"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Azure Storage Explorer
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
-O Microsoft Azure Storage Explorer é uma aplicação autónoma que facilita o funcionamento dos dados de armazenamento do Azure em Windows, macOS e Linux. A aplicação pode ligar-se às contas de armazenamento hospedadas no Azure, nas nuvens nacionais e na Azure Stack.
+O Explorador de Armazenamento do Microsoft Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do Armazenamento do Microsoft Azure no Windows, macOS e Linux. A aplicação pode ligar-se às contas de armazenamento alojadas no Azure, nas clouds nacionais e no Azure Stack.
 
 Este guia resume soluções para problemas que são geralmente vistos no Storage Explorer.
 
@@ -405,7 +405,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

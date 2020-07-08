@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
 ms.openlocfilehash: a10f7c3dda4d16a264cf52f9fddcf2bf0ed93348
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907517"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta Copiar Dados no Azure Data Factory
@@ -107,7 +107,7 @@ Uma operação de cópia única permite o movimento de dados de uma fonte para u
 ![Opções de agendamento](./media/copy-data-tool/scheduling-options.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Experimente estes tutoriais que utilizam a ferramenta Dados de Cópia:
 
 - [Quickstart: criar uma fábrica de dados utilizando a ferramenta Dados de Cópia](quickstart-create-data-factory-copy-data-tool.md)

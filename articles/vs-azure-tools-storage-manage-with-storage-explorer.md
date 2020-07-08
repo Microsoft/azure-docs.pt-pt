@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975270"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
 ## <a name="overview"></a>Descrição geral
 
-O Microsoft Azure Storage Explorer é uma aplicação autónoma que facilita o funcionamento dos dados de armazenamento do Azure em Windows, macOS e Linux. Neste artigo, você vai aprender várias formas de ligar e gerir as suas contas de armazenamento Azure.
+O Explorador de Armazenamento do Microsoft Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do Armazenamento do Microsoft Azure no Windows, macOS e Linux. Neste artigo, você vai aprender várias formas de ligar e gerir as suas contas de armazenamento Azure.
 
 ![Explorador de Armazenamento do Microsoft Azure][0]
 
@@ -266,7 +266,7 @@ Ao introduzir texto na caixa de pesquisa, o Storage Explorer exibe todos os recu
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir os recursos de armazenamento Azure Blob com o Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Trabalhar com dados com o Explorador de Armazenamento do Azure](./cosmos-db/storage-explorer.md)

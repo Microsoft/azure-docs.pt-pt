@@ -10,10 +10,10 @@ ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: b02c3627cea5e441739c77d1882505c6b82489bc
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908172"
 ---
 # <a name="analyze-complex-data-types-in-synapse"></a>Analisar tipos de dados complexos em Synapse
@@ -219,7 +219,7 @@ Se a matriz tivesse 5 elementos com 4 estruturas aninhadas, o SQL sem servidor d
 
 SQL sem servidor pode consultar no local, mapear a matriz em 2 linhas e, exibir todas as estruturas aninhadas em colunas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como consultar a Azure Synapse Link para Azure Cosmos DB com Faísca](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Tipos aninhados de parquet de consulta](./sql/query-parquet-nested-types.md) 

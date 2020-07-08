@@ -8,10 +8,10 @@ ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945363"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
@@ -27,11 +27,11 @@ O esquema variará dependendo da forma como acede ao registo:
 ## <a name="categories"></a>Categorias
 Cada evento no Registo de Atividades tem uma categoria específica que são descritas na tabela seguinte. Consulte as secções abaixo para obter mais detalhes sobre cada categoria e o seu esquema quando aceder ao registo de Atividade a partir do portal, PowerShell, CLI e REST API. O esquema é diferente quando [transmite o registo de atividade para armazenamento ou Centros de Eventos.](resource-logs-stream-event-hubs.md) Um mapeamento das propriedades para o [esquema de registos](diagnostic-logs-schema.md) de recursos é fornecido na última secção do artigo.
 
-| Categoria | Description |
+| Categoria | Descrição |
 |:---|:---|
 | [Administrativa](#administrative-category) | Contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos de eventos administrativos incluem _criar máquina virtual_ e eliminar o grupo de segurança da _rede._<br><br>Todas as ações tomadas por um utilizador ou aplicação utilizando o Gestor de Recursos são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for _Write_, _Delete_, ou _Action_, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações ao controlo de acesso baseado em funções numa subscrição. |
 | [Estado de funcionamento dos serviços](#service-health-category) | Contém o registo de quaisquer incidentes de saúde de serviço que ocorreram em Azure. Um exemplo de um evento de Saúde de Serviço _SQL Azure no Leste dos EUA está a passar por um tempo de inatividade._ <br><br>Os eventos de saúde de serviço vêm em seis variedades: _Ação necessária,_ _Recuperação Assistida,_ _Incidente,_ _Manutenção,_ _Informação_ou _Segurança_. Estes eventos só são criados se tiver um recurso na subscrição que seria impactado pelo evento.
-| [Estado de Funcionamento de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
+| [Saúde de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
 | [Alerta](#alert-category) | Contém o registo de ativações para alertas Azure. Um exemplo de um evento de alerta é _que o CPU % no myVM foi superior a 80 nos últimos 5 minutos_.|
 | [Dimensionamento Automático](#autoscale-category) | Contém o registo de quaisquer eventos relacionados com o funcionamento do motor de autoescala com base em quaisquer definições de autoescala que tenha definido na sua subscrição. Um exemplo de um evento de autoescala é a ação de _escala automática falhada._ |
 | [Recomendação](#recommendation-category) | Contém eventos de recomendação do Azure Advisor. |
@@ -130,7 +130,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | autorização |Bolha das propriedades da RBAC do evento. Normalmente inclui as propriedades de "ação", "papel" e "âmbito". |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. |
@@ -277,7 +277,7 @@ Esta categoria contém o registo de quaisquer eventos de saúde de recursos que 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -370,7 +370,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Administrador, Operação" |
@@ -396,7 +396,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 O campo de propriedades conterá diferentes valores dependendo da origem do evento de alerta. Dois fornecedores de eventos de alerta comum são alertas de Registo de Atividade e alertas métricos.
 
 #### <a name="properties-for-activity-log-alerts"></a>Imóveis para alertas de Registo de Atividade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | propriedades.subscriçãoId | O ID de subscrição do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
 | properties.eventDataId | O ID de dados do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
@@ -407,7 +407,7 @@ O campo de propriedades conterá diferentes valores dependendo da origem do even
 | propriedades.status | O estado do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades para alertas métricos
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | propriedades. RegraUri | Identificação de recursos da regra de alerta métrico em si. |
 | propriedades. Nome de Regras | O nome da regra de alerta métrico. |
@@ -480,7 +480,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com o funcion
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Administrador, Operação" |
@@ -570,7 +570,7 @@ Esta categoria contém o registo de quaisquer alertas gerados pelo Azure Securit
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -651,7 +651,7 @@ Esta categoria contém o registo de quaisquer novas recomendações que sejam ge
 
 ```
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -761,7 +761,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 ### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de eventos de política
 
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | autorização | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e âmbito do pedido que desencadeou a avaliação. Para os recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para os recursos existentes, o GUID do Microsoft Azure Policy Insights RP. |
@@ -882,7 +882,7 @@ Segue-se um exemplo de um evento que usa este esquema..
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Saiba mais sobre o Registo de Atividades](platform-logs-overview.md)
 * [Crie uma definição de diagnóstico para enviar Log de Atividade para Log Analytics espaço de trabalho, armazenamento de Azure ou centros de eventos](diagnostic-settings.md)
 

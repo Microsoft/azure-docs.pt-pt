@@ -5,10 +5,10 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 9f4ccdd04b8d57784f452dc28fa4507fb7ea94c2
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908145"
 ---
 # <a name="configure-a-windows-nodejs-app-for-azure-app-service"></a>Configurar uma aplicação windows Node.js para o Azure App Service
@@ -160,7 +160,7 @@ Quando uma aplicação de Node.js de trabalho se comporta de forma diferente no 
     - Certas estruturas web podem usar scripts de arranque personalizados quando estão em modo de produção.
 - Execute a sua aplicação no Serviço de Aplicações em modo de desenvolvimento. Por exemplo, em [MEAN.js, ](https://meanjs.org/)pode definir a sua aplicação para o modo de desenvolvimento em tempo de [execução, definindo a `NODE_ENV` definição da aplicação](configure-common.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Node.js app com o MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

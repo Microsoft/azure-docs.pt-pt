@@ -4,10 +4,10 @@ description: Conheça as principais capacidades dos centros de dados definidos p
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84906994"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Solução Azure VMware (AVS) Visualizar conceitos de nuvem privada e cluster
@@ -70,7 +70,7 @@ A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, ta
 
 As configurações de nuvem privada vCenter e NSX-T são apoiadas de hora em hora. Os reforços são mantidos por três dias. A restauração de uma cópia de segurança é solicitada através de um Pedido de Serviço no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O próximo passo é aprender [conceitos de networking e interconectividade.](concepts-networking.md)
 

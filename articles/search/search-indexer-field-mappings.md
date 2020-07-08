@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975338"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
@@ -212,7 +212,7 @@ A tabela seguinte compara diferentes codificações base64 da `00>00?00` cadeia.
 | Base64 com estofamento | `MDA+MDA/MDA=` | Use caracteres seguros de URL e remova o estofamento | Use caracteres base64 padrão e adicione estofamento |
 | Base64 sem enchimento | `MDA+MDA/MDA` | Use caracteres seguros url | Use caracteres base64 padrão |
 | BASE URL-safe64 com enchimento | `MDA-MDA_MDA=` | Remover o estofamento | Adicionar estofamento |
-| BASE URL-safe64 sem enchimento | `MDA-MDA_MDA` | Nenhum | Nenhum |
+| BASE URL-safe64 sem enchimento | `MDA-MDA_MDA` | Nenhuma | Nenhuma |
 
 <a name="extractTokenAtPositionFunction"></a>
 

@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
 ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84944496"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
@@ -267,7 +267,7 @@ Se quiser ver n diferentes tipos de erro do que especificar splitByLimit como n+
 
 Cada livro é guardado na conta de armazenamento em que o guardou. Tente encontrar a Conta de Armazenamento específica na qual o utilizador guardou o livro. Caso contrário, não há como encontrar um livro específico sem conhecer o recurso (conta de armazenamento).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 

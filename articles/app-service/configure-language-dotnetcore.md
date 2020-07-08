@@ -5,10 +5,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 5819fc5b2d6e64d1812dacd88a2a4f840f6e03c5
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908148"
 ---
 # <a name="configure-a-windows-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação Core windows ASP.NET para o Azure App Service
@@ -146,7 +146,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Para obter mais informações, consulte [o Configure ASP.NET Core para trabalhar com servidores proxy e equilibradores de carga](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app com base de dados SQL](app-service-web-tutorial-dotnetcore-sqldb.md)

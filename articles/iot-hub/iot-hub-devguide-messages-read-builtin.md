@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
 ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907487"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
@@ -63,10 +63,10 @@ Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub 
 
 | Linguagem | SDK | Exemplo |
 | -------- | --- | ------ |
-| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Início Rápido](quickstart-send-telemetry-dotnet.md) |
-| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início Rápido](quickstart-send-telemetry-java.md) |
-| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início Rápido](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | [Início Rápido](quickstart-send-telemetry-python.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Início rápido](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início rápido](quickstart-send-telemetry-java.md) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início rápido](quickstart-send-telemetry-node.md) |
+| Python | https://pypi.org/project/azure-eventhub/ | [Início rápido](quickstart-send-telemetry-python.md) |
 
 As integrações do produto que pode utilizar com o ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
@@ -77,7 +77,7 @@ As integrações do produto que pode utilizar com o ponto final compatível com 
 * [Integração apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre os pontos finais do [IoT Hub, consulte os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 

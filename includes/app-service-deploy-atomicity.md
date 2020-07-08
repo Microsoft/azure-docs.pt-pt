@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,16 +9,16 @@ ms.date: 01/07/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: feed8b21833d4244d027d64d5e6547b94e4fa66f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75945152"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>O que acontece com a minha aplicação durante a implementação?
 
-Todos os métodos de implementação oficialmente `/home/site/wwwroot` suportados fazem alterações nos ficheiros na pasta da sua aplicação. Estes ficheiros são utilizados para executar a sua aplicação. Portanto, a implementação pode falhar por causa de ficheiros bloqueados. A aplicação também pode comportar-se de forma imprevisível durante a implementação, porque nem todos os ficheiros atualizados ao mesmo tempo. Isto é indesejável para uma aplicação virada para o cliente. Existem algumas maneiras diferentes de evitar estas questões:
+Todos os métodos de implementação oficialmente suportados fazem alterações nos ficheiros na `/home/site/wwwroot` pasta da sua aplicação. Estes ficheiros são usados para executar a sua aplicação. Portanto, a implementação pode falhar por causa de ficheiros bloqueados. A aplicação também pode comportar-se de forma imprevisível durante a implementação, porque nem todos os ficheiros atualizados ao mesmo tempo. Isto é indesejável para uma aplicação virada para o cliente. Há algumas maneiras diferentes de evitar estas questões:
 
-- [Execute a sua aplicação a partir do pacote ZIP diretamente](../articles/app-service/deploy-run-package.md) sem desempacotá-la.
-- Pare a sua aplicação ou ative o modo offline para a sua aplicação durante a implementação. Para mais informações, consulte [Lidar com ficheiros bloqueados durante a implementação](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
-- Desloque-se para uma ranhura de [preparação](../articles/app-service/deploy-staging-slots.md) com troca de [automóveis](../articles/app-service/deploy-staging-slots.md#configure-auto-swap) ativada. 
+- [Executar a sua aplicação diretamente a partir do pacote ZIP](../articles/app-service/deploy-run-package.md) sem desembalá-la.
+- Pare a sua aplicação ou ative o modo offline para a sua aplicação durante a implementação. Para obter mais informações, consulte [Lidar com ficheiros bloqueados durante a implementação](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
+- Desloque-se para uma ranhura de [preparação](../articles/app-service/deploy-staging-slots.md) com [troca automática](../articles/app-service/deploy-staging-slots.md#configure-auto-swap) ativada. 

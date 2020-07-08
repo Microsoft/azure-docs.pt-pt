@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907470"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
@@ -227,7 +227,7 @@ Se o tráfego de saída for encaminhado através de firewall de terceiros:
 - se utilizar o agente de cerca Azure certifique-se de que a configuração da firewall permite a conectividade de saída à API de gestão Azure: `https://management.azure.com``https://login.microsoftonline.com`   
 - se utilizar a infraestrutura de atualização de nuvem pública Azure da SUSE para aplicar atualizações e patches, consulte [a Infraestrutura de Atualização da Nuvem Pública do Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como configurar o Pacemaker na SUSE em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 * [Saiba como configurar pacemaker no Chapéu Vermelho em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)

@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974675"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Aprendizagem automática Azure implementado como um serviço web
@@ -527,6 +527,6 @@ Para gerar um serviço web suportado para consumo em Power BI, o esquema deve su
 
 Uma vez que o serviço web é implementado, é consumível a partir de fluxos de dados Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver uma arquitetura de referência para pontuação em tempo real de Python e modelos de deep learning, vá ao [centro de arquitetura Azure.](/azure/architecture/reference-architectures/ai/realtime-scoring-python)

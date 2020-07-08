@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945397"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
@@ -130,7 +130,7 @@ Uma vez configurada a recolha de dados de monitorização para uma máquina virt
 
 ![Monitorização no portal Azure](media/monitor-vm-azure/monitor-menu.png)
 
-| Opção menu | Description |
+| Opção menu | Descrição |
 |:---|:---|
 | Descrição geral | Exibe [métricas](../platform/data-platform-metrics.md) da plataforma para o hospedeiro de máquina virtual. Clique num gráfico para trabalhar com estes dados no [explorador de métricas.](../platform/metrics-getting-started.md) |
 | Registo de atividades | [Entradas de registo](../platform/activity-log-view.md) de atividade filtradas para a máquina virtual atual. |
@@ -148,7 +148,7 @@ Pode analisar métricas para máquinas virtuais usando métricas exploradores ab
 
 Existem três espaços de nome usados por máquinas virtuais para métricas:
 
-| Espaço de Nomes | Description | Requisito |
+| Espaço de Nomes | Descrição | Requisito |
 |:---|:---|:---|
 | Anfitrião de Máquinas Virtuais | Métricas de anfitrião recolhidas automaticamente para todas as máquinas virtuais Azure. Lista detalhada de métricas em [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Recolhido automaticamente sem necessidade de configuração. |
 | Convidado (clássico) | Conjunto limitado de dados de desempenho do sistema operativo dos hóspedes e da aplicação. Disponível em métricas explorador, mas não em outras funcionalidades do Azure Monitor, como alertas métricos.  | [Extensão de diagnóstico](../platform/diagnostics-extension-overview.md) instalada. Os dados são lidos a partir do armazenamento da Azure.  |
@@ -161,7 +161,7 @@ As máquinas virtuais Azure recolherão os seguintes dados para os Registos do M
 
 O Azure Monitor para VMs permite a recolha de um conjunto pré-determinado de contadores de desempenho que são escritos na tabela *InsightsMetrics.* Esta é a mesma tabela utilizada pelo [Azure Monitor para contentores.](container-insights-overview.md) 
 
-| Origem de dados | Requisitos | Tabelas |
+| Origem de dados | Requirements | Tabelas |
 |:---|:---|:---|
 | Azure Monitor para VMs | Ative em cada máquina virtual. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>Consulte [como consultar os registos do Azure Monitor para VMs](vminsights-log-search.md) para obter mais detalhes. |
 | Registo de atividades | Definição de diagnóstico para a subscrição. | AzureActivity |
@@ -238,7 +238,7 @@ As características do Azure Monitor que aumentam as funcionalidades SCOM existe
 Consulte [o Connect Operations Manager ao Azure Monitor](../platform/om-agents.md) para obter mais informações sobre a ligação do seu grupo de gestão SCOM existente ao seu espaço de trabalho Log Analytics.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como analisar dados em registos do Azure Monitor utilizando consultas de registo.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas utilizando métricas e registos no Azure Monitor.](../platform/alerts-overview.md)

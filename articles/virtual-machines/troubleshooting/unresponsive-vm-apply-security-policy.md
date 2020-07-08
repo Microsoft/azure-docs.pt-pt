@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908194"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>A Azure VM não responde ao aplicar a Política de Segurança ao sistema
@@ -143,6 +143,6 @@ Para resolver este problema, seria necessário primeiro recolher o ficheiro de d
     - Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
     - Se tiver dificuldade em localizar o ficheiro memory.dmp, pode desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](serial-console-windows.md#use-the-serial-console-for-nmi-calls) Pode seguir o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver problemas quando aplicar a política de Utilizadores e Grupos Locais, ver [que o VM não responde ao aplicar a política de utilizadores e grupos locais de política](unresponsive-vm-apply-group-policy.md) de grupos
