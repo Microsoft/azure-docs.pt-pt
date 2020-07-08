@@ -1,135 +1,134 @@
 ---
-title: Instalação de tempo de funcionamento das funções Azure
-description: Como instalar as funções Azure Pré-visualização 2
+title: Instalação de tempo de execução de funções Azure
+description: Como instalar a pré-visualização do tempo de execução das funções Azure 2
 author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226729"
 ---
-# <a name="install-the-azure-functions-runtime-preview-2"></a>Instalar a pré-visualização do tempo de funcionamento das funções Azure 2
+# <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a pré-visualização do tempo de execução das funções Azure 2
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-Se quiser instalar a pré-visualização do Tempo de Funcionamento das Funções Azure 2, siga estes passos:
+Se pretender instalar a pré-visualização do tempo de execução Azure Functions 2, siga estes passos:
 
 1. Certifique-se de que a sua máquina passa os requisitos mínimos.
-1. Descarregue o instalador de [pré-visualização de funções Azure](https://aka.ms/azafrv2).
-1. Desinstale a pré-visualização do tempo de funcionamento das funções Azure 1.
-1. Instale a pré-visualização do tempo de funcionamento das funções Azure 2.
-1. Complete a configuração das funções Azure Pré-visualização 2.
-1. Crie a sua primeira função na pré-visualização do tempo de funcionamento das funções Azure
+1. Descarregue o [Instalador de Pré-visualização de tempo de execução Azure Functions](https://aka.ms/azafrv2).
+1. Desinstalar a pré-visualização do tempo de execução das funções Azure 1.
+1. Instale a pré-visualização do tempo de execução Azure Functions 2.
+1. Preencha a configuração da pré-visualização do tempo de execução Azure Functions 2.
+1. Crie a sua primeira função na pré-visualização do tempo de execução de funções Azure Functions
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar a pré-visualização do Tempo de Funcionamento das Funções Azure, deve dispor dos seguintes recursos disponíveis:
+Antes de instalar a pré-visualização do tempo de execução Azure Functions, tem de ter os seguintes recursos disponíveis:
 
-1. Uma máquina que executa o Microsoft Windows Server 2016 ou a Microsoft Windows 10 Creators Update (Professional ou Enterprise Edition).
-1. Uma instância do Servidor SQL que funciona dentro da sua rede.  A edição mínima necessária é o SQL Server Express.
+1. Uma máquina com funcionamento do Microsoft Windows Server 2016 ou a Atualização de Criadores do Microsoft Windows 10 (Edição Profissional ou Empresarial).
+1. Uma instância SQL Server a decorrer dentro da sua rede.  A edição mínima necessária é SQL Server Express.
 
 ## <a name="uninstall-previous-version"></a>Desinstalar versão anterior
 
-Se já instalou previamente a pré-visualização do Funcionamento das Funções Azure, tem de desinstalar antes de instalar a versão mais recente.  Desinstale a pré-visualização do tempo de funcionamento das funções Azure removendo o programa em Programas Add/Remove no Windows.
+Se já instalou previamente a pré-visualização do tempo de execução do Azure Functions, tem de desinstalar antes de instalar o último lançamento.  Desinstale a pré-visualização do tempo de execução das funções Azure removendo o programa em Programas de Adicionar/Remover no Windows.
 
-## <a name="install-the-azure-functions-runtime-preview"></a>Instale a pré-visualização do tempo de funcionamento das funções Azure
+## <a name="install-the-azure-functions-runtime-preview"></a>Instale a pré-visualização do tempo de execução das funções Azure
 
-O instalador de pré-visualização de funções Azure guia-o através da instalação das funções Azure Gedade de pré-visualização e funções de trabalhador.  É possível instalar o papel de Gestão e Trabalhador na mesma máquina.  No entanto, à medida que adiciona mais aplicações de função, deve implementar mais funções de trabalhador em máquinas adicionais para poder escalar as suas funções em vários trabalhadores.
+O Instalador de Pré-visualização de tempo de execução Azure Funções orienta-o através da instalação da gestão de pré-visualização do tempo de execução de funções Azure Functions e funções de trabalhador.  É possível instalar o papel de Gestão e Trabalhador na mesma máquina.  No entanto, à medida que adiciona mais aplicações de função, tem de implementar mais funções de trabalhador em máquinas adicionais para poder escalar as suas funções em vários trabalhadores.
 
 ## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Instale a Função de Gestão e Trabalhador na mesma máquina
 
-1. Executar o instalador de pré-visualização de funções Azure.
+1. Executar o Instalador de Pré-visualização de tempo de execução de funções Azure.
 
-    ![Instalador de pré-visualização de funções Azure Runtime][1]
+    ![Azure Functions Instalador de pré-visualização de tempo de execução][1]
 
 1. Clique em **Seguinte**.
-1. Depois de ler os termos do **EULA,** **verifique a caixa** para aceitar os termos e clique em **Next** para avançar.
-1. Selecione as funções que pretende instalar nesta função de gestão de **funções** da máquina e/ou **funções Funções Funções Função função do trabalhador** e clique em **Seguinte**.
+1. Depois de ler os termos do **EULA,** **consulte a caixa** para aceitar os termos e clique em **Seguir** para avançar.
+1. Selecione as funções que pretende instalar nesta máquina **Funções Funções Função e/ou** **Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Função Trabalho e/ou Funções Funções Funções Funções Funções Funções Funções Funções Funções Funções Função Trabalhador** Role e/ou **Next**
 
-    ![Instalador de pré-visualização funções Azure Funções - seleção de funções][3]
-
-    > [!NOTE]
-    > Pode instalar o **Funções Funções Funções Funções funções** em muitas outras máquinas. Para isso, siga estas instruções e selecione apenas **funções de trabalho** no instalador.
-
-1. Clique em **seguida** para que o Assistente de Configuração de Funcionamento das **Funções Azure** inicie o processo de instalação na sua máquina.
-1. Uma vez concluído, o assistente de configuração lança a ferramenta de configuração do Funcionamento do Funcionamento das **Funções Azure.**
-
-    ![Instalador de pré-visualização de funções Azure Completo][6]
+    ![Azure Functions Instalador de pré-visualização de tempo de execução - seleção de funções][3]
 
     > [!NOTE]
-    > Se estiver a instalar no **Windows 10** e a funcionalidade **contentor não** tiver sido previamente ativada, a Configuração de tempo de funcionamento das **funções Azure** leva-o a reiniciar a sua máquina para concluir a instalação.
+    > Pode instalar o Papel de Trabalhador de Funções em **muitas** outras máquinas. Para tal, siga estas instruções e selecione **apenas funções Funções Funções Papel de Trabalhador** no instalador.
 
-## <a name="configure-the-azure-functions-runtime"></a>Configure o tempo de funcionamento das funções azure
+1. Clique **em seguida** para que o Assistente de **Configuração de Tempo de execução de funções Azure** inicie o processo de instalação na sua máquina.
+1. Uma vez concluído, o assistente de configuração lança a ferramenta de configuração **de tempo de execução Azure Functions.**
 
-Para completar a instalação de funcionamento do funcionamento das funções Azure, deve completar a configuração.
+    ![Instalação de pré-visualização de tempo de execução Azure Functions concluída][6]
 
-1. A ferramenta de configuração do tempo de funcionação do **Azure** mostra quais as funções instaladas na sua máquina.
+    > [!NOTE]
+    > Se estiver a instalar no **Windows 10** e a função **Contentor** não tiver sido previamente ativada, a **Configuração do tempo de execução de funções Azure** solicita-lhe que reinicie a sua máquina para concluir a instalação.
 
-    ![Ferramenta de configuração de pré-visualização de funções Azure Runtime][7]
+## <a name="configure-the-azure-functions-runtime"></a>Configure o tempo de execução das funções Azure
 
-1. Clique no separador Base de **Dados,** introduza os dados de ligação para a sua instância do Servidor SQL, incluindo especificar uma chave principal da Base de [Dados,](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)e clique **em Aplicar**.  A conectividade com uma instância do Servidor SQL é necessária para que o Tempo de Funcionamento das Funções Azure crie uma base de dados para suportar o Tempo de Execução.
+Para completar a instalação do tempo de execução Azure Functions, tem de completar a configuração.
 
-    ![Configuração da base de dados de pré-visualização de funções Azure][8]
+1. A ferramenta de configuração **de tempo de execução Azure Functions** mostra quais as funções instaladas na sua máquina.
 
-1. Clique no separador **Credenciais.**  Aqui, você deve criar duas novas credenciais para uso com uma partilha de ficheiros para hospedar todas as suas aplicações de função.  Especifique as combinações de **nome de utilizador** e **palavra-passe** para o titular da partilha de **ficheiros** e para o utilizador da partilha de **ficheiros,** clique em **Aplicar**.
+    ![Ferramenta de pré-visualização de tempo de execução de funções Azure Functions][7]
 
-    ![Funções Azure Credenciais de pré-visualização do tempo de funcionamento][9]
+1. Clique no **separador Base de Dados,** introduza os dados de ligação para a sua instância SQL Server, incluindo especificar uma [chave master database](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), e clique em **Aplicar**.  A conectividade com uma instância do SQL Server é necessária para que o tempo de execução das funções Azure crie uma base de dados para suportar o tempo de execução.
 
-1. Clique no separador Partilha de **Ficheiros.**  Aqui deve especificar os detalhes da localização da partilha de ficheiros.  A partilha de ficheiros pode ser criada para si ou pode utilizar uma Partilha de Ficheiros existente e clicar **em Aplicar**.  Se selecionar um novo local de Partilha de Ficheiros, deve especificar um diretório para utilização pelo Tempo de Funcionamento das Funções Azure.
+    ![Configuração da base de dados de pré-visualização do tempo de execução Azure Functions][8]
 
-    ![Funções Azure Executar partilha de ficheiros][10]
+1. Clique no **separador Credenciais.**  Aqui, deve criar duas novas credenciais para uso com uma partilha de ficheiros para hospedar todas as suas aplicações de função.  Especifique o **nome de utilizador** e as combinações de **palavras-passe** para o **proprietário da partilha de ficheiros** e para o **utilizador da partilha de ficheiros,** em seguida, clique em **Aplicar**.
 
-1. Clique no separador **IIS.**  Este separador mostra os detalhes dos websites no IIS que a ferramenta de configuração de funcionamento do Funcionamento das Funções Azure cria.  Pode especificar um nome DNS personalizado aqui para o portal de pré-visualização de funções Azure Runtime.  Clique **Em Aplicar** para completar.
+    ![Credenciais de pré-visualização do tempo de execução de funções Azure Functions][9]
 
-    ![Funções Azure Pré-visualização IIS][11]
+1. Clique no separador **'Partilhar** ficheiros'.  Aqui deve especificar os detalhes da localização da partilha de ficheiros.  A partilha de ficheiros pode ser criada para si ou pode utilizar uma Partilha de Ficheiros existente e clicar em **Aplicar.**  Se selecionar uma nova localização de Partilha de Ficheiros, deve especificar um diretório para utilização pelo tempo de execução das funções Azure.
 
-1. Clique no separador **Serviços.**  Este separador mostra o estado dos serviços na sua ferramenta de configuração de tempo de funcionamento das funções Azure.  Se o Serviço de **Ativação do Hospedeiro das Funções Azure** não estiver a funcionar após a configuração inicial, clique no **Serviço de Início**.
+    ![Partilha de ficheiros de pré-visualização de tempo de execução Azure Functions][10]
 
-    ![Configuração de pré-visualização de prazo de funcionamento das funções Azure completa][12]
+1. Clique no separador **IIS.**  Este separador mostra os detalhes dos websites no IIS que a ferramenta de configuração de tempo de execução Azure Functions cria.  Pode especificar um nome DNS personalizado aqui para o portal de pré-visualização do tempo de execução de funções Azure.  Clique **em Aplicar** para completar.
 
-1. Navegue no Portal de Tempo de `https://<machinename>.<domain>/`Funcionamento das **Funções Azure** como .
+    ![Azure Functions Runtime preview IIS][11]
 
-    ![Portal de pré-visualização de funções Azure Runtime][13]
+1. Clique no separador **Serviços.**  Este separador mostra o estado dos serviços na sua ferramenta de configuração de tempo de execução Azure Functions.  Se o **Serviço de Ativação do Anfitrião de Funções Azure** não estiver a funcionar após a configuração inicial, clique em **Iniciar Serviço**.
 
-## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Crie a sua primeira função na pré-visualização do tempo de funcionamento das funções Azure
+    ![Configuração de pré-visualização de tempo de execução de funções Azure Functions completa][12]
 
-Para criar a sua primeira função na pré-visualização do tempo de funcionamento das funções Azure
+1. Navegue pelo Portal de **Tempo de Execução de Funções Azure** como `https://<machinename>.<domain>/` .
 
-1. Navegue no Portal de Tempo de `https://<machinename>.<domain>` Funcionamento das **Funções Azure** como, por exemplo. `https://mycomputer.mydomain.com`
+    ![Portal de pré-visualização do tempo de execução de funções Azure Functions][13]
 
-1. É solicitado a **iniciar sessão**, se for implementado num domínio, utilize o nome de utilizador e a palavra-passe da sua conta de domínio, caso contrário utilize o nome de utilizador e a palavra-passe da sua conta local para iniciar sessão no portal.
+## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Crie a sua primeira função na pré-visualização do tempo de execução de funções Azure Functions
 
-    ![Início do portal de pré-visualização de funções Azure][14]
+Para criar a sua primeira função na pré-visualização do tempo de execução de funções Azure Functions
 
-1. Para criar aplicações de função, tem de criar uma Subscrição.  No canto superior esquerdo do portal, **+** clique na opção ao lado das subscrições.
+1. Navegue pelo Portal de **Tempo de Execução de Funções Azure** como `https://<machinename>.<domain>` por exemplo `https://mycomputer.mydomain.com` .
 
-    ![Funções Azure Pré-visualização de assinaturas do portal][15]
+1. É-lhe pedido que **faça login**, se implementado num domínio utilize o nome de utilizador e a palavra-passe da sua conta de domínio, de outra forma utilize o nome de utilizador e a palavra-passe da conta local para iniciar sessão no portal.
 
-1. Escolha **O Plano Padrão,** introduza um nome para a sua Subscrição e clique em **Criar**.
+    ![Início do portal de pré-visualização do prazo de execução de funções Azure Functions][14]
 
-    ![Plano de subscrição do portal de pré-visualização do Portal de Funções Azure plano e nome][16]
+1. Para criar aplicações de função, tem de criar uma Subscrição.  No canto superior esquerdo do portal, clique na **+** opção ao lado das subscrições.
 
-1. Todas as suas aplicações de função estão listadas no painel esquerdo do portal.  Para criar uma nova App de Funções, **+** selecione as **Aplicações de Função** de título e clique na opção.
+    ![Azure Functions Subscrições do portal de pré-visualização do tempo de execução][15]
 
-1. Introduza um nome para a sua aplicação de funções, selecione a Subscrição correta, escolha qual versão do tempo de execução das Funções Azure que deseja programar e clique em **Criar**
+1. Escolha **o Plano Padrão,** introduza um nome para a sua Subscrição e clique em **Criar**.
 
-    ![Funções Azure Runtime pré-visualização novo aplicativo de função][17]
+    ![Plano de subscrição do portal de pré-visualização do portal de pré-visualização de funções Azure Functions][16]
+
+1. Todas as suas aplicações de função estão listadas no painel esquerdo do portal.  Para criar uma nova App de função, selecione o título **'Funções Apps'** e clique na **+** opção.
+
+1. Introduza um nome para a sua aplicação de função, selecione a Subscrição correta, escolha qual a versão do tempo de execução das Funções Azure que deseja programar e clique em **Criar**
+
+    ![Azure Functions Runtime portal novo portal de pré-visualização nova aplicação][17]
 
 1. A sua nova aplicação de funções está listada no painel esquerdo do portal.  Selecione Funções e, em seguida, clique em **Nova Função** na parte superior do painel central no portal.
 
-    ![Modelos de pré-visualização de funções azure Runtime][18]
+    ![Modelos de pré-visualização do tempo de execução de funções Azure Functions][18]
 
-1. Selecione a função Degatilho do Temporizador, no nome `*/5 * * * * *` de flyout à direita a sua função e altere o Horário para (esta expressão crona faz com que a função do temporizador execute a cada cinco segundos) e clique em **Criar**
+1. Selecione a função Detonador temporizador, no nome de voo do lado direito a sua função e altere a Agenda para `*/5 * * * * *` (esta expressão cron faz com que a função do temporizador seja executada a cada cinco segundos) e clique em **Criar**
 
-    ![Funções Azure Pré-visualização de tempo de funcionamento novo configuração de função de temporizador][19]
+    ![Azure Functions Pré-visualização de nova configuração da função do temporizador][19]
 
-1. A sua função foi agora criada.  Pode visualizar o registo de execução da sua aplicação Fun, expandindo o painel de **registo** na parte inferior do portal.
+1. A sua função foi agora criada.  Pode visualizar o registo de execução da sua aplicação Função expandindo o painel de **registo** na parte inferior do portal.
 
-    ![Execução da função de pré-visualização de funções de pré-visualização de funções de tempo de funcionamento do funcionamento do tempo de][20]
+    ![Funções Azure Executar função de pré-visualização][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

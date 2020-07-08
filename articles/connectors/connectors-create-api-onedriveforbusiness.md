@@ -1,6 +1,6 @@
 ---
 title: Ligue-se ao OneDrive para negócios
-description: Faça upload e gereção de ficheiros com oneDrive para APIs de Business REST e Aplicações Lógicas Azure
+description: Faça upload e gestão de ficheiros com o OneDrive para BUSINESS REST APIs e Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,23 +8,22 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74789461"
 ---
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Começar com o conector OneDrive para negócios
-Ligue-se ao OneDrive para o Negócios para gerir os seus ficheiros. Pode executar várias ações como upload, atualização, obter e apagar em ficheiros.
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Começa com o conector OneDrive para negócios
+Ligue-se ao OneDrive para gerir os seus ficheiros. Pode executar várias ações como upload, atualizar, obter e apagar ficheiros.
 
-Você pode começar criando uma aplicação lógica agora, ver [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pode começar por criar agora uma aplicação lógica, ver [Criar uma aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Criar uma ligação ao OneDrive para negócios
-Para criar aplicações Lógicas com o OneDrive para o Negócio, primeiro deve criar uma **ligação** e depois fornecer os detalhes para as seguintes propriedades:
+Para criar aplicações Lógica com OneDrive para Negócios, tem primeiro de criar uma **ligação** e depois fornecer os detalhes para as seguintes propriedades:
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Certificado de |Sim |Fornecer OneDrive para credenciais de negócio |
+| Token |Sim |Fornecer OneDrive para credenciais de negócio |
 
 Depois de criar a ligação, pode usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
@@ -33,7 +32,7 @@ Depois de criar a ligação, pode usá-la para executar as ações e ouvir os ga
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja quaisquer gatilhos e ações definidas no swagger, e consulte também quaisquer limites nos detalhes do [conector](/connectors/onedriveforbusinessconnector/).
+Ver quaisquer gatilhos e ações definidos no swagger, e também ver quaisquer limites nos detalhes do [conector](/connectors/onedriveforbusinessconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para a lista de [APIs.](apis-list.md)
+Volte para a [lista de APIs.](apis-list.md)

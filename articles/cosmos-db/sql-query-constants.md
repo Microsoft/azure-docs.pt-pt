@@ -1,35 +1,34 @@
 ---
-title: SQL constantes em Azure Cosmos DB
-description: Saiba como as constantes de consulta SQL em Azure Cosmos DB são usadas para representar um valor específico de dados
+title: Constantes SQL em Azure Cosmos DB
+description: Saiba como as constantes de consulta SQL em Azure Cosmos DB são usadas para representar um valor de dados específico
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873425"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
 
- Uma constante, também conhecida como literal ou um valor escalar, é um símbolo que representa um valor específico de dados. O formato de uma constante depende do tipo de dados do valor que representa.  
+ Uma constante, também conhecida como um valor literal ou escalão, é um símbolo que representa um valor de dados específico. O formato de uma constante depende do tipo de dados do valor que representa.  
   
- **Tipos de dados scalar suportados:**  
+ **Tipos de dados escalares suportados:**  
   
-|**Tipo**|**Ordem de valores**|  
+|**Tipo**|**Valores ordem**|  
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
-|**Nulo**|Valor único: **nulo**|  
-|**Booleano**|**Valores: falso,** **verdadeiro.**|  
-|**Número**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
-|**String**|Uma sequência de zero ou mais caracteres Unicode. As cordas devem ser fechadas em cotações simples ou duplas.|  
-|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **Indefinido**.|  
-|**Objeto**|Um conjunto de pares de zero ou mais nomes/valor não ordenados. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefinido**.|  
+|**Null**|Valor único: **nulo**|  
+|**Booleano**|Valores: **falso,** **verdadeiro**.|  
+|**Number**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
+|**String**|Uma sequência de caracteres Unicode zero ou mais. As cordas devem ser fechadas em ações simples ou duplas.|  
+|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
+|**Objeto**|Um conjunto não ordenado de pares de nomes/valor zero ou mais. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefined**.|  
   
-## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxe
+## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
 ```sql  
 <constant> ::=  
@@ -63,19 +62,19 @@ ms.locfileid: "74873425"
   
 * `<undefined_constant>; Undefined`  
   
-  Representa um valor indefinido do tipo Indefinido.  
+  Representa um valor indefinido do tipo Indefined.  
   
 * `<null_constant>; null`  
   
-  Representa **um** valor nulo do tipo **Nulo.**  
+  Representa um valor **nulo** do tipo **Nulo**.  
   
 * `<boolean_constant>`  
   
-  Representa constante de tipo Boolean.  
+  Representa constante do tipo Boolean.  
   
 * `false`  
   
-  Representa **um** valor falso do tipo Boolean.  
+  Representa um valor **falso** do tipo Boolean.  
   
 * `true`  
   
@@ -87,36 +86,36 @@ ms.locfileid: "74873425"
   
 * `decimal_literal`  
   
-  Os literais decimais são números representados usando notação decimal ou notação científica.  
+  Os literais decimais são números representados usando notação decimal, ou notação científica.  
   
 * `hexadecimal_literal`  
   
-  Os literais hexadecimais são números representados usando o prefixo '0x' seguido de um ou mais dígitos hexadecimais.  
+  Os literais hexadecimais são números representados usando o prefixo '0x' seguidos por um ou mais dígitos hexadémicos.  
   
 * `<string_constant>`  
   
-  Representa uma constante de tipo String.  
+  Representa uma constante de corda tipo.  
   
 * `string _literal`  
   
-  Os literais de cordas são cordas Unicode representadas por uma sequência de caracteres Zero ou mais Unicode ou sequências de fuga. Os literais de cordas são incluídos em citações únicas (apóstrofe: ' ) ou citações duplas (marca de citação: ").  
+  As cordas literais são cordas Unicode representadas por uma sequência de caracteres unicode zero ou mais ou sequências de fuga. As cordas literais são incluídas em cotações individuais (apóstrofo: ' ) ou citações duplas (marca de citação: ").  
   
   São permitidas sequências de fuga seguintes:  
   
 |**Sequência de fuga**|**Descrição**|**Personagem unicódigo**|  
 |-|-|-|  
 |\\'|apóstrofo (')|U+0027|  
-|\\"|marca de citação (")|U+0022|  
-|\\\ |inverso sólido\\()|U+005C|  
-|\\/|solidus (/)|U+002F|  
+|\\"|marca de cotação (")|U+0022|  
+|\\\ |reverse solidus \\ ()|U+005C|  
+|\\/|solido (/)|U+002F|  
 |\b|backspace|U+0008|  
-|\f|alimentação de formulário|U+000C|  
-|\n|feed de linha|U+000A|  
+|\f|forma de alimentação|U+000C|  
+|\n|alimentação de linha|U+000A|  
 |\r|retorno de transporte|U+000D|  
 |\t|separador|U+0009|  
-|\uXXXX|Um caracteres Unicode definidopor 4 dígitos hexadecimais.|U+XXXX|  
+|\uXXXX|Um caracteres Unicode definido por 4 dígitos hexadémicos.|U+XXXX|  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dados de documento do modelo](modeling-data.md)

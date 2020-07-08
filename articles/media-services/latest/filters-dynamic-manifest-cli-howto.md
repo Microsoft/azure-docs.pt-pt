@@ -1,6 +1,6 @@
 ---
-title: Utilize o CLI para criar filtros com a Azure Media Services. Microsoft Docs
-description: Este artigo mostra como usar o CLI para criar filtros com o Azure Media Services v3.
+title: Utilize o CLI para criar filtros com a Azure Media Services Microsoft Docs
+description: Este artigo mostra como usar o CLI para criar filtros com a Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,35 +15,34 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896063"
 ---
-# <a name="creating-filters-with-cli"></a>Criação de filtros com CLI 
+# <a name="creating-filters-with-cli"></a>Criar filtros com CLI 
 
-Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido), o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo predefinido. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo. 
+Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido), o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo padrão. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo. 
 
-Para uma descrição detalhada desta funcionalidade e cenários onde é utilizada, consulte [Manifestos dinâmicos](filters-dynamic-manifest-overview.md) e [filtros](filters-concept.md).
+Para uma descrição detalhada desta característica e cenários onde é utilizado, consulte [Manifestos Dinâmicos](filters-dynamic-manifest-overview.md) e [Filtros.](filters-concept.md)
 
-Este tópico mostra como configurar um filtro para um ativo video on-demand e usar CLI para Media Services v3 para criar [filtros](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) de conta e [filtros de ativos](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Este tópico mostra como configurar um filtro para um ativo vídeo on-demand e usar o CLI para serviços de mídia v3 para criar [filtros de conta](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativos](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
 > Certifique-se de rever a [apresentaçãoTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md) Lembre-se do nome do grupo de recursos e do nome da conta Media Services. 
+- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-## <a name="define-a-filter"></a>Defina um filtro 
+## <a name="define-a-filter"></a>Definir um filtro 
 
-O exemplo seguinte define as condições de seleção da pista que são adicionadas ao manifesto final. Este filtro inclui quaisquer faixas áudio que sejam EC-3 e quaisquer faixas de vídeo que tenham bitrate na gama 0-10000000.
+O exemplo a seguir define as condições de seleção da pista que são adicionadas ao manifesto final. Este filtro inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo que tenham bitrate na gama 0-100000.
 
 > [!TIP]
-> Se planeia definir **filtros** em REST, note que precisa de incluir o objeto JSON do invólucro "Propriedades".  
+> Se planeia definir **Filtros** em REST, note que precisa de incluir o objeto JSON de invólucro "Propriedades".  
 
 ```json
 [
@@ -80,31 +79,31 @@ O exemplo seguinte define as condições de seleção da pista que são adiciona
 
 ## <a name="create-account-filters"></a>Criar filtros de conta
 
-O comando de [filtro de conta az ams](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) seguinte cria um filtro de conta com seleções de via seleções de filtro que foram [definidas anteriormente](#define-a-filter). 
+O seguinte comando [az ams-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) cria um filtro de conta com seleções de faixas de filtro que foram [definidas anteriormente](#define-a-filter). 
 
-O comando permite-lhe `--tracks` passar um parâmetro opcional que contém JSON representando as seleções de pista.  Utilize @{file} para carregar jSON a partir de um ficheiro. Se estiver a utilizar o Azure CLI localmente, especifique toda a trajetória de ficheiro:
+O comando permite-lhe passar um parâmetro opcional `--tracks` que contém JSON representando as seleções da pista.  Use @{file} para carregar JSON a partir de um ficheiro. Se estiver a utilizar o Azure CLI localmente, especifique todo o caminho do ficheiro:
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Consulte também [exemplos jSON para filtros](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Consulte também os [exemplos JSON para filtros.](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter)
 
 ## <a name="create-asset-filters"></a>Criar filtros de ativos
 
-O comando [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) seguinte cria um filtro de ativo com seleções de via selada de filtro que foram [definidas anteriormente](#define-a-filter). 
+O seguinte comando [az ams-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) cria um filtro de ativos com seleções de faixas de filtro que foram [definidas anteriormente](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Consulte também [exemplos jSON para filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
+Consulte também os [exemplos JSON para filtros.](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter)
 
-## <a name="associate-filters-with-streaming-locator"></a>Filtros associados com localizador de streaming
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros com localizador de streaming
 
-Pode especificar uma lista de filtros de ativos ou conta, que se aplicaria ao seu Localizador de Streaming. O [Pacote Dinâmico (Streaming Endpoint)](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com os especificados pelo seu cliente no URL. Esta combinação gera um [Manifesto Dinâmico,](filters-dynamic-manifest-overview.md)que é baseado em filtros no URL + filtros que especifica no Localizador de Streaming. Recomendamos que utilize esta funcionalidade se pretender aplicar filtros, mas não pretende expor os nomes dos filtros no URL.
+Pode especificar uma lista de filtros de ativos ou de conta, que se aplicaria ao seu Localizador de Streaming. O [Dynamic Packager (Streaming Endpoint)](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com os que o seu cliente especifica no URL. Esta combinação gera um [Manifesto Dinâmico,](filters-dynamic-manifest-overview.md)que é baseado em filtros nos filtros URL + que especifica no Localizador de Streaming. Recomendamos que utilize esta função se pretender aplicar filtros, mas não pretende expor os nomes dos filtros no URL.
 
-O código CLI seguinte mostra como criar `filters`um Localizador de Streaming e especificar . Esta é uma propriedade opcional que leva uma lista separada do espaço de nomes de filtros de ativos e/ou nomes de filtro de conta.
+O seguinte código CLI mostra como criar um localizador de streaming e especificar `filters` . Esta é uma propriedade opcional que leva uma lista separada do espaço de nomes de filtros de ativos e/ou nomes de filtros de conta.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -116,9 +115,9 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
 
 ## <a name="stream-using-filters"></a>Fluxo usando filtros
 
-Uma vez definidofiltros, os seus clientes podem usá-los no URL de streaming. Os filtros podem ser aplicados em protocolos de streaming de bitrate adaptativo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
+Assim que definir filtros, os seus clientes poderão usá-los na URL de streaming. Os filtros podem ser aplicados em protocolos de streaming de bitrate adaptativo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
 
-A tabela que se segue mostra alguns exemplos de URLs com filtros:
+A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 |Protocolo|Exemplo|
 |---|---|
@@ -130,6 +129,6 @@ A tabela que se segue mostra alguns exemplos de URLs com filtros:
 
 [Stream vídeos](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

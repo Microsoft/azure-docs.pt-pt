@@ -1,6 +1,6 @@
 ---
-title: Use Media Encoder Standard para gerar automaticamente uma escada bitrate - Azure [ Microsoft Docs
-description: Este tópico mostra como usar media Encoder Standard (MES) para gerar automaticamente uma escada bitrate com base na resolução de entrada e bitrate.
+title: Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate - Azure / Microsoft Docs
+description: Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de bitrate com base na resolução de entrada e bitrate.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,33 +14,32 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896026"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use Media Encoder Standard para gerar automaticamente uma escada bitrate  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate  
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como usar media Encoder Standard (MES) para gerar automaticamente uma escada bitrate (pares de resolução bitrate) com base na resolução de entrada e bitrate. O preset gerado automaticamente nunca excederá a resolução de entrada e o bitrate. Por exemplo, se a entrada for de 720p a 3 Mbps, a saída permanece 720p na melhor das hipóteses, e começará a taxas inferiores a 3 Mbps.
+Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de bitrate (pares de resolução de bitrate) com base na resolução de entrada e bitrate. A predefinição gerada automaticamente nunca excederá a resolução de entrada e o bitrate. Por exemplo, se a entrada for de 720p a 3 Mbps, a produção permanece 720p na melhor das hipóteses, e começará com taxas inferiores a 3 Mbps.
 
 ### <a name="encoding-for-streaming-only"></a>Codificação apenas para streaming
 
-Se a sua intenção é codificar o seu vídeo de origem apenas para streaming, então deve utilizar o predefinido "Adaptive Streaming" ao criar uma tarefa de codificação. Ao utilizar o predefinido **de Streaming Adaptativo,** o codificador MES irá ligar inteligentemente uma escada de bitrate. No entanto, não será capaz de controlar os custos de codificação, uma vez que o serviço determina quantas camadas usar e em que resolução. Pode ver exemplos de camadas de saída produzidas por MES como resultado da codificação com o predefinido **de Streaming Adaptativo** no final deste artigo. O Ativo de saída contém ficheiros MP4 onde o áudio e o vídeo não são interleaved.
+Se a sua intenção é codificar o seu vídeo de origem apenas para streaming, então deve utilizar a predefinição "Adaptive Streaming" ao criar uma tarefa de codificação. Ao utilizar a predefinição **de streaming adaptativo,** o codificar MES tapará inteligentemente uma escada de bitrate. No entanto, não será capaz de controlar os custos de codificação, uma vez que o serviço determina quantas camadas utilizar e em que resolução. Pode ver exemplos de camadas de saída produzidas pela MES como resultado da codificação com a predefinição **de Streaming Adaptativo** no final deste artigo. A saída Ativo contém ficheiros MP4 onde o áudio e o vídeo não são intercalados.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Codificação para streaming e download progressivo
 
-Se a sua intenção é codificar o seu vídeo de origem para streaming, bem como produzir ficheiros MP4 para download progressivo, então deve utilizar o predefinido "Content Adaptive Multiple Bitrate MP4" ao criar uma tarefa de codificação. Ao utilizar o predefinido **de MP4 de bitrate múltiplo** adaptável de conteúdo, o codificador MES aplica a mesma lógica de codificação que acima, mas agora o ativo de saída conterá ficheiros MP4 onde o áudio e o vídeo são interleaved. Pode utilizar um destes ficheiros MP4 (por exemplo, a versão bitrate mais alta) como ficheiro de descarregamento progressivo.
+Se a sua intenção é codificar o seu vídeo de origem para streaming, bem como produzir ficheiros MP4 para download progressivo, então deve utilizar a predefinição "Content Adaptive Multiple Bitrate MP4" ao criar uma tarefa de codificação. Ao utilizar o **conteúdo Adaptive Multiple Bitrate MP4** predefinido, o codificadora MES aplica a mesma lógica de codificação acima, mas agora o ativo de saída conterá ficheiros MP4 onde o áudio e o vídeo estão intercalados. Pode utilizar um destes ficheiros MP4 (por exemplo, a versão bitrate mais alta) como um ficheiro de descarregamento progressivo.
 
-## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Media .NET SDK
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Mídia .NET SDK
 
-O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
+O seguinte exemplo de código utiliza os Serviços de Comunicação Social .NET SDK para executar as seguintes tarefas:
 
 - Criar um trabalho de codificação.
-- Obtenha uma referência ao codificador Padrão do Codificador De Media.
-- Adicione uma tarefa de codificação ao trabalho e especifique para utilizar o pré-definido **de Streaming Adaptativo.** 
+- Obtenha uma referência ao codificar Media Encoder Standard.
+- Adicione uma tarefa de codificação ao trabalho e especifique para utilizar a predefinição **de Streaming Adaptativo.** 
 - Crie um ativo de saída que contenha o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
 - Submeta o trabalho.
@@ -169,12 +168,12 @@ namespace AdaptiveStreamingMESPresest
 
 ## <a name="output"></a><a id="output"></a>Saída
 
-Esta secção mostra três exemplos de camadas de saída produzidas por MES como resultado da codificação com o predefinido **de Streaming Adaptativo.** 
+Esta secção mostra três exemplos de camadas de saída produzidas pela MES como resultado da codificação com a predefinição **de streaming adaptativo.** 
 
 ### <a name="example-1"></a>Exemplo 1
 Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Altura|Largura|Bitrate(kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +185,7 @@ Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 ### <a name="example-2"></a>Exemplo 2
 Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Altura|Largura|Bitrate(kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +196,7 @@ Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 ### <a name="example-3"></a>Exemplo 3
 Fonte com altura "360" e framerate "29.970" produz 3 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Altura|Largura|Bitrate(kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
@@ -208,6 +207,6 @@ Fonte com altura "360" e framerate "29.970" produz 3 camadas de vídeo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
-[Visão geral de codificação de serviços de mídia](media-services-encode-asset.md)
+## <a name="see-also"></a>Consulte também
+[Visão geral dos serviços de comunicação social](media-services-encode-asset.md)
 

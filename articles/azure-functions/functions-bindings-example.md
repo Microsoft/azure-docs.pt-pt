@@ -1,24 +1,23 @@
 ---
-title: Funções Azure gatilho e exemplo de ligação
-description: Aprenda a configurar encadernações da Função Azure
+title: Exemplo de acionadores e de enlaces das Funções do Azure
+description: Aprenda a configurar encadernações de funções Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74227247"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Funções Azure gatilho e exemplo de ligação
+# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de acionadores e de enlaces das Funções do Azure
 
 Este artigo demonstra como configurar um [gatilho e encadernações](./functions-triggers-bindings.md) numa Função Azure.
 
 Suponha que queira escrever uma nova linha para o armazenamento da Mesa Azure sempre que uma nova mensagem aparece no armazenamento da Fila Azure. Este cenário pode ser implementado com um acionador do armazenamento de Filas do Azure e um enlace de saída do armazenamento de Tabelas do Azure. 
 
-Aqui está um ficheiro *função.json* para este cenário. 
+Aqui está uma *function.jspara* este cenário. 
 
 ```json
 {
@@ -41,18 +40,18 @@ Aqui está um ficheiro *função.json* para este cenário.
 }
 ```
 
-O primeiro elemento `bindings` da matriz é o gatilho de armazenamento da fila. As `type` `direction` propriedades identificam o gatilho. A `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para `queueName`monitorizar está dentro , e a `connection`cadeia de ligação está na definição da aplicação identificada por .
+O primeiro elemento da `bindings` matriz é o gatilho de armazenamento da fila. As `type` `direction` propriedades identificam o gatilho. A `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para monitorar está dentro `queueName` , e a cadeia de ligação está na definição da aplicação identificada por `connection` .
 
-O segundo elemento `bindings` da matriz é a ligação de saída de armazenamento de mesa azure. As `type` `direction` propriedades identificam a ligação. A `name` propriedade especifica como a função fornece a nova linha de tabela, neste caso utilizando o valor de retorno da função. O nome da tabela `tableName`está em , e a cadeia `connection`de ligação está na definição da aplicação identificada por .
+O segundo elemento da matriz é a ligação de `bindings` saída de armazenamento de mesa Azure. As `type` propriedades e propriedades `direction` identificam a ligação. A `name` propriedade especifica como a função fornece a nova linha de tabela, neste caso usando o valor de retorno da função. O nome da tabela está em `tableName` , e a cadeia de ligação está na definição da aplicação identificada por `connection` .
 
-Para visualizar e editar o conteúdo do *function.json* no portal Azure, clique na opção **de editor Avançado** no separador **Integrado** da sua função.
+Para visualizar e editar os conteúdos de *function.jsno* portal Azure, clique na opção **editor Avançado** no **separador Integração** da sua função.
 
 > [!NOTE]
-> O valor `connection` é o nome de uma definição de aplicação que contém a cadeia de ligação, e não a própria cadeia de ligação. As ligações utilizam cordas de ligação armazenadas nas definições da aplicação para impor as melhores práticas que *funcionam.json* não contém segredos de serviço.
+> O valor é `connection` o nome de uma definição de aplicação que contém a cadeia de ligação, não a própria cadeia de ligação. As ligações utilizam cadeias de ligação armazenadas nas definições de aplicações para impor as melhores práticas em que *function.js* não contém segredos de serviço.
 
-## <a name="c-script-example"></a>Exemplo de roteiro C#
+## <a name="c-script-example"></a>Exemplo de script C#
 
-Aqui está o código de script C# que funciona com este gatilho e encadernação. Note que o nome do parâmetro que fornece `order`o conteúdo da mensagem de fila é; este nome é necessário `name` porque o valor de propriedade em *função.json* é`order` 
+Aqui está o código de script C# que funciona com este gatilho e ligação. Note que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order` ; este nome é necessário porque o valor da propriedade emfunction.js`name` *em* é`order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -80,9 +79,9 @@ public class Person
 }
 ```
 
-## <a name="javascript-example"></a>Exemplo javaScript
+## <a name="javascript-example"></a>Exemplo JavaScript
 
-O mesmo *ficheiro função.json* pode ser usado com uma função JavaScript:
+O mesmo *function.jsno* ficheiro pode ser usado com uma função JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -102,7 +101,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
-Numa biblioteca de classes, a &mdash; mesma fila de disparos e de informação vinculativa &mdash; e nomes de mesa, contas de armazenamento, parâmetros de função para entrada e saída são fornecidos por atributos em vez de um ficheiro function.json. Segue-se um exemplo:
+Numa biblioteca de classes, o mesmo gatilho e ligação de nomes de informação &mdash; e nomes de tabelas, contas de armazenamento, parâmetros de função para entrada e saída &mdash; são fornecidos por atributos em vez de um function.jsno ficheiro. Eis um exemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -130,9 +129,9 @@ public class Person
 }
 ```
 
-Tem agora uma função de trabalho que é desencadeada por uma fila Azure e produz dados para armazenamento de Mesa Azure.
+Tem agora uma função de funcionamento que é desencadeada por uma Fila Azure e produz dados para o armazenamento da Tabela Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Funções Azure padrões de expressão de ligação](./functions-bindings-expressions-patterns.md)
+> [Padrões de expressão de ligação Azure Functions](./functions-bindings-expressions-patterns.md)

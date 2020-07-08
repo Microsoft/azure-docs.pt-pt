@@ -1,23 +1,22 @@
 ---
-title: Use mensagens para integrar com a Bancada de Trabalho Azure Blockchain
-description: Visão geral da utilização de mensagens para integrar a Pré-visualização da bancada azure Blockchain com outros sistemas.
+title: Use mensagens para integrar com a Azure Blockchain Workbench
+description: Visão geral da utilização de mensagens para integrar a pré-visualização do workbench Azure Blockchain com outros sistemas.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74324498"
 ---
-# <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens Azure Blockchain Workbench
 
-Além de fornecer uma API REST, a Azure Blockchain Workbench também fornece integração baseada em mensagens. A Workbench publica eventos centrados em livros através da Rede de Eventos Azure, permitindo aos consumidores a jusante ingerir dados ou tomar medidas com base nestes eventos. Para os clientes que necessitam de mensagens fiáveis, a Azure Blockchain Workbench também entrega mensagens a um ponto final do Azure Service Bus.
+Além de fornecer uma API REST, a Azure Blockchain Workbench também fornece integração baseada em mensagens. Workbench publica eventos centrados em livros através da Azure Event Grid, permitindo aos consumidores a jusante ingerir dados ou tomar medidas com base nestes eventos. Para os clientes que necessitam de mensagens fiáveis, a Azure Blockchain Workbench também entrega mensagens a um ponto final do Azure Service Bus.
 
-## <a name="input-apis"></a>ApIs de entrada
+## <a name="input-apis"></a>APIs de entrada
 
-Se pretender iniciar transações de sistemas externos para criar utilizadores, criar contratos e atualizar contratos, pode utilizar APIs de entrada de mensagens para efetuar transações num livro-razão. Consulte amostras de [integração de mensagens](https://aka.ms/blockchain-workbench-integration-sample) para obter uma amostra que demonstre apis de entrada.
+Se pretender iniciar transações de sistemas externos para criar utilizadores, criar contratos e atualizar contratos, pode utilizar apis de entrada de mensagens para realizar transações num livro-razão. Consulte [amostras de integração de mensagens](https://aka.ms/blockchain-workbench-integration-sample) para uma amostra que demonstre APIs de entrada.
 
 Seguem-se as APIs de entrada atualmente disponíveis.
 
@@ -31,12 +30,12 @@ O pedido requer os seguintes campos:
 |----------------------|------------------------------------------------------|
 | requestId            | Cliente fornecido GUID                                |
 | nomePróprio            | Primeiro nome do utilizador                              |
-| apelido             | Apelido do utilizador                               |
+| apelido             | Último nome do utilizador                               |
 | e-mailAddress         | Endereço de e-mail do utilizador                           |
-| id externo           | Id de objeto azure AD do utilizador                      |
-| conexãoId         | Identificador único para a ligação blockchain |
-| mensagemSchemaVersion | Versão de esquema de mensagens                            |
-| nome da mensagem          | **CreateUserRequest**                               |
+| externoId           | ID do objeto AD Azure do utilizador                      |
+| connectionId         | Identificador único para a ligação blockchain |
+| mensagemSchemaVersão | Versão de esquema de mensagens                            |
+| mensagemName          | **CreateUserRequest**                               |
 
 Exemplo:
 
@@ -59,14 +58,14 @@ Blockchain Workbench devolve uma resposta com os seguintes campos:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | Cliente fornecido GUID |
 | userId                | ID do utilizador que foi criado |
-| userChainIdentifier   | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, o endereço é o endereço do utilizador **em cadeia.** |
-| conexãoId          | Identificador único para a ligação blockchain|
-| mensagemSchemaVersion  | Versão de esquema de mensagens |
-| nome da mensagem           | **CreateUserUpdate** |
-| status                | Estado do pedido de criação do utilizador.  Se for bem sucedido, o valor é **sucesso.** No fracasso, o valor é **fracasso.**     |
+| utilizadorChainIdentifier   | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **em cadeia** do utilizador. |
+| connectionId          | Identificador único para a ligação blockchain|
+| mensagemSchemaVersão  | Versão de esquema de mensagens |
+| mensagemName           | **CreateUserUpdate** |
+| status                | Estado do pedido de criação de utilizadores.  Se for bem sucedido, o valor é **o Sucesso.** No que diz sobre a falha, o valor é **falha.**     |
 | informação adicional | Informações adicionais fornecidas com base no estado |
 
-Exemplo bem sucedido criar resposta **do utilizador** a partir da Bancada de Trabalho blockchain:
+Exemplo bem sucedido criar resposta do **utilizador** a partir de Blockchain Workbench:
 
 ``` json
 { 
@@ -81,7 +80,7 @@ Exemplo bem sucedido criar resposta **do utilizador** a partir da Bancada de Tra
 } 
 ```
 
-Se o pedido não foi bem sucedido, os detalhes sobre a falha são incluídos em informações adicionais.
+Se o pedido não tiver sido bem sucedido, os detalhes sobre a falha estão incluídos em informações adicionais.
 
 ``` json
 {
@@ -108,14 +107,14 @@ O pedido requer os seguintes campos:
 | **Nome**             | **Descrição**                                                                                                           |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId            | Cliente fornecido GUID |
-| userChainIdentifier  | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, este endereço é do utilizador no endereço **da corrente.** |
+| utilizadorChainIdentifier  | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, este endereço é do utilizador no endereço **em cadeia.** |
 | applicationName      | Nome do pedido |
-| versão              | Versão da aplicação. Necessário se tiver várias versões da aplicação ativadas. Caso contrário, a versão é opcional. Para obter mais informações sobre a versão da aplicação, consulte a versão da [aplicação Azure Blockchain Workbench](version-app.md). |
-| workflowName         | Nome do fluxo de trabalho |
-| parâmetros           | Entrada de parâmetros para criação de contrato |
-| conexãoId         | Identificador único para a ligação blockchain |
-| mensagemSchemaVersion | Versão de esquema de mensagens |
-| nome da mensagem          | **CreateContractRequest** |
+| versão              | Versão da aplicação. Necessário se tiver várias versões da aplicação ativadas. Caso contrário, a versão é opcional. Para obter mais informações sobre a versão da aplicação, consulte [a versão da aplicação Azure Blockchain Workbench](version-app.md). |
+| fluxo de trabalhoName         | Nome do fluxo de trabalho |
+| parâmetros           | Entrada de parâmetros para a criação de contratos |
+| connectionId         | Identificador único para a ligação blockchain |
+| mensagemSchemaVersão | Versão de esquema de mensagens |
+| mensagemName          | **CriarRequest DeConact** |
 
 Exemplo:
 
@@ -147,15 +146,15 @@ Blockchain Workbench devolve uma resposta com os seguintes campos:
 | **Nome**                 | **Descrição**                                                                   |
 |--------------------------|-----------------------------------------------------------------------------------|
 | requestId                | Cliente fornecido GUID                                                             |
-| contractId               | Identificador único para o contrato dentro da bancada Azure Blockchain |
+| contractId               | Identificador único para o contrato dentro da Azure Blockchain Workbench |
 | contractLedgerIdentifier | Endereço do contrato no livro-razão                                            |
-| conexãoId             | Identificador único para a ligação blockchain                               |
-| mensagemSchemaVersion     | Versão de esquema de mensagens                                                         |
-| nome da mensagem              | **CreateContractUpdate**                                                      |
+| connectionId             | Identificador único para a ligação blockchain                               |
+| mensagemSchemaVersão     | Versão de esquema de mensagens                                                         |
+| mensagemName              | **Criar EncontroUpdate**                                                      |
 | status                   | Estado do pedido de criação de contrato.  Valores possíveis: **Submetido,** **Comprometido,** **Falha**.  |
 | informação adicional    | Informações adicionais fornecidas com base no estado                              |
 
-Exemplo de uma resposta **de contrato** apresentada a partir da Bancada de Trabalho blockchain:
+Exemplo de uma resposta de contrato de **criação** submetida da Blockchain Workbench:
 
 ``` json
 {
@@ -170,7 +169,7 @@ Exemplo de uma resposta **de contrato** apresentada a partir da Bancada de Traba
 }
 ```
 
-Exemplo de uma **resposta contratual** comprometida da Blockchain Workbench:
+Exemplo de uma resposta **contratual** empenhada da Blockchain Workbench:
 
 ``` json
 {
@@ -185,7 +184,7 @@ Exemplo de uma **resposta contratual** comprometida da Blockchain Workbench:
 }
 ```
 
-Se o pedido não foi bem sucedido, os detalhes sobre a falha são incluídos em informações adicionais.
+Se o pedido não tiver sido bem sucedido, os detalhes sobre a falha estão incluídos em informações adicionais.
 
 ``` json
 {
@@ -212,14 +211,14 @@ O pedido requer os seguintes campos:
 | **Nome**                 | **Descrição**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | Cliente fornecido GUID |
-| userChainIdentifier      | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, este endereço é do utilizador no endereço **da corrente.** |
+| utilizadorChainIdentifier      | Endereço do utilizador que foi criado na rede blockchain. No Ethereum, este endereço é do utilizador no endereço **em cadeia.** |
 | contractLedgerIdentifier | Endereço do contrato no livro-razão |
-| versão                  | Versão da aplicação. Necessário se tiver várias versões da aplicação ativadas. Caso contrário, a versão é opcional. Para obter mais informações sobre a versão da aplicação, consulte a versão da [aplicação Azure Blockchain Workbench](version-app.md). |
-| workflowFunctionName     | Nome da função de fluxo de trabalho |
-| parâmetros               | Entrada de parâmetros para criação de contrato |
-| conexãoId             | Identificador único para a ligação blockchain |
-| mensagemSchemaVersion     | Versão de esquema de mensagens |
-| nome da mensagem              | **CreateContractActionRequest** |
+| versão                  | Versão da aplicação. Necessário se tiver várias versões da aplicação ativadas. Caso contrário, a versão é opcional. Para obter mais informações sobre a versão da aplicação, consulte [a versão da aplicação Azure Blockchain Workbench](version-app.md). |
+| workflowSucaçãoName     | Nome da função de fluxo de trabalho |
+| parâmetros               | Entrada de parâmetros para a criação de contratos |
+| connectionId             | Identificador único para a ligação blockchain |
+| mensagemSchemaVersão     | Versão de esquema de mensagens |
+| mensagemName              | **Criar ContraactActionRequest** |
 
 Exemplo:
 
@@ -251,14 +250,14 @@ Blockchain Workbench devolve uma resposta com os seguintes campos:
 | **Nome**              | **Descrição**                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | Cliente fornecido GUID|
-| contractId            | Identificador único para o contrato dentro da bancada Azure Blockchain |
-| conexãoId          | Identificador único para a ligação blockchain |
-| mensagemSchemaVersion  | Versão de esquema de mensagens |
-| nome da mensagem           | **CreateContractActionUpdate** |
+| contractId            | Identificador único para o contrato dentro da Azure Blockchain Workbench |
+| connectionId          | Identificador único para a ligação blockchain |
+| mensagemSchemaVersão  | Versão de esquema de mensagens |
+| mensagemName           | **CreateContractActionUpdate** |
 | status                | Estado do pedido de ação contratual. Valores possíveis: **Submetido,** **Comprometido,** **Falha**.                         |
 | informação adicional | Informações adicionais fornecidas com base no estado |
 
-Exemplo de uma resposta de **ação contratual** apresentada da Blockchain Workbench:
+Exemplo de uma resposta de **ação contratual** submetida da Blockchain Workbench:
 
 ``` json
 {
@@ -272,7 +271,7 @@ Exemplo de uma resposta de **ação contratual** apresentada da Blockchain Workb
 }
 ```
 
-Exemplo de uma resposta de **ação contratual** comprometida da Blockchain Workbench:
+Exemplo de uma resposta de **ação contratual** empenhada da Blockchain Workbench:
 
 ``` json
 {
@@ -286,7 +285,7 @@ Exemplo de uma resposta de **ação contratual** comprometida da Blockchain Work
 }
 ```
 
-Se o pedido não foi bem sucedido, os detalhes sobre a falha são incluídos em informações adicionais.
+Se o pedido não tiver sido bem sucedido, os detalhes sobre a falha estão incluídos em informações adicionais.
 
 ``` json
 {
@@ -303,108 +302,108 @@ Se o pedido não foi bem sucedido, os detalhes sobre a falha são incluídos em 
 }
 ```
 
-### <a name="input-api-error-codes-and-messages"></a>Input Códigos de erro da API e mensagens
+### <a name="input-api-error-codes-and-messages"></a>Inserir códigos e mensagens de erro da API
 
-**Error code 4000: Erro de pedido grave**
+**Código de erro 4000: Erro de mau pedido**
 - Conexão inválidaId
-- CreateUserRequest desserialização falhou
-- CreateContractRequest desserialização falhou
-- CreateContractActionSolicit desserialização falhou
-- Aplicação {identificada pelo nome da aplicação} não existe
+- CreateUserRequest deserialização falhou
+- CreateContractRequest deserialização falhou
+- CreateContractActionRequest deserialização falhou
+- Aplicação {identificada pelo nome de aplicação} não existe
 - Aplicação {identificada pelo nome da aplicação} não tem fluxo de trabalho
 - UserChainIdentifier não existe
-- Contrato {identificado por identificador de livros} não existe
-- Contrato {identificado por identificador de livros} não tem função {nome da função workflow}
+- Contrato {identificado por identificador de contabilidade} não existe
+- Contrato {identificado pelo identificador de contabilidade} não tem função {nome de função de fluxo de trabalho}
 - UserChainIdentifier não existe
 
 **Error code 4090: Erro de conflito**
-- Utilizador já existe
+- O utilizador já existe
 - Contrato já existe
-- Já existe uma ação contratual
+- Ação contratual já existe
 
-**Error code 5000: Erro interno do servidor**
+**Código de erro 5000: Erro interno do servidor**
 - Mensagens de exceção
 
 ## <a name="event-notifications"></a>Notificações de eventos
 
-As notificações de eventos podem ser usadas para notificar utilizadores e sistemas a jusante de eventos que ocorrem na Bancada de Trabalho blockchain e na rede blockchain a que está ligado. As notificações de eventos podem ser consumidas diretamente em código ou usadas com ferramentas como Apps Lógicas e Flow para desencadear o fluxo de dados para sistemas a jusante.
+As notificações de eventos podem ser usadas para notificar os utilizadores e sistemas a jusante de eventos que ocorrem na Blockchain Workbench e na rede blockchain a que está ligada. As notificações de eventos podem ser consumidas diretamente em código ou usadas com ferramentas como As Aplicações Lógicas e o Flow para desencadear o fluxo de dados para sistemas a jusante.
 
-Consulte a referência da [mensagem de notificação](#notification-message-reference) para obter detalhes de várias mensagens que possam ser recebidas.
+Consulte [a referência de mensagem](#notification-message-reference) de Notificação para obter mais detalhes de várias mensagens que podem ser recebidas.
 
-### <a name="consuming-event-grid-events-with-azure-functions"></a>Consumir eventos da Grelha de Eventos com Funções Azure
+### <a name="consuming-event-grid-events-with-azure-functions"></a>Eventos de grelha de eventos consumistas com funções Azure
 
-Se um utilizador quiser utilizar a Rede de Eventos para ser notificado sobre os eventos que ocorrem na Bancada de Trabalho blockchain, pode consumir eventos a partir da Grelha de Eventos utilizando funções Azure.
+Se um utilizador quiser utilizar a Grade de Eventos para ser notificado sobre eventos que ocorram na Bancada Blockchain, pode consumir eventos a partir da Grade de Eventos utilizando funções Azure.
 
 1. Crie uma **App de Função Azure** no portal Azure.
 2. Criar uma nova função.
-3. Localize o modelo para a Grelha de Eventos. É mostrado o código de modelo básico para a leitura da mensagem. Modifique o código conforme necessário.
+3. Localize o modelo para a grelha de eventos. O código de modelo básico para a leitura da mensagem é mostrado. Modifique o código conforme necessário.
 4. Salve a Função. 
-5. Selecione a Grelha de Eventos do grupo de recursos da Blockchain Workbench.
+5. Selecione a Grelha de Eventos do grupo de recursos blockchain Workbench.
 
-### <a name="consuming-event-grid-events-with-logic-apps"></a>Consumir eventos da Grelha de Eventos com Aplicações Lógicas
+### <a name="consuming-event-grid-events-with-logic-apps"></a>Eventos de grelha de eventos consumistas com apps lógicas
 
 1. Crie uma nova **App Azure Logic** no portal Azure.
-2. Ao abrir a App Lógica Azure no portal, será solicitado a selecionar um gatilho. Selecione **Grelha de Eventos Azure -- Quando ocorrer um evento**de recursos .
-3. Quando o designer de fluxo de trabalho for apresentado, será solicitado a iniciar sessão.
-4. Selecione a Subscrição. Recurso como **Microsoft.EventGrid.Topics**. Selecione o Nome de **Recurso** a partir do nome do recurso do grupo de recursos azure Blockchain Workbench.
-5. Selecione a Grelha de Eventos do grupo de recursos da Blockchain Workbench.
+2. Ao abrir a App Azure Logic no portal, será solicitado que selecione um gatilho. Selecione **Azure Event Grid -- Quando ocorrer um evento de recurso**.
+3. Quando o designer de fluxo de trabalho for apresentado, ser-lhe-á solicitado que faça o seu sposição.
+4. Selecione a Subscrição. Recurso como **Microsoft.EventGrid.Topics**. Selecione o Nome de **Recurso** a partir do nome do recurso do grupo de recursos Azure Blockchain Workbench.
+5. Selecione a Grelha de Eventos do grupo de recursos blockchain Workbench.
 
-## <a name="using-service-bus-topics-for-notifications"></a>Utilização de tópicos de ônibus de serviço para notificações
+## <a name="using-service-bus-topics-for-notifications"></a>Utilização de tópicos de autocarro de serviço para notificações
 
-Os Tópicos de Ônibus de serviço podem ser usados para notificar os utilizadores sobre os eventos que ocorrem na Bancada de Trabalho blockchain. 
+Os tópicos de autocarro de serviço podem ser usados para notificar os utilizadores sobre eventos que ocorrem em Blockchain Workbench. 
 
-1. Navegue no Ônibus de Serviço dentro do grupo de recursos da Bancada de Trabalho.
+1. Navegue pelo Autocarro de Serviço dentro do grupo de recursos da Workbench.
 2. Selecione **Tópicos**.
-3. Selecione **tópico de saída**.
-4. Crie uma nova subscrição para este tópico. Obtenha uma chave para isto.
-5. Crie um programa, que subscreve eventos a partir desta subscrição.
+3. Selecione **o tópico de**saída.
+4. Crie uma nova subscrição deste tópico. Obter uma chave para isto.
+5. Crie um programa que subscreva eventos desta subscrição.
 
-### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consumir mensagens de ônibus de serviço com aplicações lógicas
+### <a name="consuming-service-bus-messages-with-logic-apps"></a>Mensagens de autocarro de serviço consumindo com aplicações lógicas
 
 1. Crie uma nova **App Azure Logic** no portal Azure.
-2. Ao abrir a App Lógica Azure no portal, será solicitado a selecionar um gatilho. Tipo **Service Bus** na caixa de pesquisa e selecione o gatilho apropriado para o tipo de interação que pretende ter com o Ônibus de Serviço. Por exemplo, **Service Bus -- Quando uma mensagem é recebida numa subscrição de tópicos (auto-completa)**.
-3. Quando o designer de fluxos de trabalho for apresentado, especifique as informações de ligação para o Ônibus de Serviço.
-4. Selecione a sua subscrição e especifique o tópico da **bancada externa**.
+2. Ao abrir a App Azure Logic no portal, será solicitado que selecione um gatilho. Digite **o Service Bus** na caixa de pesquisa e selecione o gatilho apropriado para o tipo de interação que pretende ter com o Service Bus. Por exemplo, **Service Bus -- Quando uma mensagem é recebida numa subscrição de tópico (completada automaticamente)**.
+3. Quando o designer de fluxo de trabalho for apresentado, especifique as informações de ligação para o Service Bus.
+4. Selecione a sua subscrição e especifique o tópico do **workbench-external**.
 5. Desenvolva a lógica para a sua aplicação que utiliza a mensagem a partir deste gatilho.
 
 ## <a name="notification-message-reference"></a>Referência de mensagem de notificação
 
-Dependendo do nome da **mensagem,** as mensagens de notificação têm um dos seguintes tipos de mensagens.
+Dependendo da **mensagem No nome,** as mensagens de notificação têm um dos seguintes tipos de mensagens.
 
-### <a name="block-message"></a>Mensagem de bloco
+### <a name="block-message"></a>Mensagem de bloqueio
 
 Contém informações sobre blocos individuais. O *BlockMessage* inclui uma secção com informações de nível de bloco e uma secção com informações de transação.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | bloquear | Contém [informações de blocos](#block-information) |
-| transações | Contém uma informação de [transação](#transaction-information) de recolha para o bloco |
-| conexãoId | Identificador único para a ligação |
-| mensagemSchemaVersion | Versão de esquema de mensagens |
-| nome da mensagem | **Mensagem de bloqueio** |
+| transações | Contém uma [informação de transação](#transaction-information) de recolha para o bloco |
+| connectionId | Identificador único para a ligação |
+| mensagemSchemaVersão | Versão de esquema de mensagens |
+| mensagemName | **BlockMessage** |
 | informação adicional | Informações adicionais fornecidas |
 
-#### <a name="block-information"></a>Bloquear informação
+#### <a name="block-information"></a>Informação de blocos
 
-| Nome              | Descrição |
+| Name              | Descrição |
 |-------------------|-------------|
 | blockId           | Identificador único para o bloco dentro da bancada Azure Blockchain |
-| blocoNúmero       | Identificador único para um bloco no livro de registo |
-| blockHash         | O hash do quarteirão |
-| anteriorBlockHash | O hash do bloco anterior |
-| blocoTimestamp    | O carimbo de tempo do bloco |
+| blockNumber       | Identificador único para um bloco no livro-razão |
+| blockHash         | O haxixe do bloco |
+| anteriorBlockHash | O haxixe do bloco anterior |
+| blockTimestamp    | A hora do bloco |
 
 #### <a name="transaction-information"></a>Informações sobre transações
 
-| Nome               | Descrição |
+| Name               | Descrição |
 |--------------------|-------------|
-| transaçãoId      | Identificador único para a transação dentro da bancada Azure Blockchain |
-| transaçõesHash    | O hash da transação no livro de contabilidade |
-| De               | Identificador único no livro de registos para a origem da transação |
-| para                 | Identificador único no livro de contabilidade para o destino de transação |
-| estatuto de provisionamento | Identifica o estado atual do processo de provisionamento para a operação. Os valores possíveis são: </br>0 – A transação foi criada pela API na base de dados</br>1 - A transação foi enviada para o livro-razão</br>2 – A transação foi comprometida com sucesso com o livro-razão</br>3 ou 4 - A transação não foi comprometida com o livro-razão</br>5 - A transação foi comprometida com sucesso com o livro-razão |
+| transactionId      | Identificador único para a transação dentro da Azure Blockchain Workbench |
+| transactionHash    | O haxixe da transação no livro-razão |
+| De               | Identificador único no livro-razão para a origem da transação |
+| para                 | Identificador único no livro-razão para o destino de transação |
+| provisionamentoStatus | Identifica o estado atual do processo de provisionamento para a transação. Os valores possíveis são: </br>0 – A transação foi criada pela API na base de dados</br>1 - A transação foi enviada para o livro-razão</br>2 - A transação foi comprometida com sucesso ao livro-razão</br>3 ou 4 - A transação não foi comprometida com o livro-razão</br>5 - A transação foi comprometida com sucesso com o livro-razão |
 
-Exemplo de um *BlockMessage* da bancada blockchain:
+Exemplo de um *BlockMessage* da Blockchain Workbench:
 
 ``` json
 {
@@ -438,42 +437,42 @@ Exemplo de um *BlockMessage* da bancada blockchain:
 }
 ```
 
-### <a name="contract-message"></a>Mensagem contratual
+### <a name="contract-message"></a>Mensagem do contrato
 
-Contém informações sobre um contrato. A mensagem inclui uma secção com propriedades contratuais e uma secção com informações de transação. Todas as transações que modificaram o contrato para o bloco em particular estão incluídas na secção de transações.
+Contém informações sobre um contrato. A mensagem inclui uma secção com propriedades contratuais e uma secção com informações de transação. Todas as transações que tenham modificado o contrato para o bloco em particular estão incluídas na secção de transações.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | blockId | Identificador único para o bloco dentro da bancada Azure Blockchain |
-| blockHash | Hash do quarteirão |
-| modificação de Transações | [Transações que modificaram](#modifying-transaction-information) o contrato |
-| contractId | Identificador único para o contrato dentro da bancada Azure Blockchain |
+| blockHash | Haxixe do quarteirão |
+| modificação das transferências | [Transações que modificaram](#modifying-transaction-information) o contrato |
+| contractId | Identificador único para o contrato dentro da Azure Blockchain Workbench |
 | contractLedgerIdentifier | Identificador único para o contrato no livro de contabilidade |
-| contratoPropriedades | [Imóveis do contrato](#contract-properties) |
-| isNewContract | Indica se este contrato foi ou não recentemente criado. Os valores possíveis são: verdadeiros: este contrato foi um novo contrato criado. falso: este contrato é uma atualização do contrato. |
-| conexãoId | Identificador único para a ligação |
-| mensagemSchemaVersion | Versão de esquema de mensagens |
-| nome da mensagem | **Mensagem de Contrato** |
+| contratoProperties | [Propriedades do contrato](#contract-properties) |
+| isNewContract | Indica se este contrato foi ou não criado recentemente. Os valores possíveis são: verdadeiros: este contrato foi um novo contrato criado. falso: este contrato é uma atualização do contrato. |
+| connectionId | Identificador único para a ligação |
+| mensagemSchemaVersão | Versão de esquema de mensagens |
+| mensagemName | **ContractMessage** |
 | informação adicional | Informações adicionais fornecidas |
 
-#### <a name="modifying-transaction-information"></a>Modificação de informações sobre transações
+#### <a name="modifying-transaction-information"></a>Modificar informações de transações
 
-| Nome               | Descrição |
+| Name               | Descrição |
 |--------------------|-------------|
-| transaçãoId | Identificador único para a transação dentro da bancada Azure Blockchain |
-| transaçõesHash | O hash da transação no livro de contabilidade |
-| De | Identificador único no livro de registos para a origem da transação |
-| para | Identificador único no livro de contabilidade para o destino de transação |
+| transactionId | Identificador único para a transação dentro da Azure Blockchain Workbench |
+| transactionHash | O haxixe da transação no livro-razão |
+| De | Identificador único no livro-razão para a origem da transação |
+| para | Identificador único no livro-razão para o destino de transação |
 
-#### <a name="contract-properties"></a>Imóveis contratuais
+#### <a name="contract-properties"></a>Propriedades contratuais
 
-| Nome               | Descrição |
+| Name               | Descrição |
 |--------------------|-------------|
-| workflowPropertyId | Identificador único para a propriedade workflow dentro da bancada de trabalho Azure Blockchain |
-| nome | Nome da propriedade workflow |
-| valor | Valor da propriedade workflow |
+| fluxo de trabalhoPropertyId | Identificador único para a propriedade workflow dentro da bancada Azure Blockchain |
+| name | Nome da propriedade do fluxo de trabalho |
+| valor | Valor da propriedade de fluxo de trabalho |
 
-Exemplo de uma *Mensagem contratual* da bancada blockchain:
+Exemplo de um *ContractMessage* da Blockchain Workbench:
 
 ``` json
 {
@@ -550,50 +549,50 @@ Exemplo de uma *Mensagem contratual* da bancada blockchain:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Mensagem do evento: Invocação da função contratual
+### <a name="event-message-contract-function-invocation"></a>Mensagem do evento: Invocação da função do contrato
 
 Contém informações quando uma função contratual é invocada, como o nome da função, a entrada de parâmetros e o chamador da função.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| nome de evento                   | **Função contratualInvocação** |
-| chamador                      | [Informações de chamada](#caller-information) |
-| contractId                  | Identificador único para o contrato dentro da bancada Azure Blockchain |
+| nome de evento                   | **ContractFunctionInvocation** |
+| chamador                      | [Informações de chamadas](#caller-information) |
+| contractId                  | Identificador único para o contrato dentro da Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador único para o contrato no livro de contabilidade |
-| nome de função                | Nome da função |
-| parâmetros                  | [Informação do parâmetro](#parameter-information) |
+| funçãoName                | Nome da função |
+| parâmetros                  | [Informação de parâmetros](#parameter-information) |
 | transação                 | Informações sobre transações |
 | inTransactionSequenceNumber | O número de sequência da transação no bloco |
-| conexãoId                | Identificador único para a ligação |
-| mensagemSchemaVersion        | Versão de esquema de mensagens |
-| nome da mensagem                 | **Mensagem de Evento** |
+| connectionId                | Identificador único para a ligação |
+| mensagemSchemaVersão        | Versão de esquema de mensagens |
+| mensagemName                 | **EventoSMessage** |
 | informação adicional       | Informações adicionais fornecidas |
 
-#### <a name="caller-information"></a>Informações de chamada
+#### <a name="caller-information"></a>Informações de chamadas
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| tipo | Tipo de chamada, como um utilizador ou um contrato |
-| ID | Identificador único para quem liga dentro da bancada azure blockchain |
-| identificador de livros | Identificador único para o chamador no livro de registo |
+| tipo | Tipo de chamador, como um utilizador ou um contrato |
+| ID | Identificador único para o chamador dentro da bancada Azure Blockchain Workbench |
+| ledgerIdentifier | Identificador único para quem ligou no livro-razão |
 
-#### <a name="parameter-information"></a>Informação do parâmetro
+#### <a name="parameter-information"></a>Informação de parâmetros
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| nome | Nome do parâmetro |
+| name | Nome do parâmetro |
 | valor | Valor do parâmetro |
 
-#### <a name="event-message-transaction-information"></a>Informações sobre transações de mensagens de eventos
+#### <a name="event-message-transaction-information"></a>Informações sobre transações de mensagens de evento
 
-| Nome               | Descrição |
+| Name               | Descrição |
 |--------------------|-------------|
-| transaçãoId      | Identificador único para a transação dentro da bancada Azure Blockchain |
-| transaçõesHash    | O hash da transação no livro de contabilidade |
-| De               | Identificador único no livro de registos para a origem da transação |
-| para                 | Identificador único no livro de contabilidade para o destino de transação |
+| transactionId      | Identificador único para a transação dentro da Azure Blockchain Workbench |
+| transactionHash    | O haxixe da transação no livro-razão |
+| De               | Identificador único no livro-razão para a origem da transação |
+| para                 | Identificador único no livro-razão para o destino de transação |
 
-Exemplo de um Contrato de Contração de Mensagem de *EventoSInvocação* da bancada de trabalho blockchain:
+Exemplo de um *EventMessage ContractFunctionInvocation* da Blockchain Workbench:
 
 ``` json
 {
@@ -630,77 +629,77 @@ Exemplo de um Contrato de Contração de Mensagem de *EventoSInvocação* da ban
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Mensagem do evento: Ingestão de aplicação
+### <a name="event-message-application-ingestion"></a>Mensagem do evento: Ingestão de aplicações
 
-Contém informações quando uma aplicação é enviada para a Workbench, como o nome e a versão da aplicação enviada.
+Contém informações quando uma aplicação é enviada para workbench, como o nome e a versão da aplicação carregada.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| nome de evento | **Aplicação** |
-| applicationId | Identificador único para a aplicação dentro da bancada Azure Blockchain |
+| nome de evento | **Integração de Aplicações** |
+| applicationId | Identificador único para a aplicação dentro da Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| aplicaçãoDisplayName | Nome do display da aplicação |
-| aplicaçãoVersãoVersão | Versão de aplicação |
-| aplicaçãoDefiniÇãoLocalização | URL onde o ficheiro de configuração da aplicação está localizado |
-| contratoCódigos | Recolha de [códigos contratuais](#contract-code-information) para a aplicação |
-| aplicaçõesPapéroles | Recolha de [funções](#application-role-information) de candidatura para a aplicação |
-| aplicaçõesFluxos de trabalho | Recolha de fluxos de trabalho de [aplicação](#application-workflow-information) para a aplicação |
-| conexãoId | Identificador único para a ligação |
-| mensagemSchemaVersion | Versão de esquema de mensagens |
-| nome da mensagem | **Mensagem de Evento** |
-| informação adicional | Informações adicionais aqui fornecidas incluem os estados de fluxo de aplicação e informações de transição. |
+| aplicaçãoDisplayName | Nome do visor da aplicação |
+| aplicaçãoVersão | Versão de aplicação |
+| aplicaçãoDefinitionLocation | URL onde o ficheiro de configuração da aplicação está localizado |
+| contractCodes | Recolha de [códigos contratuais](#contract-code-information) para a aplicação |
+| aplicaçõesRoles | Recolha de [funções](#application-role-information) de candidatura para a aplicação |
+| fluxos de trabalho de aplicação | Recolha de fluxos de trabalho de [aplicação](#application-workflow-information) para a aplicação |
+| connectionId | Identificador único para a ligação |
+| mensagemSchemaVersão | Versão de esquema de mensagens |
+| mensagemName | **EventoSMessage** |
+| informação adicional | As informações adicionais aqui fornecidas incluem os estados de trabalho da aplicação e as informações de transição. |
 
-#### <a name="contract-code-information"></a>Informação sobre código contratual
+#### <a name="contract-code-information"></a>Informações sobre códigos contratuais
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para o ficheiro de código de contrato dentro da bancada azure Blockchain Workbench |
-| ledgerId | Identificador único para o livro-razão dentro da bancada azure blockchain |
-| localização | URL onde o ficheiro de código de contrato está localizado |
+| ID | Identificador único para o ficheiro de código do contrato dentro da Azure Blockchain Workbench |
+| ledgerId | Identificador único para o livro-razão dentro da Azure Blockchain Workbench |
+| localização | URL onde o ficheiro de código do contrato está localizado |
 
-#### <a name="application-role-information"></a>Informação sobre a função de aplicação
+#### <a name="application-role-information"></a>Informação sobre funções de candidatura
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para o papel de candidatura dentro da bancada azure blockchain |
-| nome | Nome da função de candidatura |
+| ID | Identificador único para o papel de aplicação dentro da Azure Blockchain Workbench |
+| name | Nome da função de candidatura |
 
-#### <a name="application-workflow-information"></a>Informação sobre fluxo de trabalho de aplicação
+#### <a name="application-workflow-information"></a>Informações sobre fluxos de trabalho de aplicações
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para o fluxo de trabalho de aplicação dentro da bancada azure blockchain |
-| nome | Nome do fluxo de trabalho da aplicação |
-| displayName | Nome de exibição de fluxo de trabalho de aplicação |
-| funções | Recolha de [funções para o fluxo](#workflow-function-information) de trabalho da aplicação|
-| estados | Recolha de [Estados para o fluxo](#workflow-state-information) de trabalho de aplicação |
-| propriedades | Informação sobre propriedades de [fluxo de trabalho](#workflow-property-information) de aplicação |
+| ID | Identificador único para o fluxo de trabalho da aplicação dentro da bancada Azure Blockchain |
+| name | Nome do fluxo de trabalho da aplicação |
+| displayName | Nome de exibição do fluxo de trabalho da aplicação |
+| funções | Recolha de [funções para o fluxo de trabalho da aplicação](#workflow-function-information)|
+| estados | Recolha de [estados para o fluxo de trabalho de aplicação](#workflow-state-information) |
+| propriedades | Informações sobre propriedades de fluxo de trabalho de [aplicações](#workflow-property-information) |
 
-##### <a name="workflow-function-information"></a>Informação sobre função de fluxo de trabalho
+##### <a name="workflow-function-information"></a>Informação da função de fluxo de trabalho
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para a função de fluxo de aplicação dentro da bancada de trabalho Azure Blockchain |
-| nome | Nome da função |
+| ID | Identificador único para a função de fluxo de trabalho da aplicação dentro da bancada Azure Blockchain Workbench |
+| name | Nome da função |
 | parâmetros | Parâmetros para a função |
 
-##### <a name="workflow-state-information"></a>Informação do Estado do fluxo de trabalho
+##### <a name="workflow-state-information"></a>Informações do estado do fluxo de trabalho
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| nome | Nome do Estado |
-| displayName | Nome da exibição do Estado |
+| name | Nome do Estado |
+| displayName | Nome de exposição do estado |
 | estilo | Estilo de Estado (sucesso ou fracasso) |
 
-##### <a name="workflow-property-information"></a>Informação sobre propriedades de fluxo de trabalho
+##### <a name="workflow-property-information"></a>Informações sobre propriedade de fluxo de trabalho
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para a propriedade de fluxo de trabalho de aplicação dentro da bancada de trabalho Azure Blockchain |
-| nome | Nome da propriedade |
+| ID | Identificador único para a propriedade de fluxo de trabalho de aplicação dentro da Bancada Azure Blockchain |
+| name | Nome da propriedade |
 | tipo | Tipo de propriedade |
 
-Exemplo de uma aplicação de *mensagens* de evento da bancada de trabalho blockchain:
+Exemplo de uma *Inscrição de Aplicação EventMessage* da Bancada Blockchain:
 
 ``` json
 {
@@ -824,49 +823,49 @@ Exemplo de uma aplicação de *mensagens* de evento da bancada de trabalho block
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Mensagem do evento: Atribuição de papéis
+### <a name="event-message-role-assignment"></a>Mensagem do evento: Atribuição de funções
 
-Contém informações quando um utilizador é atribuído a um papel na Bancada de Trabalho, como quem desempenhou a atribuição de funções e o nome da função e da aplicação correspondente.
+Contém informações quando um utilizador é atribuído a uma função no Workbench, como quem executou a atribuição de funções e o nome da função e da aplicação correspondente.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| nome de evento | **Atribuição de Funções** |
-| applicationId | Identificador único para a aplicação dentro da bancada Azure Blockchain |
+| nome de evento | **Assinatura de Papéis** |
+| applicationId | Identificador único para a aplicação dentro da Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| aplicaçãoDisplayName | Nome do display da aplicação |
-| aplicaçãoVersãoVersão | Versão de aplicação |
-| aplicaçãoRole        | Informação sobre o papel da [candidatura](#roleassignment-application-role) |
-| designador               | Informações sobre o [designador](#roleassignment-assigner) |
-| designado               | Informações sobre o [designado](#roleassignment-assignee) |
-| conexãoId           | Identificador único para a ligação |
-| mensagemSchemaVersion   | Versão de esquema de mensagens |
-| nome da mensagem            | **Mensagem de Evento** |
+| aplicaçãoDisplayName | Nome do visor da aplicação |
+| aplicaçãoVersão | Versão de aplicação |
+| applicationRole        | Informação sobre a [função de candidatura](#roleassignment-application-role) |
+| assigner               | Informação sobre o [cedente](#roleassignment-assigner) |
+| destinatário               | Informação sobre o [cessionário](#roleassignment-assignee) |
+| connectionId           | Identificador único para a ligação |
+| mensagemSchemaVersão   | Versão de esquema de mensagens |
+| mensagemName            | **EventoSMessage** |
 | informação adicional  | Informações adicionais fornecidas |
 
-#### <a name="roleassignment-application-role"></a>Função de aplicação roleAssignment
+#### <a name="roleassignment-application-role"></a>FunÇão PapelAtribuição de candidatura
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único para o papel de candidatura dentro da bancada azure blockchain |
-| nome | Nome da função de candidatura |
+| ID | Identificador único para o papel de aplicação dentro da Azure Blockchain Workbench |
+| name | Nome da função de candidatura |
 
-#### <a name="roleassignment-assigner"></a>Designador de Atribuição de Funções
+#### <a name="roleassignment-assigner"></a>Atribuição de funções
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único do utilizador dentro da bancada azure blockchain |
-| tipo | Tipo do designador |
+| ID | Identificador único do utilizador dentro da bancada Azure Blockchain |
+| tipo | Tipo do cedente |
 | chainIdentifier | Identificador único do utilizador no livro-razão |
 
-#### <a name="roleassignment-assignee"></a>Designado de RoleAssignment
+#### <a name="roleassignment-assignee"></a>Atribuição de funções
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| ID | Identificador único do utilizador dentro da bancada azure blockchain |
-| tipo | Tipo de designado |
+| ID | Identificador único do utilizador dentro da bancada Azure Blockchain |
+| tipo | Tipo do cessionário |
 | chainIdentifier | Identificador único do utilizador no livro-razão |
 
-Exemplo de uma *RoleAssignment* de Tarefa de Mensagem de Evento da bancada de trabalho blockchain:
+Exemplo de um *EventMessage RoleAssignment* da Blockchain Workbench:
 
 ``` json
 {
@@ -896,6 +895,6 @@ Exemplo de uma *RoleAssignment* de Tarefa de Mensagem de Evento da bancada de tr
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Padrões de integração de contratos inteligentes](integration-patterns.md)

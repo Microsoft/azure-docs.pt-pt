@@ -1,21 +1,20 @@
 ---
-title: Expressões escalar em consultas Azure Cosmos DB SQL
-description: Conheça a expressão escalar SQL sintaxe para Azure Cosmos DB. Este artigo também descreve como combinar expressões escalar em expressões complexas usando operadores.
+title: Expressões escalares em consultas Azure Cosmos DB SQL
+description: Saiba mais sobre a sintaxe SQL da expressão escalar para Azure Cosmos DB. Este artigo também descreve como combinar expressões escalar em expressões complexas usando operadores.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870739"
 ---
-# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressões escalar em consultas Azure Cosmos DB SQL
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressões escalares em consultas Azure Cosmos DB SQL
 
-A [cláusula SELECT](sql-query-select.md) suporta expressões escalar. Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para obter um único valor. Exemplos de expressões escalar incluem: constantes, referências de propriedade, referências de elementos de matriz, referências de pseudónimos ou chamadas de função. Expressões escalar podem ser combinadas em expressões complexas usando operadores.
+A [cláusula SELECT](sql-query-select.md) suporta expressões escalar. Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para obter um único valor. Exemplos de expressões escalares incluem: constantes, referências de propriedade, referências de elementos de matriz, referências de pseudónimos ou chamadas de função. Expressões escalar podem ser combinadas em expressões complexas usando operadores.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -50,32 +49,32 @@ A [cláusula SELECT](sql-query-select.md) suporta expressões escalar. Uma expre
   
 - `<constant>`  
   
-   Representa um valor constante. Consulte a secção [Constants](sql-query-constants.md) para obter mais detalhes.  
+   Representa um valor constante. Consulte a secção [Constants](sql-query-constants.md) para mais detalhes.  
   
 - `input_alias`  
   
-   Representa um valor definido `input_alias` pela introdução `FROM` na cláusula.  
-  Este valor é garantido não ser **indefinido** – valores**indefinidos** na entrada são ignorados.  
+   Representa um valor definido pelo `input_alias` introduzido na `FROM` cláusula.  
+  Este valor é garantido para não ser **indefinido** – os valores**indefinidos** na entrada são ignorados.  
   
 - `<scalar_expression>.property_name`  
   
-   Representa um valor da propriedade de um objeto. Se o imóvel não existir ou se a propriedade for referenciada num valor, que não é um objeto, então a expressão avalia para valor **indefinido.**  
+   Representa um valor da propriedade de um objeto. Se a propriedade não existe ou a propriedade é referenciada sobre um valor, que não é um objeto, então a expressão avalia para valor **indefinido.**  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Representa um valor da propriedade `property_name` com nome `array_index` ou elemento de matriz com índice de uma matriz. Se o índice de propriedade/matriz não existir ou se o índice de propriedade/matriz for referenciado num valor que não é um objeto/matriz, então a expressão avalia para valor indefinido.  
+   Representa um valor da propriedade com nome `property_name` ou elemento de matriz com índice de `array_index` matriz. Se o índice de propriedade/matriz não existir ou o índice de propriedade/matriz for referenciado sobre um valor que não seja um objeto/matriz, então a expressão avalia para valor indefinido.  
   
 - `unary_operator <scalar_expression>`  
   
-   Representa um operador que é aplicado a um único valor. Consulte a secção [Operadoras](sql-query-operators.md) para obter mais detalhes.  
+   Representa um operador que é aplicado a um único valor. Consulte a secção ['Operadores'](sql-query-operators.md) para mais informações.  
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
-   Representa um operador que é aplicado a dois valores. Consulte a secção [Operadoras](sql-query-operators.md) para obter mais detalhes.  
+   Representa um operador que é aplicado a dois valores. Consulte a secção ['Operadores'](sql-query-operators.md) para mais informações.  
   
 - `<scalar_function_expression>`  
   
-   Representa um valor definido pelo resultado de uma chamada de função.  
+   Representa um valor definido por resultado de uma chamada de função.  
   
 - `udf_scalar_function`  
   
@@ -83,7 +82,7 @@ A [cláusula SELECT](sql-query-select.md) suporta expressões escalar. Uma expre
   
 - `builtin_scalar_function`  
   
-   Nome da função escalar incorporada.  
+   Nome da função scalar incorporada.  
   
 - `<create_object_expression>`  
   
@@ -95,15 +94,15 @@ A [cláusula SELECT](sql-query-select.md) suporta expressões escalar. Uma expre
   
 - `parameter_name`  
   
-   Representa um valor do nome de parâmetro especificado. Os nomes dos \@ parâmetros devem ter um único como primeiro personagem.  
+   Representa um valor do nome do parâmetro especificado. Os nomes dos parâmetros devem ter um único \@ como primeiro personagem.  
   
 ## <a name="remarks"></a>Observações
   
-  Ao chamar uma função escalar incorporada ou definida pelo utilizador, todos os argumentos devem ser definidos. Se algum dos argumentos não for definido, a função não será chamada e o resultado será indefinido.  
+  Ao chamar uma função de escalado incorporada ou definida pelo utilizador, todos os argumentos devem ser definidos. Se algum dos argumentos for indefinido, a função não será chamada e o resultado será indefinido.  
   
-  Ao criar um objeto, qualquer propriedade que seja atribuída valor indefinido será ignorada e não incluída no objeto criado.  
+  Ao criar um objeto, qualquer propriedade que seja atribuída a um valor indefinido será ignorada e não incluída no objeto criado.  
   
-  Ao criar uma matriz, qualquer valor de elemento que seja atribuído valor **indefinido** será ignorado e não incluído no objeto criado. Isto fará com que o próximo elemento definido tome o seu lugar de modo a que a matriz criada não tenha ignorado os índices.  
+  Ao criar uma matriz, qualquer valor de elemento que seja atribuído valor **indefinido** será ignorado e não incluído no objeto criado. Isto fará com que o próximo elemento definido tome o seu lugar de forma a que a matriz criada não tenha ignorado índices.  
 
 ## <a name="examples"></a>Exemplos
 
@@ -139,8 +138,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Subqueides](sql-query-subquery.md)
+- [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Subconsultas](sql-query-subquery.md)

@@ -1,34 +1,33 @@
 ---
 title: Utilização do valor de retorno de uma Função Azure
-description: Aprenda a gerir os valores de retorno para funções azure
+description: Aprenda a gerir os valores de retorno para funções Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74480581"
 ---
-# <a name="using-the-azure-function-return-value"></a>Utilização do valor de retorno da Função Azure
+# <a name="using-the-azure-function-return-value"></a>Utilizando o valor de retorno da função Azure
 
 Este artigo explica como os valores de retorno funcionam dentro de uma função.
 
-Em idiomas que tenham um valor de retorno, pode ligar uma [função](./functions-triggers-bindings.md#binding-direction) de saída que ligue ao valor de retorno:
+Em línguas que têm um valor de retorno, pode ligar uma [função de saída que vincula](./functions-triggers-bindings.md#binding-direction) ao valor de retorno:
 
-* Numa biblioteca de classe C#, aplique o atributo de ligação de saída ao valor de retorno do método.
+* Numa biblioteca de classe C' aplique o atributo de encadernação de saída ao valor de retorno do método.
 * Em Java, aplique a anotação de ligação de saída ao método da função.
-* Em outras línguas, coloque a `name` propriedade em *função.json* para `$return`.
+* Em outras línguas, coloque a `name` propriedade em *function.js* para `$return` .
 
-Se existirem várias encadernações de saída, utilize o valor de devolução para apenas uma delas.
+Se existirem múltiplas ligações de saída, utilize o valor de retorno para apenas um deles.
 
-No script C# e C#, formas alternativas `out` de enviar dados para uma ligação de saída são parâmetros e [objetos de coleção](functions-reference-csharp.md#writing-multiple-output-values).
+No script C# e C#, as formas alternativas de enviar dados para uma ligação de saída são `out` parâmetros e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Aqui está o código C# que usa o valor de retorno para uma ligação de saída, seguido de um exemplo de sincronização:
+Aqui está o código C# que usa o valor de retorno para uma ligação de saída, seguido de um exemplo async:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -54,7 +53,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Aqui está a ligação de saída no ficheiro *função.json:*
+Aqui está a ligação de saída no *function.jsarquivado:*
 
 ```json
 {
@@ -65,7 +64,7 @@ Aqui está a ligação de saída no ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#, seguido por um exemplo asincronizado:
+Aqui está o código de script C#, seguido de um exemplo async:
 
 ```cs
 public static string Run(WorkItem input, ILogger log)
@@ -87,7 +86,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 # <a name="f"></a>[F#](#tab/fsharp)
 
-Aqui está a ligação de saída no ficheiro *função.json:*
+Aqui está a ligação de saída no *function.jsarquivado:*
 
 ```json
 {
@@ -109,7 +108,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aqui está a ligação de saída no ficheiro *função.json:*
+Aqui está a ligação de saída no *function.jsarquivado:*
 
 ```json
 {
@@ -120,7 +119,7 @@ Aqui está a ligação de saída no ficheiro *função.json:*
 }
 ```
 
-No JavaScript, o valor de devolução `context.done`vai no segundo parâmetro para:
+No JavaScript, o valor de retorno vai no segundo parâmetro `context.done` para:
 
 ```javascript
 module.exports = function (context, input) {
@@ -132,7 +131,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aqui está a ligação de saída no ficheiro *função.json:*
+Aqui está a ligação de saída no *function.jsarquivado:*
 
 ```json
 {
@@ -173,7 +172,7 @@ public static String run(
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Manipular funções azure erros de ligação](./functions-bindings-errors.md)
+> [Lidar com erros de ligação das funções Azure](./functions-bindings-errors.md)

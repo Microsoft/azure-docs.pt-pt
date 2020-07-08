@@ -1,6 +1,6 @@
 ---
-title: Transforme dados usando a Atividade da Colmeia - Azure
-description: Saiba como pode usar a Atividade da Colmeia numa fábrica de dados Azure para executar consultas da Hive num cluster HDInsight a pedido/seu próprio.
+title: Transformar dados usando a Atividade da Colmeia - Azure
+description: Saiba como pode usar a Atividade da Colmeia numa fábrica de dados Azure para executar consultas de Hive num cluster HDInsight a pedido/seu próprio hdinsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,18 +13,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703360"
 ---
-# <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transforme dados usando a atividade da Colmeia na Fábrica de Dados Azure 
+# <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia na Fábrica de Dados Azure 
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
 > * [Atividade da Colmeia](data-factory-hive-activity.md) 
 > * [Atividade do Porco](data-factory-pig-activity.md)
-> * [MapReduce Atividade](data-factory-map-reduce.md)
-> * [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade mapReduce](data-factory-map-reduce.md)
+> * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
@@ -33,14 +32,14 @@ ms.locfileid: "74703360"
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [a transformação de dados utilizando a atividade](../transform-data-using-hadoop-hive.md)da Colmeia na Fábrica de Dados .
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte os dados de [transformação utilizando a atividade da Hive na Data Factory.](../transform-data-using-hadoop-hive.md)
 
-A atividade da Hive HDInsight num [pipeline](data-factory-create-pipelines.md) data factory executa consultas de Hive [por si só](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou a [pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do cluster HDInsight baseado em HDInsight. Este artigo baseia-se no artigo sobre atividades de transformação de [dados,](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
+A atividade de Hive HDInsight num [oleoduto](data-factory-create-pipelines.md) da Data Factory executa consultas de Hive no [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do grupo HDInsight baseado em Windows/Linux. Este artigo baseia-se no artigo de atividades de [transformação](data-factory-data-transformation-activities.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
 
 > [!NOTE] 
-> Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data Factory](data-factory-introduction.md) e faça o tutorial: [Construa](data-factory-build-your-first-pipeline.md) o seu primeiro pipeline de dados antes de ler este artigo. 
+> Se é novo na Azure Data Factory, leia através [da Introdução à Azure Data Factory](data-factory-introduction.md) e faça o tutorial: Construa o seu primeiro pipeline de [dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```JSON
 {
@@ -74,20 +73,20 @@ A atividade da Hive HDInsight num [pipeline](data-factory-create-pipelines.md) d
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome da atividade |Sim |
-| descrição |Texto descrevendo para que a atividade é usada |Não |
+| name |Nome da atividade |Sim |
+| descrição |Texto que descreve para que a atividade é usada |Não |
 | tipo |HDinsightHive |Sim |
-| inputs |Inputs consumidos pela atividade da Colmeia |Não |
+| entradas |Entradas consumidas pela atividade da Colmeia |Não |
 | saídas |Saídas produzidas pela atividade da Colmeia |Sim |
 | linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
-| . |Especifique a linha inline do script da Colmeia |Não |
-| scriptPath |Guarde o script da Colmeia num armazenamento de blob Azure e forneça o caminho para o ficheiro. Utilize a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível ao caso. |Não |
-| define |Especificar parâmetros como par de chaves/valor para referência dentro do script da Colmeia usando 'hiveconf' |Não |
+| script |Especificar o script da Colmeia inline |Não |
+| scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |Não |
+| define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |Não |
 
 ## <a name="example"></a>Exemplo
-Vamos considerar um exemplo de análise de registos de jogos onde pretende identificar o tempo gasto pelos utilizadores que jogam jogos lançados pela sua empresa. 
+Vamos considerar um exemplo de análise de registos de jogos onde pretendes identificar o tempo gasto pelos utilizadores a jogar jogos lançados pela tua empresa. 
 
-O seguinte registo é um registo de jogo`,`de amostra, que é víra () separado e contém os seguintes campos – ProfileID, SessionStart, Duração, SrcIPAddress e GameType.
+O seguinte registo é um registo de jogo de amostra, que é `,` vírgula ( ) separado e contém os seguintes campos - ProfileID, SessionStart, Duração, SrcIPAddress e GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -124,18 +123,18 @@ Select
 FROM HiveSampleIn Group by ProfileID
 ```
 
-Para executar este script da Colmeia num oleoduto data factory, você precisa fazer o seguinte
+Para executar este script da Colmeia num oleoduto da Data Factory, é necessário fazer o seguinte
 
-1. Crie um serviço ligado para registar o seu próprio cluster de [computação HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de computação HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)a pedido . Vamos chamar a este serviço ligado "HDInsightLinkedService".
-2. Crie um [serviço ligado](data-factory-azure-blob-connector.md) para configurar a ligação ao armazenamento Azure Blob que acolhe os dados. Vamos chamar a este serviço ligado "StorageLinkedService"
-3. Crie [conjuntos](data-factory-create-datasets.md) de dados que apontem para a entrada e os dados de saída. Vamos ligar para o conjunto de dados de entrada "HiveSampleIn" e o conjunto de dados de saída "HiveSampleOut"
-4. Copie a consulta da Hive como um ficheiro para o Armazenamento De Blob Azure configurado em passo #2. se o armazenamento para hospedar os dados for diferente daquele que hospeda este ficheiro de consulta, crie um serviço ligado ao Armazenamento Azure separado e consulte-o na atividade. Utilize o **scriptPath** para especificar o caminho para o ficheiro de consulta de colmeia e **scriptLinkedService** para especificar o armazenamento Azure que contém o ficheiro script. 
+1. Crie um serviço ligado para registar [o seu próprio cluster de computação HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o cluster de [computação HDInsight a pedido.](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Vamos chamar este serviço ligado "HDInsightLinkedService".
+2. Crie um [serviço ligado](data-factory-azure-blob-connector.md) para configurar a ligação ao armazenamento Azure Blob que hospeda os dados. Vamos chamar este serviço ligado "StorageLinkedService"
+3. Crie [conjuntos de dados](data-factory-create-datasets.md) que apontam para a entrada e os dados de saída. Vamos chamar o conjunto de dados de entrada "HiveSampleIn" e o conjunto de dados de saída "HiveSampleOut"
+4. Copie a consulta da Colmeia como um ficheiro para o Azure Blob Storage configurado em #2 passo. se o armazenamento para hospedar os dados for diferente daquele que hospeda este ficheiro de consulta, crie um serviço separado de armazenamento Azure Storage e consulte-os na atividade. Utilize **o scriptPath** para especificar o caminho para o ficheiro de consulta de colmeia e **scriptLinkedService** para especificar o armazenamento do Azure que contém o ficheiro de script. 
    
    > [!NOTE]
-   > Você também pode fornecer o script Hive inline na definição de atividade usando **a** propriedade script. Não recomendamos esta abordagem, uma vez que todos os caracteres especiais do guião dentro do documento JSON precisam de ser escapados e podem causar problemas de depuração. A melhor prática é seguir o passo #4.
+   > Também pode fornecer o script da Colmeia na definição de atividade utilizando **a** propriedade script. Não recomendamos esta abordagem, uma vez que todos os caracteres especiais do guião no documento JSON precisam de ser escapados e podem causar problemas de depurações. A melhor prática é seguir o passo #4.
    > 
    > 
-5. Crie um pipeline com a atividade HDInsightHive. A atividade processa/transforma os dados.
+5. Crie um oleoduto com a atividade HDInsightHive. A atividade processa/transforma os dados.
 
     ```JSON   
     {   
@@ -169,13 +168,13 @@ Para executar este script da Colmeia num oleoduto data factory, você precisa fa
         }
     }
     ```
-6. Desloque o oleoduto. Consulte o artigo [de Criação de pipelines](data-factory-create-pipelines.md) para mais detalhes. 
-7. Monitorize o gasoduto utilizando as vistas de monitorização e gestão da fábrica de dados. Consulte o artigo de [Monitorização e Gestão](data-factory-monitor-manage-pipelines.md) de Pipelines da Fábrica de Dados para mais detalhes. 
+6. Desdobre o oleoduto. Consulte [a criação de artigos](data-factory-create-pipelines.md) de pipelines para obter mais detalhes. 
+7. Monitorize o gasoduto utilizando os pontos de vista de monitorização e gestão da fábrica de dados. Consulte o artigo [de monitorização e gestão](data-factory-monitor-manage-pipelines.md) dos gasodutos data factory para obter mais detalhes. 
 
-## <a name="specifying-parameters-for-a-hive-script"></a>Especificando parâmetros para um roteiro da Colmeia
-Neste exemplo, os registos de jogos são ingeridos diariamente no Armazenamento De Blob Azure e são armazenados numa pasta dividida com data e hora. Pretende parametrizar o script da Colmeia e passar a localização da pasta de entrada dinamicamente durante o tempo de execução e também produzir a saída dividida com data e hora.
+## <a name="specifying-parameters-for-a-hive-script"></a>Especificando parâmetros para um script de Colmeia
+Neste exemplo, os registos de jogos são ingeridos diariamente no Azure Blob Storage e são armazenados numa pasta dividida com data e hora. Pretende parametrizar o script da Colmeia e passar a localização da pasta de entrada dinamicamente durante o tempo de funcionamento e também produzir a saída dividida com data e hora.
 
-Para utilizar o script da Colmeia parametrizada, faça o seguinte
+Para utilizar o roteiro da Colmeia parametrizada, faça o seguinte
 
 * Defina os parâmetros em **definições.**
 
@@ -215,7 +214,7 @@ Para utilizar o script da Colmeia parametrizada, faça o seguinte
       }
     }
     ```
-* No Script Hive, consulte o parâmetro usando **${hiveconf:parâmetroName}**. 
+* No Script hive, consulte o parâmetro usando **${hiveconf:parameterName}**. 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 
@@ -241,10 +240,10 @@ Para utilizar o script da Colmeia parametrizada, faça o seguinte
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-  ## <a name="see-also"></a>Veja também
+  ## <a name="see-also"></a>Consulte também
 * [Atividade do Porco](data-factory-pig-activity.md)
-* [MapReduce Atividade](data-factory-map-reduce.md)
-* [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+* [Atividade mapReduce](data-factory-map-reduce.md)
+* [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

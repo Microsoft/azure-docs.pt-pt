@@ -1,6 +1,6 @@
 ---
-title: Transforme o XML entre formatos
-description: Crie transformações ou mapas que convertam XML entre formatos em Aplicações Lógicas Azure com Pacote de Integração Empresarial
+title: Transformar XML entre formatos
+description: Criar transformações ou mapas que convertam XML entre formatos em Azure Logic Apps com Pacote de Integração Empresarial
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,82 +9,81 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792392"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Crie mapas que transformem xML entre formatos em Aplicações Lógicas Azure com Pacote de Integração Empresarial
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam XML entre formatos no Azure Logic Apps com o Enterprise Integration Pack
 
-A integração enterprise Transform converte dados de um formato para outro formato. Por exemplo, pode ter uma mensagem de entrada que contenha a data atual no formato YearMonthDay. Você pode usar uma transformação para reformar na data para estar no formato MonthDayYear.
+O conector de Transformação do Enterprise Integration converte dados de um formato para outro. Por exemplo, pode receber uma mensagem com data atual no formato AnoMêsDia. Pode utilizar uma transformação para reformatar a data para estar no formato MêsDiaAno.
 
 ## <a name="what-does-a-transform-do"></a>O que faz uma transformação?
-A Transform, que também é conhecida como um mapa, consiste num esquema Source XML (a entrada) e num esquema Target XML (a saída). Pode utilizar diferentes funções incorporadas para ajudar a manipular ou controlar os dados, incluindo manipulações de cordas, atribuições condicionais, expressões aritméticas, tempo de data para assuntos e até mesmo construções em loop.
+A Transform, que também é conhecida como um mapa, consiste num esquema Source XML (a entrada) e num esquema Target XML (a saída). Pode utilizar diferentes funções incorporadas para ajudar a manipular ou controlar os dados, incluindo manipulações de cordas, atribuições condicionais, expressões aritméticas, formadores de tempo de data e até construções em loop.
 
 ## <a name="how-to-create-a-transform"></a>Como criar uma transformação?
 Pode criar uma transformação/mapa utilizando o Visual Studio [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). Quando terminar de criar e testar a transformação, faça o upload da transformação na sua conta de integração. 
 
 ## <a name="how-to-use-a-transform"></a>Como usar uma transformação
-Depois de fazer o upload da transformação/mapa na sua conta de integração, pode usá-la para criar uma aplicação Logic. A aplicação Logic executa as suas transformações sempre que a aplicação Logic é desencadeada (e há conteúdo de entrada que precisa de ser transformado).
+Depois de fazer o upload da transformação/mapa para a sua conta de integração, pode usá-lo para criar uma aplicação Logic. A aplicação Logic executa as suas transformações sempre que a aplicação Logic é ativada (e há conteúdo de entrada que precisa de ser transformado).
 
 **Aqui estão os passos para usar uma transformação:**
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Criar uma conta de integração e adicionar-lhe um mapa  
+* Crie uma conta de integração e adicione-lhe um mapa  
 
-Agora que já tratou dos pré-requisitos, é hora de criar a sua aplicação Logic:  
+Agora que já tratou dos pré-requisitos, está na hora de criar a sua aplicação Logic:  
 
-1. Crie uma aplicação Lógica e [ligue-a à sua conta](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a ligar uma conta de integração a uma aplicação Lógica") de integração que contenha o mapa.
-2. Adicione um gatilho **de Pedido** à sua aplicação Lógica  
+1. Crie uma aplicação Lógica e [ligue-a à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a ligar uma conta de integração a uma aplicação Logic") que contenha o mapa.
+2. Adicione um gatilho **de pedido** à sua aplicação Logic  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Adicione a ação **Transform XML** selecionando primeiro **Adicionar uma ação**   
+3. Adicione a ação **Transform XML** selecionando pela primeira vez **Adicione uma ação**   
    ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Introduza a palavra *transforme* na caixa de pesquisa para filtrar todas as ações para aquela que pretende usar  
+4. Introduza a palavra *transformar* na caixa de pesquisa para filtrar todas as ações para a que pretende usar  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selecione a ação **Transform XML**   
-6. Adicione o **conteúdo** XML que transforma. Pode utilizar todos os dados XML que receber no pedido http como **CONTEÚDO**. Neste exemplo, selecione o corpo do pedido HTTP que desencadeou a aplicação Lógica.
+6. Adicione o **conteúdo** XML que transforma. Pode utilizar todos os dados XML que receber no pedido HTTP como **conteúdo.** Neste exemplo, selecione o corpo do pedido HTTP que desencadeou a aplicação Logic.
 
    > [!NOTE]
-   > Certifique-se de que o conteúdo do Transform XML é **XML.** Se o conteúdo não estiver no XML ou estiver codificado com base64, deve especificar uma expressão que processa o conteúdo. Por exemplo, pode utilizar [funções,](logic-apps-workflow-definition-language.md#functions)como ```@base64ToBinary``` ```@xml``` para descodificar conteúdos ou para processar o conteúdo como XML.
+   > Certifique-se de que o conteúdo do **Transform XML** é XML. Se o conteúdo não estiver em XML ou estiver codificado com base64, deve especificar uma expressão que processe o conteúdo. Por exemplo, pode utilizar [funções](logic-apps-workflow-definition-language.md#functions), como para ```@base64ToBinary``` descodição de conteúdos ou ```@xml``` para o processamento do conteúdo como XML.
  
 
-7. Selecione o nome do **MAP** que pretende utilizar para realizar a transformação. O mapa já deve estar na sua conta de integração. Num passo anterior, já deu à sua app Logic acesso à sua conta de integração que contém o seu mapa.      
+7. Selecione o nome do **MAP** que pretende utilizar para realizar a transformação. O mapa já deve estar na sua conta de integração. Num passo anterior, já deu acesso à sua app Logic à sua conta de integração que contém o seu mapa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Guardar o trabalho  
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-Neste momento, está sem preparar o mapa. Numa aplicação no mundo real, pode querer armazenar os dados transformados numa aplicação LOB como salesForce. Pode facilmente como ação para enviar a saída da transformação para a Salesforce. 
+Neste momento, já terminou de preparar o seu mapa. Numa aplicação real, poderá querer armazenar os dados transformados numa aplicação LOB como a SalesForce. Pode facilmente como uma ação para enviar a saída da transformação para a Salesforce. 
 
-Agora pode testar a sua transformação fazendo um pedido para o ponto final http.  
+Agora pode testar a sua transformação fazendo um pedido ao ponto final HTTP.  
 
 
 ## <a name="features-and-use-cases"></a>Características e casos de utilização
-* A transformação criada num mapa pode ser simples, como copiar um nome e endereço de um documento para outro. Ou, pode criar transformações mais complexas usando as operações de mapa fora da caixa.  
-* Várias operações ou funções do mapa estão prontamente disponíveis, incluindo cordas, funções de data, e assim por diante.  
-* Pode fazer uma cópia de dados diretos entre os esquemas. No Mapper incluído no SDK, isto é tão simples como desenhar uma linha que liga os elementos no esquema de origem com os seus homólogos no esquema de destino.  
-* Ao criar um mapa, vê-se uma representação gráfica do mapa, que mostra todas as relações e links que cria.
-* Utilize a função Test Map para adicionar uma mensagem XML de amostra. Com um simples clique, pode testar o mapa que criou e ver a saída gerada.  
-* Carregar mapas existentes  
+* A transformação criada num mapa pode ser simples, como copiar um nome e um endereço de um documento para outro. Ou, pode criar transformações mais complexas usando as operações de mapa fora da caixa.  
+* Várias operações ou funções do mapa estão prontamente disponíveis, incluindo cordas, funções de hora de data, e assim por diante.  
+* Pode fazer uma cópia de dados direta entre os esquemas. No Mapper incluído no SDK, isto é tão simples como desenhar uma linha que liga os elementos no esquema de origem com os seus homólogos no esquema de destino.  
+* Ao criar um mapa, você vê uma representação gráfica do mapa, que mostra todas as relações e ligações que cria.
+* Utilize a função de Mapa de Teste para adicionar uma amostra de mensagem XML. Com um simples clique, pode testar o mapa que criou e ver a saída gerada.  
+* Upload mapas existentes  
 * Inclui suporte para o formato XML.
 
 ## <a name="advanced-features"></a>Funcionalidades avançadas
 
-### <a name="reference-assembly-or-custom-code-from-maps"></a>Montagem de referência ou código personalizado a partir de mapas 
-A ação de transformação também suporta mapas ou transforma-se com referência a montagem externa. Esta capacidade permite que as chamadas personalizem o código .NET diretamente dos mapas XSLT. Aqui estão os pré-requisitos para usar o conjunto em mapas.
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Conjunto de referência ou código personalizado a partir de mapas 
+A ação de transformação também suporta mapas ou transforma-se com referência à montagem externa. Esta capacidade permite chamadas para código .NET personalizado diretamente a partir de mapas XSLT. Aqui estão os pré-requisitos para usar a montagem em mapas.
 
-* O mapa e a montagem referenciada a partir do mapa precisam de ser enviados para a conta de [integração.](./logic-apps-enterprise-integration-maps.md) 
+* O mapa e a montagem referenciados a partir do mapa precisam de ser [carregados para conta de integração.](./logic-apps-enterprise-integration-maps.md) 
 
   > [!NOTE]
-  > O mapa e a montagem devem ser carregados numa ordem específica. Tem de fazer o upload da montagem antes de fazer o upload do mapa que faz referência à montagem.
+  > O mapa e a montagem são necessários para serem carregados numa ordem específica. Tem de fazer o upload da montagem antes de fazer o upload do mapa que faz referência à montagem.
 
 * O mapa também deve ter estes atributos e uma secção CDATA que contenha a chamada para o código de montagem:
 
     * **nome** é o nome de montagem personalizado.
-    * **nomeespaço** é o espaço de nome na sua montagem que inclui o código personalizado.
+    * **namespace** é o espaço de nome no seu conjunto que inclui o código personalizado.
 
-  Este exemplo mostra um mapa que faz referência a um conjunto `circumreference` chamado "XslUtilitiesLib" e chama o método da montagem.
+  Este exemplo mostra um mapa que faz referência a um conjunto chamado "XslUtilitiesLib" e chama o `circumreference` método da montagem.
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -110,8 +109,8 @@ A ação de transformação também suporta mapas ou transforma-se com referênc
   ```
 
 
-### <a name="byte-order-mark"></a>Marca de ordem byte
-Por padrão, a resposta da transformação começa com a Marca de Ordem Byte (BOM). Só pode aceder a esta funcionalidade enquanto trabalha no editor do Code View. Para desativar esta `disableByteOrderMark` funcionalidade, especifique para a `transformOptions` propriedade:
+### <a name="byte-order-mark"></a>Marca de Ordem Byte
+Por defeito, a resposta da transformação começa com a Marca byte Order (BOM). Só pode aceder a esta funcionalidade enquanto estiver a trabalhar no editor Code View. Para desativar esta funcionalidade, especifique `disableByteOrderMark` para a `transformOptions` propriedade:
 
 ```json
 "Transform_XML": {
@@ -135,5 +134,5 @@ Por padrão, a resposta da transformação começa com a Marca de Ordem Byte (BO
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial")  
-* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça mapas de integração empresarial")  
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça os mapas de integração empresarial")  
 

@@ -7,19 +7,18 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870824"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Consultas parametrizadas em Azure Cosmos DB
 
-Cosmos DB suporta consultas com parâmetros expressos pela notação familiar @ notation. O SQL parametrizado fornece um manuseamento robusto e escapada da entrada do utilizador, e evita a exposição acidental de dados através da injeção de SQL.
+Cosmos DB suporta consultas com parâmetros expressos pela notação familiar @. O SQL parametrizado proporciona um manuseamento robusto e fuga da entrada do utilizador, e evita a exposição acidental de dados através da injeção de SQL.
 
 ## <a name="examples"></a>Exemplos
 
-Por exemplo, pode escrever uma `lastName` consulta `address.state` que leva e como parâmetros, e executá-la por vários valores de `lastName` e `address.state` com base na entrada do utilizador.
+Por exemplo, pode escrever uma consulta que toma `lastName` e `address.state` como parâmetros, e executá-la por vários valores e com base na entrada do `lastName` `address.state` utilizador.
 
 ```sql
     SELECT *
@@ -27,7 +26,7 @@ Por exemplo, pode escrever uma `lastName` consulta `address.state` que leva e co
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Em seguida, pode enviar este pedido à Cosmos DB como uma consulta de JSON parametrizada como a seguinte:
+Em seguida, pode enviar este pedido para Cosmos DB como uma consulta JSON parametrizada como o seguinte:
 
 ```sql
     {
@@ -39,7 +38,7 @@ Em seguida, pode enviar este pedido à Cosmos DB como uma consulta de JSON param
     }
 ```
 
-O exemplo que se segue define o argumento TOP com uma consulta parametrizada: 
+O exemplo a seguir define o argumento TOP com uma consulta parametrizada: 
 
 ```sql
     {
@@ -50,10 +49,10 @@ O exemplo que se segue define o argumento TOP com uma consulta parametrizada:
     }
 ```
 
-Os valores dos parâmetros podem ser qualquer JSON válido: cordas, números, booleanos, matrizes nulos, parde matrizes ou JSON aninhado. Como cosmos DB é inútil, os parâmetros não são validados contra qualquer tipo.
+Os valores dos parâmetros podem ser qualquer JSON válido: cordas, números, Booleans, nulas, até mesmo matrizes ou JSON aninhado. Como a Cosmos DB é sem esquemas, os parâmetros não são validados contra qualquer tipo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dados de documento do modelo](modeling-data.md)
