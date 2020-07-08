@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 35835e1508311bd31008a2335a8c543e558686c2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085944"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -47,9 +47,11 @@ O fluxo de trabalho utilizado neste documento contém duas ações. As ações s
 
 1. Uma ação da Hive executa um script HiveQL para extrair registos `hivesampletable` do que está incluído com HDInsight. Cada linha de dados descreve uma visita de um dispositivo móvel específico. O formato de gravação aparece como o seguinte texto:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     O script da Hive utilizado neste documento conta o total de visitas para cada plataforma, como Android ou iPhone, e armazena as contagens para uma nova tabela Hive.
 
@@ -240,11 +242,13 @@ As definições de fluxo de trabalho Oozie são escritas na Hadoop Process Defin
 
     Recebe saída como o seguinte texto:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. Na linha de comandos `1>`, introduza as seguintes linhas:
 
@@ -268,8 +272,10 @@ As definições de fluxo de trabalho Oozie são escritas na Hadoop Process Defin
 
     Vê a saída como o seguinte texto:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Saia do utilitário tsql entrando `exit` no `1>` pedido.
 
@@ -424,20 +430,22 @@ Os passos seguintes usam o comando Oozie para submeter e gerir fluxos de trabalh
 
     Esta informação devolve informações como o seguinte texto:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     Este trabalho tem um estatuto `PREP` de. Este estatuto indica que o trabalho foi criado, mas não começou.
 
@@ -464,14 +472,16 @@ Os passos seguintes usam o comando Oozie para submeter e gerir fluxos de trabalh
 
     A informação devolvida é como o seguinte texto:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Para obter mais informações sobre o comando Oozie, consulte [a ferramenta de linha de comando Apache Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
@@ -644,7 +654,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
     ![Separador de informações de trabalho de consola web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a definir um fluxo de trabalho Oozie e como gerir um trabalho oozie. Para saber mais sobre como trabalhar com a HDInsight, consulte os seguintes artigos:
 
