@@ -1,68 +1,67 @@
 ---
-title: Como comprar software no AppSource [ Mercado Azure
-description: Passos para um para comprar software no AppSource [ Mercado Azure.
+title: Como adquirir software no AppSource Mercado Azure
+description: Passos para alguém comprar software no AppSource Mercado Azure.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: 450a97b0be1b11980d65477d396431170180d00f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 0271bd08e01cdbd442e64db0c04184995f7d8d09
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746646"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958451"
 ---
-# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como comprar software no Microsoft AppSource
+# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
 
-O Microsoft [AppSource](https://appsource.microsoft.com/) permite agora que os clientes subscrevam aplicações SaaS que são oferecidas pelos parceiros da Microsoft. Os clientes podem encontrar aplicações web certificadas na loja e podem gerir os encargos, upgrades, downgrades e cancelamentos num único local usando o Centro de Administração da Microsoft. Este artigo descreve como pode comprar uma aplicação na loja.
+O Microsoft [AppSource](https://appsource.microsoft.com/) permite agora que os clientes subscrevam as aplicações SaaS que são oferecidas pelos parceiros da Microsoft. Os clientes podem encontrar aplicações web certificadas na loja e podem gerir os custos, upgrades, downgrades e cancelamentos num único local usando o Admin Center da Microsoft. Este artigo descreve como pode comprar uma aplicação na loja.
 
-O AppSource oferece-lhe uma seleção de aplicações para escolher, incluindo subscrições gratuitas, experimentais e pagas. Este artigo descreve como as subscrições pagas podem ser compradas através do AppSource.
+O AppSource fornece-lhe uma seleção de aplicações para escolher, incluindo gratuitas, testes e subscrições pagas. Este artigo descreve como as subscrições pagas podem ser compradas através do AppSource.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
-Para comprar ofertas SaaS, precisa de:
+Para comprar ofertas SaaS, você precisa:
 
-- Uma conta escolar ou profissional. Se não tiver uma conta de trabalho ou escola, siga o link para "Inscreva-se para uma conta gratuita" durante o processo de compra.
+- Uma conta escolar ou profissional. Se não tiver uma conta de trabalho ou escola, siga o link para "Inscreva-se numa conta gratuita" durante o processo de compra.
 
-- Um cartão de crédito válido no país/região onde está a comprar a oferta.
+- Um cartão de crédito válido no país/região onde está a adquirir a oferta.
 
     > [!Note]
-    > A faturação do cartão de crédito país/região pode estar bloqueada na localização da sua instância de Diretório Ativo Azure.
+    > O país/região de faturação do cartão de crédito pode estar bloqueado até à localização do seu Azure Ative Directory.
 
-## <a name="steps-for-making-purchases-on-appsource"></a>Passos para fazer compras no AppSource
+## <a name="steps-for-making-purchases-on-appsource"></a>Passos para efetuar compras no AppSource
 
-1. Selecione o seu país/região de faturação no [AppSource](https://appsource.microsoft.com/).
-1. Encontre o pedido que pretende comprar.
-1. Selecione **obtê-lo agora**.
+1. Selecione o seu país/região de faturação no [AppSource.](https://appsource.microsoft.com/)
+1. Encontre a aplicação que deseja comprar.
+1. **Selecione Get-lo agora**.
 1. Escolha o plano:
 
     1. Definir o número de lugares
-    1. Estabeleça o termo de faturação.
+    1. Desa parte do termo de faturação.
     
 1. Insira o seu endereço de faturação.
 1. Insira o seu método de pagamento:
     * Cartões de crédito suportados: Visa, Master Card, American Express, Discover.
     
-1. Selecione **A ordem de lugar**.
+1. Selecione **Peça encomenda**.
 
-## <a name="how-to-configure-software-post-purchase"></a>Como configurar o software pós-compra
+## <a name="how-to-configure-software-post-purchase"></a>Como configurar software pós-compra
 
-Depois de recebida a sua encomenda, pode levar alguns segundos para ser confirmado. Receberá um link para configurar a sua subscrição SaaS na página, bem como um e-mail confirmando a compra e o link para completar a configuração.
+Depois de receber o pedido, pode levar vários segundos para ser confirmado. Receberá um link para configurar a subscrição do SaaS na página, bem como um e-mail confirmando a compra e o link para completar a configuração.
 
-1. Na página de **Confirmação** da Encomenda, selecione **Configurar**. Em alternativa, pode utilizar o link Configuração que lhe foi enviado no e-mail de confirmação.
-1. Complete o fornecimento e configuração no site do fornecedor de software.
+1. Na página **'Confirmação da Encomenda',** selecione **Configure**. Em alternativa, pode utilizar o link Configuração enviado no e-mail de confirmação.
+1. Fornecimento completo e configuração no site do fornecedor de software.
 
     > [!Note]
     > Este passo é obrigatório e pode ser concluído a qualquer momento.
 
 ## <a name="contact-support"></a>Contactar o suporte
 
-Pode [enviar um bilhete](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) de suporte através do Microsoft 365 Admin Center.
+[Pode-se submeter um bilhete de apoio](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) através do Microsoft 365 Admin Center.
 
-Para produtos empresariais, [contacte a ajuda aqui.](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)
+Para produtos empresariais, [contacte aqui.](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte a [documentação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) do Mercado Comercial para obter mais informações.
+- Consulte a [documentação do Mercado Comercial](partner-center-portal/commercial-marketplace-overview.md) para obter mais informações.

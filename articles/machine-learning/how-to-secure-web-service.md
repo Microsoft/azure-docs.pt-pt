@@ -12,10 +12,9 @@ author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432852"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utilize o TLS para garantir um serviço web através do Azure Machine Learning
@@ -261,7 +260,7 @@ update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aprenda a:
 + [Consumir um modelo de aprendizagem automática implementado como um serviço web](how-to-consume-web-service.md)
 + [Executar de forma segura experiências e inferência dentro de uma rede virtual Azure](how-to-enable-virtual-network.md)

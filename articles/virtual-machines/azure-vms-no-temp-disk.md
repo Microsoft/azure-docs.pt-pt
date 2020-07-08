@@ -8,10 +8,9 @@ ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
 ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783611"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos Azure VM sem disco temporário local 
@@ -55,7 +54,7 @@ Se a imagem personalizada do SO aponta para o disco temporário local, a imagem 
 ## <a name="have-questions-or-feedback"></a>Tem perguntas ou comentários?
 Preencha o [formulário de feedback]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com VMs Azure com disco temporário local. Para obter mais informações sobre estes tamanhos VM, consulte os seguintes artigos:
 
 - [Especificações para séries Dv4 e Dsv4 (Carga de Trabalho para Fins Gerais)](dv4-dsv4-series.md)

@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 57bce7840db9786232154acaeaa705a8a0e28943
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.openlocfilehash: af5211e82820c1052b9ea17ce1fbdb0ebd5b9f3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800380"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 
@@ -65,10 +64,12 @@ Começamos com dois contentores: `users` `posts` e.
 
 Este recipiente armazena apenas itens de utilizador:
 
-    {
-      "id": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "username": "<username>"
+}
+```
 
 Dividimos este contentor `id` por, o que significa que cada divisória lógica dentro desse contentor conterá apenas um item.
 
@@ -76,32 +77,34 @@ Dividimos este contentor `id` por, o que significa que cada divisória lógica d
 
 Este recipiente acolhe posts, comentários e gostos:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "creationDate": "<post-creation-date>"
+}
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 Dividimos este contentor `postId` por, o que significa que cada divisória lógica dentro desse contentor conterá um post, todos os comentários para esse post e todos os gostos para esse post.
 
@@ -244,39 +247,43 @@ A razão pela qual temos de emitir pedidos adicionais em alguns casos é porque 
 
 No nosso exemplo, modificamos itens postais para adicionar o nome de utilizador do autor do post, a contagem de comentários e a contagem de gostos:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Também modificamos comentários e itens para adicionar o nome de utilizador do utilizador que os criou:
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "userUsername": "<comment-author-username>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+```json
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "userUsername": "<comment-author-username>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "userUsername": "<liker-username>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "userUsername": "<liker-username>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 ### <a name="denormalizing-comment-and-like-counts"></a>Comentário desnormalizado e como conta
 
@@ -417,25 +424,27 @@ Assim, introduzimos um segundo nível de desnormalização duplicando postos int
 
 O `users` recipiente contém agora 2 tipos de itens:
 
-    {
-      "id": "<user-id>",
-      "type": "user",
-      "userId": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "type": "user",
+    "userId": "<user-id>",
+    "username": "<username>"
+}
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Tenha em atenção que:
 
@@ -464,18 +473,20 @@ Seguindo a mesma abordagem, maximizar o desempenho e escalabilidade deste pedido
 
 Assim, para otimizar este último pedido, introduzimos um terceiro recipiente ao nosso design, inteiramente dedicado a servir este pedido. Desnormalizamos os nossos postos para aquele novo `feed` contentor:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Este recipiente é dividido `type` por, que estará sempre `post` nos nossos itens. Ao fazê-lo, todos os itens deste recipiente ficarão na mesma divisória.
 
@@ -569,10 +580,10 @@ As melhorias de escalabilidade que exploramos neste artigo envolvem desnormaliza
 
 O feed de alteração que usamos para distribuir atualizações para outros contentores armazena todas essas atualizações de forma persistente. Isto permite solicitar todas as atualizações desde a criação do contentor e vistas desnormalizadas como uma operação única de recuperação, mesmo que o seu sistema já tenha muitos dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Após esta introdução à modelação prática de dados e partição, pode querer consultar os seguintes artigos para rever os conceitos que cobrimos:
 
 - [Trabalhar com bases de dados, contentores e itens](databases-containers-items.md)
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-- [Feed de alterações no Azure Cosmos DB](change-feed.md)
+- [Mude o feed em Azure Cosmos DB](change-feed.md)

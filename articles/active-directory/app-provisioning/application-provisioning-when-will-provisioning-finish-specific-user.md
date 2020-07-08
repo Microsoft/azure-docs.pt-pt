@@ -12,10 +12,9 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782029"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento do utilizador
@@ -99,5 +98,5 @@ Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo in
 
 - Se o desempenho se tornar um problema e estiver a tentar provisionar a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de deteção. Os filtros de deteção permitem-lhe afinar os dados que o serviço de fornecimento extrai do Azure AD filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS com o Azure Ative Directory](user-provisioning.md)

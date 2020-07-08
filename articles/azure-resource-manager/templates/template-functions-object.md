@@ -4,10 +4,9 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676799"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
@@ -21,7 +20,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com objetos no seu
 * [comprimento](#length)
 * [união](#union)
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
 

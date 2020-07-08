@@ -2,13 +2,12 @@
 title: Ativar o Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 519238837831a67714894ee44f4694321fb999d4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: d85dd4f1eb89ddba96ec012acb7fb7550800ce7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800635"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
 
@@ -54,6 +53,8 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 - Você é membro do grupo [ *Proprietário* ](../../role-based-access-control/built-in-roles.md#owner) no recurso de cluster AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+- Para visualizar os dados de monitorização, é necessário ter o papel de [*leitor do Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Do Log Analytics, configurado com o Azure Monitor para contentores.
 
 - As métricas prometheus não são recolhidas por defeito. Antes [de configurar o agente](container-insights-prometheus-integration.md) para recolher as métricas, é importante rever a [documentação do Prometeu](https://prometheus.io/) para entender que dados podem ser raspados e que métodos são suportados.
 
@@ -126,6 +127,6 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 | | [Ative o cluster OpenShift utilizando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um cluster OpenShift existente utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
 | | [Ativar o cluster OpenShift a partir do Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Pode ativar a monitorização de um ou mais clusters OpenShift que já estão implantados a partir da página multicluster no Azure Monitor. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que ativou a monitorização, pode começar a analisar o desempenho dos seus clusters Kubernetes que estão hospedados no Azure Kubernetes Service (AKS), Azure Stack ou noutro ambiente. Para aprender a utilizar o Azure Monitor para recipientes, consulte [o desempenho do cluster Kubernetes](container-insights-analyze.md).

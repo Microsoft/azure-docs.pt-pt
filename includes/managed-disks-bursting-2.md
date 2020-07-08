@@ -9,10 +9,9 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85242205"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns

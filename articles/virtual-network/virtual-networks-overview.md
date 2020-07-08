@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0577b61cd30ef0f8fd5fc8ef1593d210c00bb25c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300089"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040610"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -52,7 +51,7 @@ Todos os recursos num VNet podem comunicar-se à internet, por padrão. Pode com
 Os recursos do Azure comunicam de forma segura entre si, de uma das seguintes formas:
 
 - **Através de uma rede virtual**: pode implementar VMs e vários outros tipos de recursos do Azure numa rede virtual, como Ambientes do Serviço de Aplicações do Azure, Serviço de Kubernetes do Azure (AKS) e Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Para ver uma lista completa dos recursos do Azure que pode implementar numa rede virtual, veja [Integração de serviço da rede virtual](virtual-network-for-azure-services.md).
-- **Através de um ponto final de serviço de rede virtual**: expanda o seu espaço de endereços privados da rede virtual e a identidade da sua rede virtual aos recursos do serviço do Azure, como Contas de Armazenamento do Azure e bases de dados SQL do Azure, através de uma ligação direta. Os pontos finais de serviço permitem-lhe obter os seus recursos críticos de serviço do Azure para apenas uma rede virtual. Para obter mais informações, veja [Descrição geral de pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
+- **Através de um ponto final de serviço de rede virtual**: Estenda o espaço de endereço privado da sua rede virtual e a identidade da sua rede virtual para recursos de serviço Azure, tais como contas de Armazenamento Azure e Base de Dados Azure SQL, através de uma ligação direta. Os pontos finais de serviço permitem-lhe obter os seus recursos críticos de serviço do Azure para apenas uma rede virtual. Para obter mais informações, veja [Descrição geral de pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
 - **Através do VNet Peering:** Pode ligar redes virtuais entre si, permitindo que os recursos em qualquer uma das redes virtuais se comuniquem entre si, utilizando o olhar de rede virtual. As redes virtuais a que liga podem estar nas mesmas regiões ou em regiões diferentes do Azure. Para obter mais informações, veja [Peering de rede virtual](virtual-network-peering-overview.md).
 
 ## <a name="communicate-with-on-premises-resources"></a>Comunicar com os recursos no local
@@ -94,6 +93,6 @@ Existem certos limites em torno do número de recursos Azure que pode implementa
 
 Não há qualquer custo para a utilização do Azure VNet, é livre de custos. Os encargos padrão são aplicáveis para recursos, tais como Máquinas Virtuais (VMs) e outros produtos. Para saber mais, consulte [os preços da VNet](https://azure.microsoft.com/pricing/details/virtual-network/) e a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)da Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Para começar a utilizar uma rede virtual, crie uma, implemente algumas VMs na mesma e comunique entre as VMs. Para saber como, veja o início rápido [Criar uma rede virtual](quick-create-portal.md).

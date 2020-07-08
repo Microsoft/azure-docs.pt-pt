@@ -7,10 +7,9 @@ ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
 ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782573"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python
@@ -168,7 +167,7 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['sqlalchemy'])
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

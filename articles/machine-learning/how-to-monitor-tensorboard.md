@@ -10,10 +10,9 @@ author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
 ms.openlocfilehash: 317c771daca146660c62eb0cba14facc701b1b2c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430164"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar corridas e métricas de experimentação com TensorBoard e Azure Machine Learning
@@ -293,7 +292,7 @@ Quando terminar, certifique-se de ligar para o método [stop()](https://docs.mic
 tb.stop()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste como-para-você, criou duas experiências e aprendeu a lançar o TensorBoard contra as suas histórias de execução para identificar áreas para potenciais afinações e reconversão. 
 

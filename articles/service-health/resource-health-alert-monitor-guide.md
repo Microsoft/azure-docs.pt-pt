@@ -4,13 +4,12 @@ description: Crie alerta utilizando o portal Azure que o notifica quando os seus
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85218076"
 ---
-# <a name="configure-resource-health-alerts-using-azure-portal"></a>Configure alertas de saúde de recursos usando o portal Azure
+# <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas de estado de funcionamento dos recursos com o portal Azure
 
 Este artigo mostra-lhe como configurar alertas de registo de atividade para notificações de saúde de recursos através do portal Azure.
 
@@ -66,7 +65,7 @@ Alerta de saúde de recursos usando portal Azure
 A nova regra de alerta para o registo de atividade é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
 Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre [como gerir as regras de registo de atividades.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#view-and-manage-in-the-azure-portal)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a Saúde dos Recursos:
 
@@ -77,4 +76,4 @@ Criar alertas de saúde de serviço:
 
 * [Alertas de configuração para a saúde do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
 * [Esquema de evento de registo de atividade azure](../azure-monitor/platform/activity-log-schema.md)
-* [Configure alertas de saúde de recursos usando modelos de Gestor de Recursos](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)

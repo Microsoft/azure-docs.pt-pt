@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782817"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
@@ -52,7 +51,7 @@ As opiniões e as ações são basicamente as mesmas. Eis alguns exemplos:
 
 - **Gerir funcionalidades avançadas**de defesa em nuvem e muito mais : Gerir os vários serviços de proteção de ameaças, tais como [acesso vm just-in-time (JIT),](security-center-just-in-time.md) [Hardening de Rede Adaptativa,](security-center-adaptive-network-hardening.md) [controlos de aplicações adaptativos](security-center-adaptive-application.md), e muito mais.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo explica como funciona a gestão de inquilinos cruzados no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Fortaleça a sua postura de segurança com o Azure Security Center](security-center-monitoring.md) - Aprenda a monitorizar a saúde dos seus recursos Azure.

@@ -10,10 +10,9 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: f911a8dad094949f0a515116a79fff698a326547
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84191077"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Executar pacotes SSIS utilizando o agente de instância gerido Azure SQL
@@ -105,17 +104,17 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote
 ## <a name="cancel-ssis-package-execution"></a>Cancelar execução de pacote SSIS
 Para cancelar a execução de pacotes a partir de um trabalho de Agente de Instância Gerida SQL, tome as seguintes medidas em vez de parar diretamente o trabalho de agente:
 
-1. Encontre o seu agente SQL **jobId** da **msdb.dbo.sysjobs**.
+1. Encontre o seu trabalho de agente **SQLId** a partir de **msdb.dbo.sysempregos.**
 1. Encontre a **execução** SSIS correspondente com base no ID do trabalho, utilizando esta consulta:
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Se os seus pacotes SSIS estiverem em SSISDB, use **ssisdb.internal.execution_parameter_values** como tabela para a execução de empregos. Se as suas embalagens SSIS estiverem no sistema **de ficheiros, utilize ssisdb.internal.execution_parameter_values_noncatalog**.
+   Se os seus pacotes SSIS estiverem no SSISDB, use **ssisdb.internal.execution_parameter_values** como tabela para a execução de empregos. Se as suas embalagens SSIS estiverem no sistema de ficheiros, utilize **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Clique com o botão direito no catálogo SSISDB e, em seguida, selecione **Ative Operations**.
 
    !["Operações Ativas" no menu de atalho para o catálogo SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
 
 1. Parar a operação correspondente com base na **execuçãoId**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Também pode agendar pacotes SSIS utilizando a Azure Data Factory. Para obter instruções passo a passo, consulte o gatilho do [evento Azure Data Factory](how-to-create-event-trigger.md). 

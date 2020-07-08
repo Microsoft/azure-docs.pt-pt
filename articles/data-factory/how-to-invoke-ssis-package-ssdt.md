@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
 ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84424587"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes SSIS em Azure a partir de SSDT
@@ -161,5 +160,5 @@ Para mudar os ambientes de execução de pacotes com projetos ativados pelo Azur
 
    ![Configuração do estúdio visual switch](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Assim que estiver satisfeito com a execução dos seus pacotes em Azure a partir de SSDT, pode implantá-los e executá-los como atividades do Pacote SSIS executado em oleodutos ADF, consulte [pacotes Run SSIS como executar atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)

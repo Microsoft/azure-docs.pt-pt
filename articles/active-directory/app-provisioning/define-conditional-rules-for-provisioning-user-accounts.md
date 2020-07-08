@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781961"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicações baseados em atributos com filtros de escotagem
@@ -116,7 +115,7 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escotagem comuns
-| Atributo-alvo| Operador | Valor | Description|
+| Atributo-alvo| Operador | Valor | Descrição|
 |----|----|----|----|
 |userPrincipalName|JOGO REGEX|.\*@domain.com |Todos os utilizadores com utilizadorPrincipal que tenha o domínio @domain.com estarão em campo para o provisionamento|
 |userPrincipalName|NÃO REGEX MATCH|.\*@domain.com|Todos os utilizadores com utilizadorPrincipal que tenha o domínio @domain.com estarão fora de alcance para o provisionamento|

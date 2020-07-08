@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6d0cde3d3615350658a06cf118ff38cebf8952c9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735018"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040457"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de configuração de rede nos Serviços de Domínio do Diretório Ativo Azure
 
-Para permitir que as aplicações e serviços se comuniquem corretamente com os Serviços de Domínio do Diretório Ativo (Azure AD DS), as portas de rede específicas devem estar abertas para permitir o fluxo de tráfego. Em Azure, controla-se o fluxo de tráfego utilizando grupos de segurança de rede. O estado de saúde de um domínio gerido pela Azure AD DS mostra um alerta se as regras necessárias do grupo de segurança de rede não estiverem em vigor.
+Para permitir que aplicações e serviços se comuniquem corretamente com um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS), as portas de rede específicas devem estar abertas para permitir o fluxo de tráfego. Em Azure, controla-se o fluxo de tráfego utilizando grupos de segurança de rede. O estado de saúde de um domínio gerido pela Azure AD DS mostra um alerta se as regras necessárias do grupo de segurança de rede não estiverem em vigor.
 
 Este artigo ajuda-o a compreender e a resolver alertas comuns para problemas de configuração do grupo de segurança da rede.
 
@@ -34,7 +33,7 @@ As regras do grupo de segurança da rede inválidas são a causa mais comum de e
 
 ## <a name="default-security-rules"></a>Regras de segurança predefinidas
 
-As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de segurança da rede para um domínio gerido. Estas regras mantêm o Azure AD DS seguro e permitem que a plataforma Azure monitorize, gere e atualize o domínio gerido. Também pode ter uma regra adicional que permite o tráfego de entrada se [configurar LDAP seguro][configure-ldaps].
+As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de segurança da rede para um domínio gerido. Estas regras mantêm o Azure AD DS seguro e permitem que a plataforma Azure monitorize, gere e atualize o domínio gerido.
 
 ### <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
@@ -46,6 +45,9 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 | 65000    | AllVnetInBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Permitir |
 | 65001    | AllowAzureLoadBalancerInBound | Qualquer | Qualquer | AzureLoadBalancer | Qualquer | Permitir |
 | 65500    | DenyAllInBound | Qualquer | Qualquer | Qualquer | Qualquer | Negar |
+
+> [!NOTE]
+> Também pode ter uma regra adicional que permite o tráfego de entrada se [configurar LDAP seguro][configure-ldaps]. Esta regra adicional é necessária para a comunicação LDAPS correta.
 
 ### <a name="outbound-security-rules"></a>Regras de segurança de saída
 
@@ -81,7 +83,7 @@ Para adicionar uma regra de segurança em falta, complete os seguintes passos:
 
 Leva alguns momentos para que a regra de segurança seja adicionada e mostrada na lista.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

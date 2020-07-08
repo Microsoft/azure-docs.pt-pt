@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341016"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço
@@ -25,7 +24,7 @@ As amostras de mensagens Service Bus demonstram características-chave nas [mens
 
 Além disso, o [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) é uma amostra hospedada no GitHub que lhe permite conectar-se a um espaço de nome de serviço de serviço de Service Bus e gerir facilmente entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação e a capacidade de testar entidades de mensagens e serviços de retransmissão. Você pode encontrar a fonte completa de Service Bus Explorer e documentação no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes tópicos para visões conceptuais do Service Bus.
 

@@ -10,10 +10,9 @@ ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
 ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430526"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretação: explicações de modelos na aprendizagem automática de máquinas
@@ -212,6 +211,6 @@ Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho
 
 [![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como pode permitir explicações de modelos e destacar importância em áreas do Azure Machine Learning SDK que não seja o machine learning automatizado, consulte o [artigo de conceito sobre interpretação.](how-to-machine-learning-interpretability.md)

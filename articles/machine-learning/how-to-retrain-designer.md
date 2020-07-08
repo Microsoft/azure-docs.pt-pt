@@ -11,10 +11,9 @@ author: likebupt
 ms.date: 04/06/2020
 ms.custom: designer
 ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430067"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
@@ -117,7 +116,7 @@ Pode encontrar o ponto final REST de um pipeline publicado no painel de visão g
 
 Para fazer uma chamada REST, precisa de um cabeçalho de autenticação do tipo portador OAuth 2.0. Para obter informações sobre a configuração da autenticação no seu espaço de trabalho e fazer uma chamada de REST parametrizada, consulte [Construir um pipeline de Aprendizagem automática Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar um ponto final de pipeline de treino parametrizado usando o designer.
 

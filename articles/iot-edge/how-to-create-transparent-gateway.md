@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782590"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
@@ -156,6 +155,6 @@ Com esta capacidade, os módulos locais ou dispositivos a jusante podem reautor�
 
 Para ativar capacidades offline alargadas, estabelece uma relação pai-filho entre um dispositivo de gateway IoT Edge e dispositivos a jusante que se ligarão a ele. Esses passos são explicados mais detalhadamente no próximo artigo desta série, [Autenticar um dispositivo a jusante para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem um dispositivo IoT Edge configurado como um gateway transparente, precisa de configurar os seus dispositivos a jusante para confiar no gateway e enviar-lhe mensagens. Continue a [autenticar um dispositivo a jusante até ao Azure IoT Hub](how-to-authenticate-downstream-device.md) para os próximos passos na configuração do seu cenário transparente de gateway.

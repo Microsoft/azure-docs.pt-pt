@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 ms.date: 06/16/2020
-ms.openlocfilehash: dcf687a369b32b2055f579f2599a0c3097f9f9f3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
-ms.translationtype: MT
+ms.openlocfilehash: 7bd3f1a5b242ee5196e92456cb3fc8c97f8f5b27
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977765"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958536"
 ---
 # <a name="virtual-machine-certification---issues-and-solutions"></a>Certificação de máquinas virtuais - problemas e soluções
 
@@ -31,8 +30,8 @@ Esta falha ocorrerá quando usou uma imagem base que pertence a outra editora e 
 
 Para corrigir este problema, recupere a sua última imagem do Azure Marketplace e faça alterações nessa imagem. Veja o seguinte para ver as imagens base aprovadas onde pode pesquisar a sua imagem:
 
-- [Imagens Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
-- [Imagens windows](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
+- [Imagens Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Imagens do Windows)](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
@@ -55,11 +54,11 @@ Verifique se as extensões VM estão corretamente ativadas:
 
    ![Provisão conseguiu](./media/vm-certification-issues-solutions-2.png)
 
-   Se a extensão VM falhar, vá utilizar a [extensão de diagnóstico do Linux para monitorizar métricas e registos](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) para a ativar. Se não quiser ativar a extensão VM, contacte a equipa de apoio e peça-lhes que desativem a extensão.
+   Se a extensão VM falhar, vá utilizar a [extensão de diagnóstico do Linux para monitorizar métricas e registos](../../virtual-machines/extensions/diagnostics-linux.md) para a ativar. Se não quiser ativar a extensão VM, contacte a equipa de apoio e peça-lhes que desativem a extensão.
 
 ## <a name="virtual-machine-provisioning-issue"></a>Problema de fornecimento de máquinas virtuais
 
-Verifique se o processo de provisionamento é rigorosamente seguido para o VM antes de submeter a sua oferta. Para ver o formato json para o provisionamento do VM, aceda à [certificação de imagem da Azure Virtual Machine (VM).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template)
+Verifique se o processo de provisionamento é rigorosamente seguido para o VM antes de submeter a sua oferta. Para ver o formato json para o provisionamento do VM, aceda à [certificação de imagem da Azure Virtual Machine (VM).](azure-vm-image-certification.md)
 
 As questões de provisionamento podem incluir os seguintes cenários de falha:
 
@@ -71,8 +70,8 @@ As questões de provisionamento podem incluir os seguintes cenários de falha:
 
 > [!NOTE]
 > Siga estes links para documentação relacionada com a generalização da VM:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image)
+> - [Janelas](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
 
 ## <a name="software-compliance-for-windows"></a>Conformidade de software para Windows
 
@@ -82,13 +81,13 @@ Não crie a sua própria imagem de janela com servidor SQL instalado nele. Em ve
 
 Se estiver a tentar instalar o estúdio Visual ou qualquer produto licenciado em escritório, contacte a equipa de apoio para obter aprovação prévia.
 
-Para mais informações, visite [Crie os seus ativos técnicos da Azure Virtual Machine](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) para selecionar uma base aprovada.
+Para mais informações, visite [Crie os seus ativos técnicos da Máquina Virtual Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)) para selecionar uma base aprovada.
 
 ## <a name="tool-kit-test-case-execution-failed"></a>A execução do caso de teste do kit de ferramenta falhou
 
 O conjunto de ferramentas de certificação da Microsoft irá ajudá-lo a executar casos de teste verificar se o seu VHD/Image é compatível com o ambiente Azure.
 
-Descarregue o [kit de ferramentas da Microsoft Certification](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Descarregue o [kit de ferramentas da Microsoft Certification](azure-vm-image-certification.md).
 
 ## <a name="linux-test-cases"></a>Casos de teste linux
 
@@ -249,7 +248,7 @@ Se a sua imagem não estiver instalada com uma das seguintes versões de kernel,
 
 Todos os VHDs em Azure devem ter um tamanho virtual alinhado a múltiplos de 1 MB. Se o seu VHD não aderir ao tamanho virtual recomendado, o seu pedido poderá ser rejeitado.
 
-Siga as diretrizes, quando estiver a converter de um disco cru para VHD e deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1 MB. Para obter mais informações, consulte [informações sobre distribuições não endossadas](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+Siga as diretrizes, quando estiver a converter de um disco cru para VHD e deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1 MB. Para obter mais informações, consulte [informações sobre distribuições não endossadas](../../virtual-machines/linux/create-upload-generic.md)
 
 ## <a name="vm-access-denied"></a>Acesso VM negado
 

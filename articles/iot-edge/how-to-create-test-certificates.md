@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430672"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge
@@ -53,11 +52,11 @@ Para criar certificados de demonstração num dispositivo Windows, é necessári
 #### <a name="install-openssl"></a>Instalar OpenSSL
 
 Instale o OpenSSL para windows na máquina que está a utilizar para gerar os certificados.
-Se já tiver o OpenSSL instalado no seu dispositivo Windows, pode saltar este passo, mas certifique-se de que o openssl.exe está disponível na variável ambiente PATH.
+Se já tiver o OpenSSL instalado no seu dispositivo Windows, pode saltar este passo, mas certifique-se de que openssl.exe está disponível na variável ambiente PATH.
 
 Existem várias formas de instalar o OpenSSL, incluindo as seguintes opções:
 
-* **Mais fácil:** Faça o download e instale quaisquer [binários OpenSSL de terceiros,](https://wiki.openssl.org/index.php/Binaries)por exemplo, a partir do [OpenSSL na SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para abrir o sl.exe à variável ambiente PATH.
+* **Mais fácil:** Faça o download e instale quaisquer [binários OpenSSL de terceiros,](https://wiki.openssl.org/index.php/Binaries)por exemplo, a partir do [OpenSSL na SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe à variável ambiente PATH.
 
 * **Recomendado:** Faça o download do código fonte OpenSSL e construa os binários na sua máquina por si ou através de [vcpkg](https://github.com/Microsoft/vcpkg). As instruções listadas abaixo utilizam vcpkg para descarregar código fonte, compilar e instalar o OpenSSL na sua máquina Windows com passos fáceis.
 

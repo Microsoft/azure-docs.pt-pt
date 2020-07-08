@@ -11,10 +11,9 @@ ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
 ms.openlocfilehash: 0f56ab853983ebf9b3e27f38ae1737c0c2bce4ed
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430290"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detetar deriva de dados (pré-visualização) em modelos implantados no Serviço Azure Kubernetes (AKS)
@@ -187,7 +186,7 @@ Quando a deriva de dados impacta negativamente o desempenho do seu modelo implan
 * Avaliar o desempenho do modelo recém-gerado.
 * Implementar um novo modelo se o desempenho for melhor do que o modelo de produção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter um exemplo completo da utilização da deriva de dados, consulte o [caderno de deriva de dados Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Este Caderno Jupyter demonstra o uso de um [Azure Open Dataset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o tempo, implantá-lo para AKS e monitorizar a deriva de dados. 
 

@@ -16,10 +16,9 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ee40748b8b23295ccca276012cd0a35c965da03
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84728797"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrições e limites de serviço do Azure AD
@@ -28,6 +27,6 @@ Este artigo contém as restrições de utilização e outros limites de serviço
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Inscrever-se no Azure como uma organização](../fundamentals/sign-up-organization.md)
 * [Como as subscrições do Azure são associadas ao Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

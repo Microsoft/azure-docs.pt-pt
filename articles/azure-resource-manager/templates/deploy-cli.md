@@ -4,10 +4,9 @@ description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recur
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432075"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
@@ -145,7 +144,7 @@ az deployment group create \
 
 Obter um valor de parâmetro de um ficheiro é útil quando é necessário fornecer valores de configuração. Por exemplo, pode fornecer [valores de ineção de nuvem para uma máquina virtual Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-O formato arrayContent.json é:
+A arrayContent.jsno formato é:
 
 ```json
 [
@@ -160,7 +159,7 @@ Em vez de passar parâmetros como valores inline no seu script, pode ser mais f�
 
 Para obter mais informações sobre o ficheiro parâmetro, consulte o [ficheiro de parâmetros Do Gestor de Recursos](parameter-files.md).
 
-Para passar um ficheiro de parâmetro local, use `@` para especificar um ficheiro local chamado storage.parameters.json.
+Para passar um ficheiro de parâmetro local, use `@` para especificar um ficheiro local chamado storage.parameters.jsligado.
 
 ```azurecli-interactive
 az deployment group create \
@@ -192,7 +191,7 @@ Para implementar um modelo com cordas ou comentários multi-linhas utilizando o 
   ],
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

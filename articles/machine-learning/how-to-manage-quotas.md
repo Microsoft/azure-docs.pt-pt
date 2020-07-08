@@ -12,10 +12,9 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
 ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430460"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
@@ -147,7 +146,7 @@ Ao solicitar um aumento de quota, precisa de selecionar o serviço que está a s
 > [!NOTE]
 > [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [upgrade Azure Free Trial para Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) e [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais com estes artigos:
 

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783168"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use o livestream de caça em Azure Sentinel para detetar ameaças
@@ -102,7 +101,7 @@ Pode promover uma sessão livestream para um novo alerta selecionando **Elevate 
 
 Esta ação abre o assistente de criação de regras, que é pré-voizado com a consulta que está associada à sessão livestream.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar o livestream de caça em Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

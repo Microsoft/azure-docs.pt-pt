@@ -10,10 +10,9 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783049"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais
@@ -179,5 +178,5 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 
 Os registos também captam periodicamente o estado de saúde da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

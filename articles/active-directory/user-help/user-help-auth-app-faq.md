@@ -13,10 +13,9 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 349ad3a1fbdf9340eb2b6c2ec92ba85b0357dd8c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432526"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
@@ -25,7 +24,7 @@ Este artigo responde a perguntas comuns sobre a aplicação Microsoft Authentica
 
 A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticator, e é a aplicação recomendada quando utiliza a Autenticação Multi-Factor Azure. A aplicação Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS.](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 | Pergunta | Resposta |
 | -------- | ------ |
@@ -57,7 +56,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 | Os meus códigos de senha única (OTP) não estão a funcionar. O que devo fazer? | Certifique-se de que a data e a hora do seu dispositivo estão corretas e que estão a ser sincronizadas automaticamente. Se a data e a hora estiverem erradas, ou fora de sincronização, o código não funcionará. |
 | O sistema operativo Windows 10 Mobile foi deprecado em dezembro de 2019. Será que o Autenticador Microsoft nos sistemas operativos Windows Mobile também será depreciado? | O autenticador em todos os sistemas operativos Windows Mobile não será suportado após 28 de fevereiro de 2020. Os utilizadores não serão elegíveis para receber quaisquer novas atualizações para a aplicação postar a data acima referida. Depois de 28 de fevereiro de 2020, os serviços da Microsoft que atualmente suportam autenticações utilizando o Microsoft Authenticator em todos os sistemas operativos Windows Mobile começarão a retirar o seu suporte. Para autenticar os serviços da Microsoft, encorajamos todos os nossos utilizadores a mudarem para um mecanismo de autenticação alternativo antes desta data. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se tiver dificuldades em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de verificação do código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de [códigos de verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 

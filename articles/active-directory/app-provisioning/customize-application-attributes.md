@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: kenwith
 ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782046"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
@@ -317,7 +316,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 - A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos mapeamentos do seu atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
 - [Expressãos de escrita para atributos-mapeamentos](../app-provisioning/functions-for-customizing-application-data.md)

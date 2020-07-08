@@ -4,10 +4,9 @@ description: Saiba como instalar um aparelho Azure Migrate no Governo de Azure
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052479"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Montar um aparelho no Governo de Azure 
@@ -49,7 +48,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
 3. Verifique a versão mais recente do aparelho e o valor do haxixe:
 
-    **Algoritmo** | **Transferir** | **SHA256**
+    **Algoritmo** | **Transferência** | **SHA256**
     --- | --- | ---
     VMware (63.1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d582038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
 
@@ -101,7 +100,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
 3. Verifique a versão mais recente do aparelho e o valor do haxixe:
 
-    **Cenário** | **Transferir** | **SHA256**
+    **Cenário** | **Transferência** | **SHA256**
     --- | --- | ---
     Hiper-V (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae4689408e43ab55ff397b77200b92121972e683f9aa3
 
@@ -183,7 +182,7 @@ Para executar o script:
 
 Certifique-se de que o aparelho pode ligar-se aos URLs Azure para [nuvens governamentais](migrate-appliance.md#government-cloud-urls).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 

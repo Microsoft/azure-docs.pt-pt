@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d71e8af607ac15c708ff18a2f2a91e11ed36a987
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987752"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway Azure VPN utilizando o CLI
@@ -45,7 +44,7 @@ Esta secção é necessária antes de efetuar qualquer um dos passos nas outras 
 
 ![Porta de entrada BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Instale a versão mais recente dos comandos CLI (2.0 ou mais tarde). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
 
@@ -301,6 +300,6 @@ az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /
 
 Depois de completar estes passos, a ligação será estabelecida em poucos minutos. A sessão de observação BGP terminará após a conclusão da ligação VNet-vNet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de concluída a sua ligação, pode adicionar máquinas virtuais às suas redes virtuais. Para passos, consulte [Criar uma máquina virtual.](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

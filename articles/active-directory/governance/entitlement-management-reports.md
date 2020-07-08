@@ -17,10 +17,9 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078134"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Ver relatórios e registos na gestão de direitos da AD Azure
@@ -107,7 +106,7 @@ Se o acesso não foi atribuído, então a Azure AD escreve um registo de auditor
 
 Quando a atribuição do pacote de acesso do utilizador expirar, é cancelada pelo utilizador, ou removida por um administrador, então a Azure AD escreve um registo de auditoria para a `EntitlementManagement` categoria com **Atividade** de `Remove access package assignment` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Relatórios de arquivo e registos](entitlement-management-logs-and-reporting.md)
 - [Resolução de problemas Azure AD gestão de direitos](entitlement-management-troubleshoot.md)

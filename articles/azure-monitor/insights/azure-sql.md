@@ -8,10 +8,9 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249420"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitor Azure SQL Database usando Azure SQL Analytics (Pré-visualização)
@@ -31,26 +30,26 @@ Para obter uma visão geral prática sobre a utilização da solução Azure SQL
 
 O Azure SQL Analytics é uma solução de monitorização de nuvem que suporta o streaming de telemetria de diagnóstico para todas as suas bases de dados Azure SQL. Como o Azure SQL Analytics não utiliza agentes para ligar ao Azure Monitor, não suporta a monitorização do SQL Server hospedado no local ou em máquinas virtuais.
 
-| Origem Ligada | Suportado | Description |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
 | [Definições de diagnósticos](../platform/diagnostic-settings.md) | **Sim** | As métricas Azure e os dados de registo são enviados diretamente para os Registos do Monitor Azure pela Azure. |
-| [Conta de armazenamento Azure](../platform/collect-azure-metrics-logs.md) | No | O Azure Monitor não lê os dados de uma conta de armazenamento. |
-| [Agentes do Windows](../platform/agent-windows.md) | No | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
-| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | No | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
+| [Conta de armazenamento Azure](../platform/collect-azure-metrics-logs.md) | Não | O Azure Monitor não lê os dados de uma conta de armazenamento. |
+| [Agentes do Windows](../platform/agent-windows.md) | Não | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
+| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Não | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
 
 ## <a name="azure-sql-analytics-options"></a>Opções Azure SQL Analytics
 
 A tabela abaixo descreve opções suportadas para duas versões do painel Azure SQL Analytics, uma para Azure SQL Database, e outra para bases de dados de Azure SQL Managed Instance.
 
-| Opção Azure SQL Analytics | Description | Suporte à base de dados SQL | Suporte de instância gerida sql |
+| Opção Azure SQL Analytics | Descrição | Suporte à base de dados SQL | Suporte de instância gerida sql |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Perspetiva que conta todos os recursos monitorizados. | Sim | Sim |
 | Informações | Fornece perfuração hierárquica em Insights Inteligentes para o desempenho. | Sim | Sim |
 | Erros | Fornece perfuração hierárquica em erros SQL que aconteceram nas bases de dados. | Sim | Sim |
-| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Yes | Não |
-| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Yes | Não |
-| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Yes | Não |
+| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Sim | Não |
+| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Sim | Não |
+| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Sim | Não |
 | Duração da consulta | Fornece perfuração hierárquica nas estatísticas de execução de consultas tais como duração da consulta, utilização de CPU, utilização de IO de dados, utilização do Log IO. | Sim | Sim |
 | Esperas de consultas | Fornece perfuração hierárquica nas estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
 
@@ -292,7 +291,7 @@ AzureDiagnostics
 
 Enquanto a Azure SQL Analytics é livre de utilizar, o consumo de telemetria de diagnóstico acima das unidades livres de ingestão de dados atribuídas todos os meses aplica-se, consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/monitor). As unidades gratuitas de ingestão de dados disponibilizadas permitem um acompanhamento gratuito de várias bases de dados todos os meses. Bases de dados mais ativas com cargas de trabalho mais pesadas ingerem mais dados versus bases de dados ociosas. Pode monitorizar facilmente o seu consumo de ingestão de dados no Azure SQL Analytics selecionando o espaço de trabalho OMS no menu de navegação do Azure SQL Analytics e, em seguida, selecionando Utilização e Custos Estimados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Utilize [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor para ver dados detalhados do Azure SQL.
 - [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados do Azure SQL.

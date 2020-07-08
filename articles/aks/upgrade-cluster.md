@@ -4,12 +4,11 @@ description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 5f0391c10a99173e7a2d87c1dd08a36852fc0450
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800499"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -17,7 +16,7 @@ Como parte do ciclo de vida de um cluster AKS, você precisa muitas vezes de atu
 
 Para clusters AKS que usam vários nós de nó ou nós do Windows Server (atualmente em pré-visualização em AKS), consulte [atualizar uma piscina de nós em AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -53,6 +52,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 > [!Important]
 > Os aumentos de node requerem quota de subscrição para a contagem máxima de aumento solicitada para cada operação de upgrade. Por exemplo, um cluster que tem 5 piscinas de nó, cada uma com uma contagem de 4 nós, tem um total de 20 nós. Se cada piscina de nódoa tiver um valor máximo de aumento de 50%, é necessário um cálculo adicional e quota IP de 10 nós (2 nós * 5 piscinas) para completar a atualização.
+>
+> Se utilizar o Azure CNI, valide que existem IPs disponíveis na sub-rede, bem como para satisfazer os [requisitos de IP do Azure CNI](configure-azure-cni.md).
 
 Por padrão, a AKS configura upgrades para aumentar com um nó adicional. Um valor predefinido de um para a definição de pico máximo permite que a AKS minimize a perturbação da carga de trabalho criando um nó adicional antes do cordão/drenagem das aplicações existentes para substituir um nó de versão mais antiga. O valor máximo de aumento pode ser personalizado por piscina de nó para permitir uma compensação entre a velocidade de upgrade e a interrupção do upgrade. Ao aumentar o valor máximo de aumento, o processo de upgrade completa-se mais rapidamente, mas definir um grande valor para o pico máximo pode causar interrupções durante o processo de atualização. 
 
@@ -131,7 +132,7 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como atualizar um cluster AKS existente. Para saber mais sobre a implementação e gestão de clusters AKS, consulte o conjunto de tutoriais.
 

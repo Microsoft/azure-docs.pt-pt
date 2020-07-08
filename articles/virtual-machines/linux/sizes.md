@@ -10,17 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 2620795d8c4fc8adf11fc0795048ff9999d6ef83
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783360"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
 Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode usar para executar as suas aplicações e cargas de trabalho Linux. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos. Este artigo também está disponível para [máquinas virtuais do Windows.](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
 
-| Tipo | Tamanhos | Description |
+| Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
 | [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | Relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
 | [Com otimização de computação](../sizes-compute.md) | Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
@@ -50,7 +49,7 @@ Saiba mais sobre como [as unidades de computação Azure (ACU)](../acu.md) podem
 
 Saiba mais sobre o desempenho do cálculo para Os VMs do Linux utilizando as [pontuações de referência](compute-benchmark-scores.md)do CoreMark .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

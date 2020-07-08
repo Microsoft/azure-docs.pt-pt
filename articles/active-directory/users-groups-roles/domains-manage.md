@@ -15,10 +15,9 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c58086a163bf558ffdc71e51e55d296e8d4d25e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84728593"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
@@ -89,7 +88,7 @@ Um erro é devolvido quando:
 * O número de objetos a renomear é superior a 1000
 * Uma das aplicações a renomear é uma app multi-inquilino
 
-### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Porque é que a supressão de domínio está a falhar com um erro que diz que tenho grupos dominados por Exchange neste nome de domínio?** <br>
 **A:** Hoje em dia, certos grupos como os grupos de Segurança Via-Mail e as listas distribuídas são a provisionados pela Exchange e precisam de ser limpos manualmente no [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Pode haver ProxyAddresses persistentes que dependem do nome de domínio personalizado e terão de ser atualizados manualmente para outro nome de domínio. 
@@ -113,7 +112,7 @@ A maioria das tarefas de gestão para nomes de domínio no Azure Ative Directory
 * [Utilizar o PowerShell para gerir nomes de domínio em Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Tipo de recurso de domínio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar nomes de domínio personalizados](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Remova grupos de segurança habilitados por correio de Exchange no Exchange Admin Center em um nome de domínio personalizado em Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)

@@ -12,10 +12,9 @@ ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782012"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador

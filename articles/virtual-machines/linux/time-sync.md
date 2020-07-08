@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782777"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para Os VMs Linux em Azure
@@ -162,7 +161,7 @@ systemctl restart chronyd
 
 Nos lançamentos SUSE e Ubuntu antes das 19.10, a sincronização do tempo é configurada utilizando [sistemas](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre ubuntu, consulte [a Sincronização temporal.](https://help.ubuntu.com/lts/serverguide/NTP.html) Para obter mais informações sobre sUSE, consulte a Secção 4.5.8 no [SUSE Linux Enterprise Server 12 SP3 Notas de lançamento](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [a hora exata para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
 

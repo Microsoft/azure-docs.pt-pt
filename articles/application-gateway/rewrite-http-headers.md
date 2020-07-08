@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248688"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com Gateway de Aplicação
@@ -60,7 +59,7 @@ O Application Gateway utiliza variáveis de servidor para armazenar informaçõe
 
 O gateway de aplicações suporta estas variáveis de servidor:
 
-| Nome da variável | Description                                                  |
+| Nome da variável | Descrição                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | O campo de cabeçalho de pedido de cliente X-Forwarded-For com a `client_ip` variável (ver explicação mais tarde nesta tabela) anexado a ele no formato IP1, IP2, IP3, e assim por diante. Se o campo X-Forwarded-For não estiver no cabeçalho de pedido do cliente, a `add_x_forwarded_for_proxy` variável é igual à `$client_ip` variável. Esta variável é particularmente útil quando pretende reescrever o cabeçalho X-Forwarded-For definido pelo Application Gateway para que o cabeçalho contenha apenas o endereço IP sem a informação da porta. |
 | ciphers_supported          | Uma lista das cifras apoiadas pelo cliente.          |
@@ -164,7 +163,7 @@ Pode avaliar um pedido HTTP ou cabeçalho de resposta para a presença de uma va
 
 - Os nomes dos cabeçalhos podem conter quaisquer caracteres alfanuméricos e símbolos específicos, tal como definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente, não apoiamos o carácter especial sublinhado \_ em nomes de Cabeçalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a reescrever cabeçalhos HTTP, consulte:
 

@@ -4,10 +4,9 @@ description: Aprenda a ver todos os laboratórios numa conta de laboratório e e
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443490"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Gerir laboratórios numa conta de laboratório
@@ -36,5 +35,5 @@ Siga as instruções na secção anterior para ver uma lista dos laboratórios n
 
     ![Confirmar a eliminação do laboratório](./media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outros artigos na secção **"Como-a-Guias**  ->  **Criar e configurar contas de laboratório" (dono** de conta de laboratório) da tabela de conteúdos (TOC). 

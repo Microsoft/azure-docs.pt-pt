@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676578"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensagens de erro para VMs spot e conjuntos de escala

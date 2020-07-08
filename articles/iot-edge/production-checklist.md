@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431922"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
@@ -181,7 +180,7 @@ Obtenha as imagens com o comando de puxar o Docker para colocar no seu registo p
 | [Agente Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-Em seguida, certifique-se de atualizar as referências de imagem no ficheiro implementação.template.json para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` o nome do registo e o servidor por ambos os módulos.
+Em seguida, certifique-se de atualizar as referências de imagem no deployment.template.jsem arquivo para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` o nome do registo e o servidor por ambos os módulos.
 
 * edgeAgent:
 
@@ -191,7 +190,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no ficheiro imp
 
     `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 * **Útil**
   * Revisão da configuração de saída/entrada
@@ -320,7 +319,7 @@ Pode fazê-lo nas **opções de criação** de cada módulo. Por exemplo:
 
 Para o cenário de implementação IoT Edge mais eficiente, considere integrar a sua implantação de produção nos seus testes e oleodutos CI/CD. Azure IoT Edge suporta várias plataformas ci/CD, incluindo Azure DevOps. Para obter mais informações, consulte [integração contínua e implementação contínua para Azure IoT Edge](how-to-ci-cd.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a implementação automática IoT Edge](module-deployment-monitoring.md).
 * Veja como o IoT Edge suporta [a integração contínua e a implementação contínua.](how-to-ci-cd.md)

@@ -4,10 +4,9 @@ description: Utilize o Azure Resource Manager e a Azure PowerShell para mobiliza
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: af255e0248c029f42c9c2999ae7c0389d60c58fc
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431833"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
@@ -54,7 +53,7 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de um modelo para implementar. Se ainda não tiver um, faça o download e guarde um modelo de [exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repo dos modelos Azure Quickstart. O nome do ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
+Precisa de um modelo para implementar. Se ainda não tiver um, faça o download e guarde um modelo de [exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repo dos modelos Azure Quickstart. O nome do ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.jsem**.
 
 A menos que utilize a Azure Cloud Shell para implementar modelos, precisa instalar a Azure PowerShell e ligar-se ao Azure:
 
@@ -175,7 +174,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

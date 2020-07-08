@@ -11,10 +11,9 @@ author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019, designer
 ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84429941"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
@@ -142,7 +141,7 @@ Também pode definir um novo pipeline padrão no **separador de gasodutos Public
 
 ![Definir o gasoduto predefinido](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.
 ''

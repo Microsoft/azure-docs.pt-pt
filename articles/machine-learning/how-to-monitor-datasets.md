@@ -11,10 +11,9 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
 ms.openlocfilehash: 15cfa56f718290af3ae5fb87aadab70016cc8594
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430235"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
@@ -61,7 +60,7 @@ Pode criar um monitor de conjuntos de dados para detetar e alertar para a deriva
 
 Conceptualmente, existem três cenários primários para a criação de monitores de conjuntos de dados em Azure Machine Learning.
 
-Cenário | Description
+Scenario | Descrição
 ---|---
 Monitorizar os dados de serviço de um modelo para deriva dos dados de formação do modelo | Os resultados deste cenário podem ser interpretados como monitorização de um proxy para a precisão do modelo, dado que a precisão do modelo se degrada se os dados de serviço derivarem dos dados de treino.
 Monitorização de um conjunto de dados de séries de tempo para deriva de um período de tempo anterior. | Este cenário é mais geral, e pode ser usado para monitorizar conjuntos de dados envolvidos a montante ou a jusante da construção de modelos.  O conjunto de dados-alvo deve ter uma coluna de timetamp, enquanto o conjunto de dados de base pode ser qualquer conjunto de dados tabular que tenha características em comum com o conjunto de dados-alvo.
@@ -129,31 +128,31 @@ As várias definições do monitor do conjunto de dados são divididas em três 
 
 Esta tabela contém definições básicas utilizadas para o monitor do conjunto de dados.
 
-| Definição | Description | Sugestões | Mutável | 
+| Definição | Descrição | Sugestões | Mutável | 
 | ------- | ----------- | ---- | ------- | 
-| Name | Nome do monitor do conjunto de dados. | | No |
-| Conjunto de dados de base | Conjunto de dados tabulares que será usado como base para comparação do conjunto de dados-alvo ao longo do tempo. | O conjunto de dados de base deve ter características em comum com o conjunto de dados-alvo. Geralmente, a linha de base deve ser definida para o conjunto de dados de treino de um modelo ou uma fatia do conjunto de dados-alvo. | No |
-| Conjunto de dados-alvo | Conjunto de dados tabular com coluna de hora especificada que será analisada para deriva de dados. | O conjunto de dados-alvo deve ter funcionalidades em comum com o conjunto de dados de base, e deve ser um `timeseries` conjunto de dados, a que os novos dados são anexados. Os dados históricos no conjunto de dados-alvo podem ser analisados ou novos dados podem ser monitorizados. | No | 
-| Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Ajuste esta definição para incluir um tamanho comparável de dados à linha de base. | No | 
-| Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Yes | 
-| Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Yes | 
+| Name | Nome do monitor do conjunto de dados. | | Não |
+| Conjunto de dados de base | Conjunto de dados tabulares que será usado como base para comparação do conjunto de dados-alvo ao longo do tempo. | O conjunto de dados de base deve ter características em comum com o conjunto de dados-alvo. Geralmente, a linha de base deve ser definida para o conjunto de dados de treino de um modelo ou uma fatia do conjunto de dados-alvo. | Não |
+| Conjunto de dados-alvo | Conjunto de dados tabular com coluna de hora especificada que será analisada para deriva de dados. | O conjunto de dados-alvo deve ter funcionalidades em comum com o conjunto de dados de base, e deve ser um `timeseries` conjunto de dados, a que os novos dados são anexados. Os dados históricos no conjunto de dados-alvo podem ser analisados ou novos dados podem ser monitorizados. | Não | 
+| Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Ajuste esta definição para incluir um tamanho comparável de dados à linha de base. | Não | 
+| Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Sim | 
+| Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Sim | 
 
 ### <a name="monitor-settings"></a>Definições de monitor
 
 Estas definições destinam-se ao pipeline de monitor de conjunto de dados programado, que será criado. 
 
-| Definição | Description | Sugestões | Mutável | 
+| Definição | Descrição | Sugestões | Mutável | 
 | ------- | ----------- | ---- | ------- |
-| Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Yes | 
-| Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | No | 
-| Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Yes | 
-| Limiar | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Yes | 
+| Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Sim | 
+| Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | Não | 
+| Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Sim | 
+| Limiar | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Sim | 
 
 ### <a name="backfill-settings"></a>Definições de enchimento de retos
 
 Estas definições são para executar um enchimento em dados passados para métricas de deriva de dados.
 
-| Definição | Description | Sugestões |
+| Definição | Descrição | Sugestões |
 | ------- | ----------- | ---- |
 | Data de início | Data de início do trabalho de retos. | | 
 | Data de fim | Data de fim do trabalho de retos. | A data de fim não pode ser mais de 31*unidades de frequência a partir da data de início. Num monitor de conjuntos de dados existente, as métricas podem ser preenchidas para analisar dados históricos ou substituir métricas por configurações atualizadas. |
@@ -324,7 +323,7 @@ Colunas ou características, no conjunto de dados são classificadas como categ�
 | Categórico | corda, bool, int, flutuar | O número de valores únicos na funcionalidade é inferior a 100 e menos de 5% do número de linhas. | O nulo é tratado como a sua própria categoria. | 
 | Numérico | int, flutuar | Os valores na funcionalidade são de um tipo de dado numérico e não correspondem à condição de uma característica categórica. | A função caiu se >15% dos valores forem nulos. | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Dirija-se ao [estúdio Azure Machine Learning](https://ml.azure.com) ou ao caderno [Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar um monitor de conjunto de dados.
 * Veja como configurar a deriva de dados em [modelos implantados no Serviço Azure Kubernetes](how-to-monitor-data-drift.md).

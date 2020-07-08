@@ -6,16 +6,15 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ad2867ffdea512348002d03ec742af42b535b31
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
-ms.translationtype: MT
+ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750215"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958426"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Melhores práticas para piscinas SQL em Azure Synapse Analytics
 
@@ -189,7 +188,7 @@ As piscinas SQL têm vários DMVs que podem ser usados para monitorizar a execu�
 - [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte também o artigo [de resolução de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns.
 

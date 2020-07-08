@@ -12,10 +12,9 @@ ms.date: 11/15/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782063"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configure o provisionamento utilizando apis de gráficos da Microsoft
