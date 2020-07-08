@@ -10,10 +10,10 @@ ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
 ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262740"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referência dos dados de monitorização do Azure Cosmos DB
@@ -23,7 +23,7 @@ Este artigo fornece uma referência dos registos e dos dados métricos recolhido
 ## <a name="resource-logs"></a>Registos do recurso
 A tabela que se segue lista as propriedades dos registos de recursos DB da Azure Cosmos quando são recolhidas em Registos monitores Azure ou Azure Storage. Nos Registos do Monitor Azure, são recolhidos na tabela **AzureDiagnostics** com um valor **Deprovider** de recursos *deMICROSOFT.DOCUMENTDB*. 
 
-| Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Description |
+| Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Descrição |
 | --- | --- | --- |
 | **tempo** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
 | **recursosId** | **Recurso** | A conta DB do Azure Cosmos para os registos que estão ativados.|
@@ -53,7 +53,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 
 #### <a name="request-metrics"></a>Solicitar métricas
             
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação) |Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação) |Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | Total de Reques (Total de Pedidos) | Contagem (Contagem) | Número de pedidos feitos| Data de dadosName, Nome de Recolha, Região, StatusCode| Todos | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Erro do Servidor Interno, Serviço Indisponível, Pedidos De Throttled, Pedidos Médios por Segundo | Usado para monitorizar pedidos por código de estado, recipiente a um minuto de granularidade. Para obter pedidos médios por segundo, use a agregação count ao minuto e divida por 60. |
 | MetadadosRequests (Pedidos de Metadados) |Contagem (Contagem) | Contagem de pedidos de metadados. O Azure Cosmos DB mantém o contentor de metadados do sistema para cada conta, que lhe permite enumerar recolhas, bases de dados, etc., e as suas configurações, gratuitamente. | Data de dadosName, Nome de Recolha, Região, StatusCode| Todos| |Usado para monitorizar aceleradores devido a pedidos de metadados.|
@@ -61,7 +61,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 
 #### <a name="request-unit-metrics"></a>Métricas da Unidade de Pedido
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Taxa de Pedido de Mongo) | Contagem (Total) |Unidades de pedido da Mongo Consumidas| Nome de dados, Nome de Recolha, Região, Nome de Comando, Código de Erro| Todos |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Usado para monitorizar os recursos da Mongo RUs num minuto.|
 | Total DerequestUnits (Unidades totais de pedido)| Contagem (Total) | Unidades de pedido consumidas| Data de dadosName, Nome de Recolha, Região, StatusCode |Todos| TotalRequestUnits| Utilizado para monitorizar o uso total de RU a um minuto de granularidade. Para obter ru médio consumido por segundo, use agregação total ao minuto e divida por 60.|
@@ -69,7 +69,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 
 #### <a name="storage-metrics"></a>Métricas de armazenamento
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | Availablestorage (Armazenamento Disponível) |Bytes (Total) | Armazenamento total disponível reportado a 5 minutos de granularidade por região| Nome de dados, Nome de Recolha, Região| 5M| Armazenamento Disponível| Utilizado para monitorizar a capacidade de armazenamento disponível (aplicável apenas para recolhas fixas de armazenamento) A granularidade mínima deve ser de 5 minutos.| 
 | DataUsage (Utilização de Dados) |Bytes (Total) |Total de utilização de dados reportados a 5 minutos de granularidade por região| Nome de dados, Nome de Recolha, Região| 5M |Tamanho dos dados | Utilizado para monitorizar o uso total de dados no contentor e na região, a granularidade mínima deve ser de 5 minutos.|
@@ -79,7 +79,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 
 #### <a name="latency-metrics"></a>Métricas de latência
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Utilização |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Latência de replicação)| MilliSegundos (Mínimo, Máximo, Média) | P99 Replicação Latência em todas as regiões de origem e alvo para conta geo-habilitada| SourceRegion, TargetRegion| Todos | Usado para monitorizar a latência de replicação P99 entre duas regiões para uma conta geo-replicada. |
 | Latência do lado do servidor| MilliSegundos (Média) | Tempo demorado pelo servidor para processar o pedido. | ColeçãoName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Região | Todos | Usado para monitorizar a latência do pedido no servidor DB Azure Cosmos. |
@@ -88,14 +88,14 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 
 #### <a name="availability-metrics"></a>Métricas de disponibilidade
 
-|Métrica (Nome de Exibição Métrica) |Unidade (Tipo de agregação)|Description| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica) |Unidade (Tipo de agregação)|Descrição| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---|
 | ServiçoSadisponibilidade (Disponibilidade de Serviço)| Por cento (Mínimo, Máximo) | Conta solicita disponibilidade a uma hora de granularidade| 1H | Disponibilidade de serviço | Representa a percentagem do total de pedidos aprovados. Considera-se que um pedido foi falhado devido a um erro do sistema se o código de estado for 410, 500 ou 503 Utilizado para monitorizar a disponibilidade da conta à hora de granularidade. |
 
 
 #### <a name="cassandra-api-metrics"></a>Métricas da API de Cassandra
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Utilização |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Pedidos de Cassandra) | Contagem (Contagem) | Número de pedidos da Cassandra API feitos| Nome de dados, Nome de Recolha, Código de Erro, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar os pedidos de Cassandra num minuto de granularidade. Para obter pedidos médios por segundo, use a agregação count ao minuto e divida por 60.|
 | CassandraRequestCharges (Cassandra Request Charges) | Conde (Soma, Min, Max, Avg) | Unidades de pedido consumidas por pedidos da API de Cassandra| Nome de dados, Nome de Recolha, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar rUs usados por minuto por uma conta API Cassandra.|

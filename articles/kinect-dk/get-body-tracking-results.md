@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, corpo, rastreamento, articulação
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277559"
 ---
-# <a name="get-body-tracking-results"></a>Obtenha resultados de rastreio corporal
+# <a name="get-body-tracking-results"></a>Obter resultados de deteção de movimentos
 
 O Body Tracking SDK usa um objeto de rastreador corporal para processar capturas de DK do Azure Kinect e gera resultados de rastreio do corpo. Também mantém o estatuto global do rastreador, das filas de processamento e da fila de saída. Há três passos na utilização do localizador do corpo:
 
@@ -128,7 +128,7 @@ if (pop_frame_result != K4A_WAIT_RESULT_SUCCEEDED)
 k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
->[Dados de acesso no quadro do corpo](access-data-body-frame.md)
+>[Aceder aos dados na moldura do corpo](access-data-body-frame.md)

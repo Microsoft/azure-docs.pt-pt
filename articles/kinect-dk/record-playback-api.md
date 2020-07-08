@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, record, reprodução, matroska, mkv
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277468"
 ---
 # <a name="the-azure-kinect-playback-api"></a>A AZure Kinect reprodução API
@@ -148,10 +148,10 @@ Se uma etiqueta não existe, presume-se que tem o valor padrão.
 | `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/D                                  | Versão de firmware de profundidade do dispositivo, por exemplo "1.x.xx"                                                            |
 | `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/D                                  | Número de série do dispositivo de gravação                                                                                 |
 | `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | Consulte a [sincronização do timetamp](record-playback-api.md#timestamp-synchronization) abaixo.                       |
-| `K4A_COLOR_TRACK`            | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_DEPTH_TRACK`            | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_IR_TRACK`               | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_IMU_TRACK`              | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_COLOR_TRACK`            | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_DEPTH_TRACK`            | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_IR_TRACK`               | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_IMU_TRACK`              | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
 
 ## <a name="timestamp-synchronization"></a>Sincronização do timetamp
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263012"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de alteração DB do Azure Cosmos para visualizar a análise de dados em tempo real
@@ -392,6 +392,6 @@ Irá agora observar como pode utilizar a sua nova ferramenta de análise de dado
 
 Para eliminar os recursos que criou durante este laboratório, navegue para o grupo de recursos no [portal Azure](https://portal.azure.com/), em seguida, selecione **Delete grupo** de recursos do menu no topo da página e siga as instruções fornecidas.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
   
 * Para saber mais sobre a mudança de feed, consulte [trabalhar com o suporte de feed de mudança em Azure Cosmos DB](change-feed.md) 

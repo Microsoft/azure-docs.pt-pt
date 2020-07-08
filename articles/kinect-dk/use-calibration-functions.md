@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, sistema de coordenadas, calibração, funções, câmara, intrínseco, extrínseco, projeto, nãoprojecto, transformação, rgb-d, nuvem de ponto
 ms.openlocfilehash: a501765222154bde4ed35e878a9d18042893fca2
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277495"
 ---
 # <a name="use-azure-kinect-calibration-functions"></a>Utilize funções de calibração Azure Kinect
@@ -54,11 +54,11 @@ A função [k4a_calibration_2d_to_2d converte](https://microsoft.github.io/Azure
 - [Exemplo de indistorção](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/undistort)
 - [Exemplo de nuvem de ponto rápido](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/fastpointcloud)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe sobre calibrações de câmaras, também pode aprender a
 >[!div class="nextstepaction"]
->[Captura sincronização do dispositivo](capture-device-synchronization.md)
+>[Capturar a sincronização do dispositivo](capture-device-synchronization.md)
 
 Também pode rever
 

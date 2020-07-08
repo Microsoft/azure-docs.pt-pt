@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: how-to
 keywords: corpo, quadro, azul, cinect, corpo, rastreamento, dicas
 ms.openlocfilehash: be44f59cb84e99129bf526575293eee69ca64598
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277565"
 ---
-# <a name="access-data-in-body-frame"></a>Dados de acesso no quadro do corpo
+# <a name="access-data-in-body-frame"></a>Aceder aos dados na moldura do corpo
 
 Este artigo descreve os dados contidos numa moldura corporal e as funções de acesso a esses dados.
 
@@ -73,7 +73,7 @@ k4a_capture_t input_capture = k4abt_frame_get_capture(body_frame);
 k4a_capture_release(input_capture);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)

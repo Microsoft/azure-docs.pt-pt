@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262468"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados da Oracle para a Azure Cosmos DB Cassandra Conta API usando Blitzz
@@ -146,8 +146,8 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
 Para saber mais sobre a migração de dados para destino, migração em tempo real, consulte a [demonstração replicante blitzz.](https://www.youtube.com/watch?v=y5ZeRK5A-MI)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md) 
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md) 
 * [Principais práticas de partição](partitioning-overview.md#choose-partitionkey)
 * [Estimativa RU/s usando os artigos de planificador de capacidadeS do Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

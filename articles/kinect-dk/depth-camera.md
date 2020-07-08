@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, câmara de profundidade, tof, princípios, desempenho, invalidação
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277510"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Câmera de profundidade Azure Kinect DK
@@ -106,6 +106,6 @@ Outro caso comum de multipata são os pixels que contêm o sinal misto de primei
 
 ![Invalidação MultiPath - Bordas](./media/concepts/depth-camera-invalidation-edge.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Sistemas de coordenadas](coordinate-systems.md)

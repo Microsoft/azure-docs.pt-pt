@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azul, kinect, sdk, atualização de download, mais recente, disponível, instalar, corpo, rastreio
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277583"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Baixar Azure Kinect Body Tracking SDK
@@ -26,7 +26,7 @@ Este documento fornece links para instalar cada versão do Azure Kinect Body Tra
 
 ## <a name="windows-download-links"></a>Links de descarregamento do Windows
 
-Versão       | Transferência
+Versão       | Download
 --------------|----------
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
 1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0)
@@ -114,10 +114,10 @@ Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
 * [API Change] Função `k4abt_frame_get_timestamp_usec()` adicional para simplificar os passos para os utilizadores consultarem o calendário da moldura do corpo.
 * Melhorou ainda mais a precisão do algoritmo de rastreio do corpo e a fiabilidade do rastreio
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do Azure Kinect DK](about-azure-kinect-dk.md)
 
-- [Configurar Azure Kinect DK](set-up-azure-kinect-dk.md)
+- [Configurar o Azure Kinect DK](set-up-azure-kinect-dk.md)
 
 - [Configurar o rastreio do corpo de Azure Kinect](body-sdk-setup.md)

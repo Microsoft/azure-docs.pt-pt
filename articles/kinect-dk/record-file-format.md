@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, record, reprodução, matroska, mkv
 ms.openlocfilehash: d0f7653afe3cc92e059b2615ebef18312faa716b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277507"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Utilize o Sensor Azure Kinect SDK para gravar o formato de ficheiro
@@ -72,6 +72,6 @@ A lista completa de tags está listada na página [De Gravação e Reprodução.
 | K4A_IMU_TRACK        | Pista IMU              | Matroska Track UID    |
 | K4A_CALIBRATION_FILE | Acessório de calibração | Nome de arquivo anexo   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Record e Playback](record-playback-api.md)

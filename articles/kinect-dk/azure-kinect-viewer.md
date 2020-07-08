@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azul, cinect, sensor, espectador, visualização, profundidade, rgb, cor, imu, áudio, microfone, nuvem de ponto
 ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277486"
 ---
 # <a name="azure-kinect-viewer"></a>Espectador Azure Kinect
@@ -56,7 +56,7 @@ Aceda à versão do firmware do dispositivo na janela de configuração, como mo
 
 Por exemplo, neste caso, a câmara de profundidade ISP está a executar FW 1.5.63.
 
-## <a name="depth-camera"></a>Câmera de profundidade
+## <a name="depth-camera"></a>Câmara de profundidade
 
 O espectador de câmara de profundidade mostrará duas janelas:
 
@@ -108,7 +108,7 @@ Ao alterar a configuração ou inserir/remover o cabo de sincronização, seleci
 
 ![Controlo de sincronização externa](./media/how-to-guides/sync-control.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Guia de configuração de sincronização externa](https://support.microsoft.com/help/4494429/sync-multiple-azure-kinect-dk-devices)

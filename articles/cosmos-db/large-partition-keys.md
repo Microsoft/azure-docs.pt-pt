@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 853d3fa79436d9af0119aada86d283f9970d4ef2
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262808"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar recipientes com chave de partição grande
@@ -77,9 +77,9 @@ As teclas de partição grandes são suportadas com as seguintes versões mínim
 
 Atualmente, não é possível utilizar recipientes com chave de partição grande dentro de Power BI e Azure Logic Apps. Pode utilizar recipientes sem uma grande chave de partição destas aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com uma conta do Azure Cosmos](account-overview.md)

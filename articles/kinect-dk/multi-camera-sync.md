@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 keywords: azul, cinect, especificações, hardware, DK, capacidades, profundidade, cor, RGB, IMU, array, profundidade, multi, sincronização
 ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277577"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos DK Azure Kinect
@@ -185,7 +185,7 @@ Existem múltiplas opções para dispositivos de calibração cruzada. A Microso
 
 Para obter mais informações sobre a calibração, consulte [as funções de calibração do Azure Kinect](use-calibration-functions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar dispositivos sincronizados, também pode aprender a usar o
 > [!div class="nextstepaction"]
@@ -197,5 +197,5 @@ Depois de configurar dispositivos sincronizados, também pode aprender a usar o
 - [Especificações de hardware Azure Kinect DK](hardware-specification.md) 
 - [Quickstart: Configurar o seu Azure Kinect DK](set-up-azure-kinect-dk.md) 
 - [Atualizar firmware Azure Kinect DK](update-device-firmware.md) 
-- [Reset Azure Kinect DK](reset-azure-kinect-dk.md) 
+- [Repor o Azure Kinect DK](reset-azure-kinect-dk.md) 
 - [Espectador Azure Kinect](azure-kinect-viewer.md) 

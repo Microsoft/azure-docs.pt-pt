@@ -4,10 +4,10 @@ description: Saiba como gerir eficazmente o Azure Sentinel em recursos de client
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85269135"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
@@ -76,7 +76,7 @@ Você pode usar a automatização para gerir vários espaços de trabalho do Azu
 
 Note que algumas capacidades não são [suportadas atualmente em vários espaços de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [Azure Sentinel.](../../sentinel/overview.md)
 - Reveja a [página de preços do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).

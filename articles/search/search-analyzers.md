@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.openlocfilehash: 591bff468c90b17812554b02810d9a6cd4f874d1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262162"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto em Pesquisa Cognitiva Azure
@@ -44,7 +44,7 @@ Pode anular o padrão numa base campo a campo. Os analisadores alternativos pode
 
 A lista que se segue descreve quais os analisadores disponíveis na Pesquisa Cognitiva de Azure.
 
-| Categoria | Description |
+| Categoria | Descrição |
 |----------|-------------|
 | [Analisador padrão lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predefinição. Não é necessária especificação ou configuração. Este analisador de propósito geral tem um bom desempenho para muitas línguas e cenários.|
 | Analisadores predefinidos | Oferecido como um produto acabado destinado a ser utilizado como tal. <br/>Há dois tipos: especializados e linguagem. O que os torna "predefinidos" é que os referencia pelo nome, sem configuração ou personalização. <br/><br/>[Os analisadores especializados (linguísticos agnósticos)](index-add-custom-analyzers.md#AnalyzerTable) são utilizados quando as entradas de texto requerem processamento especializado ou processamento mínimo. Os analisadores predefinidos não linguísticos incluem **Asciifolding,** **Palavra-chave,** **Padrão,** **Simples,** **Paragem,** **Espaço Branco.**<br/><br/>[Os analisadores linguísticos](index-add-language-analyzers.md) são usados quando você precisa de um apoio linguístico rico para línguas individuais. A Azure Cognitive Search suporta 35 analisadores de língua Lucene e 50 analisadores de processamento de linguagem natural da Microsoft. |
@@ -364,7 +364,7 @@ Crie um objeto [PersonalizadoAnalyzer.](https://docs.microsoft.com/dotnet/api/mi
    serviceClient.Indexes.Create(definition);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Reveja a nossa explicação completa de como a pesquisa completa de [texto funciona na Pesquisa Cognitiva Azure.](search-lucene-query-architecture.md) Este artigo usa exemplos para explicar comportamentos que podem parecer contraintuitivos na superfície.
 
@@ -374,7 +374,7 @@ Crie um objeto [PersonalizadoAnalyzer.](https://docs.microsoft.com/dotnet/api/mi
 
 + [Configure os analisadores personalizados](index-add-custom-analyzers.md) para o processamento mínimo ou para o processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST) 
 

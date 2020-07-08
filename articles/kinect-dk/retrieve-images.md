@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, recuperar, sensor, câmera, sdk, profundidade, rgb, imagens, cor, captura, resolução, tampão
 ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277462"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Recuperar dados de imagem do Azure Kinect
@@ -118,12 +118,12 @@ if (image != NULL)
 k4a_capture_release(capture);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora sabe capturar e coordenar as imagens das câmaras entre a cor e a profundidade, utilizando o seu dispositivo Azure Kinect. Também pode:
 
 >[!div class="nextstepaction"]
->[Recuperar amostras de IMU](retrieve-imu-samples.md)
+>[Obter exemplos de IMU](retrieve-imu-samples.md)
 
 >[!div class="nextstepaction"]
 >[Microfones de acesso](access-mics.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.subservice: ''
 ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85269040"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation
@@ -155,6 +155,6 @@ Pode utilizar as seguintes opções para configurar as definições de DNS para 
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

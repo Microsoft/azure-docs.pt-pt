@@ -10,10 +10,10 @@ ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: f1d8bad3d0d3e73a387bdc76131461e5061bafce
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263182"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número certo de domínios de falha para conjuntos de dimensionamento de máquinas virtuais
@@ -40,5 +40,5 @@ az vmss create \
 
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [disponibilidade e recursos de redundância](../virtual-machines/windows/availability.md) para ambientes Azure.

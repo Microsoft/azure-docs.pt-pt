@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262672"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
@@ -33,7 +33,7 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).  
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).  
 2. Selecione **Criar um > de segurança > cofre de chaves**.  
 3. Na secção **Criar cofre de chaves**, forneça as seguintes informações:  
    * **Nome:** Forneça um nome único para o seu Cofre de Chaves.  
@@ -92,7 +92,7 @@ Agora, se executar o formulário, pode ler o segredo de Key Vault.
  
 Da mesma forma, pode adicionar um utilizador para aceder ao cofre da chave. Tem de se adicionar ao Cofre-Chave selecionando **As Políticas** de Acesso e, em seguida, conceder todas as permissões necessárias para executar a aplicação a partir do estúdio Visual. Quando esta aplicação está a funcionar a partir do seu ambiente de trabalho, retira a sua identidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para configurar uma firewall para Azure Cosmos DB ver artigo [de suporte de firewall.](firewall-support.md)
 * Para configurar o ponto final do serviço de rede virtual, consulte o acesso seguro utilizando o artigo [de ponto final do serviço VNet.](vnet-service-endpoint.md)
