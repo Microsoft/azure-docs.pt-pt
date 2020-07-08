@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a33d3e8b330f5ee8549f536bbfba958d96d8e59b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a37f57bc12e5756b493bb009268beb067e7faaab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833983"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -238,7 +238,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
-**Orientação**: Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar registos do Azure Monitor para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num espaço de trabalho do Log Analytics. O Azure Monitor ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar consultas de registo que o ajudam a recolher e rever estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs.
+**Orientação**: Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar registos do Azure Monitor para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num espaço de trabalho do Log Analytics. O Azure Monitor ajuda-o a monitorizar os ambientes na cloud e no local para que possa manter mais facilmente a disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar consultas de registo que o ajudam a recolher e rever estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs.
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
@@ -254,7 +254,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditorias para recursos Azure
 
-**Orientação**: Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar registos do Azure Monitor para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num espaço de trabalho do Log Analytics. O Azure Monitor ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar consultas de registo que o ajudam a recolher e rever estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs.
+**Orientação**: Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar registos do Azure Monitor para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num espaço de trabalho do Log Analytics. O Azure Monitor ajuda-o a monitorizar os ambientes na cloud e no local para que possa manter mais facilmente a disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar consultas de registo que o ajudam a recolher e rever estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs.
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
@@ -358,7 +358,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 **Orientação**: O Azure Ative Directory (AD) tem funções incorporadas que devem ser explicitamente atribuídas e que são consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-Para aceder facilmente a outros recursos protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar uma identidade gerida (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade para si e ajuda a garantir as suas credenciais porque não tem de fornecer ou rodar segredos.
+Para aceder facilmente a outros recursos protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar uma identidade gerida (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade automaticamente e ajuda a proteger as credenciais, uma vez que não precisa de introduzir segredos nem proceder a sua rotação.
 
 Cada ponto final de pedido de uma aplicação lógica tem uma Assinatura de Acesso Partilhado (SAS) no URL do ponto final. Se partilhar o URL do ponto final para um gatilho baseado em pedidos com outras partes, pode gerar URLs de retorno que usam chaves específicas e têm datas de validade. Desta forma, pode enrolar perfeitamente as teclas ou restringir o acesso a desencadear a sua aplicação lógica com base num período de tempo específico.
 
@@ -483,9 +483,9 @@ Além disso, cada ponto final de pedido de uma aplicação lógica tem uma Assin
 
 **Orientação**: Utilize o Azure Ative Directory (AD) como o sistema central de autenticação e autorização para as suas instâncias Azure Logic Apps. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores.
 
-Quando houver suporte em Aplicações Lógicas, utilize uma identidade gerida para aceder facilmente a outros recursos que são protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, em vez de credenciais ou segredos. O Azure gere esta identidade para si e ajuda a garantir as suas credenciais porque não tem de fornecer ou rodar segredos.
+Quando houver suporte em Aplicações Lógicas, utilize uma identidade gerida para aceder facilmente a outros recursos que são protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, em vez de credenciais ou segredos. O Azure gere esta identidade automaticamente e ajuda a proteger as credenciais, uma vez que não precisa de introduzir segredos nem proceder a sua rotação.
 
-A Azure Logic Apps suporta identidades geridas atribuídas pelo sistema e atribuídas pelo utilizador. A sua aplicação lógica pode usar a identidade atribuída ao sistema ou uma única identidade atribuída ao utilizador, que pode partilhar através de um grupo de aplicações lógicas, mas não ambas. Atualmente, apenas gatilhos e ações específicas suportam identidades geridas, não conectores geridos ou ligações, por exemplo:
+A Azure Logic Apps suporta identidades geridas atribuídas pelo sistema e atribuídas pelo utilizador. A aplicação lógica pode utilizar a identidade atribuída pelo sistema ou uma única identidade atribuída pelo utilizador, que pode partilhar num grupo de aplicações lógicas, mas não ambas. Atualmente, apenas gatilhos e ações específicas suportam identidades geridas, não conectores geridos ou ligações, por exemplo:
 - HTTP
 - Funções do Azure
 - API Management do Azure
@@ -573,7 +573,7 @@ Para aplicações lógicas que necessitem de acesso direto aos recursos numa red
 
 Ao criar o ise, pode optar por utilizar os pontos finais de acesso interno ou externo. A sua seleção determina se o pedido ou webhook dispara em aplicações lógicas no seu ISE pode receber chamadas de fora da sua rede virtual.
 
-Adicionalmente, implementar o isolamento utilizando subscrições e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Pode controlar o acesso aos recursos da Azure através do controlo de acesso baseado em funções do Azure Ative Directory.
+Adicionalmente, implementar o isolamento utilizando subscrições e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure através do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 * [Compreender conectores para aplicações lógicas](https://docs.microsoft.com/azure/connectors/apis-list)
 
@@ -615,7 +615,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 * [Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-reqres#tls-support)
 
-* [Call service endpoints over HTTP ou HTTPS from Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
+* [Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
 
 * [Compreender a encriptação em trânsito com Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
@@ -1049,7 +1049,7 @@ Quando criar um ambiente de serviço de integração (ISE) para hospedar as suas
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
-**Orientação**: Para aceder facilmente a outros recursos protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar uma identidade gerida (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade para si e ajuda a garantir as suas credenciais porque não tem de fornecer ou rodar segredos.
+**Orientação**: Para aceder facilmente a outros recursos protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar uma identidade gerida (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade automaticamente e ajuda a proteger as credenciais, uma vez que não precisa de introduzir segredos nem proceder a sua rotação.
 
 Atualmente, apenas gatilhos e ações específicas suportam identidades geridas, não conectores geridos ou ligações, por exemplo:
 - HTTP
@@ -1285,7 +1285,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

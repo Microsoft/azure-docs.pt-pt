@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f00946c4c0a9abe343448266128c682f2376cf7a
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833694"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Se preferir uma experiência sem código, também pode [criar as suas experiênc
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 
-Antes de começar a sua experiência, deve determinar o tipo de problema de aprendizagem automática que está a resolver. A aprendizagem automática de máquinas suporta tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre [tipos de tarefas.](how-to-define-task-type.md)
+Antes de começar a sua experiência, deve determinar o tipo de problema de aprendizagem automática que está a resolver. A aprendizagem automática de máquinas suporta tipos de tarefas de classificação, regressão e previsão. Saiba mais sobre [tipos de tarefas.](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)
 
 A aprendizagem automática de máquinas suporta os seguintes algoritmos durante o processo de automatização e afinação. Como utilizador, não há necessidade de especificar o algoritmo.
 
@@ -422,7 +422,7 @@ Utilize estes 2 APIs no primeiro passo do modelo equipado para entender mais.  C
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   Em que:
+   Onde:
 
    |Saída|Definição|
    |----|--------|
@@ -514,7 +514,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

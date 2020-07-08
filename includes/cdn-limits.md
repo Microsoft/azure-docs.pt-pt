@@ -1,15 +1,15 @@
 ---
 author: mdgattuso
-ms.service: cost-management-billing
+ms.service: cdn
 ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
-ms.openlocfilehash: 7dd97fa49931168b9a42b5c9ac7887b84298a5f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41cbc888f40505e010537b75463b72be72b50d57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838892"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -17,6 +17,6 @@ ms.locfileid: "80335044"
 | Pontos finais da Rede de Entrega de Conteúdos por perfil |25 |
 | Domínios personalizados por ponto final |25 |
 
-Uma subscrição da Rede de Entrega de Conteúdos pode conter um ou mais perfis da Rede de Entrega de Conteúdos. Um perfil da Rede de Entrega de Conteúdos pode conter um ou mais pontos finais da Rede de Entrega de Conteúdos. É possível que pretenda utilizar vários perfis para organizar os pontos finais da sua Rede de Entrega de Conteúdos por domínio de internet, aplicação web ou outros critérios. 
+Uma subscrição da Rede de Entrega de Conteúdos pode conter um ou mais perfis da Rede de Entrega de Conteúdos. Um perfil da Rede de Entrega de Conteúdos pode conter um ou mais pontos finais da Rede de Entrega de Conteúdos. É melhor utilizar vários perfis para organizar os pontos finais da Rede de Entrega de Conteúdos por domínio da Internet, aplicação web ou outros critérios. 
 
 

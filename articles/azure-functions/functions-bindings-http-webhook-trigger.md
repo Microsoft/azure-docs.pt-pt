@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44b9b060be7ec707444ddf409848be1a16addb83
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833796"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -480,7 +480,7 @@ Para um exemplo completo, consulte o exemplo do [gatilho](#example).
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `HttpTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |
@@ -498,7 +498,9 @@ O tipo de entrada do gatilho é declarado como `HttpRequest` um ou outro tipo pe
 
 Por predefinição, quando cria uma função para um gatilho HTTP, a função é endereçada com uma rota do formulário:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 Pode personalizar esta rota utilizando a propriedade opcional `route` na ligação de entrada do gatilho HTTP. Como exemplo, o seguinte *function.jsem* ficheiro define uma propriedade para um `route` gatilho HTTP:
 
@@ -766,7 +768,9 @@ Pode obter teclas de função programáticamente utilizando [APIs de gestão de 
 
 A maioria dos modelos de gatilho HTTP requerem uma chave API no pedido. Assim, o seu pedido HTTP normalmente parece o seguinte URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 A chave pode ser incluída numa variável de cadeia de consulta denominada `code` , como acima. Também pode ser incluído num `x-functions-key` cabeçalho HTTP. O valor da chave pode ser qualquer chave de função definida para a função, ou qualquer chave de anfitrião.
 
@@ -810,6 +814,14 @@ A autorização webhook é manuseada pelo componente recetor webhook, parte do g
 * **Cadeia de**consulta : O fornecedor passa o nome chave no parâmetro da `clientid` cadeia de consulta, tal como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Cabeçalho de pedido**: O fornecedor passa o nome chave no `x-functions-clientid` cabeçalho.
 
+## <a name="content-types"></a>Tipos de conteúdo
+
+Passar dados binários e de formulário para uma função não-C# requer que utilize o cabeçalho apropriado do tipo conteúdo. Os tipos de conteúdo suportado incluem `octet-stream` dados binários e [tipos multipartes.](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Em funções não-C#, os pedidos enviados com o tipo de conteúdo `image/jpeg` resultam num `string` valor passado para a função. Em casos como este, pode converter manualmente o `string` valor num conjunto byte para aceder aos dados binários brutos.
+
 ## <a name="limits"></a>Limites
 
 O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [execução](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
@@ -817,6 +829,6 @@ O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o compr
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Devolver uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

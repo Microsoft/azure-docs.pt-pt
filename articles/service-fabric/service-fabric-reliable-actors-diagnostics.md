@@ -1,166 +1,166 @@
 ---
-title: Diagnóstico e monitorização de atores
-description: Este artigo descreve os diagnósticos e funcionalidades de monitorização do desempenho no tempo de funcionamento dos Atores Fiáveis do Tecido de Serviço, incluindo os eventos e contadores de desempenho emitidos por ele.
+title: Diagnóstico e monitorização dos atores
+description: Este artigo descreve os recursos de diagnóstico e monitorização de desempenho no tempo de execução do Service Fabric Reliable Actors, incluindo os eventos e contadores de desempenho emitidos por ele.
 author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846604"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
-O tempo de execução dos Atores Fiáveis emite eventos [eventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre como o tempo de funcionamento está a funcionar e ajudam na resolução de problemas e monitorização do desempenho.
+O tempo de execução dos Atores Fidedigdos emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho.](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) Estes fornecem informações sobre como o tempo de funcionamento está funcionando e ajudam na resolução de problemas e monitorização do desempenho.
 
-## <a name="eventsource-events"></a>EventoSEventosSource
-O nome do fornecedor EventSource para o tempo de execução de Atores Fiáveis é "Microsoft-ServiceFabric-Actors". Eventos desta fonte do evento aparecem na janela [Eventos](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) de Diagnóstico quando a aplicação do ator está a ser [depurada no Estúdio Visual.](service-fabric-debugging-your-application.md)
+## <a name="eventsource-events"></a>Eventos EventSource
+O nome do fornecedor EventSource para o tempo de execução de Atores Fiáveis é "Microsoft-ServiceFabric-Actors". Eventos desta fonte do evento aparecem na janela [de Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando a aplicação do ator está a ser [depurada no Visual Studio](service-fabric-debugging-your-application.md).
 
-Exemplos de ferramentas e tecnologias que ajudam na recolha e/ou visualização de eventos De eventos São [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Azure Diagnostics,](../cloud-services/cloud-services-dotnet-diagnostics.md) [Semânticlogging](https://msdn.microsoft.com/library/dn774980.aspx)e a [Biblioteca Microsoft TraceEvent.](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)
+Exemplos de ferramentas e tecnologias que ajudam na recolha e/ou visualização de eventos EventSource são [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Azure Diagnostics,](../cloud-services/cloud-services-dotnet-diagnostics.md) [Semântica Logging,](https://msdn.microsoft.com/library/dn774980.aspx)e a [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Palavras-chave
-Todos os eventos que pertencem ao Reliable Actors EventSource estão associados a uma ou mais palavras-chave. Isto permite a filtragem dos eventos que são recolhidos. As seguintes palavras-chave são definidas.
+Todos os eventos que pertencem ao Reliable Actors EventSource estão associados a uma ou mais palavras-chave. Isto permite a filtragem de eventos que são recolhidos. São definidos os seguintes bits de palavra-chave.
 
-| Bit | Descrição |
+| Pouco | Descrição |
 | --- | --- |
-| 0x1 |Conjunto de eventos importantes que resumem o funcionamento dos Atores de Tecido. |
-| 0x2 |Conjunto de eventos que descrevem chamadas de método de ator. Para mais informações, consulte o [tema introdutório sobre os atores.](service-fabric-reliable-actors-introduction.md) |
-| 0x4 |Conjunto de eventos relacionados com o estado do ator. Para mais informações, consulte o tema da [gestão do Estado](service-fabric-reliable-actors-state-management.md)do ator. |
-| 0x8 |Conjunto de eventos relacionados com a conmoeda baseada na reviravolta no ator. Para mais informações, consulte o tema da [moeda.](service-fabric-reliable-actors-introduction.md#concurrency) |
+| 0x1 |Conjunto de eventos importantes que resumem o funcionamento do tempo de execução dos Atores de Tecido. |
+| 0x2 |Conjunto de eventos que descrevem chamadas de método de ator. Para mais informações, consulte o [tópico introdutório sobre os atores.](service-fabric-reliable-actors-introduction.md) |
+| 0x4 |Conjunto de eventos relacionados com o estado do ator. Para mais informações, consulte o tópico sobre [a gestão do estado do ator.](service-fabric-reliable-actors-state-management.md) |
+| 0x8 |Conjunto de eventos relacionados com a concordância baseada na reviravolta no ator. Para mais informações, consulte o tópico sobre [a concordância.](service-fabric-reliable-actors-introduction.md#concurrency) |
 
 ## <a name="performance-counters"></a>Contadores de desempenho
-O tempo de execução dos Atores Fiáveis define as seguintes categorias de contra-desempenho.
+O tempo de execução dos Atores Fidedigdos define as seguintes categorias de contadores de desempenho.
 
 | Categoria | Descrição |
 | --- | --- |
-| Ator de tecido de serviço |Contadores específicos dos atores da Azure Service Fabric, por exemplo, tempo demorou a salvar o estado do ator |
-| Método do ator de tecido de serviço |Contra-ataques específicos aos métodos implementados pelos atores do Service Fabric, por exemplo, quantas vezes um método de ator é invocado |
+| Ator de Tecido de Serviço |Contadores específicos dos atores da Azure Service Fabric, por exemplo, tempo necessário para salvar o estado do ator |
+| Método do ator de tecido de serviço |Contadores específicos aos métodos implementados pelos atores do Service Fabric, por exemplo, a frequência com que um método de ator é invocado |
 
-Cada uma das categorias acima tem um ou mais balcões.
+Cada uma das categorias acima tem um ou mais contadores.
 
-A aplicação [Do Windows Performance Monitor,](https://technet.microsoft.com/library/cc749249.aspx) que está disponível por padrão no sistema operativo Windows, pode ser utilizada para recolher e visualizar dados de contra-desempenho. [O Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para recolher dados de contador de desempenho e carregá-lo para as tabelas Azure.
+A aplicação [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) que está disponível por padrão no sistema operativo Windows pode ser usada para recolher e visualizar dados de contador de desempenho. [O Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para recolher dados de contador de desempenho e enviá-lo para as tabelas Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomes de contra-instância de desempenho
-Um cluster que tem um grande número de serviços de ator ou partições de serviços de ator terá um grande número de casos de desempenho de ator. Os nomes de contra-instância de desempenho podem ajudar na identificação do método específico [de partição](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) e ator (se aplicável) com o qual a contra-instância de desempenho está associada.
+Um cluster que tem um grande número de serviços de atores ou divisórias de serviço de ator terá um grande número de contra-instâncias de desempenho do ator. Os nomes do contraexemplo de desempenho podem ajudar a identificar o método específico de [partição](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) e ator (se aplicável) a que o contraexemplo de desempenho está associado.
 
-#### <a name="service-fabric-actor-category"></a>Categoria ator de tecido de serviço
-Para a `Service Fabric Actor`categoria, os nomes de contra-instância estão no seguinte formato:
+#### <a name="service-fabric-actor-category"></a>Categoria de Ator de Tecido de Serviço
+Para a `Service Fabric Actor` categoria, os nomes de contraexemplo estão no seguinte formato:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e a sua representação de cordas é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
 
-*ActorRuntimeInternalID* é a representação de cordas de um inteiro de 64 bits que é gerado pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
+*ActorRuntimeInternalID* é a representação de uma corda de um inteiro de 64 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
 Segue-se um exemplo de um nome de contra-instância para um contador que pertence à `Service Fabric Actor` categoria:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-No exemplo acima, `2740af29-78aa-44bc-a20b-7e60fb783264` está a representação de cordas `635650083799324046` do ID de partição de tecido de serviço, e é o ID de 64 bits que é gerado para o uso interno do tempo de execução.
+No exemplo acima, `2740af29-78aa-44bc-a20b-7e60fb783264` está a representação de cordas do ID de partição do Tecido de Serviço, e `635650083799324046` é o ID de 64 bits que é gerado para o uso interno do tempo de execução.
 
 #### <a name="service-fabric-actor-method-category"></a>Categoria de Método de Ator de Tecido de Serviço
-Para a `Service Fabric Actor Method`categoria, os nomes de contra-instância estão no seguinte formato:
+Para a `Service Fabric Actor Method` categoria, os nomes de contraexemplo estão no seguinte formato:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*MethodName* é o nome do método do ator com o que a contra-instância de desempenho está associada. O formato do nome do método é determinado com base em alguma lógica no tempo de execução dos Atores de Tecido que equilibra a legibilidade do nome com restrições no comprimento máximo dos nomes de contadores de desempenho no Windows.
+*MethodName* é o nome do método do ator a que o contador de desempenho está associado. O formato do nome do método é determinado com base em alguma lógica no tempo de execução dos Fabric Actors que equilibra a legibilidade do nome com restrições no comprimento máximo dos nomes de instância de contador de desempenho no Windows.
 
-*ActorsRuntimeMethodId* é a representação de uma prótese de 32 bits que é gerada pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
+*ActorsRuntimeMethodId* é a representação de uma corda de um inteiro de 32 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e a sua representação de cordas é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
 
-*ActorRuntimeInternalID* é a representação de cordas de um inteiro de 64 bits que é gerado pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
+*ActorRuntimeInternalID* é a representação de uma corda de um inteiro de 64 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
 Segue-se um exemplo de um nome de contra-instância para um contador que pertence à `Service Fabric Actor Method` categoria:
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-No exemplo `ivoicemailboxactor.leavemessageasync` acima, é o `2` nome do método, é o ID de 32 `89383d32-e57e-4a9b-a6ad-57c6792aa521` bits gerado para o uso `635650083804480486` interno do tempo de execução, é a representação de cadeia do ID de divisória de tecido de serviço, e é o ID de 64 bits gerado para o uso interno do tempo de execução.
+No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, é o `2` ID de 32 bits gerado para o uso interno do tempo `89383d32-e57e-4a9b-a6ad-57c6792aa521` de execução, é a representação de cadeia do ID de partição de tecido de serviço, e `635650083804480486` é o ID de 64 bits gerado para o uso interno do tempo de execução.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lista de eventos e contadores de desempenho
 ### <a name="actor-method-events-and-performance-counters"></a>Eventos de método de ator e contadores de desempenho
-O tempo de execução dos Atores Fiáveis emite os seguintes eventos relacionados com métodos de [ator.](service-fabric-reliable-actors-introduction.md)
+O runtime dos Reliable Actors emite os seguintes eventos relacionados com os [métodos do ator.](service-fabric-reliable-actors-introduction.md)
 
 | Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Verboso |0x2 |O tempo de execução dos atores está prestes a invocar um método de ator. |
-| ActorMethodStop |8 |Verboso |0x2 |Um método de ator terminou a execução. Ou seja, a chamada assíncrona do tempo de execução ao método do ator voltou, e a tarefa devolvida pelo método do ator terminou. |
-| ActorMethodThrewException |9 |Aviso |0x3 |Uma exceção foi lançada durante a execução de um método de ator, quer durante a chamada assíncrona do tempo de execução ao método do ator, quer durante a execução da tarefa devolvida pelo método do ator. Este evento indica algum tipo de falha no código do ator que precisa de investigação. |
+| ActorMethodStop |8 |Verboso |0x2 |Um método de ator terminou a execução. Ou seja, a chamada assíncrona do tempo de execução para o método do ator regressou, e a tarefa devolvida pelo método do ator terminou. |
+| ActorMethod ThrowException |9 |Aviso |0x3 |Uma exceção foi lançada durante a execução de um método de ator, quer durante a chamada assíncrona do tempo de execução ao método do ator, quer durante a execução da tarefa devolvida pelo método do ator. Este evento indica algum tipo de falha no código do ator que precisa de investigação. |
 
-O tempo de execução de Reliable Actors publica os seguintes contadores de desempenho relacionados com a execução de métodos de ator.
+O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a execução de métodos de ator.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Método do ator de tecido de serviço |Invocações/Sec |Número de vezes que o método de serviço do ator é invocado por segundo |
-| Método do ator de tecido de serviço |Milissegundos médios por invocação |Tempo deexecução o método de serviço do ator em milissegundos |
-| Método do ator de tecido de serviço |Exceções lançadas/Sec |Número de vezes que o método de serviço do ator abriu uma exceção por segundo |
+| Método do ator de tecido de serviço |Milissegundos médios por invocação |Tempo de execução do método de serviço do ator em milissegundos |
+| Método do ator de tecido de serviço |Exceções lançadas/Sec |Número de vezes que o método de serviço do ator atirou uma exceção por segundo |
 
-### <a name="concurrency-events-and-performance-counters"></a>Eventos condivisas e contadores de desempenho
-O tempo de execução dos Atores Fiáveis emite os seguintes eventos relacionados com a [conmoeda.](service-fabric-reliable-actors-introduction.md#concurrency)
+### <a name="concurrency-events-and-performance-counters"></a>Eventos de concurrency e contadores de desempenho
+O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [concuência.](service-fabric-reliable-actors-introduction.md#concurrency)
 
 | Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
-| ActormethodCallsWaitingForLock |12 |Verboso |0x8 |Este evento é escrito no início de cada nova volta em um ator. Contém o número de chamadas de ator esgotadas que estão à espera para adquirir o bloqueio por ator que impõe a moeda baseada em turnos. |
+| ActorMethodCallsWaitingForLock |12 |Verboso |0x8 |Este evento é escrito no início de cada nova volta num ator. Contém o número de chamadas pendentes de atores que estão à espera para adquirir o bloqueio por ator que impõe a concordância baseada em turnos. |
 
-O tempo de execução dos Atores Fiáveis publica os seguintes contadores de desempenho relacionados com a conmoeda.
+O tempo de execução dos Atores Fidedigdos publica os seguintes contadores de desempenho relacionados com a concordância.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator de tecido de serviço |# de chamadas de ator à espera de bloqueio de ator |Número de chamadas de ator pendente à espera de adquirir o bloqueio por ator que impõe a conmoeda baseada em turnos |
-| Ator de tecido de serviço |Média de milissegundos por espera de bloqueio |Tempo demorou (em milissegundos) a adquirir o bloqueio por ator que impõe a moeda baseada em turnos |
-| Ator de tecido de serviço |Bloqueio de ator de milissegundos médio mantido |Tempo (em milissegundos) para o qual se mantém a fechadura por ator |
+| Ator de Tecido de Serviço |# de chamadas de ator à espera de bloqueio de ator |Número de chamadas pendentes de ator à espera de adquirir o bloqueio por ator que impõe a concordância baseada em turnos |
+| Ator de Tecido de Serviço |Milissegundos médios por espera de bloqueio |Tempo demorado (em milissegundos) para adquirir o bloqueio por ator que impõe a concordância baseada na viragem |
+| Ator de Tecido de Serviço |Bloqueio médio de ator de milissegundos detido |Tempo (em milissegundos) para o qual a fechadura por ator é realizada |
 
-### <a name="actor-state-management-events-and-performance-counters"></a>Eventos de gestão do estado do ator e contadores de desempenho
-The Reliable Actors runtime emite os seguintes eventos relacionados com a [gestão do estado](service-fabric-reliable-actors-state-management.md)do ator.
+### <a name="actor-state-management-events-and-performance-counters"></a>Eventos de gestão do estado do ator e balcões de desempenho
+O runtime do Reliable Actors emite os seguintes eventos relacionados com a [gestão estatal do ator.](service-fabric-reliable-actors-state-management.md)
 
 | Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |Verboso |0x4 |Os atores estão prestes a salvar o estado do ator. |
+| ActorSaveStateStart |10 |Verboso |0x4 |O tempo de execução dos atores está prestes a salvar o estado do ator. |
 | ActorSaveStateStop |11 |Verboso |0x4 |Os atores terminaram de salvar o estado do ator. |
 
-The Reliable Actors runtime publica os seguintes contadores de desempenho relacionados com a gestão do estado do ator.
+O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a gestão do estado do ator.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator de tecido de serviço |Milissegundos médios por operação estatal de salvamento |Tempo tomado para salvar estado de ator em milissegundos |
-| Ator de tecido de serviço |Média de milissegundos por operação estatal de carga |Tempo tomado para carregar estado ator em milissegundos |
+| Ator de Tecido de Serviço |Milissegundos médios por operação do Estado de salvamento |Tempo tomado para salvar estado ator em milissegundos |
+| Ator de Tecido de Serviço |Milissegundos médios por operação do estado de carga |Tempo tomado para carregar estado do ator em milissegundos |
 
-### <a name="events-related-to-actor-replicas"></a>Eventos relacionados com réplicas de ator
-The Reliable Actors runtime emite os seguintes eventos relacionados com réplicas de [atores](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
-
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
-| --- | --- | --- | --- | --- |
-| RéplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores desta partição serão criados dentro desta réplica. |
-| RéplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou de papel para não-Primária. Isto implica que os atores desta partição deixarão de ser criados dentro desta réplica. Não serão entregues novos pedidos aos atores já criados dentro desta réplica. Os atores serão destruídos depois de todos os pedidos em curso estarem concluídos. |
-
-### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Ativação de atores e desativação de eventos e contadores de desempenho
-O tempo de execução dos Atores Fiáveis emite os seguintes eventos relacionados com a [ativação e desativação](service-fabric-reliable-actors-lifecycle.md)do ator.
+### <a name="events-related-to-actor-replicas"></a>Eventos relacionados com réplicas de atores
+O runtime dos Reliable Actors emite os seguintes eventos relacionados com [réplicas de atores.](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)
 
 | Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
-| ActorAtivado |5 |Informativo |0x1 |Um ator foi ativado. |
-| ActorDeactivado |6 |Informativo |0x1 |Um ator foi desativado. |
+| ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores para esta partição serão criados dentro desta réplica. |
+| ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou o papel para não-primária. Isto implica que os atores para esta partição não serão mais criados dentro desta réplica. Nenhum novo pedido será entregue aos atores já criados dentro desta réplica. Os atores serão destruídos depois de concluídos os pedidos em curso. |
 
-O tempo de execução de Reliable Actors publica os seguintes contadores de desempenho relacionados com a ativação e desativação do ator.
+### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventos de ativação e desativação de atores e contadores de desempenho
+O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [ativação e desativação do ator.](service-fabric-reliable-actors-lifecycle.md)
+
+| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| --- | --- | --- | --- | --- |
+| AtorActivado |5 |Informativo |0x1 |Um ator foi ativado. |
+| Ator Desativado |6 |Informativo |0x1 |Um ator foi desativado. |
+
+O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com a ativação e desativação do ator.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator de tecido de serviço |Média OnActivateAsync milissegundos |Tempo deexecução método OnActivateAsync em milissegundos |
+| Ator de Tecido de Serviço |Média onActivateAync milissegundos |Tempo de execução do método OnActivateAsync em milissegundos |
 
 ### <a name="actor-request-processing-performance-counters"></a>Ator solicita processamento de contadores de desempenho
-Quando um cliente invoca um método através de um objeto de procuração de ator, resulta numa mensagem de pedido enviada através da rede para o serviço de ator. O serviço processa a mensagem de pedido e envia uma resposta ao cliente. O tempo de execução de Reliable Actors publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de ator.
+Quando um cliente invoca um método através de um objeto de procuração de ator, resulta em uma mensagem de pedido enviada através da rede para o serviço de ator. O serviço processa a mensagem de pedido e envia uma resposta ao cliente. O runtime the Reliable Actors publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de ator.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator de tecido de serviço |# de pedidos pendentes |Número de pedidos a serem processados no serviço |
-| Ator de tecido de serviço |Milissegundos médios por pedido |Tempo tomado (em milissegundos) pelo serviço para processar um pedido |
-| Ator de tecido de serviço |Milissegundos médios para desserialização de pedidos |Tempo demorou (em milissegundos) a desserializar mensagem de pedido de ator quando é recebida no serviço |
-| Ator de tecido de serviço |Milissegundos médios para a serialização da resposta |Tempo demorou (em milissegundos) a serializar a mensagem de resposta do ator no serviço antes da resposta ser enviada ao cliente |
+| Ator de Tecido de Serviço |# de pedidos pendentes |Número de pedidos a ser processados no serviço |
+| Ator de Tecido de Serviço |Milissegundos médios por pedido |Tempo tomado (em milissegundos) pelo serviço para processar um pedido |
+| Ator de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido do ator quando é recebido no serviço |
+| Ator de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Passos seguintes
-* [Como os atores confiáveis usam a plataforma De Tecido de Serviço](service-fabric-reliable-actors-platform.md)
-* [Documentação de referência do ator API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+## <a name="next-steps"></a>Próximos passos
+* [Como os atores fiáveis usam a plataforma de tecido de serviço](service-fabric-reliable-actors-platform.md)
+* [Documentação de referência da API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

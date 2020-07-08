@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: c38854c8967d9cc4a5f8a58f7e068d5bfa556639
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833762"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Resolver problemas de limites de tempo da Cache do Azure para Redis
 
@@ -32,7 +32,9 @@ O Azure Cache para Redis atualiza regularmente o seu software de servidor como p
 
 StackExchange.Redis utiliza uma definição de configuração nomeada `synctimeout` para operações sincronizadas com um valor padrão de 1000 ms. Se uma chamada sincronizada não for concluída neste tempo, o cliente StackExchange.Redis lança um erro de tempo limite semelhante ao seguinte exemplo:
 
+```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e possível resolução do problema. A tabela seguinte contém detalhes sobre as métricas da mensagem de erro.
 
@@ -73,7 +75,10 @@ Pode utilizar os seguintes passos para investigar possíveis causas de raiz.
 
     É altamente recomendado ter a cache e no cliente na mesma região de Azure. Se tiver um cenário que inclua chamadas de região cruzada, deve definir o `synctimeout` intervalo para um valor superior ao intervalo padrão de 1000 ms, incluindo uma propriedade na cadeia de `synctimeout` ligação. O exemplo a seguir mostra um corte de uma cadeia de conexão para StackExchange.Redis fornecido por Azure Cache para Redis com um `synctimeout` de 2000 ms.
 
-        synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```output
+    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```
+
 1. Certifique-se de que utiliza a versão mais recente do [pacote StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Existem bugs constantemente a ser corrigidos no código para torná-lo mais robusto para os intervalos de tempo, pelo que ter a versão mais recente é importante.
 1. Se os seus pedidos estiverem ligados por limitações de largura de banda no servidor ou cliente, demora mais tempo a completar e pode causar intervalos de tempo. Para ver se o seu tempo limite é devido à largura de banda da rede no servidor, consulte a [limitação da largura de banda do lado do Servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation). Para ver se o seu tempo limite é devido à largura de banda da rede de clientes, consulte [a limitação da largura de banda do lado do Cliente](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
 1. Está a ser ligado ao CPU no servidor ou no cliente?

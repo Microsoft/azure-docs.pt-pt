@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: ead7361ba48a9a1b646310d3a47850545fff3ade
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a7b2e2b14c6358d0dd9a6f8934e88c0fa89c8bd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833813"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -42,9 +42,9 @@ A tabela que se segue lista os nomes das propriedades e as suas descrições par
 | Formato de data | Opcional. Se o token de data for utilizado no caminho do prefixo, pode selecionar o formato de data em que os seus ficheiros estão organizados. Exemplo: YYYY/MM/DD |
 |Formato de tempo | Opcional. Se o token de tempo for utilizado no caminho do prefixo, especifique o formato de tempo em que os seus ficheiros estão organizados. Atualmente, o único valor suportado é o HH. |
 | Formato de serialização de eventos | O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados.|
-| Codificação | Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento.|
+| Encoding | Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento.|
 | Delimitador | Aplicável apenas para serialização de CSV. Stream Analytics suporta uma série de delimiters comuns para serializar dados de CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.|
-| Formato | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido.  **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Esta matriz só é fechada quando o trabalho parar ou stream Analytics passou para a janela da próxima vez. Em geral, é preferível usar JSON separados de linha, porque não requer qualquer manuseamento especial enquanto o ficheiro de saída ainda está a ser escrito.|
+| Formatar | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido.  **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Esta matriz só é fechada quando o trabalho parar ou stream Analytics passou para a janela da próxima vez. Em geral, é preferível usar JSON separados de linha, porque não requer qualquer manuseamento especial enquanto o ficheiro de saída ainda está a ser escrito.|
 | Modo de autenticação | Pode autorizar o acesso à sua conta de Armazenamento de Data Lake utilizando [identidade gerida](stream-analytics-managed-identities-adls.md) ou ficha de utilizador. Uma vez que você concede acesso, você pode revogar o acesso alterando a palavra-passe da conta de utilizador, eliminando a saída de Armazenamento de Data Lake para este trabalho, ou eliminando o trabalho stream Analytics. |
 
 ## <a name="sql-database"></a>SQL Database
@@ -111,11 +111,11 @@ A tabela que se segue lista os nomes da propriedade e as suas descrições para 
 | Formato de data | Opcional. Se o token de data for utilizado no caminho do prefixo, pode selecionar o formato de data em que os seus ficheiros estão organizados. Exemplo: YYYY/MM/DD |
 | Formato de tempo | Opcional. Se o token de tempo for utilizado no caminho do prefixo, especifique o formato de tempo em que os seus ficheiros estão organizados. Atualmente, o único valor suportado é o HH. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída. JSON, CSV, Avro e Parquet são apoiados. |
-|Linhas mínimas (apenas Parquet)|O número de filas mínimas por lote. Para o Parquet, cada lote criará um novo ficheiro. O valor predefinido atual é de 2.000 linhas e o máximo permitido é de 10.000 linhas.|
-|Tempo máximo (apenas Parquet)|O tempo máximo de espera por lote. Após este período, o lote será escrito para a saída mesmo que o requisito de linhas mínimas não seja cumprido. O valor predefinido atual é de 1 minuto e o máximo permitido é de 2 horas. Se a sua saída de bolha tiver frequência de padrão de trajetória, o tempo de espera não pode ser superior ao intervalo de tempo da partição.|
-| Codificação    | Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
+|Linhas mínimas |O número de filas mínimas por lote. Para o Parquet, cada lote criará um novo ficheiro. O valor predefinido atual é de 2.000 linhas e o máximo permitido é de 10.000 linhas.|
+|Tempo máximo |O tempo máximo de espera por lote. Após este período, o lote será escrito para a saída mesmo que o requisito de linhas mínimas não seja cumprido. O valor predefinido atual é de 1 minuto e o máximo permitido é de 2 horas. Se a sua saída de bolha tiver frequência de padrão de trajetória, o tempo de espera não pode ser superior ao intervalo de tempo da partição.|
+| Encoding    | Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador   | Aplicável apenas para serialização de CSV. Stream Analytics suporta uma série de delimiters comuns para serializar dados de CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Formato      | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Esta matriz só é fechada quando o trabalho parar ou stream Analytics passou para a janela da próxima vez. Em geral, é preferível usar JSON separados de linha, porque não requer qualquer manuseamento especial enquanto o ficheiro de saída ainda está a ser escrito. |
+| Formatar      | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Esta matriz só é fechada quando o trabalho parar ou stream Analytics passou para a janela da próxima vez. Em geral, é preferível usar JSON separados de linha, porque não requer qualquer manuseamento especial enquanto o ficheiro de saída ainda está a ser escrito. |
 
 Quando está a utilizar o armazenamento Blob como saída, é criado um novo ficheiro na bolha nos seguintes casos:
 
@@ -143,9 +143,9 @@ Você precisa de alguns parâmetros para configurar fluxos de dados de centros d
 | Chave de política do centro de eventos | A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nome do centro de eventos. |
 | Coluna-chave de partição | Opcional. Uma coluna que contém a chave de partição para a saída do centro de eventos. |
 | Formato de serialização de eventos | O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
-| Codificação | Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Encoding | Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador | Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Formato | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON.  |
+| Formatar | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON.  |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
 
 ## <a name="power-bi"></a>Power BI
@@ -183,7 +183,7 @@ Esta tabela cobre as conversões do tipo de dados do [Stream Analytics](https://
 De Stream Analytics | Para Power BI
 -----|-----
 bigint | Int64
-nvarchar(máx) | Cadeia
+nvarchar(máx) | String
 datetime | Datetime
 float | Double
 Matriz de registos | Tipo de corda, valor constante "IRecord" ou "IArray"
@@ -194,12 +194,12 @@ O Stream Analytics infere o esquema do modelo de dados com base no primeiro conj
 Evite a `SELECT *` consulta para evitar uma atualização dinâmica do esquema através de linhas. Além das potenciais implicações de desempenho, pode resultar na incerteza do tempo que os resultados demoram. Selecione os campos exatos que precisam de ser mostrados no painel Power BI. Além disso, os valores dos dados devem estar em conformidade com o tipo de dados escolhido.
 
 
-Anterior/corrente | Int64 | Cadeia | Datetime | Double
+Anterior/corrente | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Double
 Double | Double | Cadeia | Cadeia | Double
 Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
-Datetime | Cadeia | Cadeia |  Datetime | Cadeia
+Datetime | Cadeia | Cadeia |  Datetime | String
 
 ## <a name="table-storage"></a>Table Storage
 
@@ -233,9 +233,9 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 | Nome da política da fila |Quando cria uma fila, também pode criar políticas de acesso partilhado no **separador Configurar** da fila. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | Chave de política de fila |A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Service Bus. |
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
-| Codificação |Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Encoding |Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Formato |Aplicável apenas para o tipo JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
+| Formatar |Aplicável apenas para o tipo JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
 | Colunas de propriedade do sistema | Opcional. Os pares de valor chave das Propriedades do Sistema e os nomes correspondentes das colunas que precisam de ser anexados à mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades do Sistema para a Fila de Autocarros de Serviço e saídas de Tópicos](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
@@ -254,7 +254,7 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 | Nome da política de tópicos |Ao criar um tópico de Service Bus, também pode criar políticas de acesso partilhado no **separador Configurar** do tópico. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | Chave de política de tópicos |A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Service Bus. |
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
-| Codificação |Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
+| Encoding |Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
 | Colunas de propriedade do sistema | Opcional. Os pares de valor chave das Propriedades do Sistema e os nomes correspondentes das colunas que precisam de ser anexados à mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades do Sistema para a Fila de Autocarros de Serviço e saídas de Tópicos](#system-properties-for-service-bus-queue-and-topic-outputs) |
@@ -351,16 +351,16 @@ O quadro que se segue resume o suporte à partição e o número de autores de s
 
 | Tipo de saída | Suporte de partilha | Chave de partição  | Número de escritores de saída |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Yes | Use tokens {date} e {time} no padrão de prefixo do caminho. Escolha o formato de data, como YYYY/MM/DD, DD/MM/YYYY, ou MM-DD-YYYY. HH é usado para o formato de tempo. | Segue a partição de entrada para [consultas totalmente paralizações](stream-analytics-scale-jobs.md). |
+| Azure Data Lake Store | Sim | Use tokens {date} e {time} no padrão de prefixo do caminho. Escolha o formato de data, como YYYY/MM/DD, DD/MM/YYYY, ou MM-DD-YYYY. HH é usado para o formato de tempo. | Segue a partição de entrada para [consultas totalmente paralizações](stream-analytics-scale-jobs.md). |
 | Base de Dados SQL do Azure | Sim, precisa de ativar. | Com base na partição por cláusula na consulta. | Quando a opção de partição herdada estiver ativada, segue a partição de entrada para [consultas totalmente paralitáveis](stream-analytics-scale-jobs.md). Para saber mais sobre como obter um melhor desempenho de produção de escrita quando estiver a carregar dados na Base de Dados Azure SQL, consulte [a saída Azure Stream Analytics para a Base de Dados Azure SQL](stream-analytics-sql-output-perf.md). |
-| Armazenamento de Blobs do Azure | Yes | Use tokens {date} e {time} dos campos de eventos no padrão do caminho. Escolha o formato de data, como YYYY/MM/DD, DD/MM/YYYY, ou MM-DD-YYYY. HH é usado para o formato de tempo. A saída do blob pode ser dividida por um único atributo de evento personalizado {fieldname} ou {datetime: \<specifier> }. | Segue a partição de entrada para [consultas totalmente paralizações](stream-analytics-scale-jobs.md). |
+| Armazenamento de Blobs do Azure | Sim | Use tokens {date} e {time} dos campos de eventos no padrão do caminho. Escolha o formato de data, como YYYY/MM/DD, DD/MM/YYYY, ou MM-DD-YYYY. HH é usado para o formato de tempo. A saída do blob pode ser dividida por um único atributo de evento personalizado {fieldname} ou {datetime: \<specifier> }. | Segue a partição de entrada para [consultas totalmente paralizações](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Sim | Sim | Varia dependendo do alinhamento de divisórias.<br /> Quando a chave de partição para a saída do centro de eventos está igualmente alinhada com o passo de consulta a montante (anterior), o número de escritores é o mesmo que o número de divisórias na produção do centro de eventos. Cada escritor usa a [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. <br /> Quando a chave de partição para a saída do centro de eventos não está alinhada com o passo de consulta a montante (anterior), o número de escritores é o mesmo que o número de divisórias nesse passo anterior. Cada escritor usa a [aula SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) no **EventHubClient** para enviar eventos para todas as divisórias de saída. |
-| Power BI | No | Nenhuma | Não aplicável. |
-| Armazenamento de Tabelas do Azure | Yes | Qualquer coluna de saída.  | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
-| Tópico do Azure Service Bus | Yes | Escolhido automaticamente. O número de divisórias baseia-se no [Serviço de Autocarros SKU e tamanho.](../service-bus-messaging/service-bus-partitioning.md) A chave de partição é um valor inteiro único para cada partição.| O mesmo que o número de divisórias no tópico de saída.  |
-| Fila do Azure Service Bus | Yes | Escolhido automaticamente. O número de divisórias baseia-se no [Serviço de Autocarros SKU e tamanho.](../service-bus-messaging/service-bus-partitioning.md) A chave de partição é um valor inteiro único para cada partição.| O mesmo que o número de divisórias na fila de saída. |
-| Azure Cosmos DB | Yes | Com base na partição por cláusula na consulta. | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
-| Funções do Azure | Yes | Com base na partição por cláusula na consulta. | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
+| Power BI | Não | Nenhuma | Não aplicável. |
+| Armazenamento de Tabelas do Azure | Sim | Qualquer coluna de saída.  | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
+| Tópico do Azure Service Bus | Sim | Escolhido automaticamente. O número de divisórias baseia-se no [Serviço de Autocarros SKU e tamanho.](../service-bus-messaging/service-bus-partitioning.md) A chave de partição é um valor inteiro único para cada partição.| O mesmo que o número de divisórias no tópico de saída.  |
+| Fila do Azure Service Bus | Sim | Escolhido automaticamente. O número de divisórias baseia-se no [Serviço de Autocarros SKU e tamanho.](../service-bus-messaging/service-bus-partitioning.md) A chave de partição é um valor inteiro único para cada partição.| O mesmo que o número de divisórias na fila de saída. |
+| Azure Cosmos DB | Sim | Com base na partição por cláusula na consulta. | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
+| Funções do Azure | Sim | Com base na partição por cláusula na consulta. | Segue a partição de entrada para [consultas totalmente paralelas](stream-analytics-scale-jobs.md). |
 
 O número de escritores de saída também pode ser controlado `INTO <partition count>` usando (ver [INTO)](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)cláusula na sua consulta, o que pode ser útil para alcançar uma topologia de emprego desejada. Se o adaptador de saída não estiver dividido, a falta de dados numa partição de entrada causará um atraso até ao tempo de chegada tardio. Nesses casos, a produção é fundida a um único escritor, o que pode causar estrangulamentos no seu oleoduto. Para saber mais sobre a política de chegada tardia, consulte considerações de [ordem de eventos Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
@@ -382,7 +382,7 @@ O quadro seguinte explica algumas das considerações relativas ao loteamento de
 | Azure Cosmos DB    | Ver [limites de DB de Azure Cosmos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | O tamanho do lote e a frequência de escrita são ajustados dinamicamente com base nas respostas DB do Azure Cosmos. <br /> Não existem limitações pré-determinadas da Stream Analytics. |
 | Funções do Azure    | | O tamanho do lote predefinido é de 262.144 bytes (256 KB). <br /> A contagem de eventos predefinidos por lote é de 100. <br /> O tamanho do lote é configurável e pode ser aumentado ou diminuído nas [opções de saída](#azure-functions)stream Analytics .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > 
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

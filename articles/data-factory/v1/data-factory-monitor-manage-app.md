@@ -1,6 +1,6 @@
 ---
 title: Monitorizar e gerir os gasodutos de dados - Azure
-description: Saiba como usar a app de Monitorização e Gestão para monitorizar e gerir fábricas e oleodutos de dados Azure.
+description: Saiba como utilizar a app de Monitorização e Gestão para monitorizar e gerir fábricas de dados e oleodutos Azure.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,143 +13,143 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846901"
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gerencie os oleodutos Azure Data Factory utilizando a app de monitorização e gestão
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
 > [!div class="op_single_selector"]
 > * [Usando o portal Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-> * [Aplicação de Monitorização e Gestão](data-factory-monitor-manage-app.md)
+> * [Usando a app de monitorização e gestão](data-factory-monitor-manage-app.md)
 >
 >
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [monitorizar e gerir os gasodutos data Factory em](../monitor-visually.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [o monitor e gere os oleodutos data factory em](../monitor-visually.md).
 
-Este artigo descreve como usar a app de Monitorização e Gestão para monitorizar, gerir e desinserir os seus oleodutos Data Factory. Pode começar a usar a aplicação assistindo ao seguinte vídeo:
+Este artigo descreve como utilizar a app de Monitorização e Gestão para monitorizar, gerir e depurar os seus oleodutos data factory. Pode começar a utilizar a aplicação assistindo ao seguinte vídeo:
 
 > [!NOTE]
-> A interface de utilizador mostrada no vídeo pode não corresponder exatamente ao que se vê no portal. É um pouco mais velho, mas os conceitos permanecem os mesmos. 
+> A interface do utilizador mostrada no vídeo pode não corresponder exatamente ao que vê no portal. É um pouco mais velho, mas os conceitos permanecem os mesmos. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 
 ## <a name="launch-the-monitoring-and-management-app"></a>Lançar a app de Monitorização e Gestão
-Para lançar a aplicação Monitor and Management, clique no **Monitor & Gerir** azulejos na lâmina data **Factory** para a sua fábrica de dados.
+Para lançar a aplicação Monitor and Management, clique no **monitor & Gerir** o azulejo na lâmina da Fábrica de **Dados** para a sua fábrica de dados.
 
-![Telha de monitorização na página inicial da Fábrica de Dados](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Azulejo de monitorização na página inicial da Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
 Deve ver a aplicação de Monitorização e Gestão aberta numa janela separada.  
 
 ![Aplicação de Monitorização e Gestão](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Se vir que o navegador está preso em "Autorizar...", limpe os **cookies de terceiros** do Bloco e verifique os dados do site -- ou mantenha-o selecionado, crie uma exceção para **login.microsoftonline.com**, e tente abrir novamente a app.
+> Se vir que o navegador está preso em "Authorizing...", limpe os **cookies de terceiros do Bloco e** a caixa de verificação de dados do site -- ou mantenha-o selecionado, crie uma exceção para **login.microsoftonline.com**, e tente abrir novamente a app.
 
 
-Na lista do Windows de Atividade sintetizadora no painel do meio, vê-se uma janela de atividade para cada execução de uma atividade. Por exemplo, se tiver a atividade programada para funcionar de hora a hora durante cinco horas, vê cinco janelas de atividade associadas a cinco fatias de dados. Se não vir janelas de atividade na lista na parte inferior, faça o seguinte:
+Na lista do Activity Windows no painel central, vê-se uma janela de atividade para cada execução de uma atividade. Por exemplo, se tiver a atividade programada para funcionar de hora a hora durante cinco horas, vê cinco janelas de atividade associadas a cinco fatias de dados. Se não vir janelas de atividade na lista na parte inferior, faça o seguinte:
  
-- Atualize os filtros de hora de **início** e **de fim** na parte superior para corresponder aos tempos de início e de fim do seu pipeline e, em seguida, clique no botão **Aplicar.**  
-- A lista de Janelas de Atividades não é automaticamente atualizada. Clique no botão **Refresh** na barra de ferramentas na lista do Windows de **Atividade.**  
+- Atualize os filtros **de tempo** de início e de fim de **hora** na parte superior para corresponder aos tempos de início e fim do seu pipeline e, em seguida, clique no botão **Aplicar.**  
+- A lista do Windows de atividade não é automaticamente atualizada. Clique no botão **Refresh** na barra de ferramentas na lista **'Windows' de atividade.**  
 
-Se não tiver uma aplicação data Factory para testar estes passos, faça o tutorial: copiar dados do Blob Storage para a Base de [Dados SQL utilizando](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)data factory .
+Se não tiver uma aplicação de Data Factory para testar estes passos, faça o tutorial: [copie os dados do Blob Storage para a BASE de Dados SQL utilizando a Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="understand-the-monitoring-and-management-app"></a>Compreender a aplicação de Monitorização e Gestão
-Existem três separadores à esquerda: **Explorador de Recursos,** **Vistas de Monitorização**e **Alertas**. O primeiro separador **(Explorador de Recursos)** é selecionado por defeito.
+## <a name="understand-the-monitoring-and-management-app"></a>Compreender a app de Monitorização e Gestão
+Existem três separadores à esquerda: **Explorador de Recursos,** **Vistas de Monitorização**e **Alertas.** O primeiro separador **(Explorador de Recursos)** é selecionado por predefinição.
 
 ### <a name="resource-explorer"></a>Explorador de Recursos
-Veja o seguinte:
+Vê o seguinte:
 
-* A **vista da árvore** do Explorador de Recursos no painel esquerdo.
-* A **vista do diagrama** na parte superior no painel do meio.
-* A lista **do Windows de Atividade** na parte inferior do painel do meio.
+* A vista da **árvore** exploradora de recursos no painel esquerdo.
+* A **vista do diagrama** na parte superior no painel central.
+* A lista **de Activity Windows** na parte inferior do painel central.
 * As **propriedades,** **explorador de janelas**de atividade e separadores **script** no painel direito.
 
-No Resource Explorer, você vê todos os recursos (oleodutos, conjuntos de dados, serviços ligados) na fábrica de dados em vista de árvores. Quando selecionar um objeto no Explorador de Recursos:
+No Resource Explorer, vê todos os recursos (oleodutos, conjuntos de dados, serviços ligados) na fábrica de dados numa vista de árvores. Quando seleciona um objeto no Explorador de Recursos:
 
-* A entidade associada da Fábrica de Dados está em destaque na Visão do Diagrama.
-* [As janelas](data-factory-scheduling-and-execution.md) de atividade associadas são destacadas na lista de Janelas de Atividade seleções na parte inferior.  
+* A entidade associada da Data Factory está em destaque na Vista diagrama.
+* [As janelas de atividade associadas](data-factory-scheduling-and-execution.md) estão em destaque na lista do Activity Windows na parte inferior.  
 * As propriedades do objeto selecionado são mostradas na janela Propriedades no painel direito.
-* A definição JSON do objeto selecionado é mostrada, se aplicável. Por exemplo: um serviço ligado, um conjunto de dados ou um pipeline.
+* A definição JSON do objeto selecionado é mostrada, se aplicável. Por exemplo: um serviço ligado, um conjunto de dados ou um oleoduto.
 
 ![Explorador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Consulte o artigo de [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceptuais detalhadas sobre janelas de atividade.
+Consulte o artigo [de Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceptuais detalhadas sobre janelas de atividades.
 
 ### <a name="diagram-view"></a>Vista de Diagrama
-A Visão do Diagrama de uma fábrica de dados fornece um único painel de vidro para monitorizar e gerir uma fábrica de dados e seus ativos. Quando selecionar uma entidade data factory (dataset/pipeline) na vista do diagrama:
+A Vista Diagrama de uma fábrica de dados fornece um único painel de vidro para monitorizar e gerir uma fábrica de dados e seus ativos. Quando selecionar uma entidade da Data Factory (conjunto de dados/pipeline) na Vista diagrama:
 
-* A entidade da fábrica de dados é selecionada na vista da árvore.
-* As janelas de atividade associadas estão em destaque na lista do Windows de Atividades.
+* A entidade de fábrica de dados é selecionada na vista da árvore.
+* As janelas de atividade associadas estão em destaque na lista do Activity Windows.
 * As propriedades do objeto selecionado são mostradas na janela Propriedades.
 
 Quando o gasoduto está ativado (não em estado de pausa), é mostrado com uma linha verde:
 
 ![Gasoduto em execução](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Pode parar, retomar ou encerrar um gasoduto selecionando-o na vista do diagrama e utilizando os botões na barra de comando.
+Pode fazer uma pausa, retomar ou terminar um oleoduto selecionando-o na vista do diagrama e utilizando os botões da barra de comando.
 
-![Pausa/retoma na barra de comando](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pausa/currículo na barra de comando](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
  
-Existem três botões de barra de comando para o oleoduto na vista do diagrama. Pode utilizar o segundo botão para parar o gasoduto. A pausa não termina as atividades atualmente em curso e permite-lhes proceder à conclusão. O terceiro botão interrompe o gasoduto e encerra as suas atividades de execução existentes. O primeiro botão retoma o gasoduto. Quando o seu gasoduto é interrompido, a cor do gasoduto muda. Por exemplo, um gasoduto pausado parece na seguinte imagem: 
+Existem três botões de barra de comando para o gasoduto na Vista diagrama. Pode utilizar o segundo botão para fazer uma pausa na tubagem. A pausa não encerra as atividades atualmente em execução e permite-lhes prosseguir até à conclusão. O terceiro botão interrompe o gasoduto e termina as suas atividades de execução existentes. O primeiro botão retoma o gasoduto. Quando o seu oleoduto é pausado, a cor do gasoduto muda. Por exemplo, um gasoduto pausado parece na seguinte imagem: 
 
-![Gasoduto pausado](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+![Gasoduto parada](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
-Pode selecionar vários oleodutos utilizando a tecla CTRL. Pode utilizar os botões da barra de comando para parar/retomar vários oleodutos de cada vez.
+Pode selecionar duas ou mais condutas utilizando a tecla Ctrl. Pode utilizar os botões da barra de comando para interromper/retomar vários oleodutos de cada vez.
 
-Também pode clicar num pipeline e selecionar opções para suspender, retomar ou encerrar um pipeline. 
+Também pode clicar com o botão direito de um pipeline e selecionar opções para suspender, retomar ou terminar um oleoduto. 
 
 ![Menu de contexto para pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
 
-Clique na opção **de pipeline Open** para ver todas as atividades no pipeline. 
+Clique na opção **de gasoduto Open** para ver todas as atividades no oleoduto. 
 
 ![Menu Abrir pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Na vista aberta do oleoduto, você vê todas as atividades no oleoduto. Neste exemplo, há apenas uma atividade: Copy Activity. 
+Na vista do gasoduto aberto, vê-se todas as atividades no oleoduto. Neste exemplo, há apenas uma atividade: Copiar Atividade. 
 
 ![Oleoduto aberto](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Para voltar à vista anterior, clique no nome da fábrica de dados no menu breadcrumb no topo.
+Para voltar à vista anterior, clique no nome da fábrica de dados no menu de migalhas de pão no topo.
 
-Na vista do pipeline, quando seleciona um conjunto de dados de saída ou quando move o rato sobre o conjunto de dados de saída, vê a janela pop-up do Activity Windows para esse conjunto de dados.
+Na vista do gasoduto, quando seleciona um conjunto de dados de saída ou quando move o rato sobre o conjunto de dados de saída, vê a janela pop-up do Activity Windows para esse conjunto de dados.
 
 ![Janela pop-up do Windows de atividade](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-Pode clicar numa janela de atividade para ver detalhes na janela **Propriedades** no painel certo.
+Pode clicar numa janela de atividade para ver detalhes na janela **Propriedades** no painel direito.
 
 ![Propriedades da janela de atividade](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-No painel certo, mude para o separador **Activity Window Explorer** para ver mais detalhes.
+No painel direito, mude para o **separador Activity Window Explorer** para ver mais detalhes.
 
 ![Explorador de janelas de atividade](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Você também vê **variáveis resolvidas** para cada tentativa de execução para uma atividade na secção **Tentativas.**
+Também vê **variáveis resolvidas** para cada tentativa de execução de uma atividade na secção **Tentativas.**
 
 ![Variáveis resolvidas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Mude para o separador **Script** para ver a definição de script JSON para o objeto selecionado.   
+Mude para o **separador Script** para ver a definição de script JSON para o objeto selecionado.   
 
 ![Separador de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Você pode ver janelas de atividade em três lugares:
 
-* O Pop-up do Windows de Atividade na Vista do Diagrama (painel do meio).
+* O pop-up do Activity Windows na vista do diagrama (painel do meio).
 * O Explorador da Janela de Atividade no painel direito.
-* A lista do Windows de Atividade sintetiza no painel inferior.
+* A lista de Janelas de Atividade no painel inferior.
 
 No pop-up do Activity Windows e no Activity Window Explorer, pode deslocar-se para a semana anterior e para a semana seguinte utilizando as setas esquerda e direita.
 
-![Janela de atividade Explorador setas esquerda/direita](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+![Setas do Explorador da janela de atividade esquerda/direita](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Na parte inferior da vista do diagrama, você vê estes botões: Zoom In, Zoom out, Zoom to Fit, Zoom 100%, Layout de bloqueio. O botão **de disposição 'Lock'** impede-o de mover acidentalmente mesas e oleodutos na vista do diagrama. Está ligado por defeito. Pode desligá-lo e mover entidades no diagrama. Quando o desligar, pode utilizar o último botão para posicionar automaticamente as tabelas e os gasodutos. Também pode fazer zoom para dentro ou para fora utilizando a roda do rato.
+Na parte inferior da vista do diagrama, vê estes botões: Zoom In, Zoom out, Zoom to Fit, Zoom 100%, Lock layout. O botão **de disposição Lock** impede-o de mover acidentalmente mesas e oleodutos na Vista diagrama. É por defeito. Pode desligá-lo e mover entidades no diagrama. Quando o desligar, pode utilizar o último botão para posicionar automaticamente as mesas e os oleodutos. Também pode fazer zoom dentro ou fora usando a roda do rato.
 
 ![Diagrama Ver comandos de zoom](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 ### <a name="activity-windows-list"></a>Lista Janelas de Atividades
-A lista do Windows de Atividade na parte inferior do painel médio apresenta todas as janelas de atividade para o conjunto de dados que selecionou no Explorer de Recursos ou na Visão do Diagrama. Por padrão, a lista está em ordem descendente, o que significa que você vê a janela de atividade mais recente no topo.
+A lista de Janelas de Atividade na parte inferior do painel central exibe todas as janelas de atividade para o conjunto de dados que selecionou no Explorador de Recursos ou na Vista do Diagrama. Por predefinição, a lista encontra-se em ordem descendente, o que significa que vê a última janela de atividade no topo.
 
 ![Lista Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
@@ -159,35 +159,35 @@ As janelas de atividade podem estar num dos seguintes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestatuto</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Descrição</th>
 </tr>
 <tr>
-    <td rowspan="8">A aguardar</td><td>Horário de tempo</td><td>Não chegou a hora da janela de atividade sacá-lo.</td>
+    <td rowspan="8">A aguardar</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>As dependências a montante não estão prontas.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Os recursos da computação não estão disponíveis.</td>
+<td>ComputeResources</td><td>Os recursos de computação não estão disponíveis.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Todos os casos de atividade estão ocupados a executar outras janelas de atividade.</td>
+<td>Lírita de concurrencyLimit</td> <td>Todas as situações de atividade estão ocupadas a gerir outras janelas de atividade.</td>
 </tr>
 <tr>
-<td>AtividadeCurrículo</td><td>A atividade é interrompida e não pode executar as janelas de atividade até que seja retomada.</td>
+<td>AtividadesResume</td><td>A atividade é interrompida e não pode executar as janelas de atividade até que seja retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está a ser novamente tentada.</td>
+<td>Tentar novamente</td><td>A execução da atividade está a ser novamente julgada.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não começou.</td>
 </tr>
 <tr>
-<td>Validação Retry</td><td>A validação está à espera de ser novamente tentada.</td>
+<td>ValidaçãoRetry</td><td>A validação está à espera de ser novamente julgada.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Inprogress</td><td>Validação</td><td>A validação está em andamento.</td>
+<td rowspan="2">InProgress</td><td>Validação</td><td>A validação está em curso.</td>
 </tr>
 <td>-</td>
 <td>A janela de atividade está a ser processada.</td>
@@ -196,7 +196,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
-<td>Cancelado</td><td>A janela de atividade foi cancelada por ação do utilizador.</td>
+<td>Cancelado</td><td>A janela de atividade foi cancelada pela ação do utilizador.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação falhou.</td>
@@ -204,94 +204,94 @@ As janelas de atividade podem estar num dos seguintes estados:
 <tr>
 <td>-</td><td>A janela de atividade não foi gerada ou validada.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>A janela de atividade está pronta para ser reemitada.</td>
+<td>Pronto</td><td>-</td><td>A janela de atividade está pronta para consumo.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>-</td><td>A janela de atividade não foi processada.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi redefinida.</td>
+<td>Nenhuma</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi reposta.</td>
 </tr>
 </table>
 
 
-Ao clicar numa janela de atividade na lista, vê detalhes sobre o mesmo no **Explorer do Windows de Atividade** ou na janela **Propriedades** à direita.
+Quando clica numa janela de atividade da lista, vê detalhes sobre o mesmo no **Activity Windows Explorer** ou na janela **Propriedades** à direita.
 
 ![Explorador de janelas de atividade](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Atualizar janelas de atividade
-Os detalhes não são automaticamente atualizados, por isso use o botão de atualização (o segundo botão) na barra de comando para refrescar manualmente a lista de janelas de atividade.  
+Os detalhes não são automaticamente atualizados, por isso utilize o botão de atualização (o segundo botão) na barra de comando para atualizar manualmente a lista de janelas de atividade.  
 
 ### <a name="properties-window"></a>Janela de propriedades
-A janela Propriedades está no painel mais certo da aplicação monitoring e gestão.
+A janela Properties está no painel mais à direita da aplicação de Monitorização e Gestão.
 
 ![Janela de propriedades](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Exibe propriedades para o item que selecionou na lista do Explorador de Recursos (vista para a árvore), na visualização do diagrama ou na lista do Windows de Atividade.
+Apresenta propriedades para o item que selecionou na lista de Exploradores de Recursos (vista para árvores), Diagrama ou Windows de atividade.
 
 ### <a name="activity-window-explorer"></a>Explorador de janelas de atividade
-A janela **Do Explorador** da Janela de Atividade está no painel mais certo da aplicação de Monitorização e Gestão. Apresenta detalhes sobre a janela de atividade que selecionou na janela pop-up do Activity Windows ou na lista do Windows de Atividade.
+A janela **do Explorador de janelas** de atividade está no painel mais à direita da aplicação de monitorização e gestão. Apresenta detalhes sobre a janela de atividade que selecionou na janela pop-up do Activity Windows ou na lista do Activity Windows.
 
 ![Explorador de janelas de atividade](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
 Pode mudar para outra janela de atividade clicando na vista do calendário na parte superior. Também pode utilizar os botões de seta esquerda/direita na parte superior para ver janelas de atividade da semana anterior ou da semana seguinte.
 
-Pode utilizar os botões da barra de ferramentas no painel inferior para reproduzir a janela de atividade ou refrescar os detalhes no painel.
+Pode utilizar os botões da barra de ferramentas no painel inferior para voltar a revesser a janela de atividade ou refrescar os detalhes no painel.
 
 ### <a name="script"></a>Script
-Pode utilizar o separador **Script** para visualizar a definição JSON da entidade selecionada data Factory (serviço ligado, conjunto de dados ou pipeline).
+Pode utilizar o **separador Script** para visualizar a definição JSON da entidade selecionada da Data Factory (serviço ligado, conjunto de dados ou pipeline).
 
 ![Separador de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Use as vistas do sistema
-A aplicação de Monitorização e Gestão inclui vistas de sistema pré-construídas ( Janelas de**atividades recentes,** janelas de **atividade sintetizadas,** **janelas de atividade em curso**) que permitem visualizar janelas de atividades recentes/falhadas/em andamento para a sua fábrica de dados.
+A aplicação monitoring and Management inclui vistas de sistema pré-construídas **(janelas de atividade recentes,** janelas de **atividades falhadas,** **janelas de atividade in-Progress**) que permitem visualizar janelas de atividades recentes/falhadas/em andamento para a sua fábrica de dados.
 
-Mude para o separador Pontos de **Monitorização** à esquerda clicando nele.
+Mude para o **separador Visualizações de Monitorização** à esquerda clicando nele.
 
-![Guia de visualizações de monitorização](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+![Separador de vistas de monitorização](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Atualmente, existem três pontos de vista do sistema que são apoiados. Selecione uma opção para ver janelas de atividade recentes, janelas de atividade sintetizadas ou janelas de atividade em andamento na lista Do Windows de Atividade (na parte inferior do painel médio).
+Atualmente, existem três pontos de vista do sistema que são suportados. Selecione uma opção para ver janelas de atividade recentes, janelas de atividade falhadas ou janelas de atividade em curso na lista do Activity Windows (na parte inferior do painel central).
 
-Ao selecionar a opção **de janelas de atividade recente,** você vê todas as janelas de atividade recentes em ordem descendente do tempo da **última tentativa**.
+Ao selecionar a opção **janelas de atividades recentes,** vê todas as janelas de atividades recentes na ordem descendente da **última tentativa.**
 
-Pode utilizar a visão **de janelas** de atividade falhada para ver todas as janelas de atividade falhadas na lista. Selecione uma janela de atividade falhada na lista para ver detalhes sobre o mesmo na janela **Propriedades** ou no Explorador de **Janelas**de Atividade . Também pode descarregar quaisquer registos para uma janela de atividade falhada.
+Pode utilizar a vista de **janelas de atividade falhada** para ver todas as janelas de atividade falhadas na lista. Selecione uma janela de atividade falhada na lista para ver detalhes sobre o mesmo na janela **Propriedades** ou no **Explorador de Janelas**de Atividade . Também pode descarregar quaisquer registos para uma janela de atividade falhada.
 
 ## <a name="sort-and-filter-activity-windows"></a>Ordenar e filtrar janelas de atividade
-Altere as definições de tempo de **início** e **de fim** na barra de comando para filtrar as janelas de atividade. Depois de alterar o tempo de início e o tempo final, clique no botão ao lado do tempo final para atualizar a lista do Windows de Atividade.
+Altere as definições **de hora de início** e de fim de **tempo** na barra de comando para filtrar as janelas de atividade. Depois de alterar a hora de início e o tempo de fim, clique no botão ao lado da hora final para atualizar a lista de Windows de atividade.
 
-![Tempos de início e fim](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+![Horários de início e fim](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Atualmente, todos os momentos estão em formato UTC na aplicação de Monitorização e Gestão.
+> Atualmente, todos os tempos estão em formato UTC na app de Monitorização e Gestão.
 >
 >
 
-Na **lista 'Janelas de**Atividades', clique no nome de uma coluna (por exemplo: Estado).
+Na **lista 'Windows' de atividade,** clique no nome de uma coluna (por exemplo: Estado).
 
-![Menu de coluna seleções do Windows de atividade](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+![Menu de coluna de lista de Windows de atividade](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
 Pode realizar as seguintes acções:
 
 * Ordenar em ordem ascendente.
 * Ordenar em ordem descendente.
-* Filtrar por um ou mais valores (Pronto, À Espera e assim por diante).
+* Filtrar por um ou mais valores (Pronto, Espera, e assim por diante).
 
-Quando especifica um filtro numa coluna, vê o botão do filtro ativado para essa coluna, o que indica que os valores da coluna são valores filtrados.
+Quando especificar um filtro numa coluna, vê o botão do filtro ativado para essa coluna, o que indica que os valores na coluna são valores filtrados.
 
-![Filtrar numa coluna da lista de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+![Filtrar numa coluna da lista de Janelas de Atividade](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os filtros para a lista Do Windows de Atividade, clique no botão de filtro claro na barra de comando.
+Pode utilizar a mesma janela pop-up para limpar filtros. Para limpar todos os filtros da lista 'Windows' de atividade, clique no botão de filtro claro na barra de comando.
 
-![Limpe todos os filtros para a lista de Janelas de Atividades](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+![Limpe todos os filtros para a lista de Windows de atividade](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
 ## <a name="perform-batch-actions"></a>Realizar ações de lote
-### <a name="rerun-selected-activity-windows"></a>Reexecutar janelas de atividade selecionadas
-Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione **Rerun Rerun** / com o gasoduto a**montante**. Quando seleciona o **Rerun com** opção pipeline a montante, repete todas as janelas de atividade a montante também.
-    ![Reexecutar uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+### <a name="rerun-selected-activity-windows"></a>Rerun janelas de atividade selecionadas
+Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione **Rerun**  /  **Rerun rerun com a montante no pipeline**. Quando seleciona a **Rerun com a montante na** opção pipeline, também volta a repetir todas as janelas de atividade a montante.
+    ![Repercuta uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Também pode selecionar várias janelas de atividade na lista e reexecutá-las ao mesmo tempo. É melhor filtrar as janelas de atividade **Failed**com base no estado (por exemplo: Falhou)---- e depois reexecutar as janelas de atividade falhadas após corrigir o problema que faz com que as janelas de atividade falhem. Consulte a secção seguinte para obter detalhes sobre filtrar as janelas de atividade na lista.  
+Também pode selecionar várias janelas de atividade na lista e repeti-las ao mesmo tempo. É melhor filtrar as janelas de atividade com base no estado (por exemplo: **Falhados**)- e, em seguida, voltar a repetir as janelas de atividade falhadas depois de corrigir o problema que faz com que as janelas de atividade falhem. Consulte a seguinte secção para obter mais informações sobre as janelas de atividade de filtragem na lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausa/retomar vários oleodutos
-Pode selecionar dois ou mais oleodutos utilizando a tecla CTRL. Pode utilizar os botões da barra de comando (que são realçados no retângulo vermelho na imagem seguinte) para parar/retomá-los.
+Pode utilizar a chave Ctrl com uma várias ou mais condutas. Pode utilizar os botões da barra de comando (que são realçados no retângulo vermelho na imagem a seguir) para fazer uma pausa/retomá-los.
 
-![Pausa/retoma na barra de comando](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pausa/currículo na barra de comando](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)

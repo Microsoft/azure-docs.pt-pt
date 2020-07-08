@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ce95e760dd9faf2130a81dff3f0611c27f99551d
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834068"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com funções Azure Cosmos DB e Azure
 
@@ -25,7 +25,7 @@ Com o [gatilho de Funções Azure para Cosmos DB,](../azure-functions/functions-
 > [!NOTE]
 > Atualmente, o gatilho Azure Functions para Cosmos DB é suportado apenas para utilização com a API core (SQL).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
@@ -37,7 +37,7 @@ Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 A criação da sua Função Azure com um gatilho de Funções Azure para Cosmos DB é agora suportada em todas as integrações Azure Functions IDE e CLI:
 
 * [Extensão do estúdio visual](../azure-functions/functions-develop-vs.md) para utilizadores do Estúdio Visual.
-* [Extensão visual do código do estúdio](/azure/javascript/tutorial-vscode-serverless-node-01) para utilizadores do Código do Estúdio Visual.
+* [Extensão visual do código do estúdio](/azure/developer/javascript/tutorial-vscode-serverless-node-01) para utilizadores do Código do Estúdio Visual.
 * E, [finalmente, core CLI ferramenta](../azure-functions/functions-run-local.md#create-func) para uma experiência agnóstica IDE de plataforma cruzada.
 
 ## <a name="run-your-trigger-locally"></a>Executar o seu gatilho localmente
@@ -46,7 +46,7 @@ Pode executar a sua [Função Azure localmente](../azure-functions/functions-dev
 
 Se quiser testar cenários ao vivo na nuvem, pode experimentar o [Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou subscrição Azure necessária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode agora continuar a aprender mais sobre a alteração do feed nos seguintes artigos:
 

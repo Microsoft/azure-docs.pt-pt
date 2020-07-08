@@ -4,18 +4,18 @@ description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambi
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: tracking-python
-ms.openlocfilehash: df64c9d90252c31118b66943b6a182319e3f1cc2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834085"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerir e configurar projetos em Pré-visualização de Cadernos Azure
 
-Um projeto em Azure Notebooks Preview é essencialmente uma configuração da máquina virtual Linux subjacente na qual funcionam os cadernos Jupyter, juntamente com uma pasta de ficheiros e metadados descritivos. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Um projeto em Azure Notebooks Preview é essencialmente uma configuração da máquina virtual Linux subjacente na qual funcionam os cadernos Jupyter, juntamente com uma pasta de ficheiros e metadados descritivos. 
 
 O painel de instrumentos do projeto em Azure Notebooks permite-lhe gerir ficheiros e configurar as características do projeto:
 
@@ -38,7 +38,7 @@ Por padrão, os projetos funcionam no nível **de Computação Livre,** que est�
 
 No painel de **instrumentos,** selecione Definições de Projeto, em seguida, selecione o **separador Informação,** que contém os metadados do projeto, conforme descrito na tabela seguinte. Pode alterar metadados de projeto a qualquer momento.
 
-| Definição | Description |
+| Definição | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. Por exemplo, "Olá Mundo em Python". |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto. Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
@@ -57,7 +57,7 @@ O painel de instrumentos do projeto mostra o conteúdo do sistema de pastas do p
 
 O comando **+ Novo** (atalho de teclado: n) cria novos ficheiros ou pastas. Ao utilizar o comando, selecione primeiro o tipo de item para criar:
 
-| Tipo de artigo | Description | Comportamento do comando |
+| Tipo de artigo | Descrição | Comportamento do comando |
 | --- | --- | --- |
 | **Bloco de Notas** | Um caderno Jupyter | Exibe um pop-up no qual especifica o nome e o idioma do portátil do caderno. |
 | **Pasta** | Uma sub-página | Cria um campo de edição na lista de ficheiros do projeto no qual introduz o nome da pasta. |
@@ -127,7 +127,7 @@ Para adicionar um passo, selecione primeiro **+ Adicione,** em seguida, selecion
 
 A informação que então projeta depende do tipo de operação que escolheu:
 
-- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt,* o Azure Notebooks funciona `pip install -r` com os *ficheiros requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
+- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt,* o Azure Notebooks funciona `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
 
 - **Script de concha**: Na segunda lista de drop-down, selecione um script de concha de bash no projeto (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente.
 
@@ -187,7 +187,7 @@ Também pode utilizar o comando a partir de uma célula de código num caderno P
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)
 - [Aceder a dados da cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)
