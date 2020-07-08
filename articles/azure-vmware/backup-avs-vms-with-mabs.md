@@ -4,10 +4,10 @@ description: Configure o seu ambiente de Solução VMware Azure para fazer backu
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817941"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Backup VMs de Solução VMware Azure com Servidor de Backup Azure
@@ -379,7 +379,7 @@ Pode restaurar ficheiros individuais a partir de um ponto de recuperação de VM
 
 1. No ecrã **Resumo,** reveja as definições e selecione **Recuperar** para iniciar o processo de recuperação. O ecrã **de estado de recuperação** mostra a progressão da operação de recuperação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para problemas de resolução de problemas ao configurar backups, reveja o guia de resolução de problemas para O Servidor de Backup Azure.
 

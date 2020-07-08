@@ -4,10 +4,10 @@ description: Este artigo descreve a gestão das tarefas de manutenção mais com
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: ca0fa88cf27db15d45a2c855a1af351764c48fde
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887508"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerir o Monitor Azure para o agente de contentores
@@ -137,6 +137,6 @@ Para reepercutir a descoberta das variáveis ambientais, aplique o mesmo process
   value: "True"  
 ```  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver problemas durante a atualização do agente, reveja o [guia de resolução de problemas](container-insights-troubleshoot.md) para obter apoio.

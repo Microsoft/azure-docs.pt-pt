@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887609"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Otimização de streaming de mídia com Azure CDN 
@@ -87,7 +87,7 @@ O curto tempo negativo de caching é útil para o descarregamento de origem quan
 |   | Entrega geral da web | Streaming de meios de comunicação geral | Streaming de meios de vídeo a pedido  
 --- | --- | --- | ---
 Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo
+Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Lidar com falha de origem  
 

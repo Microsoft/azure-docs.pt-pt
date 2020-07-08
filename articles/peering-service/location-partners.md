@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/29/2020
 ms.author: derekol
 ms.openlocfilehash: 012468ea16a9d1125bbcc93333eb8dad586aa502
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872105"
 ---
 # <a name="peering-service-partners"></a>Parceiros de serviço de observação
@@ -47,7 +47,7 @@ A tabela deste artigo fornece informações sobre os parceiros de conectividade 
 >Para obter mais informações sobre o alistamento com o programa Peering Service Partner, contacte peeringservice@microsoft.com até .
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre o Serviço de Peering, consulte [a visão geral do Serviço de Peering](about.md).
 - Para saber mais sobre as FAQs do Serviço de Peering, consulte [o Serviço de Observação de Observação FAQ](faq.md).

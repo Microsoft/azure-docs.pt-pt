@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887427"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Anular o comportamento http usando o Azure CDN do motor de regras Verizon Premium
@@ -93,7 +93,7 @@ Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir da
    >
    >
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)

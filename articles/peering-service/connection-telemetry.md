@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 0e54b20cc6aefa69226c24f557ae02166dc4b4b6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872009"
 ---
 # <a name="peering-service-connection-telemetry"></a>Telemetria de conexão de serviço de espreitar
@@ -35,7 +35,7 @@ Os caminhos de encaminhamento são monitorizados para qualquer atividade suspeit
 - Retirada pré-fixa
 - Fugas de rota
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a ligação do Serviço de Peering, consulte [a ligação do Serviço de Peering](connection.md).
 - Para embarcar numa ligação de Serviço de Peering, consulte [a bordo de um modelo de Serviço de Observação.](onboarding-model.md)

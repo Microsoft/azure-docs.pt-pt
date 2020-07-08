@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887525"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando apache spark empregos em AKS
@@ -330,7 +330,7 @@ Ao executar o trabalho, em vez de indicar um URL de frasco remoto, o `local://` 
 > [!WARNING]
 > Da [documentação][spark-docs]Spark : "O programador kubernetes é atualmente experimental. Em futuras versões, pode haver alterações comportamentais em torno da configuração, imagens de contentores e pontos de entrada".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a documentação da Spark para mais detalhes.
 

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463611"
 ---
-Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Estes 25.000 e-mails mensais gratuitos dar-lhe-ão acesso a relatórios avançados e análises e [a todas as APIs][all APIs] (Web, SMTP, Evento, Parse, e muito mais). Para obter informações sobre os serviços adicionais fornecidos pela SendGrid, visite a página [Soluções SendGrid][SendGrid Solutions].
+Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Estes 25.000 e-mails mensais gratuitos dar-lhe-ão acesso a relatórios e análises avançados e [a todas as APIs][all APIs] (Web, SMTP, Event, Parse, entre outras). Para obter informações sobre os serviços adicionais fornecidos pela SendGrid, visite a página [Soluções SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever numa conta SendGrid
 1. Inicie sessão no [portal do Azure][Azure portal].
@@ -34,11 +34,11 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 10. Introduza um **Código de Promoção** se tiver um.
 11. Introduza as suas **Informações de Contacto**.
 12. Leia e aceite os **Termos legais**.
-13. Depois de confirmar a sua compra, verá um pop-up **de implementação bem sucedido** e verá a sua conta listada.
+13. Depois de confirmar a sua compra, verá um pop-up **de implementação bem** sucedido e verá a sua conta listada.
 
     ![all-resources][all-resources]
 
-    Depois de concluir a compra e clicar no botão **Gerir** para iniciar o processo de verificação de e-mail, receberá uma mensagem de e-mail da SendGrid a pedir que verifique a sua conta. Se não receber este e-mail, ou tiver problemas em verificar a sua conta, consulte as nossas FAQ.
+    Depois de concluir a compra e clicar no botão **Gerir** para iniciar o processo de verificação de e-mail, receberá uma mensagem de e-mail da SendGrid a pedir que verifique a sua conta. Se não receber este e-mail, ou tiver problemas em verificar a sua conta, consulte as nossas PERGUNTAS Frequentes.
 
     ![manage][manage]
 
@@ -46,7 +46,7 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 
     Para modificar o seu plano de subscrição ou ver as definições de contacto do SendGrid, clique no nome do seu serviço SendGrid para abrir o dashboard do SendGrid Marketplace.
 
-    ![settings][settings]
+    ![definições][settings]
 
     Para enviar uma mensagem de e-mail com o SendGrid, tem de indicar a sua Chave de API.
 
@@ -72,11 +72,11 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
     ![key][key]
 2. A palavra-passe é aquela que escolheu na configuração. Pode selecionar **Alterar palavra-passe** ou **Repor palavra-passe** para fazer alterações.
 
-Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isto redirecionará para o seu painel SendGrid.
+Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isto irá redirecionar para o seu painel SendGrid.
 
 ![manage][manage]
 
-Para mais informações sobre o envio de e-mail através do SendGrid, visite a visão geral da API por [e-mail.][Email API Overview]
+Para mais informações sobre o envio de e-mail através do SendGrid, visite a Visão Geral da [API por e-mail.][Email API Overview]
 
 <!--images-->
 

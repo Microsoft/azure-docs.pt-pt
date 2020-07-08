@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887652"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de descarregamento de ficheiros grandes com Azure CDN
@@ -111,7 +111,7 @@ A otimização de ficheiros grandes utiliza diferentes tempos de validade da val
 |    | Teia geral | Otimização de ficheiros grandes 
 --- | --- | --- 
 Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 
+Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo 
 
 ### <a name="deal-with-origin-failure"></a>Lidar com falha de origem
 

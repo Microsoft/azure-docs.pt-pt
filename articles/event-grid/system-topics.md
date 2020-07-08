@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887918"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
@@ -63,7 +63,7 @@ Para fontes de eventos Azure que se encontram numa região/localização especí
 
 Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a fonte de eventos Azure está. Para subscrições de eventos criadas no âmbito de subscrição do Azure, o tópico do sistema é criado sob o grupo de recursos **Default-EventGrid**. Se o grupo de recursos não existir, a Azure Event Grid cria-o antes de criar o tópico do sistema. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 
 - [Criar, visualizar e gerir tópicos do sistema utilizando o portal Azure](create-view-manage-system-topics.md).

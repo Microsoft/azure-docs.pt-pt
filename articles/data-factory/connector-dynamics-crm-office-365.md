@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887015"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM utilizando a Azure Data Factory
@@ -79,10 +79,10 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Yes |
-| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Yes |
-| serviceUri | O URL de serviço da sua instância Dynamics. Um exemplo é https://adfdynamics.crm.dynamics.com. | Yes |
-| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Yes |
+| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim |
+| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Sim |
+| serviceUri | O URL de serviço da sua instância Dynamics. Um exemplo é https://adfdynamics.crm.dynamics.com. | Sim |
+| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
 | servicePrincipalId | A identificação do cliente da aplicação AD Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
 | ServiçoPrincipalCredentialType | O tipo de credencial a utilizar para a autenticação principal de serviço. Os valores válidos são "ServicePrincipalKey" e "ServicePrincipalCert". | Sim, quando a autenticação é "AADServicePrincipal" |
 | serviçoPrincipalCredential | A credencial principal de serviço. <br/><br/>Quando utiliza o "ServicePrincipalKey" como tipo credencial, `servicePrincipalCredential` pode ser uma cadeia que a Azure Data Factory encripta após a implementação do serviço ligado. Ou pode ser uma referência a um segredo em Azure Key Vault. <br/><br/>Quando utilizar o "ServicePrincipalCert" como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Cofre da Chave Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
@@ -222,7 +222,7 @@ Para copiar dados de e para a Dynamics, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Sim |
 | entidade Nome | O nome lógico da entidade para recuperar. | Não para a fonte se a fonte de atividade for especificada como "consulta" e sim para pia |
 
 #### <a name="example"></a>Exemplo
@@ -254,7 +254,7 @@ Para copiar dados da Dynamics, a secção **de origem** da atividade de cópia s
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Sim |
 | consulta | FetchXML é uma linguagem de consulta proprietária que é usada em Dynamics on-line e no local. Veja o seguinte exemplo. Para saber mais, consulte [Criar consultas com a FetchXML.](https://msdn.microsoft.com/library/gg328332.aspx) | Não se `entityName` no conjunto de dados for especificado |
 
 >[!NOTE]
@@ -323,7 +323,7 @@ Para copiar dados para a Dynamics, a secção **de lavatório** de atividade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Sim. |
-| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Yes |
+| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Sim |
 | nome alternativoKeyName | O nome de chave alternativa definido na sua entidade para fazer um upsert. | Não. |
 | escreverBatchSize | A contagem de dados escrita para a Dynamics em cada lote. | Não. O valor predefinido é 10. |
 | ignoreNullValues | Se ignorar valores nulos de dados de entrada que não sejam campos-chave durante uma operação de escrita.<br/><br/>Valores válidos são **VERDADEIROs** e **FALSOS:**<ul><li>**VERDADE**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.</li><li>**FALSO:** Atualize os dados no objeto de destino para um valor nulo quando fizer uma operação de atualização ou atualização. Insira um valor nulo quando fizer uma operação de inserção.</li></ul> | Não. O valor **predefinido**é FALSO . |
@@ -433,5 +433,5 @@ Se todos os seus registos de origem mapear para a mesma entidade-alvo e os seus 
 
 Para obter detalhes sobre as propriedades, consulte [a atividade da Lookup.](control-flow-lookup-activity.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados, a atividade de cópia na Data Factory suporta como fontes e sumidouros, consulte [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

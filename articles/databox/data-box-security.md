@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817723"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
@@ -99,7 +99,7 @@ Para obter mais informações, reveja a política de privacidade da Microsoft no
 
 As seguintes diretrizes de segurança são implementadas no Data Box: 
 
-|Diretriz   |Description   |
+|Diretriz   |Descrição   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | Para proteção contra água e poeira         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para resistir a condições de transporte adversas          |
@@ -107,7 +107,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
 |Apêndice A, para Discos Rígidos ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os [Requisitos do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

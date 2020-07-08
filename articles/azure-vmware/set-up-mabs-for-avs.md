@@ -4,10 +4,10 @@ description: Confende o ambiente Azure VMware Solution para fazer backup de máq
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84816866"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar o Servidor de Backup Azure para a Solução VMware Azure
@@ -387,7 +387,7 @@ O Azure Backup Server v3 só aceita volumes de armazenamento. Quando adiciona um
 
 ![Adicionar volumes disponíveis](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue até ao próximo tutorial para aprender a configurar a cópia de segurança dos VMware VMs em execução na Solução VMware Azure utilizando o Azure Backup Server.
 

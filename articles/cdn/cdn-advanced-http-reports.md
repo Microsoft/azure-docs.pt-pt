@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84886062"
 ---
-# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de utilização com relatórios HTTP avançados da Azure CDN
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de utilização com relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Descrição geral
 Este documento explica relatórios HTTP avançados no Microsoft Azure CDN. Estes relatórios fornecem informações detalhadas sobre a atividade da CDN.
 
@@ -48,7 +48,7 @@ Informações detalhadas sobre o tráfego e largura de banda para cada região s
 
 Uma breve descrição é fornecida abaixo para cada tipo de relatório de geografia baseado em mapas.
 
-| Nome do Relatório | Description |
+| Nome do Relatório | Descrição |
 | --- | --- |
 | Mapa do Mundo |Este relatório permite-lhe visualizar a procura mundial pelo seu conteúdo cdn. Cada país/região é codificado por cores no mapa mundial para indicar a percentagem de acessos originários daquela região. |
 | Mapa dos Estados Unidos |Este relatório permite-lhe visualizar a procura do seu conteúdo de CDN nos Estados Unidos. Cada estado é codificado por cores neste mapa para indicar a percentagem de acessos que se originaram daquela região. |
@@ -71,7 +71,7 @@ Os dados utilizados para gerar o gráfico de barras podem ser vistos abaixo. Lá
 
 Uma breve descrição é fornecida para ambos os tipos de relatórios abaixo.
 
-| Nome do Relatório | Description |
+| Nome do Relatório | Descrição |
 | --- | --- |
 | Principais Cidades |Este relatório classifica as cidades de acordo com o número de acessos originários daquela região. |
 | Países de Topo |Este relatório classifica os países/regiões de acordo com o número de acessos originários desse país/região. |
@@ -199,7 +199,7 @@ O lado esquerdo do gráfico (eixo y) indica o nome do ficheiro de cada um dos 10
 
 Diretamente abaixo da tabela de barras, serão listadas as seguintes informações para os 250 principais ativos solicitados: percurso relativo (incluindo nome de ficheiro), número de pedidos que resultaram num código de estado 404 Não Encontrados, o número total de vezes que o ativo foi solicitado, e a percentagem de pedidos que resultaram num código de estado 404 Não Encontrado.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)

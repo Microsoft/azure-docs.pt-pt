@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: 10b951300b8386b057744a980abd5d847b6b6907
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871856"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recursos no Azure Ative Directory
@@ -105,7 +105,7 @@ A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de ap
     ],
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a registar uma aplicação de recursos no Azure Ative Directory. Em seguida, implemente a AZure API para fHIR.
  

@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
 ms.openlocfilehash: edc337849b53cb8e818114d3dd100d30cf00b895
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872065"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>Ecossistema parceiro para Azure API para FHIR

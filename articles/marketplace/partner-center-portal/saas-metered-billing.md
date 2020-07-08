@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 19854f0c91ea7c7548a01e930748757ce041f0c1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887954"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Faturação medido usando o serviço de medição do mercado
@@ -157,6 +157,6 @@ Se tiver um dos seguintes problemas, pode abrir um bilhete de apoio.
 
 Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](./support.md) para entender as opções de suporte dos editores e abrir o bilhete de suporte com a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [o serviço de medição de mercado APIs](./marketplace-metering-service-apis.md) para obter mais informações.

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887899"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações e orientações gerais de segurança da empresa em Azure HDInsight
@@ -171,7 +171,7 @@ Razões mais comuns:
 
 Para obter uma lista completa das propriedades Ambari que afetam a sua configuração do cluster HDInsight, consulte [a Configuração de Autenticação Ambari LDAP](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurações de pacotes de segurança da empresa com serviços de domínio de diretório ativo Azure em HDInsight](./apache-domain-joined-configure-using-azure-adds.md)
 

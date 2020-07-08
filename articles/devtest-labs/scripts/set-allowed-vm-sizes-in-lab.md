@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 5b3dbee7d0ac928c4f18f25348e714aba9c1cd13
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84898060"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Use PowerShell para definir tamanhos de VM permitidos em Serviços de Laboratório Azure
@@ -45,7 +45,7 @@ Este script utiliza os seguintes comandos:
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Criar um recurso. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

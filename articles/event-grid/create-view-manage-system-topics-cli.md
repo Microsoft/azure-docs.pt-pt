@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: spelluru
 ms.openlocfilehash: d9ba83d12e73b3ebceaee3167cdcf7f27922b686
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84885244"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, ver e gerir tópicos do sistema de grade de eventos usando O Azure CLI
@@ -100,5 +100,5 @@ Para eliminar um tópico do sistema, utilize o seguinte comando:
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>   
      ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os tópicos do Sistema na secção [Azure Event Grid](system-topics.md) para saber mais sobre tópicos do sistema e tipos de tópicos suportados pela Azure Event Grid. 

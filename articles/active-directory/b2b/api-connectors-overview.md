@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905182"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Utilize conectores API para personalizar e prolongar o autosserviço de inscrição 
@@ -60,6 +60,6 @@ Um conector API neste passo no processo de inscrição é invocado após a pági
 <!-- > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [adicionar um conector API a um fluxo de utilizador](self-service-sign-up-add-api-connector.md)
 - Saiba como [adicionar um sistema de aprovação personalizado à inscrição de self-service](self-service-sign-up-add-approvals.md)

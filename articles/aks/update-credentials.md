@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/11/2019
 ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905379"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ Pode também ter [integrado o seu cluster AKS com o Azure Ative Directory][aad-i
 
 Em alternativa, pode utilizar uma identidade gerida para permissões em vez de um principal de serviço. As identidades geridas são mais fáceis de gerir do que os principais de serviço e não requerem atualizações ou rotações. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -108,7 +108,7 @@ az aks update-credentials \
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de Integração da AAD foram atualizados. Para obter mais informações sobre como gerir a identidade para cargas de trabalho dentro de um cluster, consulte [as melhores práticas de autenticação e autorização em AKS][best-practices-identity].
 

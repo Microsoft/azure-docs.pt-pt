@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: cdec5ade4fc72fba6fcfba131b69ca9eb373874c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871779"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
@@ -47,7 +47,7 @@ Do ponto de vista do desenvolvimento, todas as funcionalidades são implantadas 
 SMART (Aplicações Médicas Substituíveis e Tecnologia Reutilizável) em FHIR é um conjunto de especificações abertas para integrar aplicações de parceiros com servidores FHIR e outros sistemas de TI de saúde, tais como Registos Eletrónicos de Saúde e Intercâmbios de Informações de Saúde. Ao criar uma aplicação SMART sobre FHIR, pode garantir que a sua aplicação pode ser acedida e alavancada por uma infinidade de diferentes sistemas.
 Autenticação e AZure API para FHIR. Para saber mais sobre smart, visite [smart Health IT.](https://smarthealthit.org/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você leu algumas das perguntas frequentes sobre a Azure API para FHIR. Leia sobre as funcionalidades suportadas no FHIR Server for Azure:
  

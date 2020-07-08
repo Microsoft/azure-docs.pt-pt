@@ -4,10 +4,10 @@ description: Configure as ferramentas de análise de desempenho, disponibilidade
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84886822"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
@@ -116,7 +116,7 @@ Para atualizar para uma [nova versão do SDK](https://github.com/Microsoft/Appli
 
 Se tiver realizado personalizações no ApplicationInsights.config, guarde uma cópia do mesmo antes de atualizar. Em seguida, intercale as suas alterações na nova versão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Existem tópicos alternativos que pode ver se estiver interessado em:
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: c1deffe36df081908294d3c7fe58a17c8a454687
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887044"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS
@@ -133,14 +133,14 @@ Para utilizar a autenticação simbólica de segurança Azure CDN, tem de ter um
 
 Como os parâmetros SAS não são visíveis para a Azure CDN, a Azure CDN não pode alterar o seu comportamento de entrega com base neles. As restrições de parâmetros definidas aplicam-se apenas aos pedidos que a Azure CDN faz ao servidor de origem, e não a pedidos do cliente para a Azure CDN. Esta distinção é importante de considerar quando define os parâmetros SAS. Se estas capacidades avançadas forem necessárias e estiver a utilizar [a Opção 3,](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule)desacorda as restrições adequadas no token de segurança Azure CDN.
 
-| Nome do parâmetro SAS | Description |
+| Nome do parâmetro SAS | Descrição |
 | --- | --- |
 | Iniciar | O tempo que a Azure CDN pode começar a aceder ao ficheiro blob. Devido ao desvio do relógio (quando um sinal do relógio chega em diferentes horas para diferentes componentes), escolha uma hora 15 minutos antes se quiser que o ativo esteja disponível imediatamente. |
 | Fim | O tempo após o qual a Azure CDN já não pode aceder ao ficheiro blob. Os ficheiros previamente em cache no Azure CDN ainda estão acessíveis. Para controlar o prazo de validade do ficheiro, ou desvenda o prazo de validade adequado no token de segurança Azure CDN ou purga o ativo. |
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **o Azure CDN da Verizon,** pode definir este parâmetro para as gamas definidas no [Azure CDN a partir de Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api). Se estiver a utilizar **o Azure CDN da Akamai,** não é possível definir o parâmetro de gama IP porque os endereços IP não são estáticos.|
 | Protocolos permitidos | O protocolo permitiu um pedido feito com a conta SAS. Recomenda-se a definição HTTPS.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a SAS, consulte os seguintes artigos:
 - [Utilizar assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

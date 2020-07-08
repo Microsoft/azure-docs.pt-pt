@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
 ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871765"
 ---
 # <a name="configure-database-settings"></a>Configurar definições de base de dados 
@@ -33,7 +33,7 @@ Para alterar esta definição no portal Azure, navegue na API Azure para FHIR e 
 
 ![Config Cosmos DB](media/database/database-settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a atualizar as suas RUs para Azure API para FHIR. Em seguida, implementar uma Azure API totalmente gerida para FHIR:
  

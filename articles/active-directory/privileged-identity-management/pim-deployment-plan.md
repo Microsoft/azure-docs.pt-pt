@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84886110"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
@@ -59,7 +59,7 @@ Para mais informações, consulte [os requisitos da Licença para utilizar a Ges
 
 ### <a name="key-terminology"></a>Terminologia chave
 
-| Termo ou conceito | Description |
+| Termo ou conceito | Descrição |
 | --- | --- |
 | elegível | Uma atribuição de funções que requer que um utilizador execute uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar o papel quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com uma função permanente contra uma função elegível. A única diferença é que algumas pessoas não precisam sempre desse acesso. |
 | ativar | O processo de realização de uma ou mais ações para usar um papel para o qual um utilizador é elegível. As ações podem incluir a realização de uma verificação de autenticação multi-factor (MFA), a justificação do negócio ou a solicitação de aprovação dos aprovadores designados. |
@@ -241,30 +241,30 @@ Antes de implementar a sua solução de Gestão de Identidade Privilegiada, é u
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Definições privilegiadas de Gestão de Identidade para funções AZURE AD
 
-| Função | Requerer MFA | Notificação | Bilhete de incidente | Requerer aprovação | Approver | Duração da ativação | Administrador permanente |
+| Função | Requerer MFA | Notificação | Bilhete de incidente | Requerer aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros Administradores Globais | 1 Hora | Contas de acesso de emergência |
-| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhum | 2 Horas | Nenhum |
-| Administrador helpdesk | :x: | :x: | :heavy_check_mark: | :x: | Nenhum | 8 Horas | Nenhum |
+| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhuma | 2 Horas | Nenhuma |
+| Administrador helpdesk | :x: | :x: | :heavy_check_mark: | :x: | Nenhuma | 8 Horas | Nenhuma |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Definições privilegiadas de Gestão de Identidade para funções de recursos Azure
 
-| Função | Requerer MFA | Notificação | Requerer aprovação | Approver | Duração da ativação | Administrador ativo | Expiração ativa | Expiração elegível |
+| Função | Requerer MFA | Notificação | Requerer aprovação | Aprovador | Duração da ativação | Administrador ativo | Expiração ativa | Expiração elegível |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | 1 Hora | Nenhum | n/a | 3 meses |
-| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 Hora | Nenhum | n/a | 3 meses |
-| Contribuidor de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 Horas | Nenhum | n/a | 6 meses |
+| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | 1 Hora | Nenhuma | n/a | 3 meses |
+| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhuma | 1 Hora | Nenhuma | n/a | 3 meses |
+| Contribuidor de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhuma | 3 Horas | Nenhuma | n/a | 6 meses |
 
 A tabela seguinte descreve cada uma das definições.
 
-| Definição | Description |
+| Definição | Descrição |
 | --- | --- |
 | Função | Nome do papel para o que está a definir. |
 | Requerer MFA | Se o utilizador elegível precisa de realizar MFA antes de ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que imponha MFA para todas as funções de administrador, especialmente se as funções tiverem utilizadores convidados. |
 | Notificação | Se for definido como verdadeiro, o Administrador Global, o Administrador de Função Privilegiada e o Administrador de Segurança na organização receberão uma notificação de e-mail quando um utilizador elegível ativar a função.<br/><br/>**Nota:** Algumas organizações não têm um endereço de e-mail ligado às suas contas de administrador, para receber estas notificações de e-mail, você deve ir definir um endereço de e-mail alternativo para que os administradores recebam esses e-mails. |
 | Bilhete de incidente | Se o utilizador elegível precisa de registar um número de bilhete de incidente ao ativar a sua função. Esta definição ajuda uma organização a identificar cada ativação com um número de incidente interno para mitigar ativações indesejadas.<br/><br/> :heavy_check_mark: A Microsoft recomenda aproveitar os números de **bilhetes** de incidente para ligar a Gestão de Identidade Privilegiada ao seu sistema interno. Isto é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
 | Requerer aprovação | Se o utilizador elegível precisa de obter aprovação para ativar a função.<br/><br/> :heavy_check_mark: A **Microsoft recomenda-lhe** que estabeleça aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes privilegiados de Gestão de Identidade, Administrador Global, Administrador de Utilizador, Administrador de Câmbio, Administrador de Segurança e Administrador de Password são as funções mais comuns com a configuração de aprovação. |
-| Approver | Se for necessária a aprovação para ativar a função elegível, esliste as pessoas que devem aprovar o pedido. Por padrão, a Gestão de Identidade Privilegiada define o aprovador como todos os utilizadores que sejam um administrador privilegiado, sejam eles permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador for elegível para um papel AD Azure e um aprovador do papel, não será capaz de se aprovar.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que escolha os aprovadores para serem aqueles que têm mais conhecimento sobre o papel específico e os seus utilizadores frequentes em vez de um Administrador Global. |
+| Aprovador | Se for necessária a aprovação para ativar a função elegível, esliste as pessoas que devem aprovar o pedido. Por padrão, a Gestão de Identidade Privilegiada define o aprovador como todos os utilizadores que sejam um administrador privilegiado, sejam eles permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador for elegível para um papel AD Azure e um aprovador do papel, não será capaz de se aprovar.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que escolha os aprovadores para serem aqueles que têm mais conhecimento sobre o papel específico e os seus utilizadores frequentes em vez de um Administrador Global. |
 | Duração da ativação | O tempo de tempo que um utilizador será ativado na função antes de expirar. |
 | Administrador permanente | Lista de utilizadores que serão administradores permanentes para o papel (nunca têm de ser ativados).<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que não tenha administrador permanente zero para todas as funções, exceto para administradores globais. Leia mais sobre o que deve ser elegível e quem deve ser permanentemente ativo nesta secção deste plano. |
 | Administrador ativo | Para os recursos Azure, o administrador ativo é a lista de utilizadores que nunca terão de ativar para usar o papel. Isto não é referido como administrador permanente como nas funções Azure AD porque pode definir um prazo de validade para quando o utilizador perderá esta função. |

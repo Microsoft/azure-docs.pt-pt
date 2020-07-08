@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral do Live Video Analytics na ter
 ms.topic: conceptual
 ms.date: 05/30/2020
 ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84816518"
 ---
 # <a name="terminology"></a>Terminologia
@@ -46,6 +46,6 @@ No contexto de um sistema de gestão de vídeo para câmaras de segurança, a gr
 
 [VMS](https://en.wikipedia.org/wiki/Video_management_system) refere-se a um Sistema de Gestão de Vídeo. Estes sistemas são utilizados para configurar e controlar câmaras de CCTV, capturar e gravar vídeos dos mesmos. Estes sistemas também fornecem aplicações de clientes para reproduzir o vídeo gravado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gráficos de mídia](media-graph-concept.md)

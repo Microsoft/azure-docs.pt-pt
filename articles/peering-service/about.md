@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872037"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de peering Azure
@@ -126,7 +126,7 @@ A Microsoft garante a rota do tráfego através de caminhos preferenciais, mesmo
 
 As anomalias da rota BGP são reportadas no portal Azure, se houver.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre as ligações do Serviço de Peering, consulte [as ligações do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).

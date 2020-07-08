@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888713"
 ---
-# <a name="custom-reports-from-verizon"></a>Relatórios Personalizados de Verizon
+# <a name="custom-reports-from-verizon"></a>Relatórios Personalizados da Verizon
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -68,7 +68,7 @@ Pode exportar os dados em formato Excel clicando no símbolo Excel à direita do
 
 ## <a name="edge-cnames-custom-report-fields"></a>Edge CNAMES campos de relatório personalizado
 
-| Campo                     | Description   |
+| Campo                     | Descrição   |
 |---------------------------|---------------|
 | 2xx                       | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado HTTP 2xx (por exemplo, 200 OK). |
 | 3xx                       | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado HTTP 3xx (por exemplo, 302 Encontrados ou 304 Não Modificados. |
@@ -77,11 +77,11 @@ Pode exportar os dados em formato Excel clicando no símbolo Excel à direita do
 | Cache Hit %               | Indica a percentagem de pedidos cacheable que foram servidos diretamente da cache para o solicitador. |
 | Acertos na Cache                | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num sucesso de cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um golpe de cache ocorre quando uma versão em cache do conteúdo solicitado é encontrada. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) dos servidores de borda para clientes HTTP (navegadores web) para a borda CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP ao organismo de resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior do que o seu tamanho real de ficheiro. |
-| Description               | Identifica uma borda CNAME pelo seu nome de anfitrião |
+| Descrição               | Identifica uma borda CNAME pelo seu nome de anfitrião |
 | Acertos                      | Indica o número total de pedidos à borda CNAME |
 | Misses                    | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta numa falha de cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de cache ocorre quando o conteúdo solicitado não foi colocado no servidor de borda que honrou o pedido. | 
 | Sem Cache                  | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado de cache CONFIG_NOCACHE.  |
-| Outro                     | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME indicado que resulta num código de estado HTTP que se encontra fora da gama 2xx - 5xx. |
+| Outros                     | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME indicado que resulta num código de estado HTTP que se encontra fora da gama 2xx - 5xx. |
 | Plataforma                  | Indica a plataforma que trata do tráfego da CNAME. |
 | Não atribuído               | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME para a qual o código de estado da cache ou informações do código de estado HTTP não foram registados.  |
 | Incacheable               | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado de cache UNCACHEABLE.  |

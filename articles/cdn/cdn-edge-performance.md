@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887708"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
@@ -84,7 +84,7 @@ O objetivo destas métricas é ver se a eficiência da cache pode ser melhorada.
   * Redução dos custos operacionais.
 * Melhor aceleração da entrega de dados, uma vez que mais pedidos serão servidos diretamente do CDN.
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Eficiência cache |Indica a percentagem de dados transferidos que foi servido a partir de cache. Esta métrica mede quando uma versão em cache do conteúdo solicitado foi servida diretamente do CDN (servidores de borda) aos solicitadores (por exemplo, navegador web) |
 | Taxa de sucesso |Indica a percentagem de pedidos que foram servidos a partir de cache. Esta métrica mede quando uma versão em cache do conteúdo solicitado foi servida diretamente do CDN (servidores de borda) aos solicitadores (por exemplo, navegador web). |
@@ -102,7 +102,7 @@ Estas métricas têm por objetivo fornecer informações sobre as seguintes medi
 > 
 > 
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Ave Bytes out |Indica o número médio de bytes transferidos para cada pedido servido do CDN (servidores de borda) para o solicitador (por exemplo, navegador web). |
 | Sem Taxa de Byte Cache Config |Indica a percentagem de tráfego servido do CDN (servidores de borda) para o solicitador (por exemplo, navegador web) que não será cached devido à funcionalidade Cache bypass. |
@@ -114,7 +114,7 @@ Estas métricas têm por objetivo fornecer informações sobre as seguintes medi
 #### <a name="performance-metrics"></a>Métricas de Desempenho
 O objetivo destas métricas é acompanhar o desempenho global da CDN para o seu tráfego.
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Taxa de Transferência |Indica a taxa média a que o conteúdo foi transferido do CDN para um solicitador. |
 | Duração |Indica o tempo médio, em milissegundos, que levou para entregar um ativo a um solicitador (por exemplo, navegador web). |
@@ -126,7 +126,7 @@ O objetivo destas métricas é acompanhar o desempenho global da CDN para o seu 
 #### <a name="secure-traffic-metrics"></a>Métricas de tráfego seguro
 O objetivo destas métricas é rastrear o desempenho da CDN para o tráfego HTTPS.
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Eficiência segura da cache |Indica a percentagem de dados transferidos para pedidos HTTPS que foram servidos a partir de cache. Esta métrica mede quando uma versão em cache do conteúdo solicitado foi servida diretamente do CDN (servidores de borda) aos solicitadores (por exemplo, navegador da Web) sobre HTTPS. |
 | Taxa de transferência segura |Indica a taxa média a que o conteúdo foi transferido do CDN (servidores de borda) para os solicitadores (por exemplo, servidores web) sobre HTTPS. |
@@ -183,7 +183,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | 502 Erros |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta Bad Gateway 502. Um código de resposta Bad Gateway 502 ocorre quando ocorre uma falha do protocolo HTTP entre um servidor e um representante HTTP. No caso do nosso CDN, um código de resposta Bad Gateway 502 ocorre normalmente quando um servidor de origem do cliente devolve uma resposta inválida a um servidor de borda. Uma resposta é inválida se não puder ser analisada ou se estiver incompleta. |
 | Erros 5xx |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta na gama 500.  Excluídos deste relatório estão 502 Bad Gateway e 504 códigos de resposta gateway timeout. |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)

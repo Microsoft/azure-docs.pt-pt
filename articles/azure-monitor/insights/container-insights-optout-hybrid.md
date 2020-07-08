@@ -4,10 +4,10 @@ description: Este artigo descreve como pode parar de monitorizar o seu cluster h
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84885860"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Como parar de monitorizar o seu cluster híbrido
@@ -118,6 +118,6 @@ A alteração de configuração pode demorar alguns minutos a ser concluída. Co
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o espaço de trabalho Log Analytics foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

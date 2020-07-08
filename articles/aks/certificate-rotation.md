@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817452"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotate certificados no Serviço Azure Kubernetes (AKS)
@@ -17,7 +17,7 @@ O Serviço Azure Kubernetes (AKS) utiliza certificados para autenticação com m
 
 Este artigo mostra-lhe como rodar os certificados no seu cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.77 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -84,7 +84,7 @@ kubectl get no
 > [!NOTE]
 > Se tiver algum serviço que esteja em cima da AKS, como [a Azure Dev Spaces,][dev-spaces]poderá também necessitar de [atualizar certificados relacionados com esses serviços.][dev-spaces-rotate]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como rodar automaticamente os certificados do seu cluster, CAs e SAs. Você pode ver [as melhores práticas para segurança de cluster e upgrades no Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] para mais informações sobre as melhores práticas de segurança da AKS.
 

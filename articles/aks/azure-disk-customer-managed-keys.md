@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.openlocfilehash: 9fd04b44be969e03eec2ed18f618068316572066
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84882536"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes (AKS)
@@ -18,7 +18,7 @@ O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. 
 > [!NOTE]
 > Os clusters AKS baseados em BYOK Linux e Windows estão disponíveis nas [regiões de Azure][supported-regions] que suportam a encriptação lateral do servidor dos discos geridos pelo Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Este artigo pressupõe que está a criar um *novo cluster AKS.*
 
@@ -169,7 +169,7 @@ kubectl apply -f byok-azure-disk.yaml
 * Disponível apenas em regiões onde a BYOK é apoiada
 * A encriptação com as chaves geridas pelo cliente atualmente é apenas para novos clusters AKS, os clusters existentes não podem ser atualizados
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Rever [as melhores práticas para a segurança do cluster AKS][best-practices-security]
 

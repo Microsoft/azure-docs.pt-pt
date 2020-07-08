@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: 6642adf5f51be1f4f54c538624829fe9004d3907
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871877"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registar um pedido de cliente confidencial no Azure Ative Directory
@@ -71,7 +71,7 @@ Em seguida, adicione permissões API:
 
 3. Uma vez gerado, será exibido no portal apenas uma vez. Tome nota e guarde-o de forma segura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a registar um pedido de cliente confidencial no Azure Ative Directory. Está agora pronto para implantar a [API Azure para fHIR](fhir-paas-powershell-quickstart.md).
 

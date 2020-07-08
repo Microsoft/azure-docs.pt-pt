@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84885951"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
@@ -170,7 +170,7 @@ Se a funcionalidade for um `Polygon` `MultiPolygon` ou um, e tiver um `height` i
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
 | `height` | `height` | `0` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

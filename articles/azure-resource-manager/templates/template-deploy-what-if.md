@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888740"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
@@ -416,7 +416,7 @@ Pode utilizar a operação "e se" através dos Azure SDKs.
 
 * Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se notar resultados incorretos a partir da pré-visualização do "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

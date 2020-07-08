@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84904597"
 ---
 # <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
@@ -54,16 +54,16 @@ A saída do módulo **Converte para Diretório de Imagem** está no formato de D
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Name          | Tipo                  | Description   |
+| Name          | Tipo                  | Descrição   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Name                   | Tipo           | Description            |
+| Name                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

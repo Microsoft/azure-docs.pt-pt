@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer backup das bases de dados do SQL Serv
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817541"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
@@ -281,7 +281,7 @@ Se precisar de desativar a proteção automática, selecione o nome da instânci
 
 ![Desativar a proteção automática nesse caso](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 

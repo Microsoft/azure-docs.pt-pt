@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84886633"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de Schema no fluxo de dados de mapeamento
@@ -75,5 +75,5 @@ Na transformação gerada da Coluna Derivada, cada coluna derivada é mapeada pa
 
 ![Mapa à deriva](media/data-flow/mapdrifted2.png "Mapa à deriva")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Na Linguagem de Expressão de [Fluxo de Dados,](data-flow-expression-functions.md)encontrará instalações adicionais para padrões de colunas e deriva de esquema, incluindo "byName" e "byPosition".

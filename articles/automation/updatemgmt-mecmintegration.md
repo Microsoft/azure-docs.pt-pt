@@ -8,10 +8,10 @@ ms.author: magoedte
 ms.date: 06/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817213"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrar gestão de atualização com o gestor de configuração de ponto final do Windows
@@ -49,6 +49,6 @@ Para gerir atualizações para VMs do Windows Server que são clientes do Gestor
 
 Depois de executar esta alteração de configuração, cria uma nova implementação seguindo os passos descritos na [Criação de uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment) e seleciona **grupos importados** no **tipo** drop-down para selecionar a coleção adequada do Gestor de Configuração de Pontos de Final do Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar um calendário de integração, consulte [Agendar uma implementação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).

@@ -13,10 +13,10 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84904801"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
@@ -27,7 +27,7 @@ Depois de criar a sua aplicação, aprenderá a configurar o código utilizando 
 
 Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
 
-MSAL | Description
+MSAL | Descrição
 ------------ | ----------
 ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
 ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas do iOS utilizando Object-C ou Swift.
@@ -365,7 +365,7 @@ Aqui está um exemplo de como `LSApplicationQueriesSchemes` adicionar:
 
 Para obter informações sobre como ativar um corretor no Android, consulte [a autenticação mediada em Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aquisição de um símbolo](scenario-mobile-acquire-token.md)

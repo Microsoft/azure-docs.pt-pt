@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,17 +15,17 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74482491"
 ---
 Antes de ler este artigo, deve estar familiarizado com os seguintes conceitos:
 
 - [Visão geral da plataforma de identidade da Microsoft](../articles/active-directory/develop/v2-overview.md)
 - [Noções básicas sobre autenticação](../articles/active-directory/develop/authentication-scenarios.md)
-- [Público](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Diretores de aplicação e serviço](../articles/active-directory/develop/app-objects-and-service-principals.md)
+- [Audiências](../articles/active-directory/develop/v2-supported-account-types.md)
+- [Diretores de aplicação e serviços](../articles/active-directory/develop/app-objects-and-service-principals.md)
 - [Permissões e consentimento](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [Fichas de identificação](../articles/active-directory/develop/id-tokens.md) e [fichas](../articles/active-directory/develop/access-tokens.md) de acesso
+- [Fichas de ID](../articles/active-directory/develop/id-tokens.md) e [fichas de acesso](../articles/active-directory/develop/access-tokens.md)

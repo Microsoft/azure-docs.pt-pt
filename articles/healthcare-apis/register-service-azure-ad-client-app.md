@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: 83514ea13ca51e6980a1b4b60d4555974db5a240
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871849"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Registar um pedido de cliente de serviço no Azure Ative Directory
@@ -67,7 +67,7 @@ O cliente de serviço precisa de um segredo (palavra-passe), que utilizará na o
 
 4. Uma vez gerado, só será exibido uma vez no portal. Tome nota e guarde-o em segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a registar uma aplicação de cliente de serviço no Azure Ative Directory. Em seguida, implemente uma FHIR API em Azure.
  

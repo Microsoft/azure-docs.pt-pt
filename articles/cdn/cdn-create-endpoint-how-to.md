@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887732"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto final Azure CDN
@@ -104,7 +104,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para eliminar um ponto final quando já não for necessário, selecione-o e, em seguida, **selecione Delete**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender sobre domínios personalizados, continue ao tutorial para adicionar um domínio personalizado ao seu ponto final CDN.
 
 > [!div class="nextstepaction"]

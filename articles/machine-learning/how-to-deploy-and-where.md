@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/12/2020
 ms.custom: seoapril2019, tracking-python
 ms.openlocfilehash: bc9ab6ddf3a9032fd1919b70d830f0d65cdc06ed
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817988"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
@@ -604,13 +604,13 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Description | Estado final?
+| Estado do serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | No |
-| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
-| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
-| Falhou | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
+| Transição | O serviço está em processo de implantação. | Não |
+| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
+| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
+| Falhou | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Serviço web de instância computacional (dev/teste)
 
@@ -1218,7 +1218,7 @@ def run(request):
 > A Azure Machine Learning irá encaminhar apenas os pedidos POST e GET para os contentores que executam o serviço de pontuação. Isto pode causar erros devido aos navegadores que usam pedidos OPTIONS para pedidos de CORS pré-voo.
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)

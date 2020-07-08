@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872023"
 ---
 # <a name="peering-service-connection"></a>Conexão de serviço de observação
@@ -43,7 +43,7 @@ O cliente pode estabelecer uma única ligação ou múltiplas ligações de acor
 > A filtragem de nível estatal é considerada para a localização física do cliente quando a ligação está geo-localizada nos Estados Unidos.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender passo a passo processo sobre como registar a ligação do Serviço de Peering, consulte [o Serviço de Permôns registador utilizando o portal Azure](azure-portal.md).
 

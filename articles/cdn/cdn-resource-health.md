@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887065"
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorize a saúde dos recursos da Azure CDN
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorizar o estado de funcionamento dos recursos da CDN do Azure
   
 A azure CDN Resource health é um subconjunto de saúde de [recursos Azure](../resource-health/resource-health-overview.md).  Pode utilizar a saúde dos recursos Azure para monitorizar a saúde dos recursos da CDN e receber orientações acccionáveis para resolver problemas.
 
@@ -60,7 +60,7 @@ Os estados relacionados com a saúde dos recursos Azure CDN podem ser encontrado
 |Lamentamos, mas estamos a ter problemas ao carregar o portal suplementar | Consulte aqui as atualizações de estado; Se o seu problema persistir após o tempo de resolução esperado, contacte o suporte.|
 Lamentamos, estamos a ter problemas com alguns dos nossos fornecedores da CDN | Consulte aqui as atualizações de estado; Se o seu problema persistir após o tempo de resolução esperado, contacte o suporte. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Leia uma visão geral da saúde dos recursos Azure](../resource-health/resource-health-overview.md)
 - [Problemas de resolução de problemas com compressão CDN](./cdn-troubleshoot-compression.md)

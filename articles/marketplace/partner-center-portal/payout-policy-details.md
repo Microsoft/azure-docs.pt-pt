@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887928"
 ---
 # <a name="payout-policy-details"></a>Detalhes da política de dividendos
@@ -40,7 +40,7 @@ A partir de 1 de maio de 2020, estamos a atualizar a nossa política de pagament
 > [!NOTE]
 > Consulte [o Processo de não pagamento do cliente](#process-for-customer-non-payment) abaixo para as ações que tomamos se o cliente não pagar, mas já lhe emitimos um pagamento.
 
-| Evento  | Date  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\* |
+| Evento  | Data  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\* |
 | --- | --- | --- | --- |
 | Transação ou mês de utilização | 8/1/2020 – 8/31/2020 | N/D | **Relatório de utilização**: novo consumo mostrado (refrescado a cada quatro horas)<br>**Relatório de**encomendas : N/A |
 | Fim do prazo (mês) | 8/31/2020 | N/D | **Relatório de utilização**: consumo final de mês mostrado<br>**Relatório de**encomendas : N/A |
@@ -57,7 +57,7 @@ A partir de 1 de maio de 2020, estamos a atualizar a nossa política de pagament
 
 Todas as compras com cartão de crédito ou fatura mensal têm um período de detenção de 30 dias para garantir que os fundos são apurados e não há cobranças ou suspeitas de fraude.
 
-| Evento  | Date  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\*  |
+| Evento  | Data  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\*  |
 | --- | --- | --- | --- |
 | Transação ou mês de utilização | 8/1/2019 - 8/31/2019 | N/D | **Relatório de utilização**: novo consumo mostrado (refrescado a cada quatro horas)<br>**Relatório de**encomendas : N/A |
 | Fim do prazo (mês) | 8/31/2019 | N/D | **Relatório de utilização**: consumo final de mês mostrado<br>**Relatório de**encomendas : N/A |
@@ -74,7 +74,7 @@ Todas as compras com cartão de crédito ou fatura mensal têm um período de de
 
 Todas as compras que ocorrem antes desta data são processadas e pagas de acordo com o calendário abaixo, depois de a Microsoft ter recolhido o pagamento dos clientes e processado a taxa de mercado.
 
-| Evento  | Date  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\*  |
+| Evento  | Data  | Visibilidade do parceiro: Relatório de pagamento do Partner Center  |  Visibilidade do parceiro: Partner Center analytics\*  |
 | --- | --- | --- | --- |
 | Transação ou mês de utilização | 8/1/2019 – 8/31/2019 | N/D | **Relatório de utilização**: novo consumo mostrado (refrescado a cada quatro horas)<br>**Relatório de**encomendas : N/A |
 | Fim do prazo (mês) | 8/31/2019 | N/D | **Relatório de utilização**: consumo final de mês mostrado<br>**Relatório de**encomendas : N/A |
@@ -101,10 +101,10 @@ Segue-se um exemplo de calendário:
 | --- | --- | --- |
 | Data de pagamento de exemplo | 10/15/2020 | Marcado como **Enviado** no Histórico de Transações e na secção de Pagamentos no Painel de Pagamentos |
 | <font color="red">Se o cliente não pagar à Microsoft</font> | 12/2/2020 – 12/5/2020 | Sem mudanças, como acima |
-| Cliente recebe primeiro e-mail de pagamento em atraso | 12/6/2020 | Nenhum |
-| Cliente recebe e-mails regulares de urgência crescente | 12/7/2020 – 1/31/2021 | Nenhum |
+| Cliente recebe primeiro e-mail de pagamento em atraso | 12/6/2020 | Nenhuma |
+| Cliente recebe e-mails regulares de urgência crescente | 12/7/2020 – 1/31/2021 | Nenhuma |
 | Editor é notificado write-off é provável | 1/7/2021 | E-mail notificação enviada ao editor que o seu cliente ainda não enviou o pagamento. O ID de transação e o valor em dólares estão incluídos. |
-| Cliente recebe aviso de rescisão | 2/1/2021 | Nenhum |
+| Cliente recebe aviso de rescisão | 2/1/2021 | Nenhuma |
 | Fim do processo de recolha / os fundos são anulados | 2/15/2021 | E-mail notificação enviada ao editor de que os fundos foram anulados. O ID de transação e o valor em dólares estão incluídos. |
 | O pagamento é deduzido | 3/1/2021 | Editor verá transação negativa em Declaração de Pagamento do Partner Center |
 | O pagamento é retido | 3/15/2021 | Os pagamentos futuros serão mostrados na Declaração de Pagamento do Centro Parceiro. A editora não receberá o pagamento até que o saldo não seja mais negativo.  |
