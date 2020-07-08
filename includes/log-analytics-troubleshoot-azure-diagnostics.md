@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67184652"
 ---
 ### <a name="troubleshoot-azure-diagnostics"></a>Resolver Problemas do Diagnóstico do Azure
@@ -30,7 +30,7 @@ Para registar o fornecedor de recursos, execute os seguintes passos no portal do
 Assim que o fornecedor de recursos do *Microsoft.insights* estiver registado, repita o diagnóstico de configuração.
 
 
-No PowerShell, se receber a seguinte mensagem de erro, precisa de atualizar a sua versão do PowerShell:
+No PowerShell, se receber a seguinte mensagem de erro, tem de atualizar a sua versão do PowerShell:
 
 `Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 

@@ -9,10 +9,10 @@ ms.date: 07/26/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: f33174f7c23d0458d952d7606852eb821df7154a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68589992"
 ---
 > [!IMPORTANT]

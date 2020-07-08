@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: genli
 ms.openlocfilehash: 280943bd965c4799ce294321129d1088be9c0caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80060576"
 ---
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Para melhor ilustrar como configurar um endereço IP estático para um VM, este documento utiliza este cenário:
 

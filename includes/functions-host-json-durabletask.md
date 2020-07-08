@@ -8,10 +8,10 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80117225"
 ---
 Definições de configuração para [funções duradouras](../articles/azure-functions/durable-functions-overview.md).
@@ -92,7 +92,7 @@ Definições de configuração para [funções duradouras](../articles/azure-fun
 
 Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, o nome do centro de tarefas predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [os centros de tarefas.](../articles/azure-functions/durable-functions-task-hubs.md)
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |nome hub|DurableFunctionsHub|Nomes de [centros de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos podem ser usados para isolar várias aplicações de Funções Duráveis umas das outras, mesmo que estejam a usar o mesmo backend de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens a retirar da fila de controlo de cada vez.|
