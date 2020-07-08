@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317406"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043245"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Construir plano de migração com Azure Migrate
 
@@ -83,7 +83,7 @@ Exportar o relatório de avaliação do Azure VM e filtrar pelas seguintes categ
 
 - **Prontidão desconhecida**: A Azure Migrate não consegue determinar a prontidão da máquina devido a metadados insuficientes
 
-Utilizando as avaliações da base de dados, pode avaliar a prontidão para migrar a sua propriedade de dados do SQL Server para Azure SQL Databases ou Azure SQL Database geridos por instâncias. Pode ver a percentagem de estado de prontidão de migração para cada uma das suas instâncias de servidor SQL. Além disso, para cada um dos casos, pode ver o alvo recomendado em Azure, potenciais bloqueadores de migração, quebra de alterações contando, prontidão para Azure SQL DB / Azure SQL VM, e nível de compatibilidade. Você pode cavar mais fundo para entender o impacto dos bloqueadores de migração e recomendações para corrigi-los.
+Utilizando as avaliações da base de dados, pode avaliar a prontidão para migrar a sua propriedade de dados SQL Server para Azure SQL Database ou Azure SQL Managed Instances. Pode ver a percentagem de estado de prontidão de migração para cada uma das suas instâncias de servidor SQL. Além disso, para cada um dos casos, pode ver o alvo recomendado em Azure, potenciais bloqueadores de migração, quebra de alterações contando, prontidão para Azure SQL DB / Azure SQL VM, e nível de compatibilidade. Você pode cavar mais fundo para entender o impacto dos bloqueadores de migração e recomendações para corrigi-los.
 
  ![Avaliações de bases de dados](./media/concepts-migration-planning/database-assessment-portal.png)
 
@@ -162,7 +162,7 @@ Assim que estiver pronto para migrar, utilize a *ferramenta de migração* de se
 > [!NOTE]
 > Para VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server para lidar com a análise do SO do hóspede. Para os VMs Linux em execução em VMware, atualmente não identifica a versão exata do núcleo do SO convidado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Investigue a [jornada de migração](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)em nuvem   no Quadro de Azure Cloud Adopt.
 - [Começa](https://youtu.be/wFfq3YPxYHE) com o Azure Migrate.

@@ -49,16 +49,26 @@
               href: time-series-insights-parameterized-urls.md
     - name: Pré-visualização do Azure Time Series Insights
       items:
-        - name: Planear o ambiente
-          href: time-series-insights-update-plan.md
-        - name: Entrada e armazenamento de dados
-          href: time-series-insights-update-storage-ingress.md
         - name: Casos de utilização
           href: time-series-insights-update-use-cases.md
+        - name: Planear o ambiente
+          href: time-series-insights-update-plan.md
+        - name: Descrição Geral da Ingestão
+          href: concepts-ingestion-overview.md
+        - name: Tipos de Dados Suportados
+          href: concepts-supported-data-types.md
+        - name: Origens de Eventos da Ingestão de Transmissão em Fluxo
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Regras de simplificação e escape de JSON
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Limites de Débito da Entrada de Transmissão em Fluxo
+          href: concepts-streaming-throughput-limitations.md
+        - name: Armazenamento
+          href: concepts-storage.md
         - name: Modelo de Série de Tempo
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Consulta de Série de Tempo
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Visualizar dados na Pré-visualização do explorador
           href: time-series-insights-update-explorer.md
         - name: Programar

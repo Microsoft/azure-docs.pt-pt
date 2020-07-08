@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f191fffd1c8d66ac959953c55cbc79b3807c803
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 9beb617ed8626b1fda1c9db98d626ca70ee01755
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204557"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042922"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de remediação no Centro de Segurança do Azure
 
@@ -79,7 +79,7 @@ A operação de remediação utiliza uma implementação de modelo ou chamada AP
 |A avaliação da vulnerabilidade deve ser ativada em casos geridos pela SQL|Esta ação permitirá a avaliação da vulnerabilidade do SQL na ocorrência gerida pelo SQL selecionado. <br>**Nota:**<ul><li>A SqL Vulnerability Assessment faz parte do pacote SQL Advanced Data Security (ADS). Se o ADS ainda não estiver ativado, será automaticamente ativado na instância gerida.</li><li>Para cada região e grupo de recursos da 222CL Managed Instance selecionada, será criada e partilhada uma conta de armazenamento para armazenar resultados de digitalização por todas as instâncias daquela região.</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
 |A Segurança Avançada de Dados deve ser ativada na sua Base de Dados SQL|Esta ação permitirá a Segurança Avançada de Dados (ADS) nestes servidores selecionados e nas suas bases de dados. <br>**Nota:**<ul><li>Para cada região e grupo de recursos da base de dados SQL selecionada, será criada e partilhada por todos os servidores dessa região.<</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
 |A Avaliação de Vulnerabilidades deve ser ativada na sua Base de Dados SQL|Esta ação permitirá a Avaliação de Vulnerabilidades SQL nestes servidores selecionados e nas suas bases de dados. <br>**Nota:**<ul><li>A SqL Vulnerability Assessment faz parte do pacote SQL Advanced Data Security (ADS). Se o ADS ainda não estiver ativado, será automaticamente ativado na Base de Dados SQL.</li><li>Para cada região e grupo de recursos da base de dados SQL selecionada, será criada e partilhada uma conta de armazenamento para armazenar resultados de digitalização por todas as instâncias dessa região.</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
-|A encriptação transparente de dados nas bases de dados SQL deve ser ativada|Esta ação permite a encriptação de dados transparentes da base de dados SQL (TDE) nas bases de dados selecionadas. <br>**Nota:** Por predefinição, serão utilizadas teclas TDE geridas pelo serviço.
+|A encriptação transparente de dados na Base de Dados SQL deve ser ativada|Esta ação permite a encriptação de dados transparentes da base de dados SQL (TDE) nas bases de dados selecionadas. <br>**Nota:** Por predefinição, serão utilizadas teclas TDE geridas pelo serviço.
 |A transferência segura para contas de armazenamento deve ser ativada|Esta ação atualiza a segurança da sua conta de armazenamento para permitir apenas pedidos através de ligações seguras. (HTTPS). <br>**Nota:**<ul><li>Quaisquer pedidos que utilizem HTTP serão rejeitados.</li><li>Quando estiver a utilizar o serviço de ficheiros Azure, a ligação sem encriptação falhará, incluindo cenários que utilizem SMB 2.1, SMB 3.0 sem encriptação e alguns sabores do cliente Linux SMB. Mais informações.</li></ul>|
 |A Aplicação Web só deve ser acessível em HTTPS|Esta ação irá redirecionar todo o tráfego de HTTP para HTTPS, sobre os recursos selecionados. <br>**Nota:**<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os utilizadores que tenham um domínio personalizado precisam de verificar se criaram um certificado SSL.</li><li>Certifique-se de que as firewalls de pacotes e aplicações web protegem o serviço de aplicações, permita o encaminhamento de sessões HTTPS.</li></ul>|
 |A App de função só deve estar acessível através do HTTPS|Esta ação irá redirecionar todo o tráfego de HTTP para HTTPS, sobre os recursos selecionados. <br>**Nota:**<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os utilizadores que tenham um domínio personalizado precisam de verificar se criaram um certificado SSL.</li><li>Certifique-se de que as firewalls de pacotes e aplicações web protegem o serviço de aplicações, permita o encaminhamento de sessões HTTPS.</li></ul>|
@@ -94,7 +94,7 @@ A operação de remediação utiliza uma implementação de modelo ou chamada AP
 |Os registos de diagnóstico no Cofre de Chaves devem ser ativados|Esta ação permite registos de diagnóstico em cofres-chave. Registos e métricas de diagnóstico são guardados no espaço de trabalho selecionado.|
 |Os registos de diagnóstico no autocarro de serviço devem ser ativados|Esta ação permite registos de diagnóstico no autocarro de serviço. Registos e métricas de diagnóstico são guardados no espaço de trabalho selecionado.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, foi-lhe mostrado como remediar recomendações no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte os seguintes tópicos:
 
