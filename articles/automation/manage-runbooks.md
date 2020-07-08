@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718313"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
@@ -336,7 +335,7 @@ foreach($item in $output)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter detalhes sobre a gestão de [runbook, consulte a execução do Runbook na Azure Automation](automation-runbook-execution.md).
 * Para preparar um livro de bordo PowerShell, consulte [editar livros de texto em Azure Automation](automation-edit-textual-runbook.md).

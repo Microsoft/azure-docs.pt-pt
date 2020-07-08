@@ -4,12 +4,11 @@ description: Descreve como implementar um serviço em muitas regiões com O Gest
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: a91623d22a921b6285723af2b4ca1411b9cf0bab
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677887"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057930"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)
 
@@ -30,7 +29,7 @@ Você implementa o modelo de topologia antes de implementar o modelo de lançame
 
 Recursos adicionais:
 
-- Referência [Azure Deployment Manager REST API](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- Referência [Azure Deployment Manager REST API](/rest/api/deploymentmanager/).
 - [Tutorial: Use o Gestor de Implementação Azure com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
 - [Tutorial: Use o controlo de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Uma amostra do Gestor de Implantação Azure](https://github.com/Azure-Samples/adm-quickstart).

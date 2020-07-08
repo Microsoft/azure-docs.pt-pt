@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/15/2020
 ms.openlocfilehash: dfd439affe488805b4645211477c6d32bbbe7489
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770939"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização do desempenho da atividade
@@ -146,10 +145,10 @@ Configure a **definição de definição de ativação** na atividade de cópia 
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
+| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |Não |
 | linkedServiceName |Especifique o nome de um serviço ligado a [AzureStorage,](connector-azure-blob-storage.md#linked-service-properties) que se refere à instância de Armazenamento que utiliza como loja de encenação provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no Azure Synapse Analytics via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| path |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |No |
-| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
+| path |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |Não |
+| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |Não |
 
 >[!NOTE]
 > Se utilizar cópia encenada com compressão ativada, o principal de serviço ou a autenticação MSI para o serviço de ligação blob de paragem não é suportado.
@@ -191,7 +190,7 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 * Quando utiliza a encenação durante uma cópia em nuvem, que está a copiar dados de uma loja de dados em nuvem para outra loja de dados em nuvem, ambas as fases empoderadas pelo tempo de funcionamento da integração do Azure, é-lhe cobrada a [soma da duração da cópia para o passo 1 e passo 2] x [preço unitário de cópia em nuvem].
 * Quando utiliza a encenação durante uma cópia híbrida, que está a copiar dados de uma loja de dados no local para uma loja de dados em nuvem, uma fase potenciada por um tempo de integração auto-hospedado, é cobrado por [duração da cópia híbrida] x [preço unitário de cópia híbrida] + [duração da cópia da nuvem] x [preço unitário de cópia de nuvem].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)

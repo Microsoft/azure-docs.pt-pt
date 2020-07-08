@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 92a37babbcc0bbba3845267ca2eb0f95b9fceafa
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667867"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge-preview"></a>Fazer o back up e restaurar bases de dados em Azure SQL Edge (Pré-visualização) 

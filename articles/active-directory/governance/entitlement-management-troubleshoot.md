@@ -17,10 +17,9 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85338178"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
@@ -148,7 +147,7 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
     
     Se alguma política estiver numa categoria de prioridade mais elevada, as categorias de prioridades mais baixas são ignoradas. Para um exemplo de como são apresentadas várias políticas com a mesma prioridade ao solicitador, consulte [Selecione uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

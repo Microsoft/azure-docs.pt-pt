@@ -13,10 +13,9 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249283"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
@@ -170,7 +169,7 @@ Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database forne
 |**Características**|**Always Encrypted**|**Encriptação de dados transparentes**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|
@@ -214,7 +213,7 @@ O diagrama seguinte mostra as opções de loja chave para as teclas principais d
 O tráfego de rede entre a sua organização e a SQL Database seria geralmente encaminhado para a rede pública. No entanto, se optar por otimizar este caminho e torná-lo mais seguro, pode olhar para o Azure ExpressRoute. O ExpressRoute permite-lhe essencialmente estender a sua rede corporativa à plataforma Azure através de uma ligação privada. Ao fazê-lo, não se passa pela Internet pública. Você também obtém maior segurança, fiabilidade e otimização de encaminhamento que se traduz em latências de rede mais baixas e velocidades muito mais rápidas do que você normalmente experimentaria através da internet pública. Se está a planear transferir uma parte significativa de dados entre a sua organização e a Azure, a utilização do ExpressRoute pode trazer benefícios de custos. Pode escolher entre três modelos de conectividade diferentes para a ligação da sua organização ao Azure:
 
 - [Co-localização de troca de nuvens](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Qualquer-para-qualquer](../../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Conectividade any-to-any](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Ponto a Ponto](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 O ExpressRoute também permite que rebente até 2x o limite de largura de banda que compra sem custos adicionais. Também é possível configurar a conectividade da região transversal utilizando o ExpressRoute. Para ver uma lista de fornecedores de conectividade ExpressRoute, consulte: [ExpressRoute Partners e Peering Locations](../../expressroute/expressroute-locations.md). Os seguintes artigos descrevem a Rota Expressa com mais pormenor:
@@ -333,6 +332,6 @@ Tem várias formas de o conseguir:
 - **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – Esta funcionalidade ajuda-o a sincronizar os dados bi-direccionalmente entre várias bases de dados do SQL Server e a BASE de Dados SQL. Para sincronizar com as bases de dados do SQL Server, é necessário instalar e configurar o agente de sincronização num computador local ou numa máquina virtual e abrir a porta TCP de saída 1433.
 - **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com a replicação de transações pode sincronizar os seus dados de uma base de dados do SQL Server para a Base de Dados Azure SQL, sendo a instância do SQL Server o editor e a Base de Dados Azure SQL o assinante. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados de uma base de dados do SQL Server para Azure SQL com o mínimo de tempo de inatividade, consulte: [Use a replicação de transações](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a Base de Dados SQL.](sql-database-paas-overview.md)

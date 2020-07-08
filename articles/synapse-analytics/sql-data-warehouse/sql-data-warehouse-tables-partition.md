@@ -12,10 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213929"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Mesas de partição na piscina Sinapse SQL
@@ -341,6 +340,6 @@ Para evitar que a definição de tabela **enferruje** no seu sistema de controlo
 
 Com esta abordagem, o código em controlo de origem permanece estático e os valores de fronteira de partição podem ser dinâmicos; evoluindo com a base de dados ao longo do tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o desenvolvimento de tabelas, consulte os artigos na [Visão Geral da Tabela](sql-data-warehouse-tables-overview.md).

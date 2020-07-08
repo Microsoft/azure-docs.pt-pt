@@ -4,10 +4,9 @@ description: Este guia ajuda administradores que criam e gerem contas de laborat
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444153"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
@@ -167,7 +166,7 @@ Quando administradores ou criadores de laboratório criam um laboratório de sal
 
 | Tamanho | Especificações | Série | Uso sugerido |
 | ---- | ----- | ------ | ------------- |
-| Small| <ul><li>2 núcleos</li><li>3,5 GB DE RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
+| Pequeno| <ul><li>2 núcleos</li><li>3,5 GB DE RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | <ul><li>4 Núcleos</li><li>7 GB DE RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise. |
 | Médio (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB DE RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise.
 | Grande | <ul><li>8 núcleos</li><li>16 GB DE RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes.  Este tamanho também suporta a virtualização aninhada. |
@@ -264,6 +263,6 @@ Neste exemplo, o custo é:
 
 Não deve eliminar a replicação em regiões específicas como forma de reduzir os custos (esta opção existe na galeria de imagens partilhada). As alterações de replicação podem ter efeitos adversos na capacidade do Azure Lab Service de publicar VMs a partir de imagens guardadas dentro de uma galeria de imagens partilhada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o tutorial para obter instruções passo a passo para criar uma conta de laboratório e um laboratório: [Configurar Guia](tutorial-setup-lab-account.md)

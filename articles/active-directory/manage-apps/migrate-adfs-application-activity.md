@@ -14,10 +14,9 @@ ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339163"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utilize o relatório de atividade da aplicação AD FS (pré-visualização) para migrar aplicações para Azure AD
@@ -123,7 +122,7 @@ A tabela que se segue lista todos os testes de regras de reclamação que são r
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | A declaração de emissão utiliza Expressões Regulares para transformar o valor da reivindicação a emitir.Para obter uma funcionalidade semelhante em Azure AD, pode utilizar uma transformação pré-definida como Extract(), Trim(), ToLower, entre outros. Para obter mais informações, consulte [Personalizar reclamações emitidas no token SAML para aplicações empresariais.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)          |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Vídeo: Como usar o relatório de atividade da AD FS para migrar uma aplicação](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Managing applications with Azure Active Directory](what-is-application-management.md) (Gerir aplicações com o Azure Active Directory)

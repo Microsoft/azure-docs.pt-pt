@@ -6,10 +6,9 @@ manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
 ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444272"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de colocação de proximidade (Pré-visualização)
@@ -31,7 +30,7 @@ Ao implementar a sua aplicação no Azure, espalhar instâncias da Máquina Virt
 > - [Políticas de apoio da AKS](support-policies.md)
 > - [FAQ de suporte Azure](faq.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Deve ter os seguintes recursos instalados:
 
@@ -143,7 +142,7 @@ Para eliminar o cluster, utilize o [`az group delete`][az-group-delete] comando 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [grupos de colocação de proximidade.][proximity-placement-groups]
 

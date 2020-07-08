@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: jingwang
 ms.openlocfilehash: 12a858364fc58972894f9fb365955496f8832246
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987800"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copie dados de uma fonte OData utilizando a Azure Data Factory
@@ -57,19 +56,19 @@ As seguintes propriedades são suportadas para um serviço ligado ao OData:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **OData**. |Yes |
-| url | O URL raiz do serviço OData. |Yes |
-| authenticationType | O tipo de autenticação utilizado para ligar à fonte OData. Os valores permitidos são **Anónimos,** **Básicos,** **Windows**e **AadServicePrincipal**. O OAuth baseado no utilizador não é suportado. | Yes |
-| userName | Especifique **o nome do utilizador** se utilizar a autenticação Básica ou o Windows. | No |
-| palavra-passe | Especifique a **palavra-passe** para a conta de utilizador especificada para **o nome de utilizador**. Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | No |
-| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | No |
-| aadServicePrincipalCredentialType | Especifique o tipo de credencial a utilizar para a autenticação principal do serviço. Os valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert` . | No |
-| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| serviçoPrincipalEmbeddedCert | Especifique o certificado codificado base64 da sua aplicação registada no Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| serviçoPrincipalEmbeddedCertPassword | Especifique a palavra-passe do seu certificado se o seu certificado estiver protegido com uma senha. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).  | No|
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | No |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização.| No |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade **tipo** deve ser definida para **OData**. |Sim |
+| url | O URL raiz do serviço OData. |Sim |
+| authenticationType | O tipo de autenticação utilizado para ligar à fonte OData. Os valores permitidos são **Anónimos,** **Básicos,** **Windows**e **AadServicePrincipal**. O OAuth baseado no utilizador não é suportado. | Sim |
+| userName | Especifique **o nome do utilizador** se utilizar a autenticação Básica ou o Windows. | Não |
+| palavra-passe | Especifique a **palavra-passe** para a conta de utilizador especificada para **o nome de utilizador**. Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Não |
+| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Não |
+| aadServicePrincipalCredentialType | Especifique o tipo de credencial a utilizar para a autenticação principal do serviço. Os valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert` . | Não |
+| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| serviçoPrincipalEmbeddedCert | Especifique o certificado codificado base64 da sua aplicação registada no Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| serviçoPrincipalEmbeddedCertPassword | Especifique a palavra-passe do seu certificado se o seu certificado estiver protegido com uma senha. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).  | Não|
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Não |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização.| Não |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |Não |
 
 **Exemplo 1: Utilização da autenticação anónima**
 
@@ -206,8 +205,8 @@ Para copiar dados do OData, defina **a** propriedade tipo do conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **ODataResource**. | Yes |
-| path | O caminho para o recurso OData. | Yes |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **ODataResource**. | Sim |
+| path | O caminho para o recurso OData. | Sim |
 
 **Exemplo**
 
@@ -242,9 +241,9 @@ Para copiar dados do OData, as seguintes propriedades são suportadas na secçã
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **ODataSource**. | Yes |
-| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector OData copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | No |
+| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **ODataSource**. | Sim |
+| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector OData copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
 
 **Exemplo**
 
@@ -310,6 +309,6 @@ Ao copiar dados do OData, são utilizados os seguintes mapeamentos entre os tipo
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

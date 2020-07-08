@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
 ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987577"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anuncie rotas personalizadas para clientes P2S VPN
@@ -59,6 +58,6 @@ Utilize o seguinte exemplo para eliminar rotas personalizadas:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
   ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações adicionais sobre o encaminhamento P2S, consulte [sobre o encaminhamento ponto-a-local](vpn-gateway-about-point-to-site-routing.md).

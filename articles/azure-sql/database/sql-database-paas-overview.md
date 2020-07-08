@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343256"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
@@ -190,7 +189,7 @@ A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores d
 
 Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo. A Base de Dados SQL permite-lhe dedicar-se ao que sabe fazer melhor: criar aplicações excelentes. Pode gerir e desenvolver na SQL Database utilizando ferramentas e competências que já tem.
 
-|Ferramenta|Description|
+|Ferramenta|Descrição|
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Uma aplicação baseada na web para gerir todos os serviços Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, MacOS e Linux.|

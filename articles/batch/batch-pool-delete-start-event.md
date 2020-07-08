@@ -1,20 +1,19 @@
 ---
-title: Piscina de Lote Azure elimina evento de início
-description: Referência para lote piscina excluir evento de início. Este evento é emitido quando uma operação de eliminação de piscinas tiver começado.
+title: Piscina Azure Batch apagar evento de início
+description: Referência para lote pool eliminar evento de início. Este evento é emitido quando uma operação de eliminação de piscinas foi iniciada.
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: d4fac833b6c77258e48b38838f6b7b133738a6e8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83723940"
 ---
 # <a name="pool-delete-start-event"></a>Evento de início de eliminação de conjunto
 
- Este evento é emitido quando uma operação de eliminação de piscinas tiver começado. Uma vez que a eliminação da piscina é um evento assíncrono, pode esperar que um evento completo de piscina seja emitido um evento completo assim que a operação de exclusão esteja concluída.
+ Este evento é emitido quando uma operação de eliminação de piscinas foi iniciada. Uma vez que a eliminação da piscina é um evento assíncronos, pode esperar que uma piscina elimine o evento completo a ser emitido assim que a operação de eliminação estiver concluída.
 
- O exemplo seguinte mostra o corpo de uma piscina apagar evento de início.
+ O exemplo a seguir mostra o corpo de uma piscina apagar evento de início.
 
 ```
 {

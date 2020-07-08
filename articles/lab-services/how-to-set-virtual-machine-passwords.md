@@ -4,10 +4,9 @@ description: Saiba como definir e redefinir palavras-passe para máquinas virtua
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443779"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
@@ -100,7 +99,7 @@ O criador do laboratório (educador) pode ligar-se a um aluno VM se estiverem re
 
     ![Lista de exportação de máquinas virtuais](./media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre outras opções de utilização do aluno que você (como proprietário de laboratório) pode configurar, consulte o seguinte artigo: [Configurar](how-to-configure-student-usage.md)o uso do aluno .
 
 Para saber como os alunos podem redefinir palavras-passe para os seus VMs, consulte [set ou redefinir a palavra-passe para máquinas virtuais em laboratórios de sala de aula (alunos)](how-to-set-virtual-machine-passwords-student.md).

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: fa1b93bd71c1319bf8705c8c84cdb3e6f9da19e2
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443813"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Criar um laboratório para aulas de engenharia usando a SolidWorks
@@ -85,7 +84,7 @@ Vamos cobrir uma possível estimativa de custos para esta aula. Esta estimativa 
 >[!IMPORTANT]
 > A estimativa de custos é apenas para fins.  Para obter detalhes atuais sobre os preços, consulte [o Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

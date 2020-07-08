@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712501"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
@@ -340,7 +339,7 @@ Para testar a sua função, é necessário enviar um ficheiro MP4 para o recipie
 >[!NOTE]
 > Quando se está a usar um gatilho de bolhas num plano de Consumo, pode haver até um atraso de 10 minutos no processamento de novas bolhas depois de uma aplicação de função ter ficado inativa. Após o funcionamento da aplicação de função, as bolhas são processadas imediatamente. Para obter mais informações, consulte [os gatilhos e encadernações de armazenamento Blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste momento, está pronto para começar a desenvolver uma aplicação de Serviços de Mídia. 
  

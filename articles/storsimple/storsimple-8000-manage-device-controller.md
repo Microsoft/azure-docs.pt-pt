@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513951"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os seus controladores de dispositivo StorSimple
@@ -158,7 +157,7 @@ Nesta secção, resumimos algumas das perguntas frequentes sobre a gestão dos c
 
 **A.** Para devolver um controlador ao serviço, deve inseri-lo no chassis descrito no [Substituto de um módulo controlador no seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Se encontrar algum problema com os seus controladores de dispositivo StorSimple que não possa resolver utilizando os procedimentos listados neste tutorial, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Para saber mais sobre a utilização do serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

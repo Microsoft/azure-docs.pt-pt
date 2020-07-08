@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: ff996a096cddbb85f1e1c84cd051c18a7ab4ad79
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444986"
 ---
 # <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Crie um laboratório para ensinar desenvolvimento de aplicações móveis de dados com o Android Studio
@@ -121,7 +120,7 @@ Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 hor
 
 Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443405"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
@@ -109,7 +108,7 @@ Esta secção descreve como validar que os seus controladores de GPU estão corr
 #### <a name="linux-images"></a>Imagens linux
 Siga as instruções na secção "Verificar a instalação do controlador" dos [controladores da Instalação NVIDIA GPU em VMs da série N que executam o Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Criar e gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md)

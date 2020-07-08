@@ -9,10 +9,9 @@ ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85242073"
 ---
 Este artigo responde a algumas perguntas frequentes sobre discos geridos Azure e discos SSD Azure Premium.
@@ -302,7 +301,7 @@ Não. Azure Site Recovery Azure to Azure protection for VMs with Managed Disks e
 
 **Posso migrar VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de Discos Geridos e Serviço de Armazenamento
 
@@ -340,7 +339,7 @@ Sim. Todas as imagens e imagens geridas são automaticamente encriptadas.
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 **Será que um VHD exportado de um disco gerido ou de um instantâneo também será encriptado?**
 
@@ -410,7 +409,7 @@ O maior tamanho de blob de página que a Azure suporta é 8 TiB (8.191 GiB). O t
 
 Não precisa de atualizar as ferramentas Azure existentes para criar, prender ou redimensionar discos maiores do que 1 TiB. Para fazer o upload do seu ficheiro VHD de instalações diretamente para Azure como uma bolha de página ou disco não gerido, precisa de utilizar os mais recentes conjuntos de ferramentas listados abaixo. Só apoiamos uploads de VHD de até 8 TiB.
 
-|Ferramentas azul      | Versões suportadas                                |
+|Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versão número 4.1.0: Lançamento de junho de 2017 ou posterior|
 |Azure CLI v1     | Versão número 0.10.13: Lançamento de maio de 2017 ou posterior|

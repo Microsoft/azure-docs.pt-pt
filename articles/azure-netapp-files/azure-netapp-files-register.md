@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6d47da361303a0c421da035fc47608ba363ff82f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483538"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956309"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 
@@ -52,16 +51,22 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
 
 2. Se tiver várias subscrições na sua conta Azure, selecione a que foi whitelist para ficheiros Azure NetApp:
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. Na consola Azure Cloud Shell, insira o seguinte comando para verificar se a sua subscrição foi whitelisted:
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    A saída do comando aparece da seguinte forma:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>`é o seu ID de assinatura.
 
@@ -69,21 +74,27 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
 
 4. Na consola Azure Cloud Shell, insira o seguinte comando para registar o Fornecedor de Recursos Azure: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    O `--wait` parâmetro instrui a consola a aguardar a conclusão do registo. O processo de registo pode demorar algum tempo a ser concluído.
 
 5. Na consola Azure Cloud Shell, insira o seguinte comando para verificar se o Fornecedor de Recursos Azure foi registado: 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    A saída do comando aparece da seguinte forma:
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>`é o seu ID de assinatura.  O `state` valor do parâmetro indica `Registered` .
 
@@ -94,6 +105,6 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
       ![Registado Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma conta NetApp](azure-netapp-files-create-netapp-account.md)

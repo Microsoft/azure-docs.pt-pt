@@ -9,19 +9,16 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61cc4c5d718b9588da97d60b070259d6bc6e3058
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84761277"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956241"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal As Minhas Aplicações
 
@@ -97,5 +94,5 @@ Caso necessite de submeter um pedido de apoio para um problema com a página da 
 
 * Para problemas com a página **do Office "A minha conta",** abra um pedido de suporte dentro do centro de administração microsoft 365. Vá ao **Microsoft 365 admin center**  >  **Support**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Experiências de utilizador final para aplicações no Azure Ative Directory](end-user-experiences.md)

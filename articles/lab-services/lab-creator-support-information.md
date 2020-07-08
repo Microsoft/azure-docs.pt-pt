@@ -4,10 +4,9 @@ description: Este artigo explica como os criadores de laboratório podem ver inf
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 3e04245c3f2d9b0a4f4e98ae21287983cf679ec6
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445054"
 ---
 # <a name="view-support-information-lab-creator-in-azure-lab-services"></a>Ver informações de suporte (criador de laboratório nos Serviços Azure Lab)
@@ -28,7 +27,7 @@ Pode usar esta informação para obter ajuda quando se detendo com problemas té
 
     ![Ver informações de apoio](./media/lab-creator-support-information/support-information.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo para saber como um utilizador de laboratório vê as informações de contacto de suporte:
 
 - [Ver informações de contacto (utilizador do laboratório)](lab-user-support-information.md)

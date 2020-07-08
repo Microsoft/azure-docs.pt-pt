@@ -4,10 +4,9 @@ description: Saiba como descobrir apps, funções e funcionalidades em servidore
 ms.topic: article
 ms.date: 06/10/2020
 ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770514"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descubra aplicativos, papéis e funcionalidades de máquinas
@@ -77,7 +76,7 @@ Após o fim da descoberta, se forneceu credenciais para a descoberta de apps, po
 
 O inventário da aplicação é exportado e descarregado no formato Excel. A folha **de Inventário de Aplicações** exibe todas as aplicações descobertas em todas as máquinas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie uma avaliação](how-to-create-assessment.md) para servidores descobertos.
 - Avaliar bases de dados do SQL Server utilizando [Azure Migrate:Base de dados Avaliação](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

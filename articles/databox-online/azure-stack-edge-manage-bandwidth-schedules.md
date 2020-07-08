@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 9e5361c1082424a76699affee653b4b9fc798116
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339762"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu Azure Stack Edge  

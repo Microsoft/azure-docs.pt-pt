@@ -13,10 +13,9 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718891"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
@@ -1149,7 +1148,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, configuraste um grupo de falhanços entre duas instâncias geridas. Aprendeu a:
 

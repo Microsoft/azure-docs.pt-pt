@@ -15,10 +15,9 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711855"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
@@ -276,6 +275,6 @@ Durante a criação de uma aplicação da cloud, se não existir conectividade �
 5. Se `nslookup` falhar, significa que a falha de conectividade Internet está a impedir a aplicação da cloud de se registar no serviço Gestor de Dispositivos do StorSimple.
 6. Faça as alterações necessárias à rede virtual para se certificar de que a aplicação da cloud é capaz de aceder a sites do Azure, como _windows.net_.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saber como [utilizar o serviço Gestor de Dispositivos do StorSimple para gerir uma aplicação da cloud](storsimple-8000-manager-service-administration.md).
 * Compreender como [restaurar um volume StorSimple a partir de um conjunto de cópias de segurança](storsimple-8000-restore-from-backup-set-u2.md).

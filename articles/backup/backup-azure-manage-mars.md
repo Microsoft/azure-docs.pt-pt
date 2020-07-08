@@ -4,12 +4,11 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248605"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057828"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -168,7 +167,28 @@ Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o ba
     ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase2.png)
 - Certifique-se de que a palavra-passe é bem guardada num local alternativo (diferente da máquina de origem), de preferência no Cofre da Chave Azure. Acompanhe todas as frases-passe se tiver várias máquinas a serem apoiadas com os agentes MARS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="managing-backup-data-for-unavailable-machines"></a>Gerir dados de backup para máquinas indisponíveis
+
+Esta secção discute um cenário em que a sua máquina de origem protegida com o MARS já não está disponível porque foi eliminada, corrompida, infetada com malware/ransomware ou desativada.
+
+Para estas máquinas, o serviço de Backup Azure garante que o último ponto de recuperação não expira (isto é, não é podado) de acordo com as regras de retenção especificadas na política de backup. Portanto, pode restaurar a máquina com segurança.  Considere os seguintes cenários que pode realizar nos dados com ressarte:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Cenário 1: A máquina de origem não está disponível e já não precisa de reter dados de backup
+
+- Pode eliminar os dados com ressarça do portal Azure utilizando os passos indicados [neste artigo.](backup-azure-delete-vault.md#delete-protected-items-on-premises)
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Cenário 2: A máquina de origem não está disponível e precisa de reter dados de backup
+
+Gerir a política de backup para o MARS é feito através da consola MARS e não através do portal. Se precisar estender as definições de retenção para os pontos de recuperação existentes antes de expirarem, então tem de restaurar a máquina, instalar a consola MARS e alargar a política.
+
+- Para restaurar a máquina, execute os seguintes passos:
+  - [Restaurar o VM numa máquina-alvo alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recrie a máquina-alvo com o mesmo nome de hospedeiro que a máquina de origem
+  - Instale o agente e re-registe-se no mesmo cofre e com a mesma frase de passe
+  - Lance o cliente MARS para prolongar a duração da retenção de acordo com os seus requisitos
+- A sua máquina recém-restaurada, protegida com o MARS, continuará a receber cópias de segurança.  
+
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre cenários e limitações suportados, consulte a [Matriz de Suporte do Agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Saiba mais sobre [o comportamento de retenção de políticas de backup da demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).

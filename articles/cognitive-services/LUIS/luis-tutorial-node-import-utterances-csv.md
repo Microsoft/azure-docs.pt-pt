@@ -11,14 +11,13 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340186"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057743"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente usando Node.js
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente utilizando Node.js
 
 A LUIS disponibiliza uma API programática que faz tudo o que o site [da LUIS](luis-reference-regions.md) faz. Isto pode economizar tempo quando tiver dados pré-existentes e seria mais rápido criar uma aplicação LUIS programáticamente do que introduzindo informações manualmente.
 
@@ -26,10 +25,10 @@ A LUIS disponibiliza uma API programática que faz tudo o que o site [da LUIS](l
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Inscreva-se no site da [LUIS](luis-reference-regions.md) e encontre a sua [chave de autoria](luis-concept-keys.md#authoring-key) nas Definições de Conta. Usa esta chave para chamar as APIs de autoria.
+* Inscreva-se no site da [LUIS](luis-reference-regions.md) e encontre a sua [chave de autoria](luis-how-to-azure-subscription.md#authoring-key) nas Definições de Conta. Usa esta chave para chamar as APIs de autoria.
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Este artigo começa com um CSV para os ficheiros de registo de registo de pedidos de utilizador de uma empresa hipotética. Descarregue [aqui.](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)
-* Instale os mais recentes Node.js com NPM. Descarregue a partir [daqui.](https://nodejs.org/en/download/)
+* Instale as últimas Node.js com OPM. Descarregue a partir [daqui.](https://nodejs.org/en/download/)
 * **[Recomendado]** Código de Estúdio Visual para IntelliSense e depurando, descarregue-o a partir [daqui](https://code.visualstudio.com/) gratuitamente.
 
 Todo o código deste artigo está disponível no [repositório de Idiomas Azure-Samples GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
@@ -118,15 +117,15 @@ Uma vez definidas as entidades e intenções na app LUIS, pode adicionar as decl
 ## <a name="run-the-code"></a>Executar o código
 
 
-### <a name="install-nodejs-dependencies"></a>Instalar dependências de Node.js
-Instale as dependências de Node.js a partir de NPM na linha terminal/comando.
+### <a name="install-nodejs-dependencies"></a>Instalar dependências Node.js
+Instale as dependências de Node.js de NPM na linha terminal/comando.
 
 ```console
 > npm install
 ```
 
 ### <a name="change-configuration-settings"></a>Alterar definições de configuração
-Para utilizar esta aplicação, é necessário alterar os valores do ficheiro index.js para a sua própria tecla de ponto final e fornecer o nome que pretende que a app tenha. Também pode definir a cultura da aplicação ou alterar o número da versão.
+Para utilizar esta aplicação, é necessário alterar os valores do ficheiro index.js para a sua própria chave de ponto final e fornecer o nome que pretende que a app tenha. Também pode definir a cultura da aplicação ou alterar o número da versão.
 
 Abra o ficheiro index.js e altere estes valores no topo do ficheiro.
 

@@ -5,14 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 2f871312b7e36288d1b78e05aa4058dab6c1942f
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449571"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037567"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Trabalhos de Streaming de Autoscale Analytics utilizando a Azure Automation
 
@@ -29,7 +28,7 @@ Antes de começar a configurar autoscaling para o seu trabalho, complete os segu
 ### <a name="configure-variables"></a>Configure variáveis
 Adicione as seguintes variáveis dentro da conta Azure Automation. Estas variáveis serão usadas nos livros que são descritos nos próximos passos.
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | --- | --- | --- |
 | **trabalhoName** | String | Nome do seu trabalho stream Analytics que pretende fazer uma escala automática. |
 | **resourceGroupName** | String | Nome do grupo de recursos em que o seu trabalho está presente. |

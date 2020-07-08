@@ -3,12 +3,11 @@ title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 036def01ef8ae5732d372dd995ad8f425c36cad9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631507"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057845"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Move resources to a new resource group or subscription (Mover recursos para um grupo de recursos ou uma subscrição nova)
 
@@ -53,7 +52,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
    Se as IDs do arrendatário para as assinaturas de origem e destino não forem as mesmas, utilize os seguintes métodos para conciliar os IDs do inquilino:
 
-   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md)
+   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Caso contrário, recebe um erro indicando que a **subscrição não está registada para um tipo de recurso.** Pode ver este erro ao mover um recurso para uma nova subscrição, mas essa subscrição nunca foi utilizada com esse tipo de recurso.
@@ -231,7 +230,7 @@ No órgão de pedido, especifique o grupo de recursos-alvo e os recursos para se
 
 Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Pergunta: A minha operação de movimento de recursos, que normalmente demora alguns minutos, está a decorrer há quase uma hora. Passa-se alguma coisa?**
 
@@ -277,6 +276,6 @@ Outro exemplo comum envolve mover uma rede virtual. Poderá ter de mover vários
 
 Atualmente, nem todos os recursos no movimento de apoio da Azure. Para obter uma lista de recursos que suportam movimento, consulte [o suporte de operação Move para recursos](move-support-resources.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](move-support-resources.md).

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: spelluru
 ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412843"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Definir alertas em métricas de grelha de evento azure e registos de atividade
@@ -77,7 +76,7 @@ Também pode criar alertas utilizando a página **Métricas.** Os degraus são s
 > [!NOTE]
 > Este artigo não cobre todos os diferentes passos e combinações que pode usar para criar um alerta. Para obter uma visão geral dos alertas, consulte [a visão geral dos Alertas.](../azure-monitor/platform/alerts-metric.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

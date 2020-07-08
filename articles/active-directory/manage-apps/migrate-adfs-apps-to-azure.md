@@ -14,12 +14,11 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03fe49456ac49e0e81c108198584a2c4d8eab884
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608556"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure
 
@@ -398,7 +397,7 @@ Para implementar políticas incorporadas em Azure AD, pode utilizar uma [nova po
 Nesta tabela, listamos algumas opções úteis de licença e exceto opções e como eles mapeiam para Azure AD. 
 
 
-| | Como configurar a opção de licença em Azure AD?| Como configurar Exceto opção em Azure AD? |
+| Opção | Como configurar a opção de licença em Azure AD?| Como configurar Exceto opção em Azure AD? |
 | - | - | - |
 | A partir de rede específica| Mapas para [localização nomeada](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) em Azure AD| Utilize a opção **Excluir** para [locais fidedignos](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | De grupos específicos| [Definir uma atribuição de utilizador/grupos](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Utilize a opção **Excluir** em Utilizadores e Grupos |
@@ -463,7 +462,7 @@ Dependendo da configuração da sua aplicação, verifique se o SSO funciona cor
 ‎ |
 | SSO baseado em palavra-passe| Descarregue e instale o [sinal seguro myApps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [na extensão.](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) Esta extensão ajuda-o a iniciar qualquer uma das aplicações em nuvem da sua organização que o exijam a utilizar um processo SSO.  
 ‎ |
-| Proxy da aplicação| Certifique-se de que o seu conector está em funcionamento e atribuído à sua aplicação. Visite o[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) [guia de resolução de problemas da Aplicação Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obter mais assistência.  
+| Proxy da aplicação| Certifique-se de que o seu conector está em funcionamento e atribuído à sua aplicação. Visite o [guia de resolução de problemas da Aplicação Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obter mais assistência.  
 ‎ |
 
 > [!NOTE]

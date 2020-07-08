@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725091"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar os registos de fluxo do Grupo de Segurança de Rede utilizando o Network Watcher e o Grafana
@@ -27,7 +26,7 @@ ms.locfileid: "84725091"
 
 Pode ter muitos NSGs na sua rede com registo de fluxo ativado. Esta quantidade de dados de registo torna difícil analisar e obter informações dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG usando Grafana, uma ferramenta de gráfico de código aberto, ElasticSearch, um motor de pesquisa e análise distribuído, e Logstash, que é um pipeline de processamento de dados do lado do servidor de código aberto.  
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Os registos de fluxo NSG são ativados utilizando o Network Watcher e são armazenados no armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para o ElasticSearch.  Uma vez que os registos de fluxo são armazenados em ElasticSearch, eles podem ser analisados e visualizados em dashboards personalizados em Grafana.
 
@@ -205,7 +204,7 @@ A imagem que se segue mostra um gráfico e gráfico que mostra os fluxos superio
 
 Ao integrar o Network Watcher com ElasticSearch e Grafana, tem agora uma forma conveniente e centralizada de gerir e visualizar registos de fluxo NSG, bem como outros dados. Grafana tem uma série de outras funcionalidades de gráficos poderosos que também podem ser usadas para gerir ainda mais os registos de fluxo e entender melhor o tráfego da sua rede. Agora que tem um caso Grafana configurado e ligado ao Azure, sinta-se livre para continuar a explorar a outra funcionalidade que oferece.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a utilização [do Network Watcher.](network-watcher-monitoring-overview.md)
 

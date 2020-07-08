@@ -4,10 +4,9 @@ description: Neste artigo, aprenda a preparar-se para backups do System Center D
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718330"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
@@ -105,7 +104,7 @@ Descarregue o ficheiro de credenciais do cofre para uma máquina local da seguin
 
 4. Em **Properties**  >  **Credenciais de Backup propriedades,** clique em **Baixar**. O portal gera o ficheiro credencial do cofre usando uma combinação do nome do cofre e da data atual, e disponibiliza-o para download.
 
-    ![Transferência](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 5. Clique em **Guardar** para descarregar as credenciais do cofre para a pasta ou **guardar como** e especificar uma localização. Levará até um minuto para o ficheiro ser gerado.
 
@@ -119,7 +118,7 @@ Todas as máquinas que são apoiadas pela Azure Backup devem ter o agente De bac
     ![Abrir o menu do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na página **Propriedades,** descarregue o Agente de Backup Azure.
 
-    ![Transferência](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Depois de descarregar, faça MARSAgentInstaller.exe. para instalar o agente na máquina DPM.
 5. Selecione uma pasta de instalação e uma pasta de cache para o agente. O espaço livre de localização da cache deve ser pelo menos 5% dos dados de backup.

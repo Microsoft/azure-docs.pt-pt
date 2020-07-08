@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: spelluru
 ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412941"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
@@ -285,5 +284,5 @@ az eventgrid event-subscription create
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre identidades de serviço geridas, consulte [quais são identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). 
