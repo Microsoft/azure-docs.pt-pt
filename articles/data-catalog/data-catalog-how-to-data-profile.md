@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84171230"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Como obter fontes de dados de perfil de dados no Catálogo de Dados Azure
@@ -88,7 +87,7 @@ Um perfil de dados no **Catálogo de Dados do Azure** mostra informações sobre
 
 O perfil de dados fornece estatísticas e informações sobre ativos de dados registados para ajudá-lo a determinar a adequação dos dados para resolver problemas de negócio. Além de anotar e documentar fontes de dados, os perfis de dados podem dar aos utilizadores uma compreensão mais profunda dos seus dados.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Como registar origens de dados](data-catalog-how-to-register.md)
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)

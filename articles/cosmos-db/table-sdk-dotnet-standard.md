@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168204"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: Baixar e lançar notas
@@ -28,7 +27,7 @@ ms.locfileid: "84168204"
 |---|---|
 |**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Amostra**|[Amostra API da tabela cosmos DB .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
-|**Início Rápido**|[Início Rápido](create-table-dotnet.md)|
+|**Início rápido**|[Início rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Quadro atual suportado**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Emissão do Relatório**|[Emissão do Relatório](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
@@ -40,10 +39,10 @@ A série 2.0.0 assume a dependência do [Microsoft.Azure.Cosmos,](https://www.nu
 * pré-visualização inicial de 2.0.0 Table SDK que assume a dependência do [Microsoft.Azure.Cosmos,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)com melhorias de desempenho e consolidação de espaço de nome para cosmos DB ponto final. A API pública continua a mesma.
 
 ## <a name="release-notes-for-100-series"></a>Notas de lançamento para série 1.0.0
-Série 1.0.0 assume a dependência do [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+Série 1.0.0 assume a dependência [deMicrosoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
-* Melhoria de desempenho ao definir o nível de traço padrão da Tabela SDK para SourceLevels.Off, que pode ser optado através de app.config
+* Melhoria do desempenho ao definir o nível de traço padrão da Tabela SDK para SourceLevels.Off, que pode ser optado através de app.config
 
 ### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Introduza novo config no âmbito da TableClientConfiguration para usar o Executor de Repouso para comunicar com a Cosmos DB Table API
@@ -91,12 +90,12 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 Esta biblioteca padrão .NET [Microsoft.Azure.cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) substituirá a biblioteca.NET Framework Library [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 ### <a name="200-series"></a>Série 2.0.0
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [2.0.0-pré-visualização](#2.0.0-preview) |Auguest 22, 2019 |--- |
 
 ### <a name="100-series"></a>Série 1.0.0
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [1.0.5](#1.0.5) |13 de setembro de 2019 |--- |
 | [1.0.5-pré-visualização](#1.0.5-preview) |Auguest 20, 2019 |--- |

@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
 ms.openlocfilehash: 5d9f222818726fa81dd28fe70042cbfc51162e27
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84187455"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para o SQL Server para Azure SQL Managed Instance migração on-line
@@ -148,6 +147,6 @@ Para atribuir uma função aos utilizadores/ID app, abra o portal Azure, execute
 
   O seu(s) ID(s) app(s) aparece agora listado no separador **de atribuições de Função.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja a orientação de migração para o seu cenário no [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft.

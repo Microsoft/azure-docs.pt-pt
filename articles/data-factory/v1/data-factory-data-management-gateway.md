@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84188297"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -180,7 +179,7 @@ Gateway utiliza o servidor proxy para se ligar ao serviço de nuvem. Clique **em
 Existem três opções de configuração:
 
 * **Não utilize procuração**: Gateway não utiliza explicitamente qualquer procuração para se ligar a serviços na nuvem.
-* **Utilização do sistema proxy**: Gateway utiliza a definição de procuração configurada em diahost.exe.config e diawp.exe.config. Se nenhum representante estiver configurado em diahost.exe.config e diawp.exe.config, o gateway conecta-se diretamente ao serviço de nuvem sem passar por procuração.
+* **Utilização do sistema proxy**: Gateway utiliza a definição de procuração configurada em diahost.exe.config e diawp.exe.config. Se nenhum representante estiver configurado em diahost.exe.config e diawp.exe.config, o gateway conecta-se diretamente ao serviço na nuvem sem passar por procuração.
 * **Utilize procuração personalizada**: Configure a definição de procuração HTTP para usar para gateway, em vez de utilizar configurações em diahost.exe.config e diawp.exe.config. Endereço e Porto são necessários. O Nome de Utilizador e a Palavra-Passe são opcionais dependendo da definição de autenticação do seu representante. Todas as definições são encriptadas com o certificado de credencial do gateway e armazenadas localmente na máquina de anfitrião gateway.
 
 O serviço de anfitrião da porta de gestão de dados reinicia automaticamente depois de guardar as definições de procuração atualizadas.
@@ -202,10 +201,10 @@ Pode visualizar e atualizar o proxy HTTP utilizando a ferramenta 'Gestor de Conf
 >
 
 ### <a name="configure-proxy-server-settings"></a>Configurar configurações de servidor de procuração
-Se selecionar **A definição de procuração** do sistema para o proxy HTTP, o gateway utiliza a definição de procuração em diahost.exe.config e diawp.exe.config. Se nenhum proxy for especificado em diahost.exe.config e diawp.exe.config, o gateway conecta-se diretamente ao serviço de nuvem sem passar por procuração. O procedimento a seguir fornece instruções para atualizar o ficheiro diahost.exe.config.
+Se selecionar **A definição de procuração** do sistema para o proxy HTTP, o Gateway utiliza a definição de procuração em diahost.exe.config e diawp.exe.config. Se nenhum representante for especificado em diahost.exe.config e diawp.exe.config, o gateway conecta-se diretamente ao serviço na nuvem sem passar por procuração. O procedimento seguinte fornece instruções para atualizar o ficheiro diahost.exe.config.
 
-1. No File Explorer, faça uma cópia segura de *C: \\ \\ Ficheiros de Programa \\ Microsoft Data Management Gateway \\ 2.0 \\ \\ Diahost.exe.config* partilhado para fazer cópia de segurança do ficheiro original.
-2. Lançar Notepad.exe em execução como administrador e abrir o ficheiro de texto *C: \\ \\ Ficheiros de \\ gestão de dados do Programa Microsoft Data Management Gateway \\ 2.0 \\ \\ Diahost.exe.config*. Encontra a etiqueta predefinida para system.net como mostrado no seguinte código:
+1. No File Explorer, faça uma cópia segura de *C: \\ \\ Ficheiros de Programa \\ Microsoft Data Management Gateway \\ 2.0 \\ Shared \\diahost.exe.config* para fazer cópia de segurança do ficheiro original.
+2. Lançar Notepad.exe em execução como administrador e abrir o ficheiro de texto *C: \\ \\ Ficheiros de \\ programa Microsoft Data Management Gateway \\ 2.0 \\ Shared \\diahost.exe.config*. Encontra a etiqueta predefinida para system.net como mostrado no seguinte código:
 
     ```
     <system.net>
@@ -231,7 +230,7 @@ Se selecionar **A definição de procuração** do sistema para o proxy HTTP, o 
 3. Guarde o ficheiro de configuração para a localização original e, em seguida, reinicie o serviço Data Management Gateway Host, que recolhe as alterações. Para reiniciar o serviço: utilize os serviços applet do painel de controlo ou do Gestor de Configuração gateway de gestão de **dados** > clique no botão **'Serviço de paragem'** e, em seguida, clique no **Serviço 'Iniciar'.** Se o serviço não arrancar, é provável que tenha sido adicionada uma sintaxe de marca XML incorreta no ficheiro de configuração da aplicação que foi editado.
 
 > [!IMPORTANT]
-> Não se esqueça **both** de atualizar diahost.exe.config e diawp.exe.config.
+> Não se esqueça de atualizar tanto diahost.exe.config **como** diawp.exe.config.
 
 Além destes pontos, também precisa de se certificar de que o Microsoft Azure está na lista branca da sua empresa. A lista de endereços IP válidos do Microsoft Azure pode ser descarregada a partir do [Microsoft Download Center.](https://www.microsoft.com/download/details.aspx?id=41653)
 
@@ -510,7 +509,7 @@ Esta secção descreve como criar e registar um gateway utilizando cmdlets Azure
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. No Azure PowerShell, mude para a pasta: *C: \\ \\ Ficheiros de \\ programa Microsoft Integration Runtime \\ 3.0 \\ PowerShellScript \\ *. Executar *RegisterGateway.ps1* associado à variável local **$Key** como mostrado no comando seguinte. Este script regista o agente cliente instalado na sua máquina com o gateway lógico que cria anteriormente.
+1. No Azure PowerShell, mude para a pasta: *C: \\ \\ Ficheiros de \\ programa Microsoft Integration Runtime \\ 3.0 \\ PowerShellScript \\ *. Executar *RegisterGateway.ps1* associados à variável local **$Key** como mostrado no comando seguinte. Este script regista o agente cliente instalado na sua máquina com o gateway lógico que cria anteriormente.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -542,5 +541,5 @@ Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -Resourc
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Consulte [os dados de movimento entre as instalações e o artigo lojas de dados em nuvem.](data-factory-move-data-between-onprem-and-cloud.md) Na passagem, cria-se um pipeline que utiliza o gateway para mover dados de uma base de dados do SQL Server para uma bolha Azure.

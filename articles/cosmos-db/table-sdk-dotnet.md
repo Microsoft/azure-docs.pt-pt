@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168153"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas
@@ -27,7 +26,7 @@ ms.locfileid: "84168153"
 |   |   |
 |---|---|
 |**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
-|**Início Rápido**|[Azure Cosmos DB: Construa uma app com .NET e a Tabela API](create-table-dotnet.md)|
+|**Início rápido**|[Azure Cosmos DB: Construa uma app com .NET e a Tabela API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET](tutorial-develop-table-dotnet.md)|
 |**Quadro atual suportado**|[Quadro Microsoft .NET 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
@@ -50,11 +49,11 @@ ms.locfileid: "84168153"
 ### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * Apoio de escrita multi-região adicionado
-* Dependências fixas de pacotes nuget em Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
+* As dependências fixas do pacote NuGet em Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
 ### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
-* Dependências fixas do pacote NuGet em Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
+* As dependências fixas do pacote NuGet em Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
 * Correções de erro na serialização da tabela quando jsonConvert.DefaultSettings são configurados.
 
 ### <a name="111"></a><a name="1.1.1"></a>1.1.1
@@ -87,7 +86,7 @@ O pacote [de pré-visualização WindowsAzure.Storage-PremiumTable](https://www.
 Quaisquer pedidos à Azure Cosmos DB usando um SDK reformado são rejeitados pelo serviço.
 <br/>
 
-| Versão | Data de Lançamento | Data de Aposentadoria |
+| Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 de setembro de 2019| |
 | [2.1.0](#2.1.0) |22 de janeiro de 2019|01 de abril de 2020 |

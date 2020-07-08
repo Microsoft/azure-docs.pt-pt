@@ -1,6 +1,6 @@
 ---
 title: Transformação de filtro no fluxo de dados de mapeamento
-description: Filtrar as filas utilizando a transformação do filtro no fluxo de dados de mapeamento da Fábrica de Dados azure
+description: Filtrar linhas usando a transformação do filtro no fluxo de dados de mapeamento da Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,29 +9,28 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
 ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84112816"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformação de filtro no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A transformação do Filtro permite a filtragem da linha com base numa condição. O fluxo de saída inclui todas as linhas que correspondem à condição de filtragem. A transformação do filtro é semelhante a uma cláusula WHERE no SQL.
+A transformação do Filtro permite a filtragem de linha com base numa condição. O fluxo de saída inclui todas as linhas que correspondem à condição de filtragem. A transformação do filtro é semelhante a uma cláusula WHERE em SQL.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## <a name="configuration"></a>Configuração
 
-Utilize o construtor de expressão de fluxo de dados para introduzir uma expressão para a condição do filtro. Para abrir o construtor de expressão, clique na caixa azul. A condição do filtro deve ser de tipo booleano. Para obter mais informações sobre como criar uma expressão, consulte a documentação do construtor de [expressão.](concepts-data-flow-expression-builder.md)
+Utilize o construtor de expressão de fluxo de dados para introduzir uma expressão para a condição do filtro. Para abrir o construtor de expressão, clique na caixa azul. A condição do filtro deve ser do tipo boolean. Para obter mais informações sobre como criar uma expressão, consulte a documentação do [construtor de expressão.](concepts-data-flow-expression-builder.md)
 
-![Transformação de filtro](media/data-flow/filter1.png "Transformação de filtro")
+![Transformação de filtros](media/data-flow/filter1.png "Transformação de filtros")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```
 <incomingStream>
@@ -42,13 +41,13 @@ Utilize o construtor de expressão de fluxo de dados para introduzir uma express
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação de filtro chamada `FilterBefore1960` que acolhe fluxo de entrada `CleanData` . A condição do filtro é a expressão `year <= 1960` .
+O exemplo abaixo é uma transformação de filtro nomeada `FilterBefore1960` que toma em fluxo de entrada `CleanData` . A condição do filtro é a expressão `year <= 1960` .
 
-Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
+No Data Factory UX, esta transformação parece a imagem abaixo:
 
-![Transformação de filtro](media/data-flow/filter1.png "Transformação de filtro")
+![Transformação de filtros](media/data-flow/filter1.png "Transformação de filtros")
 
-O script de fluxo de dados para esta transformação está no corte abaixo:
+O roteiro do fluxo de dados para esta transformação está no snippet abaixo:
 
 ```
 CleanData

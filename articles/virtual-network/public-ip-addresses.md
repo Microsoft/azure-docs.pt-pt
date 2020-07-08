@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84172369"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
@@ -60,7 +59,7 @@ Endereços IP públicos standard SKU:
 > [!NOTE]
 > Apenas endereços IP públicos com SKU básico estão disponíveis quando se utilizam [o IMDS do serviço de metadados de exemplo.](../virtual-machines/windows/instance-metadata-service.md) O SKU padrão não é suportado.
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Básica
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. 
 

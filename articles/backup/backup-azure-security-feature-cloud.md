@@ -1,52 +1,51 @@
 ---
-title: Eliminação suave para Backup Azure
-description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
+title: Excluir suave para cópia de segurança do Azure
+description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84116406"
 ---
-# <a name="soft-delete-for-azure-backup"></a>Eliminação suave para Backup Azure
+# <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
-As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para se proteger de tais ataques, o Azure Backup fornece agora funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação.
+As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para evitar tais ataques, o Azure Backup fornece agora funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação.
 
-Uma dessas características é a eliminação suave. Com a eliminação suave, mesmo que um ator malicioso apague uma cópia de segurança (ou os dados de backup sejam acidentalmente eliminados), os dados de backup são retidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente.
+Uma dessas características é a eliminação suave. Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não incorrem em qualquer custo para o cliente.
 
-A proteção de eliminação suave está disponível para estes serviços:
+A proteção para eliminação suave está disponível para estes serviços:
 
-- [Eliminação suave para máquinas virtuais Azure](soft-delete-virtual-machines.md)
-- [Eliminação suave para servidor SQL em VM Azure e eliminação suave para SAP HANA em cargas de trabalho VM Azure](soft-delete-sql-saphana-in-azure-vm.md)
+- [Excluir suave para máquinas virtuais Azure](soft-delete-virtual-machines.md)
+- [Eliminar suavemente para servidor SQL em Azure VM e excluir suavemente para as cargas de trabalho SAP HANA em Azure VM](soft-delete-sql-saphana-in-azure-vm.md)
 
-Este gráfico de fluxo mostra os diferentes passos e estados de um item de reserva quando o Soft Delete está ativado:
+Este gráfico de fluxo mostra os diferentes passos e estados de um item de backup quando o Soft Delete está ativado:
 
-![Ciclo de vida de artigo de backup eliminado suave](./media/backup-azure-security-feature-cloud/lifecycle.png)
+![Ciclo de vida do item de backup apagado suave](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
 ## <a name="enabling-and-disabling-soft-delete"></a>Permitir e desativar a eliminação suave
 
-A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de exclusões acidentais ou maliciosas.  Não é recomendável desativar esta funcionalidade. A única circunstância em que deve considerar desativar o soft delete é se planeia mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reproteger (como num ambiente de teste).) Só o dono do cofre pode desativar esta funcionalidade. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão em remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado suave apagado antes de desativar esta funcionalidade permanecerão em estado suave apagado durante o período de 14 dias. Se pretender eliminá-las permanentemente imediatamente, então terá de os eliminar e apagar novamente para ser eliminado permanentemente.
+A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de eliminações acidentais ou maliciosas.  Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Só o proprietário do cofre pode desativar esta função. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão numa remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado de apagação suave antes de desativar esta funcionalidade, permanecerão em estado de apagação suave durante o período de 14 dias. Se desejar eliminá-las imediatamente, terá de desafiá-las e eliminá-las novamente para ser permanentemente eliminada.
 
- É importante lembrar que uma vez que o soft delete é desativado, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo o servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez ativada a [pré-visualização SQL Server/ SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) para uma subscrição, não é possível desativar a eliminação suave apenas para servidor SQL ou DBS SAP HANA, mantendo-o ativado para máquinas virtuais no mesmo cofre. Pode criar cofres separados para controlo granular.
+ É importante lembrar que uma vez que a eliminação suave é desativada, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez que a [pré-visualização SQL Server/ SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) está ativada para uma subscrição, não é possível desativar a exclusão suave apenas para servidor SQL ou DBs SAP HANA, mantendo-a ativada para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
 
-### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar soft delete usando portal Azure
+### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar a eliminação suave usando o portal Azure
 
 Para desativar a eliminação suave, siga estes passos:
 
-1. No portal Azure, vá ao seu cofre e depois vá para **definições**  ->  **propriedades**.
-2. No painel de propriedades, selecione Atualização de **Definições**de Segurança  ->  **Update**.  
-3. No painel de definições de segurança, em **Soft Delete,** selecione **Desativar**.
+1. No portal Azure, vá ao seu cofre e, em seguida, vá para **As**  ->  **Definições Propriedades**.
+2. No painel de propriedades, selecione **Atualização de Definições de Segurança**  ->  **Update**.  
+3. No painel de definições de segurança, em **Soft Delete**, selecione **Desativar**.
 
 ![Desativar a eliminação suave](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
-### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar soft delete usando Azure PowerShell
+### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar a eliminação suave usando a Azure PowerShell
 
 > [!IMPORTANT]
-> A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão Az.RecoveryServices necessária para utilizar soft-delete usando Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desativar, utilize o [Set-AzRecoveryServicesBackupBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet.
+Para desativar, utilize o [cmdlet PS Set-AzRecoveryServicesVaultBackupProperty.](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0)
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -59,13 +58,13 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
-### <a name="disabling-soft-delete-using-rest-api"></a>Desativar soft delete usando REST API
+### <a name="disabling-soft-delete-using-rest-api"></a>Desativar a eliminação suave usando REST API
 
 Para desativar a funcionalidade de eliminação suave utilizando a API REST, consulte os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
 
-## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminação permanente de itens de backup eliminados suaves
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminação permanente de itens de backup apagados suaves
 
-Os dados de backup em estado eliminado suave antes de desativar esta funcionalidade permanecerão em estado suave apagado. Se pretender eliminá-los permanentemente, então elimine-os e elimine-os novamente para ser permanentemente eliminado.
+Os dados de backup em estado apagado suave antes de desativar esta funcionalidade, permanecerão em estado de apagação suave. Se desejar eliminá-las imediatamente, desembrulhe-as e elimine-as novamente para ser permanentemente eliminada.
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
@@ -73,33 +72,33 @@ Siga estes passos.
 
 1. Siga os passos para [desativar a eliminação suave](#enabling-and-disabling-soft-delete).
 
-2. No portal Azure, vá ao seu cofre, vá a **Backup Items,** e escolha o item suave apagado.
+2. No portal Azure, vá ao seu cofre, vá a **Itens de Reserva**e escolha o item apagado suave.
 
-   ![Escolha o item apagado suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Escolha um item apagado suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
-3. Selecione a opção **Não apagar**.
+3. Selecione a opção **Undelete**.
 
-   ![Escolha Não excluir](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+   ![Escolha Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-4. Uma janela aparecerá. **Selecione Undelete**.
+4. Aparecerá uma janela. Selecione **Undelete**.
 
    ![Selecione Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-5. Escolha **eliminar os dados de backup** para eliminar permanentemente os dados de backup.
+5. Escolha **Eliminar os dados de backup** para eliminar permanentemente os dados de backup.
 
-   ![Escolha eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha Eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-6. Digite o nome do item de reserva para confirmar que pretende eliminar os pontos de recuperação.
+6. Digite o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
 
-   ![Digite o nome do artigo de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
-7. Para eliminar os dados de cópia de segurança do artigo, **selecione Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de backup foram eliminados.
+7. Para eliminar os dados de cópia de segurança do item, selecione **Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foram eliminados.
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Se os itens foram eliminados antes de a eliminação suave ter sido desativada, então estarão em estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e executada novamente.
+Se os itens foram eliminados antes de serem desativadas, então estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
 
-Identifique os itens que estão em estado de soft-deleted.
+Identifique os itens que estão em estado de apagação suave.
 
 ```powershell
 
@@ -112,7 +111,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, inverta a operação de eliminação que foi realizada quando a eliminação suave foi ativada.
+Em seguida, inverta a operação de eliminação que foi efetuada quando foi ativada a eliminação suave.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -122,7 +121,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-Uma vez que o soft-delete está agora desativado, a operação de eliminação resultará na remoção imediata dos dados de backup.
+Uma vez que a eliminação suave está agora desativada, a operação de eliminação resultará na remoção imediata dos dados de backup.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -134,49 +133,49 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="using-rest-api"></a>Com a API REST
 
-Se os itens foram eliminados antes de a eliminação suave ter sido desativada, então estarão em estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e executada novamente.
+Se os itens foram eliminados antes de serem desativadas, então estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
 
-1. Em primeiro lugar, desfazer as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)mencionados .
+1. Em primeiro lugar, desfaça as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)mencionados.
 2. Em seguida, desative a funcionalidade de eliminação suave utilizando a API REST utilizando os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
-3. Em seguida, elimine as cópias de segurança utilizando a API REST como mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+3. Em seguida, elimine as cópias de segurança utilizando a API REST, como mencionado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Preciso de ativar a funcionalidade de eliminação suave em todos os cofres?
+### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Preciso de ativar a função de eliminação suave em cada cofre?
 
-Não, está incorporado e habilitado por padrão para todos os cofres dos serviços de recuperação.
+Não, é incorporado e habilitado por defeito para todos os cofres dos serviços de recuperação.
 
-### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>Posso configurar o número de dias para os quais os meus dados serão mantidos em estado de eliminação suave após a operação de eliminação estar concluída?
+### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>Posso configurar o número de dias para os quais os meus dados serão retidos em estado de eliminação suave após a conclusão da operação de eliminação?
 
-Não, está fixado a 14 dias de retenção adicional após a operação de eliminação.
+Não, é fixado a 14 dias de retenção adicional após a operação de eliminação.
 
 ### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Preciso pagar o custo por esta retenção adicional de 14 dias?
 
-Não, esta retenção adicional de 14 dias vem livre de custos como parte da funcionalidade soft-delete.
+Não, esta retenção adicional de 14 dias é livre de custos como parte da funcionalidade soft-delete.
 
-### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Posso executar uma operação de restauro quando os meus dados estão em estado de eliminação suave?
+### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Posso realizar uma operação de restauro quando os meus dados estão em estado de exclusão suave?
 
-Não, é necessário desapagar o recurso suave apagado para restaurar. A operação de exclusão trará o recurso de volta para a **proteção Stop com o estado** de retenção onde pode restaurar a qualquer momento. O colecionador de lixo continua em pausa neste estado.
+Não, é necessário desembolsar o recurso suave apagado para restaurar. A operação undelete trará o recurso de volta à proteção Stop com o **estado de conservação** dos dados onde pode restaurar a qualquer ponto no tempo. O coletor de lixo continua parado neste estado.
 
-### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos seguirão o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
+### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos vão seguir o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
 
 Sim.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 
-A eliminação seguida de uma operação de retoma protegerá novamente o recurso. A operação de retoma associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação de retoma estiver concluída. Se desejar efetuar um restauro a partir de um ponto de recuperação que já ultrapassou a data de validade, é aconselhável fazê-lo antes de desencadear a operação de retoma.
+Undelete seguido de uma operação retomada protegerá o recurso novamente. A operação de currículo associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação do currículo terminar. Se desejar efetuar uma restauração a partir de um ponto de recuperação que já tenha ultrapassado a data de validade, é aconselhável fazê-lo antes de desencadear a operação do currículo.
 
-### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso apagar o meu cofre se houver itens apagados macios no cofre?
+### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso apagar o meu cofre se houver itens suaves apagados no cofre?
 
-O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de reserva em estado de apagar suavemente no cofre. Os artigos apagados são eliminados permanentemente 14 dias após a eliminação da operação. Se não puder esperar 14 dias, [desative suavemente,](#enabling-and-disabling-soft-delete)desapague os itens apagados macios e elimine-os novamente para ser eliminado permanentemente. Depois de garantir que não existem itens protegidos e não há itens apagados macios, o cofre pode ser apagado.  
+O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de reserva em estado de apagação suave no cofre. Os itens apagados com soft-apagado são permanentemente eliminados 14 dias após a operação de eliminação. Se não puder esperar 14 dias, [desative a eliminação suave](#enabling-and-disabling-soft-delete), desative os itens apagados suaves e elimine-os novamente para ser eliminado permanentemente. Depois de se ter assegurado de que não existem itens protegidos e nenhum produto apagado macio, o cofre pode ser eliminado.  
 
-### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso apagar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
+### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso eliminar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
 
-Não. Não se pode forçar a apagar os itens apagados. São automaticamente apagados após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados de back-up de exclusões acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação sobre o artigo.  Itens apagados não serão carregados.  Se precisar de reproteger os itens marcados para apagar suavemente dentro de 14 dias num novo cofre, contacte o suporte da Microsoft.
+Não. Não é possível forçar a eliminação dos itens apagados. São apagados automaticamente após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados com apoio de eliminações acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no artigo.  Os itens apagados não serão carregados.  Se precisar de reprotegir os itens marcados para eliminar suavemente no prazo de 14 dias num novo cofre, contacte o suporte da Microsoft.
 
-### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser realizadas em PowerShell ou CLI?
+### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser executadas em PowerShell ou CLI?
 
-As operações de eliminação suave podem ser efetuadas através do PowerShell. Atualmente, o CLI não é suportado.
+As operações de eliminação suave podem ser efetuadas utilizando o PowerShell. Atualmente, o CLI não é apoiado.
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -4,10 +4,9 @@ description: Exporte dados de diagnóstico e utilização para armazenamento no 
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84147975"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
@@ -194,7 +193,7 @@ Em escalas maiores, considere [hdInsight](https://azure.microsoft.com/services/h
     Editar a exportação e abrir o separador destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
 * *Posso parar a exportação?*
 
-    Yes. Clique em Disable.
+    Sim. Clique em Disable.
 
 ## <a name="code-samples"></a>Exemplos de código
 

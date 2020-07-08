@@ -10,10 +10,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84187281"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
@@ -118,7 +117,7 @@ Os fluxos de dados são objetos que constrói visualmente na Data Factory que tr
 ### <a name="activities"></a>Atividades
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade Copy para copiar dados de uma loja de dados para outra loja de dados. Da mesma forma, você pode usar uma atividade de Hive, que executa uma consulta de Hive em um cluster Azure HDInsight para transformar ou analisar seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
@@ -158,7 +157,7 @@ Para obter detalhes sobre os preços da Azure Data Factory, consulte [os detalhe
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso manter-me atualizado com informações sobre a Data Factory?
 Para obter as informações mais atualizadas sobre a Azure Data Factory, aceda aos seguintes sites:
 
-- [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Página inicial da documentação](/azure/data-factory)
 - [Página inicial do produto](https://azure.microsoft.com/services/data-factory/)
 
@@ -266,7 +265,7 @@ O fluxo de dados de escriminada suporta os seguintes tipos de dados em SQL. Obte
 * bigint
 * long
 * texto
-* data
+* date
 * datetime
 * datetime2
 * hora pequena
@@ -276,7 +275,7 @@ O fluxo de dados de escriminada suporta os seguintes tipos de dados em SQL. Obte
 
 Outros tipos de dados serão suportados no futuro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para instruções passo a passo para criar uma fábrica de dados, consulte os seguintes tutoriais:
 
 - [Quickstart: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)

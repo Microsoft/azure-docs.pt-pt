@@ -1,39 +1,38 @@
 ---
 title: Histórico de implantação
-description: Descreve como ver as operações de implantação do Gestor de Recursos Azure com o portal PowerShell, Azure CLI e REST API.
+description: Descreve como visualizar as operações de implementação do Azure Resource Manager com o portal, PowerShell, Azure CLI e REST API.
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84117838"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com o Gestor de Recursos Azure
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com O Gestor de Recursos Azure
 
-O Gestor de Recursos Azure permite-lhe visualizar o seu histórico de implementação. Pode examinar operações específicas em destacamentos anteriores e ver quais os recursos que foram mobilizados. Este histórico contém informações sobre quaisquer erros.
+O Azure Resource Manager permite-lhe visualizar o seu histórico de implementação. Pode examinar operações específicas em implementações anteriores e ver quais os recursos que foram implementados. Este histórico contém informações sobre quaisquer erros.
 
-O histórico de implantação de um grupo de recursos está limitado a 800 implantações. À medida que se aproxima do limite, as implementações são automaticamente eliminadas da história. Para obter mais informações, consulte [eliminações automáticas do histórico de implantação](deployment-history-deletions.md).
+O histórico de implantação de um grupo de recursos está limitado a 800 implementações. À medida que se aproxima do limite, as implementações são automaticamente eliminadas do histórico. Para obter mais informações, consulte [as supressões automáticas do histórico de implantação](deployment-history-deletions.md).
 
-Para ajudar na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para o Azure com o Gestor](common-deployment-errors.md)de Recursos Azure .
+Para obter ajuda na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para a Azure com o Azure Resource Manager](common-deployment-errors.md).
 
-## <a name="get-deployments-and-correlation-id"></a>Obtenha implementações e ID de correlação
+## <a name="get-deployments-and-correlation-id"></a>Obtenha implementações e iD de correlação
 
-Pode visualizar detalhes sobre uma implementação através do portal Azure, PowerShell, Azure CLI ou REST API. Cada implantação tem um ID de correlação, que é usado para rastrear eventos relacionados. Pode ser útil quando se trabalha com apoio técnico para resolver um destacamento.
+Pode ver detalhes sobre uma implementação através do portal Azure, PowerShell, Azure CLI ou REST API. Cada implantação tem um ID de correlação, que é usado para rastrear eventos relacionados. Pode ser útil quando se trabalha com suporte técnico para resolver problemas de uma implantação.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Selecione o grupo de recursos que pretende examinar.
 
-1. Selecione o link em **'Implementações**'.
+1. Selecione o link em **Implementações**.
 
-   ![Selecione histórico de implementação](./media/deployment-history/select-deployment-history.png)
+   ![Selecione o histórico de implementação](./media/deployment-history/select-deployment-history.png)
 
 1. Selecione uma das implementações do histórico de implantação.
 
-   ![Selecione implementação](./media/deployment-history/select-details.png)
+   ![Selecione implantação](./media/deployment-history/select-details.png)
 
 1. É apresentado um resumo da implantação, incluindo o ID de correlação.
 
@@ -41,19 +40,19 @@ Pode visualizar detalhes sobre uma implementação através do portal Azure, Pow
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para listar todas as implementações para um grupo de recursos, utilize o comando [Get-AzResourceGroupDeployment.](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
+Para listar todas as implementações de um grupo de recursos, utilize o comando [Get-AzResourceGroupDeployment.](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 ```
 
-Para obter uma implementação específica de um grupo de recursos, adicione o parâmetro **DeploymentName.**
+Para obter uma implantação específica de um grupo de recursos, adicione o parâmetro **Menu de Implantação.**
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 ```
 
-Para obter a identificação da correlação, use:
+Para obter o ID de correlação, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
@@ -61,19 +60,19 @@ Para obter a identificação da correlação, use:
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para listar a implantação de um grupo de recursos, utilize a lista de grupos de [implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Para listar a implantação de um grupo de recursos, utilize [a lista de grupos de implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Para obter uma implementação específica, use o show do grupo de [implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Para obter uma implantação específica, utilize o [show do grupo de implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
 ```
 
-Para obter a identificação da correlação, use:
+Para obter o ID de correlação, use:
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
@@ -81,19 +80,19 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para listar as implementações para um grupo de recursos, utilize a seguinte operação. Para que o mais recente número da versão API seja utilizado no pedido, consulte [Implementações - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
+Para listar as implementações de um grupo de recursos, utilize a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte [Implementações - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-Para obter uma implantação específica. utilizar a seguinte operação. Para que o mais recente número da versão API seja utilizado no pedido, consulte [Implementações - Get](/rest/api/resources/deployments/get).
+Para obter uma implantação específica. utilizar a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte [Implementações - Obter](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 ```
 
-A resposta inclui a identificação da correlação.
+A resposta inclui o ID de correlação.
 
 ```json
 {
@@ -117,23 +116,23 @@ Cada implantação pode incluir múltiplas operações. Para ver mais detalhes s
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. No resumo para uma implantação, selecione **detalhes da Operação**.
+1. No resumo para uma implantação, selecione **detalhes da operação**.
 
     ![Selecione detalhes da operação](./media/deployment-history/get-operation-details.png)
 
-1. Vê os detalhes para o passo da implantação. Quando ocorre um erro, os detalhes incluem a mensagem de erro.
+1. Vê os detalhes do passo da implantação. Quando ocorre um erro, os detalhes incluem a mensagem de erro.
 
     ![Mostrar detalhes da operação](./media/deployment-history/see-operation-details.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para visualizar as operações de implantação para implantação num grupo de recursos, utilize o comando [get-AzResourceGroupDeploymentOperationOperation.](/powershell/module/az.resources/get-azdeploymentoperation)
+Para visualizar as operações de implantação para implantação num grupo de recursos, utilize o comando [Get-AzResourceGroupDeploymentOperation.](/powershell/module/az.resources/get-azdeploymentoperation)
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy
 ```
 
-Para visualizar operações falhadas, filtrar as operações com o estado **falhado.**
+Para visualizar as operações falhadas, filtrar as operações com **estado falhado.**
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy).Properties | Where-Object ProvisioningState -eq Failed
@@ -147,13 +146,13 @@ Para obter a mensagem de estado das operações falhadas, utilize o seguinte com
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para visualizar as operações de implantação para implantação para um grupo de recursos, utilize o comando da lista de grupos de operações de [implantação az.](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) Deve ter Azure CLI 2.6.0 ou mais tarde.
+Para visualizar as operações de implantação para implantação num grupo de recursos, utilize o comando [da lista de grupos de operação de implantação az.](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) Deve ter Azure CLI 2.6.0 ou mais tarde.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
-Para visualizar operações falhadas, filtrar as operações com o estado **falhado.**
+Para visualizar as operações falhadas, filtrar as operações com **estado falhado.**
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
@@ -167,7 +166,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para obter operações de implantação, utilize a seguinte operação. Para que o mais recente número da versão API utilize no pedido, consulte [Operações de Implantação - Lista](/rest/api/resources/deploymentoperations/list).
+Para obter operações de implantação, utilize a seguinte operação. Para o número de versão API mais recente a utilizar no pedido, consulte [Operações de Implantação - Lista](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -211,7 +210,7 @@ A resposta inclui uma mensagem de erro.
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Para ajudar na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para o Azure com o Gestor](common-deployment-errors.md)de Recursos Azure .
-* Para saber como as implementações são geridas na história, consulte [eliminações automáticas do histórico de implantação.](deployment-history-deletions.md)
-* Para validar a sua implementação antes de executá-la, consulte Implementar um grupo de recursos com o modelo do Gestor de [Recursos Azure](deploy-powershell.md).
+* Para obter ajuda na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para a Azure com o Azure Resource Manager](common-deployment-errors.md).
+* Para saber como as implementações são geridas na história, consulte [as supressões automáticas do histórico de implantação](deployment-history-deletions.md).
+* Para validar a sua implementação antes de executá-la, consulte [implementar um grupo de recursos com o modelo Azure Resource Manager](deploy-powershell.md).
 
