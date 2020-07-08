@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 9e1f672a62ee7687fec9cea96ca03240c893ba95
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233336"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
@@ -118,7 +117,7 @@ Parâmetros:
 - Entrada ou saída
   - Alias 
   - Formato de serialização de eventos 
-  - Codificação 
+  - Encoding 
 - Apenas entrada: 
   - Tipo de compressão de eventos 
 
@@ -253,7 +252,7 @@ Parâmetros:
   - Formato de data 
   - Formato de tempo 
   - Formato de serialização de eventos 
-  - Codificação 
+  - Encoding 
 - Apenas entrada: 
   - Divisórias (entrada) 
   - Tipo de compressão de evento (entrada) 
@@ -315,7 +314,7 @@ Parâmetros:
   - Nome da política do Hub de Eventos 
   - Chave política do Centro de Eventos 
   - Formato de serialização de eventos 
-  - Codificação 
+  - Encoding 
 - Apenas entrada: 
   - Grupo de consumidor do Hub de Eventos 
   - Tipo de compressão de eventos 
@@ -376,7 +375,7 @@ Parâmetros:
 - Chave de política de acesso compartilhado 
 - Grupo de consumidores 
 - Formato de serialização de eventos 
-- Codificação 
+- Encoding 
 - Tipo de compressão de eventos 
 
 Sintaxe:
@@ -501,7 +500,7 @@ Parâmetros:
 - Colunas de propriedade 
 - Colunas de propriedade do sistema 
 - Formato de serialização de eventos 
-- Codificação 
+- Encoding 
 
 Sintaxe:
 
@@ -649,7 +648,7 @@ WITH (
 ```
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [ALTER FLUXO EXTERNO (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [FLUXO EXTERNO DROP (Transact-SQL)](drop-external-stream-transact-sql.md) 

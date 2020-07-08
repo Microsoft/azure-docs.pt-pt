@@ -4,13 +4,12 @@ description: Este tópico explica como gerir a política de gravação.
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 321e68087bfe2a8b3e1354e49585a89f9d3af295
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261318"
 ---
-# <a name="manage-recording-policy"></a>Gerir a política de gravação
+# <a name="manage-recording-policy"></a>Gerir política de gravação
 
 Pode utilizar o Live Video Analytics no IoT Edge para gravação contínua de [vídeo,](continuous-video-recording-concept.md)através do qual pode gravar vídeos na nuvem durante semanas ou meses. Pode gerir o comprimento (em dias) desse arquivo em nuvem utilizando as ferramentas de Gestão do [Ciclo de Vida incorporadas](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) no armazenamento do Azure.  
 
@@ -55,6 +54,6 @@ Seguem-se algumas limitações conhecidas com a gestão do ciclo de vida:
 * As atualizações da política de gestão do ciclo de vida não são imediatas. Consulte [esta secção de PERGUNTAS EQ](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal#faq) para mais detalhes.
 * Se optar por aplicar uma política em que as bolhas são transferidas para o nível fresco, então a reprodução dessa parte do arquivo pode ser afetada. Pode ver latências adicionais, ou erros esporádicos. Os Serviços de Comunicação Social não suportam a reprodução de conteúdos no nível de arquivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Reprodução de gravações](playback-recordings-how-to.md)

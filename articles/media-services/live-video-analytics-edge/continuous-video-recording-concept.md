@@ -4,13 +4,12 @@ description: Gravação contínua de vídeo (CVR) refere-se ao processo de grava
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261248"
 ---
-# <a name="continuous-video-recording"></a>Gravação contínua de vídeo  
+# <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida  
 
@@ -21,7 +20,7 @@ ms.locfileid: "84261248"
 
 Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Live Video Analytics on IoT Edge suporta a gravação de vídeo continuamente, numa base de 24x7, a partir de uma câmara CCTV através de um [gráfico de mídia](media-graph-concept.md) composto por um nó de origem RTSP e um nó de lavatório de ativos. O diagrama abaixo mostra uma representação gráfica de tal gráfico mediático. A representação JSON da [topologia de gráficos](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
-![Gravação contínua de vídeo](./media/continuous-video-recording/continuous-video-recording-overview.png)
+![Gravação de vídeo contínua](./media/continuous-video-recording/continuous-video-recording-overview.png)
 
 O gráfico de mídia acima representado pode ser executado num dispositivo de borda, com o vídeo de gravação do lavatório do ativo para um [ativo](terminology.md#asset)da Azure Media Services . O vídeo será gravado enquanto o gráfico de mídia permanecer no estado ativado. Uma vez que o vídeo está a ser gravado como um ativo, pode ser reproduzido utilizando as capacidades de streaming existentes dos Media Services. Consulte [a Reprodução de conteúdos gravados](video-playback-concept.md) para obter mais detalhes.
 
@@ -52,12 +51,12 @@ A propriedade segmentLength garante que o módulo de borda irá carregar o víde
 >Consulte [este](playback-recordings-how-to.md) artigo para obter o efeito que o segmentoLength tem na reprodução.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: gravação contínua de vídeo](continuous-video-recording-tutorial.md)

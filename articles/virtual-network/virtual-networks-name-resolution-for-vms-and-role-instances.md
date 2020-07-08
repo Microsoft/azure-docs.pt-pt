@@ -14,10 +14,9 @@ ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204774"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Name resolution for resources in Azure virtual networks (Resolução de nomes para recursos em redes virtuais do Azure)
@@ -220,7 +219,7 @@ Quando estiver a utilizar o modelo de implementação clássico, pode especifica
 > [!NOTE]
 > Se alterar as definições de DNS para uma rede virtual ou máquina virtual que já esteja implantada, para que as novas definições de DNS produzam efeitos, deve efetuar uma renovação do aluguer de DHCP em todos os VMs afetados na rede virtual. Para os VMs que executam o Sistema operativo Windows, pode fazê-lo digitando `ipconfig /renew` diretamente no VM. Os passos variam dependendo do SO. Consulte a documentação relevante para o seu tipo de SO.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Modelo de implementação do Gestor de Recursos Azure:
 

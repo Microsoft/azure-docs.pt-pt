@@ -4,10 +4,9 @@ description: Este tópico dá respostas ao Live Video Analytics nas FAQs IoT Edg
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261325"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
@@ -31,17 +30,17 @@ Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura a partir de câmara IP e definições de RTSP
 
-* Preciso de usar um SDK especial no meu dispositivo para enviar um stream de vídeo?
+* Preciso de utilizar um SDK especial no meu dispositivo para enviar uma transmissão de fluxo de vídeo?
     * Não. Live Video Analytics on IoT Edge suporta a captura de meios usando o protocolo de streaming de vídeo RTSP (que é suportado na maioria das câmaras IP).
 * Posso pressionar os meios de comunicação para live video analytics no IoT Edge usando RTMP ou Smooth (como um Evento ao Vivo dos Serviços de Media)?
     * Não. A LVA suporta apenas o RTSP para capturar vídeos a partir de câmaras IP.
     * Qualquer câmara que suporte o streaming RTSP sobre o TCP/HTTP deve funcionar. 
-* Posso reiniciar ou atualizar o URL de origem RTSP numa instância de gráfico?
+* Posso reiniciar ou atualizar o URL da origem RTSP numa instância de gráfico?
     * Sim, quando a instância do gráfico está em estado inativo.  
 * Existe um simulador RTSP disponível para ser utilizado durante o teste e desenvolvimento?
-    * Sim. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é fornecido como o melhor esforço e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
-* Suporta a descoberta ONVIF de câmaras IP no limite?
-    * Não, não há suporte para a descoberta onvif de dispositivos no limite.
+    * Sim. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
+* É suportada a deteção ONVIF de câmaras IP no Edge?
+    * Não, não existe suporte para a deteção ONVIF de dispositivos no Edge.
 
 ## <a name="streaming-and-playback"></a>Streaming e reprodução
 
@@ -55,7 +54,7 @@ Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
 
     * [Media Player do Azure](../latest/use-azure-media-player.md)
     * [HLS.js](https://hls-js.netlify.app/demo/)
-    * [Vídeo.js](https://videojs.com/)
+    * [Video.js](https://videojs.com/)
     * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
     * [Jogador shaka](https://github.com/google/shaka-player)
     * [ExoPlayer](https://github.com/google/ExoPlayer)
@@ -85,6 +84,6 @@ Para obter mais informações, consulte o artigo [de monitorização e registo.]
 * Como é cobrado o LiveVideo Analytics no IoT Edge?
     * Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

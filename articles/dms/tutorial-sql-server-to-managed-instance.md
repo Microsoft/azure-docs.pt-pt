@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247449"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance offline usando DMS
@@ -243,7 +242,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 3. Verifique se a base de dados-alvo no ambiente de exemplo gerido sql alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para um tutorial que lhe mostre como migrar uma base de dados para uma instância gerida utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para uma instância gerida utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
 - Para obter informações sobre casos geridos, consulte [O que é um caso gerido](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

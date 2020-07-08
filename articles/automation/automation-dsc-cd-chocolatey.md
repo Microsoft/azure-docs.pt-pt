@@ -7,10 +7,9 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
 ms.openlocfilehash: 1bab503004876a2680286204de28631ce26b9069
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197111"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurar a implementação contínua com o Chocolatey
@@ -82,7 +81,7 @@ Você pode colocar a sua conta de Automação em qualquer uma das seguintes regi
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Passo 2: Faça ajustes de extensão VM para o modelo de Gestor de Recursos
 
 Detalhes para o registo VM (utilizando a extensão PowerShell DSC VM) fornecidos neste [Modelo Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
-Este passo regista o seu novo VM com o servidor pull na lista de nós de configuração do Estado. Parte deste registo é especificar a configuração do nó a aplicar no nó. Esta configuração do nó ainda não tem de existir no servidor de puxar, por isso é bom que o passo 4 seja onde isto é feito pela primeira vez. Mas aqui no Passo 2 você precisa ter decidido o nome do nó e o nome da configuração. Neste exemplo de utilização, o nó é 'isvbox' e a configuração é 'ISVBoxConfig'. Assim, o nome de configuração do nó (a especificar em DeploymentSteplate.json) é 'ISVBoxConfig.isvbox'.
+Este passo regista o seu novo VM com o servidor pull na lista de nós de configuração do Estado. Parte deste registo é especificar a configuração do nó a aplicar no nó. Esta configuração do nó ainda não tem de existir no servidor de puxar, por isso é bom que o passo 4 seja onde isto é feito pela primeira vez. Mas aqui no Passo 2 você precisa ter decidido o nome do nó e o nome da configuração. Neste exemplo de utilização, o nó é 'isvbox' e a configuração é 'ISVBoxConfig'. Assim, o nome de configuração do nó (a especificar em DeploymentTemplate.js) é 'ISVBoxConfig.isvbox'.
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Passo 3: Adicionar os recursos DSC necessários ao servidor pull
 
@@ -126,7 +125,7 @@ O exemplo incluído implementa estes passos para cChoco e xNetworking.
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passo 4: Adicione a configuração do nó ao servidor pull
 
-Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de garantir que o ficheiro de configuração está correto – incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1**:
+Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de garantir que o ficheiro de configuração está correto – incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1: **
 
 ```powershell
 Configuration ISVBoxConfig
@@ -171,7 +170,7 @@ Configuration ISVBoxConfig
 }
 ```
 
-Aqui está o **script New-ConfigurationScript.ps1** (modificado para usar o módulo Az):
+Aqui está o **New-ConfigurationScript.ps1** script (modificado para usar o módulo Az):
 
 ```powershell
 Import-AzAutomationDscConfiguration `
@@ -208,7 +207,7 @@ A partir daí, cabe aos VMs que dependem dessa configuração puxar a atualizaç
 * [Visão geral da Azure Automation DSC](automation-dsc-overview.md)
 * [Máquinas de embarque para gestão pela Azure Automation DSC](automation-dsc-onboarding.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral, consulte [a visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md).
 - Para começar a utilizar a funcionalidade, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).

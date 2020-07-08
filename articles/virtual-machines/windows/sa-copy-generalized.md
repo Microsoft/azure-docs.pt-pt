@@ -10,10 +10,9 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
 ms.openlocfilehash: 31b8200b63780388fb53db588c418951c500ac19
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232911"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerida a partir de uma VM do Azure
@@ -250,7 +249,7 @@ Quando estiver concluído, deverá ver o VM recém-criado no [portal Azure](http
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para gerir a sua nova máquina virtual com a Azure PowerShell, consulte [Gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

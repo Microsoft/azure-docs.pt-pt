@@ -4,13 +4,12 @@ description: Neste artigo, você vai aprender a construir um módulo IoT Edge qu
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261262"
 ---
-# <a name="analyze-live-video-with-ai-of-your-choice"></a>Analise o vídeo ao vivo com AI à sua escolha
+# <a name="analyze-live-video-with-ai-of-your-choice"></a>Analisar vídeo em direto com IA à sua escolha
 
 Neste artigo, você vai aprender a construir um módulo IoT Edge que pode ser integrado com Live Video Analytics no IoT Edge para analisar vídeo ao vivo usando um modelo de visão de computador à sua escolha. 
 
@@ -267,6 +266,6 @@ O exemplo abaixo contém um único evento com todos os tipos de inferência supo
 
 Alguns módulos de extensão HTTP de amostra podem ser encontrados no [repo GitHub do Vídeo Ao Vivo.](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) Uma [destas amostras](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) de análise de vídeo mostra como usar o modelo [Yolov3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) para construir um módulo IoT Edge para deteção de objetos. Pode utilizar a mesma abordagem para construir um módulo próprio com um modelo de IA à sua escolha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Resolução de problemas](troubleshoot-how-to.md)

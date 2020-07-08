@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248588"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
@@ -169,7 +168,7 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 * Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção definido na política de backup.
 * Recomenda-se aos utilizadores que apaguem os itens de backup em que a fonte de dados primário já não exista para evitar qualquer custo adicional, se o item/dados de cópia de segurança dos recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar os VMs Azure a partir das definições do VM](backup-azure-vms-first-look-arm.md).
 * Saiba como restaurar os [VMs.](backup-azure-arm-restore-vms.md)

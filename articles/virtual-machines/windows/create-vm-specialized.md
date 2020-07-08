@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234542"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Create a Windows VM from a specialized disk by using PowerShell (Utilizar o PowerShell para criar uma VM do Windows a partir de um disco especializado)
@@ -268,6 +267,6 @@ $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md).
 

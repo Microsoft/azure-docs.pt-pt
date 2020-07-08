@@ -4,10 +4,9 @@ description: Live Video Analytics on IoT Edge expõe vários métodos diretos. O
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261374"
 ---
 # <a name="direct-methods"></a>Métodos diretos
@@ -573,6 +572,6 @@ Aspectos-chave:
 |O gráfico está em estado de ativação   |409|   OperaçãoNotAllowedInState|
 |Erros gerais do servidor  |Gama 500  ||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Esquema de configuração de Módulo Duplo](module-twin-configuration-schema.md)

@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: caa936e0d61056336d11f58e59ba512b62cd6108
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248656"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar o SqL Server para o SQL Gerenciado Instância com PowerShell & Serviço de Migração de Bases de Dados Azure
@@ -422,6 +421,6 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 Para obter informações sobre cenários migratórios adicionais (pares de origem/alvo), consulte o [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Serviço de Migração da Base de Dados Azure no artigo [O que é o Serviço de Migração de Bases de Dados Azure?](https://docs.microsoft.com/azure/dms/dms-overview)

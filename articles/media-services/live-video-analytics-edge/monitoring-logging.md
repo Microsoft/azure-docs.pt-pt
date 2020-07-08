@@ -4,10 +4,9 @@ description: Este artigo fornece uma visão geral do Live Video Analytics na mon
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261213"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
@@ -16,7 +15,7 @@ Neste artigo, você vai aprender sobre como você pode receber eventos do live v
 
 Também aprenderá como pode controlar os registos que o módulo gera.
 
-## <a name="taxonomy-of-events"></a>Taxonomia dos acontecimentos
+## <a name="taxonomy-of-events"></a>Taxonomia dos eventos
 
 Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo com a taxonomia seguinte.
 
@@ -100,7 +99,7 @@ Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo 
    ```
 Os eventos emitidos pelo módulo são enviados para o [IoT Edge Hub,](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)e a partir daí pode ser encaminhado para outros destinos. 
 
-## <a name="controlling-events"></a>Controlar eventos
+## <a name="controlling-events"></a>Controlo dos eventos
 
 Pode utilizar as seguintes propriedades gémeas do módulo, como documentado no [esquema JSON do módulo gémeo,](module-twin-configuration-schema.md)para controlar os eventos operacionais e de diagnóstico que são publicados pelo live video analytics no módulo IoT Edge.
 
@@ -178,7 +177,7 @@ Os tipos de eventos são atribuídos a um espaço de nome de acordo com o seguin
 
 `Microsoft.Media.Graph.{EventClass}.{EventType}`
 
-#### <a name="event-classes"></a>Aulas de eventos
+#### <a name="event-classes"></a>Classes de eventos
 
 |Nome da classe|Descrição|
 |---|---|
@@ -243,6 +242,6 @@ Em seguida, o módulo escreverá registos de depuração num formato binário pa
 
 [FAQs](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Gravação contínua de vídeo](continuous-video-recording-tutorial.md)
+[Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

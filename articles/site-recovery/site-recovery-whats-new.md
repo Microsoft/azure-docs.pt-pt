@@ -4,10 +4,9 @@ description: Fornece um resumo de novas funcionalidades e as últimas atualizaç
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259223"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
@@ -539,6 +538,6 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Mantenha-se atualizado com as nossas atualizações na página [Azure Updates.](https://azure.microsoft.com/updates/?product=site-recovery)

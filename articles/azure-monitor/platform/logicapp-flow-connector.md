@@ -8,10 +8,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248741"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de registos Azure Monitor para Apps lógicas e fluxo
@@ -122,7 +121,7 @@ Quando a aplicação lógica estiver concluída, verifique o correio do destinat
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre [aplicações lógicas](/azure/logic-apps/)

@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195984"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes no local e a nuvem com Data Management Gateway
@@ -279,7 +278,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
    * **a pastaA** **adftutorial/outfromonpremdf** onde outfromonpremdf é a pasta no recipiente adftutorial. Crie o recipiente **adftutorial** se já não existir.
    * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** na Base de Dados Azure SQL.
 
-   Se não especificar um **nome de ficheiro** para uma tabela de **saída,** os ficheiros gerados na **pastaPalho** são nomeados no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se não especificar um **nome de ficheiro** para uma tabela de **saída,** os ficheiros gerados na **pastaPata** são nomeados no seguinte `Data.<Guid>.txt` formato: (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Para definir **folderPath** e **fileName** de forma dinâmica com base no tempo **SliceStart**, utilize a propriedade partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
 
@@ -410,6 +409,6 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 
    ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Consulte o artigo [do Data Management Gateway](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gestão de Dados.
 * Consulte [os dados de Cópia de Azure Blob para Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber como usar a Copy Activity para mover dados de uma loja de dados de origem para uma loja de dados de lavatórios.

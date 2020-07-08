@@ -10,10 +10,9 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
 ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232813"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar um VM a partir de um VHD especializado numa conta de armazenamento
@@ -103,7 +102,7 @@ Dependendo da sua ligação à rede e do tamanho do seu ficheiro VHD, este coman
 
 Pode copiar um VHD para outra conta de armazenamento para utilizar ao criar um novo VM duplicado.
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 Certifique-se de que:
 
 * Tenha informações sobre as contas de armazenamento de **origem e destino.** Para a fonte VM, você precisa ter a conta de armazenamento e os nomes do recipiente. Normalmente, o nome do recipiente será **vhds**. Também precisa de ter uma conta de armazenamento de destino. Se ainda não tiver um, pode criar um utilizando o portal **(Todos os serviços** > contas de Armazenamento > Add) ou utilizando o cmdlet [New-AzStorageAccount.](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) 
@@ -307,6 +306,6 @@ $vmList = Get-AzVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md).
 

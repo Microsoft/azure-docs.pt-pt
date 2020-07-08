@@ -12,10 +12,9 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196282"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Questões conhecidas/limitações de migração com a utilização do modo híbrido
@@ -24,7 +23,7 @@ Os problemas e limitações conhecidos associados à utilização do Azure Datab
 
 ## <a name="installer-fails-to-authenticate"></a>Instalador falha em autenticar
 
-Depois de carregar o certificado para o seu AdApp, há um atraso de até alguns minutos antes de poder autenticar com o Azure. O instalador tentará voltar a tentar com algum atraso, mas é possível que o atraso de propagação seja maior do que a repetição, e verá uma mensagem **FailedToGetAccessTokenException.** Se o certificado foi carregado para o AdApp correto e o AppId correto foi fornecido em dmsSettings.json, tente executar novamente o comando de instalação.
+Depois de carregar o certificado para o seu AdApp, há um atraso de até alguns minutos antes de poder autenticar com o Azure. O instalador tentará voltar a tentar com algum atraso, mas é possível que o atraso de propagação seja maior do que a repetição, e verá uma mensagem **FailedToGetAccessTokenException.** Se o certificado foi carregado para o AdApp correto e o AppId correto foi fornecido em dmsSettings.js, tente executar novamente o comando de instalação.
 
 ## <a name="service-offline-after-successful-installation"></a>Serviço "offline" após instalação bem sucedida
 
@@ -55,7 +54,7 @@ Se o serviço aparecer como offline após o processo de instalação ter termina
 
 ## <a name="using-your-own-signed-certificate"></a>Usando o seu próprio certificado assinado
 
-O certificado gerado pela ação GenerateCert é um certificado auto-assinado, que pode não ser aceitável com base nas suas políticas de segurança interna. Em vez de usar este certificado, pode fornecer o seu próprio certificado e fornecer a impressão digital em dmsSettings.json. Este certificado terá de ser carregado para o seu AdApp e instalado no computador no qual está a instalar o trabalhador híbrido Azure Database Migration Service. Em seguida, instale este certificado com a chave privada na loja de certificados Local Machine.
+O certificado gerado pela ação GenerateCert é um certificado auto-assinado, que pode não ser aceitável com base nas suas políticas de segurança interna. Em vez de usar este certificado, pode fornecer o seu próprio certificado e fornecer a impressão digital em dmsSettings.js. Este certificado terá de ser carregado para o seu AdApp e instalado no computador no qual está a instalar o trabalhador híbrido Azure Database Migration Service. Em seguida, instale este certificado com a chave privada na loja de certificados Local Machine.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>Gerir o serviço de trabalhadores como uma conta de baixo privilégio
 

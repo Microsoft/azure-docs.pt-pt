@@ -4,10 +4,9 @@ description: Saiba como implementar e gerir o Azure Backup para o Gestor de Prot
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: bbd03c17f9f46494d6fadb64e1d059d1b81cd9ac
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234633"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
@@ -386,6 +385,6 @@ Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $
 
 Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para mais informações sobre DPM para Azure Backup consulte [Introdução ao Backup DPM](backup-azure-dpm-introduction.md)

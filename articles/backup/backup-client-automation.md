@@ -4,10 +4,9 @@ description: Neste artigo, aprenda a utilizar o PowerShell para configurar o Azu
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 696da2c94a439e5efaebbd148f6e05a9e0e15f37
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247755"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
@@ -740,7 +739,7 @@ $Session = New-PSSession -ComputerName REMOTESERVER01
 Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath $D $A -Wait } -ArgumentList $Agent, $Args
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre a cópia de segurança do Azure para Windows Server/Cliente:
 

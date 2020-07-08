@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233075"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys.external_streaming_jobs (Transact-SQL)
@@ -29,8 +28,8 @@ Devolve uma linha para cada trabalho de streaming externo criado no âmbito da b
 |**parent_object_id**|**id**| número de identificação de objeto para o objeto-mãe para este fluxo. Na implementação atual, este valor é sempre nulo|
 |**tipo**|**char(2)**|Tipo de objeto. Para objetos de fluxo, o tipo é sempre 'EJ'|
 |**type_desc**|**nvarchar(60)**| Descrição do tipo de objeto. Para objetos de fluxo, o tipo é sempre 'EXTERNAL_STREAMING_JOB'|
-|**create_date**|**data**| Data em que o objeto foi criado.|
-|**modify_date**|**data**| Na implementação atual, este valor é o mesmo que o create_date para o objeto de fluxo |
+|**create_date**|**datetime**| Data em que o objeto foi criado.|
+|**modify_date**|**datetime**| Na implementação atual, este valor é o mesmo que o create_date para o objeto de fluxo |
 |**is_ms_shipped**|**bit**| Objeto criado por um componente interno.|  
 |**is_published**|**bit**| Objeto é publicado.|  
 |**is_schema_published**|**bit**|Apenas o esquema do objeto é publicado.|
@@ -42,7 +41,7 @@ Devolve uma linha para cada trabalho de streaming externo criado no âmbito da b
 
 A visibilidade dos metadados nas vistas do catálogo limita-se a securáveis que um utilizador possui ou sobre os quais o utilizador tenha alguma permissão. Para obter mais informações, consulte [a Configuração de Visibilidade dos Metadados](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Vistas do catálogo de streaming T-SQL](overview.md)
 - [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)

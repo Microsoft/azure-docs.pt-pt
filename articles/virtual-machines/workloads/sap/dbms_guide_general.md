@@ -16,10 +16,9 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 581efde3128294a326bdfd08e622a8dcabe5784d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232656"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP
@@ -362,12 +361,12 @@ Para a utilização de aplicações SAP em máquinas virtuais Azure, o SAP reque
 Para obter mais informações sobre a implantação de componentes que entregam dados de anfitrião ao Agente anfitrião SAPOSCOL e SAP e a gestão do ciclo de vida desses componentes, consulte o [guia de implantação][deployment-guide].
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre um DBMS em particular, consulte:
 
 - [Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sqlserver.md)
 - [Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_oracle.md)
-- [Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_ibm.md)
+- [Ibm DB2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP](dbms_guide_ibm.md)
 - [Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sapase.md)
 - [Implementação de SAP maxDB, Live Cache e Servidor de Conteúdo no Azure](dbms_guide_maxdb.md)
 - [Manual de operações do SAP HANA no Azure](hana-vm-operations.md)

@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195267"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de replicação e ativação pós-falha do Hyper-V para o Azure
@@ -53,8 +52,8 @@ Resolva os problemas com replicações iniciais e contínuas da seguinte forma:
     - Se estiver a replicar com VMM no ambiente, verifique se estes serviços estão a funcionar:
         - No anfitrião Hyper-V, verifique se o serviço de Gestão de Máquinas Virtuais, o Agente de Serviços de Recuperação do Microsoft Azure e o serviço WMI Provider Host estão em execução.
         - No servidor VMM, certifique-se de que o Serviço de Gestor de Máquinas Virtual do Centro de Sistema está em funcionamento.
-4. Verifique a conectividade entre o servidor Hyper-V e o Azure. Para verificar a conectividade, abra o Gestor de Tarefas no anfitrião Hyper V. No **separador Desempenho,** clique em **'Monitor de Recursos Aberto'.** No separador **rede** > **Processo com Atividade da Rede,** verifique se o cbengine.exe está a enviar ativamente grandes volumes (Mbs) de dados.
-5. Verifique se os anfitriões Hiper-V podem ligar-se ao URL blob de armazenamento Azure. Para verificar se os anfitriões podem ligar, selecionar e verificar **cbengine.exe**. Consulte **as ligações TCP** para verificar a conectividade do anfitrião até à bolha de armazenamento Azure.
+4. Verifique a conectividade entre o servidor Hyper-V e o Azure. Para verificar a conectividade, abra o Gestor de Tarefas no anfitrião Hyper V. No **separador Desempenho,** clique em **'Monitor de Recursos Aberto'.** No separador **rede** > **Processo com Atividade da Rede,** verifique se cbengine.exe está a enviar ativamente grandes volumes (Mbs) de dados.
+5. Verifique se os anfitriões Hiper-V podem ligar-se ao URL blob de armazenamento Azure. Para verificar se os anfitriões podem ligar, selecione e verifique **cbengine.exe**. Consulte **as ligações TCP** para verificar a conectividade do anfitrião até à bolha de armazenamento Azure.
 6. Verifique os problemas de desempenho, como descrito abaixo.
     
 ### <a name="performance-issues"></a>Problemas de desempenho

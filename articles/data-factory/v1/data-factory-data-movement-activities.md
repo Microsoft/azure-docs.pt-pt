@@ -13,10 +13,9 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195971"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados utilizando a Atividade de Cópia
@@ -210,6 +209,6 @@ Diferentes lojas de dados têm diferentes sistemas de tipo nativo. Copy Activity
 
 O mapeamento de um sistema de tipo nativo para um tipo .NET para uma loja de dados está no respetivo artigo de loja de dados. (Clique no link específico na tabela de lojas de dados suportadas). Pode utilizar estes mapeamentos para determinar os tipos apropriados durante a criação das suas tabelas, de modo a que a Copy Activity realize as conversões certas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para saber mais sobre a Atividade de Cópia, consulte [os dados da Cópia do armazenamento da Azure Blob para a Base de Dados Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para obter informações sobre a deslocação de dados de uma loja de dados no local para uma loja de dados em nuvem, consulte [mover dados do local para lojas de dados na nuvem](data-factory-move-data-between-onprem-and-cloud.md).

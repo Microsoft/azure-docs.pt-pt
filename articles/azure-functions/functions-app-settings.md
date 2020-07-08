@@ -4,10 +4,9 @@ description: Documentação de referência para as definições da aplicação A
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 5a0201eeed1678299ec16ff268062463b9c75e5c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235356"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
@@ -16,7 +15,7 @@ As configurações da aplicação numa aplicação de função contêm opções 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Existem outras opções de configuração global no ficheiro [host.json](functions-host-json.md) e no ficheiro [local.settings.json.](functions-run-local.md#local-settings-file)
+Existem outras opções de configuração global no [host.jsno](functions-host-json.md) ficheiro e no [local.settings.jsno](functions-run-local.md#local-settings-file) ficheiro.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -40,7 +39,7 @@ Na versão 2.x e versões posteriores do tempo de execução das Funções, conf
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-Na versão 2.x e versões posteriores do tempo de execução de Funções, as definições de aplicação podem substituir as definições [do host.json](functions-host-json.md) no ambiente atual. Estas sobreposições são expressas como configurações de aplicação denominada `AzureFunctionsJobHost__path__to__setting` . Para obter mais informações, consulte [os valores de Override host.json](functions-host-json.md#override-hostjson-values).
+Na versão 2.x e versões posteriores do tempo de execução das Funções, as definições de aplicação podem [sobrepor-sehost.jsnas](functions-host-json.md) definições no ambiente atual. Estas sobreposições são expressas como configurações de aplicação denominada `AzureFunctionsJobHost__path__to__setting` . Para obter mais informações, consulte [a host.jssobre valores .](functions-host-json.md#override-hostjson-values)
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -181,7 +180,7 @@ O número máximo de casos a que a aplicação de função pode escalar. O padr�
 ## <a name="website_node_default_version"></a>NODE DO SITE \_ \_ DEFAULT_VERSION
 
 _Só janelas._  
-Define a versão de Node.js para usar ao executar a sua aplicação de função no Windows. Deve utilizar um azulejo (~) para que o tempo de execução utilize a versão mais recente disponível da versão principal visada. Por exemplo, quando definido `~10` para , a versão mais recente do Node.js 10 é usada. Quando uma versão principal é direcionada com um azulejo, não é preciso atualizar manualmente a versão menor. 
+Define a versão de Node.js a utilizar ao executar a sua aplicação de função no Windows. Deve utilizar um azulejo (~) para que o tempo de execução utilize a versão mais recente disponível da versão principal visada. Por exemplo, quando definido `~10` para , a versão mais recente do Node.js 10 é usada. Quando uma versão principal é direcionada com um azulejo, não é preciso atualizar manualmente a versão menor. 
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -218,7 +217,7 @@ Esta definição controla se %2F é descodificado como cortes nos parâmetros de
 
 ### <a name="example"></a>Exemplo
 
-Aqui está um exemplo proxies.json em uma app de função no URL myfunction.com
+Aqui está um exemplo proxies.jsnuma aplicação de função no URL myfunction.com
 
 ```JSON
 {
@@ -239,10 +238,10 @@ Aqui está um exemplo proxies.json em uma app de função no URL myfunction.com
 |false|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como atualizar as definições de aplicações](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Ver configurações globais no ficheiro host.json](functions-host-json.md)
+[Ver configurações globais no host.jsno ficheiro](functions-host-json.md)
 
 [Consulte outras configurações de aplicativos para aplicações do Serviço de Aplicações](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

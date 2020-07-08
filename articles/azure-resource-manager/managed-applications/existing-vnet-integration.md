@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
 ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261290"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Utilize a rede virtual existente com aplicações geridas aZure
@@ -18,7 +17,7 @@ Este artigo mostra-lhe como definir uma Aplicação Gerida Azure que se integra 
 
 ## <a name="main-template"></a>Modelo principal
 
-Primeiro, vamos ver o ficheiro **mainTemplate.json.** Todo o modelo para a implementação de uma máquina virtual e os seus recursos associados é mostrado abaixo. Mais tarde, irá examinar mais de perto as partes do modelo que estão relacionadas com a utilização de uma rede virtual existente.
+Primeiro, vamos ver o **mainTemplate.jsarquivado.** Todo o modelo para a implementação de uma máquina virtual e os seus recursos associados é mostrado abaixo. Mais tarde, irá examinar mais de perto as partes do modelo que estão relacionadas com a utilização de uma rede virtual existente.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +37,7 @@ A interface de rede está definida para a variável ID da sub-rede.
 
 ## <a name="ui-definition"></a>Definição de UI
 
-Agora, vamos olhar para o ficheiro **createUiDefinition.json.** Todo o ficheiro é:
+Agora, vamos ver a **createUiDefinition.jsarquivada.** Todo o ficheiro é:
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 
@@ -57,6 +56,6 @@ Nas saídas, inclui-se um valor que indica se o consumidor selecionou uma rede v
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json" range="136-148" highlight="6,12":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre a criação do ficheiro de definição de UI, consulte [CreateUiDefinition.json para a experiência de criação da aplicação gerida pela Azure.](create-uidefinition-overview.md)
+Para saber mais sobre a criação do ficheiro de definição de UI, consulteCreateUiDefinition.jspara a [experiência de criação da aplicação gerida pelo Azure.](create-uidefinition-overview.md)

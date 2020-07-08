@@ -4,10 +4,9 @@ description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos 
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234598"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
@@ -284,7 +283,7 @@ O azulejo de armazenamento de reserva no painel de instrumentos mostra o armazen
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Restaurar o Servidor do Windows ou cliente do Windows a partir do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Azure Backup, consulte [a Visão Geral do Backup da Azure](backup-introduction-to-azure-backup.md)

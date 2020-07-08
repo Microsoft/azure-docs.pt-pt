@@ -4,10 +4,9 @@ description: Uma visão geral e comparação entre cofres dos Serviços de Recup
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248911"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
@@ -80,15 +79,15 @@ As seguintes secções contêm ligações a artigos que explicam como usar um co
 
 - [Garantir dados de backup em nuvem em cofres dos Serviços de Recuperação](backup-azure-security-feature.md)
 
-## <a name="azure-advisor"></a>Azure Advisor
+## <a name="azure-advisor"></a>Assistente do Azure
 
 [O Azure Advisor](https://docs.microsoft.com/azure/advisor/) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Analisa o seu uso Azure e fornece recomendações oportunas para ajudar a otimizar e proteger as suas implementações. Fornece recomendações em quatro categorias: Alta Disponibilidade, Segurança, Desempenho e Custo.
 
 O Azure Advisor fornece [recomendações horárias](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) para VMs que não são apoiados, por isso nunca perca o apoio de VMs importantes. Também pode controlar as recomendações snoozing-las.  Pode clicar na recomendação e ativar a cópia de segurança em VMs em linha especificando o cofre (onde serão armazenadas cópias de segurança) e a política de backup (agendamento de cópias de backup e retenção de cópias de backup).
 
-![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize os seguintes artigos para:</br>
 [Apoiar um IaaS VM](backup-azure-arm-vms-prepare.md)</br>

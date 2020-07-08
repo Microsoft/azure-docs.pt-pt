@@ -4,10 +4,9 @@ description: Este artigo fornece orientações sobre como configurar e implement
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261073"
 ---
 # <a name="production-readiness-and-best-practices"></a>Prontidão de produção e boas práticas
@@ -17,7 +16,7 @@ Este artigo fornece orientações sobre como configurar e implementar o módulo 
 > [!NOTE]
 > Deve consultar os departamentos de TI das suas organizações sobre aspetos relacionados com a segurança.
 
-## <a name="running-the-module-as-a-local-user"></a>Executar o módulo como utilizador local
+## <a name="running-the-module-as-a-local-user"></a>Executar o módulo como um utilizador local
 
 Quando implementa o Live Video Analytics no módulo IoT Edge para um dispositivo de borda, por padrão funciona com privilégios elevados. Quando o fizer, se verificar os registos do módulo ( `sudo iotedge logs {name-of-module}` ), verá o seguinte:
 
@@ -107,7 +106,7 @@ Em seguida, nas opções de criação para o módulo de borda no manifesto de im
 
 Se olhar para os gráficos de mídia de amostra para o arranque rápido e tutoriais, como [a gravação contínua de vídeo,](continuous-video-recording-tutorial.md)note que o diretório de cache de mídia (localMediaCachePath) utiliza uma subdiretório ao abrigo da aplicaçãoDataDirectory. Esta é a abordagem recomendada, uma vez que a cache contém dados transitórios.
 
-### <a name="naming-video-assets-or-files"></a>Nomear ativos ou ficheiros de vídeo
+### <a name="naming-video-assets-or-files"></a>Nomenclatura dos ficheiros ou recursos de vídeo
 
 Os gráficos de mídia permitem a criação de ativos na nuvem ou ficheiros mp4 no limite. Os ativos dos meios de comunicação podem ser gerados através de [uma gravação contínua](continuous-video-recording-tutorial.md) de vídeo ou através de uma gravação de vídeo baseada em [eventos](event-based-video-recording-tutorial.md). Embora estes ativos e ficheiros possam ser nomeados como deseja, a estrutura de nomeação recomendada para um ativo de mídia contínua baseado em gravação de vídeo é " &lt; anytext &gt; -${System.GraphTopologyName}-${System.GraphInstanceName}". Como exemplo, pode definir o activoNamePattern na pia do ativo da seguinte forma:
 
@@ -160,6 +159,6 @@ O Linux VM que está a utilizar como dispositivo de borda pode tornar-se sem res
 
     À medida que as atualizações acontecem no módulo de borda, o seu docker pode ter versões mais antigas do módulo de borda ainda presente. Neste caso, é aconselhável utilizar o comando rmi do docker para remover imagens específicas identificadas pela etiqueta da versão de imagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

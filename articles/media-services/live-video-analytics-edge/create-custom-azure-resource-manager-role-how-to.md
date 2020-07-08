@@ -4,10 +4,9 @@ description: Este artigo fornece orientações sobre como criar uma função per
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261171"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Crie uma função personalizada de Gestor de Recursos Azure e atribua ao diretor de serviços
@@ -253,7 +252,7 @@ Isto confirma que ligamos a função de utilizador personalizado ao principal de
     The client '<AadClientId>' with object id '<AadClientId>' does not have authorization to perform action 'Microsoft.Resources/subscriptions/resourcegroups/write' over scope '/subscriptions/<yourSubscriptionId>/resourcegroups/testresourcegroup' or the scope is invalid. If access was recently granted, please refresh your credentials.
     ```
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 Observe os seguintes valores deste artigo. Estes valores serão necessários para configurar as propriedades gémeas do Live Video Analytics no módulo IoT Edge, ver [esquema JSON twin módulo](module-twin-configuration-schema.md).
 

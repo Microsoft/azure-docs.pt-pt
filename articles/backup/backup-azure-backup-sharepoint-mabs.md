@@ -4,10 +4,9 @@ description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234793"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Apoiar uma quinta sharePoint para Azure com MABS
@@ -52,9 +51,9 @@ Pré-requisitos e limitações adicionais:
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança
 
-Para fazer o back up da quinta SharePoint, configure a proteção para o SharePoint utilizando o ConfigureSharePoint.exe e, em seguida, criar um grupo de proteção em MABS.
+Para fazer o back up da quinta SharePoint, configuure a proteção para o SharePoint utilizando ConfigureSharePoint.exe e, em seguida, crie um grupo de proteção em MABS.
 
-1. **Execute o ConfigureSharePoint.exe** – esta ferramenta configura o Serviço de Escritor VSS do SharePoint \(WSS\) e fornece o agente de proteção com as credenciais para o farm do SharePoint. Depois de ter implantado o agente de proteção, o ficheiro ConfigureSharePoint.exe pode ser encontrado na `<MABS Installation Path\>\bin` pasta no servidor Web \- frontal.  Se tiver vários servidores WFE, só precisa de o instalar num deles. Execute o comando da seguinte forma:
+1. **Execute o ConfigureSharePoint.exe** – esta ferramenta configura o Serviço de Escritor VSS do SharePoint \(WSS\) e fornece o agente de proteção com as credenciais para o farm do SharePoint. Depois de ter implantado o agente de proteção, o ficheiro ConfigureSharePoint.exe pode ser encontrado `<MABS Installation Path\>\bin` na pasta no servidor Web \- frontal.  Se tiver vários servidores WFE, só precisa de o instalar num deles. Execute o comando da seguinte forma:
 
     * No servidor WFE, num pedido de comando, navegue para `\<MABS installation location\>\\bin\\` e `ConfigureSharePoint \[\-EnableSharePointProtection\] \[\-EnableSPSearchProtection\] \[\-ResolveAllSQLAliases\] \[\-SetTempPath <path>\]` corra, onde:
 
@@ -72,13 +71,13 @@ Para fazer o back up da quinta SharePoint, configure a proteção para o SharePo
 
         * Conceder ao grupo **WSS_Admin_WPG** leia o acesso à chave do registo MABS ( `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager` ).
 
-        Depois de executar o ConfigureSharePoint.exe, terá de o refazer se houver uma alteração nas credenciais de administrador agrícola do SharePoint.
+        Depois de executar ConfigureSharePoint.exe, terá de a refazer se houver uma alteração nas credenciais de administrador agrícola do SharePoint.
 
 1. Para criar um grupo **Protection**de proteção, clique em  >  **"Protection Actions**  >  **Create Protection Group"** para abrir o assistente criar novo grupo de **proteção** na consola MABS.
 
 1. Em **Selecionar Tipo de Grupo de Proteção**, selecione **Servidores**.
 
-1. Nos **Membros do Grupo Select,** expanda o servidor que detém o papel de WFE. Se houver mais de um servidor WFE, selecione aquele em que instalou o ConfigureSharePoint.exe.
+1. Nos **Membros do Grupo Select,** expanda o servidor que detém o papel de WFE. Se houver mais de um servidor WFE, selecione o que instalou ConfigureSharePoint.exe.
 
     Quando expande o servidor MABS do SharePoint consulta VSS para ver que dados o MABS pode proteger.  Se a base de dados SharePoint for remota, o MABS liga-se a ela. Se as fontes de dados do SharePoint não aparecerem, verifique se o escritor VSS está a funcionar no servidor SharePoint e em qualquer servidor SQL remoto, e certifique-se de que o agente MABS está instalado tanto no servidor SharePoint como no servidor SQL remoto. Além disso, certifique-se de que as bases de dados do SharePoint não estão a ser protegidas em outros lugares como bases de dados do SQL Server.
 
@@ -255,7 +254,7 @@ O procedimento a seguir utiliza o exemplo de uma quinta de servidores com dois s
 
 1. Se tiver realizado o passo 6, pode agora retirar o volume do grupo de proteção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o artigo [do servidor Back up Exchange.](backup-azure-exchange-mabs.md)
 Consulte o artigo [Back up SQL Server.](backup-azure-sql-mabs.md)

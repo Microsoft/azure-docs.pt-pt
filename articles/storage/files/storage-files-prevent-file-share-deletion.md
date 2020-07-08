@@ -9,10 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204689"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar a supressão acidental das ações de ficheiros Azure
@@ -53,6 +52,6 @@ Para obter mais informações sobre os preços do Armazenamento de Ficheiros Azu
 
 Quando inicialmente ativar a eliminação suave, recomendamos a utilização de um pequeno período de retenção para entender melhor como a funcionalidade afeta a sua conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a ativar e utilizar a eliminação suave, continue a ativar a [eliminação suave](storage-files-enable-soft-delete.md).

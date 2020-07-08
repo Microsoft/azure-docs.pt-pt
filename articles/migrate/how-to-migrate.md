@@ -4,10 +4,9 @@ description: Saiba como adicionar ferramentas de migração em Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
 ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195812"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
@@ -63,6 +62,6 @@ Para migrar grandes quantidades de dados para a Azure, pode encomendar uma Caixa
 2. Em **Selecione a sua Caixa de Dados Azure,** especifique a sua subscrição. 
 3. A transferência será uma importação para Azure. Especifique a fonte de dados e o destino da região de Azure para os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente uma migração utilizando a migração do servidor Azure Migrate para VMs [hiper-V](tutorial-migrate-hyper-v.md) ou [VMware.](tutorial-migrate-vmware.md)

@@ -5,10 +5,9 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248265"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
@@ -32,8 +31,8 @@ Em algumas circunstâncias, o serviço de backup Azure aciona cópias de seguran
 
 A cura automática como capacidade é ativada para todos os utilizadores por predefinição; No entanto, no caso de optar por não o fazer, então execute o seguinte:
 
-- Na instância do Servidor SQL, no ficheiro *C:\Program Files\Azure Workload Backup\bin,* criar ou editar o ficheiro **ExtensionSettingsOverrides.json.**
-- Nas **extensõesSoverrides.json,** set *{"EnableAutoHealer": falso}*.
+- Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js**no** ficheiro.
+- No **ExtensionSettingsOverrides.jsem**, definir *{"EnableAutoHealer": falso}*.
 - Guarde as suas alterações e feche o ficheiro.
 - Na instância do SQL Server, abra **a Task Manage** e, em seguida, reinicie o serviço **AzureWLBackupCoordinatorSvc.**
 
@@ -41,8 +40,8 @@ A cura automática como capacidade é ativada para todos os utilizadores por pre
 
 Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
-1. Na instância do Servidor SQL, na pasta *C:\Program Files\Azure Workload Backup\bin,* crie o ficheiro *ExtensionSettingsOverrides.json.*
-2. No ficheiro *ExtensionSettingsOverrides.json,* altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
+1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
+2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 O valor predefinido de DefaultBackupTasksThreshold é **de 20**.
@@ -102,6 +101,6 @@ Uma base de dados que [adicione a uma instância autoprotegido](backup-sql-serve
 
   ![Descubra manualmente uma base de dados recém-adicionada](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

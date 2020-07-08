@@ -13,10 +13,9 @@ ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
 ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234887"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
@@ -79,7 +78,7 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Os trabalhos de codificação utilizando a `ContentAwareEncoding` predefinição estão a ser faturados com base nas atas de saída. 
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3](stream-files-tutorial-with-api.md)
 * [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)

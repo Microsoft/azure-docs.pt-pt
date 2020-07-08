@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: 5b1cd58b8947e376ac70ee307041ae7864ed7e24
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233115"
 ---
 # <a name="streaming-catalog-views-transact-sql"></a>Visualizações do catálogo de streaming (Transact-SQL)
@@ -28,7 +27,7 @@ Esta secção contém as vistas e funções disponíveis do catálogo que estão
 |[sys.external_streaming_jobs](sys-external-streaming-jobs.md) |Devolve uma linha para cada trabalho de streaming externo criado no âmbito da base de dados.|
 |[sys.external_job_streams](sys-external-job-streams.md)|Devolve uma linha cada uma para o objeto de fluxo externo de entrada ou saída mapeado para uma tarefa de streaming externa.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [Vistas do Sistema (Transact-SQL)](/sql/t-sql/language-reference/)

@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233300"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -59,7 +58,7 @@ O número inteiro que decide a largura do balde combinado com o argumento *da da
 Uma expressão que pode resolver um dos seguintes valores:
 
 + **data**
-+ **data**
++ **datetime**
 + **datatimeoffoff**
 + **datetime2**
 + **hora pequena**
@@ -269,6 +268,6 @@ order by DateBucket
 GO  
 ``` 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [CAST e CONVERT &#40;&#41;Transact-SQL](/sql/t-sql/functions/cast-and-convert-transact-sql/)

@@ -4,10 +4,9 @@ description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 4b869b24392fa597f752992fb65de46785117618
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234700"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
@@ -489,7 +488,7 @@ Fornecer um parâmetro adicional **TargetResourceGroupName** para especificar o 
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID
 ```
 
-O ficheiro **VMConfig.JSON** será restaurado na conta de armazenamento e os discos geridos serão restaurados para o RG-alvo especificado.
+O **ficheiro ONVMConfig.JS** será restaurado na conta de armazenamento e os discos geridos serão restaurados para o RG-alvo especificado.
 
 O resultado é semelhante ao seguinte exemplo:
 
@@ -880,6 +879,6 @@ Depois de copiar os ficheiros [necessários, utilize Disable-AzRecoveryServicesB
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se preferir utilizar o PowerShell para se envolver com os seus recursos Azure, consulte o artigo PowerShell, [Implementar e Gerir a cópia de segurança para o Servidor do Windows](backup-client-automation.md). Se gerir backups DPM, consulte o artigo, [Implementar e Gerir a Cópia de Segurança para DPM](backup-dpm-automation.md).

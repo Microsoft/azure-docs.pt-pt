@@ -4,10 +4,9 @@ description: Descreve como usar uma definição de iniciativa para agrupar polí
 ms.date: 05/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3bcc876cf8fd608d700e39bda11c94395beace80
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84205982"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade Regulamentar na Política Azure
@@ -64,7 +63,7 @@ O seguinte código é um exemplo de resultados adicionados de uma `summarize` ch
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

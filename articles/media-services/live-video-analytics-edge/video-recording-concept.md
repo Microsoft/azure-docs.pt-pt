@@ -4,17 +4,16 @@ description: No contexto de um sistema de gestão de vídeo para câmaras CCTV, 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260947"
 ---
 # <a name="video-recording"></a>Gravação de vídeo
 
 No contexto de um sistema de gestão de vídeo para câmaras CCTV, a gravação de vídeo refere-se ao processo de captura de vídeo das câmaras e gravação do mesmo para visualização através de aplicações móveis e de navegador. A gravação de vídeo pode ser classificada como gravação contínua de vídeo e gravação de vídeo baseada em eventos. 
 
-## <a name="continuous-video-recording"></a>Gravação contínua de vídeo  
+## <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
 Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua de todo o vídeo capturado a partir de uma fonte de vídeo. A CVR garante que todo o vídeo está disponível (ditado pela [política de gravação)](#recording-policy)para analisar e/ou auditar mais tarde.
 
@@ -30,8 +29,8 @@ A escolha de usar CVR ou EVR depende dos objetivos do negócio. Live Video Analy
 
 A política de gravação refere-se às políticas que ditam o tempo de início/paragem da gravação (no caso de EVR), a duração da gravação e a eliminação da gravação. As políticas de gravação permitem equilibrar os custos de armazenamento com os requisitos do negócio. As políticas de gravação diferem entre CVR e EVR. Para o CVR, a política de gravação define quantos dias de vídeo devem ser armazenados (por exemplo, os últimos 7 dias). Para o EVR, a política de gravação define quando a gravação deve começar e terminar, juntamente com a duração do vídeo. Pode saber mais sobre isso nos artigos de cenário [CVR](continuous-video-recording-concept.md) e [EVR.](event-based-video-recording-concept.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Detete movimento, grave videoclips para a Azure Media Services](detect-motion-record-video-clips-media-services-quickstart.md)
+* [Detete movimento e grave clips de vídeo para os Serviços de Multimédia do Azure](detect-motion-record-video-clips-media-services-quickstart.md)
 * [Detetar movimento, gravar videoclips para dispositivos de borda](detect-motion-record-video-clips-edge-devices-quickstart.md)
 

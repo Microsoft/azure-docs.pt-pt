@@ -10,22 +10,21 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221406"
 ---
-# <a name="monitor-module-twins"></a>Gémeos do módulo monitor
+# <a name="monitor-module-twins"></a>Monitorizar módulos duplos
 
 Os gémeos módulos no Azure IoT Hub permitem monitorizar a conectividade e a saúde das suas implementações IoT Edge. Os gémeos módulos armazenam informações úteis no seu hub IoT sobre o desempenho dos seus módulos de funcionamento. O [agente IoT Edge](iot-edge-runtime.md#iot-edge-agent) e os módulos de execução do hub [IoT Edge](iot-edge-runtime.md#iot-edge-hub) mantêm cada um os seus gémeos módulos `$edgeAgent` `$edgeHub` e, respectivamente:
 
 * `$edgeAgent`contém dados de saúde e conectividade sobre o agente IoT Edge e os módulos de tempo de funcionação do hub IoT Edge, e os seus módulos personalizados. O agente IoT Edge é responsável por implantar os módulos, monitorizá-los e reportar o estado de ligação ao seu hub Azure IoT.
 * `$edgeHub`contém dados sobre comunicações entre o hub IoT Edge em execução num dispositivo e o seu hub Azure IoT. Isto inclui o processamento de mensagens recebidas de dispositivos a jusante. O hub IoT Edge é responsável pelo processamento das comunicações entre o Azure IoT Hub e os dispositivos e módulos IoT Edge.
 
-Os dados são organizados em metadados, tags, juntamente com conjuntos de propriedade desejados e reportados nas estruturas JSON dos gémeos do módulo. As propriedades desejadas especificadas no seu ficheiro deployment.json são copiadas para os gémeos módulos. O agente IoT Edge e o hub IoT Edge atualizam cada uma as propriedades reportadas para os seus módulos.
+Os dados são organizados em metadados, tags, juntamente com conjuntos de propriedade desejados e reportados nas estruturas JSON dos gémeos do módulo. As propriedades desejadas especificadas no seu deployment.jsem ficheiro são copiadas para os gémeos do módulo. O agente IoT Edge e o hub IoT Edge atualizam cada uma as propriedades reportadas para os seus módulos.
 
-Da mesma forma, as propriedades desejadas especificadas para os seus módulos personalizados no ficheiro deployment.json são copiadas para o seu módulo twin, mas a sua solução é responsável por fornecer os seus valores de propriedade reportados.
+Da mesma forma, as propriedades desejadas especificadas para os seus módulos personalizados no deployment.jsem ficheiro são copiadas para o seu módulo twin, mas a sua solução é responsável por fornecer os seus valores de propriedade reportados.
 
 Este artigo descreve como rever os gémeos módulos no portal Azure, Azure CLI, e no Código do Estúdio Visual. Para obter informações sobre a monitorização da forma como os seus dispositivos recebem as implementações, consulte as [implementações do Monitor IoT Edge](how-to-monitor-iot-edge-deployments.md). Para uma visão geral sobre o conceito de gémeos módulos, consulte [Compreender e usar gémeos módulos no IoT Hub.](../iot-hub/iot-hub-devguide-module-twins.md)
 
@@ -83,7 +82,7 @@ O JSON pode ser descrito nas seguintes secções, a partir do topo:
 
 * Metadados - Contém dados de conectividade. Curiosamente, o estado de ligação do agente IoT Edge está sempre num estado desligado: `"connectionState": "Disconnected"` . A razão pela qual o estado de ligação diz respeito a mensagens de dispositivo-a-nuvem (D2C) e o agente IoT Edge não envia mensagens D2C.
 * Propriedades - Contém as `desired` `reported` subsecções e subsecções.
-* Propriedades.desejadas - (mostrado colapso) Valores de propriedade esperados definidos pelo operador no ficheiro deployment.json.
+* Propriedades.desejadas - (mostrado colapso) Valores de propriedade esperados definidos pelo operador no deployment.jsem arquivo.
 * Propriedades.reportados - Os valores de propriedade mais recentes reportados pelo agente IoT Edge.
 
 Tanto as `properties.desired` `properties.reported` secções têm uma estrutura semelhante e contêm metadados adicionais para o esquema, versão e informação de tempo de execução. Também está incluída a `modules` secção para quaisquer módulos personalizados (tais `SimulatedTemperatureSensor` como), e a secção para `systemModules` e `$edgeAgent` os `$edgeHub` módulos de tempo de execução.
@@ -159,14 +158,14 @@ O JSON pode ser descrito nas seguintes secções, a partir do topo:
 * Metadados - Contém dados de conectividade.
 
 * Propriedades - Contém as `desired` `reported` subsecções e subsecções.
-* Propriedades.desejadas - (mostrado colapso) Valores de propriedade esperados definidos pelo operador no ficheiro deployment.json.
+* Propriedades.desejadas - (mostrado colapso) Valores de propriedade esperados definidos pelo operador no deployment.jsem arquivo.
 * Propriedades.reportados - Os valores mais recentes de propriedade reportados pelo ioT Edge hub.
 
 Se estiver a ter problemas com os seus dispositivos a jusante, examinar estes dados seria um bom ponto de partida.
 
 ## <a name="monitor-custom-module-twins"></a>Monitorize gémeos de módulo personalizado
 
-As informações sobre a conectividade dos seus módulos personalizados são mantidas no módulo de agente IoT Edge twin. O módulo twin para o seu módulo personalizado é usado principalmente para manter dados para a sua solução. As propriedades desejadas que definiu no seu ficheiro deployment.json refletem-se no módulo twin, e o seu módulo pode atualizar os valores de propriedade reportados conforme necessário.
+As informações sobre a conectividade dos seus módulos personalizados são mantidas no módulo de agente IoT Edge twin. O módulo twin para o seu módulo personalizado é usado principalmente para manter dados para a sua solução. As propriedades desejadas que definiu no seu deployment.jsno ficheiro refletem-se no módulo twin, e o seu módulo pode atualizar os valores de propriedade reportados conforme necessário.
 
 Pode utilizar a sua linguagem de programação preferida com os [SDKs de dispositivo de hub Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) para atualizar os valores de propriedade reportados no módulo twin, com base no código de aplicação do seu módulo. O seguinte procedimento utiliza o Azure SDK para .NET para o fazer, utilizando código a partir do módulo [SimulaçãoTemperatureSensor:](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs)
 
@@ -219,6 +218,6 @@ A estrutura [az iot hub módulo-twin](https://docs.microsoft.com/cli/azure/ext/a
 * **az iot hub module-twin update** - Atualize uma definição de módulo twin.
 * **az iot hub módulo-twin substitua** - Substitua uma definição de módulo twin por um JSON alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [comunicar com o EdgeAgent utilizando métodos diretos incorporados.](how-to-edgeagent-direct-method.md)

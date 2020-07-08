@@ -4,10 +4,9 @@ description: Descreve como as definições de iniciativa política são usadas p
 ms.date: 05/29/2020
 ms.topic: conceptual
 ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84205961"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição de iniciativa política Azure
@@ -102,7 +101,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para o manuseamento de duas
 
 Azure Policy incorporados e padrões estão em [amostras da Política Azure](../samples/index.md).
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadados
 
 A propriedade opcional `metadata` armazena informações sobre a definição de iniciativa política.
 Os clientes podem definir quaisquer propriedades e valores úteis à sua organização `metadata` em. No entanto, existem algumas propriedades _comuns_ usadas pela Azure Policy e em incorporados.
@@ -319,7 +318,7 @@ Abaixo está um exemplo do objeto **de políticaMetadata.** Este exemplo de meta
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Ver a estrutura de [definição](./definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

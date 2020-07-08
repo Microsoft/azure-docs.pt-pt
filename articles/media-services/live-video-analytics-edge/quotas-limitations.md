@@ -4,10 +4,9 @@ description: Este artigo descreve live video analytics em quotas e limitações 
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261052"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e limitações
@@ -67,6 +66,6 @@ No momento do lançamento da pré-visualização, o Live Video Analytics no IoT 
 * A capacidade de utilizar mais do que uma conta de Armazenamento na conta do Media Service.
 * A capacidade de alterar a informação principal do serviço nas propriedades desejadas do módulo dinamicamente, sem um reinício.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição geral](overview.md)

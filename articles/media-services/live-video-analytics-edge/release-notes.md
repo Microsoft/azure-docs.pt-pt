@@ -4,10 +4,9 @@ description: Este tópico fornece notas de lançamento de Live Video Analytics s
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: fd607ee027b46cf386180338440e6530da911302
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261038"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Vídeo ao vivo analítico em notas de lançamento do IoT Edge
@@ -45,6 +44,6 @@ Este lançamento é o primeiro lançamento público de Video Analytics em IoT Ed
     *   GraphInstanceList
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição geral](overview.md)

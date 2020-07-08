@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196574"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes de Serviços de Integração de ServidorES SQL para uma instância gerida Azure SQL
@@ -150,6 +149,6 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 * Selecione **Executar a migração**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja a orientação de migração no [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft.

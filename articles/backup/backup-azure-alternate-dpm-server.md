@@ -4,10 +4,9 @@ description: Recupere os dados que protegeu para um cofre dos Serviços de Recup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84249081"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
@@ -85,7 +84,7 @@ Para recuperar dados de um Servidor de Backup Azure:
 | 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** Não existem outros Servidores de Backup Azure registados no cofre a partir do qual a recuperação está a ser tentada.<br>**Resolução:** Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, certifique-se de que o mais recente agente de backup do Azure está instalado.<br>Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno envia os metadados para todos os backups protegidos para cloud. Os dados estarão disponíveis para recuperação. |
 | 4. |A palavra-passe de encriptação fornecida não corresponde à palavra-passe associada ao seguinte servidor:**\<server name>** |**Causa:** A palavra-passe de encriptação utilizada no processo de encriptação dos dados dos dados do Azure Backup Server que está a ser recuperado não corresponde à palavra-passe de encriptação fornecida. O agente é incapaz de desencriptar os dados, e assim a recuperação falha.<br>**Resolução:** Por favor, forneça exatamente a mesma palavra-passe de encriptação associada ao Servidor de Backup Azure cujos dados estão a ser recuperados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 

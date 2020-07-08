@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
 ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196428"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
@@ -45,11 +44,11 @@ Para configurar os seus dados de referência, primeiro precisa de criar uma entr
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão as suas bolhas. Se estiver na mesma subscrição que o seu Stream Analytics Job, pode selecioná-lo a partir do drop-down.   |
 |Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isto é automaticamente povoado se a conta de armazenamento estiver na mesma subscrição que o seu trabalho stream Analytics.   |
 |Recipiente de armazenamento   | Os recipientes fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando fizer o upload de uma bolha para o serviço Blob, tem de especificar um recipiente para essa bolha.   |
-|Padrão do Caminho   | Esta é uma propriedade necessária que é usada para localizar as suas bolhas dentro do recipiente especificado. Dentro do caminho, pode optar por especificar uma ou mais instâncias das seguintes 2 variáveis:<BR>{data}, {tempo}<BR>Exemplo 1: produtos/{date}/{time}/product-list.csv<BR>Exemplo 2: produtos/{date}/product-list.csv<BR>Exemplo 3: lista de produtos.csv<BR><br> Se a bolha não existir no caminho especificado, o trabalho stream Analytics aguarda indefinidamente para que a bolha fique disponível.   |
+|Padrão do Caminho   | Esta é uma propriedade necessária que é usada para localizar as suas bolhas dentro do recipiente especificado. Dentro do caminho, pode optar por especificar uma ou mais instâncias das seguintes 2 variáveis:<BR>{data}, {tempo}<BR>Exemplo 1: produtos/{date}/{time}/product-list.csv<BR>Exemplo 2: produtos/{data}/product-list.csv<BR>Exemplo 3: product-list.csv<BR><br> Se a bolha não existir no caminho especificado, o trabalho stream Analytics aguarda indefinidamente para que a bolha fique disponível.   |
 |Formato de data [opcional]   | Se tiver usado {data} dentro do Padrão de Caminho que especificou, então pode selecionar o formato de data em que as suas bolhas são organizadas a partir do drop-down de formatos suportados.<BR>Exemplo: YYYY/MM/DD, MM/DD/YYYYY, etc.   |
 |Formato de tempo [opcional]   | Se tiver usado {time} dentro do Padrão de Caminho que especificou, então pode selecionar o formato de tempo em que as suas bolhas são organizadas a partir do drop-down de formatos suportados.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de Serialização de Eventos   | Para garantir que as suas consultas funcionam da forma que espera, o Stream Analytics precisa de saber qual o formato de serialização que está a utilizar para os fluxos de dados que chegam. Para dados de referência, os formatos suportados são CSV e JSON.  |
-|Codificação   | UTF-8 é o único formato de codificação suportado neste momento.  |
+|Encoding   | UTF-8 é o único formato de codificação suportado neste momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estático
 
@@ -138,7 +137,7 @@ FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 

@@ -4,10 +4,9 @@ description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu gr
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259410"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
@@ -347,7 +346,7 @@ O mesmo percurso de âmbito é utilizado quando se recupera uma definição de p
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

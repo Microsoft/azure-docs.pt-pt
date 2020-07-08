@@ -4,10 +4,9 @@ description: Saiba como tornar o seu código de função em funcionamento em Azu
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259427"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
@@ -203,7 +202,7 @@ As restrições de acesso permitem-lhe definir listas de regras de permitir/nega
 
 Os serviços gateway, tais como [Azure Application Gateway](../application-gateway/overview.md) e [Azure Front Door](../frontdoor/front-door-overview.md) permitem configurar uma Firewall de Aplicação Web (WAF). As regras da WAF são usadas para monitorizar ou bloquear ataques detetados, que fornecem uma camada extra de proteção para as suas funções. Para configurar um WAF, a sua aplicação de função precisa de estar a funcionar num ASE ou a utilizar pontos de final privados (pré-visualização). Para saber mais, consulte [utilização de pontos finais privados.](../app-service/networking/private-endpoint.md)    
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Linha de Base de Segurança Azure para Funções Azure](security-baseline.md)
 + [Diagnóstico de funções Azure](functions-diagnostics.md)

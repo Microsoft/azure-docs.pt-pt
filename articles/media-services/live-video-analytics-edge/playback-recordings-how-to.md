@@ -4,18 +4,17 @@ description: Pode utilizar o Live Video Analytics no IoT Edge para gravação co
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261080"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
 
 ## <a name="pre-read"></a>Pré-leitura  
 
-* [Reprodução de vídeo](video-playback-concept.md)
-* [Gravação contínua de vídeo](continuous-video-recording-concept.md)
+* [Reproduzir vídeo](video-playback-concept.md)
+* [Gravação de vídeo contínua](continuous-video-recording-concept.md)
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 
 ## <a name="background"></a>Fundo  
@@ -309,6 +308,6 @@ Consequentemente, o streaming do vídeo dos Media Services será adiado pelo men
 
 Outro fator que determina a latência da reprodução (o atraso entre o momento em que um evento ocorre em frente à câmara, até ao momento em que pode ser visto num dispositivo de reprodução) é a duração [do GOP](https://en.wikipedia.org/wiki/Group_of_pictures) em grupo de imagens. Como [reduzir o atraso dos fluxos ao vivo usando 3 técnicas simples](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explica, mais longa duração do GOP, mais longa a latência. É comum ter câmaras IP usadas em cenários de vigilância e segurança configurados para usar GOPs por mais de 30 segundos. Isto tem um grande impacto na latência global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial de gravação contínua de vídeo](continuous-video-recording-tutorial.md)

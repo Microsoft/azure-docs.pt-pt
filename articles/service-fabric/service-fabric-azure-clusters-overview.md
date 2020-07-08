@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234684"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
@@ -31,7 +30,7 @@ Um cluster de tecido de serviço em Azure é um recurso Azure que utiliza e inte
 ![Cluster de Tecido de Serviço][Image]
 
 ### <a name="virtual-machine"></a>Máquina virtual
-Uma [máquina virtual](/azure/virtual-machines/) que faz parte de um cluster é chamada de nó, no entanto, tecnicamente, um nó de cluster é um processo de tempo de execução do Tecido de Serviço. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, tais como [propriedades de colocação.](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) Cada máquina ou VM tem um serviço de arranque automático, *FabricHost.exe,* que começa a funcionar na hora do arranque e, em seguida, inicia dois executáveis, *Fabric.exe* e *FabricGateway.exe,* que compõem o nó. Uma implantação de produção é um nó por máquina física ou virtual. Para os cenários de teste, pode hospedar vários nós numa única máquina ou VM executando várias instâncias de *Fabric.exe* e *FabricGateway.exe*.
+Uma [máquina virtual](/azure/virtual-machines/) que faz parte de um cluster é chamada de nó, no entanto, tecnicamente, um nó de cluster é um processo de tempo de execução do Tecido de Serviço. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, tais como [propriedades de colocação.](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) Cada máquina ou VM tem um serviço de arranque automático, *FabricHost.exe, *que começa a funcionar na hora do arranque e depois inicia dois executáveis, *Fabric.exe* e *FabricGateway.exe*, que compõem o nó. Uma implantação de produção é um nó por máquina física ou virtual. Para os cenários de teste, pode hospedar vários nós numa única máquina ou VM executando várias instâncias de *Fabric.exe* e *FabricGateway.exe*.
 
 Cada VM está associado a um cartão de interface de rede virtual (NIC) e cada NIC é atribuído um endereço IP privado.  Um VM é atribuído a uma rede virtual e equilibrador local através do NIC.
 
@@ -113,7 +112,7 @@ Para mais informações consulte [ver versões de cluster suportadas em Azure](h
 >
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling.md)e [modernização dos](service-fabric-cluster-upgrade.md) agrupamentos Azure.
 
 Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)

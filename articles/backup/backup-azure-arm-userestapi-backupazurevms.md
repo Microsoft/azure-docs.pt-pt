@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248690"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
@@ -466,7 +465,7 @@ A eliminação de desfazer é uma operação *PUT* muito semelhante a [alterar a
 
 A resposta seguirá o mesmo formato mencionado [para desencadear uma cópia de segurança a pedido](#example-responses-3). O trabalho resultante deve ser acompanhado, tal como explicado nos postos de controlo, utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Restaurar os dados de uma cópia de segurança da máquina Virtual Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

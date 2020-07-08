@@ -16,10 +16,9 @@ ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84230126"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
@@ -34,7 +33,7 @@ Para utilizar este guia, precisa de conhecimentos básicos dos seguintes compone
 
 - [Máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Redes de rede Azure e redes virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Armazenamento Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Armazenamento do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Para saber mais sobre o SAP NetWeaver e outros componentes SAP em Azure, consulte a secção [SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) da [documentação Azure](https://docs.microsoft.com/azure/).
 
@@ -173,8 +172,8 @@ Instalando uma configuração SAP de escala, é necessário executar passos ásp
 À medida que a sua infraestrutura Azure VM é implantada, e todos os outros preparativos são feitos, você precisa instalar as configurações de escala SAP HANA nestes passos:
 
 - Instale o nó principal SAP HANA de acordo com a documentação da SAP
-- No caso de utilizar o armazenamento Azure Premium ou ultra disco com discos não partilhados de /hana/data e /hana/log, é necessário alterar o ficheiro global.ini e adicionar o parâmetro 'basepath_shared = não' ao ficheiro global.ini. Este parâmetro permite que o SAP HANA seja executado em escala sem volumes 'partilhados' **/hana/dados** e **/hana/log** volumes entre os nós. Os detalhes são documentados na [#2080991 da nota SAP](https://launchpad.support.sap.com/#/notes/2080991). Se estiver a utilizar volumes NFS com base em ANF para /hana/dados e /hana/log, não precisa de fazer esta alteração
-- Após a eventual mudança no parâmetro global.ini, reinicie a instância SAP HANA
+- Em caso de utilização do armazenamento Azure Premium ou ultra disco com discos não partilhados de /hana/data e /hana/log, é necessário alterar o ficheiro global.ini e adicionar o parâmetro 'basepath_shared = não' ao ficheiro global.ini. Este parâmetro permite que o SAP HANA seja executado em escala sem volumes 'partilhados' **/hana/dados** e **/hana/log** volumes entre os nós. Os detalhes são documentados na [#2080991 da nota SAP](https://launchpad.support.sap.com/#/notes/2080991). Se estiver a utilizar volumes NFS com base em ANF para /hana/dados e /hana/log, não precisa de fazer esta alteração
+- Após a eventual alteração do parâmetro global.ini, reinicie a instância SAP HANA
 - Adicione nós de trabalhador adicionais. Consulte também <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Especificar a rede interna para comunicação inter-nólada SAP HANA durante a instalação ou posterior utilização, por exemplo, do hdblcm local. Para obter documentação mais detalhada, consulte também [a SAP Note #2183363.](https://launchpad.support.sap.com/#/notes/2183363) 
 
 Os detalhes para configurar um sistema de escala SAP HANA com nó de espera no SUSE Linux são descritos em detalhe no [Implementar um sistema de escala SAP HANA com nó de espera nos VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse). Documentação equivalente para chapéu vermelho pode ser encontrada no artigo [Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure usando ficheiros Azure NetApp em Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel). 

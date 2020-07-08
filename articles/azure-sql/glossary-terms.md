@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
 ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221392"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos da Base de Dados Azure SQL
@@ -45,7 +44,7 @@ ms.locfileid: "84221392"
 |:---|:---|:---|
 |Serviço do Azure|Instância Gerida do Azure SQL|[Instância Gerida do SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Modelo de compra|Modelo de compra baseado em vCore|[Modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
-|Opção de implementação |Instância Única|[Instância Única](managed-instance/sql-managed-instance-paas-overview.md)|
+|Opção de implementação |Instância Única|[Instância única](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Piscina de instância (pré-visualização)|[Conjuntos de instâncias](managed-instance/instance-pools-overview.md)|
 |Camada de serviços|Propósito Geral, Critical De Negócios|[Níveis de serviço de instância gerida SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Nível de computação|Cálculo provisionado|[Cálculo provisionado](database/service-tiers-vcore.md#compute-tiers)|

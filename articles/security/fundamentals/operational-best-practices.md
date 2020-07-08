@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204740"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
@@ -221,7 +220,7 @@ Para obter mais informações, consulte [Criar e gerir políticas para impor o c
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco AD
 A grande maioria das falhas de segurança ocorre quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de [risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AZure. Para mais informações, leia sobre os [utilizadores em relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o [relatório de segurança de entradas de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:

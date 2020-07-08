@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233155"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é Azure SQL Edge (Preview)?
@@ -70,7 +69,7 @@ O Azure SQL Edge torna o desenvolvimento e manutenção de aplicações mais fá
 - [Visual Studio Code](https://code.visualstudio.com/docs) - Um editor de código gratuito, transferível e de código aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar sql edge através do portal Azure](deploy-portal.md)
 - [Machine Learning e Inteligência Artificial com SqL Edge](onnx-overview.md)

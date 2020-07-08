@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 2559c4b4b875403b7c70671e27cb6222a3f1103a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235203"
 ---
 # <a name="alter-external-stream-transact-sql"></a>ALTER FLUXO EXTERNO (Transact-SQL)
@@ -43,7 +42,7 @@ Para obter mais informações sobre os argumentos de comando alter external stre
 ALTER EXTERNAL STREAM retorna 0 se for bem sucedido. Um valor de retorno não zero indica falha.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [CRIAR FLUXO EXTERNO (Transact-SQL)](create-external-stream-transact-sql.md) 
 - [FLUXO EXTERNO DROP (Transact-SQL)](drop-external-stream-transact-sql.md) 

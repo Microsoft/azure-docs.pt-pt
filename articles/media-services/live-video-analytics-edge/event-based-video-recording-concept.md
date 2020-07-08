@@ -4,17 +4,16 @@ description: A gravação de vídeo baseada em eventos (EVR) refere-se ao proces
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261332"
 ---
 # <a name="event-based-video-recording"></a>Gravação de vídeo baseada em eventos  
  
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida  
 
-* [Gravação contínua de vídeo](continuous-video-recording-concept.md)
+* [Gravação de vídeo contínua](continuous-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 
@@ -62,6 +61,6 @@ Os resultados do serviço de inferência externa são recuperados pelo nó de ex
 
 Um melhoramento a este exemplo é utilizar um processador de detetor de movimento antes do nó do processador de filtro de taxa de fotogramas. Isto reduzirá a carga no serviço de inferência, como durante a noite, quando pode haver longos períodos de tempo quando não há veículos na autoestrada. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: gravação de vídeo baseada em eventos](event-based-video-recording-tutorial.md)

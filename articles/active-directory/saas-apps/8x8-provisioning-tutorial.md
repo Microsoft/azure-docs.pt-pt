@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196215"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar 8x8 para o provisionamento automático do utilizador
@@ -122,19 +121,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|Notas|
    |---|---|---|
-   |userName|Cadeia|Define o nome de utilizador e o ID da Federação|
-   |externoId|Cadeia||
+   |userName|String|Define o nome de utilizador e o ID da Federação|
+   |externoId|String||
    |ativo|Booleano||
-   |título|Cadeia||
-   |e-mails[tipo eq "work"].value|Cadeia||
-   |nome.dado Nome|Cadeia||
-   |nome.famíliaName|Cadeia||
-   |números de telefone[tipo eq "mobile"].valor|Cadeia|Número de contato pessoal|
-   |phoneNumbers[tipo eq "work"].value|Cadeia|Número de contato pessoal|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia||
-   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|Cadeia|Não pode ser atualizado após a criação do utilizador|
-   |região|Cadeia|Não mapeado por padrão|
-   |timezone|Cadeia|Não mapeado por padrão|
+   |título|String||
+   |e-mails[tipo eq "work"].value|String||
+   |nome.dado Nome|String||
+   |nome.famíliaName|String||
+   |números de telefone[tipo eq "mobile"].valor|String|Número de contato pessoal|
+   |phoneNumbers[tipo eq "work"].value|String|Número de contato pessoal|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|String|Não pode ser atualizado após a criação do utilizador|
+   |região|String|Não mapeado por padrão|
+   |timezone|String|Não mapeado por padrão|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -164,6 +163,6 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

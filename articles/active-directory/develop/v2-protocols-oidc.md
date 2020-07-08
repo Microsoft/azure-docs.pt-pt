@@ -14,10 +14,9 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263283"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
@@ -300,7 +299,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Quando redireciona o utilizador para o `end_session_endpoint` ponto final da plataforma de identidade da Microsoft, o ponto final da plataforma de identidade microsoft limpa a sessão do utilizador a partir do navegador. No entanto, o utilizador pode ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador simultaneamente, o ponto final da plataforma de identidade da Microsoft envia um pedido HTTP GET para o registo `LogoutUrl` de todas as aplicações a que o utilizador se encontra atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar tal `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` portal de registo de aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja a [documentação Do UtilizadorInfo](userinfo.md)
 * Saiba como [personalizar os valores num token](active-directory-claims-mapping.md) com dados dos seus sistemas no local. 

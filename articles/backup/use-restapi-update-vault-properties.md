@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248231"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações do cofre de serviços de recuperação do Azure usando a API REST
@@ -85,8 +84,8 @@ Para mais detalhes, consulte [a documentação da API REST](https://docs.microso
 
 |Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização de recursos      |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
@@ -127,7 +126,7 @@ Uma vez apresentado o pedido 'PATCH', é devolvida uma resposta de 200 (com suce
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Crie uma política de backup para apoiar um VM Azure neste cofre](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

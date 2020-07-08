@@ -5,10 +5,9 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248826"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
@@ -129,9 +128,9 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 | Serviço | Azure Público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
-| Bases de dados de servidores SQL | **Sim** | **Sim** | No |
-| Piscinas elásticas do servidor SQL | **Sim** | **Sim** | No |
-| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | No |
+| Bases de dados de servidores SQL | **Sim** | **Sim** | Não |
+| Piscinas elásticas do servidor SQL | **Sim** | **Sim** | Não |
+| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | Não |
 
 Pode especificar o âmbito de monitorização através de uma única regra de alerta métrico de uma de três maneiras. Por exemplo, com máquinas virtuais pode especificar o âmbito como:  
 
@@ -154,7 +153,7 @@ Para alertas métricos, normalmente será notificado em menos de 5 minutos se de
 Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como criar, ver e gerir alertas métricos em Azure](alerts-metric.md)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](../../azure-monitor/platform/alerts-metric-create-templates.md)

@@ -4,13 +4,12 @@ description: Marcador de posição
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 1fc65a00b2aa1e82c5585583ee9e0ccb97e5168f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260933"
 ---
-# <a name="video-playback"></a>Reprodução de vídeo 
+# <a name="video-playback"></a>Reproduzir vídeo 
 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida 
 
@@ -44,7 +43,7 @@ Uma vez iniciado um Streaming Endpoint na sua conta de Media Service, e a polít
 
 Como descrito na [pia de ficheiros de gráficos de mídia,](media-graph-concept.md#file-sink)pode utilizar gráficos de mídia para gravar vídeos no sistema de ficheiros local do dispositivo de borda usando uma pia de ficheiro no seu gráfico de mídia. O lavatório de ficheiros gera ficheiros [MP4](https://developer.mozilla.org/docs/Web/Media/Formats/Containers#MP4) e pode utilizar o elemento [ &lt; de vídeo &gt; ](https://developer.mozilla.org/docs/Web/HTML/Element/video) HTML5 para reproduzir tal conteúdo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)
 <!--

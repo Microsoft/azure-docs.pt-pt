@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248976"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
@@ -138,9 +137,9 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de qualidade de monitorização de serviços, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saber mais
+Saiba mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Transferir](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
 
 
@@ -266,7 +265,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)

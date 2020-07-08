@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263895"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
@@ -52,13 +51,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Xero:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Xero** | Yes |
-| anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Yes |
-| consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512 usando** `openssl genrsa -out privatekey.pem 512` ; 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
-| useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| tipo | A propriedade tipo deve ser definida para: **Xero** | Sim |
+| anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Sim |
+| consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512 usando** `openssl genrsa -out privatekey.pem 512` ; 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -98,7 +97,7 @@ Para copiar dados da Xero, defina a propriedade tipo do conjunto de dados para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **XeroObject** | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **XeroObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -128,7 +127,7 @@ Para copiar dados da Xero, desagrafe o tipo de origem na atividade da cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **XeroSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **XeroSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -222,5 +221,5 @@ As seguintes tabelas só podem ser consultadas com esquema completo:
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados suportadas pela atividade de cópia, consulte [as lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

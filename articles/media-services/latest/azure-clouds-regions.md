@@ -13,10 +13,9 @@ ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196245"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que existem serviços de mídia azul v3
@@ -110,12 +109,12 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público simbólico |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais azuis](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194058"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache fichas utilizando a Biblioteca de Autenticação da Microsoft (MSAL)
@@ -116,7 +115,7 @@ Quando o seu cliente solicita um token de acesso, a Azure AD também retorna um 
 - As miras para as quais o símbolo foi emitido.
 - O ID único para o utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se estiver a utilizar o MSAL para Java, aprenda sobre [a serialização de cache de fichas personalizadas em MSAL para Java.](msal-java-token-cache-serialization.md)
 

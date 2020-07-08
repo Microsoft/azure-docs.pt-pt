@@ -9,10 +9,9 @@ ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235554"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
@@ -174,7 +173,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 |24|ReverseConnectFailed|A máquina virtual hospedeira não tem linha de visão direta para RD Gateway. Certifique-se de que o endereço IP gateway pode ser resolvido.|
 |1322|ConexãoFailedNomappingOfsiDinAD|O utilizador não é membro do Ative Directory. Siga as instruções no [Ative Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-las.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as funções dentro do Windows Virtual Desktop, consulte o [ambiente de trabalho virtual do Windows.](environment-setup-2019.md)
 

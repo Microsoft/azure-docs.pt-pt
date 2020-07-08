@@ -4,10 +4,9 @@ description: Um gráfico de mídia pode ser usado apenas para extrair análises 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 29e00b9c04a652771ca150e2a45e980d20f8bc1f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260940"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analisar vídeo ao vivo sem qualquer gravação
@@ -39,6 +38,6 @@ Um melhoramento a este exemplo é utilizar um processador de detetor de moviment
 
 ![Análise de vídeo ao vivo com base em quadros detetados por movimento através de módulo de inferenculação externo](./media/analyze-live-video/motion-detected-frames.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Gravação contínua de vídeo](continuous-video-recording-concept.md)
+[Gravação de vídeo contínua](continuous-video-recording-concept.md)

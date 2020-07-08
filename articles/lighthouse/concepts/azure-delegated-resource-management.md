@@ -4,10 +4,9 @@ description: As ofertas de serviços geridos permitem que os prestadores de serv
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84219077"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
@@ -46,7 +45,7 @@ A um nível elevado, eis como a Azure delegada gestão de recursos funciona:
 
 Se precisar de ajuda relacionada com a gestão de recursos delegados da Azure, pode abrir um pedido de apoio no portal Azure. Para **o tipo de emissão,** escolha **Técnico**. Selecione uma subscrição e, em seguida, **selecione Farol** (em Gestão de & de **Monitorização).**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)
 - Conheça as [ofertas de serviços geridos no Azure Marketplace.](managed-services-offers.md)

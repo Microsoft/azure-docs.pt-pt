@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248282"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
@@ -28,12 +27,12 @@ O novo modelo para Instant Restore fornece as seguintes melhorias de funcionalid
 
 ## <a name="whats-new-in-this-feature"></a>Quais as novidades nesta funcionalidade
 
-Atualmente, o trabalho de backup é composto por duas fases:
+Atualmente, a tarefa de cópia de segurança é composta por duas fases:
 
-1. Tirando uma foto em VM.
-2. Transferindo uma foto em VM para o cofre dos Serviços de Recuperação do Azure.
+1. Capturar um instantâneo de VM.
+2. Transferir um instantâneo de VM para o cofre dos Serviços de Recuperação do Azure.
 
-Um ponto de recuperação é considerado criado apenas após as fases 1 e 2 estarem concluídas. Como parte desta atualização, um ponto de recuperação é criado assim que o instantâneo é terminado e este ponto de recuperação do tipo instantâneo pode ser usado para executar uma restauração usando o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal Azure utilizando o "snapshot" como tipo de ponto de recuperação, e depois de o instantâneo ser transferido para o cofre, o tipo de ponto de recuperação muda para "instantâneo e cofre".
+Considera-se que um ponto de recuperação foi criado apenas após as fases 1 e 2 estarem concluídas. Como parte desta atualização, é criado um ponto de recuperação assim que o instantâneo é concluído. Este ponto de recuperação do tipo de instantâneo pode ser utilizado para executar um restauro com o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal Azure utilizando o "snapshot" como tipo de ponto de recuperação, e depois de o instantâneo ser transferido para o cofre, o tipo de ponto de recuperação muda para "instantâneo e cofre".
 
 ![Trabalho de backup na pilha de backup VM modelo de implementação de gestor de recursos -- armazenamento e cofre](./media/backup-azure-vms/instant-rp-flow.png)
 
@@ -78,7 +77,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 A retenção de instantâneo padrão para cada política está definida em dois dias. O utilizador pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada a cinco dias.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quais são as implicações de custo da restauração instantânea?
 

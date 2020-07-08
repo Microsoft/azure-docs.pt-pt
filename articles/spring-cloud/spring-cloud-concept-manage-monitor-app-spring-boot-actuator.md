@@ -1,5 +1,5 @@
 ---
-title: Gerir e monitorizar app com actuador de botas de mola Azure
+title: Gerir e monitorizar aplicações com o Spring Boot Actuator
 description: Aprenda a gerir e monitorizar a aplicação com o Actuador de Bota de primavera.
 author: MikeDodaro
 ms.author: brendm
@@ -7,13 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: e932930e43e6131e8e1e82fe2f42246c967a19fe
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84206010"
 ---
-# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gerir e monitorizar app com actuador de botas de mola Azure
+# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gerir e monitorizar aplicações com o Spring Boot Actuator
 
 Depois de implementar um novo binário na sua aplicação, poderá querer verificar a funcionalidade e ver informações sobre a sua aplicação de execução. Este artigo explica como aceder à API a partir de um ponto final de teste fornecido pela Azure Spring Cloud e expor as funcionalidades prontas para a produção para a sua aplicação.
 
@@ -71,6 +70,6 @@ Agora pode voltar ao painel geral da aplicação e aguardar até que o Estado de
 
 Para ver todos os pontos finais incorporados, consulte [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Compreenda as métricas para Azure Spring Cloud](spring-cloud-concept-metrics.md)
 * [Compreender o estado da aplicação em Azure Spring Cloud](spring-cloud-concept-app-status.md))

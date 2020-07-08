@@ -15,10 +15,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 05/25/2020
 ms.openlocfilehash: 0cd50e0ad4121798d6d4fb67cd18c7ae3b3b54ae
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195417"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
@@ -696,6 +695,6 @@ No passo anterior, fez o oleoduto a pedido. Também pode criar um gatilho de hor
    select * from catalog.executions
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte a seguinte publicação de blog:
 - [Modernizar e alargar os seus fluxos de trabalho ETL/ELT com atividades SSIS em oleodutos Azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

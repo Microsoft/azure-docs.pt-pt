@@ -9,10 +9,9 @@ ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259206"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos do Armazenamento de blobs com a capacidade reservada

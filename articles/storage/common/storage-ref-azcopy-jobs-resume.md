@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: e143a5e82b817aaba37750a8cce08e3f74f0abc8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220029"
 ---
 # <a name="azcopy-jobs-resume"></a>azcopy jobs resume
@@ -50,6 +49,6 @@ azcopy jobs resume [jobID] [flags]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

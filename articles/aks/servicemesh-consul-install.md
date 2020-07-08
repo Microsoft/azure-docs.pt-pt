@@ -7,10 +7,9 @@ ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: ef77037526beba1be2e4e8a834dbd09c8a73310c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197221"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instale e utilize o Cônsul no Serviço Azure Kubernetes (AKS)
@@ -31,7 +30,7 @@ Neste artigo, vai aprender a:
 > * Validar a instalação do Cônsul
 > * Cônsul desinstalação da AKS
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart]. Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina de nólinho Linux.
 
@@ -156,7 +155,7 @@ helm delete --purge consul
 kubectl delete namespace consul
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para explorar mais opções de instalação e configuração para cônsul, consulte os seguintes artigos oficiais do Cônsul:
 

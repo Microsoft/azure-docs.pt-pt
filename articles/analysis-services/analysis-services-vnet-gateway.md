@@ -8,10 +8,9 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197200"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilize o gateway para fontes de dados numa Rede Virtual Azure (VNet)
@@ -35,7 +34,7 @@ Fontes de dados de instância gerida Azure SQL são executadas dentro do Azure V
     ![Use sempre a propriedade gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 [Ligação a fontes de dados no local](analysis-services-gateway.md)   
 [Instale e configuure um portal de dados no local](analysis-services-gateway-install.md)   
 [Rede Virtual Azure (VNET)](../virtual-network/virtual-networks-overview.md)   

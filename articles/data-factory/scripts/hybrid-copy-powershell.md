@@ -11,10 +11,9 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194635"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utilize o PowerShell para criar um pipeline de fábrica de dados para copiar dados do SQL Server para OZure
@@ -90,7 +89,7 @@ Este script utiliza os seguintes comandos:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

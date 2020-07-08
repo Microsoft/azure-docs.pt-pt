@@ -13,16 +13,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195889"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Consulte a página [cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para mais detalhes sobre esta suite. Neste documento, descrevemos um caso de uso comum que os utilizadores do Azure já resolveram e implementaram usando a Azure Data Factory e outros serviços de componentes da Cortana Intelligence.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 Os retalhistas online geralmente querem cativar os seus clientes a comprar produtos, apresentando-os com produtos em que são mais propensos a interessar-se e, portanto, mais propensos a comprar. Para isso, os retalhistas online precisam de personalizar a experiência online do seu utilizador utilizando recomendações personalizadas de produtos para esse utilizador específico. Estas recomendações personalizadas devem ser feitas com base nos seus dados de comportamento de compras atuais e históricos, informações sobre o produto, marcas recém-introduzidas e dados de segmentação de produtos e clientes.  Além disso, podem fornecer as recomendações do produto do utilizador com base na análise do comportamento geral de utilização de todos os seus utilizadores combinados.
 
 O objetivo destes retalhistas é otimizar as conversões de clique para venda do utilizador e obter maiores receitas de vendas.  Conseguem esta conversão através da entrega de recomendações contextuais e baseadas em comportamentos com base nos interesses e ações do cliente. Para este caso de utilização, utilizamos os retalhistas online como um exemplo de empresas que querem otimizar para os seus clientes. No entanto, estes princípios aplicam-se a qualquer negócio que pretenda envolver os seus clientes em torno dos seus bens e serviços e melhorar a experiência de compra dos seus clientes com recomendações personalizadas de produtos.

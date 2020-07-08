@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259376"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade

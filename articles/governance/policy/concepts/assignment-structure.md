@@ -4,10 +4,9 @@ description: Descreve a definição de atribuição de políticas utilizada pela
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84205046"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
@@ -64,7 +63,7 @@ Esta propriedade tem os seguintes valores:
 |Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
 |-|-|-|-|-|-|
 |Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Yes |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Sim |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
@@ -95,7 +94,7 @@ Este desenho permite reutilizar uma definição de política ou iniciativa com d
 
 Neste exemplo, os parâmetros previamente definidos na definição de política são `prefix` e `suffix` . Esta atribuição de política específica `prefix` define-se à **DeptA** e `suffix` à **-LC**. A mesma definição política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo simultanea a duplicação e a complexidade das definições políticas, proporcionando flexibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)

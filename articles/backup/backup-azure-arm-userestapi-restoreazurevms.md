@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247804"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
@@ -117,7 +116,7 @@ O ponto de recuperação é identificado com o `{name}` campo na resposta acima.
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, basta restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ser redundante. Os discos, bem como a configuração do VM ("vmconfig.json") serão armazenados na conta de armazenamento dada.
+Se houver necessidade de personalizar a criação de um VM a partir dos dados de backup, basta restaurar os discos numa conta de armazenamento escolhida e criar um VM a partir desses discos de acordo com os seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ser redundante. Os discos, bem como a configuração do VM de reserva ("vmconfig.json") serão armazenados na conta de armazenamento dada.
 
 Desencadear discos de restauro é um pedido *DEM.* Para saber mais sobre a operação dos discos Restore, consulte a [API REST "trigger restore".](https://docs.microsoft.com/rest/api/backup/restores/trigger)
 
@@ -229,7 +228,7 @@ X-Powered-By: ASP.NET
 
 Uma vez que o trabalho de backup é uma operação de longa duração, deve ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-Uma vez concluído o trabalho de longa duração, os discos e a configuração da máquina virtual com apoio ("VMConfig.json") estarão presentes na conta de armazenamento dada.
+Uma vez concluído o trabalho de longa duração, os discos e a configuração da máquina virtual com rede ("VMConfig.jsligado") estarão presentes na conta de armazenamento dada.
 
 ## <a name="restore-as-another-virtual-machine"></a>Restaurar como outra máquina virtual
 
@@ -273,7 +272,7 @@ O corpo de pedido que se segue define as propriedades necessárias para desencad
 
 A resposta deve ser tratada da mesma forma [que explica acima para restaurar os discos.](#response)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as APIs de backup Azure, consulte os seguintes documentos:
 

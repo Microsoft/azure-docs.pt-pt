@@ -10,17 +10,16 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233247"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implementar borda Azure SQL (pré-visualização) 
 
 Azure SQL Edge (Preview) é um motor de base de dados relacional otimizado para implementações IoT e Azure IoT Edge. Fornece capacidades para criar uma camada de armazenamento e processamento de dados de alto desempenho para aplicações e soluções IoT. Este quickstart mostra-lhe como começar a criar um módulo Azure SQL Edge através do Azure IoT Edge utilizando o portal Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).

@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221322"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
@@ -34,7 +33,7 @@ Começando pela versão `2019-05-06` API, os erros e avisos indexantes de nível
 
 | Propriedade | Descrição | Exemplo |
 | --- | --- | --- |
-| chave | O documento identificação do documento impactado pelo erro ou aviso. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| key | O documento identificação do documento impactado pelo erro ou aviso. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | O nome da operação descrevendo onde ocorreu o erro ou o aviso. Isto é gerado pela seguinte estrutura: [categoria]. [subcategoria]. [recursosType]. [nome de recurso] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projeção.SearchIndex.OutputFieldMapping.myOutputFieldName Projeção.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
 | message | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar habilidade porque o pedido da Web Api falhou. |
 | detalhes | Quaisquer detalhes adicionais que possam ser úteis para diagnosticar o problema, como a resposta WebApi se executar uma habilidade personalizada falhou. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 fonte, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... resto de traços de pilha... |
@@ -334,7 +333,7 @@ Os mapeamentos do campo de saída que referenciam dados inexistentes/nulos produ
 
 Os [modos de análise do indexante](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) precisam de saber como o texto é codificado antes de o analisar. As duas formas mais comuns de codificar textos são UTF-16 e UTF-8. UTF-8 é uma codificação de comprimento variável onde cada personagem tem entre 1 byte e 4 bytes de comprimento. UTF-16 é uma codificação de comprimento fixo onde cada personagem tem 2 bytes de comprimento. UTF-16 tem duas variantes diferentes, "big endian" e "pequeno endian". A codificação de texto é determinada por uma "marca de ordem byte", uma série de bytes antes do texto.
 
-| Codificação | Marca de Ordem Byte |
+| Encoding | Marca de Ordem Byte |
 | --- | --- |
 | UTF-16 Big Endian | 0xFE 0xFF |
 | UTF-16 Pequeno Endian | 0xFF 0xFE |

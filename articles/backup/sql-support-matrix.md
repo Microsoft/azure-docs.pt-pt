@@ -4,10 +4,9 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234254"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
@@ -54,7 +53,7 @@ Dependendo da preferência de backup e dos tipos de backups (completo/diferencia
 
 #### <a name="backup-preference-primary"></a>Preferência de backup: Primário
 
-**Tipo de Cópia de Segurança** | **Nó**
+**Tipo de backup** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
@@ -63,7 +62,7 @@ Apenas cópia cheia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: Apenas secundário
 
-**Tipo de Cópia de Segurança** | **Nó**
+**Tipo de backup** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
@@ -72,7 +71,7 @@ Apenas cópia cheia |  Secundária
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: Secundário
 
-**Tipo de Cópia de Segurança** | **Nó**
+**Tipo de backup** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
@@ -81,13 +80,13 @@ Apenas cópia cheia |  Secundária
 
 #### <a name="no-backup-preference"></a>Sem preferência de backup
 
-**Tipo de Cópia de Segurança** | **Nó**
+**Tipo de backup** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
 Registar |  Secundária
 Apenas cópia cheia |  Secundária
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

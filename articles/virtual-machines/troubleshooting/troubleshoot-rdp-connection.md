@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.openlocfilehash: c65161b6c0ffb0623260a9d896b10bf99eeeced2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235568"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolver problemas de ligações de Ambiente de Trabalho Remoto a máquinas virtuais do Azure

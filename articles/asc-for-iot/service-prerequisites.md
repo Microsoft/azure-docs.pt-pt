@@ -17,10 +17,9 @@ ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
 ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193222"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Centro de Segurança Azure para pré-requisitos de IoT
@@ -85,7 +84,7 @@ Consulte a localização do seu Hub IoT para verificar a disponibilidade do serv
 
 O Centro de Segurança Azure para agentes IoT suporta uma lista crescente de dispositivos e plataformas. Consulte a [lista de plataformas suportadas](how-to-deploy-agent.md) para verificar a biblioteca de dispositivos existente ou planeada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia a [Visão Geral](overview.md) de Segurança do Azure IoT
 - Saiba como [Ativar o serviço](quickstart-onboard-iot-hub.md)

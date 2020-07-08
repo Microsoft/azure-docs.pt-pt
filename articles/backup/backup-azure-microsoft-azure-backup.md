@@ -4,10 +4,9 @@ description: Neste artigo, aprenda a preparar o seu ambiente para proteger e faz
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247279"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
@@ -147,7 +146,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="extracting-the-software-package"></a>Extrair o pacote de software
 
-Depois de ter descarregado todos os ficheiros, clique no **MicrosoftAzureBackupInstaller.exe**. Isto iniciará o **Microsoft Azure Backup Setup Wizard** para extrair os ficheiros de configuração para uma localização especificada por si. Continue através do assistente e clique no botão **Extrair** para iniciar o processo de extração.
+Depois de ter descarregado todos os ficheiros, clique **MicrosoftAzureBackupInstaller.exe**. Isto iniciará o **Microsoft Azure Backup Setup Wizard** para extrair os ficheiros de configuração para uma localização especificada por si. Continue através do assistente e clique no botão **Extrair** para iniciar o processo de extração.
 
 > [!WARNING]
 > São necessários pelo menos 4 GB de espaço livre para extrair os ficheiros de configuração.
@@ -156,7 +155,7 @@ Depois de ter descarregado todos os ficheiros, clique no **MicrosoftAzureBackupI
 
 ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Uma vez concluído o processo de extração, verifique a caixa para lançar a *configuração.exe* recentemente extraída para começar a instalar o Microsoft Azure Backup Server e clicar no botão **Terminar.**
+Assim que o processo de extração estiver concluído, verifique se a caixa para lançar o *setup.exe* recentemente extraído para começar a instalar o Microsoft Azure Backup Server e clicar no botão **Terminar.**
 
 ### <a name="installing-the-software-package"></a>Instalação do pacote de software
 
@@ -360,7 +359,7 @@ Utilize os seguintes passos para atualizar o MABS:
 Se o servidor de backup do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Também pode consultar [as FAQs relacionadas com o Azure Backup](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode obter informações detalhadas aqui sobre [a preparação do seu ambiente para o DPM.](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019) Também contém informações sobre configurações suportadas nas quais o Azure Backup Server pode ser implantado e utilizado. Pode utilizar uma série de [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para realizar várias operações.
 

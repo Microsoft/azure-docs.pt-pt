@@ -1,5 +1,5 @@
 ---
-title: Escala automática clusters Azure HDInsight
+title: Dimensionar automaticamente os clusters do Azure HDInsight
 description: Utilize a função Azure HDInsight Autoscale para clusters de escala Apache Hadoop automaticamente
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248639"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automática clusters Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
 A funcionalidade autoescala gratuita da Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalhadores no seu cluster com base em critérios previamente definidos. Você define um número mínimo e máximo de nós durante a criação do cluster, estabelece os critérios de escala usando um horário diurno ou métricas de desempenho específicas, e a plataforma HDInsight faz o resto.
 
@@ -66,9 +65,9 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 ### <a name="cluster-compatibility"></a>Compatibilidade do cluster
 
 > [!Important]
-> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral no dia 7 de novembro de 2019 para clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e quer utilizar a funcionalidade Autoscale no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Autoscale no novo cluster.
+> A funcionalidade de Dimensionamento Automático do Azure HDInsight foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters do Spark e do Hadoop com melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se tiver criado um cluster do Spark antes de 7 de novembro de 2019 e quiser utilizar a funcionalidade de Dimensionamento Automático no cluster, o caminho recomendado será criar um novo cluster e ativar o Dimensionamento Automático no novo cluster.
 >
-> A autoescala para agrupamentos de consultas interativas (LLAP) e HBase ainda está em pré-visualização. A autoescala só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase.
+> O Dimensionamento Automático para clusters do Interactive Query (LLAP) e do HBase ainda está em pré-visualização. O Dimensionamento Automático só está disponível nos clusters do Spark, do Hadoop, do Interactive Query e do HBase.
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
@@ -259,6 +258,6 @@ Os trabalhos de corrida continuarão. Os postos de trabalho pendentes aguardarã
 
 Não reduza o seu aglomerado para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente.  Para obter mais informações, consulte [Ficar preso no modo de segurança.](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre as diretrizes para dimensionamento manualmente em [diretrizes de escala](hdinsight-scaling-best-practices.md)

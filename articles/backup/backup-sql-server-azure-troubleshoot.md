@@ -4,10 +4,9 @@ description: Informações de resolução de problemas para fazer backup das bas
 ms.topic: troubleshooting
 ms.date: 06/18/2019
 ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247959"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
@@ -265,6 +264,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 Este ficheiro deve ser colocado antes de ativar a operação de restauro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre Azure Backup para VMs do sql server (pré-visualização pública), consulte [Azure Backup para SQL VMs](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

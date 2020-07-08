@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4fd7ccc7b6df85397fd547f8e1e48b776f12c0df
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234523"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs do Windows em Azure usando C # #
@@ -386,6 +385,6 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola corra com
 
 2. Antes de pressionar **Enter** para começar a apagar recursos, pode demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Aproveite a utilização de um modelo para criar uma máquina virtual utilizando as informações em [Implementar uma Máquina Virtual Azure utilizando C# e um modelo de Gestor de Recursos](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Saiba mais sobre a utilização das [bibliotecas Azure para .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).

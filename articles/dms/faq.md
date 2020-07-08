@@ -12,10 +12,9 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 3383a16624ecf045753609865931f9d0c44b6b3f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196575"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração da Base de Dados de Azure
@@ -117,6 +116,6 @@ Pode fazer algumas coisas para acelerar a migração da sua base de dados utiliz
 * Utilize o nível de preços para fins gerais multi CPU quando criar a sua instância de serviço para permitir que o serviço aproveite vários vCPUs para para paralelização e transferência de dados mais rápida.
 * Dimensione temporariamente a sua instância-alvo da Base de Dados Azure SQL para o SKU de nível Premium durante a operação de migração de dados para minimizar o estrangulamento da Base de Dados Azure SQL que pode afetar as atividades de transferência de dados quando utilizar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)

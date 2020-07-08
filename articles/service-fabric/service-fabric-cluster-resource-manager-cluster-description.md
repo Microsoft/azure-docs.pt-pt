@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259478"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço utilizando o Cluster Resource Manager
@@ -268,7 +267,7 @@ Se estiver a criar o seu próprio cluster (ou quiser executar uma determinada to
   </Infrastructure>
 ```
 
-Este exemplo utiliza ClusterConfig.json para implementações autónomas:
+Este exemplo utiliza ClusterConfig.jspara implementações autónomas:
 
 ```json
 "nodes": [
@@ -375,7 +374,7 @@ O valor especificado na propriedade do nó pode ser uma corda, Boolean, ou assin
 
 * Verificações condicionais para a criação de declarações específicas:
 
-  | Declaração | Sintaxe |
+  | Declaração | Syntax |
   | --- |:---:|
   | "igual a" | "==" |
   | "não é igual a" | "!=" |
@@ -386,7 +385,7 @@ O valor especificado na propriedade do nó pode ser uma corda, Boolean, ou assin
 
 * Declarações booleanas para agrupar e operações lógicas:
 
-  | Declaração | Sintaxe |
+  | Declaração | Syntax |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |
@@ -413,7 +412,7 @@ Digamos que as seguintes propriedades do nó foram definidas para um tipo de nó
     </NodeType>
 ```
 
-O exemplo a seguir mostra propriedades de nó definidas via ClusterConfig.json para implementações autónomas ou modelo.json para clusters hospedados em Azure. 
+O exemplo a seguir mostra propriedades de nó definidas via ClusterConfig.jspara implementações autónomas ou Template.jspara clusters hospedados em Azure. 
 
 > [!NOTE]
 > No seu modelo de Gestor de Recursos Azure, o tipo de nó é geralmente parametrizado. Pareceria `"[parameters('vmNodeType1Name')]"` mais do que NodeType01.
@@ -515,7 +514,7 @@ Pode ver capacidades definidas no manifesto do cluster. Aqui está um exemplo pa
     </NodeType>
 ```
 
-Aqui está um exemplo de capacidades definidas via ClusterConfig.json para implementações autónomas ou modelo.json para clusters hospedados em Azure: 
+Aqui está um exemplo das capacidades definidas através de ClusterConfig.jspara implantações autónomas ou Template.jspara clusters hospedados no Azure: 
 
 ```json
 "nodeTypes": [
@@ -557,7 +556,7 @@ Aqui está um exemplo de como especificar a capacidade tamponada em ClusterManif
         </Section>
 ```
 
-Aqui está um exemplo de como especificar a capacidade tamponada através do ClusterConfig.json para implementações autónomas ou modelo.json para clusters hospedados em Azure:
+Aqui está um exemplo de como especificar a capacidade tamponada através de ClusterConfig.jspara implementações autónomas ou Template.jspara clusters hospedados em Azure:
 
 ```json
 "fabricSettings": [
@@ -615,7 +614,7 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter informações sobre a arquitetura e o fluxo de informação dentro do Cluster Resource Manager, consulte a [visão geral do Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md).
 * Definir métricas de desfragmentação é uma forma de consolidar a carga nos nós em vez de espalhá-la. Para aprender a configurar a desfragmentação, consulte [a desfragmentação das métricas e a carga em Tecido de Serviço.](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Comece do início e [obtenha uma introdução ao Service Fabric Cluster Resource Manager.](service-fabric-cluster-resource-manager-introduction.md)

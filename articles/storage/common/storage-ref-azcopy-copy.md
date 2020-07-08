@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220123"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
@@ -67,7 +66,7 @@ Faça o upload de um único ficheiro utilizando a autenticação OAuth. Se ainda
 
 O mesmo que acima, mas desta vez também calcular o haxixe MD5 do conteúdo do ficheiro e guardá-lo como propriedade content-MD5 da bolha:
 
-- azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[caminho/para/blob]" -put-md5
+- azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" -put-md5
 
 Faça o upload de um único ficheiro utilizando um token SAS:
 
@@ -75,7 +74,7 @@ Faça o upload de um único ficheiro utilizando um token SAS:
 
 Faça o upload de um único ficheiro utilizando um token SAS e tubagens (apenas bolhas de bloco):
   
-- gato "/path/to/file.txt" azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- gato "/caminho/para/file.txt" azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
 
 Faça o upload de um diretório inteiro utilizando um token SAS:
   
@@ -99,11 +98,11 @@ Faça o download de um único ficheiro utilizando a autenticação OAuth. Se ain
 
 Descarregue um único ficheiro utilizando um token SAS:
 
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" "/path/to/file.txt"
+- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" "/caminho/para/file.txt"
 
 Faça o download de um único ficheiro utilizando um token SAS e, em seguida, canalizando a saída para um ficheiro (apenas bolhas de bloco):
   
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" > "/path/to/file.txt"
+- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" > "/caminho/para/file.txt"
 
 Faça o download de um diretório inteiro utilizando um token SAS:
   
@@ -251,6 +250,6 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [azcopia](storage-ref-azcopy.md)

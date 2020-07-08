@@ -8,29 +8,28 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235606"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de partilha de instantâneos de ficheiros do Azure
 
-A Azure Files fornece a capacidade de tirar fotos de partilha de partilhas de ficheiros. Partilhem instantâneos para capturar o estado de partilha nessa altura. Neste artigo, descrevemos quais as capacidades que as fotos partilhadas fornecem e como pode aproveitá-las no seu caso de uso personalizado.
+Os Ficheiros do Azure permitem tirar instantâneos das partilhas de ficheiros. Os instantâneos da partilha capturam o estado da partilha nessa altura. Neste artigo, descrevemos quais as capacidades que os instantâneos de partilha disponibilizam e como pode aproveitá-las no seu caso de utilização personalizada.
 
-## <a name="when-to-use-share-snapshots"></a>Quando usar instantâneos de partilha
+## <a name="when-to-use-share-snapshots"></a>Quando utilizar os instantâneos de partilha
 
-### <a name="protection-against-application-error-and-data-corruption"></a>Proteção contra erro de aplicação e corrupção de dados
+### <a name="protection-against-application-error-and-data-corruption"></a>Proteção contra erro na aplicação e danos em dados
 
-As aplicações que utilizam ações de ficheiros realizam operações como escrita, leitura, armazenamento, transmissão e processamento. Se uma aplicação estiver mal configurada ou se introduzir um erro não intencional, pode ocorrer uma sobresso acidental ou danos em alguns blocos. Para ajudar a proteger contra estes cenários, pode tirar uma fotografia de partilha antes de implementar o novo código de aplicação. Se um erro de erro ou aplicação for introduzido com a nova implementação, pode voltar a uma versão anterior dos seus dados sobre essa partilha de ficheiros. 
+As aplicações que utilizam partilhas de ficheiros realizam operações como escrita, leitura, armazenamento, transmissão e processamento. Se uma aplicação estiver mal configurada ou se introduzir um erro não intencional, poderá ocorrer uma substituição acidental ou danos em alguns blocos. Para ajudar a proteger contra estes cenários, pode obter um instantâneo de partilha antes de implementar o novo código da aplicação. Se for introduzido um erro ou um erro da aplicação com a nova implementação, poderá voltar a uma versão anterior dos dados nessa partilha de ficheiros. 
 
-### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Proteção contra supressões acidentais ou alterações não intencionais
+### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Proteção contra eliminações acidentais ou alterações não intencionais
 
-Imagine que está a trabalhar num ficheiro de texto numa partilha de ficheiros. Depois de o ficheiro de texto estar fechado, perde-se a capacidade de desfazer as alterações. Nestes casos, é necessário recuperar uma versão anterior do ficheiro. Pode utilizar instantâneos de partilha para recuperar versões anteriores do ficheiro se for acidentalmente renomeado ou eliminado.
+Imagine que está a trabalhar num ficheiro de texto numa partilha de ficheiros. Depois de o ficheiro de texto estar fechado, perde a capacidade de anular as alterações. Nestes casos, precisa de recuperar uma versão anterior do ficheiro. Poderá utilizar instantâneos de partilha para recuperar versões anteriores do ficheiro se for eliminado ou o nome tiver sido mudado de forma acidental.
 
-### <a name="general-backup-purposes"></a>Fins gerais de backup
+### <a name="general-backup-purposes"></a>Finalidades da cópia de segurança geral
 
-Depois de criar uma partilha de ficheiros, pode criar periodicamente uma imagem de partilha da partilha de ficheiros para a utilizar para a cópia de segurança dos dados. Um instantâneo de partilha, quando tomado periodicamente, ajuda a manter versões anteriores de dados que podem ser usados para futuros requisitos de auditoria ou recuperação de desastres. Recomendamos a utilização de [backup de partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md) como solução de backup para tirar e gerir instantâneos. Também pode tirar e gerir as fotos por si mesmo, utilizando cli ou PowerShell.
+Depois de criar uma partilha de ficheiros, pode criar periodicamente um instantâneo da partilha de ficheiros para utilizar para a cópia de segurança de dados. Um instantâneo de partilha, quando criado periodicamente, ajuda a manter versões anteriores de dados que podem servir para futuros requisitos de auditoria ou recuperação após desastre. Recomendamos a utilização de [backup de partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md) como solução de backup para tirar e gerir instantâneos. Também pode tirar e gerir as fotos por si mesmo, utilizando cli ou PowerShell.
 
 ## <a name="capabilities"></a>Capacidades
 
@@ -73,15 +72,15 @@ Hoje em dia, não é possível montar fotos partilhadas no Linux. Isto porque o 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiar dados de volta para uma partilha a partir do instantâneo de partilha
 
-As operações de cópia que envolvem ficheiros e partilham instantâneos seguem estas regras:
+As operações de cópia que envolvem instantâneos de partilha e ficheiros seguem estas regras:
 
-Pode copiar ficheiros individuais numa imagem de partilha de ficheiros para a sua parte base ou para qualquer outro local. Pode restaurar uma versão anterior de um ficheiro ou restaurar a partilha completa do ficheiro copiando ficheiro por ficheiro a partir do instantâneo de partilha. O instantâneo de partilha não é promovido a parte base. 
+Pode copiar ficheiros individuais num instantâneo de partilha de ficheiros para a partilha base ou para qualquer outra localização. Pode restaurar uma versão anterior de um ficheiro ou restaurar a partilha de ficheiros completa ao copiar ficheiro a ficheiro a partir do instantâneo de partilha. O instantâneo de partilha não é promovido para a partilha base. 
 
-O instantâneo de partilha permanece intacto após a cópia, mas a parte do ficheiro base é substituída com uma cópia dos dados que estavam disponíveis no instantâneo da partilha. Todos os ficheiros restaurados contam para "conteúdo alterado".
+O instantâneo de partilha permanece intacto após a cópia, mas a partilha de ficheiros base é substituída por uma cópia dos dados que estavam disponíveis no instantâneo de partilha. Todos os ficheiros restaurados contam para o “conteúdo alterado”.
 
-Pode copiar um ficheiro numa imagem partilhada para um destino diferente com um nome diferente. O ficheiro de destino resultante é um ficheiro writable e não um instantâneo de partilha. Neste caso, a sua parte base permanecerá intacta.
+Pode copiar um ficheiro num instantâneo de partilha para um destino diferente com um nome diferente. O ficheiro de destino resultante é um ficheiro gravável e não um instantâneo de partilha. Neste caso, a partilha de ficheiros base permanecerá intacta.
 
-Quando um ficheiro de destino é substituído com uma cópia, quaisquer instantâneos de partilha associados ao ficheiro de destino original permanecem intactos.
+Quando um ficheiro de destino é substituído por uma cópia, todos os instantâneos de partilha associados ao ficheiro de destino original permanecem intactos.
 
 ## <a name="general-best-practices"></a>Melhores práticas gerais
 
@@ -91,7 +90,7 @@ Antes de implementar o programador de instantâneos de partilha, considere cuida
 
 As imagens partilhadas fornecem apenas proteção ao nível do ficheiro. As imagens partilhadas não impedem a eliminação de dedos gordos numa parte de ficheiro ou numa conta de armazenamento. Para ajudar a proteger uma conta de armazenamento de eliminações acidentais, pode [ativar a eliminação suave,](storage-files-prevent-file-share-deletion.md)ou bloquear a conta de armazenamento e/ou o grupo de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Trabalhando com fotos partilhadas em:
     - [Backup de partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md)
     - [PowerShell](storage-how-to-use-files-powershell.md)

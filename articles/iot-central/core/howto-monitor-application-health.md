@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 664819b209aeb09093ce8711456b86ff4d3e8949
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84249579"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorize a saúde geral dos dispositivos ligados a uma aplicação IoT Central
@@ -43,7 +42,7 @@ O acesso às métricas no portal Azure é gerido pelo [controlo de acesso basead
 
 A tabela a seguir descreve as métricas que estão atualmente disponíveis para a IoT Central:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação | Descrição |
+| Metric | Nome de exibição métrica | Unidade | Tipo de agregação | Descrição |
 |--------|---------------------|------|------------------|-------------|
 | connectedDeviceCount         | Total de dispositivos conectados                              | Contagem  | Total             | Número de dispositivos ligados à IoT Central                               |
 | c2d.property.read.success    | Propriedade de dispositivo de sucesso lê da IoT Central    | Contagem  | Total             | A contagem de todas as leituras bem sucedidas iniciadas da IoT Central    |
@@ -65,6 +64,6 @@ As métricas podem diferir dos números indicados na sua fatura Azure IoT Centra
 
 - Embora as métricas possam mostrar um subconjunto de comunicação dispositivo-nuvem, toda a comunicação entre o dispositivo e a nuvem [conta como uma mensagem para a faturação](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a [gerir o IoT Central a partir do portal Azure](howto-manage-iot-central-from-portal.md)

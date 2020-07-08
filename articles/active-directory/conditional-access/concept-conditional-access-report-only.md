@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204196"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
@@ -49,6 +48,6 @@ Quando uma política em modo apenas de relatório é avaliada para uma determina
 
 Os administradores têm a capacidade de criar múltiplas políticas apenas no modo relatório, pelo que é necessário compreender tanto o impacto individual de cada política como o impacto combinado de múltiplas políticas avaliadas em conjunto. O novo manual de acesso condicional permite aos administradores visualizar consultas de Acesso Condicional e monitorizar o impacto de uma política para um determinado intervalo de tempo, conjunto de aplicações e utilizadores. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar o modo apenas de relatório numa política de acesso condicional](howto-conditional-access-report-only.md)
