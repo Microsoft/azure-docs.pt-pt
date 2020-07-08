@@ -4,10 +4,10 @@ description: Saiba como adicionar uma etiqueta a um laboratório em Azure DevTes
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483011"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar tags a um laboratório em Azure DevTest Labs
@@ -56,6 +56,6 @@ As seguintes limitações aplicam-se às etiquetas:
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Pode aplicar restrições e convenções em toda a sua subscrição utilizando políticas personalizadas. Uma política que você define pode exigir que todos os recursos têm um valor para uma determinada etiqueta. Para obter mais informações, consulte [Definir políticas e horários.](devtest-lab-set-lab-policy.md)
 * Explore a [galeria de modelos Quickstart DavTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

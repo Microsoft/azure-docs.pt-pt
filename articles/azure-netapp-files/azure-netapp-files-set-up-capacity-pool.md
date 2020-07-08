@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: b-juche
 ms.openlocfilehash: d76af4901103b0eed8cd1cffac744f8fb41d9689
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483504"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
 
 Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.  
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 
 É necessário que já tenha criado uma conta NetApp.   
 
@@ -57,7 +57,7 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
 4. Clique em **OK**.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
 - Consulte a página de preços dos [Ficheiros Azure NetApp](https://azure.microsoft.com/pricing/details/storage/netapp/) para obter o preço de diferentes níveis de serviço

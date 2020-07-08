@@ -4,10 +4,10 @@ description: Conheça as diferenças entre imagens personalizadas e fórmulas co
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: dac820d0600745906e4b1aeef95806ed5679488a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85484031"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens e fórmulas personalizadas em Laboratórios DevTest
@@ -43,5 +43,5 @@ As fórmulas fornecem uma forma dinâmica de criar VMs a partir das configuraç�
 ## <a name="related-blog-posts"></a>Publicações de blogs relacionadas
 * [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [DevTest Labs FAQ](devtest-lab-faq.md)

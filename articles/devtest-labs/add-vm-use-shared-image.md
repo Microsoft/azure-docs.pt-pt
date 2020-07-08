@@ -4,10 +4,10 @@ description: Saiba como adicionar uma máquina virtual (VM) utilizando uma image
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483861"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Adicione um VM usando uma imagem da galeria de imagens partilhada anexada
@@ -53,5 +53,5 @@ Para obter um exemplo completo do modelo do Gestor de Recursos, consulte [Criar 
     ```
 2. Invoque o método PUT em máquinas virtuais, passando o ID da imagem partilhada que recebeu da chamada anterior para o `properties.SharedImageId` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a anexar uma galeria de imagens partilhada a um laboratório e configurá-la, consulte [a galeria de imagens partilhada Configure](configure-shared-image-gallery.md).

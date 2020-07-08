@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504343"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
@@ -58,12 +58,12 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Hardware                                      | O seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço inicial de configuração                          | Baixo (<30 minutos.)            | Moderado (~duas horas) | Grande (~dias)                                                 |
 | Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pré-processamento de dados                           | No                         | Sim, via edge compute    | Yes                                                           |
-| Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | No                                                            |
-| Transferência de outras nuvens                    | Não                         | Não                       | Yes                                                           |
+| Pré-processamento de dados                           | Não                         | Sim, via edge compute    | Sim                                                           |
+| Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | Não                                                            |
+| Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Transferir dados com a AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).

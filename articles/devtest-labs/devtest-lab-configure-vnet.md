@@ -4,10 +4,10 @@ description: Aprenda a configurar uma rede virtual e sub-rede existentes, e use-
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482654"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual em Azure DevTest Labs
@@ -57,6 +57,6 @@ Agora que a rede virtual está configurada, pode ser selecionada ao criar um VM.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de ter adicionado a rede virtual desejada ao seu laboratório, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)
 

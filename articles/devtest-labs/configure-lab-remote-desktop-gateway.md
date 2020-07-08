@@ -4,10 +4,10 @@ description: Aprenda a configurar um laboratório em Azure DevTest Labs com uma 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483844"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto
@@ -157,7 +157,7 @@ Siga estes passos para configurar uma solução de amostra para a exploração r
 
     Uma vez configurados tanto o gateway como o laboratório, o ficheiro de ligação criado quando o utilizador do laboratório clica no **Connect** incluirá automaticamente as informações necessárias para se ligar utilizando a autenticação simbólica.     
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo para saber mais sobre Serviços remotos de desktop: [Documentação de Serviços de Ambiente de Trabalho Remoto](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
 
 

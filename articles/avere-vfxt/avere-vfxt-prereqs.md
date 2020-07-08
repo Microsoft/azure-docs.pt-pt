@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505346"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
@@ -34,7 +34,7 @@ Um utilizador com permissões do proprietário para a subscrição deve criar o 
 
 Existem algumas soluções alternativas para permitir que um não proprietário crie um Avere vFXT para cluster Azure. Estes cenários envolvem restringir recursos e atribuir papéis adicionais de controlo de acesso baseado em funções (RBAC) ao criador. Em todos estes casos, um proprietário de subscrição também deve aceitar os termos de [software Avere vFXT](#accept-software-terms) antes do tempo.
 
-| Cenário | Restrições | Funções de acesso necessárias para criar o cluster Avere vFXT |
+| Scenario | Restrições | Funções de acesso necessárias para criar o cluster Avere vFXT |
 |----------|--------|-------|
 | Administrador de grupo de recursos cria o vFXT | A rede virtual, o controlador de clusters e os nós de cluster devem ser criados dentro do grupo de recursos. | [Funções de Administrador de Acesso ao Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) e [colaborador,](../role-based-access-control/built-in-roles.md#contributor) ambas com o âmbito do grupo de recursos-alvo. |
 | Utilize uma rede virtual externa existente | O controlador de cluster e os nós de cluster são criados dentro do grupo de recursos vFXT, mas utilizam uma rede virtual existente num grupo de recursos diferente. | (1) [Funções de administrador](../role-based-access-control/built-in-roles.md#user-access-administrator) de acesso ao utilizador e [colaboradores](../role-based-access-control/built-in-roles.md#contributor) no âmbito do grupo de recursos vFXT; e (2) [Contribuinte de Máquinas Virtuais,](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) [Administrador de Acesso ao Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator)e [Contribuidores Avere,](../role-based-access-control/built-in-roles.md#avere-contributor) com o âmbito do grupo de recursos da rede virtual. |
@@ -104,6 +104,6 @@ Crie o ponto final do serviço de armazenamento a partir do portal Azure.
 
    ![Screenshot do portal Azure com anotações para os passos de criação do ponto final de serviço](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de completar estes pré-requisitos, pode criar o cluster. Leia [O conjunto vFXT](avere-vfxt-deploy.md) para obter instruções.

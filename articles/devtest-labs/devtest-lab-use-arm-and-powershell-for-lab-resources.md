@@ -4,10 +4,10 @@ description: Saiba como usar modelos do Gestor de Recursos Azure com o PowerShel
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: af225e8cfade30a64aa1f4cf747e2a4d8d3f895f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483181"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Criar ou modificar laboratórios automaticamente utilizando modelos de Gestor de Recursos Azure e PowerShell
@@ -36,6 +36,6 @@ Existem muitas outras tarefas comuns que pode automatizar usando o PowerShell. A
 * [Adicione um utilizador externo a um laboratório usando o PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Crie um papel personalizado de laboratório usando o PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 * Saiba como criar um [repositório privado de Git](devtest-lab-add-artifact-repo.md) onde armazenará os seus modelos ou scripts personalizados.
 * Explore os [modelos do Gestor de Recursos Azure da galeria de modelos Azure Quickstart.](https://github.com/Azure/azure-quickstart-templates)

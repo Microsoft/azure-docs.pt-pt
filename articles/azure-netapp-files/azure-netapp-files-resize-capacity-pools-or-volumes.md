@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/14/2019
 ms.author: b-juche
 ms.openlocfilehash: 7da604e8e49b0732680e5f641d1ff6e899ad474d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483487"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um conjunto de capacidade ou um volume

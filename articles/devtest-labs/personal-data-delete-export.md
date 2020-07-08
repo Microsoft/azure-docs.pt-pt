@@ -4,10 +4,10 @@ description: Saiba como apagar e exportar dados pessoais do serviço Azure DevLa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483521"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar dados pessoais da Azure DevTest Labs
@@ -203,7 +203,7 @@ As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 
 Os dados exportados podem ser manipulados e visualizados utilizando ferramentas, como SQL Server, Power BI, etc. Esta funcionalidade é especialmente útil quando pretende reportar o uso do seu laboratório à sua equipa de gestão que pode não estar a utilizar a mesma subscrição do Azure que o faz.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 
 - [Definir políticas para um laboratório](devtest-lab-set-lab-policy.md)

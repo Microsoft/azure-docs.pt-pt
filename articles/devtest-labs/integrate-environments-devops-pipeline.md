@@ -4,10 +4,10 @@ description: Aprenda a integrar ambientes Azure DevTest Labs nos seus oleodutos 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483028"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes nos seus oleodutos Azure DevOps CI/CD
@@ -18,7 +18,7 @@ Este artigo mostra como criar e implantar um ambiente, em seguida, apagar o ambi
 - Criar um Ambiente
 - Eliminar um Ambiente
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Antes de poder integrar o seu pipeline CI/CD com a Azure DevTest Labs, instale a extensão [de tarefas Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) a partir do Visual Studio Marketplace. 
 
 ## <a name="create-and-configure-the-lab-for-environments"></a>Criar e configurar o laboratório para ambientes
@@ -67,7 +67,7 @@ Na definição de desbloqueio, **selecione Adicionar tarefas**, e, em seguida, n
     3. Para **nome ambiente,** insira o nome do ambiente a remover.
 2. Insira um nome para a definição de libertação e, em seguida, guarde-o.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 - [Crie ambientes multi-VM com modelos de Gestor de Recursos](devtest-lab-create-environment-from-arm.md).
 - Modelos quickstart Resource Manager para automação de DevTest Labs do [repositório GitHub da DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

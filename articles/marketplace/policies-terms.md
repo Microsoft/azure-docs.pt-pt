@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.author: dsindona
 ms.openlocfilehash: 093348d8eeb5d83831ec0bedd8c542f1a2d5a064
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482603"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
@@ -33,7 +33,7 @@ As ofertas no mercado devem cumprir as nossas políticas e termos. Atualizamos e
 
 * [Azure Marketplace terms](https://docs.microsoft.com/legal/marketplace/terms) (Termos do Azure Marketplace)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Visite a página de [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
 

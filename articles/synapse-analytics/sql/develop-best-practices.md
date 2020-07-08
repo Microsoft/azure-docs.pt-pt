@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482518"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Melhores práticas de desenvolvimento para Sinapse SQL
@@ -164,7 +164,7 @@ Pode utilizar o CETAS para armazenar frequentemente parte das consultas usadas, 
 
 À medida que o CETAS gera ficheiros Parquet, as estatísticas serão criadas automaticamente quando a primeira consulta atingir esta tabela externa e ganhará um melhor desempenho.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Se precisar de informações não fornecidas neste artigo, utilize a "Procura de docs" no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O [Microsoft Q&Uma página de perguntas para piscina SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de piscina SQL.  
 

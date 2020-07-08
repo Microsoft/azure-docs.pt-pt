@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como rastrear o custo do se
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482773"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Custos de pista associados a um laboratório em Azure DevTest Labs
@@ -86,7 +86,7 @@ Esta funcionalidade ajuda-o a identificar facilmente os recursos que mais custam
 
 [A política de paragem automática ajuda-o](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) a reduzir o custo desligando os VMs de laboratório numa determinada hora do dia. No entanto, um utilizador de laboratório pode optar por não fazer a política de encerramento, o que aumenta o custo de funcionamento do VM. Pode selecionar um VM na tabela para ver se foi excluído da política de paragem automática. Se for esse o caso, pode falar com o proprietário da VM para descobrir porque é que o VM foi excluído da apólice.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aqui estão algumas coisas a seguir:
 
 * [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) - Aprenda a definir as várias políticas usadas para governar a forma como o seu laboratório e os seus VMs são usados. 

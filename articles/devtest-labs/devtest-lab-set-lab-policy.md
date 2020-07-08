@@ -4,10 +4,10 @@ description: Aprenda a definir políticas de laboratório como tamanhos de VM, V
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483402"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório em Azure DevTest Labs
@@ -120,7 +120,7 @@ Pode definir uma data de validade quando [criar o VM](devtest-lab-add-vm.md). Na
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de definir e aplicar as várias definições de política de VM para o seu laboratório, aqui ficam algumas coisas a experimentar a seguir:
 
 * [Compreender endereços IP partilhados](devtest-lab-shared-ip.md) - Explica como os endereços IP partilhados são usados em Laboratórios DevTest para minimizar o número de endereços IP públicos necessários para se ligar aos seus VMs de laboratório.

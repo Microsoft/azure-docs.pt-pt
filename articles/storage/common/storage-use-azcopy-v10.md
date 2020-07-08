@@ -1,6 +1,6 @@
 ---
 title: Copiar ou mover dados para o Azure Storage utilizando a AzCopy v10 Microsoft Docs
-description: O AzCopy é um utilitário de linha de comando que pode usar para copiar dados para, a partir ou entre contas de armazenamento. Este artigo ajuda-o a descarregar a AzCopy, ligar-se à sua conta de armazenamento e, em seguida, transferir ficheiros.
+description: O AzCopy é um utilitário de linha de comando que pode usar para copiar dados para, a partir ou entre contas de armazenamento. Este artigo ajuda-o a transferir o AzCopy, a ligar-se à conta de armazenamento e a transferir ficheiros.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,15 +8,15 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504479"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
-A azCopy é um utilitário de linha de comando que pode usar para copiar bolhas ou ficheiros de ou a partir de uma conta de armazenamento. Este artigo ajuda-o a descarregar a AzCopy, ligar-se à sua conta de armazenamento e, em seguida, transferir ficheiros.
+O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda-o a transferir o AzCopy, a ligar-se à conta de armazenamento e a transferir ficheiros.
 
 > [!NOTE]
 > AzCopy **V10** é a versão atualmente suportada do AzCopy.
@@ -40,9 +40,9 @@ Estes ficheiros são comprimidos como um ficheiro zip (Windows e Mac) ou um fich
 > Se pretender copiar dados de e para o seu serviço de [armazenamento Azure Table,](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) instale a [versão AzCopy 7.3](https://aka.ms/downloadazcopynet).
 
 
-## <a name="run-azcopy"></a>Executar AzCopy
+## <a name="run-azcopy"></a>Executar o AzCopy
 
-Por conveniência, considere adicionar a localização do diretório do AzCopy executável ao seu caminho do sistema para facilitar a utilização. Assim pode escrever `azcopy` de qualquer diretório no seu sistema.
+Para sua comodidade, considere adicionar a localização do diretório do AzCopy executável ao caminho do sistema para facilitar a utilização. Assim pode escrever `azcopy` de qualquer diretório no seu sistema.
 
 Se optar por não adicionar o diretório AzCopy ao seu caminho, terá de alterar os diretórios para a localização do seu AzCopy executável e digitar ou nas indicações de `azcopy` comando Do Windows `.\azcopy` PowerShell.
 
@@ -318,6 +318,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 Consulte [Configuração, otimização e resolução de problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

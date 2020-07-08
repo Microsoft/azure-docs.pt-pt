@@ -4,10 +4,10 @@ description: Aprenda a adicionar um repositório de artefactos ao seu laboratór
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483912"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em Laboratórios DevTest
@@ -381,7 +381,7 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Especifique artefactos obrigatórios para o seu laboratório em Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
 - [Crie artefactos personalizados para a sua máquina virtual DevTest Labs](devtest-lab-artifact-author.md)
 - [Diagnosticar falhas de artefactos no laboratório](devtest-lab-troubleshoot-artifact-failure.md)

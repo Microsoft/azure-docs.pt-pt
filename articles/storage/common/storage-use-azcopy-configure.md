@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504360"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
-A azCopy é um utilitário de linha de comando que pode usar para copiar bolhas ou ficheiros de ou a partir de uma conta de armazenamento. Este artigo ajuda-o a executar tarefas avançadas de configuração e ajuda-o a resolver problemas que podem surgir à medida que utiliza o AzCopy.
+O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda a executar tarefas de configuração avançadas e a resolver problemas que podem surgir à medida que utiliza o AzCopy.
 
 > [!NOTE]
 > Se procura conteúdo para ajudá-lo a começar com a AzCopy, consulte qualquer um dos seguintes artigos:
@@ -124,7 +124,7 @@ O comando [de cópia azcopia](storage-ref-azcopy-copy.md) não apaga ficheiros d
 
 ## <a name="troubleshoot-issues"></a>Resolver problemas
 
-A AzCopy cria ficheiros de registo e plano para cada trabalho. Pode utilizar os registos para investigar e resolver problemas potenciais. 
+O AzCopy cria ficheiros de registo e de plano para cada trabalho. Pode utilizar os registos para investigar e resolver os possíveis problemas. 
 
 Os registos contêm o estado de falha `UPLOADFAILED` `COPYFAILED` (, e `DOWNLOADFAILED` ) o caminho completo, e a razão da falha.
 

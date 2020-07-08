@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: b-juche
 ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483708"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
 O Azure NetApp Files suporta volumes NFS e SMBv3. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMBv3. Se pretender criar um volume NFS, consulte [criar um volume NFS para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md). 
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 Tem de ter um conjunto de capacidade já configurado.   
 [Criar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  
@@ -246,7 +246,7 @@ Pode definir permissões para um ficheiro ou pasta utilizando o separador **Segu
  
 ![Definir permissões de ficheiros e pastas](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

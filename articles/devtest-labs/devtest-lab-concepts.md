@@ -4,10 +4,10 @@ description: Aprenda os conceitos básicos da DevTest Labs, e como pode facilita
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482756"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
@@ -78,5 +78,5 @@ Todos os conceitos discutidos neste artigo podem ser configurados utilizando mod
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Criar um laboratório em Laboratórios DevTest](devtest-lab-create-lab.md)

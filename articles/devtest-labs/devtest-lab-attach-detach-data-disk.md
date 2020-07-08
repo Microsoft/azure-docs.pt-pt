@@ -4,10 +4,10 @@ description: Saiba como anexar ou desprender um disco de dados a uma máquina vi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 164c2335f0aadc08a447dd61e259786d5bfb104d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482977"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
@@ -88,6 +88,6 @@ Se tiver um VM existente que utilize discos de dados não geridos, pode facilmen
 
 Para atualizar um disco de dados não gerido, siga os passos descritos neste artigo para separar o disco de [dados](#detach-a-data-disk) de um VM não gerido. Em seguida, [recolocar o disco](#attach-an-existing-disk) a um VM gerido para atualizar automaticamente o disco de dados de não gerido para gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como gerir discos de dados para [máquinas virtuais reclamantes.](devtest-lab-add-claimable-vm.md#unclaim-a-vm)
 

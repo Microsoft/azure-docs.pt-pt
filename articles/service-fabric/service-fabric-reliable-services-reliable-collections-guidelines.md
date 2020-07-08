@@ -4,10 +4,10 @@ description: Diretrizes e recomendações para a utilização de coleções fiá
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483130"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiáveis em tecido de serviço Azure
@@ -54,7 +54,7 @@ Ao decidir utilizar coleções voláteis e fiáveis, considere o seguinte:
 * Perda de quórum de uma partição volátil resulta em perda completa de dados
 * Backup e restauro NÃO está disponível para serviços voláteis
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados

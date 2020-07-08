@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
 ms.openlocfilehash: aa77ac3652d8646a3354cb137ba7cf4240e58e6c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482892"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP da Azure Networking

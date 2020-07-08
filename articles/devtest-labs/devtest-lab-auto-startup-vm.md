@@ -4,10 +4,10 @@ description: Aprenda a configurar configurações de arranque automático para V
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482790"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Máquinas virtuais de laboratório de startups automáticas  
@@ -50,5 +50,5 @@ O procedimento a seguir proporciona-lhe passos para optar por um VM na política
 4. Em seguida, **selecione Guarde** na barra de ferramentas para guardar a definição. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a política de configuração de autoshutdown para um laboratório, consulte [Gerir políticas de autoshutdown para um laboratório em Azure DevTest Labs](devtest-lab-auto-shutdown.md)

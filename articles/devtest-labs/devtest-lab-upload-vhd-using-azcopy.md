@@ -4,10 +4,10 @@ description: Este artigo fornece uma passagem para usar o utilitário da linha d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cbed78af3e74af5cf72fd20866abf1ee79011ef4
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483215"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando a AzCopy
@@ -68,7 +68,7 @@ Os passos seguintes acompanham-no através do upload de um ficheiro VHD para a A
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando o portal Azure](devtest-lab-create-template.md)
 - [Crie uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

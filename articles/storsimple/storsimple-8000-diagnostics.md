@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504462"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilize a Ferramenta de Diagnóstico StorSimple para resolver problemas de dispositivos da série 8000
@@ -417,7 +417,7 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 | Parâmetro PowerShell    | Descrição  |
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador único ou um GUID associado a ele.|
-| Nome                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
+| Name                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
 | Modelo                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica e tem 15 caracteres de comprimento. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 - É o modelo do dispositivo.<br>SHX – É o local de fabrico.<br> 0991003 - É um produto específico. <br> G44HT- os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.|
 | TimeZone                | O fuso horário do dispositivo configurado no portal Azure durante a implantação do dispositivo.|
@@ -438,7 +438,7 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 | RemoteManagementMode    | Indica se o dispositivo pode ser gerido remotamente através da sua interface Windows PowerShell. |
 | FipsMode                | Indica se o modo Padrão Federal de Processamento de Informação (FIPS) dos Estados Unidos está ativado no seu dispositivo. A norma FIPS 140 define algoritmos criptográficos aprovados para uso pelos sistemas informáticos do governo federal dos EUA para a proteção de dados sensíveis. Para os dispositivos que executam a Atualização 4 ou posterior, o modo FIPS é ativado por predefinição. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como automatizar a adição de um utilizador
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483827"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar a adição de um utilizador de laboratório a um laboratório em Azure DevTest Labs
@@ -189,7 +189,7 @@ O exemplo Azure CLI que se segue mostra-lhe como adicionar uma pessoa à funçã
 az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type “Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Criar e gerir máquinas virtuais com DevTest Labs usando o Azure CLI](devtest-lab-vmcli.md)

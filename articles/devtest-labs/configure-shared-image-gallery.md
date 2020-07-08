@@ -4,10 +4,10 @@ description: Saiba como configurar uma galeria de imagens partilhada em Azure De
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483793"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
@@ -118,5 +118,5 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja os seguintes artigos sobre a criação de um VM utilizando uma imagem da galeria de imagens partilhada anexada: [Criar um VM utilizando uma imagem partilhada da galeria](add-vm-use-shared-image.md)

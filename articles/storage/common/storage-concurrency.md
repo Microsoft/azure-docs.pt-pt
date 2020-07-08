@@ -11,10 +11,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504292"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
@@ -90,13 +90,13 @@ A tabela seguinte resume as operações do contentor que aceitam cabeçalhos con
 
 | Operação | Devolução do valor ETag do contentor | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
-| Criar Recipiente |Yes |No |
-| Obter propriedades de contentores |Yes |No |
-| Obtenha metadados de contentores |Yes |No |
+| Criar Recipiente |Sim |Não |
+| Obter propriedades de contentores |Sim |Não |
+| Obtenha metadados de contentores |Sim |Não |
 | Conjunto de metadados de contentores |Sim |Sim |
-| Obter contentor ACL |Yes |No |
-| Conjunto de recipiente ACL |Yes |Sim (*) |
-| Eliminar Contentor |No |Yes |
+| Obter contentor ACL |Sim |Não |
+| Conjunto de recipiente ACL |Sim |Sim (*) |
+| Eliminar Contentor |Não |Sim |
 | Recipiente de Arrendamento |Sim |Sim |
 | Blobs de lista |Não |Não |
 
@@ -114,12 +114,12 @@ A tabela seguinte resume as operações blob que aceitam cabeçalhos condicional
 | Definir metadados blob |Sim |Sim |
 | Bolha de arrendamento (*) |Sim |Sim |
 | Blob de Instantâneo |Sim |Sim |
-| Bolha de cópia |Yes |Sim (para a fonte e a bolha de destino) |
+| Bolha de cópia |Sim |Sim (para a fonte e a bolha de destino) |
 | Abortar Bolha de Cópia |Não |Não |
-| Eliminar Blob |No |Yes |
+| Eliminar Blob |Não |Sim |
 | Colocar Bloco |Não |Não |
 | Colocar lista de blocos |Sim |Sim |
-| Obter Lista de Blocos |Yes |No |
+| Obter Lista de Blocos |Sim |Não |
 | Colocar página |Sim |Sim |
 | Obter Gamas de Páginas |Sim |Sim |
 
@@ -244,13 +244,13 @@ O quadro que se segue resume a forma como as operações da entidade de tabela u
 
 | Operação | Valor ETag de retorna | Requer cabeçalho de pedido if-match |
 |:--- |:--- |:--- |
-| Entidades de Consulta |Yes |Não |
-| Inserir Entidade |Yes |Não |
+| Entidades de Consulta |Sim |Não |
+| Inserir Entidade |Sim |Não |
 | Entidade de Atualização |Sim |Sim |
 | Entidade de Fusão |Sim |Sim |
-| Eliminar Entidade |Não |Yes |
-| Inserir ou Substituir Entidade |Yes |Não |
-| Inserir ou Fundir Entidade |Yes |Não |
+| Eliminar Entidade |Não |Sim |
+| Inserir ou Substituir Entidade |Sim |Não |
+| Inserir ou Fundir Entidade |Sim |Não |
 
 Note que as operações **de Inserção ou Substituição** de Entidade e **Inserção ou Fusão** *não* efetuam quaisquer verificações de concordância porque não enviam um valor ETag para o serviço de tabela.  
 
@@ -281,7 +281,7 @@ Para obter mais informações, consulte:
 
 * [Gestão de fechaduras de ficheiros](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para a aplicação completa da amostra referenciada neste blog:  
 

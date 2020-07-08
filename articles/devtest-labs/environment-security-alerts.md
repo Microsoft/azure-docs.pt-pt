@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como visualizar alertas de segurança para u
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 9eea06066cfca5f67d920456f16e2eb7893dce39
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483980"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertas de segurança para ambientes em Azure DevTest Labs
@@ -31,7 +31,7 @@ Atualmente, você pode ver alertas de segurança apenas para a plataforma como u
     ![Ver alertas de segurança](./media/environment-security-alerts/advisor-recommendations.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre ambientes, consulte os seguintes artigos:
 
 - [Criar ambientes multi-vm e recursos PaaS com modelos de Gestor de Recursos Azure](devtest-lab-create-environment-from-arm.md)

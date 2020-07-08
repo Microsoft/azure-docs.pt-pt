@@ -4,10 +4,10 @@ description: Aprenda a usar a Azure DevTest Labs em Azure Pipelines constroem e 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483079"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipelines do Azure
@@ -86,7 +86,7 @@ Para a segunda tarefa Implementar o **Serviço de Aplicações Azure**, especifi
 ## <a name="test-run"></a>Teste de Corrida
 Agora que ambos os oleodutos estão montados, faça fila manualmente para uma construção e veja-a funcionar. O próximo passo é definir o gatilho apropriado para a construção e ligar a construção ao gasoduto de libertação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Integre a Azure DevTest Labs no seu pipelineS Azure e gasoduto de entrega contínua](devtest-lab-integrate-ci-cd.md)

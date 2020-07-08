@@ -4,10 +4,10 @@ description: Saiba como ligar um ambiente (como o cluster de Tecidos de Serviço
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 31f924a4b6d7cbe1b6f71c7e34d43fd9c135bac9
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483776"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ligue um ambiente à rede virtual do seu laboratório em Azure DevTest Labs
@@ -151,5 +151,5 @@ Aqui está um modelo de ambiente simples que liga a sub-rede do laboratório. Ne
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo para utilizar o portal Azure para fazer estas operações: [Reiniciar um VM](devtest-lab-restart-vm.md).

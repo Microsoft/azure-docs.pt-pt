@@ -4,10 +4,10 @@ description: Saiba como adicionar uma máquina virtual a um laboratório em Azur
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a872fdaa3d7d5b2cf5aff17ea15d07604dc287b3
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483963"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicione um VM a um laboratório em Azure DevTest Labs
@@ -108,7 +108,7 @@ Uma vez guardado, pode utilizar o modelo Azure Resource Manager para [implementa
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Uma vez criado o VM, pode ligar-se ao VM selecionando **Connect** no painel de VM.
 * Saiba como [criar artefactos personalizados para o seu VM DevTest Labs](devtest-lab-artifact-author.md).
 * Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

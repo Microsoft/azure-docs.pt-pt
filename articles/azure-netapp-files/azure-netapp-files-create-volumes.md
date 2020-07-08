@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483640"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
 O Azure NetApp Files suporta volumes NFS (NFSv3 e NFSv4.1) e SMBv3. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume NFS. Se pretender criar um volume SMB, consulte [criar um volume SMB para ficheiros Azure NetApp](azure-netapp-files-create-volumes-smb.md). 
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 Tem de ter um conjunto de capacidade já configurado.   
 [Criar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  
@@ -110,7 +110,7 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)

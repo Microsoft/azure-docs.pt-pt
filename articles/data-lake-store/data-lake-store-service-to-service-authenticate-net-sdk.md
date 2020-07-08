@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505159"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 usando .NET SDK
@@ -107,7 +107,7 @@ private static void Main(string[] args)
 
 O corte anterior utiliza uma função de ajudante `GetCreds_SPI_Cert` . O código para esta função de ajudante está disponível [aqui no GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a utilizar a autenticação de serviço-a-serviço para autenticar com a Data Lake Storage Gen1 utilizando .NET SDK. Agora pode olhar para os seguintes artigos que falam sobre como usar o .NET SDK para trabalhar com a Data Lake Storage Gen1.
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-get-started-net-sdk.md)

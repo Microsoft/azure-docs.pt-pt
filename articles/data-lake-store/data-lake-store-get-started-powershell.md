@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: d8c97064af6fecf08af4608cfcd9874ff9bb1936
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504787"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Começa com o Azure Data Lake Storage Gen1 usando a Azure PowerShell
@@ -161,7 +161,7 @@ Remove-AzDataLakeStoreAccount -Name $dataLakeStorageGen1Name
 
 Quando lhe for pedido, introduza **S** para eliminar a conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Orientação de afinação de desempenho para usar PowerShell com Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
 * [Use Azure Data Lake Storage Gen1 para grandes requisitos de dados](data-lake-store-data-scenarios.md)

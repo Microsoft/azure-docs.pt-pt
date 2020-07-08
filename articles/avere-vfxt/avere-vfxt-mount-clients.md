@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505448"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montar o cluster Avere vFXT
@@ -109,7 +109,7 @@ Para garantir uma montagem de cliente sem emenda, passe estas definições e arg
 ``mountproto=netid`` | Esta opção suporta o manuseamento adequado de erros de rede para operações de montagem.
 ``retry=n`` | Preparado ``retry=30`` para evitar falhas de montagem transitórias. (Recomenda-se um valor diferente em suportes de primeiro plano.)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter clientes montados, pode usá-los para copiar dados para um novo recipiente de armazenamento Blob no seu cluster. Se não precisar de preencher novos armazenamentos, leia os outros links para saber mais sobre tarefas adicionais de configuração:
 

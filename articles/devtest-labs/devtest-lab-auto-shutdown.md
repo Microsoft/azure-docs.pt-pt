@@ -4,10 +4,10 @@ description: Aprenda a definir a política de autoshutdown para um laboratório 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482739"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar autoshutdown para laboratório e calcular máquinas virtuais em Azure DevTest Labs
@@ -209,6 +209,6 @@ Quando atualizar a definição de autoshutdown, verá a atividade registada no r
     ![Log de atividade - alterar histórico](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
 6. Para ver mais detalhes sobre a operação, mude para o separador **JSON** na página **'Adicionar' ou modifique os horários.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a definir todas as políticas, consulte [as políticas de laboratório da Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 

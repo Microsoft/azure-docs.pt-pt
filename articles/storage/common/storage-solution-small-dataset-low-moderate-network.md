@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504309"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)
@@ -55,13 +55,13 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas apoiadas | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de armazenamento permitidas blob<br>para bolhas e pastas | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | No |Carregar<br>Download<br>Gerir                   | No |
+| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | Não |Carregar<br>Download<br>Gerir                   | Não |
 | Operações permitidas de armazenamento de ficheiros<br>para ficheiros e diretórios | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir   |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | No |Suporte de mesa em AzCopy v7 |Sim, personalizável|
+| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | Não |Suporte de mesa em AzCopy v7 |Sim, personalizável|
 | Armazenamento permitido da fila | Gerir | Não  |Não | Sim, é personalizável|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [transferir dados com o Azure Storage Explorer.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
 - [Transferir dados com o AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)

@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482552"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauro na piscina Azure Synapse SQL
@@ -105,6 +105,6 @@ Você pode [restaurar a sua piscina SQL](sql-data-warehouse-restore-from-geo-bac
 > [!NOTE]
 > Para realizar uma restauração geo-redundante não deve ter optado por sair desta funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre pontos de restauro, consulte [pontos de restauro definidos pelo utilizador](sql-data-warehouse-restore-points.md)
