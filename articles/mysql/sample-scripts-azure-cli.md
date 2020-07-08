@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
-ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 467d14e1f00e88999e130d28ee0e5a00dac47825
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74769766"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120964"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemplo da CLI do Azure para a Base de Dados do Azure para MySQL 
 A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para a Base de Dados do Azure para MySQL.
 
-| |  |
+| Ligação de amostras | Descrição  |
 |---|---|
 |**Criar um servidor**||
 | [Criar uma regra de servidor e de firewall](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | O script da CLI do Azure que cria um servidor da Base de Dados do Azure para MySQL e configura uma regra de firewall ao nível do servidor. |
