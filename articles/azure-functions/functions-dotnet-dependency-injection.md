@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: df26a6815a3dde27559f2f55038bdccadd78ea0b
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832870"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -119,7 +119,7 @@ As aplicações Azure Functions fornecem as mesmas vidas de serviço [que ASP.NE
 
 - **Transitório:** Os serviços transitórios são criados a cada pedido do serviço.
 - **Âmbito :** A vida útil do serviço de âmbito corresponde a uma execução útil da função. Os serviços de âmbito são criados uma vez por execução. Os pedidos posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
-- **Singleton**: A vida útil de singleton corresponde à vida útil do hospedeiro e é reutilizada através de execuções de funções nesse caso. Os serviços de vida da Singleton são recomendados para ligações e clientes, por exemplo `SqlConnection` ou `HttpClient` casos.
+- **Singleton**: A vida útil de singleton corresponde à vida útil do hospedeiro e é reutilizada através de execuções de funções nesse caso. Os serviços de vida da Singleton são recomendados para ligações e clientes, por exemplo `DocumentClient` ou `HttpClient` casos.
 
 Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://aka.ms/functions/di-sample) no GitHub.
 
@@ -255,7 +255,7 @@ Consulte o [padrão de Opções em ASP.NET Core](https://docs.microsoft.com/aspn
 > [!WARNING]
 > Evite tentar ler valores de ficheiros como *local.settings.js* ou *appseting.{ ambiente}.json* no plano de consumo. Os valores lidos a partir destes ficheiros relacionados com as ligações de gatilho não estão disponíveis como escalas de aplicação porque a infraestrutura de hospedagem não tem acesso à informação de configuração, uma vez que o controlador de escala cria novas instâncias da app.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte os seguintes recursos:
 

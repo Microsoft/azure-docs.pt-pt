@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: fceac1a5852c0be767ffc375ad9ec5de033f17b7
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833677"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -78,10 +78,10 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | --- | --- |
 | Austrália Central    | 20.36.105.0 |
 | Centro da Austrália   | 20.36.113.0 |
-| Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
+| Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
-| Canadá Central       | 40.85.224.249      |
+| Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166      |
 | E.U.A. Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Leste da China           | 139.219.130.35     |
@@ -102,7 +102,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Coreia do Sul Central        | 52.231.32.42       |
 | Sul da Coreia do Sul          | 52.231.200.86      |
 | E.U.A. Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 |
+| Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Leste da Noruega          | 51.120.96.0        |
 | Oeste da Noruega          | 51.120.216.0       |
 | África do Sul Norte   | 102.133.152.0      |
@@ -118,10 +118,10 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | E.U.A. Centro-Oeste      | 13.78.145.25       |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| E.U.A.Oeste 2            | 13.66.226.202      |
+| E.U.A.Oeste 2            | 13.66.226.202, 40.78.240.8  |
 |                      |                    |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor, consulte [a política de conn- policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de ligação da Base de Dados Azure SQL para clientes que utilizem ADO.NET 4.5 ou uma versão posterior, consulte [portões para além de 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).

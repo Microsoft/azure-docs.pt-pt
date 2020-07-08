@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 44da1d67155efe3feb41e3648c820a8ada0b8fc3
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831918"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -66,7 +66,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     1. Reveja as Definições e o formulário **de pré-visualização** para obter uma precisão. O formulário é inteligentemente povoado com base no tipo de ficheiro. 
 
-        Campo| Description
+        Campo| Descrição
         ----|----
         Formato do ficheiro| Define o layout e o tipo de dados armazenados num ficheiro.
         Delimitador| Um ou mais caracteres para especificar a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados.
@@ -93,7 +93,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. Selecione **Crie um novo computamento** para configurar o seu contexto de computação para esta experiência.
 
-    Campo|Description
+    Campo|Descrição
     ---|---
     Nome computacional| Insira um nome único que identifique o seu contexto de computação.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para o seu cálculo.
@@ -106,7 +106,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     Selecione **Seguinte**.
 
-1. No tipo de Tarefa e no formulário **de definições,** selecione o tipo de tarefa: classificação, regressão ou previsão. Veja [como definir tipos de tarefas](how-to-define-task-type.md) para obter mais informações.
+1. No tipo de Tarefa e no formulário **de definições,** selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [os tipos de tarefas suportados](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
     1. Para a classificação, também pode ativar uma aprendizagem profunda que é usada para ações de texto.
 
@@ -117,7 +117,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Description
+    Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#explore-model-metrics)
     Caracterização automática| Selecione para ativar ou desativar a caracterização feita através de machine learning automatizado. A caracterização automática inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas. Não suportado para o tipo de tarefa de previsão de séries de tempo. [Saiba mais sobre a exibição.](how-to-configure-auto-features.md#featurization) 
@@ -140,7 +140,7 @@ Pode obter uma grande variedade de estatísticas sumárias através do seu conju
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-Estatística|Description
+Estatística|Descrição
 ------|------
 Funcionalidade| Nome da coluna que está a ser resumida.
 Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
@@ -206,7 +206,7 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome computacional| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ativar a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.
@@ -222,7 +222,7 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
 
 Agora tem um serviço web operacional para gerar previsões! Pode testar as previsões consultando o serviço a partir do suporte de [aprendizagem automática Azure.](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 17ae335fa40a71ed266211150df382404efbf61b
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 07/01/2020
+ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832819"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
@@ -17,7 +17,7 @@ Para simplificar a gestão de recursos, pode utilizar recursos ao nível da sua 
 > [!NOTE]
 > Pode implementar 800 grupos de recursos diferentes numa implementação de nível de subscrição.
 
-Para implementar modelos ao nível de subscrição, utilize Azure CLI, PowerShell ou REST API. O portal Azure não suporta a implementação no nível de subscrição.
+Para implementar modelos ao nível de subscrição, utilize Azure CLI, PowerShell ou REST API.
 
 ## <a name="supported-resources"></a>Recursos suportados
 

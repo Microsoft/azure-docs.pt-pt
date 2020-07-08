@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
 ms.custom: tracking-python
-ms.openlocfilehash: a20d6bdb3a2d6070e81dfca84c851003f6ff4ca2
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ae4840f5ca31f9bbef1fa5f9ffd175a1f1d7696b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832224"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporte os certificados de Emulador do Azure Cosmos DB para utilizar com o Java, o Python e o Node.js
 
@@ -75,6 +75,21 @@ Ao executar aplicações Java ou aplicações MongoDB que usam o cliente Java é
 
 Siga as instruções em [Adicionar um Certificado ao Arquivo de Certificados de AC do Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar o certificado X.509 para o arquivo de certificados do Java. Tenha em conta que irá trabalhar no diretório %JAVA_HOME% ao executar o keytool.
 
+Em alternativa, pode criar e executar um script "bash" que o faz automaticamente:
+```bash
+#!/bin/bash
+
+# If emulator was started with /AllowNetworkAccess, replace the below with the actual IP address of it:
+EMULATOR_HOST=localhost
+EMULATOR_PORT=8081
+EMULATOR_CERT_PATH=/tmp/cosmos_emulator.cert
+openssl s_client -connect ${EMULATOR_HOST}:${EMULATOR_PORT} </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $EMULATOR_CERT_PATH
+# delete the cert if already exists
+sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
+# import the cert
+sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
+```
+
 Uma vez instalado o certificado TLS/SSL "CosmosDBEmulatorCertificate" da sua aplicação deverá poder ligar e utilizar o Emulador Azure Cosmos DB local. Se continuar a ter problemas, deverá ler o artigo [Depurar Ligações de SSL/TLS](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). É muito provável que o certificado não esteja instalado no arquivo %JAVA_HOME%/jre/lib/security/cacerts. Por exemplo, se tiver várias versões instaladas do Java, a aplicação poderá estar a utilizar um arquivo de certificados de AC diferente do que o que atualizou.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Como utilizar o certificado no Python
@@ -85,7 +100,7 @@ Por predefinição, o [Python SDK (versão 2.0.0 ou superior)](sql-api-sdk-pytho
 
 Por predefinição, o [Node.js SDK (versão 1.10.1 ou superior)](sql-api-sdk-node.md) para a API SQL não tentará utilizar o certificado TLS/SSL ao ligar-se ao emulador local. Se quiser utilizar a validação TLS, pode seguir os exemplos na [documentaçãoNode.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, fez o seguinte:
 

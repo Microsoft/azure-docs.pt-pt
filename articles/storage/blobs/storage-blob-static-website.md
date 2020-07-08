@@ -8,21 +8,22 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: f3dc7a051021c75c7e1ed6904096c43a27c3e05e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833351"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de site estático no Armazenamento do Azure
 
 Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento denominado *$web*. Hospedar o seu conteúdo no Azure Storage permite-lhe utilizar arquiteturas sem servidor que incluam [Funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços (PaaS).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Se o seu site depender do código do lado do servidor, utilize [o Azure App Service.](/azure/app-service/overview)
+Certifique-se de criar uma conta de armazenamento v2 Standard para fins gerais . Os sites estáticos não estão disponíveis em qualquer outro tipo de conta de armazenamento.
 
 ## <a name="setting-up-a-static-website"></a>Criação de um website estático
 
@@ -46,7 +47,7 @@ Pode utilizar qualquer uma destas ferramentas para enviar conteúdo para o recip
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensão do Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extensão do Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualização de conteúdos
 
@@ -63,11 +64,11 @@ O URL do seu site contém um código regional. Por exemplo, o URL `https://conto
 
 Embora esse código tenha de permanecer no URL, é apenas para uso interno, e não terá de usar esse código de outra forma.
 
-O documento de índice que especifica quando ativa o alojamento estático do site, aparece quando os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net` ).  
+O documento de índice que especifica quando ativa o alojamento estático do site, aparece quando os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net` ).
 
 ### <a name="secondary-endpoints"></a>Pontos finais secundários
 
-Se [configurar redundância numa região secundária,](../common/storage-redundancy.md#redundancy-in-a-secondary-region)também pode aceder ao conteúdo do site utilizando um ponto final secundário. Como os dados são replicados para regiões secundárias de forma assíncrona, os ficheiros que estão disponíveis no ponto final secundário nem sempre estão em sintonia com os ficheiros disponíveis no ponto final primário. 
+Se [configurar redundância numa região secundária,](../common/storage-redundancy.md#redundancy-in-a-secondary-region)também pode aceder ao conteúdo do site utilizando um ponto final secundário. Como os dados são replicados para regiões secundárias de forma assíncrona, os ficheiros que estão disponíveis no ponto final secundário nem sempre estão em sintonia com os ficheiros disponíveis no ponto final primário.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da definição do nível de acesso público do recipiente web
 
@@ -85,11 +86,11 @@ No entanto, o acesso do público ao principal ponto final do serviço blob `http
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapear um domínio personalizado para um URL estático do site
 
-Pode disponibilizar o seu website estático através de um domínio personalizado. 
+Pode disponibilizar o seu website estático através de um domínio personalizado.
 
 É mais fácil ativar o acesso HTTP para o seu domínio personalizado, porque o Azure Storage suporta-o de forma nativa. Para ativar HTTPS, terá de utilizar o Azure CDN porque o Azure Storage ainda não suporta https de forma nativa com domínios personalizados. ver [Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md) para uma orientação passo a passo.
 
-Se a conta de armazenamento estiver configurada para [exigir transferência segura](../common/storage-require-secure-transfer.md) sobre HTTPS, então os utilizadores devem utilizar o ponto final HTTPS. 
+Se a conta de armazenamento estiver configurada para [exigir transferência segura](../common/storage-require-secure-transfer.md) sobre HTTPS, então os utilizadores devem utilizar o ponto final HTTPS.
 
 > [!TIP]
 > Considere hospedar o seu domínio em Azure. Para obter mais informações, consulte [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).

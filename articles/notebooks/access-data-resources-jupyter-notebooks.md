@@ -4,22 +4,22 @@ description: Saiba como aceder a ficheiros, APIs de REST, bases de dados e difer
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: a7e242c000b57cbbfafebc1e11191199a7a4b95f
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833490"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados da cloud num bloco de notas
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Fazer um trabalho interessante num caderno jupyter requer dados. Data, na verdade, é a força vital dos cadernos.
 
 Você certamente pode [importar ficheiros de dados em um projeto](work-with-project-data-files.md), mesmo usando comandos como dentro de um `curl` portátil para descarregar um arquivo diretamente. É provável, no entanto, que você precise trabalhar com dados muito mais extensos que estão disponíveis a partir de fontes não-arquivo, tais como APIs REST, bases de dados relacionais e armazenamento em nuvem, como tabelas Azure.
 
 Este artigo descreve brevemente estas diferentes opções. Como o acesso aos dados é melhor visto em ação, pode encontrar código exequível nas Amostras de [Cadernos Azure - Aceda aos seus dados](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>APIs REST
 
@@ -79,6 +79,6 @@ O Azure fornece uma série de outros tipos de base de dados que pode utilizar. O
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copy Wizard for Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)

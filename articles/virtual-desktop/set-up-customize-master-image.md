@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8d0bcff79b6101047545614538dc1d58a854a6d
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832530"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -187,7 +187,7 @@ Depois de preparar a imagem para o upload, certifique-se de que o VM permanece n
 
 Esta secção só se aplica quando a imagem principal foi criada localmente.
 
-As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para uma conta de armazenamento Azure. Se ainda não tiver uma conta de armazenamento Azure, siga as instruções [deste artigo](/azure/javascript/tutorial-vscode-static-website-node-03) para criar uma.
+As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para uma conta de armazenamento Azure. Se ainda não tiver uma conta de armazenamento Azure, siga as instruções [deste artigo](/azure/developer/javascript/tutorial-vscode-static-website-node-03) para criar uma.
 
 1. Converta a imagem VM (VHD) em Fixed se ainda não o fez. Se não converter a imagem em Fixed, não poderá criar a imagem com sucesso.
 
@@ -206,7 +206,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d6217d9616293cb4d541c9b05511d8cbd318ef20
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833277"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -199,12 +199,14 @@ Se tiver algum problema, consulte [as trocas de resolução de problemas.](#trou
 
 Algumas aplicações podem necessitar de ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração no web.config permite especificar as ações de inicialização personalizadas. A [operação de troca](#AboutConfiguration) aguarda que este aquecimento personalizado termine antes de trocar com a ranhura do alvo. Aqui está uma amostra web.config fragmento.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 Para obter mais informações sobre a personalização do `applicationInitialization` elemento, consulte [as falhas de troca de slot de implementação mais comuns e como corrigi-las](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
@@ -425,5 +427,5 @@ Aqui estão alguns erros de troca comuns:
 
 - Após trocas de slot, a aplicação pode experimentar recomeços inesperados. Isto porque depois de uma troca, a configuração de ligação do nome anfitrião sai de sincronização, o que por si só não causa recomeços. No entanto, certos eventos de armazenamento subjacentes (tais como falhas no volume de armazenamento) podem detetar estas discrepâncias e forçar todos os processos dos trabalhadores a reiniciar. Para minimizar este tipo de reinícios, defina a definição da [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` aplicação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todas as ranhuras*. No entanto, esta configuração da aplicação *não* funciona com aplicações da Windows Communication Foundation (WCF).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Bloquear o acesso a faixas horárias não produção](app-service-ip-restrictions.md)

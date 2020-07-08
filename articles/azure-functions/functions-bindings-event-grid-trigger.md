@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: af22d7a81d8a778c3df38f929bfbfb0a651cebc6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833006"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -78,9 +78,9 @@ namespace Company.Function
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -130,9 +130,9 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -161,9 +161,9 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -305,9 +305,9 @@ A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-li
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json.* Não existem parâmetros ou propriedades de construtores para definir no `EventGridTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsficheiro.* Não existem parâmetros ou propriedades de construtores para definir no `EventGridTrigger` atributo.
 
-|function.json propriedade |Description|
+|function.jsna propriedade |Descrição|
 |---------|---------|
 | **tipo** | Necessário - deve ser definido para `eventGridTrigger` . |
 | **direção** | Necessário - deve ser definido para `in` . |
@@ -345,11 +345,11 @@ Nas Funções Azure 2.x e superior, também tem a opção de utilizar o seguinte
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A instância 'Grade de Evento' está disponível através do parâmetro configurado na propriedade do ficheiro *function.json.* `name`
+A instância 'Grade de Evento' está disponível através do parâmetro configurado no *function.jsna* propriedade do `name` ficheiro.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A instância 'Grade de Eventos' está disponível através do parâmetro configurado na propriedade do ficheiro *function.json,* `name` dactilografado como `func.EventGridEvent` .
+A instância da Grade de Eventos está disponível através do parâmetro configurado no *function.jsna* propriedade do `name` ficheiro, dactilografado como `func.EventGridEvent` .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -419,11 +419,15 @@ O comando requer o URL do ponto final que invoca a função. O exemplo a seguir 
 
 #### <a name="version-2x-and-higher-runtime"></a>Versão 2.x (e superior) tempo de execução
 
-    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```
 
 #### <a name="version-1x-runtime"></a>Versão 1.x tempo de execução
 
-    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
 
 A chave do sistema é uma chave de autorização que tem de ser incluída no URL do ponto final para um gatilho de Grade de Eventos. A secção seguinte explica como obter a chave do sistema.
 
@@ -568,6 +572,6 @@ A função de gatilho de 'Grade de Evento' executa e mostra registos semelhantes
 
 ![Registos de função de gatilho da grelha de evento de amostra](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Despachar um evento de Grade de Eventos](./functions-bindings-event-grid-output.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 937f84d1b918eb7b9f38a62caef5dea7cede6d4d
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832989"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -96,8 +96,10 @@ Esta utilização do Gateway de Aplicações é apenas um exemplo de como config
 
 O Azure Firewall pode enviar registos para registos Azure Storage, Event Hub ou Azure Monitor. Para integrar a sua aplicação com qualquer destino suportado, vá ao portal Azure Firewall > Registos de Diagnóstico e ative os registos para o destino pretendido. Se integrar-se com os registos do Azure Monitor, poderá ver a registar-se para qualquer tráfego enviado para a Firewall do Azure. Para ver o tráfego que está a ser negado, abra o seu portal de espaço de trabalho Log Analytics > Logs e insira uma consulta como 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 A integração do seu Azure Firewall com registos Azure Monitor é útil quando se inicia uma aplicação a funcionar quando não tem conhecimento de todas as dependências da aplicação. Pode saber mais sobre os registos do Azure Monitor a partir de dados de [registo de análise no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Dependências

@@ -3,22 +3,22 @@ title: Inscreva-se na pré-visualização dos cadernos Azure
 description: Configure a sua conta de utilizador para Azure Notebooks usando uma conta Microsoft ou uma conta trabalho/escola.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 2a19803ec0a621b981fa9198766c58376ba50534
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832190"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>A sua conta de utilizador para visualização de Cadernos Azure
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Pode utilizar os Cadernos Azure com ou sem iniciar sessão com uma conta de utilizador:
 
 - Sem iniciar sessão, pode criar e executar cadernos, mas não pode reter cadernos ou ficheiros de dados como parte de projetos. Os utilizadores que recebem um link para um Azure Notebook, por exemplo, podem desfrutar do portátil sem necessidade de iniciar sação.
 - Quando se inscreve, a Azure Notebooks mantém todos os seus projetos na sua conta. Os utilizadores inscritos também têm um ID de utilizador que lhes permite partilhar os seus projetos e cadernos com outros.
 - Quando a conta utilizada para os Cadernos Azure também está associada a uma Subscrição Azure, você ganha benefícios adicionais, como executar cadernos em servidores mais poderosos, criar cadernos privados e conceder permissões a cadernos a utilizadores individuais.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 A inscrição em Azure Notebooks requer uma conta Microsoft ou uma conta "Trabalho ou Escola". É solicitado para a sua conta ao selecionar o comando **Sign In** no lado superior direito da página Cadernos:
 
@@ -63,7 +63,7 @@ O administrador de uma conta organizacional deve fornecer consentimento em nome 
 
 Para fornecer o seu consentimento como administrador, utilize a página de consentimento do [administrador,](https://notebooks.azure.com/account/adminConsent)que o acompanha através do processo.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
 > [Edite o seu perfil e iD do utilizador](azure-notebooks-user-profile.md)

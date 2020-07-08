@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 45a7de4f19b663823a5eff7ba4f352992c3aaf0d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832564"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 
-Este artigo demonstra como criar testes automatizados para Funções Azure. 
+Este artigo demonstra como criar testes automatizados para Funções Azure.
 
 É recomendável testar todo o código, no entanto poderá obter os melhores resultados, embrulhando a lógica de uma Função e criando testes fora da Função. A abstração da lógica de distância limita as linhas de código de uma Função e permite que a Função seja a única responsável por chamar outras classes ou módulos. Este artigo, no entanto, demonstra como criar testes automatizados contra um HTTP e funções desencadeadas por temporizador.
 
@@ -38,7 +38,7 @@ Para configurar o seu ambiente, crie uma aplicação de função e teste. Os seg
 1. [Criar uma nova aplicação funções](./functions-create-first-azure-function.md) e nomeá-la **Funções**
 2. [Crie uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e nomeie-o **MyHttpTrigger**.
 3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o **MyTimerTrigger**.
-4. [Crie uma aplicação de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) na solução e nomeie-a **Funções.Testes**. 
+4. [Crie uma aplicação de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) na solução e nomeie-a **Funções.Testes**.
 5. Utilize o NuGet para adicionar uma referência da aplicação de teste à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referenciar a aplicação *Funções* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir da aplicação *Funções.Testes.*
 
@@ -127,7 +127,7 @@ namespace Functions.Tests
 }
 ```
 
-Esta enumeração especifica o tipo de madeirão utilizado pelos testes. 
+Esta enumeração especifica o tipo de madeirão utilizado pelos testes.
 
 Agora crie uma nova classe em *Funções.Testes* projeto chamado **TestFactory.cs** e introduza o seguinte código:
 
@@ -314,7 +314,7 @@ module.exports = {
 
 Este módulo implementa a `IsPastDue` propriedade para ficar é como uma instância de temporizador falso. Configurações de temporizador como expressões NCRONTAB não são necessárias aqui, uma vez que o arnês de teste está simplesmente chamando a função diretamente para testar o resultado.
 
-Em seguida, utilize a extensão vs Code Functions para [criar uma nova função JAVAScript HTTP](/azure/javascript/tutorial-vscode-serverless-node-01) e nomeie-a *HttpTrigger*. Uma vez criada a função, adicione um novo ficheiro na mesma pasta denominada **index.test.js**, e adicione o seguinte código:
+Em seguida, utilize a extensão vs Code Functions para [criar uma nova função JAVAScript HTTP](/azure/developer/javascript/tutorial-vscode-serverless-node-01) e nomeie-a *HttpTrigger*. Uma vez criada a função, adicione um novo ficheiro na mesma pasta denominada **index.test.js**, e adicione o seguinte código:
 
 ```javascript
 const httpFunction = require('./index');
@@ -380,7 +380,7 @@ Para depurar os seus testes, adicione a seguinte configuração à sua *launch.j
 
 Em seguida, desaponte um ponto de rutura no seu teste e prima **F5**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a escrever testes automatizados para as suas funções, continue com estes recursos:
 

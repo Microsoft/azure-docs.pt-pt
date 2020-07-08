@@ -1,22 +1,22 @@
 ---
-title: Instale pacotes em cadernos Jupyter - Pré-visualização de cadernos Azure
-description: Aprenda a instalar pacotes Python, R e F# de dentro de um caderno Jupyter em execução no Azure.
+title: Instalar pacotes em cadernos Jupyter - Pré-visualização de cadernos Azure
+description: Saiba como instalar pacotes Python, R e F# dentro de um caderno Jupyter em execução em Azure.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831221"
 ---
-# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instale pacotes a partir de dentro da Pré-visualização de cadernos Azure
-
-Embora possa configurar o [ambiente para o seu caderno ao nível do projeto,](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)poderá querer instalar pacotes diretamente dentro de um caderno individual.
-
-Os pacotes instalados a partir do caderno aplicam-se apenas à sessão atual do servidor. As instalações do pacote não são persistidas uma vez que o servidor é desligado.
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instalar pacotes a partir de Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Embora possa configurar o [ambiente para o seu caderno ao nível do projeto,](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)é possível que queira instalar pacotes diretamente dentro de um caderno individual.
+
+Os pacotes instalados a partir do portátil aplicam-se apenas à sessão atual do servidor. As instalações dos pacotes não são persistidos quando o servidor é desligado.
 
 ## <a name="python"></a>Python
 
@@ -28,11 +28,11 @@ As embalagens em Python podem ser instaladas utilizando pip ou conda utilizando 
 !conda install <package_name> -y
 ```
 
-Se a saída de comando indicar que a exigência já está satisfeita, então os Cadernos Azure podem incluir a embalagem por defeito. O pacote também pode ser instalado através de uma etapa de [configuração](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)do ambiente do projeto .
+Se a saída do comando indicar que o requisito já está preenchido, então os Cadernos Azure podem incluir o pacote por predefinição. O pacote também pode ser instalado através de um passo de [configuração do ambiente do projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
 
 ## <a name="r"></a>R
 
-As embalagens em R podem ser instaladas `install.packages` a partir de CRAN ou GitHub utilizando a função numa célula de código:
+As embalagens em R podem ser instaladas a partir de CRAN ou GitHub utilizando a `install.packages` função numa célula de código:
 
 ```r
 install.packages("package_name")
@@ -48,7 +48,7 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
-Os pacotes em F# podem ser instalados a partir de [nuget.org,](https://www.nuget.org) ligando para o gestor de dependência paket de dentro de células de código. Primeiro, carregue o gerente do Paket:
+Os pacotes em F# podem ser instalados a partir de [nuget.org,](https://www.nuget.org) chamando o gestor de dependência de Paket de dentro de células de código. Primeiro, carregue o gerente do Paket:
 
 ```fsharp
 #load "Paket.fsx"
@@ -73,7 +73,7 @@ Abra a biblioteca:
 open MathNet.Numerics
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
 - [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)

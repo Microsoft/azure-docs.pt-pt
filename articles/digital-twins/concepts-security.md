@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833169"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Para a segurança, a Azure Digital Twins permite um controlo preciso de acesso sobre dados, recursos e ações específicas na sua implementação. Fá-lo através de uma estratégia de gestão de funções granular e de permissão chamada **controlo de acesso baseado em funções (RBAC)**. Pode ler-se [aqui](../role-based-access-control/overview.md)sobre os princípios gerais da RBAC para o Azure.
 
@@ -52,6 +49,9 @@ A Azure fornece as funções RBAC incorporadas abaixo para autorizar o acesso a 
 * Azure Digital Twins Owner (Preview) – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
 * Azure Digital Twins Reader (Preview) – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
 
+> [!TIP]
+> O papel do Azure Digital Twins Reader (Preview) agora também suporta relações de navegação.
+
 Para obter mais informações sobre como as funções incorporadas são [definidas,](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções RBAC personalizadas, consulte [funções personalizadas para recursos Azure](../role-based-access-control/custom-roles.md).
 
 Pode atribuir funções de duas formas:
@@ -71,7 +71,7 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 * Relação Digital Twin: As ações para este recurso definem o controlo sobre as operações crud nas [relações](concepts-twins-graph.md) entre gémeos digitais no gráfico gémeo.
 * Rota do evento: As ações deste recurso determinam permissões para [encaminhar eventos](concepts-route-events.md) da Azure Digital Twins para um serviço de ponto final como [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus.](../service-bus-messaging/service-bus-messaging-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja como caminhar por estes passos com uma aplicação de cliente de amostra em [Como-a-: Autenticar uma aplicação ao cliente.](how-to-authenticate-client.md)
 

@@ -3,18 +3,18 @@ title: Criar e clonar cadernos Jupyter - Pré-visualização de cadernos Azure
 description: Os projetos de pré-visualização de Cadernos Azure gerem uma coleção de cadernos e ficheiros relacionados, que pode criar novos ou clones a partir de outra fonte.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831289"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos em Azure Notebooks Preview
 
-A Azure Notebooks organiza os seus cadernos Jupyter e ficheiros relacionados em grupos lógicos chamados *projetos.* Cria-se um projeto primeiro como recipiente, depois cria-se ou clona-se um ou mais cadernos dentro de uma pasta ao lado de outros ficheiros do projeto. (Este processo é demonstrado no [tutorial](tutorial-create-run-jupyter-notebook.md).)
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+A Azure Notebooks organiza os seus cadernos Jupyter e ficheiros relacionados em grupos lógicos chamados *projetos.* Cria-se um projeto primeiro como recipiente, depois cria-se ou clona-se um ou mais cadernos dentro de uma pasta ao lado de outros ficheiros do projeto. (Este processo é demonstrado no [tutorial](tutorial-create-run-jupyter-notebook.md).)
 
 Um projeto também mantém metadados e outras configurações que afetam o servidor em que os cadernos funcionam, incluindo etapas de configuração personalizadas e instalação de pacotes. Para mais informações, consulte [Gerir e configurar projetos.](configure-manage-azure-notebooks-projects.md)
 
@@ -26,10 +26,10 @@ O painel **My Projects** é `https://notebooks.azure.com/<userID>/projects` onde
 
 O que pode fazer no painel de instrumentos depende se está inscrito na conta que detém o ID do utilizador:
 
-| Comando | Disponível para | Description |
+| Comando | Disponível para | Descrição |
 | --- | --- | --- |
 | **Executar** | Proprietário | Inicia o servidor do projeto e abre a pasta do projeto em Jupyter. (Mais comummente, navega-se primeiro numa pasta de projeto, depois começa-se um caderno a partir daí.) |
-| **Transferir** | Qualquer pessoa | Descarrega uma cópia do projeto selecionado como um ficheiro ZIP. |
+| **Transferência** | Qualquer pessoa | Descarrega uma cópia do projeto selecionado como um ficheiro ZIP. |
 | **Partilhar** | Qualquer pessoa | Exibe o popup de partilha através do qual pode obter um URL para um projeto selecionado, partilhar para as redes sociais, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um crachá de "bloco de lançamento" (ver [obter um crachá de lançamento)](#obtain-a-launch-badge)com o URL. |
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
 | **Terminal** | Proprietário | Inicia o servidor do projeto e abre uma nova janela do navegador com o terminal de bash para esse servidor. |
@@ -57,7 +57,7 @@ Se não tiver um projeto Azure Notebooks, pode criar um link que clones do GitHu
 
 Quando utiliza o comando **+ New Project,** os Cadernos Azure exibem um popup **Create New Project.** Neste pop-up, introduza as seguintes informações e, em seguida, **selecione Criar**:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. Por exemplo, "O Meu Projeto De Caderno". |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto (o formulário `https://notebooks.azure.com/<user_id>/projects/<project_id>` é). Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
@@ -84,7 +84,7 @@ Como um ID de projeto também faz parte do URL de um projeto, o software de bloq
 
 Você pode facilmente importar um repo público inteiro GitHub como um projeto, incluindo quaisquer dados e *README.md* ficheiros. Utilize o comando **Upload GitHub Repo,** forneça os seguintes detalhes no pop-up e, em seguida, selecione **Import**:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | Repositório do GitHub | O nome do repositório de origem na github.com. Por exemplo, para clonar os cadernos Jupyter para Azure Cognitive Services [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) em , insira "Microsoft/cognitive-services-notebooks".  |
 | Clone recursivamente | Os repositórios do GitHub podem conter vários repositórios infantis. Desista esta opção se quiser clonar o repositório dos pais e todos os seus filhos. Porque é possível um repositório ter muitos filhos, deixar esta opção clara a menos que saiba que precisa dela. |
@@ -110,7 +110,7 @@ Para clonar um projeto:
 
 1. Depois de selecionar o botão **Clone,** os Blocos de Notas Azure navegam diretamente para a cópia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Explore cadernos de amostras](azure-notebooks-samples.md)
 - [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)

@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/01/2020
 ms.author: tamram
-ms.openlocfilehash: 17d135e9b250ba111cf2bd1a91a91d146221d69d
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 455595a2e41ecc05f7064044e09df8efcd9d4548
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833405"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gerir propriedades de contentores e metadados com .NET
 
@@ -25,14 +25,27 @@ Os contentores blob suportam as propriedades do sistema e os metadados definidos
 
 - **Metadados definidos pelo utilizador**: Os metadados definidos pelo utilizador consistem num ou mais pares de valor-nome que especifica para um recurso de armazenamento Blob. Pode utilizar metadados para armazenar valores adicionais com o recurso. Os valores dos metadados são apenas para os seus próprios fins e não afetam o comportamento do recurso.
 
+Os pares de nome/valor dos metadados são cabeçalhos HTTP válidos, pelo que devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados devem ser válidos Nomes de cabeçalhos HTTP e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como insensíveis a casos. Os valores dos metadados que contenham caracteres não ASCII devem ser codificados ou codificados por URL.
+
+## <a name="retrieve-container-properties"></a>Recuperar propriedades de contentores
+
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+Para recuperar as propriedades do contentor, ligue para um dos seguintes métodos:
+
+- [GetProperties](/dotnet/api/azure.storage.blobs.blobcontainerclient.getproperties)
+- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync)
+
+O seguinte exemplo de código requer as propriedades do sistema de um contentor e escreve alguns valores de propriedade para uma janela de consola:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+
 Recuperar valores de propriedade e metadados para um recurso de armazenamento Blob é um processo em duas etapas. Antes de poder ler estes valores, deve ir buscá-los explicitamente, chamando o método **FetchAttributes** ou **FetchAttributesAsync.** A exceção a esta regra é que os métodos **Exist e** **ExistsAsync** chamam o método **de FetchAttributes** adequado sob as capas. Quando você chama um destes métodos, você não precisa também chamar **FetchAttributes**.
 
 > [!IMPORTANT]
 > Se descobrir que os valores de propriedade ou metadados para um recurso de armazenamento não foram povoados, verifique se o seu código chama o método **FetchAttributes** ou **FetchAttributesAsync.**
-
-Os pares de nome/valor dos metadados são cabeçalhos HTTP válidos, pelo que devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados devem ser válidos Nomes de cabeçalhos HTTP e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como insensíveis a casos. Os valores dos metadados que contenham caracteres não ASCII devem ser codificados ou codificados por URL.
-
-## <a name="retrieve-container-properties"></a>Recuperar propriedades de contentores
 
 Para recuperar as propriedades do contentor, ligue para um dos seguintes métodos:
 
@@ -63,7 +76,33 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 }
 ```
 
+---
+
 ## <a name="set-and-retrieve-metadata"></a>Definir e recuperar metadados
+
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+Pode especificar os metadados como um ou mais pares de valor-nome num recurso de bolha ou contentor. Para definir metadados, adicione pares de valor-nome a um objeto [IDictionário](/dotnet/api/system.collections.idictionary) e, em seguida, ligue para um dos seguintes métodos para escrever os valores:
+
+- [SetMetadata](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadata)
+- [SetMetadataAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadataasync)
+
+O nome dos seus metadados deve estar em conformidade com as convenções de nomeação dos identificadores C#. Os nomes dos metadados preservam o caso com o qual foram criados, mas são insensíveis a casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados com o mesmo nome forem submetidos para um recurso, o blob de armazenamento separa e concatena os dois valores e devolve o código de resposta HTTP 200 (OK).
+
+O seguinte exemplo de código define metadados num recipiente.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddContainerMetadata":::
+
+Para recuperar metadados, ligue para um dos seguintes métodos:
+
+- [GetProperties](/dotnet/api/azure.storage.blobs.blobcontainerclient.getproperties)
+- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync).
+
+Em seguida, leia os valores, como mostra o exemplo abaixo.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Pode especificar os metadados como um ou mais pares de valor-nome num recurso de bolha ou contentor. Para definir metadados, adicione pares de valor-nome à coleção **de metadados** no recurso e, em seguida, ligue para um dos seguintes métodos para escrever os valores:
 
@@ -126,9 +165,11 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
+---
+
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Obter operação de propriedades de contentores](/rest/api/storageservices/get-container-properties)
 - [Definir operação de metadados de contentores](/rest/api/storageservices/set-container-metadata)

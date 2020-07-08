@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: ab4cc288f2a505baaa8f3a70db0a1fe76fb20c96
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831935"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
 
@@ -28,7 +28,7 @@ Este artigo mostra-lhe como resolver problemas com Azure Bastion.
 2. Registo de diagnósticos e outros – Saída em 443 para AzureCloud (as tags regionais dentro desta etiqueta de serviço ainda não são suportadas.)
 3. Target VM - Saída para 3389 e 22 para VirtualNetwork
 
-Um exemplo das regras NSG está disponível para referência no [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Um exemplo das regras NSG está disponível para referência no [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para mais informações, consulte [a orientação da NSG para O Bastião Azure.](bastion-nsg.md)
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Incapaz de usar a minha chave SSH com Azure Bastion
@@ -85,6 +85,6 @@ The key's randomart image is:
 
 **A:** Isto acontece quando existe um problema de conectividade de rede entre o seu navegador web e O Azure Bastion (a firewall da Internet do seu cliente pode estar bloqueando o tráfego de WebSockets ou similares), ou entre o Bastião Azure e o seu VM alvo. A maioria dos casos inclui um NSG aplicado quer à AzureBastionSubnet, quer à sub-rede VM alvo que está a bloquear o tráfego RDP/SSH na sua rede virtual. Permita o tráfego webSockets na firewall da internet do seu cliente e verifique os NSGs na sub-rede VM do seu alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte as [FAQ do Bastião.](bastion-faq.md)

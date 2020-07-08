@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e93343708ce8a89e9c6e8f57c6cebb198578e325
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833260"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
@@ -36,7 +36,7 @@ Cada subscrição da Azure tem um Diretório Azure Ative associado que gere util
 
 Quando atribui um papel de RBAC a um diretor de segurança, também indica o âmbito em que as permissões concedidas pelo papel estão em vigor. Para operações de gestão, pode atribuir uma função ao nível da subscrição, do grupo de recursos ou da conta de armazenamento. Pode atribuir uma função RBAC a um principal de segurança utilizando o [portal Azure,](https://portal.azure.com/)as [ferramentas Azure CLI,](../../cli-install-nodejs.md) [PowerShell](/powershell/azureps-cmdlets-docs)ou o [fornecedor de recursos de armazenamento Azure REST API](/rest/api/storagerp).
 
-Para obter mais informações sobre o RBAC, consulte o que é o [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)controlo de acesso baseado [em funções (RBAC) para recursos Azure?](../../role-based-access-control/overview.md)
+Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md) e [funções de administrador de subscrição clássica, funções de RBAC Azure e funções de administrador ad Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Funções incorporadas para operações de gestão
 
@@ -44,7 +44,7 @@ A Azure fornece funções incorporadas que concedem permissões para chamadas de
 
 As funções incorporadas que concedem permissões para chamadas de operações de gestão de armazenamento incluem as funções descritas no quadro seguinte:
 
-|    Função RBAC    |    Description    |    Inclui acesso às chaves da conta?    |
+|    Função RBAC    |    Descrição    |    Inclui acesso às chaves da conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso a recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue atribuir recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
@@ -74,8 +74,8 @@ Estes modelos representam duas formas distingas de implementar e gerir as suas s
 
 Para obter mais informações sobre os modelos de implementação da Azure, consulte [o Gestor de Recursos e a implementação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do Gestor de Recursos Azure](/azure/azure-resource-manager/resource-group-overview)
-- [O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?](../../role-based-access-control/overview.md)
+- [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Metas de escalabilidade para o fornecedor de recursos de armazenamento Azure](scalability-targets-resource-provider.md)
