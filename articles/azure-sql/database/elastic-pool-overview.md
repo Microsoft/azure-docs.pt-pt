@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
-ms.openlocfilehash: f79eb910728286ef5dc3a28974353db012bc5a16
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 5a246288eb3c4063a85935c20abec5c86467d340
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449656"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042378"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -177,7 +177,7 @@ Quando tiver concluído a configuração da piscina, pode clicar em 'Aplicar', n
 
 No portal Azure, pode monitorizar a utilização de uma piscina elástica e as bases de dados dentro dessa piscina. Também pode fazer um conjunto de alterações na sua piscina elástica e submeter todas as alterações ao mesmo tempo. Estas alterações incluem adicionar ou remover bases de dados, alterar as definições de piscina elástica ou alterar as definições da base de dados.
 
-Para começar a monitorizar a sua piscina elástica, encontre e abra uma piscina elástica no portal. Você verá primeiro um ecrã que lhe dá uma visão geral do estado da sua piscina elástica. Isto inclui:
+Para começar a monitorizar a sua piscina elástica, encontre e abra uma piscina elástica no portal. Você verá primeiro um ecrã que lhe dá uma visão geral do estado da sua piscina elástica. O que está incluído:
 
 - Gráficos de monitorização mostrando o uso de recursos da piscina elástica
 - Alertas e recomendações recentes, se disponíveis, para a piscina elástica
@@ -210,7 +210,7 @@ Para obter mais informações, consulte [criar alertas de base de dados SQL no p
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  A SnelStart usou piscinas elásticas com base de dados Azure SQL para expandir rapidamente os seus serviços de negócio a uma taxa de 1.000 novas Bases de Dados SQL Azure por mês.
+  A SnelStart usou piscinas elásticas com base de dados Azure SQL para expandir rapidamente os seus serviços de negócio a uma taxa de 1.000 novas bases de dados Azure SQL por mês.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 

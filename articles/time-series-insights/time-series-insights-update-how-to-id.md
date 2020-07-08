@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 48d8c9a0f32c94f64601d27b9785213b776439af
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 312bb9bac93ea30d01e1c3138709325ee1aa6173
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706786"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042174"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para escolher um ID da Série De Tempo
 
@@ -37,9 +37,10 @@ A seleção de um ID de série de tempo apropriado é fundamental. Escolher um I
 As melhores práticas a seguir incluem:
 
 * Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
-* O ID da Série De Tempo deve ser único ao nível do nó de folha do seu [modelo de séries de tempo.](./time-series-insights-update-tsm.md)
+* O ID da Série De Tempo deve ser único ao nível do nó de folha do seu [modelo de séries de tempo.](./concepts-model-overview.md)
 * O limite de caracteres para a cadeia de nomes de propriedade da Série DeTemporal é 128. Para o valor da propriedade do Time Series ID, o limite de caracteres é de 1.024.
 * Se faltar um valor único de propriedade para o ID da Série De Tempo, é tratado como um valor nulo e segue a mesma regra da restrição de singularidade.
+* Se o seu ID da Série De Tempo estiver aninhado dentro de um objeto JSON complexo, certifique-se de seguir as regras de [achatamento](./concepts-json-flattening-escaping-rules.md) ao fornecer o seu nome de propriedade. Confira o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b). 
 * Também pode selecionar até *três* propriedades chave como o seu ID série de tempo. A sua combinação será uma chave composta que representa o ID da Série De Tempo.  
   > [!NOTE]
   > Suas três propriedades chave devem ser cordas.
@@ -77,8 +78,8 @@ No portal Azure, pode então introduzir a tecla composta da seguinte forma:
 
 [![Configurar o ID da Série De Tempo para o ambiente.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Leia mais sobre [modelação de dados.](./time-series-insights-update-tsm.md)
+* Leia o [JSON achatando e escapando às regras](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados.
 
 * Planeie o seu [ambiente de visualização de insights da série de tempo Azure](./time-series-insights-update-plan.md).
