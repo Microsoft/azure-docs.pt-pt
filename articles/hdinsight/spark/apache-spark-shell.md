@@ -1,6 +1,6 @@
 ---
 title: Use uma concha de faísca interativa em Azure HDInsight
-description: Uma Spark Shell interativa fornece um processo de impressão de leitura-execução para executar comandos Spark um de cada vez e ver os resultados.
+description: Uma Spark Shell interativa fornece um processo de impressão de execução de leitura para executar o Spark comanda um de cada vez e vê os resultados.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,24 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162808"
 ---
-# <a name="run-apache-spark-from-the-spark-shell"></a>Executar Faísca Apache da Faísca
+# <a name="run-apache-spark-from-the-spark-shell"></a>Executar Apache Spark da Concha de Faísca
 
-Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambiente REPL (ciclo de impressão de leitura-execução) para executar os comandos Spark um de cada vez e ver os resultados. Este processo é útil para o desenvolvimento e depuração. A faísca fornece uma concha para cada uma das suas línguas apoiadas: Scala, Python e R.
+Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambiente REPL (leia-executar-print loop) para executar comandos Spark um de cada vez e ver os resultados. Este processo é útil para o desenvolvimento e depuração. A faísca fornece uma concha para cada uma das suas línguas apoiadas: Scala, Python e R.
 
-## <a name="run-an-apache-spark-shell"></a>Executar uma membrana de faísca Apache
+## <a name="run-an-apache-spark-shell"></a>Executar uma concha de faísca Apache
 
-1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu cluster. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
+1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster. Edite o comando abaixo substituindo o CLUSTERNAME pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. A faísca fornece conchas para Scala (casca de faísca) e Python (pyspark). Na sua sessão de SSH, insira *um* dos seguintes comandos:
+1. A faísca fornece conchas para Scala (spark-shell) e Python (pyspark). Na sua sessão de SSH, insira *um* dos seguintes comandos:
 
     ```bash
     spark-shell
@@ -59,13 +58,13 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Consultar um ficheiro CSV. Note que a `spark-shell` língua `pyspark`abaixo funciona para e .
+1. Consultar um ficheiro CSV. Note que o idioma abaixo funciona para `spark-shell` e `pyspark` .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
     ```
 
-1. Consulta de um ficheiro CSV e a loja resulta em variável:
+1. Consulta de um ficheiro CSV e armazena resultados variáveis:
 
     ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
@@ -87,7 +86,7 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
     data.select("BuildingID", "Country").show(10)
     ```
 
-1. Exit
+1. Sair
 
     ```spark-shell
     :q
@@ -97,25 +96,25 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
     exit()
     ```
 
-## <a name="sparksession-and-sparkcontext-instances"></a>Casos SparkSession e SparkContext
+## <a name="sparksession-and-sparkcontext-instances"></a>Exemplos sparkSession e SparkContext
 
-Por predefinição, quando executa a Spark Shell, as instâncias de SparkSession e SparkContext são automaticamente instantâneas para si.
+Por padrão, quando executar a Spark Shell, as instâncias de SparkSession e SparkContext são automaticamente instantâneas para si.
 
-Para aceder à instância `spark`SparkSession, introduza . Para aceder à instância `sc`SparkContext, introduza .
+Para aceder à instância SparkSession, insira `spark` . Para aceder à instância SparkContext, insira `sc` .
 
 ## <a name="important-shell-parameters"></a>Parâmetros importantes da concha
 
-O comando Spark`spark-shell`Shell `pyspark`(ou) suporta muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, `--help`inicie a Membrana de Faísca com o interruptor . Alguns destes parâmetros `spark-submit`só podem aplicar-se aos quais a Spark Shell envolve.
+O comando Spark Shell `spark-shell` (, ou `pyspark` ) suporta muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, inicie a Spark Shell com o interruptor `--help` . Alguns destes parâmetros só podem aplicar-se a `spark-submit` , que a Concha de Faísca envolve.
 
 | trocar | descrição | exemplo |
 | --- | --- | --- |
-| --mestre MASTER_URL | Especifica o URL principal. No HDInsight, este `yarn`valor é sempre . | `--master yarn`|
-| -jarros JAR_LIST | Lista separada da vírvia de frascos locais para incluir no condutor e executor de classes. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no Armazenamento de Azure ou armazenamento de data lake. | `--jars /path/to/examples.jar` |
-| -pacotes MAVEN_COORDS | Lista separada da vírcula de coordenadas maven de frascos para incluir no condutor e executor classpaths. Procura o repo maven local, depois maven central, em seguida, `--repositories`quaisquer repositórios remotos adicionais especificados com . O formato para as coordenadas é *o grupoId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| --py-files LIST | Apenas para Python, uma lista separada da vírvia de .zip, .egg ou .py files para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
+| -mestre MASTER_URL | Especifica a URL principal. Em HDInsight, este valor é sempre `yarn` . | `--master yarn`|
+| -jarros JAR_LIST | Lista separada por vírgula de frascos locais para incluir nos caminhos de classe do condutor e executor. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no Armazenamento Azure ou no Armazenamento do Lago de Dados. | `--jars /path/to/examples.jar` |
+| ...pacotes MAVEN_COORDS | Lista separada por vírgula de coordenadas de frascos para incluir nos caminhos de classe do condutor e do executor. Procure o repo maven local, em seguida maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories` . O formato das coordenadas é *groupId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --py-files LIST | Apenas para Python, uma lista separada por vírgula de .zip, .egg, ou .py files para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte [a introdução à Faísca Apache no Azure HDInsight](apache-spark-overview.md) para uma visão geral.
+- Consulte [a Introdução ao Apache Spark em Azure HDInsight](apache-spark-overview.md) para obter uma visão geral.
 - Consulte [Criar um cluster Apache Spark em Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.
-- Veja [o que é Apache Spark Structured Streaming?](apache-spark-streaming-overview.md)
+- Veja [o que é o Apache Spark Structured Streaming?](apache-spark-streaming-overview.md)

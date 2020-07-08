@@ -1,35 +1,34 @@
 ---
-title: Utilize a escala automática para enviar notificações de alerta de e-mail e webhook
-description: Saiba como usar ações de escala automática para ligar para urLs web ou enviar notificações de e-mail no Monitor Azure.
+title: Utilize autoescala para enviar notificações de alerta de email e webhook
+description: Saiba como usar ações de autoescalação para ligar para URLs web ou enviar notificações de e-mail no Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120700"
 ---
-# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de escala automática para enviar notificações de alerta de e-mail e webhook no Monitor Azure
-Este artigo mostra-lhe como configura os gatilhos para que possa ligar para URLs web específicos ou enviar e-mails com base em ações de escala automática em Azure.  
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de autoescalação para enviar notificações de alerta de email e webhook no Azure Monitor
+Este artigo mostra-lhe como configurar os gatilhos para que possa ligar para URLs web específicos ou enviar e-mails com base em ações de autoescala em Azure.  
 
 ## <a name="webhooks"></a>Webhooks
-Os Webhooks permitem-lhe encaminhar as notificações de alerta Azure para outros sistemas para notificações pós-processamento ou personalizadas. Por exemplo, encaminhar o alerta para serviços que possam lidar com um pedido web de envio de SMS, registar bugs, notificar uma equipa usando serviços de chat ou mensagens, etc. O webhook URI deve ser um ponto final HTTP ou HTTPS válido.
+Os webhooks permitem-lhe encaminhar as notificações de alerta Azure para outros sistemas para notificações pós-processamento ou personalizadas. Por exemplo, encaminhar o alerta para serviços que possam lidar com um pedido web de envio de SMS, registar erros, notificar uma equipa usando serviços de chat ou mensagens, etc. O webhook URI deve ser um ponto final http ou HTTPS válido.
 
-## <a name="email"></a>Email
-O email de e-mail pode ser enviado para qualquer endereço de e-mail válido. Os administradores e coadministradores da subscrição em que a regra está em execução também serão notificados.
+## <a name="email"></a>E-mail
+O e-mail pode ser enviado para qualquer endereço de e-mail válido. Os administradores e coadministradores da subscrição em que a regra está a decorrer também serão notificados.
 
-## <a name="cloud-services-and-app-services"></a>Serviços de Cloud e Serviços de Aplicações
-Pode optar pelo portal Azure para Serviços na Nuvem e Quintas de Servidores (Serviços de Aplicações).
+## <a name="cloud-services-and-app-services"></a>Serviços cloud e serviços de aplicativos
+Pode optar pelo portal Azure para serviços em nuvem e quintas de servidores (Serviços de Aplicação).
 
 * Escolha a **balança por** métrica.
 
 ![escala por](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
-Para máquinas virtuais mais recentes criadas com O Gestor de Recursos (conjuntos de escala de máquina virtual), pode configurá-lo usando modelos REST API, Resource Manager, PowerShell e CLI. Uma interface do portal ainda não está disponível.
-Ao utilizar o modelo REST API ou Gestor de Recursos, inclua o elemento notificações nas suas [definições automáticas](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as seguintes opções.
+Para máquinas virtuais mais recentes criadas com Gestor de Recursos (conjuntos de escala de máquina virtual), pode configurar isto usando API REST, modelos de Gestor de Recursos, PowerShell e CLI. Ainda não existe uma interface de portal.
+Ao utilizar o modelo REST API ou Resource Manager, inclua o elemento de notificações nas suas [definições automáticas](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as seguintes opções.
 
 ```
 "notifications": [
@@ -59,18 +58,18 @@ Ao utilizar o modelo REST API ou Gestor de Recursos, inclua o elemento notifica�
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | operação |sim |valor deve ser "Escala" |
-| enviarAdministrador de subscrição |sim |valor deve ser "verdadeiro" ou "falso" |
-| enviarAdministradores Coadministradores de EnviodeSubscrições |sim |valor deve ser "verdadeiro" ou "falso" |
-| emails personalizados |sim |valor pode ser nulo [] ou cadeia de e-mails |
-| webhooks |sim |valor pode ser nulo ou válido Uri |
-| serviceUri |sim |um https válido Uri |
-| propriedades |sim |valor deve {} ser vazio ou pode conter pares de valor-chave |
+| sendToSubscriptionAdministrator |sim |valor deve ser "verdadeiro" ou "falso" |
+| sendToSubscriptionCoAdministrators |sim |valor deve ser "verdadeiro" ou "falso" |
+| personalEmails |sim |valor pode ser nulo [] ou cadeia de e-mails |
+| webhooks |sim |valor pode ser nula ou válido Uri |
+| serviceUri |sim |um https uri válido |
+| propriedades |sim |valor deve estar vazio {} ou pode conter pares de valor-chave |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar usando autenticação baseada em token, onde você guarda o webhook URI com um ID simbólico como parâmetro de consulta. Por exemplo,\/https: /mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+O webhook pode autenticar usando a autenticação baseada em fichas, onde você guarda o webhook URI com um ID simbólico como parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
-## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de carga útil de webhook de notificação automática
-Quando a notificação de escala automática é gerada, os seguintes metadados são incluídos na carga útil do webhook:
+## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de carregamento de carga webhook de notificação automática
+Quando a notificação de escala automática é gerada, os seguintes metadados são incluídos na carga útil webhook:
 
 ```
 {
@@ -101,20 +100,20 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| status |sim |O estado que indica que uma ação de escala automática foi gerada |
-| operação |sim |Para um aumento de casos, será "Scale out" e para uma diminuição de casos, será "Scale In" |
-| contexto |sim |O contexto de ação de escala automática |
-| carimbo de data/hora |sim |Carimbo de tempo quando a ação de escala automática foi desencadeada |
-| ID |Sim |ID do Gestor de Recursos da definição de escala automática |
-| nome |Sim |O nome da definição de escala automática |
-| detalhes |Sim |Explicação da ação que o serviço de escala automática tomou e a mudança na contagem de exemplos |
-| subscriptionId |Sim |Id de subscrição do recurso-alvo que está a ser escalado |
-| resourceGroupName |Sim |Nome do Grupo de Recursos do recurso-alvo que está a ser escalado |
-| resourceName |Sim |Nome do recurso-alvo que está a ser escalado |
-| resourceType |Sim |Os três valores suportados: "microsoft.classiccompute/domainnames/slots/roles" - Funções cloud Service, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquinavirtual e "Microsoft.Web/serverfarms" - Web App |
-| resourceId |Sim |Id do gestor de recursos do recurso-alvo que está a ser escalado |
-| portalLink |Sim |Link do portal Azure para a página sumária do recurso-alvo |
-| oldCapacity |Sim |A contagem atual (antiga) de instância quando a Escala Automática tomou uma ação de escala |
-| novaCapacidade |Sim |A nova contagem de casos que autoescala escala o recurso para |
-| propriedades |Não |Opcional. Conjunto de pares <Key, Value> (por exemplo, Dicionário <String, String>). O campo de propriedades é opcional. Numa interface personalizada do utilizador ou no fluxo de trabalho baseado em aplicações lógicas, pode introduzir chaves e valores que podem ser passados através da carga útil. Uma forma alternativa de passar propriedades personalizadas de volta à chamada de webhook de saída é usar o próprio WEBhook URI (como parâmetros de consulta) |
+| status |sim |O estado que indica que uma ação de autoescala foi gerada |
+| operação |sim |Para um aumento de casos, será "Scale out" e, para uma diminuição de casos, será "Scale In" |
+| contexto |sim |O contexto de ação de autoescala |
+| carimbo de data/hora |sim |Carimbo de tempo quando a ação de autoescala foi desencadeada |
+| ID |Sim |ID do gestor de recursos da definição de autoescala |
+| name |Sim |O nome da definição de autoescala |
+| detalhes |Sim |Explicação da ação que o serviço de autoescala tomou e a alteração na contagem de exemplos |
+| subscriptionId |Sim |ID de subscrição do recurso-alvo que está a ser dimensionado |
+| resourceGroupName |Sim |Nome do Grupo de Recursos do recurso-alvo que está a ser dimensionado |
+| resourceName |Sim |Nome do recurso-alvo que está a ser dimensionado |
+| resourceType |Sim |Os três valores suportados: "microsoft.classiccompute/domainnames/slots/roles" - Funções cloud service, "microsoft.compute/virtualmachinescalesets" - Conjuntos de escala de máquina virtual e "Microsoft.Web/serverfarms" - Web App |
+| resourceId |Sim |ID do gestor de recursos do recurso-alvo que está a ser dimensionado |
+| portalLink |Sim |Ligação do portal Azure à página sumária do recurso-alvo |
+| oldCapacity |Sim |A contagem de instâncias (antiga) atual quando a Autoscale tomou uma ação de escala |
+| nova capacidade |Sim |A nova contagem de exemplos que Autoscale dimensionou o recurso para |
+| propriedades |Não |Opcional. Conjunto de <Tecla, Pares de valor> (por exemplo, Dicionário <String, String>). O campo de propriedades é opcional. Numa interface personalizada de utilizador ou fluxo de trabalho baseado em aplicações lógicas, pode introduzir teclas e valores que podem ser passados usando a carga útil. Uma forma alternativa de passar propriedades personalizadas de volta para a chamada webhook de saída é usar o webhook URI em si (como parâmetros de consulta) |
 
