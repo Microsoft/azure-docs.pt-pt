@@ -1,7 +1,7 @@
 ---
-title: Política de gestão da Amostra API - Filtrar no endereço IP ao utilizar o Gateway da Aplicação
+title: Política de gestão da amostra da API - Filtrar no endereço IP ao utilizar o Gateway de Aplicação
 titleSuffix: Azure API Management
-description: Amostra de política de gestão da API Azure - Demonstra como filtrar o endereço IP solicitado ao utilizar um Gateway de aplicação.
+description: Amostra de política de gestão Azure API - Demonstra como filtrar no endereço IP do pedido quando se utiliza um Gateway de aplicação.
 services: api-management
 documentationcenter: ''
 author: jftl6y
@@ -13,25 +13,24 @@ ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
 ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75942480"
 ---
-# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrar no endereço IP pedido ao utilizar um Gateway de Aplicação
+# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrar a pedido endereço IP ao utilizar um Gateway de aplicação
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como filtra o endereço IP solicitado quando a instância de Gestão da API é acedida através de um Gateway de Aplicação ou de outro intermediário. Para definir ou editar um código de política, siga os passos descritos no [set ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras políticas.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como o filtro no endereço IP do pedido quando a instância de Gestão da API é acedida através de um Gateway de Aplicação ou de outro intermediário. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
 
 ## <a name="policy"></a>Política
 
-Cola o código no bloco **de entrada.**
+Cole o código no bloco **de entrada.**
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Filter on IP Address when using Application Gateway.policy.xml)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de restrições de acesso](../api-management-access-restriction-policies.md)
-+ [Amostras políticas](../policy-samples.md)
++ [Amostras de política](../policy-samples.md)

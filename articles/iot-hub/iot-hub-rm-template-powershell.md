@@ -1,6 +1,6 @@
 ---
-title: Crie um Hub Azure IoT usando um modelo (PowerShell) / Microsoft Docs
-description: Como usar um modelo de Gestor de Recursos Azure para criar um Hub IoT com O PowerShell Azure.
+title: Criar um Hub Azure IoT usando um modelo (PowerShell) Microsoft Docs
+description: Como utilizar um modelo de Gestor de Recursos Azure para criar um Hub IoT com Azure PowerShell.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -9,31 +9,30 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976611"
 ---
-# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Crie um hub IoT usando o modelo de Gestor de Recursos Azure (PowerShell)
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Crie um hub IoT utilizando o modelo Azure Resource Manager (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Aprenda a usar um modelo de Gestor de Recursos Azure para criar um Hub IoT e um grupo de consumidores. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para obter mais informações sobre o desenvolvimento de modelos de Gestor de Recursos, consulte a [documentação do Gestor de Recursos do Azure.](https://docs.microsoft.com/azure/azure-resource-manager/)
+Saiba como usar um modelo de Gestor de Recursos Azure para criar um Hub IoT e um grupo de consumidores. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para obter mais informações sobre o desenvolvimento de modelos de Gestor de Recursos, consulte [a documentação do Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-O modelo de Gestor de Recursos utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Aqui está uma cópia do modelo:
+O modelo de Gestor de Recursos utilizado neste arranque rápido é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Aqui está uma cópia do modelo:
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-O modelo cria um hub Azure Iot com três pontos finais (eventhub, cloud-to-device e mensagens) e um grupo de consumidores. Para mais amostras de modelo, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). O esquema do modelo Do Hub pode ser encontrado [aqui.](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions)
+O modelo cria um hub Azure Iot com três pontos finais (eventhub, cloud-to-device e mensagens) e um grupo de consumidores. Para mais amostras de modelo, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). O esquema de modelo Iot Hub pode ser encontrado [aqui.](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions)
 
-Existem vários métodos para implementar um modelo.  Usa o Azure PowerShell neste tutorial.
+Existem vários métodos para implementar um modelo.  Usas o Azure PowerShell neste tutorial.
 
-Para executar o script PowerShell, selecione **Experimente-o** para abrir a concha Azure Cloud. Para colar o script, clique na concha e, em seguida, selecione Pasta:
+Para executar o script PowerShell, selecione **experimentá-lo** para abrir a casca de Azure Cloud. Para colar o script, clique com o botão direito da concha e, em seguida, selecione Pasta:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -47,19 +46,19 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-Como pode ver no script PowerShell, o modelo utilizado é de modelos Azure Quickstart. Para utilizar o seu próprio, tem de carregar primeiro o ficheiro `-TemplateFile` do modelo para a casca cloud e, em seguida, utilizar o interruptor para especificar o nome do ficheiro.  Por exemplo, consulte [A implantação do modelo](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+Como pode ver no script PowerShell, o modelo utilizado é a partir de modelos Azure Quickstart. Para utilizar o seu próprio, tem de carregar primeiro o ficheiro do modelo para a concha cloud e, em seguida, utilizar o `-TemplateFile` interruptor para especificar o nome do ficheiro.  Por exemplo, consulte [Implementar o modelo](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora implementou um hub IoT usando um modelo de Gestor de Recursos Azure, você pode querer explorar mais:
+Agora que implementou um hub IoT utilizando um modelo de Gestor de Recursos Azure, talvez queira explorar mais:
 
 * Leia sobre as capacidades do fornecedor de [recursos IoT Hub REST API][lnk-rest-api].
-* Leia a [visão geral do Gestor de Recursos azure][lnk-azure-rm-overview] para saber mais sobre as capacidades do Gestor de Recursos Azure.
-* Para que a sintaxe e as propriedades da JSON utilizem em modelos, consulte os tipos de [recursos da Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
+* Leia [a visão geral do Azure Resource Manager][lnk-azure-rm-overview] para saber mais sobre as capacidades do Azure Resource Manager.
+* Para que a sintaxe JSON e as propriedades utilizem em modelos, consulte os [tipos de recursos microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Para saber mais sobre o desenvolvimento para o IoT Hub, consulte os seguintes artigos:
 
-* [Introdução ao C SDK][lnk-c-sdk]
+* [Introdução à C SDK][lnk-c-sdk]
 * [SDKs do Azure IoT][lnk-sdks]
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
