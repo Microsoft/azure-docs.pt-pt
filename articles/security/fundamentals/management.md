@@ -1,6 +1,6 @@
 ---
 title: Melhorar a segurança da gestão remota no Azure | Microsoft Docs
-description: Este artigo discute passos para melhorar a segurança da gestão remota enquanto administra ambientes Do Microsoft Azure, incluindo serviços na nuvem, máquinas virtuais e aplicações personalizadas.
+description: Este artigo discute medidas para melhorar a segurança da gestão remota enquanto administra ambientes do Microsoft Azure, incluindo serviços na nuvem, máquinas virtuais e aplicações personalizadas.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80981312"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
@@ -119,7 +118,7 @@ Um Gateway de ambiente de trabalho remoto é um serviço proxy baseado na polít
 Em geral, ajudar a proteger estações de trabalho do administrador para utilização com a cloud é semelhante às práticas utilizadas em qualquer estação de trabalho no local, como, por exemplo, compilação minimizada e permissões restritivas. Alguns aspetos exclusivos da gestão de nuvem são mais comparáveis à gestão empresarial remota ou sem rede IP. Estes incluem a utilização e auditoria de credenciais, acesso remoto com segurança avançada e deteção de ameaças e resposta.
 
 ### <a name="authentication"></a>Autenticação
-Pode utilizar as restrições de início de sessão do Azure para restringir os endereços IP de origem de acederem às ferramentas administrativas e aos pedidos de acesso de auditoria. Para ajudar o Azure a identificar clientes de gestão (estações de trabalho e/ou aplicações), pode configurar tanto o SMAPI (através de ferramentas desenvolvidas pelo cliente, como os cmdlets Windows PowerShell) e o portal Azure para exigir a instalação de certificados de gestão do lado do cliente, além dos certificados TLS/SSL. Recomendamos também que o acesso de administrador exija uma autenticação multifator.
+Pode utilizar as restrições de início de sessão do Azure para restringir os endereços IP de origem de acederem às ferramentas administrativas e aos pedidos de acesso de auditoria. Para ajudar o Azure a identificar clientes de gestão (estações de trabalho e/ou aplicações), pode configurar tanto o SMAPI (através de ferramentas desenvolvidas pelo cliente, como os cmdlets Windows PowerShell) como o portal Azure para exigir a instalação de certificados de gestão do lado do cliente, além dos certificados TLS/SSL. Recomendamos também que o acesso de administrador exija uma autenticação multifator.
 
 Algumas aplicações ou serviços que implementa no Azure podem ter os seus próprios mecanismos de autenticação para acesso de administrador e de utilizador final, enquanto que outros tiram o máximo partido do Azure AD. Dependendo se está a utilizar credenciais de federação através doa Serviços de Federação do Active Directory (AD FS), a utilizar a sincronização de diretórios ou a gerir contas de utilizador apenas na nuvem, utilizar o [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte do Azure AD Premium) ajuda-o a gerir os ciclos de tempo de identidade entre os recursos.
 
@@ -209,7 +208,7 @@ Minimizar o número de tarefas que os administradores podem realizar numa estaç
 ## <a name="summary"></a>Resumo
 Utilizar uma configuração de estação de trabalho protegida para administrar os Cloud Services, as Virtual Machines e as aplicações do Azure pode ajudar a evitar vários riscos e ameaças que podem resultar da gestão remota de uma infraestrutura de TI crítica. Tanto o Azure como o Windows fornecem mecanismos que pode utilizar para ajudar a proteger e controlar as comunicações, a autenticação e o comportamento do cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os recursos seguintes estão disponíveis para fornecer informações mais gerais acerca do Azure e dos serviços relacionados da Microsoft, para além de itens específicos referenciados neste documento:
 
 * [Proteger o Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) – obtenha os detalhes técnicos para estruturação e criação de uma estação de trabalho administrativa segura para gestão do Azure

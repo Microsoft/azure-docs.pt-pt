@@ -1,6 +1,6 @@
 ---
 title: Autenticação de saída
-description: Saiba como configurar ou remover a autenticação de saída para o Programador Azure
+description: Saiba como configurar ou remover a autenticação de saída para o Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,64 +9,63 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878974"
 ---
-# <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para O Scheduler Azure
+# <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Azure Scheduler
 
 > [!IMPORTANT]
-> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por [favor, emigre para as Aplicações Lógicas Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rapidamente possível. 
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que estabeleceu no Scheduler, [por favor, migra para a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rápido possível. 
 >
-> O agendador já não está disponível no portal Azure, mas os cmdlets Rest [API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e recolhas de emprego.
+> O programador já não está disponível no portal Azure, mas os cmdlets [REST API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e coleções de emprego.
 
-Os trabalhos do Azure Scheduler poderão ter de chamar serviços que exijam a autenticação, como outros serviços Azure, Salesforce.com, Facebook e sites personalizados seguros. O chamado serviço pode determinar se o trabalho do Scheduler pode aceder aos recursos solicitados. 
+Os trabalhos do Azure Scheduler podem ter de chamar serviços que exijam autenticação, como outros serviços da Azure, Salesforce.com, Facebook e sites personalizados seguros. O serviço chamado pode determinar se o trabalho do Agendador pode aceder aos recursos solicitados. 
 
-O agendador suporta estes modelos de autenticação: 
+O programador suporta estes modelos de autenticação: 
 
-* Autenticação do certificado de *cliente* ao utilizar certificados de cliente SSL/TLS
-* Autenticação *básica*
-* *Autenticação Ativa OAuth OAuth*
+* *Autenticação de certificado* de cliente ao utilizar certificados de cliente SSL/TLS
+* *Autenticação básica*
+* *Autenticação ativa do Diretório OAuth*
 
 ## <a name="add-or-remove-authentication"></a>Adicionar ou remover a autenticação
 
-* Para adicionar a autenticação a um trabalho de Scheduler, `authentication` quando criar ou atualizar o trabalho, `request` adicione o elemento infantil JavaScript Object Notation (JSON) ao elemento. 
+* Para adicionar autenticação a uma função de Agendador, quando criar ou atualizar o trabalho, adicione o `authentication` elemento de notação de objeto JavaScript (JSON) ao `request` elemento. 
 
-  As respostas nunca devolvem segredos que são passados ao serviço `authentication` Scheduler através de um pedido DE PUT, PATCH ou POST no objeto. 
-  As respostas estabelecem informações secretas para nula ou podem usar um símbolo público que representa a entidade autenticada. 
+  As respostas nunca devolvem segredos que são transmitidos ao serviço Do Agendador através de um pedido DE PUT, PATCH ou POST no `authentication` objeto. 
+  As respostas definem informações secretas para nulos ou podem usar um símbolo público que representa a entidade autenticada. 
 
-* Para remover a autenticação de um trabalho de Scheduler, execute explicitamente um pedido DE PUT ou PATCH no trabalho e coloque o `authentication` objeto em nulo. A resposta não conterá propriedades de autenticação.
+* Para remover a autenticação de uma função de Agendador, executar explicitamente um pedido DEM ou PATCH no trabalho e definir o `authentication` objeto para nulo. A resposta não conterá nenhuma propriedade de autenticação.
 
 ## <a name="client-certificate"></a>Certificado de cliente
 
-### <a name="request-body---client-certificate"></a>Órgão de pedido - Certificado de cliente
+### <a name="request-body---client-certificate"></a>Entidade de pedido - Certificado de cliente
 
-Ao adicionar a `ClientCertificate` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.  
+Ao adicionar a autenticação utilizando o `ClientCertificate` modelo, especifique estes elementos adicionais no corpo de pedido.  
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL/TLS |
-| **tipo** | Sim | O tipo de autenticação. Para os certificados de cliente SSL/TLS, o valor é `ClientCertificate`. |
-| **pfx** | Sim | O conteúdo codificado base64 do ficheiro PFX |
-| **palavra-passe** | Sim | A palavra-passe para aceder ao ficheiro PFX |
+| **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor é `ClientCertificate` . |
+| **pfx** | Sim | O conteúdo codificado de base64 do ficheiro PFX |
+| **palavra-passe** | Sim | A senha de acesso ao ficheiro PFX |
 ||| 
 
-### <a name="response-body---client-certificate"></a>Corpo de resposta - Certificado de cliente 
+### <a name="response-body---client-certificate"></a>Entidade de resposta - Certificado de cliente 
 
 Quando um pedido é enviado com informações de autenticação, a resposta contém estes elementos de autenticação.
 
 | Elemento | Descrição | 
 |---------|-------------| 
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL/TLS |
-| **tipo** | O tipo de autenticação. Para os certificados de cliente SSL/TLS, o valor é `ClientCertificate`. |
+| **tipo** | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor é `ClientCertificate` . |
 | **certificateThumbprint** |A impressão digital do certificado |
-| **certificadoNome subjectname** |O nome distinto do sujeito do certificado |
+| **certificadoSubjectName** |O nome distinto do sujeito do certificado |
 | **certificadoExpiração** | Data de validade do certificado |
 ||| 
 
-### <a name="sample-rest-request---client-certificate"></a>Pedido de recção de amostra - Certificado de cliente
+### <a name="sample-rest-request---client-certificate"></a>Pedido de amostra DE REPOUSO - Certificado de cliente
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -103,7 +102,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---client-certificate"></a>Resposta do REST da amostra - Certificado de cliente
+### <a name="sample-rest-response---client-certificate"></a>Resposta do repouso da amostra - Certificado de cliente
 
 ```json
 HTTP/1.1 200 OKCache-Control: no-cache
@@ -159,18 +158,18 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Básico
+## <a name="basic"></a>Básica
 
-### <a name="request-body---basic"></a>Órgão de pedido - Básico
+### <a name="request-body---basic"></a>Corpo de pedido - Básico
 
-Ao adicionar a `Basic` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.
+Ao adicionar a autenticação utilizando o `Basic` modelo, especifique estes elementos adicionais no corpo de pedido.
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
-| **autenticação** (elemento-mãe) | O objeto de autenticação para utilização de autenticação básica | 
-| **tipo** | Sim | O tipo de autenticação. Para autenticação básica, `Basic`o valor é . | 
+| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização da autenticação básica | 
+| **tipo** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic` . | 
 | **nome de utilizador** | Sim | O nome de utilizador para autenticar | 
-| **palavra-passe** | Sim | A palavra-passe para autenticar |
+| **palavra-passe** | Sim | A senha para autenticar |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo de resposta - Básico
@@ -179,12 +178,12 @@ Quando um pedido é enviado com informações de autenticação, a resposta cont
 
 | Elemento | Descrição | 
 |---------|-------------|
-| **autenticação** (elemento-mãe) | O objeto de autenticação para utilização de autenticação básica |
-| **tipo** | O tipo de autenticação. Para autenticação básica, `Basic`o valor é . |
+| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização da autenticação básica |
+| **tipo** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic` . |
 | **nome de utilizador** | O nome de utilizador autenticado |
 ||| 
 
-### <a name="sample-rest-request---basic"></a>Pedido de REPOUSO da amostra - Básico
+### <a name="sample-rest-request---basic"></a>Pedido de repouso da amostra - Básico
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -222,7 +221,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---basic"></a>Resposta do REST da amostra - Básico
+### <a name="sample-rest-response---basic"></a>Resposta do REPOUSO da amostra - Básico
 
 ```json
 HTTP/1.1 200 OK
@@ -279,34 +278,34 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 ## <a name="active-directory-oauth"></a>Diretório Ativo OAuth
 
-### <a name="request-body---active-directory-oauth"></a>Órgão de pedido - Diretório Ativo OAuth 
+### <a name="request-body---active-directory-oauth"></a>Órgão de pedido - Ative Directory OAuth 
 
-Ao adicionar a `ActiveDirectoryOAuth` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.
+Ao adicionar a autenticação utilizando o `ActiveDirectoryOAuth` modelo, especifique estes elementos adicionais no corpo de pedido.
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | Sim | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
-| **tipo** | Sim | O tipo de autenticação. Para autenticação ActiveDirectoryOAuth, `ActiveDirectoryOAuth`o valor é . |
-| **inquilino** | Sim | O inquilino identificador para o inquilino da AD Azure. Para encontrar o identificador de inquilino para `Get-AzureAccount` o inquilino da AD Azure, corra em Azure PowerShell. |
-| **público** | Sim | Este valor está `https://management.core.windows.net/`definido para . | 
-| **clientId** | Sim | O identificador de cliente para a aplicação Azure AD | 
-| **segredo** | Sim | O segredo para o cliente que está a pedir o símbolo | 
+| **tipo** | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . |
+| **tenant** | Sim | O identificador de inquilino do inquilino da AD Azure. Para encontrar o identificador de inquilino para o inquilino da Ad Azure, corra `Get-AzureAccount` em Azure PowerShell. |
+| **público** | Sim | Este valor está definido para `https://management.core.windows.net/` . | 
+| **clientId** | Sim | O identificador de cliente para a aplicação AD Azure | 
+| **segredo** | Sim | O segredo para o cliente que está pedindo o sinal | 
 |||| 
 
-### <a name="response-body---active-directory-oauth"></a>Corpo de resposta - Diretório Ativo OAuth
+### <a name="response-body---active-directory-oauth"></a>Órgão de resposta - Ative Directory OAuth
 
 Quando um pedido é enviado com informações de autenticação, a resposta contém estes elementos de autenticação.
 
 | Elemento | Descrição |
 |---------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
-| **tipo** | O tipo de autenticação. Para autenticação ActiveDirectoryOAuth, `ActiveDirectoryOAuth`o valor é . | 
-| **inquilino** | O inquilino identificador para o inquilino da AD Azure |
-| **público** | Este valor está `https://management.core.windows.net/`definido para . |
-| **clientId** | O identificador de cliente para a aplicação Azure AD |
+| **tipo** | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth` . | 
+| **tenant** | O identificador de inquilino do inquilino da Ad Azure |
+| **público** | Este valor está definido para `https://management.core.windows.net/` . |
+| **clientId** | O identificador de cliente para a aplicação AD Azure |
 ||| 
 
-### <a name="sample-rest-request---active-directory-oauth"></a>Pedido de REPOUSO da amostra - Diretório Ativo OAuth
+### <a name="sample-rest-request---active-directory-oauth"></a>Pedido de repouso da amostra - Ative Directory OAuth
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -346,7 +345,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---active-directory-oauth"></a>Resposta do REST da amostra - Diretório Ativo OAuth
+### <a name="sample-rest-response---active-directory-oauth"></a>Resposta do SAMPLE REST - Ative Directory OAuth
 
 ```json
 HTTP/1.1 200 OK
@@ -404,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

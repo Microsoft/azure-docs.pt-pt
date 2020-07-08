@@ -1,6 +1,6 @@
 ---
-title: Alterar incumprimentos de vida simbólicos para aplicações personalizadas do Azure AD
-description: Como atualizar as políticas token Lifetime para a sua aplicação que está a desenvolver no Azure AD
+title: Alterar incumprimentos de vida de token para aplicações AD personalizadas Azure
+description: Como atualizar as políticas da Token Lifetime para a sua aplicação que está a desenvolver no Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,22 +12,21 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883358"
 ---
-# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida simbólicos para uma aplicação desenvolvida sob medida
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida de símbolo para uma aplicação desenvolvida sob medida
 
-Este artigo mostra como usar o Azure AD PowerShell para definir uma política de vida simbólica. O Azure AD Premium permite que os desenvolvedores de aplicações e administradores de inquilinos configurem a vida útil dos tokens emitidos para clientes não confidenciais. As políticas de token vitalícia são definidas numa base de arrendamento ou os recursos a serem acedidos.
+Este artigo mostra como usar a Azure AD PowerShell para definir uma política de vida simbólica. O Azure AD Premium permite que os desenvolvedores de aplicações e administradores de inquilinos configurem a vida de tokens emitidos para clientes não confidenciais. As políticas de vida token são definidas numa base de inquilino ou os recursos que estão a ser acedidos.
 
-1. Para definir uma política simbólica de vida, precisa de descarregar o Módulo PowerShell Da [AD Azure](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Executar o comando **Connect-AzureAD -Confirmar.**
+1. Para definir uma política de vida útil simbólica, você precisa baixar o [Módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Executar o **comando Connect-AzureAD -Confirmar.**
 
-    Aqui está uma política de exemplo que define a idade máxima single fator refresh token. Criar a política:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+    Aqui está uma política de exemplo que define o fator único de idade máxima a refreshken. Criar a política:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Consulte a [configurável vida útil em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) para aprender a configurar vidas simbólicas emitidas pela Azure AD, incluindo como definir vidas simbólicas para todas as aplicações da sua organização, para uma aplicação multi-inquilino, ou para um diretor de serviço específico na sua organização. 
-* [Referência simbólica azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Consulte [as vidas de token configurantes em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) para aprender a configurar vidas simbólicas emitidas pela Azure AD, incluindo como definir vidas simbólicas para todas as aplicações da sua organização, para uma app multi-inquilino, ou para um diretor de serviço específico na sua organização. 
+* [Referência simbólica Azure Ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)

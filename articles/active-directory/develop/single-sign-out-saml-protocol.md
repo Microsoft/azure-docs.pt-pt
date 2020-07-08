@@ -1,6 +1,6 @@
 ---
-title: Protocolo SAML de assinatura única azure
-description: Este artigo descreve o Protocolo SAML de Inscrição Única no Diretório Ativo Azure
+title: Azure Single Sign out Protocolo SAML
+description: Este artigo descreve o Protocolo SAML de assinatura única no Diretório Ativo Azure
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,22 +13,21 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dbe21d020d5d01f24913b95587721403fa218cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881271"
 ---
-# <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de inscrição única
+# <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de assinatura única
 
-O Azure Ative Directory (Azure AD) suporta o perfil único de inscrição do navegador Web SAML 2.0. Para que o registo único funcione corretamente, o **LogoutURL** para a aplicação deve ser explicitamente registado com a AD Azure durante o registo da aplicação. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de assinado.
+O Azure Ative Directory (Azure AD) suporta o perfil de sessão de assinatura único do navegador SAML 2.0. Para que a súmis funcione corretamente, o **LogoutURL** para o pedido deve ser explicitamente registado no Azure AD durante o registo da aplicação. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de terem sido assinados.
 
-O diagrama seguinte mostra o fluxo de trabalho do processo de inscrição único da AD Azure.
+O diagrama seguinte mostra o fluxo de trabalho do processo de assinatura único Azure AD.
 
-![Fluxo de trabalho de sinal único azure AD](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
+![Azure Ad único sinal fora fluxo de trabalho](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
 
-## <a name="logoutrequest"></a>Pedido de Logout
-O serviço de `LogoutRequest` nuvem envia uma mensagem à AD Azure para indicar que uma sessão foi encerrada. O seguinte excerto `LogoutRequest` mostra um elemento de amostra.
+## <a name="logoutrequest"></a>LogoutRequest
+O serviço de nuvem envia uma `LogoutRequest` mensagem para a Azure AD para indicar que uma sessão foi terminada. O seguinte excerto mostra um elemento de `LogoutRequest` amostra.
 
 ```
 <samlp:LogoutRequest xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="idaa6ebe6839094fe4abc4ebd5281ec780" Version="2.0" IssueInstant="2013-03-28T07:10:49.6004822Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -37,21 +36,21 @@ O serviço de `LogoutRequest` nuvem envia uma mensagem à AD Azure para indicar 
 </samlp:LogoutRequest>
 ```
 
-### <a name="logoutrequest"></a>Pedido de Logout
-O `LogoutRequest` elemento enviado para a AD Azure requer os seguintes atributos:
+### <a name="logoutrequest"></a>LogoutRequest
+O `LogoutRequest` elemento enviado para a Azure AD requer os seguintes atributos:
 
-* `ID`Isto identifica o pedido de inscrição. O valor `ID` não deve começar com um número. A prática típica é anexar a **identificação** à representação de cordas de um GUID.
-* `Version`- Desajuste o valor deste elemento para **2.0**. Este valor é preciso.
-* `IssueInstant`- Trata-se de uma `DateTime` cadeia com um valor de Tempo Universal (UTC) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). A Azure AD espera um valor deste tipo, mas não o aplica.
+* `ID`- Isto identifica o pedido de inscrição. O valor de `ID` não deve começar com um número. A prática típica é anexar o **id** à representação de cordas de um GUID.
+* `Version`- Desa couuser o valor deste elemento a **2.0**. Este valor é preciso.
+* `IssueInstant`- Trata-se de uma `DateTime` cadeia com um valor de Tempo Universal coordenado (UTC) e formato de ida e volta [("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). A AZure AD espera um valor deste tipo, mas não o aplica.
 
 ### <a name="issuer"></a>Emissor
-O `Issuer` elemento `LogoutRequest` num must exatamente coincidir com um dos **ServicePrincipaNames** no serviço de nuvem em Azure AD. Normalmente, isto é definido para o **ID da aplicação URI** que é especificado durante o registo da aplicação.
+O `Issuer` elemento num must corresponde `LogoutRequest` exatamente a um dos **nomes ServicePrincipalNames** no serviço de nuvem em Azure AD. Normalmente, isto é definido para o **ID URI da app** que é especificado durante o registo da aplicação.
 
-### <a name="nameid"></a>Id nome
-O valor `NameID` do elemento deve `NameID` corresponder exatamente ao do utilizador que está a ser assinado.
+### <a name="nameid"></a>NameID
+O valor do `NameID` elemento deve corresponder exatamente ao do utilizador `NameID` que está a ser assinado.
 
-## <a name="logoutresponse"></a>Resposta de logout
-A AD Azure envia `LogoutResponse` `LogoutRequest` uma resposta a um elemento. O seguinte excerto `LogoutResponse`mostra uma amostra .
+## <a name="logoutresponse"></a>LogoutResponse
+Azure AD envia uma `LogoutResponse` resposta a um `LogoutRequest` elemento. O seguinte excerto mostra uma `LogoutResponse` amostra.
 
 ```
 <samlp:LogoutResponse ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -62,13 +61,13 @@ A AD Azure envia `LogoutResponse` `LogoutRequest` uma resposta a um elemento. O 
 </samlp:LogoutResponse>
 ```
 
-### <a name="logoutresponse"></a>Resposta de logout
-A AD Azure `ID` `Version` define `IssueInstant` os `LogoutResponse` valores e valores no elemento. Também define o `InResponseTo` elemento ao valor `ID` do atributo do `LogoutRequest` que provocou a resposta.
+### <a name="logoutresponse"></a>LogoutResponse
+Azure AD define o `ID` , `Version` e `IssueInstant` valores no `LogoutResponse` elemento. Também define o `InResponseTo` elemento ao valor do atributo do que provocou a `ID` `LogoutRequest` resposta.
 
 ### <a name="issuer"></a>Emissor
-A Azure AD define `https://login.microsoftonline.com/<TenantIdGUID>/` \<este valor para onde o TenantIdGUID> é o iD inquilino do inquilino Azure AD.
+A Azure AD define este valor `https://login.microsoftonline.com/<TenantIdGUID>/` para onde está a \<TenantIdGUID> identificação do inquilino do inquilino Azure AD.
 
-Para avaliar o `Issuer` valor do elemento, utilize o valor do **ID da aplicação URI** fornecido durante o registo da candidatura.
+Para avaliar o valor do `Issuer` elemento, utilize o valor da **App ID URI** fornecida durante o registo da aplicação.
 
 ### <a name="status"></a>Estado
-A AD Azure utiliza o `StatusCode` elemento no `Status` elemento para indicar o sucesso ou falha de inscrição. Quando a tentativa de inscrição `StatusCode` falha, o elemento também pode conter mensagens de erro personalizadas.
+A Azure AD utiliza o `StatusCode` elemento no elemento para indicar o sucesso ou falha da `Status` sedência. Quando a tentativa de inscrição falhar, o `StatusCode` elemento também pode conter mensagens de erro personalizadas.

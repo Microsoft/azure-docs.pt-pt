@@ -1,6 +1,6 @@
 ---
-title: Ligue para a web APIs a partir de uma aplicação de desktop - plataforma de identidade microsoft / Azure
-description: Saiba como construir uma aplicação de desktop que chama APIs web
+title: Ligue para APIs web a partir de uma aplicação de desktop - Plataforma de identidade microsoft / Rio Azure
+description: Saiba como construir uma aplicação de desktop que chame APIs web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,15 +12,14 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882969"
 ---
-# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicação de desktop que chama APIs web: Ligue para uma Web API
+# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicativo de desktop que chama APIs web: Ligue para uma API web
 
-Agora que tem um símbolo, pode chamar uma API protegida.
+Agora que tem um símbolo, pode chamar uma API protegida da web.
 
 ## <a name="call-a-web-api"></a>Chamar uma API Web
 
@@ -62,9 +61,9 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # <a name="macos"></a>[MacOS](#tab/macOS)
 
-## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Ligue para uma Web API em MSAL para iOS e macOS
+## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Ligue para uma API web em MSAL para iOS e macOS
 
-Os métodos para adquirir `MSALResult` fichas devolvem um objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API web. Adicione um sinal de acesso ao cabeçalho de autorização http antes de fazer a chamada para aceder à API da web protegida.
+Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de escorria a chamada para aceder à API web protegida.
 
 Objetivo C:
 
@@ -80,7 +79,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift:
+Rápido:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -92,9 +91,9 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Ligue para várias APIs: Consentimento incremental e acesso condicional
+## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Ligue para vários APIs: Consentimento incremental e acesso condicional
 
-Para ligar para várias APIs para o mesmo utilizador, depois `AcquireTokenSilent`de obter um sinal para a primeira API, ligue . Vais receber um sinal para as outras APIs silenciosamente a maior parte do tempo.
+Para ligar para vários APIs para o mesmo utilizador, depois de obter um token para a primeira API, ligue `AcquireTokenSilent` . Vais receber um símbolo para as outras APIs silenciosamente a maior parte do tempo.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -104,10 +103,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-A interação é necessária quando:
+É necessária interação quando:
 
-- O utilizador consentiu na primeira API, mas agora precisa de consentir mais âmbitos. Este tipo de consentimento é conhecido como consentimento incremental.
-- A primeira API não requereu a autenticação multifactor, mas a próxima requer.
+- O utilizador consentiu na primeira API mas agora precisa de consentir por mais âmbitos. Este tipo de consentimento é conhecido como consentimento incremental.
+- A primeira API não requera autenticação multifactor, mas a próxima precisa.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -127,7 +126,7 @@ catch(MsalUiRequiredException ex)
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-desktop-production.md)
+> [Mover-se para a produção](scenario-desktop-production.md)

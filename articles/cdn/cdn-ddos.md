@@ -1,6 +1,6 @@
 ---
-title: Capacidades de proteção DDoS Azure CDN / Microsoft Docs
-description: O Azure CDN da Microsoft está protegido pela DDoS Protection sem custos adicionais
+title: Capacidades de Proteção DDoS do Azure CDN Microsoft Docs
+description: O Azure CDN da Microsoft está protegido pela DDoS Protection básico sem custos adicionais
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,28 +15,27 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: dc7af555bcaf8654ecdb27d804cbef0c2cedb284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81253820"
 ---
-# <a name="azure-cdn-ddos-protection"></a>Proteção DDoS Azure CDN
+# <a name="azure-cdn-ddos-protection"></a>Proteção Azure CDN DDos
 
-Uma rede de entrega de conteúdos fornece proteção DDoS por design. Além da capacidade global de absorver ataques volutrôricos, o Azure CDN tem proteção adicional de DDoS, tal como descrito abaixo, sem custos adicionais.
+Uma rede de entrega de conteúdos fornece proteção DDoS por design. Além da capacidade global de absorver ataques volumosos, a Azure CDN tem uma proteção adicional de DDoS, conforme descrito abaixo, sem custos adicionais.
 
 ## <a name="azure-cdn-from-microsoft"></a>Azure CDN da Microsoft
 
-O Azure CDN da Microsoft está protegido por [DDoS Básicos Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). Está integrado no CDN Azure a partir da plataforma da Microsoft por padrão e sem custos adicionais. A escala e a capacidade total do Azure CDN da rede globalmente implantada da Microsoft fornecem defesa contra ataques comuns de camadas de rede através de monitorização de tráfego sempre on-on e mitigação em tempo real. A proteção básica do DDoS também se defende contra os mais comuns, frequentemente ocorrendo as inundações de consulta de Camada 7 DNS e os ataques volumetôricos da Camada 3 e 4 que visam os pontos finais da CDN. Este serviço também tem um histórico comprovado na proteção dos serviços empresariais e de consumo da Microsoft contra ataques em larga escala.
+O Azure CDN da Microsoft está protegido pelo [Azure Basic DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). Está integrado no Azure CDN a partir da plataforma da Microsoft por padrão e sem custo adicional. A escala e capacidade total do Azure CDN da rede globalmente implantada da Microsoft fornece defesa contra ataques comuns de camadas de rede através de monitorização de tráfego sempre ligado e mitigação em tempo real. A proteção DDoS básica também se defende contra os ataques de perguntas dNS da camada 7 e da camada 3 e 4 da camada 3 e 4 que visam os pontos finais do CDN. Este serviço também tem um histórico comprovado na proteção das empresas e dos serviços de consumo da Microsoft contra ataques em larga escala.
 
 ## <a name="azure-cdn-from-verizon"></a>Azure CDN de Verizon
 
-O Azure CDN da Verizon está protegido pela plataforma de mitigação dDoS proprietária da Verzion. Está integrado no Azure CDN de Verizon por defeito e sem custos adicionais. Fornece proteção básica contra os mais comuns, frequentemente ocorrendo em Camada 7 DNS Query Inundações e Camada 3 e 4 ataques volutoricos que visam pontos finais CDN.
+O Azure CDN de Verizon está protegido pela plataforma de mitigação DDoS proprietária da Verzion. Está integrado na Azure CDN da Verizon por defeito e sem custos adicionais. Fornece proteção básica contra as inundações de consultas de DNS da camada 7 mais comuns e frequentemente ocorrentes e ataques volumosos da Camada 3 e 4 que visam os pontos finais do CDN.
 
 ## <a name="azure-cdn-from-akamai"></a>Azure CDN da Akamai
 
-O Azure CDN da Akamai está protegido pela plataforma de mitigação dDoS proprietária da Akamai. Está integrado no Azure CDN da Akamai por defeito e sem custos adicionais. Fornece proteção básica contra os mais comuns, frequentemente ocorrendo em Camada 7 DNS Query Inundações e Camada 3 e 4 ataques volutoricos que visam pontos finais CDN.
+O Azure CDN da Akamai está protegido pela plataforma de mitigação DDoS proprietária da Akamai. Está integrado na Azure CDN da Akamai por padrão e sem custos adicionais. Fornece proteção básica contra as inundações de consultas de DNS da camada 7 mais comuns e frequentemente ocorrentes e ataques volumosos da Camada 3 e 4 que visam os pontos finais do CDN.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [o Azure DDoS.](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview) 
+Saiba mais sobre [o Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). 

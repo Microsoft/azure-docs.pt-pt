@@ -1,38 +1,37 @@
 ---
 title: Funções definidas pelo utilizador (UDFs) em Azure Cosmos DB
-description: Conheça as funções definidas pelo Utilizador no Azure Cosmos DB.
+description: Saiba mais sobre funções definidas pelo utilizador no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011128"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funções definidas pelo utilizador (UDFs) em Azure Cosmos DB
 
-A API SQL fornece suporte para funções definidas pelo utilizador (UDFs). Com UDFs escalar, você pode passar em zero ou muitos argumentos e devolver um único resultado de argumento. A API verifica cada argumento por serem valores legais da JSON.  
+A API SQL fornece suporte para funções definidas pelo utilizador (UDFs). Com UDFs escalar, pode passar em zero ou muitos argumentos e devolver um único resultado de argumento. A API verifica cada argumento por ser valores JSON legais.  
 
-## <a name="udf-use-cases"></a>UDF usa casos
+## <a name="udf-use-cases"></a>Casos de utilização da UDF
 
-A API alarga a sintaxe SQL para apoiar a lógica de aplicação personalizada usando UDFs. Pode registar UDFs com a API SQL e remeti-las em consultas SQL. Ao contrário dos procedimentos e gatilhos armazenados, os UDFs são apenas de leitura.
+A API estende a sintaxe SQL para suportar a lógica de aplicação personalizada usando UDFs. Pode registar UDFs com a API SQL e faz referência em consultas SQL. Ao contrário dos procedimentos e gatilhos armazenados, os UDFs são apenas de leitura.
 
-Usando UDFs, você pode estender a linguagem de consulta do Azure Cosmos DB. Os UDFs são uma ótima maneira de expressar uma lógica de negócio complexa na projeção de uma consulta.
+Utilizando UDFs, pode estender a linguagem de consulta do Azure Cosmos DB. As UDFs são uma ótima maneira de expressar lógica de negócio complexa na projeção de uma consulta.
 
-No entanto, recomendamos evitar UDFs quando:
+No entanto, recomendamos evitar os UDFs quando:
 
-- Já existe uma [função](sql-query-system-functions.md) de sistema equivalente no Azure Cosmos DB. As funções do sistema usarão sempre menos RU's do que a UDF equivalente.
-- A UDF é o `WHERE` único filtro na cláusula da sua consulta. A UDF's não utiliza o índice, pelo que avaliar a UDF exigirá documentos de carregamento. A combinação de predicados de filtro adicionais que utilizam `WHERE` o índice, em combinação com uma UDF, na cláusula reduzirá o número de documentos processados pela UDF.
+- Já existe [uma função](sql-query-system-functions.md) equivalente do sistema na Azure Cosmos DB. As funções do sistema utilizarão sempre menos RU's do que o equivalente uDF.
+- O UDF é o único filtro na `WHERE` cláusula da sua consulta. Os UDF não utilizam o índice, pelo que a avaliação do UDF exigirá documentos de carregamento. Combinando predicados de filtros adicionais que usam o índice, em combinação com um UDF, na `WHERE` cláusula reduzirá o número de documentos processados pela UDF.
 
-Se tiver de utilizar a mesma UDF várias vezes numa consulta, deve fazer referência à UDF num [subquário,](sql-query-subquery.md#evaluate-once-and-reference-many-times)permitindo-lhe utilizar uma expressão JOIN para avaliar a UDF uma vez, mas referencia-la muitas vezes.
+Se tiver de utilizar o mesmo UDF várias vezes numa consulta, deve fazer referência ao UDF num [subquery,](sql-query-subquery.md#evaluate-once-and-reference-many-times)permitindo-lhe utilizar uma expressão JOIN para avaliar o UDF uma vez, mas referencia-lo muitas vezes.
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo seguinte regista uma UDF sob um recipiente de artigos na base de dados cosmos. O exemplo cria uma UDF cujo nome é `REGEX_MATCH`. Aceita dois valores de cordas `input` `pattern`JSON e, e verifica se o primeiro corresponde `string.match()` ao padrão especificado no segundo utilizando a função javaScript.
+O exemplo a seguir regista um UDF sob um recipiente de item na base de dados cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH` . Aceita dois valores de cadeia JSON `input` e , e verifica se o primeiro corresponde ao `pattern` padrão especificado no segundo usando a função de `string.match()` JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ O exemplo seguinte regista uma UDF sob um recipiente de artigos na base de dados
            regexMatchUdf).Result;  
 ```
 
-Agora, use esta UDF numa projeção de consulta. Deve qualificar os UDFs com o `udf.` prefixo sensível ao caso quando os ligar de dentro de consultas.
+Agora, use este UDF numa projeção de consulta. Deve qualificar os UDFs com o prefixo sensível ao caso `udf.` quando os chamar de dentro de consultas.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -68,7 +67,7 @@ Os resultados são:
     ]
 ```
 
-Pode utilizar a UDF `udf.` qualificada com o prefixo dentro de um filtro, como no seguinte exemplo:
+Pode utilizar o UDF qualificado com o `udf.` prefixo dentro de um filtro, como no seguinte exemplo:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -85,9 +84,9 @@ Os resultados são:
     }]
 ```
 
-No essencial, os UDFs são expressões escalar válidas que pode utilizar tanto em projeções como em filtros.
+No essencial, os UDFs são expressões escalaras válidas que pode usar tanto em projeções como em filtros.
 
-Para expandir o poder dos UDFs, veja outro exemplo com lógica condicional:
+Para expandir o poder das UDFs, veja outro exemplo com lógica condicional:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -111,7 +110,7 @@ Para expandir o poder dos UDFs, veja outro exemplo com lógica condicional:
                 seaLevelUdf);
 ```
 
-O exemplo seguinte exerce a UDF:
+O exemplo a seguir é o UDF:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
@@ -133,11 +132,11 @@ Os resultados são:
     ]
 ```
 
-Se as propriedades referidas pelos parâmetros da UDF não estiverem disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação da UDF é ignorada. Da mesma forma, se o resultado da UDF não for definido, não está incluído no resultado.
+Se as propriedades referidas pelos parâmetros UDF não estiverem disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação UDF é ignorada. Da mesma forma, se o resultado do UDF for indefinido, não está incluído no resultado.
 
-Como os exemplos anteriores mostram, os UDFs integram o poder da linguagem JavaScript com a API SQL. Os UDFs fornecem uma rica interface programável para fazer uma lógica processual complexa e condicional com a ajuda de capacidades de execução javaScript incorporadas. A API SQL fornece os argumentos aos UDFs para cada item de origem na atual fase de processamento da cláusula WHERE ou SELECT. O resultado é incorpore-se perfeitamente no gasoduto de execução global. Em resumo, os UDFs são ótimas ferramentas para fazer uma lógica de negócio complexa como parte de consultas.
+Como os exemplos anteriores mostram, os UDFs integram o poder da linguagem JavaScript com a API SQL. Os UDFs fornecem uma interface programável rica para fazer uma lógica processual complexa e condicional com a ajuda de capacidades de tempo de execução javaScript incorporadas. A API SQL fornece os argumentos aos UDFs para cada item de origem na fase atual da cláusula WHERE ou SELECT de processamento. O resultado está perfeitamente incorporado no gasoduto de execução global. Em resumo, as UDFs são ótimas ferramentas para fazer lógicas de negócio complexas como parte de consultas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções de sistema](sql-query-system-functions.md)

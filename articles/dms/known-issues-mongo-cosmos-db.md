@@ -1,7 +1,7 @@
 ---
 title: 'Questões conhecidas: Migrar de MongoDB para Azure CosmosDB'
 titleSuffix: Azure Database Migration Service
-description: Conheça questões conhecidas e limitações de migração com migrações de MongoDB para Azure Cosmos DB utilizando o Serviço de Migração de Bases de Dados Azure.
+description: Conheça questões conhecidas e limitações migratórias com migrações de MongoDB para Azure Cosmos DB usando o Serviço de Migração da Base de Dados Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,31 +13,30 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878056"
 ---
-# <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Questões conhecidas/limitações de migração com migrações de MongoDB para API da Azure Cosmos DB para MongoDB
+# <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Questões conhecidas/limitações de migração com migrações de MongoDB para Azure Cosmos DB's API para MongoDB
 
-Questões e limitações conhecidas associadas às migrações de MongoDB para API da Cosmos DB para MongoDB são descritas nas seguintes secções.
+Questões e limitações conhecidas associadas às migrações de MongoDB para a API da Cosmos DB para o MongoDB são descritas nas seguintes secções.
 
-## <a name="migration-fails-as-a-result-of-using-the-incorrect-ssl-cert"></a>Migração falha como resultado da utilização do SSL Cert incorreto
+## <a name="migration-fails-as-a-result-of-using-the-incorrect-ssl-cert"></a>A migração falha em resultado da utilização do Cert SSL incorreto
 
-* **Sintoma**: Este problema é aparente quando um utilizador não pode ligar-se ao servidor de origem MongoDB. Apesar de ter todas as portas de firewall abertas, o utilizador ainda não consegue ligar.
+* **Sintoma**: Este problema é evidente quando um utilizador não pode ligar-se ao servidor de origem MongoDB. Apesar de ter todas as portas de firewall abertas, o utilizador ainda não consegue ligar-se.
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| A utilização de um certificado auto-assinado no Serviço de Migração de Bases de Dados Azure pode levar à falha da migração devido ao SSL Cert incorreto. A mensagem Error pode incluir "O certificado remoto é inválido de acordo com o procedimento de validação." | Use um certificado genuíno da AC.  Certs auto-assinados geralmente são usados apenas em testes internos. Quando instala um certificado genuíno de uma autoridade ca, pode então utilizar o SSL no Serviço de Migração de Bases de Dados Azure sem problemas (as ligações à Cosmos DB usam SSL sobre a API mongo).<br><br> |
+| A utilização de um certificado auto-assinado no Serviço de Migração da Base de Dados Azure pode levar à falha da migração devido ao cert SSL incorreto. A mensagem Error pode incluir "O certificado remoto é inválido de acordo com o procedimento de validação." | Use um certificado genuíno da AC.  Os certificados auto-assinados são geralmente utilizados apenas em testes internos. Quando instala um certificado genuíno a partir de uma autoridade ca, pode então utilizar o SSL no Serviço de Migração da Base de Dados Azure sem problemas (ligações à Cosmos DB usam SSL sobre a Mongo API).<br><br> |
 
 ## <a name="unable-to-get-the-list-of-databases-to-map-in-dms"></a>Incapaz de obter a lista de bases de dados para mapear em DMS
 
-* **Sintoma**: Não conseguir obter a lista DB na lâmina de **definição da base** de dados ao utilizar dados do modo de **armazenamento Azure** na lâmina **de origem Select.**
+* **Sintoma**: Não é possível obter a lista DB na lâmina **de definição de base de dados** quando utilizar dados do modo **de armazenamento Azure** na lâmina de **origem Select.**
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Falta a cadeia de ligação à conta de armazenamento a informação SAS e, portanto, não pode ser autenticada. | Crie o SAS no recipiente de bolhas no Storage Explorer e utilize o URL com informações SAS do recipiente como cadeia de ligação de detalhes de origem.<br><br> |
+| O fio de ligação da conta de armazenamento está faltando a informação SAS e, portanto, não pode ser autenticado. | Crie o SAS no recipiente blob no Storage Explorer e utilize o URL com informações SAS do contentor como a cadeia de ligação de detalhes de origem.<br><br> |
 
 ## <a name="using-an-unsupported-version-of-the-database"></a>Usando uma versão não suportada da base de dados
 
@@ -45,9 +44,9 @@ Questões e limitações conhecidas associadas às migrações de MongoDB para A
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Tentamigrar para o Azure Cosmos DB a partir de uma versão não suportada do MongoDB. | À medida que são lançadas novas versões do MongoDB, são testadas para garantir a compatibilidade com o Serviço de Migração da Base de Dados Azure, e o serviço está a ser atualizado periodicamente para aceitar as versões mais recentes. Se houver necessidade imediata de migrar, como uma salieste pode exportar as bases de dados/coleções para o Armazenamento Azure e, em seguida, apontar a fonte para o despejo resultante. Crie o SAS no recipiente de bolhas no Storage Explorer e, em seguida, utilize o URL com informações SAS do recipiente como cadeia de ligação de detalhes de origem.<br><br> |
+| Tentas migrar para a Azure Cosmos DB a partir de uma versão não apoiada do MongoDB. | À medida que as novas versões do MongoDB são lançadas, são testadas para garantir compatibilidade com o Azure Database Migration Service, e o serviço está a ser atualizado periodicamente para aceitar as versões mais recentes. Se houver uma necessidade imediata de migrar, como uma solução alternativa pode exportar as bases de dados/coleções para o Azure Storage e, em seguida, apontar a fonte para o despejo resultante. Crie o SAS no recipiente blob no Storage Explorer e, em seguida, utilize o URL com informações SAS do contentor como a cadeia de ligação de detalhes de origem.<br><br> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Veja o tutorial [Migrate MongoDB para API da Azure Cosmos DB para MongoDB online usando DMS](tutorial-mongodb-cosmos-db-online.md).
-* Veja o tutorial [Migrate MongoDB para a API da Azure Cosmos DB para MongoDB offline usando DMS](tutorial-mongodb-cosmos-db.md).
+* Veja o tutorial [Migrate MongoDB para a API da Azure Cosmos DB para a MongoDB online usando DMS](tutorial-mongodb-cosmos-db-online.md).
+* Veja o tutorial [Migrate MongoDB para a API da Azure Cosmos para MongoDB offline usando DMS](tutorial-mongodb-cosmos-db.md).
