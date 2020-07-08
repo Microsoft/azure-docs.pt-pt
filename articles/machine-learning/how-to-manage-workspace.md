@@ -1,5 +1,5 @@
 ---
-title: Criar espaços de trabalho de aprendizagem automática Azure no portal
+title: Criar espaços de trabalho no portal
 titleSuffix: Azure Machine Learning
 description: Aprenda a criar, ver e apagar espaços de trabalho de Aprendizagem automática Azure no portal Azure.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: c729f59fbb92584ff613147577ab097e63307ace
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430453"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045710"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Para criar um espaço de trabalho, precisa de uma subscrição do Azure. Se não
 
 1. Forneça as seguintes informações para configurar o seu novo espaço de trabalho:
 
-   Campo|Description 
+   Campo|Descrição 
    ---|---
    Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
@@ -64,9 +64,9 @@ Para criar um espaço de trabalho, precisa de uma subscrição do Azure. Se não
 
 1. Se estiver a criar uma [instância computacional,](tutorial-1st-experiment-sdk-setup.md#azure)ignore este passo.
 
-1. Se pretender utilizar código no seu ambiente local que faça referência a este espaço de trabalho, selecione **Baixar config.json** na secção **Visão Geral** do espaço de trabalho.  
+1. Se pretender utilizar código no seu ambiente local que faça referência a este espaço de trabalho, selecione **Baixar config.jsna** secção **visão geral** do espaço de trabalho.  
 
-   ![Baixar config.json](./media/how-to-manage-workspace/configure.png)
+   ![Baixar config.jsem](./media/how-to-manage-workspace/configure.png)
    
    Coloque o ficheiro na estrutura do diretório com os seus scripts Python ou Cadernos Jupyter. Pode estar no mesmo diretório, num subdiretório chamado *.azureml,* ou num diretório-mãe. Quando cria uma instância de computação, este ficheiro é adicionado ao diretório correto no VM para si.
 
@@ -129,7 +129,7 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga o tutorial de corpo inteiro para aprender a usar um espaço de trabalho para construir, treinar e implementar modelos com Azure Machine Learning.
 

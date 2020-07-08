@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 46b78ca6f385f62d265210b41e634bbbd9a2041c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044316"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Pontuação garantida reforçada no Azure Security Center
 
@@ -84,7 +84,7 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Métrica|Fórmula e exemplo|
+|Metric|Fórmula e exemplo|
 |-|-|
 |**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação atual de um controlo de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -132,7 +132,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ativar a encriptação em repouso (pontuação máxima 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">A encriptação em repouso</a> fornece proteção de dados para dados armazenados. Os ataques contra dados em repouso incluem tentativas de acesso físico ao hardware em que os dados são armazenados. Os Azures usam encriptação simétrica para encriptar e desencriptar grandes quantidades de dados em repouso. Uma chave de encriptação simétrica é usada para encriptar dados à medida que são escritos para armazenamento. Esta chave de encriptação também é usada para desencriptar esses dados à medida que são reutilizados para serem usados na memória. As chaves devem ser armazenadas num local seguro com políticas de controlo de acesso e auditoria baseadas em identidade. Um desses locais seguros é o Cofre da Chave Azure. Se um intruso obtiver os dados encriptados, mas não as chaves de encriptação, o intruso não pode aceder aos dados sem quebrar a encriptação.</td>
-    <td class="tg-lboi"; width=55%>-A encriptação do disco deve ser aplicada em máquinas virtuais<br>-A encriptação transparente de dados nas bases de dados SQL deve ser ativada<br>-As variáveis de conta de automação devem ser encriptadas<br>-Os clusters de tecido de serviço devem ter a propriedade ClusterProtectionLevel definida para EncryptAndSign<br>-O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave</td>
+    <td class="tg-lboi"; width=55%>-A encriptação do disco deve ser aplicada em máquinas virtuais<br>-A encriptação de dados transparente na base de dados SQL deve ser ativada<br>-As variáveis de conta de automação devem ser encriptadas<br>-Os clusters de tecido de serviço devem ter a propriedade ClusterProtectionLevel definida para EncryptAndSign<br>-O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Criptografe os dados em trânsito (pontuação máxima 4)</p></strong>Os dados estão "em trânsito" quando são transmitidos entre componentes, locais ou programas. As organizações que não protegem os dados em trânsito são suscetíveis a ataques man-in-the-middle, escutas e sequestro de sessão. Os protocolos SSL/TLS devem ser utilizados para o intercâmbio de dados e recomenda-se uma VPN. Ao enviar dados encriptados entre uma máquina virtual Azure e uma localização no local, através da internet, pode utilizar um gateway de rede virtual, como <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways">o Azure VPN Gateway,</a> para enviar tráfego encriptado.</td>
@@ -151,7 +151,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
     <td class="tg-lboi"; width=55%>-O encaminhamento IP na sua máquina virtual deve ser desativado<br>-As gamas IP autorizadas devem ser definidas nos Serviços Kubernetes (Pré-visualização)<br>-(PRECADO) O acesso aos Serviços de Aplicações deve ser restringido (Pré-visualização)<br>-(PRECADO) As regras para aplicações web em IAAS NSGs devem ser endurecidas<br>-As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>-O CORS não deve permitir que todos os recursos acedam à sua App API<br>-O CORS não deve permitir que todos os recursos acedam à sua App de Função<br>-O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web<br>-Depuragem remota deve ser desligada para app API<br>-Depuragem remota deve ser desligada para a App de Função<br>-Depuragem remota deve ser desligada para aplicação web<br>-O acesso deve ser restringido para grupos de segurança de rede permissivos com VMs virados para a Internet<br>-As regras do Grupo de Segurança da Rede para máquinas virtuais que enfrentam a Internet devem ser endurecidas</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar controlo de aplicação adaptativo (pontuação máxima 3)</p></strong>O controlo de aplicações adaptativas (AAC) é uma solução inteligente, automatizada e de ponta a ponta, que permite controlar quais aplicações podem funcionar nas suas máquinas Azure e não-Azure. Também ajuda a endurecer as suas máquinas contra malware.<br>O Security Center usa machine learning para criar uma lista branca de aplicações conhecidas e seguras para um grupo de máquinas.<br>Esta abordagem inovadora da whitelisting de aplicações proporciona os benefícios de segurança sem a complexidade da gestão.<br>O AAC é particularmente relevante para servidores construídos de propósito que precisam executar um conjunto específico de aplicações.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar controlo de aplicação adaptativo (pontuação máxima 3)</p></strong>O controlo de aplicações adaptativas (AAC) é uma solução inteligente, automatizada e de ponta a ponta, que permite controlar quais aplicações podem funcionar nas suas máquinas Azure e não-Azure. Também ajuda a endurecer as suas máquinas contra malware.<br>O Security Center utiliza machine learning para criar uma lista de aplicações conhecidas e seguras para um grupo de máquinas.<br>Esta abordagem inovadora à listagem de aplicações aprovada proporciona os benefícios de segurança sem a complexidade da gestão.<br>O AAC é particularmente relevante para servidores construídos de propósito que precisam executar um conjunto específico de aplicações.</td>
     <td class="tg-lboi"; width=55%>-Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
   </tr>
   <tr>
@@ -200,7 +200,7 @@ Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

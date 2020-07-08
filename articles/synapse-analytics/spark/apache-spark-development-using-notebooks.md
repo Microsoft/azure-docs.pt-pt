@@ -1,5 +1,5 @@
 ---
-title: Criar, desenvolver e manter cadernos Azure Synapse Studio (pré-visualização)
+title: Cadernos do Estúdio De Sinaapse
 description: Neste artigo, aprende-se a criar e desenvolver cadernos do Azure Synapse Studio (pré-visualização) para fazer a preparação e visualização de dados.
 services: synapse analytics
 author: ruixinxu
@@ -10,16 +10,16 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373374"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045693"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter cadernos Azure Synapse Studio (pré-visualização)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
-Um portátil Azure Synapse Studio (pré-visualização) é uma interface web para criar ficheiros que contenham código ao vivo, visualizações e texto narrativo. Os cadernos são um bom local para validar ideias e usar experiências rápidas para obter informações dos seus dados. Os cadernos também são amplamente utilizados na preparação de dados, visualização de dados, machine learning e outros cenários de Big Data.
+Um notebook Synapse Studio (pré-visualização) é uma interface web para criar ficheiros que contenham código ao vivo, visualizações e texto narrativo. Os cadernos são um bom local para validar ideias e usar experiências rápidas para obter informações dos seus dados. Os cadernos também são amplamente utilizados na preparação de dados, visualização de dados, machine learning e outros cenários de Big Data.
 
 Com um caderno Azure Synapse Studio, você pode:
 
@@ -36,7 +36,7 @@ Há duas maneiras de criar um caderno. Pode criar um novo caderno ou importar um
 
 ![sinapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
-## <a name="develop-notebooks"></a>Desenvolver cadernos
+## <a name="develop-notebooks"></a>Desenvolver blocos de notas
 
 Os cadernos são de células, que são blocos individuais de código ou texto que podem ser funcionadas independentemente ou como um grupo.
 
@@ -71,7 +71,7 @@ Pode definir a linguagem primária para novas células adicionadas da lista de d
 
 Pode utilizar várias línguas num só caderno especificando o comando mágico da linguagem correto no início de uma célula. A tabela que se segue lista os comandos mágicos para mudar as línguas celulares.
 
-|Comando mágico |Linguagem | Description |  
+|Comando mágico |Linguagem | Descrição |  
 |---|------|-----|
 |%%pyspark| Python | Execute uma consulta **python** contra o contexto de faísca.  |
 |%%faísca| Scala | Execute uma consulta **scala** contra o Contexto de Faíscas.  |  
@@ -110,7 +110,7 @@ Não é possível fazer referência a dados ou variáveis diretamente em diferen
 
 ### <a name="ide-style-intellisense"></a>IntelliSense estilo IDE
 
-Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco para levar o IntelliSense ao editor de células ao estilo IDE. O destaque da sintaxe, o error maker e as conclusões automáticas de código ajudam-no a escrever código e a identificar problemas mais rapidamente.
+Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco para levar o IntelliSense ao editor de células ao estilo IDE. O destaque da sintaxe, o marcador de erro e as conclusões automáticas do código ajudam-no a escrever código e a identificar problemas mais rapidamente.
 
 As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
 
@@ -119,7 +119,7 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
 |Sparksql|Sim|Sim|-|-|-|-|-|-|
-|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
+|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -159,7 +159,7 @@ Clique no botão **de saída** de colapso na parte superior esquerda da saída d
 
    ![saída de células em colapso](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
-## <a name="run-notebooks"></a>Executar cadernos
+## <a name="run-notebooks"></a>Executar blocos de notas
 
 Pode executar as células de código no seu caderno individualmente ou todas de uma só vez. O estado e o progresso de cada célula estão representados no caderno.
 
@@ -389,7 +389,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Dedent|Ctrl +|
 |Mudar para o modo de comando| Esc |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)

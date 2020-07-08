@@ -1,6 +1,6 @@
 ---
 title: Definições de conectividade para Azure SQL Database e Data Warehouse
-description: Este documento explica a escolha da versão TLS e a definição de Proxy vs. Redirecionamento para Azure SQL Database e Azure Synapse Analytics
+description: Este documento explica a escolha da versão de Segurança da Camada de Transporte (TLS) e a definição de Proxy vs. Redirecionamento para Azure SQL Database e Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 07/06/2020
+ms.openlocfilehash: 04c5d9c8eceb14ab68ca0d96f994bf6a64bbc431
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266088"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045382"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,9 +33,17 @@ As definições de conectividade estão acessíveis a partir do ecrã **de Firew
 
 ## <a name="deny-public-network-access"></a>Negar o acesso à rede pública
 
-No portal Azure, quando a definição de acesso à **rede pública Deny** está definida para **Sim,** apenas são permitidas ligações através de pontos finais privados. Quando esta definição estiver definida como **Nº,** os clientes podem ligar-se utilizando o ponto final privado ou público.
+Quando a definição **de acesso à rede pública deny** está definida para **Sim,** apenas são permitidas ligações através de pontos finais privados. Quando esta definição é definida como **Nº** (padrão), os clientes podem ligar-se utilizando pontos finais públicos (regras de firewall baseadas em IP, regras de firewall baseadas em VNET) ou pontos finais privados (usando o Link Privado) conforme descrito na [visão geral](network-access-controls-overview.md)de acesso à rede . 
 
-Os clientes podem ligar-se à Base de Dados SQL utilizando pontos finais públicos (regras de firewall baseadas em IP, regras de firewall baseadas em VNET) ou pontos finais privados (utilizando o Private Link) conforme descrito na [visão geral](network-access-controls-overview.md)de acesso à rede . 
+ ![Screenshot da conectividade com o acesso à rede pública negar o acesso à rede pública][2]
+
+Qualquer tentativa de definir a definição **de acesso à rede pública** de Deny para **Sim** sem um ponto final privado existente no servidor lógico falhará com uma mensagem de erro semelhante a:  
+
+```output
+Error 42102
+Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
+Please set up private endpoints and retry the operation. 
+```
 
 Quando a definição de acesso à rede pública de **Negação** é definida como **Sim,** apenas são permitidas ligações através de pontos finais privados e todas as ligações através de pontos finais públicos são negadas com uma mensagem de erro semelhante a:  
 
@@ -44,6 +52,14 @@ Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. 
 The public network interface on this server is not accessible. 
 To connect to this server, use the Private Endpoint from inside your virtual network.
+```
+
+Quando a definição de acesso à rede pública de **Negação** estiver definida como **Sim,** qualquer tentativa de adicionar ou atualizar as regras de firewall será negada com uma mensagem de erro semelhante a:
+
+```output
+Error 42101
+Unable to create or modify firewall rules when public network interface for the server is disabled. 
+To manage server or database level firewall rules, please enable the public network interface.
 ```
 
 ## <a name="change-public-network-access-via-powershell"></a>Alterar acesso à rede pública via PowerShell
@@ -86,9 +102,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 A definição de versão minimal [transport layer security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite que os clientes controlem a versão do TLS utilizada pela sua Base de Dados Azure SQL.
 
-Neste momento apoiamos os TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS mínima garante que as versões TLS mais recentes sejam suportadas. Por exemplo, por exemplo, escolher uma versão TLS superior a 1.1. significa que apenas são aceites ligações com os TLS 1.1 e 1.2 e rejeitadas as TLS 1.0. Após testes para confirmar que as suas aplicações suportam o mesmo, recomendamos a definição da versão mínima TLS para 1.2, uma vez que inclui correções para vulnerabilidades encontradas em versões anteriores e é a versão mais alta do TLS suportada na Base de Dados Azure SQL.
+Neste momento, apoiamos os TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS mínima garante que as versões TLS mais recentes sejam suportadas. Por exemplo, escolher uma versão TLS superior a 1.1. significa que apenas são aceites ligações com os TLS 1.1 e 1.2 e rejeitadas as TLS 1.0. Após testes para confirmar que as suas aplicações o suportam, recomendamos definir a versão Minimal TLS para 1.2, uma vez que inclui correções para vulnerabilidades encontradas em versões anteriores e é a versão mais alta do TLS suportada na Base de Dados Azure SQL.
 
-Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a Versão Minimal TLS de acordo com os requisitos das suas aplicações. Para os clientes que dependem de aplicações para se conectarem utilizando uma ligação não encriptada, recomendamos não definir qualquer versão Minimal TLS. 
+> [!IMPORTANT]
+> O padrão para a versão Minimal TLS é permitir todas as versões. No entanto, uma vez que executa uma versão de TLS não é possível reverter para o padrão.
+
+Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a Versão Minimal TLS de acordo com os requisitos das suas aplicações. Para os clientes que dependem de aplicações para se conectarem utilizando uma ligação não encriptada, recomendamos não definir qualquer versão Minimal TLS.
 
 Para obter mais informações, consulte [considerações de TLS para a conectividade sql Database](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
@@ -198,10 +217,11 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
 - Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

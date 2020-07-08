@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: dpalled
-ms.openlocfilehash: b4ddff197ff41ee9ddee129fae4699e18af8d0d0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: ebb62b67b56134902f2752b43dd25fb0a7c6ccd4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898032"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045778"
 ---
 # <a name="adding-support-for-long-data-type"></a>Adicionar suporte para um tipo de dados longo
 
@@ -209,6 +209,6 @@ Caso 5: **Perto da Loja Quente 1.000 limite de propriedade**
 
 Se você é um utilizador da Warm Store com um grande número de propriedades e acredita que esta mudança iria empurrar o seu ambiente sobre o limite de 1.000 WS propriedade-name, enviar um bilhete de apoio através do portal Azure e mencionar esta comunicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Confira o artigo sobre [entrada e armazenamento](time-series-insights-update-storage-ingress.md) para saber mais sobre os tipos de dados suportados.
+* Consulte [este](concepts-supported-data-types.md) artigo para ver a lista completa de tipos de dados suportados.

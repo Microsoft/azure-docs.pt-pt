@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 4737b8f13a3a4a1e65c4c7812bd514f76a24d2e3
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119047"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044520"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -94,7 +94,7 @@ A Azure Stream Analytics captura duas categorias de registos de recursos:
 
 Todos os registos são armazenados no formato JSON. Cada entrada tem os seguintes campos de cordas comuns:
 
-Name | Description
+Name | Descrição
 ------- | -------
 hora | Timetamp (em UTC) do registo.
 resourceId | Identificação do recurso em que a operação teve lugar, em maiúsão. Inclui o ID de assinatura, o grupo de recursos e o nome do trabalho. POR exemplo, **/SUBSCRIÇÕES/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -112,7 +112,7 @@ Os registos de execução têm informações sobre os eventos que ocorreram dura
 
 Qualquer erro que ocorra durante o processamento de dados está nesta categoria de registos. Estes registos são criados com mais frequência durante as operações de leitura, serialização e escrita de dados. Estes registos não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de vários erros de dados de [entrada e saída diferentes](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Description
+Name | Descrição
 ------- | -------
 Origem | Nome da entrada ou saída do trabalho onde ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
@@ -133,14 +133,14 @@ Dependendo do **valor da operaçãoName,** os erros de dados têm o seguinte esq
 
 Eventos genéricos cobrem todo o resto.
 
-Name | Description
+Name | Descrição
 -------- | --------
 Erro | (opcional) Informação de erro. Normalmente, esta é uma informação de exceção se estiver disponível.
 Mensagem| Mensagem de registo.
 Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)

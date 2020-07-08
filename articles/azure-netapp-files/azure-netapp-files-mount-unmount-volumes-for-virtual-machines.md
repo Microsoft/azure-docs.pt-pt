@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 04/30/2020
-ms.openlocfilehash: b7586fcd0a262fa325e171480ec0becc297f65fe
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.date: 07/06/2020
+ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483589"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045659"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montar ou desmontar um volume para máquinas virtuais Windows ou Linux 
 
@@ -26,9 +26,9 @@ Pode montar ou desmontar um volume para máquinas virtuais Windows ou Linux, se 
 
     ![Monte instruções NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
-    ![Monte instruções SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
-    
-    Se estiver a utilizar o NFSv4.1, utilize o seguinte comando para montar o seu sistema de ficheiros:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    ![Monte instruções SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
+    * Se estiver a montar um volume NFS, certifique-se de que utiliza a `vers` opção no `mount` comando para especificar a versão do protocolo NFS que corresponde ao volume que pretende montar. 
+    * Se estiver a utilizar o NFSv4.1, utilize o seguinte comando para montar o seu sistema de ficheiros:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
 3. Se pretender ter um volume NFS montado automaticamente quando um VM Azure for iniciado ou reiniciado, adicione uma entrada `/etc/fstab` no ficheiro no anfitrião. 
 
@@ -44,7 +44,7 @@ Pode montar ou desmontar um volume para máquinas virtuais Windows ou Linux, se 
     b. Executar um `chmod 777` ou comandar contra o `chmod 775` volume.  
     c. Monte o volume através do cliente NFS no Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [FAQ sobre NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

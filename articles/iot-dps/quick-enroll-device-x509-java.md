@@ -1,6 +1,6 @@
 ---
-title: Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Azure utilizando java
-description: Este início rápido utiliza inscrições em grupo e individuais. Neste arranque rápido, irá inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS) utilizando java.
+title: Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Azure utilizando a Java
+description: Este início rápido utiliza inscrições em grupo e individuais. Neste arranque rápido, irá matricular dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,25 +9,25 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 594e6092483e86f579ae980e56f42c1a4bad7cbd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77604914"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044639"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Neste arranque rápido, você usa Java para matricular programáticamente um grupo de dispositivos simulados X.509 para o Serviço de Provisionamento de Dispositivos Hub Azure IoT. Os dispositivos estão matriculados numa instância de serviço de provisionamento através da criação de um grupo de matrículas ou de uma inscrição individual. Este quickstart mostra como criar ambos os tipos de matrículas utilizando o Java Service SDK e uma aplicação java de amostra.
+Neste arranque rápido, você usa Java para inscrever programáticamente um grupo de dispositivos simulados X.509 para o Serviço de Provisionamento de Dispositivos Azure IoT Hub. Os dispositivos são matriculados numa instância de serviço de prestação através da criação de um grupo de inscrição ou de uma inscrição individual. Este quickstart mostra como criar ambos os tipos de matrículas usando o Java Service SDK e uma aplicação Java de amostra.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
+- Conclusão da [Configuração do Serviço de Provisionamento de Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Kit](https://aka.ms/azure-jdks)de Desenvolvimento Java SE 8 . Este quickstart instala o [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) abaixo. Funciona tanto no Windows como no Linux. Este arranque rápido utiliza o Windows.
-- [Maven 3.](https://maven.apache.org/download.cgi)
+- [Kit de Desenvolvimento Java SE 8](https://aka.ms/azure-jdks). Este quickstart instala o [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) abaixo. Funciona tanto no Windows como no Linux. Este arranque rápido utiliza o Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
 - [Git.](https://git-scm.com/download/)
 
 <a id="javasample"></a>
@@ -41,7 +41,7 @@ Esta secção utiliza um certificado X.509 autoassinado e é importante ter em c
 
 Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do seu dispositivo X.509 ao código de exemplo. 
 
-1. Abra uma linha de comandos. Clone o repo GitHub para a amostra de código de inscrição do dispositivo utilizando o [Java Service SDK:](https://azure.github.io/azure-iot-sdk-java/service/)
+1. Abra uma linha de comandos. Clone o repo GitHub para a amostra de código de inscrição do dispositivo utilizando o [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -50,7 +50,7 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
 2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
 
     1. Adicione `[Provisioning Connection String]` para o seu serviço de aprovisionamento, a partir do portal da seguinte forma:
-        1. Navegue para o seu serviço de provisionamento no [portal Azure.](https://portal.azure.com) 
+        1. Navegue para o seu serviço de prestação no [portal Azure](https://portal.azure.com). 
         2. Abra as **Políticas de acesso partilhado**e selecione uma política que tenha a permissão *EnrollmentWrite*.
         3. Copie a **Cadeia de ligação da chave primária**. 
 
@@ -66,37 +66,37 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
         1. Numa janela de comando, navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_**.
         2. Compile a ferramenta através da execução do seguinte comando:
 
-                ```cmd\sh
-                mvn clean install
-                ```
+            ```cmd\sh
+            mvn clean install
+            ```
 
         4. Execute a ferramenta com os comandos seguintes:
 
-                ```cmd\sh
-                cd target
-                java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-                ```
+            ```cmd\sh
+            cd target
+            java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+            ```
 
         5. Quando lhe for pedido, pode introduzir opcionalmente um _Nome Comum_ para os certificados.
         6. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave Privada do Certificado de Cliente** e o **Certificado de Raiz**.
         7. Copie o **Certificado de Raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_**. 
         8. Atribua o valor do **Certificado de Raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING**, conforme apresentado abaixo:
 
-                ```Java
-                private static final String PUBLIC_KEY_CERTIFICATE_STRING =
-                        "-----BEGIN CERTIFICATE-----\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "-----END CERTIFICATE-----\n";
-                ```
+            ```Java
+            private static final String PUBLIC_KEY_CERTIFICATE_STRING =
+            "-----BEGIN CERTIFICATE-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "-----END CERTIFICATE-----\n";
+            ```
 
         9. Feche a janela de comando ou introduza **n** quando lhe for pedido um *Código de Verificação*. 
  
@@ -134,7 +134,7 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
 O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
 
 - [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
-- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um único dispositivo.
+- [Matrículas individuais](concepts-service.md#individual-enrollment): Usado para inscrever um único dispositivo.
 
 Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma inscrição individual.
 
@@ -146,7 +146,7 @@ Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma 
     mvn install -DskipTests
     ```
 
-   Este comando transfere o [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) pacote Maven para a sua máquina. Este pacote inclui os binários para o SDK do serviço Java, que o código de exemplo precisa de compilar. Se tiver executado a ferramenta _X.509 certificate generator_ na secção anterior, este pacote já estará transferido no seu computador. 
+   Este comando descarrega o pacote Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para a sua máquina. Este pacote inclui os binários para o SDK do serviço Java, que o código de exemplo precisa de compilar. Se tiver executado a ferramenta _X.509 certificate generator_ na secção anterior, este pacote já estará transferido no seu computador. 
 
 3. Execute o exemplo, utilizando estes comandos na janela de comando:
 
@@ -157,7 +157,7 @@ Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma 
 
 4. Observe a janela de saída para ver se a inscrição foi executada com êxito.
 
-5. Navegue até ao serviço de aprovisionamento no portal do Azure. Clique em **Gerir inscrições**. Note que o seu grupo de dispositivos X.509 aparece sob o separador **Grupos de Matrícula,** com um NOME DE *GRUPO*autogerado . 
+5. Navegue até ao serviço de aprovisionamento no portal do Azure. Clique em **Gerir inscrições**. Note que o seu grupo de dispositivos X.509 aparece no separador **Grupos de Inscrição,** com um *nome de grupo*autogerado . 
 
     ![Verificar a inscrição do X.509 com êxito no portal](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
@@ -195,18 +195,18 @@ Para inscrever um dispositivo X.509 único, modifique o código de exemplo de *i
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Guardar, construir e executar o ficheiro de amostra de *inscrição individual,* utilizando os passos na secção [Construir e executar o código de amostra para inscrição individual](quick-enroll-device-tpm-java.md#runjavasample).
+4. Guarde, construa e execute o ficheiro de amostra *de inscrição individual,* utilizando os passos na secção [Construir e executar o código de amostra para inscrição individual](quick-enroll-device-tpm-java.md#runjavasample).
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se planeia explorar a amostra de serviço java, não limpe os recursos criados neste arranque rápido. Se não pretende continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
+Se planeia explorar a amostra de serviço java, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do _X509 Cert Generator_ no seu computador.
-1. Navegue para o seu serviço de provisionamento de dispositivos no portal Azure, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Grupos de Matrículas.** Selecione a caixa de verificação junto ao NOME DE *GRUPO* para os dispositivos X.509 que inscreveu usando este quickstart e prima o botão **Apagar** na parte superior do painel.  
+1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Grupos de Inscrição.** Selecione a caixa de verificação ao lado do *NOME DE GRUPO* para os dispositivos X.509 que inscreveu usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.  
 
-## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, inscreveu um grupo simulado de dispositivos X.509 no seu serviço de Fornecimento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
+## <a name="next-steps"></a>Próximos passos
+Neste arranque rápido, inscreveu um grupo simulado de dispositivos X.509 no seu serviço de Provisionamento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)

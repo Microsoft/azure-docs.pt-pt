@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 56adfa2ddab011372783a7a7872b4f4c8d7fc050
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e30bee23b634db12def62e906183c6087c6613e6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118462"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044299"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET Core e Azure Cosmos DB
 
@@ -133,7 +133,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**.
 
-1. Utilize o ![botão Copiar](./media/create-cassandra-dotnet/copy.png) botão à direita do ecrã para copiar o valor do NOME DE UTILIZADOR.
+1. Utilize o :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: botão no lado direito do ecrã para copiar o valor USERNAME.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação":::
 
@@ -184,7 +184,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

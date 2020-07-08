@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 9d39a6d85f878b6d67ffbcc55f468ad6984eecab
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 23ec482de740cc1ac8800a5de1c0e3be1f055df7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260814"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045489"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -49,6 +49,7 @@ Esta secção fornece referências para aplicações Windows e soluções SQL Se
 ### <a name="sql-server"></a>SQL Server
 
 * [Implementar servidor SQL sobre SMB com ficheiros Azure NetApp](https://www.youtube.com/watch?v=x7udfcYbibs)
+* [Implementar o Cluster de Falha de Falha do Servidor SQL sobre sMB com ficheiros Azure NetApp](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
 * [Implementar grupos de disponibilidade sempre com ficheiros Azure NetApp](https://www.youtube.com/watch?v=y3VQmzzeyvc)
 
 ## <a name="sap-on-azure-solutions"></a>SOLUÇÕES SAP em Azure

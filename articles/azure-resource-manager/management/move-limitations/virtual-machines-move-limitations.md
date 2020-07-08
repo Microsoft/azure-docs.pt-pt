@@ -2,13 +2,13 @@
 title: Mover VMs Azure para novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744643"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044554"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -24,6 +24,18 @@ Os seguintes cenários ainda não são apoiados:
 * As máquinas virtuais de uma rede virtual existente não podem ser transferidas para uma nova subscrição quando não está a mover todos os recursos da rede virtual.
 * Máquinas virtuais de baixa prioridade e conjuntos de escala de máquina virtual de baixa prioridade não podem ser movidos através de grupos de recursos ou subscrições.
 * As máquinas virtuais num conjunto de disponibilidade não podem ser movidas individualmente.
+
+## <a name="azure-disk-encryption"></a>Encriptação do disco Azure
+
+Não é possível mover uma máquina virtual que esteja integrada com um cofre-chave para implementar [encriptação de disco Azure para VMs Linux](../../../virtual-machines/linux/disk-encryption-overview.md) ou [Encriptação de Disco Azure para VMs do Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Para mover o VM, tem de desativar a encriptação.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com backup Azure
 
@@ -62,7 +74,7 @@ Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md
 * Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para que os comandos movimentem recursos, consulte [mover recursos para novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).
 

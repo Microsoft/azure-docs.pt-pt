@@ -1,36 +1,36 @@
 ---
 title: Códigos de erro de disponibilidade externa - Azure Stream Analytics
-description: Problemas De saca do Azure Stream Analytics problemas com códigos de erro de disponibilidade externa.
+description: Resolução de problemas Problemas Azure Stream Analytics problemas com códigos de erro de disponibilidade externa.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 1ce867d60c53b9befe5b4480693b54d2c9eba018
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c70a3a2d0630148a077f9c149ba40d48a6b7c0ae
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650048"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045285"
 ---
-# <a name="azure-stream-analytics-external-availability-error-codes"></a>Códigos de erro de disponibilidade externa azure Stream Analytics
+# <a name="azure-stream-analytics-external-availability-error-codes"></a>Códigos de erro de disponibilidade externa Azure Stream Analytics
 
-Pode utilizar registos de atividade e registos de recursos para ajudar a desimpedir comportamentos inesperados do seu trabalho no Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de disponibilidade externa. Erros de disponibilidade externos ocorrem quando um serviço dependente está indisponível.
+Pode utilizar registos de atividades e registos de recursos para ajudar a depurar comportamentos inesperados do seu trabalho Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de disponibilidade externa. Erros de disponibilidade externos ocorrem quando um serviço dependente não está disponível.
 
-## <a name="externalserviceunavailable"></a>Serviços ExternosIndisponíveis
+## <a name="externalserviceunavailable"></a>ExternalServiceUn disponível
 
-* **Causa**: Um serviço está temporariamente indisponível.
+* **Causa:** Um serviço está temporariamente indisponível.
 * **Recomendação**: Stream Analytics continuará a tentar chegar ao serviço.
 
 ## <a name="eventhubmessagingerror"></a>EventHubMessagingError
 
-* **Causa**: Stream Analytics encontrou erro ao comunicar com o EventHub. 
+* **Causa:** Stream Analytics encontrou erro ao comunicar com o EventHub. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolver problemas em ligações de entrada](stream-analytics-troubleshoot-input.md)
-* [Saídas de Troubleshoot Azure Stream Analytics](stream-analytics-troubleshoot-output.md)
-* [Consultas de Troubleshoot Azure Stream Analytics](stream-analytics-troubleshoot-query.md)
-* [Troubleshoot Azure Stream Analytics usando registos de recursos](stream-analytics-job-diagnostic-logs.md)
+* [Resolução de problemas Saídas Azure Stream Analytics](stream-analytics-troubleshoot-output.md)
+* [Resolução de problemas Azure Stream Análises](stream-analytics-troubleshoot-query.md)
+* [Resolução de problemas Azure Stream Analytics usando registos de recursos](stream-analytics-job-diagnostic-logs.md)
 * [Erros de dados do Azure Stream Analytics](data-errors.md)

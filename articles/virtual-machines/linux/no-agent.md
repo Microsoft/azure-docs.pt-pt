@@ -6,21 +6,21 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e5e47b5822127bcd00fd2d67efff9a786f00a258
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306974"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045336"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
 
 O Microsoft Azure fornece agentes de provisão para Os VMs Linux sob a forma do [walinuxagent](https://github.com/Azure/WALinuxAgent) ou [cloud-init](https://github.com/canonical/cloud-init) (recomendado). Mas pode haver um cenário em que não queira usar nenhuma destas aplicações para o seu agente de provisionamento, tais como:
 
-- O seu linux distro/versão não suporta cloud-init.
+- O seu distro/versão Linux não suporta o agente cloud-init/Linux.
 - Você precisa de propriedades VM específicas para ser definida, como o nome de hospedeiro.
 
 > [!NOTE] 
@@ -70,7 +70,7 @@ $ az vm create \
 Uma vez que o VM está a forragem, você pode SSH nele e remover o agente Linux:
 
 ```bash
-$ sudo apt remove -y waagent
+$ sudo apt purge -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
 
@@ -271,6 +271,6 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 Se implementar o seu próprio código/agente de provisionamento, então é dono do suporte deste código, o suporte da Microsoft apenas investigará questões relacionadas com as interfaces de provisionamento que não estão disponíveis. Estamos continuamente a fazer melhorias e alterações nesta área, pelo que deve monitorizar as alterações no cloud-init e no Agente Azure Linux para o fornecimento de alterações na API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [o fornecimento de Linux.](provisioning.md)

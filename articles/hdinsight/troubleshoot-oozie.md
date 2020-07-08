@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: 18831832f82cdbc8cec69e368f006f7acd4836c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205264"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045863"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Resolução de problemas Apache Oozie em Azure HDInsight
 
@@ -32,7 +32,9 @@ Seguem-se erros específicos que poderá encontrar e como resolvê-los.
 
 O estatuto de trabalho muda para **SUSPENDED**. Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL**. A seleção da ação apresenta a seguinte mensagem de erro:
 
-    JA009: Cannot initialize Cluster. Please check your configuration for map
+```output
+JA009: Cannot initialize Cluster. Please check your configuration for map
+```
 
 ### <a name="cause"></a>Causa
 
@@ -50,7 +52,9 @@ Altere os endereços de armazenamento Blob que o trabalho utiliza.
 
 O estatuto de trabalho muda para **SUSPENDED**. Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL**. Se selecionar a ação, mostra a seguinte mensagem de erro:
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+```output
+JA002: User: oozie is not allowed to impersonate <USER>
+```
 
 ### <a name="cause"></a>Causa
 
@@ -60,7 +64,9 @@ As definições de permissão atuais não permitem que o Oozie personifique a co
 
 Oozie pode personificar utilizadores do **`users`** grupo. Utilize o `groups USERNAME` para ver os grupos de que a conta de utilizador é membro. Se o utilizador não for membro do **`users`** grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
 
-    sudo adduser USERNAME users
+```bash
+sudo adduser USERNAME users
+```
 
 > [!NOTE]  
 > Pode demorar alguns minutos até que o HDInsight reconheça que o utilizador foi adicionado ao grupo.
@@ -73,7 +79,9 @@ Oozie pode personificar utilizadores do **`users`** grupo. Utilize o `groups USE
 
 O estatuto de trabalho muda para **KILLED**. Os detalhes do trabalho mostram o `RunSqoopExport` estado de **ERRO**. Se selecionar a ação, mostra a seguinte mensagem de erro:
 
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```output
+Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```
 
 ### <a name="cause"></a>Causa
 
@@ -97,7 +105,7 @@ Por exemplo, para o exemplo de trabalho da [Use Hadoop Oozie workflows](hdinsigh
     <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

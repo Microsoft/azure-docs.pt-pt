@@ -4,15 +4,15 @@ description: Este artigo descreve como usar identidades geridas para autenticar 
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712382"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044401"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas
 
@@ -182,7 +182,7 @@ Esta funcionalidade não suporta o seguinte:
 
 2. **[Identidade atribuída ao utilizador:](../active-directory/managed-identities-azure-resources/overview.md)** não é suportado. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O principal do serviço é gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma saída da Data lake Store com análise de fluxo](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Teste Stream Analytics consultas localmente com Visual Studio](stream-analytics-vs-tools-local-run.md)

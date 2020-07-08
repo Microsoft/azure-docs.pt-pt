@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186021"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045506"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
 
@@ -61,7 +61,7 @@ Uma rede virtual pode ser segmentada em uma ou mais subesí redes até aos [limi
 - Cada sub-rede deve ter uma gama de endereços única, especificada no formato CIDR, dentro do espaço de endereço da rede virtual. O intervalo de endereços não pode sobrepor-se a outras sub-redes na rede virtual.
 - Se planeia implantar alguns recursos de serviço Azure numa rede virtual, eles podem necessitar ou criar a sua própria sub-rede, por isso deve haver espaço suficiente para que o façam. Para determinar se um serviço Azure cria a sua própria sub-rede, consulte informações para cada [serviço Azure que pode ser implantado numa rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Por exemplo, se ligar uma rede virtual a uma rede no local utilizando um Gateway Azure VPN, a rede virtual deve ter uma sub-rede dedicada para o gateway. Saiba mais sobre [as sub-redes gateway.](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)
 - A Azure liga o tráfego de rede entre todas as sub-redes numa rede virtual, por padrão. Pode anular o encaminhamento padrão da Azure para evitar o encaminhamento do Azure entre sub-redes ou para encaminhar o tráfego entre sub-redes através de um aparelho virtual de rede, por exemplo. Se necessitar que o tráfego entre recursos na mesma rede virtual flua através de um aparelho virtual de rede (NVA), implante os recursos em diferentes sub-redes. Saiba mais em [segurança.](#security)
-- Pode limitar o acesso aos recursos do Azure, como uma conta de armazenamento Azure ou base de dados Azure SQL, a sub-redes específicas com um ponto final de serviço de rede virtual. Além disso, pode negar o acesso aos recursos a partir da internet. Pode criar várias sub-redes e ativar um ponto final de serviço para algumas sub-redes, mas não para outras. Saiba mais sobre [os pontos finais](virtual-network-service-endpoints-overview.md)de serviço e os recursos Azure para os quais pode capacitá-los.
+- Pode limitar o acesso aos recursos do Azure, como uma conta de armazenamento Azure ou Azure SQL Database, a sub-redes específicas com um ponto final de serviço de rede virtual. Além disso, pode negar o acesso aos recursos a partir da internet. Pode criar várias sub-redes e ativar um ponto final de serviço para algumas sub-redes, mas não para outras. Saiba mais sobre [os pontos finais](virtual-network-service-endpoints-overview.md)de serviço e os recursos Azure para os quais pode capacitá-los.
 - Pode associar zero ou um grupo de segurança de rede a cada sub-rede numa rede virtual. Pode associar o mesmo, ou um grupo de segurança de rede diferente a cada sub-rede. Cada grupo de segurança da rede contém regras que permitem ou negam o tráfego de e para fontes e destinos. Saiba mais sobre [grupos de segurança de rede.](#traffic-filtering)
 
 ## <a name="security"></a>Segurança
@@ -113,6 +113,6 @@ A Política Azure permite-lhe criar, atribuir e gerir definições políticas. A
 
 As políticas são aplicadas à seguinte hierarquia: grupo de gestão, subscrição e grupo de recursos. Saiba mais sobre [a Política Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implemente algumas definições de [Política Azure de](policy-samples.md)rede virtual .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça todas as tarefas, configurações e opções para uma [rede virtual,](manage-virtual-network.md) [sub-rede e ponto final de serviço,](virtual-network-manage-subnet.md) [interface de rede,](virtual-network-network-interface.md) [peering,](virtual-network-manage-peering.md) [grupo de segurança de rede e aplicação,](manage-network-security-group.md)ou [tabela de rotas.](manage-route-table.md)

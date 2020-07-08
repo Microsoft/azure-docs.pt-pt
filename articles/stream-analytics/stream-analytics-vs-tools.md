@@ -1,86 +1,86 @@
 ---
-title: Ver trabalhos de Azure Stream Analytics em Estúdio Visual
-description: Aprenda a visualizar, iniciar e parar, testar ligações, verificar resultados e exportar os seus trabalhos de Azure Stream Analytics usando o Visual Studio.
+title: Ver trabalhos do Azure Stream Analytics no Estúdio Visual
+description: Aprenda a ver, iniciar e parar, testar ligações, verificar resultados e exportar os seus trabalhos Azure Stream Analytics usando o Visual Studio.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95abf403dfd4abd4c0533b6e8b4a2f83b33fa18b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75369631"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045557"
 ---
-# <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use o Estúdio Visual para ver empregos da Azure Stream Analytics
+# <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics
 
-As ferramentas Azure Stream Analytics para o Estúdio Visual facilitam aos desenvolvedores a gestão dos seus trabalhos de Stream Analytics diretamente do IDE. Com ferramentas Azure Stream Analytics, pode:
+As ferramentas Azure Stream Analytics para o Visual Studio facilitam aos desenvolvedores a gestão dos seus trabalhos stream Analytics diretamente do IDE. Com ferramentas Azure Stream Analytics, pode:
 - [Criar novos empregos](stream-analytics-quick-create-vs.md)
-- Iniciar, parar e [monitorizar os empregos](stream-analytics-monitor-jobs-use-vs.md)
-- Verifique os resultados do trabalho
-- Exportar empregos existentes para um projeto
+- Começar, parar e [monitorizar os trabalhos](stream-analytics-monitor-jobs-use-vs.md)
+- Ver resultados do trabalho
+- Exportar postos de trabalho existentes para um projeto
 - Testar ligações de entrada e saída
 - [Executar consultas localmente](stream-analytics-vs-tools-local-run.md)
 
-Saiba como [instalar ferramentas Azure Stream Analytics para Estúdio Visual](stream-analytics-tools-for-visual-studio-install.md).
+Saiba como [instalar ferramentas Azure Stream Analytics para o Visual Studio](stream-analytics-tools-for-visual-studio-install.md).
 
-## <a name="explore-the-job-view"></a>Explore a vista de trabalho
+## <a name="explore-the-job-view"></a>Explore a vista de emprego
 
 Você pode usar a vista de trabalho para interagir com os trabalhos da Azure Stream Analytics do Visual Studio.
 
-### <a name="open-the-job-view"></a>Abra a vista de trabalho
+### <a name="open-the-job-view"></a>Abra a vista de emprego
 
-1. No **Server Explorer,** selecione **trabalhos de Análise stream** e, em seguida, selecione **Refresh**. O seu trabalho deve aparecer sob **os trabalhos da Stream Analytics.**
+1. No **Server Explorer**, selecione stream analytics **e,** em seguida, selecione **Refresh**. O seu trabalho deve aparecer no âmbito **de trabalhos da Stream Analytics.**
 
-    ![Lista de exploradores de servidores Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
+    ![Lista de exploradores de servidores de streaming Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-2. Expanda o seu nó de trabalho e clique duas vezes no nó **de Job View** para abrir uma vista de trabalho.
+2. Expanda o nó de trabalho e clique duas vezes no nó **'Job View'** para abrir uma vista de emprego.
     
-   ![Nó de trabalho expandido](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
+   ![Nó de emprego expandido](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
 
-### <a name="start-and-stop-jobs"></a>Iniciar e parar empregos
+### <a name="start-and-stop-jobs"></a>Iniciar e parar os trabalhos
 
-Os trabalhos da Azure Stream Analytics podem ser totalmente geridos a partir da vista de trabalho no Visual Studio. Utilize os comandos para iniciar, parar ou apagar um trabalho.
+Os trabalhos do Azure Stream Analytics podem ser geridos na íntegra a partir da vista de emprego no Visual Studio. Utilize os controlos para iniciar, parar ou apagar um trabalho.
     
-   ![Controlos de trabalho stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
+   ![Controlos de emprego stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-## <a name="check-job-results"></a>Verifique os resultados do trabalho
+## <a name="check-job-results"></a>Ver resultados do trabalho
 
-As ferramentas Stream Analytics para o Estúdio Visual suportam atualmente a pré-visualização de saída para o armazenamento de Lagos De Dados Azure e armazenamento de blob. Para visualizar o resultado, basta clicar duas vezes no nó de saída do diagrama de trabalho em Vista de **Trabalho** e introduzir as credenciais apropriadas.
+As ferramentas Stream Analytics para Visual Studio suportam atualmente a pré-visualização da saída para o armazenamento de Azure Data Lake e para o armazenamento de bolhas. Para ver o resultado, basta clicar duas vezes no nó de saída do diagrama de trabalho em **Job View** e introduzir as credenciais apropriadas.
 
-   ![Saída de blob de trabalho stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
+   ![Stream Analytics produto blob de trabalho](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
-## <a name="export-jobs-to-a-project"></a>Exportação de empregos para um projeto
+## <a name="export-jobs-to-a-project"></a>Exportar postos de trabalho para um projeto
 
 Há duas maneiras de exportar um emprego existente para um projeto.
 
-1. No **Server Explorer,** sob o nó Stream Analytics Jobs, clique no nó de trabalho. Selecione **Export to New Stream Analytics Project**.
+1. No **Server Explorer**, sob o nó Stream Analytics Jobs, clique com o nó de trabalho à direita. Selecione **Export to New Stream Analytics Project**.
     
-   ![Exportação de emprego para projeto](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-01.png)
+   ![Trabalho de exportação para projeto](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-01.png)
     
     O projeto gerado aparece no **Solution Explorer.**
     
    ![Explorador de soluções](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-02.png)
 
-2. Na vista de trabalho, selecione **Generate Project**.
+2. Na visão de emprego, **selecione Gerar Projeto**.
     
    ![Gerar projeto a partir da vista de emprego](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-03.png)
 
 ## <a name="test-connections"></a>Ligações de teste
 
-As ligações de entrada e saída podem ser testadas a partir da Vista de **Trabalho** selecionando uma opção a partir do dropdown de Ligação de **Teste.**
+As ligações de entrada e saída podem ser testadas a partir do **Ponto de Vista de Trabalho** selecionando uma opção a partir do **dropdown de ligação** de teste.
 
-   ![Desistência da ligação de teste](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
+   ![Queda da ligação de teste](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
 
-Os resultados da **Ligação de Teste** são apresentados na janela **saída.**
+Os resultados **da Ligação de Teste** são apresentados na janela de **saída.**
 
    ![Resultados da ligação de teste](./media/stream-analytics-vs-tools/stream-analytics-test-connection-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Monitorize e gerea postos de trabalho da Azure Stream Analytics utilizando o Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Quickstart: Criar um trabalho de Stream Analytics usando o Estúdio Visual](stream-analytics-quick-create-vs.md)
+* [Monitorize e gere os trabalhos do Azure Stream Analytics utilizando o Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
+* [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
 * [Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrar e desenvolver continuamente as ferramentas do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

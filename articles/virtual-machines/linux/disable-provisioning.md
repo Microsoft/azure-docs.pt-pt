@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d5d173e0b0204ee9e9dbe6e8b51d38d4e42d4fc2
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306934"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045761"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Desativar ou remover o Agente Linux de VMs e imagens
 
@@ -36,6 +36,9 @@ Existem várias formas de desativar o processamento de extensão, dependendo das
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
+> [!Note]
+> 
+> Se não fizer o que precede, a plataforma tentará enviar a configuração de extensão e o tempo limite após 40min.
 
 ### <a name="disable-at-the-control-plane"></a>Desativar no avião de controlo
 Se não tiver a certeza se irá precisar de extensões no futuro, pode deixar o Agente Linux instalado no VM e, em seguida, desativar a capacidade de processamento de extensão da plataforma. Esta opção está disponível na `Microsoft.Compute` versão api `2018-06-01` ou superior, e não tem uma dependência da versão Linux Agent instalada.
@@ -45,36 +48,13 @@ az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperat
 ```
 Pode facilmente reensificar este processamento de extensão a partir da plataforma, com o comando acima, mas defini-lo como "verdadeiro".
 
-### <a name="optional---reduce-the-functionality"></a>Opcional - reduzir a funcionalidade 
-
-Também pode colocar o Agente Linux num modo de funcionalidade reduzido. Neste modo, o agente convidado ainda comunica com a Azure Fabric e reporta o estado dos hóspedes numa base muito mais limitada, mas não irá processar quaisquer atualizações de extensão. Para reduzir a funcionalidade, é necessário fazer uma alteração de configuração dentro do VM. Para ser reensiável, precisaria de SSH para o VM, mas se estiver bloqueado fora do VM, não poderá reenvendizar o processamento de extensão, isto talvez um problema, se precisar de fazer um SSH ou uma redefinição de palavra-passe.
-
-Para ativar este modo, é necessária a versão 2.2.32 ou superior waLinuxAgent, e definir a seguinte opção em /etc/waagent.conf:
-
-```bash
-Extensions.Enabled=n
-```
-
-Isto **deve** ser feito em conjunto com "Desativar no avião de controlo".
-
 ## <a name="remove-the-linux-agent-from-a-running-vm"></a>Remova o Agente Linux de um VM em execução
 
 Certifique-se de que **removeu** todas as extensões existentes do VM antes, conforme acima.
 
-### <a name="step-1-disable-extension-processing"></a>Passo 1: Desativar o processamento da extensão
+### <a name="step-1-remove-the-azure-linux-agent"></a>Passo 1: Remover o Agente Azure Linux
 
-Deve desativar o processamento de extensão.
-
-```bash
-az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
-```
-> [!Note]
-> 
-> Se não fizer o que precede, a plataforma tentará enviar a configuração de extensão e o tempo limite após 40min.
-
-### <a name="step-2-remove-the-azure-linux-agent"></a>Passo 2: Remover o Agente Azure Linux
-
-Executar um dos seguintes, como raiz, para remover o Agente Azure Linux:
+Se remover o Agente Linux e não os artefactos de configuração associados, pode reinstalar-se mais tarde. Executar um dos seguintes, como raiz, para remover o Agente Azure Linux:
 
 #### <a name="for-ubuntu-1804"></a>Para Ubuntu >=18,04
 ```bash
@@ -91,17 +71,16 @@ yum -y remove WALinuxAgent
 zypper --non-interactive remove python-azure-agent
 ```
 
-### <a name="step-3-optional-remove-the-azure-linux-agent-artifacts"></a>Passo 3: (Opcional) Remover os artefactos do Agente Azure Linux
+### <a name="step-2-optional-remove-the-azure-linux-agent-artifacts"></a>Passo 2: (Opcional) Remover os artefactos do Agente Azure Linux
 > [!IMPORTANT] 
 >
-> Pode remover todos os artefactos do Agente Linux, mas isto significa que não pode reinstalá-lo mais tarde. Portanto, recomenda-se vivamente que considere desativar primeiro o Agente Linux, removendo o Agente Linux usando apenas o acima. 
+> Pode remover todos os artefactos associados do Agente Linux, mas isso significa que não pode reinstalá-lo mais tarde. Portanto, recomenda-se vivamente que considere desativar primeiro o Agente Linux, removendo o Agente Linux usando apenas o acima. 
 
 Se souber que nunca mais voltará a instalar o Agente Linux, pode executar o seguinte:
 
 #### <a name="for-ubuntu-1804"></a>Para Ubuntu >=18,04
 ```bash
-apt -y remove walinuxagent
-rm -f /etc/waagent.conf
+apt -y purge walinuxagent
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
@@ -204,6 +183,6 @@ Em alternativa, pode fazê-lo utilizando modelos Azure Resource Manager (ARM), d
                     "keyData": "[parameters('adminPublicKey')]"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [Provisioning Linux](provisioning.md).

@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta no portal'
 description: Neste arranque rápido, você usa Azure Blueprints para criar, definir e implantar artefactos através do portal Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: aac4e13ca0da73f8b7915ea6655343d5cf0b94cb
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970982"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045217"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Definir e atribuir uma planta no portal
 
@@ -206,7 +206,7 @@ Depois de publicado um projeto, pode ser atribuído a uma subscrição. Atribua 
 
 1. Na página **de blueprint 'Atribuir',** na lista de entrega de **assinaturas,** selecione as subscrições para as quais pretende implementar esta planta.
 
-   Se houver ofertas empresariais suportadas disponíveis a partir de [Azure Billing,](../../billing/index.md)um novo link **Create** é ativado na caixa **de Subscrição.** Siga estes passos.
+   Se houver ofertas empresariais suportadas disponíveis a partir de [Azure Billing,](../../cost-management-billing/index.yml)um novo link **Create** é ativado na caixa **de Subscrição.** Siga estes passos.
 
    1. Selecione o novo link **Criar** uma nova subscrição em vez de selecionar as existentes.
 
@@ -291,7 +291,7 @@ Se já não precisar de uma atribuição de planta, remova-a de uma subscrição
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **versões Publicado,** selecione a versão que pretende eliminar e, em seguida, **selecione Eliminar Esta Versão**. Além disso, não podes apagar uma planta até teres apagado toda a definição de planta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o portal Azure. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

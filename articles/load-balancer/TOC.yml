@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Controlos de segurança incorporados
       href: load-balancer-security-controls.md
+    - name: Gestão do Conjunto de Back-end
+      href: backend-pool-management.md
 - name: Procedimento
   items:
     - name: Conjuntos de dimensionamento de máquinas virtuais

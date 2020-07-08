@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 0c54b862704905b282869c5f2e9c374a173897ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 92e224448d26c24c073bd81b7f9e001fa8a09898
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609918"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044690"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo Python SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -87,15 +87,17 @@ Este artigo demonstra inscrições individuais.
 
 3. Na janela de saída, introduza `i` para inscrição individual, quando lhe for pedido. A janela de saída apresenta um certificado X.509 gerado localmente para o seu dispositivo simulado. 
     
-    Copie o primeiro certificado para a área de transferência. Começar pela primeira ocorrência de:
+    ```output
+    Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
         
-    Terminar a cópia após a primeira ocorrência de:
+    End you copying after the first occurrence of:
     
         -----END CERTIFICATE-----
         
-    Certifique-se de que inclui também essas linhas. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Repartir a aplicação de inscrição de dispositivos](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

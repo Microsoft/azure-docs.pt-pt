@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066844"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045914"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
 
@@ -150,7 +150,7 @@ O exemplo a seguir mostra a instalação da extensão antimalware da Microsoft a
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Quando implementar uma extensão com um modelo, pode criar implementações Azure totalmente configuradas. Por exemplo, o seguinte JSON é retirado de um modelo de Gestor de Recursos implementa um conjunto de VMs equilibrados de carga e uma base de dados Azure SQL, em seguida, instala uma aplicação .NET Core em cada VM. A extensão VM cuida da instalação do software.
+As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Quando implementar uma extensão com um modelo, pode criar implementações Azure totalmente configuradas. Por exemplo, o seguinte JSON é retirado de um modelo de Gestor de Recursos implementa um conjunto de VMs equilibrados de carga e uma Base de Dados Azure SQL, em seguida, instala uma aplicação .NET Core em cada VM. A extensão VM cuida da instalação do software.
 
 Para obter mais informações, consulte o [modelo completo do Gestor de Recursos.](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
@@ -421,7 +421,7 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência comum das extensões VM
-| Nome de extensão | Description | Mais informações |
+| Nome de extensão | Descrição | Mais informações |
 | --- | --- | --- |
 | Extensão de Script Personalizado para o Windows |Executar scripts contra uma máquina virtual Azure |[Extensão de Script Personalizado para o Windows](custom-script-windows.md) |
 | Extensão DSC para Windows |Extensão PowerShell DSC (Configuração do Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |

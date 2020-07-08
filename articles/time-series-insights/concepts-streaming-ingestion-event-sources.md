@@ -1,0 +1,92 @@
+---
+title: Fontes de eventos de streaming - Azure Time Series Insights Microsoft Docs
+description: Saiba mais sobre o streaming de dados em Azure Time Series Insights.
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
+ms.workload: big-data
+ms.service: time-series-insights
+services: time-series-insights
+ms.topic: conceptual
+ms.date: 06/03/2020
+ms.custom: seodec18
+ms.openlocfilehash: 602f5a0df6cbd7c308d45d02795e7404c46c73a7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050077"
+---
+# <a name="time-series-insights-event-sources"></a>Fontes de eventos de insights de séries de tempo
+
+ O seu ambiente de TSI pode ter até duas fontes de eventos de streaming. Dois tipos de recursos Azure são suportados como entradas:
+
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
+
+Os eventos devem ser enviados como UTF-8 codificado JSON.
+
+## <a name="create-or-edit-event-sources"></a>Criar ou editar fontes de eventos
+
+Os recursos de origem do evento podem viver na mesma subscrição Azure que o ambiente time series Insights ou uma subscrição diferente. Pode utilizar o [portal Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI,](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights) [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
+
+Quando ligar uma fonte de evento, o seu ambiente TSI irá ler todos os eventos atualmente armazenados no seu Iot ou Event Hub, começando com o evento mais antigo.
+
+> [!IMPORTANT]
+>
+> * Pode experimentar uma elevada latência inicial ao anexar uma fonte de evento ao seu ambiente de pré-visualização.
+> A latência da fonte do evento depende do número de eventos atualmente no seu Hub IoT ou Centro de Eventos.
+> * A alta latência diminuirá após a primeira ingestão de dados de origem de eventos. Envie um bilhete de apoio através do portal Azure se sentir uma elevada latência.
+
+## <a name="streaming-ingestion-best-practices"></a>Boas práticas de ingestão de streaming
+
+* Crie sempre um grupo de consumidores único para o seu ambiente TSI para consumir dados da sua fonte de evento. A reutilização de grupos de consumidores pode causar desconexões aleatórias e pode resultar na perda de dados.
+
+* Configure o seu ambiente TSI e o seu IoT Hub e/ou Centros de Eventos na mesma região do Azure. Embora seja possível configurar uma fonte de eventos numa região separada, este cenário não é apoiado e não podemos garantir uma elevada disponibilidade.
+
+* Não ultrapasse o limite de [taxa de produção](concepts-streaming-throughput-limitations.md) do seu ambiente ou por limite de partição.
+
+* Configure um [alerta](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a passar por problemas de processamento de dados.
+
+* Utilize a ingestão de streaming apenas em tempo real e dados recentes, o streaming de dados históricos não é suportado.
+
+* Compreenda como as propriedades serão escapadas e os dados da JSON [achatados e armazenados.](./concepts-json-flattening-escaping-rules.md)
+
+* Siga o princípio do menor privilégio ao fornecer cordas de ligação de fonte de evento. Para os Centros de Eventos, configurar uma política de acesso partilhado apenas com a reclamação *de envio,* e para o IoT Hub utilizar apenas a permissão *de ligação* de serviço.
+
+### <a name="historical-data-ingestion"></a>Ingestão de dados históricos
+
+A utilização do gasoduto de streaming para importar dados históricos não é atualmente suportada na Pré-visualização da Série temporal do Azure. Se precisar de importar dados passados para o seu ambiente, siga as orientações abaixo:
+
+* Não transmita dados ao vivo e históricos em paralelo. Ingerir dados fora da ordem resultará num desempenho de consulta degradado.
+* Ingerir dados históricos na moda ordenada pelo tempo para melhor desempenho.
+* Mantenha-se dentro dos limites da taxa de produção abaixo.
+* Desative a Warm Store se os dados forem mais antigos do que o período de retenção da Warm Store.
+
+## <a name="event-source-timestamp"></a>Data de tempo de fonte de evento
+
+Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts na [Time Series Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute) e para traçar séries no explorador TSI. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
+
+Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para a ESI.
+
+Se a sua marca de tempo personalizada estiver dentro de um objeto JSON aninhado ou de uma matriz, você precisará fornecer o nome de propriedade correto seguindo nossas [convenções de achatamento e fuga](concepts-json-flattening-escaping-rules.md)de nomeação . Por exemplo, o tempo de origem do evento para a carga útil JSON [mostrada aqui](concepts-json-flattening-escaping-rules.md#example-a) deve ser introduzido como `"values.time"` .
+
+### <a name="time-zone-offsets"></a>Compensações de fuso horário
+
+Os cartões de tempo devem ser enviados em formato ISO 8601 e serão armazenados na UTC. Se for fornecida uma compensação do fuso horário, a offset será aplicada e, em seguida, o tempo armazenado e devolvido em formato UTC. Se o offset for indevidamente formatado, será ignorado. Em situações em que a sua solução pode não ter contexto da compensação original, pode enviar os dados de compensação numa propriedade adicional separada do evento para garantir que está preservada e que a sua aplicação pode referenciar numa resposta de consulta.
+
+A compensação do fuso horário deve ser formatada como uma das seguintes:
+
+±HHMMZ</br>
+±HH:MM</br>
+±HH:MMZ</br>
+
+## <a name="next-steps"></a>Próximos passos
+
+* Leia as [Regras de Achatamento e Fuga](./concepts-json-flattening-escaping-rules.md) do JSON para entender como os eventos serão armazenados. 
+
+* Compreenda as [limitações](concepts-streaming-throughput-limitations.md) de produção do seu ambiente
+
+
+
+

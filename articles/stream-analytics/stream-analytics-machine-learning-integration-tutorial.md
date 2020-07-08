@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c7a9a4c31ad7282782f45a8e2a4457cd159ee77
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80067080"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044452"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realize análise de sentimento com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
@@ -252,7 +252,7 @@ Também pode ver métricas relacionadas com a função Azure Machine Learning. A
 * **Eventos de função** indicam o número de eventos no pedido. Por predefinição, cada pedido a um serviço web machine learning contém até 1.000 eventos.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
