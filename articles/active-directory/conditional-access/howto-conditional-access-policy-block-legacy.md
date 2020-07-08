@@ -1,6 +1,6 @@
 ---
 title: Acesso Condicional - Autenticação do legado do bloco - Diretório Ativo Azure
-description: Criar uma política personalizada de acesso condicional para bloquear protocolos de autenticação do legado
+description: Criar uma política de acesso condicional personalizado para bloquear protocolos de autenticação de legados
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,44 +12,43 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995195"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
-Devido ao risco acrescido associado aos protocolos de autenticação do legado, a Microsoft recomenda que as organizações bloqueiem os pedidos de autenticação utilizando estes protocolos e exijam a autenticação moderna.
+Devido ao risco acrescido associado aos protocolos de autenticação, a Microsoft recomenda que as organizações bloqueiem pedidos de autenticação utilizando estes protocolos e exijam a autenticação moderna.
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-Os seguintes passos ajudarão a criar uma política de Acesso Condicional para bloquear pedidos de autenticação do legado. Esta política é colocada no [modo apenas](howto-conditional-access-report-only.md) para iniciar o relatório para começar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores se sentem confortáveis em que a política se aplique como pretendem, podem mudar para **On** ou encenar a implantação adicionando grupos específicos e excluindo outros.
+As seguintes etapas ajudarão a criar uma política de acesso condicional para bloquear pedidos de autenticação legado. Esta política é colocada no [modo report-only](howto-conditional-access-report-only.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores estão confortáveis que a política se aplica como pretendem, podem mudar para **Ligar** ou encenar a implementação adicionando grupos específicos e excluindo outros.
 
-1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
-1. Selecione **Nova política.**
-1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
+1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Selecione **Nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
-   1. Em **Incluir,** selecione **Todos os utilizadores**.
-   1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha quaisquer contas que mantenham a capacidade de utilizar a autenticação do legado. Exclua pelo menos uma conta para evitar que seja bloqueado. Se não excluir nenhuma conta, não poderá criar esta política.
+   1. Em **Incluir**, selecione **Todos os utilizadores**.
+   1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha quaisquer contas que mantenham a capacidade de utilizar a autenticação antiga. Exclua pelo menos uma conta para evitar que esteja trancado. Se não excluir nenhuma conta, não poderá criar esta política.
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações cloud**, selecione Todas as **aplicações em nuvem**.
+1. Em **aplicativos ou ações cloud**, selecione **Todas as aplicações cloud**.
    1. Selecione **Done** (Concluído).
-1. Em **Condições**  >  **As aplicações do Cliente (pré-visualização)**, definir **Configure** para **Sim**.
-   1. Verifique apenas as caixas **Aplicações móveis e clientes**de desktop  >  **Outros clientes**.
+1. Em **Condições**  >  **As aplicações do Cliente (pré-visualização)**, definir **Configurar** para **Sim**.
+   1. Verifique apenas as caixas **Aplicações móveis e clientes de desktop**  >  **Outros clientes.**
    1. Selecione **Done** (Concluído).
-1. Sob **controlos de acesso**  >  **Grant**, selecione **acesso ao bloco**.
+1. Sob **controlos de acesso**  >  **Grant**, selecione **Acesso ao Bloco**.
    1. Selecione **Selecionar**.
-1. Confirme as suas definições e ajuste **a política de ativação** **apenas**para reportar .
+1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
 ## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
 
-[Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
+[Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[Como configurar um dispositivo ou aplicação multifunções para enviar e-mail utilizando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+[Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

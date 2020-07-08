@@ -1,5 +1,5 @@
 ---
-title: Carregue os dados do ficheiro CSV numa base de dados (bcp)
+title: Carregar dados do ficheiro CSV numa base de dados (bcp)
 description: Para um tamanho de dados de pequena dimensão, utilize o bcp para importar dados para a Base de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,24 +12,23 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: a5c09ef5ca1e3a4f47c4fd9d7d022c000378a6d3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84046370"
 ---
-# <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Carregue os dados do CSV para a Base de Dados Azure SQL ou a Instância Gerida SQL (ficheiros planos)
+# <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Carregar dados do CSV para a Base de Dados SQL do Azure ou para a SqL (ficheiros planos)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Pode utilizar o utilitário da linha de comando do BCP para importar dados de um ficheiro CSV para a Base de Dados Azure SQL ou para a Instância Gerida Azure SQL.
+Pode utilizar o utilitário da linha de comando do BCP para importar dados de um ficheiro CSV para a Base de Dados Azure SQL ou para a Azure SQL Gerenciada.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos deste artigo, precisa de:
+Para completar os passos deste artigo, você precisa:
 
-* Uma base de dados em Azure SQL Database
+* Uma base de dados na Base de Dados Azure SQL
 * Ter instalado o utilitário bcp de linha de comandos
 * Ter instalado o utilitário sqlcmd de linha de comandos
 
@@ -82,7 +81,7 @@ Abra o Bloco de Notas e copie as seguintes linhas de dados para um novo ficheiro
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ,
 ```
 
-## <a name="3-load-the-data"></a>3. Carregar os dados
+## <a name="3-load-the-data"></a>3. Carregue os dados
 
 Para carregar os dados, abra uma linha de comandos e execute o seguinte comando, substituindo os valores para o Nome do Servidor, nome da Base de Dados, Nome de Utilizador e Palavra-passe pelas suas informações.
 

@@ -1,6 +1,6 @@
 ---
-title: Migrar para novos empregos de base de dados elásticos
-description: Migrar para o novo Trabalho de Base de Dados Elástica.
+title: Migrar para novos trabalhos de base de dados elásticas
+description: Migrar para o novo Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,10 +12,9 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84050129"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Base de Dados Elásticas
@@ -23,18 +22,18 @@ ms.locfileid: "84050129"
 
 Está disponível uma versão atualizada do [Elastic Database Jobs.](elastic-jobs-overview.md)
 
-Se tiver uma versão existente do Elastic Database Jobs, os cmdlets de migração e scripts são fornecidos para migrar facilmente para a versão mais recente.
+Se tiver uma versão existente do Elástico Database Jobs, os cmdlets e scripts de migração são fornecidos para migrar facilmente para a versão mais recente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A versão atualizada dos trabalhos de Base de Dados Elásticas tem um novo conjunto de cmdlets PowerShell para uso durante a migração. Estes novos cmdlets transferem todas as suas credenciais de trabalho existentes, alvos (incluindo bases de dados, servidores, coleções personalizadas), gatilhos de trabalho, horários de trabalho, conteúdos de emprego e empregos para um novo agente Elástico.
+A versão atualizada dos trabalhos da Elastic Database tem um novo conjunto de cmdlets PowerShell para utilização durante a migração. Estes novos cmdlets transferem todas as suas credenciais de emprego existentes, alvos (incluindo bases de dados, servidores, coleções personalizadas), gatilhos de emprego, horários de trabalho, conteúdos de emprego e empregos para um novo agente Elastic Job.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instale os mais recentes cmdlets de Trabalhos Elásticos
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instale os mais recentes cmdlets Elastic Jobs
 
-Se ainda não tem uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instale o módulo de pré-visualização **Az.Sql** 1.1.1 para obter os mais recentes cmdlets de Trabalho Elástico. Execute os seguintes comandos no PowerShell com acesso administrativo.
+Instale o módulo de pré-visualização **Az.Sql** 1.1.1 para obter os mais recentes cmdlets Elastic Job. Execute os seguintes comandos no PowerShell com acesso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on
@@ -55,9 +54,9 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-### <a name="create-a-new-elastic-job-agent"></a>Criar um novo agente elástico
+### <a name="create-a-new-elastic-job-agent"></a>Criar um novo agente de trabalho elástico
 
-Depois de instalar os novos cmdlets, crie um novo agente Elástico.
+Depois de instalar os novos cmdlets, crie um novo agente Elastic Job.
 
 ```powershell
 # Register your subscription for the for the Elastic Jobs public preview feature
@@ -69,9 +68,9 @@ $db = Get-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serv
 $agent = $db | New-AzSqlElasticJobAgent -Name <agentName>
 ```
 
-### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Instale os antigos trabalhos de base de dados elásticas cmdlets
+### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Instale os antigos cmdlets elásticos de trabalhos
 
-A migração precisa de usar alguns dos *antigos* cmdlets de trabalho elástico, por isso, execute os seguintes comandos se ainda não os tiver instalado.
+A migração precisa de usar alguns dos *antigos* cmdlets de trabalho elásticos, por isso, executar os seguintes comandos se ainda não os tiver instalado.
 
 ```powershell
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
@@ -91,7 +90,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 ## <a name="migration"></a>Migração
 
-Agora que os antigos e novos cmdlets de Emprego Elástico são inicializados, migram as suas credenciais de emprego, alvos e empregos para a nova base de *dados de emprego.*
+Agora que os antigos e novos cmdlets elastic jobs são inicializados, migrar as suas credenciais de emprego, alvos e empregos para a nova *base de dados de emprego.*
 
 ### <a name="setup"></a>Configuração
 
@@ -111,7 +110,7 @@ function Log-ChildOutput ($output) {
 
 
 
-### <a name="migrate-credentials"></a>Credenciais de migração
+### <a name="migrate-credentials"></a>Credenciais migratórias
 
 ```powershell
 function Migrate-Credentials ($agent) {
@@ -139,7 +138,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Para migrar as suas credenciais, execute o seguinte comando passando o `$agent` objeto PowerShell de há pouco.
+Para migrar as suas credenciais, execute o seguinte comando passando no `$agent` objeto PowerShell de anteriormente.
 
 ```powershell
 Migrate-Credentials $agent
@@ -158,7 +157,7 @@ Resultado da amostra
 #  - Added user user3
 ```
 
-### <a name="migrate-targets"></a>Alvos de migração
+### <a name="migrate-targets"></a>Metas migratórias
 
 ```powershell
 function Migrate-TargetGroups ($agent) {
@@ -367,9 +366,9 @@ function Setup-TargetGroup ($tgName, $agent) {
 }
 ```
 
-Para migrar os seus alvos (servidores, bases de dados e coleções personalizadas) para a sua nova base de dados de trabalho, execute o cmdlet **Migrate-TargetGroups** para executar o seguinte:
+Para migrar os seus alvos (servidores, bases de dados e coleções personalizadas) para a sua nova base de dados de emprego, execute o cmdlet **Migrate-TargetGroups** para executar o seguinte:
 
-- Os alvos de nível de raiz que são servidores e bases de dados serão migrados para um novo grupo-alvo chamado \<serverName\> \<databaseName\> "(,)" contendo apenas o alvo do nível raiz.
+- Os alvos de nível de raiz que são servidores e bases de dados serão migrados para um novo grupo-alvo chamado ", \<serverName\> \<databaseName\> contendo apenas o alvo do nível de raiz."
 - Uma coleção personalizada migrará para um novo grupo-alvo contendo todos os alvos infantis.
 
 ```powershell
@@ -563,11 +562,11 @@ function Setup-JobStep ($newJob, $job) {
 }
 ```
 
-Para migrar os seus empregos, conteúdo de emprego, gatilhos de emprego e horários de trabalho para a base de dados do seu novo agente elástico, execute o cmdlet **Migrate-Jobs** passando no seu agente.
+Para migrar os seus empregos, conteúdo de emprego, gatilhos de emprego e horários de trabalho para a base de dados do seu novo agente de trabalho elástico, execute o cmdlet **Migrate-Jobs** passando no seu agente.
 
-- Os empregos com múltiplos gatilhos com horários diferentes são separados em múltiplos empregos com esquema de nomeação: " \<jobName\> ( \<scheduleName\> )".
-- Os conteúdos de trabalho são migrados para um trabalho adicionando um passo de trabalho padrão chamado JobStep com texto de comando associado.
-- Os postos de trabalho são desativados por padrão para que possa validá-los antes de os permitir.
+- Empregos com múltiplos gatilhos com horários diferentes são separados em múltiplos empregos com esquema de nomeação: " \<jobName\> ( \<scheduleName\> )".
+- Os conteúdos de trabalho são migrados para um trabalho adicionando um passo de trabalho predefinido chamado JobStep com texto de comando associado.
+- Os trabalhos são desativados por defeito para que possa validá-los antes de os permitir.
 
 ```powershell
 Migrate-Jobs $agent
@@ -605,9 +604,9 @@ Job job4
 
 ## <a name="migration-complete"></a>Migração Completa
 
-A base de *dados de emprego* deverá agora ter todas as credenciais de emprego, metas, desencadeadores de emprego, horários de trabalho, conteúdos de emprego e empregos migrados.
+A *base de dados* de emprego deve agora ter todas as credenciais de emprego, alvos, desencadeadores de emprego, horários de trabalho, conteúdos de emprego e empregos migrados.
 
-Para confirmar que tudo migra corretamente, utilize os seguintes scripts:
+Para confirmar que tudo foi migrado corretamente, utilize os seguintes scripts:
 
 ```powershell
 $creds = $agent | Get-AzSqlElasticJobCredential
@@ -622,7 +621,7 @@ Para testar que os trabalhos estão a executar corretamente, inicie-os:
 $jobs | Start-AzSqlElasticJob
 ```
 
-Para quaisquer trabalhos que estivessem a funcionar com um horário, lembre-se de permitir que possam correr em segundo plano:
+Para quaisquer trabalhos que estivessem a funcionar num horário, lembre-se de habilitar-lhes para que possam funcionar em segundo plano:
 
 ```powershell
 $jobs | Set-AzSqlElasticJob -Enable

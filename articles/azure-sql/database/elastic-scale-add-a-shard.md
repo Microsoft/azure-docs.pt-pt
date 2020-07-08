@@ -12,24 +12,23 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 62f7f93b4baeeb4132e867a90e4f911187967f42
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84047595"
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar um fragmento usando ferramentas de base de dados elásticas
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar um fragmento usando ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Para adicionar um fragmento para uma nova gama ou chave
 
-As aplicações precisam muitas vezes de adicionar novos fragmentos para lidar com dados que são esperados a partir de novas teclas ou intervalos de chaves, para um mapa de fragmentos que já existe. Por exemplo, uma aplicação apresentada pelo Tenant ID pode ter de fornecer um novo fragmento para um novo inquilino, ou os dados mensais podem precisar de um novo fragmento previsto antes do início de cada novo mês.
+As aplicações muitas vezes precisam adicionar novos fragmentos para lidar com dados que são esperados a partir de novas teclas ou gamas de chaves, para um mapa de fragmentos que já existe. Por exemplo, um pedido de identificação do inquilino pode precisar de providenciar um novo fragmento para um novo inquilino, ou os dados mensais são necessários para precisar de um novo fragmento previsto antes do início de cada novo mês.
 
 Se a nova gama de valores-chave já não faz parte de um mapeamento existente, é simples adicionar o novo fragmento e associar a nova chave ou gama a esse fragmento.
 
-### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exemplo: adicionar um fragmento e a sua gama a um mapa de fragmentos existente
+### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exemplo: adicionar um fragmento e sua gama a um mapa de fragmentos existente
 
-Esta amostra utiliza o TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET)](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))o CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET),](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [métodos .NET,](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) e cria uma instância da classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation) Na amostra abaixo, foi criada uma base de dados chamada **sample_shard_2** e todos os objetos de esquemanecessários necessários no seu interior para manter o alcance [300.400).  
+Esta amostra utiliza o TryGetShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))), o CreateShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) methods, e cria uma instância da classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation) Na amostra abaixo, foi criada uma base de dados denominada **sample_shard_2** e todos os objetos de esquema necessários no seu interior para manter a faixa [300.400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -50,11 +49,11 @@ Para a versão .NET, também pode utilizar o PowerShell como alternativa para cr
 
 ## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Para adicionar um fragmento para uma parte vazia de uma gama existente
 
-Em algumas circunstâncias, você pode já ter mapeado um intervalo para um fragmento e parcialmente preenchido com dados, mas agora quer que os próximos dados sejam direcionados para um fragmento diferente. Por exemplo, você se esforça à distância do dia e já alocou 50 dias a um fragmento, mas no dia 24, você quer que os dados futuros aterrem em um fragmento diferente. A ferramenta de fusão de base de dados elástica pode executar esta operação, mas se o movimento de dados não for necessário (por exemplo, dados para o intervalo de dias [25, 50), ou seja, dia 25 inclusive a 50 exclusivo, ainda não existe) pode [executá-lo](elastic-scale-overview-split-and-merge.md) inteiramente usando diretamente as APIs de Gestão de Mapas de Fragmentos.
+Em algumas circunstâncias, pode já ter mapeado uma gama para um fragmento e parcialmente preenchido com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmento por dia e já alocou 50 dias a um fragmento, mas no dia 24, você quer que os dados futuros aterrem em um fragmento diferente. A ferramenta de [fusão de bases de dados](elastic-scale-overview-split-and-merge.md) elástica pode realizar esta operação, mas se o movimento de dados não for necessário (por exemplo, dados para o intervalo de dias [25, 50), ou seja, o dia 25 inclusive a 50 exclusivo, ainda não existe), pode efetuar esta operação inteiramente utilizando diretamente as APIs de Gestão de Mapas de Fragmentos.
 
-### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exemplo: dividir uma gama e atribuir a porção vazia a um fragmento recém-adicionado
+### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exemplo: dividir um intervalo e atribuir a porção vazia a um fragmento recém-adicionado
 
-Foi criada uma base de dados chamada "sample_shard_2" e todos os objetos de esquemas necessários no seu interior.  
+Foi criada uma base de dados chamada "sample_shard_2" e todos os objetos de esquema necessários no seu interior.  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**: Utilize esta técnica apenas se tiver a certeza de que a gama para o mapeamento atualizado está vazia.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem filas na gama em mudança, a distribuição real de dados não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão de divisão](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
+**Importante**: Utilize esta técnica apenas se tiver a certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem linhas na gama que está a ser movida, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

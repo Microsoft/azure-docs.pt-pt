@@ -1,28 +1,27 @@
 ---
-title: Criar & configurar o Log Analytics com a PowerShell
-description: Os espaços de trabalho do Log Analytics no Azure Monitor armazenam dados de servidores nas suas instalações ou infraestruturas em nuvem. Pode recolher dados da máquina a partir do armazenamento Azure quando gerados por diagnósticos Azure.
+title: Criar & configurar o Log Analytics com PowerShell
+description: Log Analytics espaços de trabalho no Azure Monitor armazena dados de servidores nas suas instalações ou infraestruturas de nuvem. Pode recolher dados de máquinas a partir do armazenamento Azure quando gerados por diagnósticos Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
 ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83860975"
 ---
-# <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho de Log Analytics no Monitor Azure utilizando powerShell
-Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho log Analytics no Monitor Azure.  
+# <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
+Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho Log Analytics no Azure Monitor.  
 
 
 > [!NOTE]
-> O Log Analytics foi anteriormente chamado de Insights Operacionais, razão pela qual é o nome usado nos cmdlets.
+> Log Analytics foi anteriormente chamado De insights operacionais, razão pela qual é o nome usado nos cmdlets.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Estes exemplos funcionam com a versão 1.0.0 ou mais tarde do módulo Az.OperationalInsights.
+Estes exemplos funcionam com a versão 1.0.0 ou posterior do módulo Az.OperationalInsights.
 
 ## <a name="create-workspace"></a>Criar área de trabalho
 O seguinte script de amostra cria um espaço de trabalho sem configuração de fonte de dados. 
@@ -45,22 +44,22 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku
 
 ## <a name="create-workspace-and-configure-data-sources"></a>Criar espaço de trabalho e configurar fontes de dados
 
-A amostra de script da amostra seguinte cria um espaço de trabalho e configura várias fontes de dados. Estas fontes de dados só são necessárias se estiver a monitorizar máquinas virtuais utilizando o [agente Log Analytics](log-analytics-agent.md).
+A amostra seguinte cria um espaço de trabalho e configura várias fontes de dados. Estas fontes de dados só são necessárias se estiver a monitorizar máquinas virtuais utilizando o [agente Log Analytics](log-analytics-agent.md).
 
 Este script executa as seguintes funções:
 
 1. Criar uma área de trabalho
-2. Enumerar as soluções disponíveis
-3. Adicione soluções para o espaço de trabalho
-4. Importação de pesquisas guardadas
-5. Exportação salvou buscas
-6. Criar um grupo de computador
-7. Ativar a recolha de registos IIS de computadores com o agente Windows instalado
-8. Recolher contadores perf de discos lógicos de computadores Linux (% Inodos Usados; Megabytes grátis; % espaço usado; Transferências de disco/seg; Leituras/seg de disco; Escritas de Disco/seg)
+2. Listar as soluções disponíveis
+3. Adicionar soluções ao espaço de trabalho
+4. Importar pesquisas guardadas
+5. Exportar pesquisas salvas
+6. Criar um grupo de computadores
+7. Ativar a recolha de registos IIS a partir de computadores com o agente Windows instalado
+8. Recolha os contadores perf do disco lógico dos computadores Linux (% Inodes usados; Megabytes grátis; % Espaço Usado; Transferências de discos/seg; Leituras/seg de disco; Escritas/seg de disco)
 9. Colete eventos syslog a partir de computadores Linux
-10. Recolher eventos de erro e aviso a partir do Registo de Eventos de Aplicação a partir de computadores Windows
-11. Colete memória disponível Mbytes contador de desempenho de computadores Windows
-12. Recolher um registo personalizado
+10. Recolher eventos de erro e aviso a partir do registo de eventos de aplicação a partir de computadores Windows
+11. Recolha memória Disponível Mbytes contador de desempenho a partir de computadores Windows
+12. Colete um registo personalizado
 
 ```powershell
 $ResourceGroup = "my-resource-group"
@@ -193,11 +192,11 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um log personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração para um registo personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
+> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um registo personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um Registo Personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
 
-No exemplo acima, o regexDelimiter foi definido como \\ "n" para a newline. O delimitador de registo também pode ser uma marca de tempo.  Estes são os formatos suportados:
+No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O delimiter de log também pode ser uma estamp de tempo.  Estes são os formatos suportados:
 
-| Formato | O formato Json RegEx utiliza dois \\ para cada \ num RegEx padrão, por isso, se os testes numa aplicação RegEx reduzirem para \\ \ | | |
+| Formatar | O formato Json RegEx usa dois \\ para cada \ num RegEx padrão, por isso, se testar numa aplicação RegEx \\ reduza para \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` | | |
@@ -206,20 +205,20 @@ No exemplo acima, o regexDelimiter foi definido como \\ "n" para a newline. O de
 | `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]|[1][0-2])([0-2][0-9]|[3][0-1])\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
 | `ddMMyy HH:mm:ss` | `(([0-2][0-9]|[3][0-1])([0][1-9]|[1][0-2])[0-9]{2}\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
 | `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s?([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0-1]?[0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9])` | | |
-| `MMM  d HH:mm:ss` <br> dois espaços depois de MMM | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM  d HH:mm:ss` <br> dois espaços após MMM | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
 | `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
-| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> onde + é + ou um - <br> onde o tempo zzzz compensado | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> onde + é + ou a - <br> onde zzzz tempo compensado | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Quando se cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de soft-delete,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do espaço de trabalho:
-1. Se fornecer o mesmo nome de espaço de trabalho, grupo de recursos, subscrição e região que no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
-2. Se utilizar o mesmo nome de espaço de trabalho, mas um grupo de recursos diferentes, subscrição ou região, terá um erro O nome do espaço de *trabalho 'workspace-name' não é único,* nem *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:
+Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
+1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
+2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
    * [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
    * [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
-   * Criar um novo espaço de trabalho usando o mesmo nome de espaço de trabalho
+   * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 
-## <a name="next-steps"></a>Passos seguintes
-* [Reveja os cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights/) de Log Analytics PowerShell para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.
+## <a name="next-steps"></a>Próximos passos
+* [Rever os cmdlets PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.
 

@@ -1,6 +1,6 @@
 ---
-title: Limpe os registos SSISDB com empregos de base de dados elásticas Azure
-description: Este artigo descreve como limpar os registos SSISDB utilizando postos de base de dados azure elásticos para desencadear o procedimento armazenado que existe para o efeito
+title: Limpe os registos SSISDB com trabalhos de base de dados elásticos Azure
+description: Este artigo descreve como limpar registos SSISDB utilizando trabalhos de Base de Dados Elásticos Azure para desencadear o procedimento armazenado que existe para este fim
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,29 +11,28 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84020290"
 ---
-# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpe os registos SSISDB com empregos de base de dados elásticas Azure
+# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpe os registos SSISDB com trabalhos de base de dados elásticos Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar o Azure Elastic Database Jobs para desencadear o procedimento armazenado que limpa os registos para a base de dados do catálogo de serviços de integração do Servidor SQL, `SSISDB` .
+Este artigo descreve como utilizar a Azure Elastic Database Jobs para acionar o procedimento armazenado que limpa os registos para a base de dados do catálogo de serviços de integração de servidores SQL, `SSISDB` .
 
-Elastic Database Jobs é um serviço Azure que facilita a automatização e o funcionação de empregos contra uma base de dados ou um grupo de bases de dados. Pode agendar, executar e monitorizar estes trabalhos utilizando o portal Azure, Transact-SQL, PowerShell ou REST APIs. Utilize o Trabalho de Base de Dados Elástica para acionar o procedimento armazenado para a limpeza de logup uma vez ou num horário. Pode escolher o intervalo de horário com base na utilização de recursos SSISDB para evitar uma carga pesada de base de dados.
+A Elastic Database Jobs é um serviço Azure que facilita a automatização e a execução de empregos contra uma base de dados ou um grupo de bases de dados. Você pode agendar, executar e monitorizar estes trabalhos usando o portal Azure, Transact-SQL, PowerShell ou REST APIs. Utilize a Base de Dados Elástica Job para acionar o procedimento armazenado para a limpeza de registos uma vez ou num horário. Pode escolher o intervalo de horário com base na utilização de recursos SSISDB para evitar cargas pesadas de base de dados.
 
-Para mais informações, consulte [Gerir grupos de bases de dados com empregos](../azure-sql/database/elastic-jobs-overview.md)de base de dados elásticas .
+Para obter mais informações, consulte [Gerir grupos de bases de dados com Trabalhos de Base de Dados Elásticos.](../azure-sql/database/elastic-jobs-overview.md)
 
-As seguintes secções descrevem como acionar o procedimento `[internal].[cleanup_server_retention_window_exclusive]` armazenado, que remove os registos SSISDB que estão fora da janela de retenção definida pelo administrador.
+As secções seguintes descrevem como ativar o procedimento `[internal].[cleanup_server_retention_window_exclusive]` armazenado, que remove os registos SSISDB que estão fora da janela de retenção definida pelo administrador.
 
-## <a name="clean-up-logs-with-power-shell"></a>Limpe os registos com power shell
+## <a name="clean-up-logs-with-power-shell"></a>Limpe os troncos com a Power Shell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-As seguintes scripts PowerShell criam um novo Trabalho Elástico para desencadear o procedimento armazenado para limpeza de log SSISDB. Para mais informações, consulte [Criar um agente de trabalho elástico utilizando powerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
+As seguintes amostras Os scripts PowerShell criam um novo Trabalho Elástico para acionar o procedimento armazenado para a limpeza de registos SSISDB. Para obter mais informações, consulte [Criar um agente de trabalho elástico utilizando o PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
 
 ### <a name="create-parameters"></a>Criar parâmetros
 
@@ -157,13 +156,13 @@ Write-Output "Start the execution schedule of the stored procedure for SSISDB lo
 $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
 ```
 
-## <a name="clean-up-logs-with-transact-sql"></a>Limpe os registos com transact-SQL
+## <a name="clean-up-logs-with-transact-sql"></a>Limpe os troncos com Transact-SQL
 
-As seguintes scripts Transact-SQL criam um novo Trabalho Elástico para desencadear o procedimento armazenado para limpeza de log sSISDB. Para mais informações, consulte [Use Transact-SQL (T-SQL) para criar e gerir trabalhos de base de dados elásticos](../sql-database/elastic-jobs-tsql.md).
+As seguintes amostras Os scripts Transact-SQL criam um novo Trabalho Elástico para acionar o procedimento armazenado para a limpeza de registos SSISDB. Para obter mais informações, consulte [Utilizar a Transact-SQL (T-SQL) para criar e gerir os Trabalhos de Base de Dados Elásticos](../sql-database/elastic-jobs-tsql.md).
 
-1. Crie ou identifique uma base de dados S0 ou superior Azure SQL vazia para ser a Base de Dados de Emprego SSISDBCleanup. Em seguida, crie um Agente de Trabalho Elástico no [portal Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Criar ou identificar uma Base de Dados SQL Azure vazia ou superior para ser a Base de Dados de Emprego SSISDBCleanup. Em seguida, crie um Agente De Trabalho Elástico no [portal Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
-2. Na Base de Dados de Emprego, crie uma credencial para o trabalho de limpeza de log sSISDB. Esta credencial é utilizada para se ligar à sua base de dados SSISDB para limpar os registos.
+2. Na Base de Dados de Emprego, crie uma credencial para o trabalho de limpeza de registos SSISDB. Esta credencial é usada para ligar à sua base de dados SSISDB para limpar os registos.
 
     ```sql
     -- Connect to the job database specified when creating the job agent
@@ -191,7 +190,7 @@ As seguintes scripts Transact-SQL criam um novo Trabalho Elástico para desencad
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Conceda permissões adequadas para a base de dados SSISDB. O catálogo SSISDB deve ter permissões adequadas para que o procedimento armazenado faça a limpeza de log ssisDB com sucesso. Para obter orientações [detalhadas, consulte Gerir logins](../azure-sql/database/logins-create-manage.md).
+4. Conceder permissões apropriadas para a base de dados SSISDB. O catálogo SSISDB deve ter permissões adequadas para que o procedimento armazenado possa executar a limpeza de registos SSISDB com sucesso. Para obter orientações [detalhadas,](../azure-sql/database/logins-create-manage.md)consulte Gerir os logins .
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 
@@ -201,7 +200,7 @@ As seguintes scripts Transact-SQL criam um novo Trabalho Elástico para desencad
     CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser;
     GRANT EXECUTE ON internal.cleanup_server_retention_window_exclusive TO SSISDBLogCleanupUser
     ```
-5. Crie o trabalho e adicione um passo de trabalho para desencadear a execução do procedimento armazenado para limpeza de log ssisDB.
+5. Crie o trabalho e adicione um passo de trabalho para desencadear a execução do procedimento armazenado para a limpeza de registos SSISDB.
 
     ```sql
     --Connect to the job database 
@@ -214,9 +213,9 @@ As seguintes scripts Transact-SQL criam um novo Trabalho Elástico para desencad
     @credential_name='SSISDBLogCleanupCred',
     @target_group_name='SSISDBTargetGroup'
     ```
-6. Antes de continuar, certifique-se de que a janela de retenção foi definida adequadamente. Os registos SSISDB fora da janela são apagados e não podem ser recuperados.
+6. Antes de continuar, certifique-se de que a janela de retenção foi devidamente definida. Os registos SSISDB fora da janela são apagados e não podem ser recuperados.
 
-   Em seguida, pode executar o trabalho imediatamente para iniciar a limpeza de log sSISDB.
+   Em seguida, pode executar o trabalho imediatamente para iniciar a limpeza de registo sSISDB.
 
     ```sql
     --Connect to the job database 
@@ -228,7 +227,7 @@ As seguintes scripts Transact-SQL criam um novo Trabalho Elástico para desencad
     select @je
     select * from jobs.job_executions where job_execution_id = @je
     ```
-7. Opcionalmente, agendar execuções de emprego para remover os registos SSISDB fora da janela de retenção em um horário. Use uma declaração semelhante para atualizar os parâmetros de trabalho.
+7. Opcionalmente, agende execuções de trabalho para remover registos SSISDB fora da janela de retenção em um horário. Utilize uma declaração semelhante para atualizar os parâmetros de trabalho.
 
     ```sql
     --Connect to the job database 
@@ -249,7 +248,7 @@ Pode monitorizar a execução do trabalho de limpeza no portal Azure. Para cada 
 
 ## <a name="monitor-the-cleanup-job-with-transact-sql"></a>Monitorize o trabalho de limpeza com a Transact-SQL
 
-Também pode usar a Transact-SQL para ver o histórico de execução do trabalho de limpeza.
+Também pode utilizar o Transact-SQL para ver o histórico de execução do trabalho de limpeza.
 
 ```sql
 --Connect to the job database 
@@ -264,8 +263,8 @@ ORDER BY start_time DESC
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para tarefas de gestão e monitorização relacionadas com o Tempo de Execução de Integração Azure-SSIS, consulte os seguintes artigos. O Azure-SSIS IR é o motor de tempo de execução para pacotes SSIS armazenados em SSISDB em Azure SQL Database.
+Para tarefas de gestão e monitorização relacionadas com o Tempo de Execução da Integração Azure-SSIS, consulte os seguintes artigos. O Azure-SSIS IR é o motor de funcionamento dos pacotes SSIS armazenados em SSISDB na Base de Dados Azure SQL.
 
 -   [Reconfigurar o Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
 
--   [Monitorize o tempo de execução da integração Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+-   [Monitorize o tempo de integração Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).

@@ -1,25 +1,24 @@
 ---
-title: Referência do desenvolvedor JavaScript para funções azure
-description: Compreenda como desenvolver funções utilizando o JavaScript.
+title: Referência do desenvolvedor JavaScript para Funções Azure
+description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
 ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996606"
 ---
-# <a name="azure-functions-javascript-developer-guide"></a>Guia de desenvolvedores de funções azure JavaScript
+# <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
-Este guia contém informações sobre as complexidades da escrita de Funções Azure com JavaScript.
+Este guia contém informações sobre os meandros de escrever Funções Azure com JavaScript.
 
-Uma função JavaScript é uma exportação `function` que executa quando ativada[(os gatilhos são configurados em função.json](functions-triggers-bindings.md)). O primeiro argumento passado a todas as funções é um `context` objeto, que é usado para receber e enviar dados vinculativos, registar e comunicar com o tempo de execução.
+Uma função JavaScript é uma função exportada `function` que executa quando aciona[(os gatilhos são configurados em function.jsem](functions-triggers-bindings.md)). O primeiro argumento passado para cada função é um `context` objeto, que é usado para receber e enviar dados vinculativos, registar e comunicar com o tempo de execução.
 
-Este artigo assume que já leu a referência do desenvolvedor de [Funções Azure](functions-reference.md). Complete as Funções rapidamente para criar a sua primeira função, utilizando o Código do [Estúdio Visual](functions-create-first-function-vs-code.md) ou [no portal](functions-create-first-azure-function.md).
+Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Complete o arranque rápido das Funções para criar a sua primeira função, utilizando o [Código do Estúdio Visual](functions-create-first-function-vs-code.md) ou no [portal](functions-create-first-azure-function.md).
 
-Este artigo também suporta o desenvolvimento de [aplicações TypeScript](#typescript).
+Este artigo também suporta [o desenvolvimento de aplicações TypeScript.](#typescript)
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
@@ -42,17 +41,17 @@ FunctionsProject
  | - extensions.csproj
 ```
 
-Na raiz do projeto, há um ficheiro [host.json](functions-host-json.md) partilhado que pode ser usado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio ficheiro de código (.js) e ficheiro de configuração de ligação (função.json). O nome do `function.json` diretório dos pais é sempre o nome da sua função.
+Na origem do projeto, há umahost.jspartilhada [no](functions-host-json.md) ficheiro que pode ser usada para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio ficheiro de código (.js) e ficheiro de configuração de ligação (function.jsligado). O nome do `function.json` diretório dos pais é sempre o nome da sua função.
 
-As extensões de encadernação exigidas na [versão 2.x](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros reais da biblioteca na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
+As extensões de ligação exigidas na [versão 2.x](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros reais da biblioteca na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
 
 ## <a name="exporting-a-function"></a>Exportação de uma função
 
-As funções JavaScript devem ser exportadas através [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (ou [`exports`](https://nodejs.org/api/modules.html#modules_exports) ). A sua função exportada deve ser uma função JavaScript que executa quando desencadeada.
+As funções JavaScript devem ser exportadas através [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (ou [`exports`](https://nodejs.org/api/modules.html#modules_exports) . A sua função exportada deve ser uma função JavaScript que executa quando ativada.
 
-Por predefinição, o tempo de funcionamento das Funções procura a sua função em `index.js` , onde partilha o mesmo `index.js` directório-mãe que o correspondente `function.json` . No caso de incumprimento, a sua função exportada deve ser a única exportação do seu ficheiro ou da exportação nomeada `run` ou `index` . Para configurar a localização do ficheiro e o nome de exportação da sua função, leia sobre [a configuração do ponto de entrada da sua função](functions-reference-node.md#configure-function-entry-point) abaixo.
+Por predefinição, o tempo de execução de Funções procura a sua função `index.js` em, onde `index.js` partilha o mesmo directório-mãe que o correspondente `function.json` . No caso de incumprimento, a sua função exportada deve ser a única exportação do seu ficheiro ou da exportação nomeada `run` ou `index` . Para configurar a localização do ficheiro e o nome de exportação da sua função, leia sobre [a configuração do ponto de entrada da sua função](functions-reference-node.md#configure-function-entry-point) abaixo.
 
-A sua função exportada é aprovada uma série de argumentos sobre a execução. O primeiro argumento é sempre um `context` objeto. Se a sua função for sincronizada (não devolve uma Promessa), deve passar o objeto, uma vez que é necessária uma chamada para uma `context` `context.done` utilização correta.
+A sua função exportada é aprovada por uma série de argumentos sobre a execução. O primeiro argumento que é preciso é sempre um `context` objeto. Se a sua função for sincronizada (não devolve uma Promessa), tem de passar o objeto, uma vez que `context` é necessária uma chamada para uma `context.done` utilização correta.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -62,10 +61,10 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-### <a name="exporting-an-async-function"></a>Exportação de uma função de assinos
-Ao utilizar a declaração ou as [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) [promessas](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) simples do JavaScript na versão 2.x do tempo de funcionamento das Funções, não precisa de ligar explicitamente para a [`context.done`](#contextdone-method) chamada para sinalizar que a sua função está concluída. A sua função completa quando a função de asincronização exportada/Promessa termina. Para funções que visem o tempo de execução da versão 1.x, ainda deve ligar [`context.done`](#contextdone-method) quando o seu código terminar a execução.
+### <a name="exporting-an-async-function"></a>Exportação de uma função assínca
+Ao utilizar a declaração ou as [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) [promessas](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) javaScript simples na versão 2.x do tempo de execução das Funções, não precisa de ligar explicitamente para o [`context.done`](#contextdone-method) chamador para sinalizar que a sua função está concluída. A sua função termina quando a função assínc exportada/Promessa estiver concluída. Para funções que direcionem a versão 1.x do tempo de execução, deve ainda ligar [`context.done`](#contextdone-method) quando o seu código estiver feito de execução.
 
-O exemplo seguinte é uma função simples que regista que foi desencadeada e completa imediatamente a execução.
+O exemplo a seguir é uma função simples que regista que foi desencadeada e completa imediatamente a execução.
 
 ```javascript
 module.exports = async function (context) {
@@ -73,9 +72,9 @@ module.exports = async function (context) {
 };
 ```
 
-Ao exportar uma função de asincronização, também pode configurar uma ligação de saída para obter o `return` valor. Isto é recomendado se tiver apenas uma ligação de saída.
+Ao exportar uma função assínca, também pode configurar uma ligação de saída para assumir o `return` valor. Isto é recomendado se tiver apenas uma ligação de saída.
 
-Para atribuir uma saída `return` utilizando, altere a `name` propriedade para dentro `$return` `function.json` .
+Para atribuir uma saída `return` utilizando, altere a `name` propriedade para `$return` `function.json` .
 
 ```json
 {
@@ -98,17 +97,17 @@ module.exports = async function (context, req) {
 ```
 
 ## <a name="bindings"></a>Enlaces 
-No JavaScript, as [ligações](functions-triggers-bindings.md) são configuradas e definidas na função de uma função.json. As funções interagem com ligações de várias maneiras.
+No JavaScript, [as ligações](functions-triggers-bindings.md) são configuradas e definidas no function.jsde uma função. As funções interagem com encadernações de várias maneiras.
 
 ### <a name="inputs"></a>Entradas
-A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do gatilho e a outra é a entrada adicional. O gatilho e outras encadernações de entrada (encadernações `direction === "in"` de) podem ser lidas por uma função de três maneiras:
- - **_[Recomendado]_ À medida que os parâmetros passavam para a sua função.** São passados para a função na mesma ordem que são definidos em *função.json*. A `name` propriedade definida em *função.json* não precisa de corresponder ao nome do seu parâmetro, embora deva.
+A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do gatilho e a outra é a entrada adicional. O gatilho e outras ligações de entrada (encadernações `direction === "in"` de) podem ser lidos por uma função de três maneiras:
+ - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem*. A `name` propriedade definida emfunction.js*não* precisa de corresponder ao nome do seu parâmetro, embora deva.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida em *função.json*.
+ - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js*em*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -118,7 +117,7 @@ A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do
    };
    ```
    
- - **Como entradas usando o [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto JavaScript.** Isto é essencialmente o mesmo que passar inputs como parâmetros, mas permite-lhe lidar com as inputs dinamicamente.
+ - **Como entradas utilizando o [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto JavaScript.** Isto é essencialmente o mesmo que passar entradas como parâmetros, mas permite-lhe lidar dinamicamente com as entradas.
  
    ```javascript
    module.exports = async function(context) { 
@@ -129,11 +128,11 @@ A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do
    ```
 
 ### <a name="outputs"></a>Saídas
-As saídas (encadernações `direction === "out"` de) podem ser escritas por uma função de várias maneiras. Em todos os casos, a `name` propriedade da encadernação tal como definida na *função.json* corresponde ao nome do membro do objeto escrito na sua função. 
+As saídas (encadernações `direction === "out"` de) podem ser escritas por uma função de várias maneiras. Em todos os casos, a `name` propriedade da vinculação definida em *function.js* corresponde ao nome do membro do objeto escrito na sua função. 
 
 Pode atribuir dados a encadernações de saída de uma das seguintes formas (não combine estes métodos):
 
-- **_[Recomendado para várias saídas]_ Devolver um objeto.** Se estiver a utilizar uma função de devolução de sincronização/promessa, pode devolver um objeto com os dados de saída atribuídos. No exemplo abaixo, as encadernações de saída são denominadas "httpResponse" e "queueOutput" em *função.json*.
+- **_[Recomendado para múltiplas saídas]_ Devolvendo um objeto.** Se estiver a utilizar uma função de retorno assínc/Promessa, pode devolver um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são denominada "httpResponse" e "queueOutput" em *function.jsem*.
 
   ```javascript
   module.exports = async function(context) {
@@ -148,8 +147,8 @@ Pode atribuir dados a encadernações de saída de uma das seguintes formas (nã
   ```
 
   Se estiver a utilizar uma função sincronizada, pode devolver este objeto utilizando [`context.done`](#contextdone-method) (ver exemplo).
-- **_[Recomendado para uma saída única]_ Devolvendo um valor diretamente e utilizando o $return nome de ligação.** Isto funciona apenas para funções de retorno de sincronia/promessa. Consulte o exemplo na [exportação de uma função de asincronização](#exporting-an-async-function). 
-- **Atribuindo valores a `context.bindings` ** Pode atribuir valores diretamente ao contexto.encadernações.
+- **_[Recomendado para uma única saída]_ Devolvendo um valor diretamente e usando o nome de ligação $return.** Isto só funciona para funções de retorno assync/Promise. Veja o exemplo na [exportação de uma função assídua](#exporting-an-async-function). 
+- **Atribuindo valores a `context.bindings` ** Pode atribuir valores diretamente a contexto.encadernações.
 
   ```javascript
   module.exports = async function(context) {
@@ -164,7 +163,7 @@ Pode atribuir dados a encadernações de saída de uma das seguintes formas (nã
 
 ### <a name="bindings-data-type"></a>Tipo de dados de encadernação
 
-Para definir o tipo de dados para uma ligação de entrada, utilize a `dataType` propriedade na definição de encadernação. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, utilize o `binary` tipo:
+Para definir o tipo de dados para uma ligação de entrada, utilize o `dataType` imóvel na definição de encadernação. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, utilize o tipo `binary` :
 
 ```json
 {
@@ -175,10 +174,10 @@ Para definir o tipo de dados para uma ligação de entrada, utilize a `dataType`
 }
 ```
 
-As opções para `dataType` são: `binary` , e `stream` `string` .
+As opções para `dataType` são: `binary` `stream` `string` e.
 
 ## <a name="context-object"></a>objeto de contexto
-O tempo de execução utiliza um `context` objeto para passar dados de e para a sua função e para permitir que se comunique com o tempo de funcionamento. O objeto de contexto pode ser usado para ler e definir dados a partir de encadernações, registos de escrita e utilização do `context.done` backback quando a sua função exportada é sincronizada.
+O tempo de execução utiliza um `context` objeto para transmitir dados de e para a sua função e para permitir que comunique com o tempo de funcionamento. O objeto de contexto pode ser utilizado para ler e definir dados a partir de encadernações, registos de escrita e utilização da chamada quando a `context.done` sua função exportada é sincronizada.
 
 O `context` objeto é sempre o primeiro parâmetro para uma função. Deve ser incluído porque tem métodos importantes como `context.done` e `context.log` . Pode nomear o objeto o que quiser (por exemplo, `ctx` `c` ou).
 
@@ -190,15 +189,15 @@ module.exports = function(ctx) {
 };
 ```
 
-### <a name="contextbindings-property"></a>contexto.bindings propriedade
+### <a name="contextbindings-property"></a>contexto.imóvel de encadernações
 
 ```js
 context.bindings
 ```
 
-Devolve um objeto nomeado que é usado para ler ou atribuir dados de ligação. Os dados de entrada e de encadernação podem ser acedidos através da leitura de propriedades em `context.bindings` . Dados de ligação de saída podem ser atribuídos adicionando dados`context.bindings`
+Devolve um objeto nomeado que é usado para ler ou atribuir dados de ligação. Os dados de entrada e de ligação do gatilho podem ser acedidos através da leitura de propriedades em `context.bindings` . Os dados vinculativos da saída podem ser atribuídos adicionando dados a`context.bindings`
 
-Por exemplo, as seguintes definições de ligação na sua função.json permitem-lhe aceder ao conteúdo de uma fila a partir `context.bindings.myInput` de e atribuir saídas a uma fila utilizando `context.bindings.myOutput` .
+Por exemplo, as seguintes definições vinculativas no seu function.jsem permitir-lhe aceder ao conteúdo de uma fila `context.bindings.myInput` e atribuir saídas a uma fila utilizando `context.bindings.myOutput` .
 
 ```json
 {
@@ -226,13 +225,13 @@ context.bindings.myOutput = {
 
 Pode optar por definir dados de ligação de saída utilizando o `context.done` método em vez do objeto `context.binding` (ver abaixo).
 
-### <a name="contextbindingdata-property"></a>contexto.bindingPropriedadeData
+### <a name="contextbindingdata-property"></a>context.bindingData propriedade
 
 ```js
 context.bindingData
 ```
 
-Devolve um objeto nomeado que contém metadados de gatilho e dados de invocação de funções ( `invocationId` `sys.methodName` , , , `sys.utcNow` `sys.randGuid` ). Para um exemplo de metadados de gatilho, consulte este [evento hubs exemplo](functions-bindings-event-hubs-trigger.md).
+Devolve um objeto nomeado que contém metadados de gatilho e dados de invocação de função `invocationId` (, `sys.methodName` , , , `sys.utcNow` `sys.randGuid` . Para um exemplo de metadados de gatilho, consulte este [exemplo dos centros de eventos](functions-bindings-event-hubs-trigger.md).
 
 ### <a name="contextdone-method"></a>método de contexto.feito
 
@@ -240,11 +239,11 @@ Devolve um objeto nomeado que contém metadados de gatilho e dados de invocaçã
 context.done([err],[propertyBag])
 ```
 
-Permite que o tempo de execução saiba que o seu código está completo. Quando a sua função utiliza a [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração, não precisa de ser utilizada `context.done()` . A `context.done` chamada é implicitamente chamada. As funções de async estão disponíveis no nó 8 ou numa versão posterior, que requer a versão 2.x do tempo de execução das funções.
+Informe o tempo de execução de que o seu código está concluído. Quando a sua função utiliza a [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração, não precisa de ser utilizada `context.done()` . A `context.done` chamada é implicitamente chamada. As funções async estão disponíveis no Nó 8 ou numa versão posterior, que requer a versão 2.x do tempo de execução das Funções.
 
-Se a sua função não for uma função de asincronização, **deve ligar** para informar o tempo de `context.done` funcionamento de que a sua função está completa. A execução é a hora se faltar.
+Se a sua função não for uma função assínc, **deve ligar** para informar o tempo `context.done` de funcionamento de que a sua função está completa. A execução é o caso de faltar.
 
-O `context.done` método permite-lhe passar de volta um erro definido pelo utilizador para o tempo de execução e um objeto JSON contendo dados de ligação de saída. As propriedades passaram para `context.done` substituir qualquer coisa definida no `context.bindings` objeto.
+O `context.done` método permite-lhe repercutir tanto um erro definido pelo utilizador para o tempo de execução como um objeto JSON que contém dados de ligação de saída. As propriedades passaram para `context.done` substituir qualquer coisa definida no `context.bindings` objeto.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -256,37 +255,37 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: 'hello there, world', noNumber: true
 ```
 
-### <a name="contextlog-method"></a>método de contexto.log  
+### <a name="contextlog-method"></a>método context.log  
 
 ```js
 context.log(message)
 ```
 
-Permite-lhe escrever para os registos da função de streaming ao nível de rastreio predefinido. Em `context.log` , existem métodos adicionais de exploração florestal que permitem escrever registos de funções noutros níveis de vestígios:
+Permite-lhe escrever para os registos de funções de streaming no nível de rastreação predefinido. Em `context.log` , existem métodos adicionais de registo que permitem escrever registos de funções em outros níveis de vestígios:
 
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **_erro(mensagem)_**   | Escreve para o nível de erro de registo, ou inferior.   |
-| **aviso(_mensagem_)**    | Escreve para o nível de alerta de exploração madeireira, ou inferior. |
-| **informação(_mensagem)_**    | Escreve para registo de nível de informação, ou menor.    |
-| **verboso(_mensagem)_** | Escreve para verboso nível de exploração.           |
+| **erro _(mensagem)_**   | Escreve para registo de nível de erro ou menor.   |
+| **alertar _(mensagem)_**    | Escreve para o nível de registo de aviso, ou mais baixo. |
+| **informação _(mensagem)_**    | Escreve para registo de nível de informação ou menor.    |
+| **verbose (_mensagem)_** | Escreve para a gravação de nível verboso.           |
 
-O seguinte exemplo escreve um registo ao nível do rastreio de advertência:
+O exemplo a seguir escreve um registo ao nível dos vestígios de aviso:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
 
-Pode [configurar o limiar de nível de rastreio para a exploração](#configure-the-trace-level-for-console-logging) de registo no ficheiro host.json. Para obter mais informações sobre a escrita de registos, consulte a [escrita de vestígios](#writing-trace-output-to-the-console) abaixo.
+Pode [configurar o limiar de nível de rastreio para registar o](#configure-the-trace-level-for-console-logging) host.jsficheiro. Para obter mais informações sobre registos de escrita, consulte [as saídas de vestígios de escrita](#writing-trace-output-to-the-console) abaixo.
 
-Leia a monitorização das [Funções Azure](functions-monitoring.md) para saber mais sobre os registos de funções de visualização e consulta.
+Leia [a monitorização das Funções Azure](functions-monitoring.md) para saber mais sobre registos de funções de visualização e consulta.
 
-## <a name="writing-trace-output-to-the-console"></a>Escrita de vestígios de saída para a consola 
+## <a name="writing-trace-output-to-the-console"></a>Escrevendo saída de traço para a consola 
 
-Em Funções, utiliza os métodos para escrever a saída de `context.log` vestígios para a consola. Nas funções v2.x, as saídas de vestígios que utilizam `console.log` são capturadas ao nível da App de Funções. Isto significa que as saídas de `console.log` não estão ligadas a uma invocação de função específica e não são exibidas nos registos de uma função específica. No entanto, propagam-se à Aplicação Insights. Em Funções v1.x, não pode `console.log` supor escrever para a consola.
+Em Funções, utiliza-se os `context.log` métodos para escrever a saída de traços para a consola. Em Funções v2.x, as saídas de vestígios que utilizam `console.log` são capturadas ao nível da Aplicação de Função. Isto significa que as saídas `console.log` não estão ligadas a uma invocação de função específica e não são exibidas nos registos de uma função específica. No entanto, propagam-se a Application Insights. Em Funções v1.x, não é possível escrever `console.log` para a consola.
 
-Quando `context.log()` ligar, a sua mensagem é escrita para a consola ao nível de traço padrão, que é o nível de rastreio da _informação._ O seguinte código escreve para a consola ao nível do rastreio da informação:
+Quando `context.log()` liga, a sua mensagem é escrita para a consola ao nível padrão de rastreação, que é o nível de rastreio de _informação._ O seguinte código escreve para a consola ao nível do rastreio de informações:
 
 ```javascript
 context.log({hello: 'world'});  
@@ -304,9 +303,9 @@ Este código escreve para a consola ao nível de erro:
 context.log.error("An error has occurred.");  
 ```
 
-Como o _erro_ é o nível mais alto de rastreio, este traço é escrito para a saída em todos os níveis de vestígios, desde que o registo esteja ativado.
+Como o _erro_ é o nível mais alto de rastreá-lo, este traço é escrito para a saída em todos os níveis de rastrear, desde que a exploração madeireira esteja ativada.
 
-Todos os `context.log` métodos suportam o mesmo formato de parâmetro que é suportado pelo método de [formato](https://nodejs.org/api/util.html#util_util_format_format)node.js . Considere o seguinte código, que escreve registos de funções utilizando o nível de traço predefinido:
+Todos os `context.log` métodos suportam o mesmo formato de parâmetro que é suportado pelo método Node.js [util.formato](https://nodejs.org/api/util.html#util_util_format_format). Considere o seguinte código, que escreve registos de funções utilizando o nível de rastreação predefinido:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -320,9 +319,9 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configure o nível de rastreio para o registo de consolas
+### <a name="configure-the-trace-level-for-console-logging"></a>Configure o nível de vestígio para a exploração de consolas
 
-As funções 1.x permitem definir o nível de traço limiar para a escrita na consola, o que facilita o controlo da forma como os vestígios são escritos para a consola a partir da sua função. Para definir o limiar para todos os vestígios escritos na consola, utilize a `tracing.consoleLevel` propriedade no ficheiro host.json. Esta definição aplica-se a todas as funções da sua aplicação de funções. O exemplo que se segue define o limiar do vestígio para permitir a exploração verbosa:
+As funções 1.x permitem definir o nível de traço de limiar para a escrita na consola, o que facilita o controlo da forma como os vestígios são escritos na consola a partir da sua função. Para definir o limiar para todos os vestígios escritos na consola, utilize a `tracing.consoleLevel` propriedade na host.jsem arquivo. Esta definição aplica-se a todas as funções da sua aplicação de funções. O exemplo a seguir define o limiar de rastreio para permitir a exploração de verbose:
 
 ```json
 {
@@ -332,15 +331,15 @@ As funções 1.x permitem definir o nível de traço limiar para a escrita na co
 }  
 ```
 
-Os valores das **consolasNcorrespondem** aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative o **nível da consola** para _desligar_. Para mais informações, consulte [host.json reference](functions-host-json-v1.md).
+Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_. Para mais informações, consulte [host.jsa referência.](functions-host-json-v1.md)
 
-## <a name="http-triggers-and-bindings"></a>HTTP gatilhos e encadernações
+## <a name="http-triggers-and-bindings"></a>Disparadores e encadernações HTTP
 
-OS gatilhos HTTP e webhook e as encadernações de saída HTTP utilizam objetos de pedido e resposta para representar as mensagens HTTP.  
+Os gatilhos HTTP e Webhook e as ligações de saída HTTP utilizam objetos de pedido e resposta para representar as mensagens HTTP.  
 
 ### <a name="request-object"></a>Objeto de pedido
 
-O `context.req` objeto (pedido) tem as seguintes propriedades:
+O `context.req` (pedido) tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -363,13 +362,13 @@ O `context.res` objeto (resposta) tem as seguintes propriedades:
 | _cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
 | _estado_  | O código de estado HTTP da resposta.                     |
-| _cookies_ | Uma variedade de objetos de cookie HTTP que são definidos na resposta. Um objeto de cookie HTTP tem `name` `value` uma, e outras propriedades de cookies, tais como `maxAge` ou `sameSite` . |
+| _cookies_ | Uma matriz de objetos de cookies HTTP que são definidos na resposta. Um objeto de cookie HTTP tem `name` `value` um, e outras propriedades de cookies, tais como `maxAge` ou `sameSite` . |
 
-### <a name="accessing-the-request-and-response"></a>Acesso ao pedido e resposta 
+### <a name="accessing-the-request-and-response"></a>Acede ao pedido e resposta 
 
-Quando trabalha com os gatilhos HTTP, pode aceder aos objetos de pedido e resposta http de várias maneiras:
+Quando trabalha com os detonadores HTTP, pode aceder aos objetos de pedido e resposta HTTP de várias formas:
 
-+ **De `req` e propriedades no `res` `context` objeto.** Desta forma, pode utilizar o padrão convencional para aceder aos dados HTTP do objeto de contexto, em vez de ter de usar o `context.bindings.name` padrão completo. O exemplo que se segue mostra como aceder aos `req` `res` e objetos do `context` :
++ **De `req` e propriedades no `res` `context` objeto.** Desta forma, pode utilizar o padrão convencional para aceder aos dados HTTP a partir do objeto de contexto, em vez de ter de usar o `context.bindings.name` padrão completo. O exemplo a seguir mostra como aceder aos `req` `res` e objetos `context` no:
 
     ```javascript
     // You can access your HTTP request off the context ...
@@ -378,7 +377,7 @@ Quando trabalha com os gatilhos HTTP, pode aceder aos objetos de pedido e respos
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ **Das ligações de entrada e saída nomeadas.** Desta forma, o gatilho HTTP e as encadernações funcionam da mesma forma que qualquer outra ligação. O exemplo seguinte define o objeto de resposta utilizando uma `response` ligação nomeada: 
++ **A partir dos encadernações de entrada e saída nomeados.** Desta forma, o gatilho HTTP e as ligações funcionam da mesma forma que qualquer outra ligação. O exemplo a seguir define o objeto de resposta utilizando uma ligação com o `response` nome: 
 
     ```json
     {
@@ -392,7 +391,7 @@ Quando trabalha com os gatilhos HTTP, pode aceder aos objetos de pedido e respos
     ```
 + **_[Apenas resposta]_ `context.res.send(body?: any)`Chamando.** Uma resposta HTTP é criada com a entrada `body` como o corpo de resposta. `context.done()`é implicitamente chamado.
 
-+ **_[Apenas resposta]_ `context.done()`Chamando.** Um tipo especial de ligação HTTP devolve a resposta que é passada ao `context.done()` método. A seguinte ligação de saída HTTP define um parâmetro de `$return` saída:
++ **_[Apenas resposta]_ `context.done()`Chamando.** Um tipo especial de ligação HTTP devolve a resposta que é passada ao `context.done()` método. A seguinte ligação de saída HTTP define um `$return` parâmetro de saída:
 
     ```json
     {
@@ -407,32 +406,32 @@ Quando trabalha com os gatilhos HTTP, pode aceder aos objetos de pedido e respos
     context.done(null, res);   
     ```  
 
-## <a name="scaling-and-concurrency"></a>Escala e conmoeda
+## <a name="scaling-and-concurrency"></a>Escala e concuência
 
-Por predefinição, as Funções Azure monitorizam automaticamente a carga na sua aplicação e criam instâncias adicionais para o Node.js, se necessário. Funções utilizam limiares incorporados (não configuráveis pelo utilizador) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, tais como a idade das mensagens e o tamanho da fila para o QueueTrigger. Para mais informações, consulte [como funcionam os planos de Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
+Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua aplicação e cria casos adicionais de anfitrião para Node.js conforme necessário. As funções utilizam limiares incorporados (não configuráveis pelo utilizador) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para o QueueTrigger. Para mais informações, consulte [como funcionam os planos De Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
 
-Este comportamento de escala é suficiente para muitas aplicações node.js. Para aplicações ligadas ao CPU, pode melhorar ainda mais o desempenho utilizando vários processos de trabalhadores linguísticos.
+Este comportamento de escala é suficiente para muitas aplicações Node.js. Para aplicações com ligação ao CPU, pode melhorar ainda mais o desempenho utilizando vários processos de trabalho linguístico.
 
-Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalhador linguístico. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores. 
+Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalho de língua. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores. 
 
 O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura. 
 
-## <a name="node-version"></a>Versão do nó
+## <a name="node-version"></a>Versão nó
 
-A tabela que se segue mostra as versões nónamos suportadas atuais para cada versão importante do tempo de funcionamento das Funções, por sistema operativo:
+A tabela a seguir mostra as versões Node.js suportadas atuais para cada versão principal do tempo de execução das Funções, pelo sistema operativo:
 
-| Versão funções | Versão do nó (Windows) | Versão nó (Linux) |
+| Versão de funções | Versão nó (Windows) | Versão nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueado pelo tempo de execução) | n/a |
+| 1.x | 6.11.2 (travado pelo tempo de funcionação) | n/a |
 | 2.x  | ~8<br/>~10 (recomendado)<br/>~12<sup>*</sup> | ~8 (recomendado)<br/>~10  |
 | 3.x | ~10<br/>~12 (recomendado)  | ~10<br/>~12 (recomendado) |
 
-<sup>*</sup>O nó ~12 é atualmente permitido na versão 2.x do tempo de funcionamento das Funções. No entanto, para um melhor desempenho, recomendamos a utilização da versão 3.x do tempo de funcionamento funções com o nó ~12. 
+<sup>*</sup>O nó ~12 é atualmente permitido na versão 2.x do tempo de execução das Funções. No entanto, para melhor desempenho, recomendamos a utilização da versão 3.x do tempo de execução das funções com o Nó ~12. 
 
-Pode ver a versão atual que o tempo de execução está a ser utilizado verificando a definição de aplicação acima ou imprimindo `process.version` a partir de qualquer função. Direcione a versão em Azure, definindo a definição de [aplicações](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION para uma versão LTS suportada, como `~10` .
+Pode ver a versão atual que o tempo de execução está a utilizar, verificando a definição da aplicação acima ou imprimindo `process.version` a partir de qualquer função. Direcione a versão em Azure definindo a definição de [WEBSITE_NODE_DEFAULT_VERSION aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para uma versão LTS suportada, como `~10` .
 
 ## <a name="dependency-management"></a>Gestão de dependências
-Para utilizar bibliotecas comunitárias no seu código JavaScript, como mostra o exemplo abaixo, precisa de garantir que todas as dependências estão instaladas na sua App de Funções em Azure.
+Para utilizar bibliotecas comunitárias no seu código JavaScript, como é mostrado no exemplo abaixo, é necessário garantir que todas as dependências estão instaladas na sua App de Função em Azure.
 
 ```javascript
 // Import the underscore.js library
@@ -446,32 +445,32 @@ module.exports = function(context) {
 ```
 
 > [!NOTE]
-> Deve definir um `package.json` ficheiro na raiz da sua App de Funções. A definição do ficheiro permite que todas as funções da aplicação partilhem os mesmos pacotes em cache, o que dá o melhor desempenho. Se surgir um conflito de versão, pode resolvê-lo adicionando um `package.json` ficheiro na pasta de uma função específica.  
+> Deve definir um `package.json` ficheiro na raiz da sua App de Função. A definição do ficheiro permite que todas as funções da app partilhem os mesmos pacotes em cache, o que dá o melhor desempenho. Se surgir um conflito de versão, pode resolvê-lo adicionando um `package.json` ficheiro na pasta de uma função específica.  
 
-Ao implementar as Aplicações de Função a partir do controlo de origem, qualquer `package.json` ficheiro presente no seu repo, irá desencadear um na sua pasta durante a `npm install` implementação. Mas ao ser implantado através do Portal ou CLI, terá de instalar manualmente as embalagens.
+Ao implementar As Aplicações de Função a partir do controlo de origem, qualquer `package.json` ficheiro presente no seu repo, irá ativar uma pasta durante a `npm install` implementação. Mas ao ser implantado através do Portal ou do CLI, terá de instalar manualmente as embalagens.
 
-Existem duas formas de instalar pacotes na sua App de Funções: 
+Existem duas formas de instalar pacotes na sua App de Função: 
 
 ### <a name="deploying-with-dependencies"></a>Implantação com Dependências
-1. Instale todos os pacotes necessários localmente, `npm install` executando.
+1. Instale todos os pacotes necessários localmente, funcionando `npm install` .
 
-2. Implemente o seu código e certifique-se de que a `node_modules` pasta está incluída na implementação. 
+2. Desloque o seu código e certifique-se de que a `node_modules` pasta está incluída na implementação. 
 
 
 ### <a name="using-kudu"></a>Usando Kudu
 1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Clique na **consola de depuração**  >  **CMD**.
+2. Clique **em Debug Console**  >  **CMD**.
 
-3. Vá para `D:\home\site\wwwroot` , e depois arraste o seu ficheiro package.json para a pasta **wwwroot** na metade superior da página.  
-    Também pode fazer o upload de ficheiros para a sua aplicação de funções de outras formas. Para mais informações, consulte [como atualizar ficheiros de aplicações](functions-reference.md#fileupdate)de funções . 
+3. Vá para `D:\home\site\wwwroot` , e em seguida, arraste o seu package.jsno ficheiro para a pasta **wwwroot** na metade superior da página.  
+    Também pode fazer o upload de ficheiros para a sua aplicação de função de outras formas. Para obter mais informações, consulte [Como atualizar ficheiros de aplicações de função.](functions-reference.md#fileupdate) 
 
-4. Depois de o ficheiro package.json ser carregado, execute o comando na consola de `npm install` **execução remota kudu**.  
-    Esta ação descarrega os pacotes indicados no ficheiro package.json e reinicia a aplicação de funções.
+4. Depois de o package.jsno ficheiro ser carregado, executa o `npm install` comando na consola de **execução remota kudu**.  
+    Esta ação descarrega os pacotes indicados no package.jsno ficheiro e reinicia a aplicação de função.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em Funções, [as definições](functions-app-settings.md)de aplicativos , tais como cordas de ligação ao serviço, são expostas como variáveis ambientais durante a execução. Pode aceder a estas definições `process.env` utilizando, como mostrado aqui na segunda e terceira chamadas para `context.log()` onde registamos as `AzureWebJobsStorage` variáveis e `WEBSITE_SITE_NAME` ambientais:
+Em Funções, [as configurações da aplicação](functions-app-settings.md), como as cadeias de ligação de serviço, são expostas como variáveis ambientais durante a execução. Pode aceder a estas definições `process.env` utilizando, como mostrado aqui na segunda e terceira chamadas para `context.log()` onde registamos as `AzureWebJobsStorage` variáveis e `WEBSITE_SITE_NAME` ambientais:
 
 ```javascript
 module.exports = async function (context, myTimer) {
@@ -485,17 +484,17 @@ module.exports = async function (context, myTimer) {
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Ao executar localmente, as definições de aplicativos são lidas a partir do ficheiro do projeto [local.settings.json.](functions-run-local.md#local-settings-file)
+Ao correr localmente, as definições de aplicações são lidas a partir do [local.settings.jsno](functions-run-local.md#local-settings-file) ficheiro do projeto.
 
-## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada da função
+## <a name="configure-function-entry-point"></a>Configure ponto de entrada de função
 
-As `function.json` propriedades podem ser usadas para `scriptFile` `entryPoint` configurar a localização e o nome da sua função exportada. Estas propriedades podem ser importantes quando o seu JavaScript é transempilhado.
+As `function.json` propriedades e podem ser `scriptFile` `entryPoint` usadas para configurar a localização e o nome da sua função exportada. Estas propriedades podem ser importantes quando o seu JavaScript é transposto.
 
 ### <a name="using-scriptfile"></a>Utilizar `scriptFile`
 
-Por predefinição, uma função JavaScript é executada a partir de `index.js` um ficheiro que partilha o mesmo directório-mãe que o correspondente `function.json` .
+Por predefinição, uma função JavaScript é executada a partir de `index.js` , um ficheiro que partilha o mesmo directório-mãe que o correspondente `function.json` .
 
-`scriptFile`pode ser usado para obter uma estrutura de pasta que se parece com o seguinte exemplo:
+`scriptFile`pode ser usado para obter uma estrutura de pasta que se pareça com o seguinte exemplo:
 
 ```
 FunctionApp
@@ -509,7 +508,7 @@ FunctionApp
  | - package.json
 ```
 
-O `function.json` for deve incluir um `myNodeFunction` `scriptFile` imóvel que indique o ficheiro com a função exportada a executar.
+O `function.json` for deve incluir uma propriedade que indique o ficheiro com a `myNodeFunction` `scriptFile` função exportada a executar.
 
 ```json
 {
@@ -522,9 +521,9 @@ O `function.json` for deve incluir um `myNodeFunction` `scriptFile` imóvel que 
 
 ### <a name="using-entrypoint"></a>Utilizar `entryPoint`
 
-Em `scriptFile` `index.js` (ou), uma função deve ser exportada utilizando para ser encontrada e `module.exports` executada. Por predefinição, a função que executa quando desencadeada é a única exportação desse ficheiro, a exportação denominada `run` , ou a exportação denominada `index` .
+Em `scriptFile` (ou `index.js` ), uma função deve ser exportada usando `module.exports` para ser encontrada e executada. Por predefinição, a função que executa quando desencadeada é a única exportação desse ficheiro, a exportação denominada `run` , ou a exportação denominada `index` .
 
-Isto pode ser configurado `entryPoint` `function.json` utilizando, como no seguinte exemplo:
+Isto pode ser configurado usando `entryPoint` em , como no exemplo `function.json` seguinte:
 
 ```json
 {
@@ -535,7 +534,7 @@ Isto pode ser configurado `entryPoint` `function.json` utilizando, como no segui
 }
 ```
 
-Nas funções v2.x, que suporta o parâmetro nas funções do `this` utilizador, o código de função pode então ser como no seguinte exemplo:
+Nas Funções v2.x, que suporta o `this` parâmetro nas funções do utilizador, o código de função pode então ser como no exemplo seguinte:
 
 ```javascript
 class MyObj {
@@ -555,51 +554,51 @@ module.exports = myObj;
 
 Neste exemplo, é importante notar que, embora um objeto esteja a ser exportado, não existem garantias para preservar o Estado entre execuções.
 
-## <a name="local-debugging"></a>Depuração Local
+## <a name="local-debugging"></a>Local Debugging
 
-Quando iniciado com o `--inspect` parâmetro, um processo Node.js ouve um cliente depurado na porta especificada. Nas Funções Azure 2.x, pode especificar argumentos para passar para o processo Nó.js que executa o seu código adicionando a variável ambiental ou definição de aplicações `languageWorkers:node:arguments = <args>` . 
+Quando iniciado com o `--inspect` parâmetro, um processo Node.js ouve um cliente depuração na porta especificada. Nas Funções Azure 2.x, pode especificar argumentos para passar para o processo Node.js que executa o seu código adicionando a variável ambiental ou a Definição de Aplicações `languageWorkers:node:arguments = <args>` . 
 
-Para depurar localmente, adicione `"languageWorkers:node:arguments": "--inspect=5858"` `Values` no seu ficheiro [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) e prenda um debugger à porta 5858.
+Para depurar localmente, adicione `"languageWorkers:node:arguments": "--inspect=5858"` `Values` abaixo o seu [local.settings.jsem](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) arquivo e anexe um depurar à porta 5858.
 
-Ao depurar-se utilizando o Código VS, o `--inspect` parâmetro é adicionado automaticamente utilizando o valor no ficheiro `port` launch.json do projeto.
+Ao depurar usando o Código VS, o `--inspect` parâmetro é automaticamente adicionado usando o valor na launch.jsdo projeto em `port` arquivo.
 
-Na versão 1.x, a definição `languageWorkers:node:arguments` não funcionará. A porta de depuração pode ser selecionada com o [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parâmetro nas Ferramentas Nucleares das Funções Azure.
+Na versão 1.x, a definição `languageWorkers:node:arguments` não funcionará. A porta de depuração pode ser selecionada com o [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parâmetro em Azure Functions Core Tools.
 
 ## <a name="typescript"></a>TypeScript
 
-Quando direciona a versão 2.x do tempo de execução das funções, ambas as [funções Do Azure para o Código](functions-create-first-function-vs-code.md) do Estúdio Visual e as [Ferramentas Core funções do Azure](functions-run-local.md) permitem criar aplicações de função usando um modelo que suporta os projetos de aplicações de função TypeScript. O modelo gera `package.json` e `tsconfig.json` projeta ficheiros que facilitam a transpile, executar e publicar funções JavaScript a partir do código TypeScript com estas ferramentas.
+Quando se destina à versão 2.x do tempo de execução de Funções, tanto as [funções Azure para o Código do Estúdio Visual](functions-create-first-function-vs-code.md) como as [Ferramentas Principais de Funções Azure](functions-run-local.md) permitem criar aplicações de função utilizando um modelo que suporta projetos de aplicações de funções TypeScript. O modelo gera `package.json` e `tsconfig.json` projeta ficheiros que facilitam a transpilagem, execução e publicação de funções JavaScript a partir do código TypeScript com estas ferramentas.
 
-Um ficheiro gerado `.funcignore` é utilizado para indicar quais os ficheiros excluídos quando um projeto é publicado no Azure.  
+Um ficheiro gerado `.funcignore` é utilizado para indicar quais os ficheiros que são excluídos quando um projeto é publicado no Azure.  
 
-Os ficheiros TypeScript (.ts) são transempilhados em ficheiros JavaScript (.js) no diretório de `dist` saída. Os modelos typeScript utilizam o [ `scriptFile` parâmetro](#using-scriptfile) `function.json` para indicar a localização do ficheiro .js correspondente na `dist` pasta. A localização de saída é definida pelo modelo utilizando `outDir` o parâmetro no `tsconfig.json` ficheiro. Se alterar esta definição ou o nome da pasta, o tempo de execução não é capaz de encontrar o código a ser executado.
+Os ficheiros TypeScript (.ts) são transpostos em ficheiros JavaScript (.js) no `dist` diretório de saída. Os modelos TypeScript utilizam o [ `scriptFile` parâmetro](#using-scriptfile) `function.json` para indicar a localização do ficheiro .js correspondente na `dist` pasta. A localização de saída é definida pelo modelo utilizando `outDir` o parâmetro no `tsconfig.json` ficheiro. Se alterar esta definição ou o nome da pasta, o tempo de execução não é capaz de encontrar o código a executar.
 
-A forma como desenvolve e implanta localmente a partir de um projeto TypeScript depende da sua ferramenta de desenvolvimento.
+A forma como desenvolve e implementa localmente a partir de um projeto TypeScript depende da sua ferramenta de desenvolvimento.
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-A extensão do Código do Estúdio Visual do [Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) permite desenvolver as suas funções utilizando o TypeScript. As Ferramentas Core são um requisito da extensão das Funções Azure.
+As [funções Azure para](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) a extensão do Código do Estúdio Visual permitem desenvolver as suas funções utilizando o TypeScript. As Ferramentas Centrais são um requisito da extensão de Funções Azure.
 
 Para criar uma aplicação de função TypeScript no Código do Estúdio Visual, escolha `TypeScript` como seu idioma quando criar uma aplicação de função.
 
-Quando pressiona **F5** para executar a app localmente, a transpilação é feita antes de o anfitrião (func.exe) ser inicializado. 
+Quando pressiona **f5** para executar a aplicação localmente, a transpilação é feita antes do anfitrião (func.exe) ser inicializado. 
 
-Quando implementa a sua aplicação de função para o Azure utilizando o botão **Implementa...** botão, a extensão funções Do Azure gera primeiro uma construção pronta para a produção de ficheiros JavaScript a partir dos ficheiros de origem TypeScript.
+Quando implementa a sua aplicação de função para Azure utilizando o botão **Implementar para funcionar...** botão, a extensão Azure Functions gera primeiro uma construção pronta a produção de ficheiros JavaScript a partir dos ficheiros de origem TypeScript.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas centrais de funções azure
+### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
 
-Existem várias formas de um projeto TypeScript diferir de um projeto JavaScript ao utilizar as Ferramentas Core.
+Existem várias formas de um projeto TypeScript diferir de um projeto JavaScript ao utilizar as Ferramentas Principais.
 
 #### <a name="create-project"></a>Criar o projeto
 
-Para criar um projeto de aplicação de função TypeScript utilizando ferramentas core, tem de especificar a opção de idioma TypeScript quando criar a sua aplicação de função. Pode fazê-lo de uma das seguintes formas:
+Para criar um projeto de aplicação de função TypeScript utilizando Ferramentas Core, tem de especificar a opção de idioma TypeScript quando criar a sua aplicação de função. Pode fazê-lo de uma das seguintes formas:
 
-- Executar o `func init` comando, selecionar `node` como a sua pilha de idiomas e, em seguida, selecionar `typescript` .
+- Executar o `func init` comando, selecione `node` como pilha de idiomas e, em seguida, selecione `typescript` .
 
 - Execute o comando `func init --worker-runtime typescript`.
 
-#### <a name="run-local"></a>Correr localmente
+#### <a name="run-local"></a>Executar local
 
-Para executar o código da aplicação de funções localmente utilizando ferramentas core, utilize os seguintes comandos em vez `func host start` de: 
+Para executar o código de aplicação de função localmente utilizando Ferramentas Core, utilize os seguintes comandos em vez `func host start` de: 
 
 ```command
 npm install
@@ -615,40 +614,40 @@ O `npm start` comando é equivalente aos seguintes comandos:
 
 #### <a name="publish-to-azure"></a>Publicar no Azure
 
-Antes de utilizar o [`func azure functionapp publish`] comando para ser implantado para o Azure, cria uma construção pronta para a produção de ficheiros JavaScript a partir dos ficheiros de origem TypeScript. 
+Antes de utilizar o [`func azure functionapp publish`] comando para implantar no Azure, cria uma construção pronta para a produção de ficheiros JavaScript a partir dos ficheiros de origem TypeScript. 
 
-Os seguintes comandos preparam e publicam o seu projeto TypeScript utilizando ferramentas core: 
+Os seguintes comandos preparam e publicam o seu projeto TypeScript utilizando Ferramentas Core: 
 
 ```command
 npm run build:production 
 func azure functionapp publish <APP_NAME>
 ```
 
-Neste comando, `<APP_NAME>` substitua-o pelo nome da sua aplicação de funções.
+Neste comando, `<APP_NAME>` substitua-o pelo nome da sua aplicação de função.
 
 ## <a name="considerations-for-javascript-functions"></a>Considerações para funções JavaScript
 
-Quando trabalhar com funções JavaScript, esteja atento às considerações nas seguintes secções.
+Quando trabalhar com funções JavaScript, esteja ciente das considerações nas seguintes secções.
 
-### <a name="choose-single-vcpu-app-service-plans"></a>Escolha planos de serviço de aplicações single vCPU
+### <a name="choose-single-vcpu-app-service-plans"></a>Escolha planos de serviço de aplicações single-vCPU
 
-Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de vCPU único em vez de um plano com vários vCPUs. Hoje em dia, as funções executam as funções JavaScript de forma mais eficiente em VMs de vCPU simples, e a utilização de VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escamas manualmente adicionando mais instâncias vCPU vCPU, ou pode ativar a escala automática. Para mais informações, consulte A contagem manual ou automática da [contagem da escala](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
+Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de um único vCPU em vez de um plano com vários vCPUs. Hoje em dia, as funções javaScript funcionam de forma mais eficiente em VMs single-vCPU, e usar VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escalar manualmente adicionando mais instâncias VM single-vCPU, ou pode ativar a autoescala. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-### <a name="cold-start"></a>Início frio
+### <a name="cold-start"></a>Início a Frio
 
-Ao desenvolver funções Azure no modelo de hospedagem sem servidor, o arranque a frio é uma realidade. *O arranque* a frio refere-se ao facto de que quando a sua aplicação de funções começa pela primeira vez após um período de inatividade, demora mais tempo a iniciar-se. Para funções JavaScript com árvores de grande dependência em particular, o arranque a frio pode ser significativo. Para acelerar o processo de arranque a frio, [execute as suas funções como um ficheiro](run-functions-from-deployment-package.md) de embalagem quando possível. Muitos métodos de implementação usam a execução do modelo de pacote por padrão, mas se você está experimentando grandes arranques de frio e não está executando desta forma, esta mudança pode oferecer uma melhoria significativa.
+Ao desenvolver funções Azure no modelo de hospedagem sem servidor, o frio começa a ser uma realidade. *O arranque* a frio refere-se ao facto de que quando a aplicação de função começa pela primeira vez após um período de inatividade, demora mais tempo a arrancar. Para funções JavaScript com árvores de grande dependência em particular, o arranque a frio pode ser significativo. Para acelerar o processo de arranque a frio, [executar as suas funções como um ficheiro de embalagem,](run-functions-from-deployment-package.md) quando possível. Muitos métodos de implementação usam a corrida do modelo de pacote por padrão, mas se você estiver experimentando grandes arranques frios e não estiver funcionando desta forma, esta mudança pode oferecer uma melhoria significativa.
 
 ### <a name="connection-limits"></a>Limites de ligação
 
-Quando utilizar um cliente específico do serviço numa aplicação De Funções Azure, não crie um novo cliente com todas as funções de invocação. Em vez disso, crie um único cliente estático no âmbito global. Para mais informações, consulte [a gestão de ligações em Funções Azure](manage-connections.md).
+Quando utilizar um cliente específico de serviço numa aplicação Azure Functions, não crie um novo cliente com cada invocação de funções. Em vez disso, crie um único cliente estático no âmbito global. Para obter mais informações, consulte [a gestão de ligações em Funções Azure](manage-connections.md).
 
 ### <a name="use-async-and-await"></a>Uso `async` e`await`
 
-Ao escrever Funções Azure no JavaScript, deve escrever código utilizando as `async` `await` palavras-chave e palavras-chave. Escrever código utilizando `async` e em vez de chamadas ou com `await` `.then` `.catch` Promessas ajuda a evitar dois problemas comuns:
- - Lançando exceções não apanhadas que [invertam o processo Nó.js,](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)potencialmente afetando a execução de outras funções.
- - Comportamento inesperado, como registos em falta do context.log, causadopor chamadas assíncronas que não são devidamente aguardadas.
+Ao escrever Funções Azure em JavaScript, deve escrever código utilizando as `async` `await` palavras-chave e as palavras-chave. Escrever códigos usando `async` e em vez de `await` callbacks ou `.then` com `.catch` Promessas ajuda a evitar dois problemas comuns:
+ - Lançar exceções sem escoadas que [colidam com o processo Node.js,](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)podendo afetar a execução de outras funções.
+ - Comportamento inesperado, como registos em falta do context.log, causado por chamadas assíncronos que não são devidamente aguardados.
 
-No exemplo abaixo, o método assíncrono `fs.readFile` é invocado com uma função de chamada de primeira erro como segundo parâmetro. Este código causa ambas as questões acima mencionadas. Uma exceção que não é explicitamente apanhada no âmbito correto invadiu todo o processo (emissão #1). Ligar `context.done()` para fora do âmbito da função de chamada significa que a invocação da função pode terminar antes da leitura do ficheiro (emitir #2). Neste exemplo, a chamada demasiado cedo resulta em falta de entradas de `context.done()` registo a partir de `Data from file:` .
+No exemplo abaixo, o método assíncronos `fs.readFile` é invocado com uma função de retorno de erro primeiro como segundo parâmetro. Este código causa ambas as questões acima mencionadas. Uma exceção que não é explicitamente apanhada no âmbito correto que interrompeu todo o processo (questão #1). Chamar `context.done()` para fora do âmbito da função de retorno significa que a invocação da função pode terminar antes da leitura do ficheiro (emissão #2). Neste exemplo, chamar `context.done()` muito cedo resulta em entradas de registo em falta a partir de `Data from file:` .
 
 ```javascript
 // NOT RECOMMENDED PATTERN
@@ -669,9 +668,9 @@ module.exports = function (context) {
 }
 ```
 
-A utilização das `async` palavras-chave e das `await` palavras-chave ajuda a evitar ambos estes erros. Deve utilizar a função de utilidade nonótipo.js para transformar funções de estilo de [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) chamada em funções aguardadas.
+A utilização das `async` `await` palavras-chave e das palavras-chave ajuda a evitar ambos estes erros. Deve utilizar a função de utilitário Node.js [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) para transformar funções de estilo de chamada de erro primeiro em funções aguardaveis.
 
-No exemplo abaixo, quaisquer exceções não manipuladas lançadas durante a execução da função apenas falham a invocação individual que levantou uma exceção. A `await` palavra-chave significa que os passos que se seguem `readFileAsync` só executam depois de `readFile` concluídos. Com `async` `await` e. `context.done()`
+No exemplo abaixo, quaisquer exceções não manipuladas lançadas durante a execução da função apenas falham na invocação individual que levantou uma exceção. A `await` palavra-chave significa que os passos que seguem `readFileAsync` apenas executam depois `readFile` de concluídos. Com `async` `await` e, você também não precisa ligar para o `context.done()` retorno.
 
 ```javascript
 // Recommended pattern
@@ -698,6 +697,6 @@ Para obter mais informações, consulte os seguintes recursos:
 
 + [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 + [Referência para programadores das Funções do Azure](functions-reference.md)
-+ [Funções Azure desencadeiam e encadernam](functions-triggers-bindings.md)
++ [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
 
-['Func azure functionapp publicar']: functions-run-local.md#project-file-deployment
+['func azure functionapp publicar']: functions-run-local.md#project-file-deployment

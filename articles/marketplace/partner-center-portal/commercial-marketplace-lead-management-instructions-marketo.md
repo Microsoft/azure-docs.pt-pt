@@ -1,6 +1,6 @@
 ---
 title: Gestão de chumbo no Marketo - Mercado comercial da Microsoft
-description: Aprenda a utilizar um sistema Marketo CRM para gerir os leads do Microsoft AppSource e do Azure Marketplace.
+description: Saiba como utilizar um sistema DE CRM do Marketo para gerir os leads a partir do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
@@ -8,86 +8,85 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83849187"
 ---
-# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Utilizar o Marketo para gerir os líderes do mercado comercial
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerir os líderes do mercado comercial
 
-Este artigo descreve como configurar o seu sistema Marketo CRM para processar os leads de vendas das suas ofertas no Microsoft AppSource e No Azure Marketplace.
+Este artigo descreve como configurar o seu sistema DemS de Marketo para processar os leads de vendas das suas ofertas no Microsoft AppSource e no Azure Marketplace.
 
-## <a name="set-up-your-marketo-crm-system"></a>Crie o seu sistema de CRM Marketo
+## <a name="set-up-your-marketo-crm-system"></a>Configurar o seu sistema Desemis de CRM do Marketo
 
 1. Inscreva-se no Marketo.
 
 1. Selecione **Design Studio**.
 
-    ![Estúdio de Design Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
+    ![Estúdio de Design de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
-1.  Selecione **Novo Formulário**.
+1.  Selecione **novo formulário**.
 
-    ![Nova forma de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
+    ![Novo formulário de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 1.  Preencha os campos necessários na caixa de diálogo **New Form** e, em seguida, selecione **Criar**.
 
-    ![Marketo cria nova forma](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
+    ![Marketo criar nova forma](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-1.  Na página Detalhes de **Campo,** selecione **Terminar**.
+1.  Na página Detalhes de **Campo,** **selecione Terminar**.
 
-    ![Forma de acabamento Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
+    ![Forma de acabamento marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-1.  Aprove e feche.
+1.  Aprovar e fechar.
 
-1. No separador **MarketplaceLeadBackend,** selecione **Código Incorporado**. 
+1. No **separador MarketplaceLeadBackend,** **selecione Código Incorporado**. 
 
-    ![Código Incorporado marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Código De Incorporação de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
-1. Marketo Embed Code apresenta código semelhante ao seguinte exemplo.
+1. O Código Incorporado do Marketo apresenta código semelhante ao seguinte exemplo.
 
     ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-1. Copie os valores para os seguintes campos mostrados no formulário Código incorporado. Utilizará estes valores para configurar a sua oferta para receber pistas no próximo passo. Use o exemplo seguinte como um guia para obter as identificações de que precisa do exemplo do Código Marketo Incorporado.
+1. Copie os valores para os seguintes campos indicados no formulário Código Incorporado. Você usará estes valores para configurar a sua oferta para receber pistas no próximo passo. Use o próximo exemplo como guia para obter os IDs de que precisa no exemplo do Código De Incorporação de Marketo.
 
     - ID do servidor = **ys12**
-    - Id munchkin = **123-PQR-789**
+    - ID munchkin = **123-PQR-789**
     - ID do formulário = **1179**
 
     Outra forma de descobrir estes valores:
 
-    - O ID do servidor encontra-se no URL da sua instância Marketo, por exemplo, `serverID.marketo.com` .
-    - Obtenha o ID Munchkin da sua subscrição indo para o seu menu **Admin**  >  **Munchkin** no campo de **ID da conta De Munchkin,** ou a partir da primeira parte do seu subdomínio de hospedar Marketo REST API: `https://{Munchkin ID}.mktorest.com` .
-    - O id do formulário é o id do formulário Código Incorporado que criou no passo 7 para direcionar os cabos do mercado.
+    - O ID do servidor encontra-se no URL do seu exemplo marketo, por exemplo, `serverID.marketo.com` .
+    - Obtenha o ID munchkin da sua subscrição indo para o seu menu **Admin**  >  **Munchkin** no campo **de ID da conta Munchkin,** ou a partir da primeira parte do subdomínio de anfitrião da API Marketo REST: `https://{Munchkin ID}.mktorest.com` .
+    - O ID do formulário é o ID do formulário de Código Incorporado que criou no passo 7 para rotas de condutores do mercado.
 
-## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure a sua oferta para enviar pistas para Marketo
+## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure a sua oferta de envio leva ao Marketo
 
-Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga estes passos. 
+Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal de publicação, siga estes passos. 
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Selecione a sua oferta e vá ao separador **oferta.**
+1. Selecione a sua oferta e vá ao separador **Configuração oferta.**
 
-1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
+1. Na secção **de comandos do Cliente,** selecione **Connect**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Lideranças de clientes":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Ligações ao cliente":::
 
-1. Na janela pop-up de detalhes da **Ligação,** selecione **Marketo** para o **destino Lead**.
+1. Na janela pop-up **de detalhes da Ligação,** selecione **Marketo** para o **destino Lead**.
 
     ![Escolha um destino de chumbo](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Forneça o ID do **Servidor,** **o ID da conta Munchkin**e o ID do **formulário**.
+1. Forneça o **ID**do servidor, o ID da **conta de Munchkin**e **o ID do formulário**.
 
     > [!NOTE]
-    > Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
+    > Tem de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
 
-1. Em **contato e-mail**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
+1. No **e-mail de Contato**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
 
 1. Selecione **OK**.
 
-   Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione **Validate**. Se for bem sucedido, terá um teste de chumbo no destino principal.
+   Para se certificar de que está ligado com sucesso a um destino de chumbo, **selecione Validate**. Se for bem sucedido, terá uma pista de teste no destino principal.
 
-   ![Detalhes de ligação janela pop-up](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Janela pop-up de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
