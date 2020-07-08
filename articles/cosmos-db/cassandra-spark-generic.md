@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260496"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connect to Azure Cosmos DB Cassandra API from Spark (Ligar à API para Cassandra do Azure Cosmos DB a partir do Spark)
@@ -43,11 +43,11 @@ A tabela que se segue lista os parâmetros de configuração de produção espec
 | **Nome da Propriedade** | **Valor predefinido** | **Descrição** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Número de linhas por único lote. Desa um parâmetro para 1. Este parâmetro é usado para obter uma produção mais elevada para cargas de trabalho pesadas. |
-| spark.cassandra.connection.connections_per_executor_max  | Nenhum | Número máximo de ligações por nó por executor. 10*n é equivalente a 10 ligações por nó num aglomerado de Cassandra n-node. Assim, se necessitar de 5 ligações por nó por executor para um cluster Cassandra de 5 nós, então deve definir esta configuração para 25. Modifique este valor com base no grau de paralelismo ou no número de executores para os quais os seus trabalhos de faísca estão configurados.   |
+| spark.cassandra.connection.connections_per_executor_max  | Nenhuma | Número máximo de ligações por nó por executor. 10*n é equivalente a 10 ligações por nó num aglomerado de Cassandra n-node. Assim, se necessitar de 5 ligações por nó por executor para um cluster Cassandra de 5 nós, então deve definir esta configuração para 25. Modifique este valor com base no grau de paralelismo ou no número de executores para os quais os seus trabalhos de faísca estão configurados.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Define o número de escritos paralelos que podem ocorrer por executor. Como configura "batch.size.rows" para 1, certifique-se de aumentar este valor em conformidade. Modifique este valor com base no grau de paralelismo ou na produção que pretende alcançar para a sua carga de trabalho. |
 | spark.cassandra.concurrent.reads |  512 | Define o número de leituras paralelas que podem ocorrer por executor. Modifique este valor com base no grau de paralelismo ou na produção que pretende alcançar para a sua carga de trabalho  |
-| spark.cassandra.output.throughput_mb_per_sec  | Nenhum | Define a produção total de escrita por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.   |
-| spark.cassandra.input.reads_per_sec| Nenhum   | Define a produção total de leitura por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nenhuma | Define a produção total de escrita por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Nenhuma   | Define a produção total de leitura por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Define o número de lotes por única tarefa de faísca que pode ser armazenado na memória antes de enviar para Cassandra API |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Define o período de tempo até ao qual estão disponíveis ligações não disponíveis. | 
 
@@ -113,7 +113,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes artigos demonstram a integração da Spark com a Azure Cosmos DB Cassandra API. 
  

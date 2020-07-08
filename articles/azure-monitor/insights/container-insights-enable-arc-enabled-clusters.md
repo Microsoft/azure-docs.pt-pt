@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar a monitorização com o Azure 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261057"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Permitir a monitorização do cluster Kubernetes habilitado pelo Arco Azure
@@ -232,7 +232,7 @@ Especifique o nome de utilizador e a palavra-passe, o endereço IP ou fQDN e o n
 export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster Kubernetes ativado pelo Arco e cargas de trabalho em execução, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
 

@@ -8,10 +8,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 7590d40085c3963a95fd251dd1291cf34fbaf4a0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262094"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para a conta Azure Cosmos DB Cassandra API usando Striim
@@ -41,7 +41,7 @@ Este artigo mostra como usar striim para migrar dados de uma base de **dados ora
 
 1. No painel de definições do **Cluster Striim,** escolha o tipo de implantação Striim e o tamanho da máquina virtual.
 
-   |Definição | Valor | Description |
+   |Definição | Valor | Descrição |
    | ---| ---| ---|
    |Tipo de implantação Striim |Autónomo | Striim pode funcionar em tipos de implantação **autónomos** ou **cluster.** O modo autónomo implantará o servidor Striim numa única máquina virtual e pode selecionar o tamanho dos VMs dependendo do volume de dados. O modo cluster irá implantar o servidor Striim em dois ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade automática e failover.</br></br> Neste tutorial, pode selecionar a opção Autónoma. Utilize o VM do tamanho padrão "Standard_F4s". | 
    | Nome do cluster Striim|    <Striim_cluster_Name>|  Nome do aglomerado Striim.|
@@ -192,7 +192,7 @@ Nesta secção, irá configurar a conta Azure Cosmos DB Cassandra API como o alv
 
 Ao utilizar a solução Striim em Azure, pode migrar continuamente dados para Azure Cosmos DB de várias fontes como Oracle, Cassandra, MongoDB, e vários outros para Azure Cosmos DB. Para saber mais, visite o site da [Striim](https://www.striim.com/), [faça o download de um teste gratuito de 30 dias de Striim](https://go2.striim.com/download-free-trial), e para quaisquer problemas ao configurar a rota de migração com striim, apresente um pedido de [apoio.](https://go2.striim.com/request-support-striim)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se estiver a migrar dados para a Azure Cosmos DB SQL API, veja [como migrar dados para a conta da API de Cassandra usando o Striim](cosmosdb-sql-api-migrate-data-striim.md)
 

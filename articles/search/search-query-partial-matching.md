@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260989"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de prazo e padrões com caracteres especiais (wildcard, regex, padrões)
@@ -281,7 +281,7 @@ Como pode imaginar, a tokenização adicional resulta num índice maior. Se tive
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo explica como os analisadores contribuem para problemas de consulta e para resolver problemas de consulta. Como passo seguinte, analise mais de perto o impacto do analisador no processamento de indexação e consulta. Em particular, considere usar a API de Texto de Análise para devolver a saída tokenizada para que possa ver exatamente o que um analisador está a criar para o seu índice.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: b1f1ac9e7c5d44fd5cf6e7d692a71f5cf34b48df
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261686"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configure firewall IP em Azure Cosmos DB
@@ -179,7 +179,7 @@ Ative o registo de diagnóstico na sua conta DB Azure Cosmos. Estes registos mos
 
 Pedidos de uma sub-rede numa rede virtual que tem um ponto final de serviço para a Azure Cosmos DB habilitado envia a rede virtual e a identidade da sub-rede para as contas DB da Azure Cosmos. Estes pedidos não têm o IP público da fonte, por isso os filtros IP rejeitam-nos. Para permitir o acesso a partir de sub-redes específicas em redes virtuais, adicione uma lista de controlo de acesso como delineada em [Como configurar a rede virtual e o acesso subterrâneo à sua conta DB Azure Cosmos](how-to-configure-vnet-service-endpoint.md). Pode levar até 15 minutos para que as regras de firewall se apliquem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar um ponto final de serviço de rede virtual para a sua conta DB Azure Cosmos, consulte os seguintes artigos:
 

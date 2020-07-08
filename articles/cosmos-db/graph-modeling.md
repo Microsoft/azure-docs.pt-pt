@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261822"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
 
 O documento a seguir destina-se a fornecer recomendações de modelação de dados de gráficos. Este passo é vital para garantir a escalabilidade e desempenho de um sistema de base de dados de gráficos à medida que os dados evoluem. Um modelo de dados eficiente é especialmente importante com gráficos em larga escala.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 O processo delineado neste guia baseia-se nos seguintes pressupostos:
  * As **entidades** do espaço-problema são identificadas. Estas entidades devem ser consumidas _atomicamente_ para cada pedido. Por outras palavras, o sistema de base de dados não foi concebido para recuperar os dados de uma única entidade em múltiplos pedidos de consulta.

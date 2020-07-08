@@ -10,10 +10,10 @@ ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260598"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
@@ -211,7 +211,7 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 * Uma vez que uma única operação a granel a execução API consome uma grande parte do CPU da máquina cliente e iO de rede. Isto acontece desovando várias tarefas internamente, evite desovar várias tarefas simultâneas dentro do seu processo de aplicação cada uma das chamadas de operação a granel API. Se uma única chamada de API de operação a granel em funcionamento numa única máquina virtual não for capaz de consumir toda a produção do seu contentor (se a produção do seu contentor > de 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente chamadas API de operação a granel.
 
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para conhecer os detalhes do pacote maven e lançar notas da biblioteca Java do executor a granel, consulte[detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-java.md).
 
 

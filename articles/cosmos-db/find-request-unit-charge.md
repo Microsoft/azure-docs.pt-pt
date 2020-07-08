@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
 ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261839"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre a taxa da unidade de pedido na Azure Cosmos DB
@@ -304,7 +304,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Para obter mais informações, consulte [Quickstart: Construa uma aplicação API de tabela utilizando o DB .NET SDK e Azure Cosmos DB](create-table-dotnet.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a otimizar o seu consumo de RU, consulte estes artigos:
 
@@ -312,6 +312,6 @@ Para aprender a otimizar o seu consumo de RU, consulte estes artigos:
 * [Otimizar o débito aprovisionado no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo das consultas no Azure Cosmos DB](optimize-cost-queries.md)
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Produção de provisão para um contentor](how-to-provision-container-throughput.md)
 * [Monitore e depure com métricas em Azure Cosmos DB](use-metrics.md)

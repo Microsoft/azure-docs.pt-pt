@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261346"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
@@ -23,7 +23,7 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 >
 >
 
-|Tipo|Plataforma|Localização|Description|
+|Tipo|Plataforma|Localização|Descrição|
 |-|-|-|-|
 | Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou bolhas de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pela estrutura web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão de registo padrão do seu idioma. A cada mensagem é atribuída uma das seguintes categorias: **Critical,** **Error**, **Warning**, **Info**, **Debug**e **Trace**. Pode selecionar o quão verbose pretende que a sessão seja, definindo o nível de gravidade quando ativa a sessão de registo de aplicações.|
 | Início de sessão do servidor web| Windows | Sistema de ficheiros do Serviço de Aplicações ou bolhas de armazenamento Azure| Dados de pedidos de HTTP brutos no [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, recurso URI, COMPUTADOR DO Cliente, porta do cliente, agente do utilizador, código de resposta, e assim por diante. |
@@ -62,7 +62,7 @@ Selecione o **Nível**, ou o nível de detalhes para registar. A tabela a seguir
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhum |
+|**Desativado** | Nenhuma |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informação, Aviso, Erro, Crítico|
@@ -166,7 +166,7 @@ Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída da 
 
 Para aplicações windows, o ficheiro ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de ficheiros Do Serviço de Aplicações. Tem a seguinte estrutura:
 
-| Tipo de registo | Diretório | Description |
+| Tipo de registo | Diretório | Descrição |
 |-|-|-|
 | **Registos de aplicações** |*/Registos/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
 | **Rastreios de pedidos falhados** | */LogFiles/W3SVC########## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
@@ -185,16 +185,16 @@ Com a nova integração do [Azure Monitor,](https://aka.ms/appsvcblog-azmon)pode
 
 A tabela a seguir mostra os tipos e descrições de registos suportados: 
 
-| Tipo de registo | Suporte ao Windows | Suporte Linux (Docker) | Description |
+| Tipo de registo | Suporte ao Windows | Suporte Linux (Docker) | Descrição |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Saída padrão e erro padrão |
+| AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Registos de servidores web |
 | AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
 | AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | Yes | TBD | Alterações de ficheiros via FTP e Kudu |
+| AppServiceFileAuditLogs | Sim | TBD | Alterações de ficheiros via FTP e Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Registos de aplicações |
 | AppServiceIPSecAuditLogs  | Sim | Sim | Pedidos de Regras de IP |
-| AppServicePlatformLogs  | TBA | Yes | Troncos de contentores |
+| AppServicePlatformLogs  | TBA | Sim | Troncos de contentores |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)

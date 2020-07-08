@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261431"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executor a granel para o suporte a granel em Azure Cosmos DB .NET V3 SDK
@@ -87,13 +87,13 @@ Para suporte a granel no .NET SDK, não existe nenhum comportamento oculto. Pode
 > [!NOTE]
 > Nos casos em que as unidades de pedido previstas sejam muito inferiores às esperadas com base na quantidade de dados, talvez deva considerar a definição destes para valores elevados. A operação a granel demorará mais tempo, mas tem uma maior probabilidade de sucesso devido às maiores retréis.
 
-## <a name="performance-improvements"></a>Melhorias no desempenho
+## <a name="performance-improvements"></a>Melhorias de desempenho
 
 Tal como acontece com outras operações com o .NET SDK, a utilização do fluxo APIs resulta num melhor desempenho e evita qualquer serialização desnecessária. 
 
 A utilização de APIs de fluxo só é possível se a natureza dos dados utilizados corresponder à de um fluxo de bytes (por exemplo, streams de ficheiros). Nesses casos, a `CreateItemStreamAsync` `ReplaceItemStreamAsync` utilização, ou `DeleteItemStreamAsync` métodos e o trabalho com `ResponseMessage` (em vez de ) aumenta a `ItemResponse` produção que pode ser alcançada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os lançamentos .NET SDK, consulte o artigo [da Azure Cosmos DB SDK.](sql-api-sdk-dotnet.md)
 * Obtenha o código fonte de [migração](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) completo do GitHub.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261771"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usar um grafo de particionado no Azure Cosmos DB
@@ -82,7 +82,7 @@ Utilize as seguintes orientações para garantir o desempenho e a escalabilidade
 
 - **Otimize as consultas para obter dados dentro dos limites de uma partição.** Uma estratégia de partição ideal seria alinhada com os padrões de consulta. As consultas que obtêm dados de uma única partição proporcionam o melhor desempenho possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode proceder à leitura dos seguintes artigos:
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
 ms.openlocfilehash: d3d9af1b8cbda3f0fa2ff4650fef4602f7812f79
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261720"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Como configurar a hora de início do processador de alimentação de alteração
@@ -49,7 +49,7 @@ O processador de alimentação de alteração será inicializado e começará a 
 * [Amostras de utilização no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Amostras adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode agora proceder para saber mais sobre o processador de feed de mudança nos seguintes artigos:
 

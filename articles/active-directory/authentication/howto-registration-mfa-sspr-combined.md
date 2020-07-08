@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260853"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Azure Ative Directory
@@ -79,7 +79,7 @@ A seguinte política aplica-se a todos os utilizadores selecionados que tentam r
 1. Defina **Permitir política** como **Ativado**.
 1. Para finalizar a política, **selecione Criar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de ajuda, veja como resolver o registo combinado de [informações de segurança](howto-registration-mfa-sspr-combined-troubleshoot.md) ou saiba [qual é a condição de localização no Azure Ative Directory Conditional Access?](../conditional-access/location-condition.md)
 

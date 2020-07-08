@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261856"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos
@@ -72,7 +72,7 @@ A calculadora de capacidade azure Cosmos assume leituras de ponto (uma leitura d
 
 Por exemplo, se a sua carga de trabalho necessitar de uma consulta, ``SELECT * FROM c WHERE c.id = 'Alice'`` que é executada 100 vezes por segundo, e a carga RU da consulta é de 10 RUs, você precisará de 100 consultas / seg * 10 RU /consulta = 1000 RU/s no total para servir estes pedidos. Adicione estes RU/s ao RU/s necessário para quaisquer leituras ou escritos que ocorram na sua carga de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o modelo de preços da Azure Cosmos DB.](how-pricing-works.md)
 * Crie uma nova [conta Cosmos, base de dados e contentor.](create-cosmosdb-resources-portal.md)

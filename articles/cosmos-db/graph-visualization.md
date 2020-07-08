@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
 ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261788"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualizar dados gráficos armazenados na API API da Azure Cosmos DB Gremlin com soluções de visualização de dados
@@ -45,7 +45,7 @@ Estes conjuntos de ferramentas permitem-lhe conceber aplicações de visualizaç
 :::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Demonstração de Inteligência de Cambridge" border="false":::
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  
 - [Experimente os kits de ferramentas](https://cambridge-intelligence.com/try/)
 - [Visão geral da tecnologia KeyLines](https://cambridge-intelligence.com/keylines/technology/)

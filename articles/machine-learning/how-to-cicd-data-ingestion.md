@@ -13,10 +13,10 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.custom: tracking-python
 ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261499"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um oleoduto de ingestão de dados
@@ -478,7 +478,7 @@ stages:
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Controlo de Origem no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control)
 * [Integração contínua e entrega na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment)

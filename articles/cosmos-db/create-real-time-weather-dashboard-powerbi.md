@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: eda3ee3e9e170469ffb0b9b0e1d7dede181fe3f0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262009"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um dashboard em tempo real usando Azure Cosmos DB e Power BI
@@ -23,7 +23,7 @@ Este artigo descreve os passos necessários para criar um dashboard meteorológi
 Existem várias formas de configurar dashboards de reporte em dados armazenados em Azure Cosmos DB. Dependendo dos requisitos de estagnação e do tamanho dos dados, a tabela seguinte descreve a configuração de relatórios para cada cenário:
 
 
-|Cenário |Configuração |
+|Scenario |Configuração |
 |---------|---------|
 |1. Gerar relatórios ad-hoc (sem atualização)    |  [Conector DB power BI Azure Cosmos com modo de importação](powerbi-visualize.md)       |
 |2. Gerar relatórios ad-hoc com atualização periódica   |  [Conector DB Power BI Azure Cosmos com modo de importação (Atualização periódica programada)](powerbi-visualize.md)       |
@@ -68,7 +68,7 @@ Crie um oleoduto de ingestão para carregar [os dados meteorológicos](https://c
    Dependendo da coluna e do tipo de dados presentes no conjunto de dados de origem, pode alterar os campos RangeStart e RangeEnd em conformidade
 
    
-   |Propriedade  |Tipo de dados  |Filtro  |
+   |Propriedade  |Tipo de dados  |Filtrar  |
    |---------|---------|---------|
    |_ts     |   Numérico      |  [_ts] > Duração.TotalSeconds (RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) e [_ts] < Duração.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0,0))       |
    |Data (por exemplo:- 2019-08-19)     |   String      | [Document.date]> DateTime.ToText (RangeStart,"yyyy-MM-dd") e [document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
@@ -165,7 +165,7 @@ Crie um oleoduto de ingestão para carregar [os dados meteorológicos](https://c
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Carregue os dados e gere relatórios":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o Power BI, consulte [Começar com o Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 

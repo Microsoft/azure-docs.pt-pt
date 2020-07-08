@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: srchi
 ms.openlocfilehash: 2028a8048830587195271675997bf4c880a3fae1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260768"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar fluxos na API da Azure Cosmos DB para MongoDB
@@ -167,7 +167,7 @@ Os seguintes códigos de erro e mensagens são suportados quando utilizam stream
 
 * **NamespaceNotFound (OperationType Invalidado)** - Se executar o fluxo de alteração na coleção que não existe ou se a coleção for largada, então `NamespaceNotFound` um erro é devolvido. Como a `operationType` propriedade não pode ser devolvida no documento de saída, em vez do `operationType Invalidate` erro, o erro é `NamespaceNotFound` devolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use o tempo para viver para expirar automaticamente na API da Azure Cosmos DB para a MongoDB](mongodb-time-to-live.md)
 * [Indexação na API da Azure Cosmos DB para a MongoDB](mongodb-indexing.md)
