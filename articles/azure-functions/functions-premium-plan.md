@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
 ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298519"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
@@ -138,7 +138,7 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |E.U.A. Oeste| 100 | 20 |
 |E.U.A.Oeste 2| 100 | 20 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Compreender a escala de funções Azure e opções de hospedagem](functions-scale.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
 ms.openlocfilehash: 95ac274398bbbc3d53447c8aacb0d93ed30e8321
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298281"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN by Metro 
@@ -48,5 +48,5 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 | Austrália e Nova Zelândia | Brisbane<br />Melbourne<br />Perth<br />Sydney<br />Auckland | Melbourne<br />Sydney<br />Auckland | Austrália<br />Nova Zelândia |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter os mais recentes endereços IP para whitelisting, consulte a [API API dos Nodes AZURE CDN Edge](https://docs.microsoft.com/rest/api/cdn/edgenodes).

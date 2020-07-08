@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298961"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
@@ -61,7 +61,7 @@ Distribuições e versões suportadas:
 - CentOS 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
 - RHEL 7, 6.7+
 
@@ -765,7 +765,7 @@ Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie alertas métricos no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que recolhe.
 * Crie [gráficos de monitorização](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para as suas métricas.

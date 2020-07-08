@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263644"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Produção padrão de provisão (manual) numa base de dados em Azure Cosmos DB
@@ -78,12 +78,12 @@ O comando semelhante pode ser executado através de qualquer controlador compat�
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para saber sobre a produção prevista na Azure Cosmos DB:
 
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Como prever a produção padrão (manual) para um recipiente](how-to-provision-container-throughput.md)
 * [Como providenciar a produção de autoescala para um contentor](how-to-provision-autoscale-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

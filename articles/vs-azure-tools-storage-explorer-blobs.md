@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298128"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento Azure Blob com o Storage Explorer
@@ -169,7 +169,7 @@ Assim que criar um recipiente de bolhas, pode enviar uma bolha para o recipiente
 Os passos seguintes ilustram como gerir as bolhas (e pastas) dentro de um recipiente de bolhas.
 
 1. Abra o Explorador de Armazenamento.
-2. No painel esquerdo, expanda a conta de armazenamento que contém o recipiente blob que pretende gerir.
+2. No painel esquerdo, expanda a conta de armazenamento que contém o contentor de blobs que quer gerir.
 3. Expandir os **recipientes blob**da conta de armazenamento.
 4. Clique duas vezes no recipiente blob que deseja ver.
 5. O painel principal mostrará o conteúdo do recipiente blob.
@@ -223,7 +223,7 @@ Os passos seguintes ilustram como gerir as bolhas (e pastas) dentro de um recipi
      2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)**.
      3. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).

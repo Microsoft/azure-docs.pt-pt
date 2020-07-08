@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85297533"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento a pedido
@@ -96,7 +96,7 @@ A secção de detalhes de visualização exibe os atributos que foram modificado
 * As falhas nas exportações podem variar muito. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) dos registos de provisionamento para falhas comuns.
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 **Precisa de desligar o provisionamento para utilizar o provisionamento a pedido?** Para aplicações que utilizem um token portador de longa duração ou nome de utilizador e senha para autorização, não são necessários passos adicionais. Os pedidos que utilizam o OAuth para autorização exigem atualmente que o trabalho de provisionamento seja interrompido antes de utilizar o provisionamento a pedido. Aplicações como G Suite, Box, Workplace by Facebook e Slack enquadram-se nesta categoria. Estão em curso trabalhos para permitir o fornecimento a pedido de todos os pedidos, sem ter de deixar de provisões. 
 
 **Quanto tempo demora o provisionamento a pedido?** Geralmente demora menos de 30 segundos. 

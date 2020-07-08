@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: c8ab5bc5072612edd3eaabbd13468567a92f42e4
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85296394"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Parceiros de integração de dados Azure Synapse Analytics
@@ -24,7 +24,7 @@ Para criar a sua solução de armazém de dados utilizando a funcionalidade de p
 
 ## <a name="data-integration-partners"></a>Parceiros de integração de dados
 
-| Parceiro | Description | Link do site/produto |
+| Parceiro | Descrição | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> O Alooma é uma solução de Extrato, Transformação e Carga (ETL) que permite às equipas de dados integrar, enriquecer e transmitir dados de vários silos de dados para um armazém de dados Azure Synapse tudo em tempo real. |[Página do produto](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> O Alteryx Designer fornece um fluxo de trabalho repetível para análise de dados de autosserviço que leva a insights mais profundos em horas, e não as semanas típicas de abordagens tradicionais! O Alteryx Designer ajuda os analistas de dados combinando a preparação de dados, a mistura de dados e a análise – preditiva, estatística e espacial – utilizando a mesma interface de utilizador intuitiva. |[Página do produto](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
@@ -47,5 +47,5 @@ Para criar a sua solução de armazém de dados utilizando a funcionalidade de p
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED é um IDE que fornece às equipas ferramentas de automação para agilizar os fluxos de trabalho da ETL. O IDE fornece as melhores práticas, código nativo otimizado para alvos de dados populares. Utilize o WhereScape RED para reduzir o tempo para desenvolver, implantar e operar a sua infraestrutura de dados.|[Página do produto](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre outros parceiros, consulte [parceiros de Business Intelligence,](sql-data-warehouse-partner-business-intelligence.md) [parceiros de Gestão de Dados](sql-data-warehouse-partner-data-management.md) e [machine learning e parceiros de IA.](sql-data-warehouse-partner-machine-learning-ai.md)

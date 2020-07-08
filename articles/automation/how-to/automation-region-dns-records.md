@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298315"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registos dns para regiões Azure utilizadas pela Azure Automation
@@ -98,7 +98,7 @@ O ficheiro de endereço IP lista os intervalos de endereços IP utilizados nos d
 > [!NOTE]
 > Se estiver a utilizar o Azure ExpressRoute, lembre-se que o ficheiro de endereço IP é utilizado para atualizar o anúncio do Border Gateway Protocol (BGP) do espaço Azure na primeira semana de cada mês.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a resolver problemas com os seus Trabalhadores de Runbook Híbridos, consulte problemas de trabalho híbrido de [resolução de problemas.](../troubleshoot/hybrid-runbook-worker.md#general)
 

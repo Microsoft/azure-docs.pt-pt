@@ -6,10 +6,10 @@ ms.date: 05/30/2020
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85296870"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
@@ -188,6 +188,6 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
   Sim, consulte [os modelos do Gestor de Recursos Azure utilizando as ações do GitHub](deploy-github-actions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma introdução aos modelos ARM, veja [quais são os modelos ARM?](overview.md)

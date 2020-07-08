@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85296343"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitore cofre de chaves com grade de evento azure (pré-visualização)
@@ -40,7 +40,7 @@ As aplicações que lidam com eventos do Key Vault devem seguir algumas prática
 * Ignore campos que não entende.  Esta prática irá ajudá-lo a manter-se resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
 * Utilize o prefixo "sujeito" e os jogos de sufixo para limitar os eventos a um determinado evento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do cofre da chave Azure](overview.md)
 - [Descrição geral do Azure Event Grid](../../event-grid/overview.md)

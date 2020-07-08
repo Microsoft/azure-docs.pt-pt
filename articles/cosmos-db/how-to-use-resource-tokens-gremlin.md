@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263566"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recursos DB da Azure Cosmos com o Gremlin SDK
@@ -101,6 +101,6 @@ Com uma única conta Gremlin, pode emitir um número ilimitado de fichas. No ent
 
 Um erro comum que as aplicações encontram enquanto usam fichas de recursos é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, recaia com outro cabeçalho de autorização. Este erro é devolvido quando um gremlin tenta escrever uma borda ou um vértice, mas o sinal de recurso concede apenas permissões *de leitura.* Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()*, *.addE()*, *.drop()* ou *.property()*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Controlo de acesso baseado](role-based-access-control.md) em funções em Azure Cosmos DB
 * [Saiba como garantir o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB

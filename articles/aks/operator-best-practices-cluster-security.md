@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298026"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
@@ -207,7 +207,7 @@ Se quiser um controlo de grãos mais fino quando ocorrerem reboots, `kured` pode
 
 Para obter mais informações sobre como lidar com as reinicializações de nó, consulte [Aplicar atualizações de segurança e kernel aos nós em AKS][aks-kured].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo focou-se em como proteger o seu cluster AKS. Para implementar algumas destas áreas, consulte os seguintes artigos:
 

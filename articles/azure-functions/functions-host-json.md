@@ -4,10 +4,10 @@ description: A documentação de referência para as Funções Azure host.jsem a
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298502"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsem referência para as Funções Azure 2.x e posterior 
@@ -145,7 +145,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 > [!NOTE]
 > A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Application Insights. Para evitar a amostragem de registo, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Propriedade | Predefinição | Description |
+| Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | amostragemS | n/a | Ver [aplicaçõesInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Permite a recolha de métricas ao vivo. |
@@ -157,7 +157,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights.samplingSettings
 
-|Propriedade | Predefinição | Description |
+|Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | isEnabled | true | Permite ou desativa a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número-alvo de itens de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
@@ -173,7 +173,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
-|Propriedade | Predefinição | Description |
+|Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Ativa ou desativa informações de pedidos de HTTP para gatilhos HTTP: cabeçalhos de correlação de pedidos de entrada, suporte de chaves de múltiplos instrumentações, método, caminho e resposta HTTP. |
 | enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído W3C (e liga o esquema de correlação do legado). Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Se `enableHttpTriggerExtendedInfoCollection` for falsa, esta bandeira aplica-se apenas aos pedidos de saída, não aos pedidos de entrada. |
@@ -183,7 +183,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](/azure/azure-monitor/app/snapshot-debugger) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
-|Propriedade | Predefinição | Description |
+|Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final utilizado para ligar ao serviço Debugger Debugger Do Application Insights Snapshot. Se for nulo, é utilizado um ponto final predefinido. |
 | capturaSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho atual da memória do processo ao verificar se há memória suficiente para tirar uma foto. O valor esperado é superior a 0 frações adequadas (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +275,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |ativado|true|Especifica se a funcionalidade está ativada. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de saúde de fundo periódicos. | 
@@ -287,7 +287,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 
 As definições de configuração podem ser encontradas em [gatilhos e encadernações http](functions-bindings-http-webhook-output.md#hostjson-settings).
 
-## <a name="logging"></a>registo
+## <a name="logging"></a>registos
 
 Controla os comportamentos de registo da aplicação de função, incluindo o Application Insights.
 
@@ -307,7 +307,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
 |logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do Núcleo ASP.NET. |
@@ -330,7 +330,7 @@ Esta definição é uma criança de [registo.](#logging) Controla o registo da c
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |isEnabled|false|Ativa ou desativa a sessão de registo de consolas.| 
 
@@ -374,7 +374,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o que os bloqueios de nível de função são tomados. As fechaduras renovam-se automaticamente.| 
 |ouvinteLockPeriod|00:01:00|O período para o que os ouvintes bloqueiam.| 
@@ -413,7 +413,7 @@ Por exemplo, diga que queria desativar a amostragem de Insight de Aplicação qu
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o host.jsno ficheiro](functions-reference.md#fileupdate)

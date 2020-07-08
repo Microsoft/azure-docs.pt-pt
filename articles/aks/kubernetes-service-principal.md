@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298553"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
@@ -17,7 +17,7 @@ Para interagir com as APIs do Azure, um cluster AKS requer um [diretor de servi�
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
 
@@ -164,7 +164,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 O prazo de validade padrão para as principais credenciais de serviço é de um ano. Se o seu *aksServicePrincipal.jsem* ficheiro for superior a um ano, elimine o ficheiro e tente implementar novamente um cluster AKS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os principais do serviço Azure Ative Directory, consulte [os objetos principais de aplicação e serviço.][service-principal]
 

@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
 ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85297873"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar base de dados Azure SQL do modelo baseado em DTU para o modelo baseado em vCore
@@ -191,7 +191,7 @@ Se estiver a criar um geo-secundário na piscina elástica para uma única base 
 
 Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciação especial, desde que o tamanho do cálculo-alvo suporte o tamanho máximo da base de dados da base de dados de origem. A cópia da base de dados cria uma imagem instantânea dos dados a partir do momento de início da operação de cópia e não sincroniza os dados entre a fonte e o alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para os tamanhos específicos do cálculo e as opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [os limites de recursos baseados em SQL Database vCore para bases de dados individuais.](resource-limits-vcore-single-databases.md)
 - Para os tamanhos específicos de computação e opções de tamanho de armazenamento disponíveis para piscinas elásticas, consulte [os limites de recursos baseados em SQL Database vCore para piscinas elásticas.](resource-limits-vcore-elastic-pools.md)

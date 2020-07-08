@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85299335"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics parceiros de inteligência empresarial
@@ -23,7 +23,7 @@ ms.locfileid: "85299335"
 Para criar a sua solução completa de armazém de dados utilizando a piscina Synapse SQL dentro do Azure Synapse, pode escolher entre uma grande variedade de ferramentas líderes da indústria.  Este artigo destaca as empresas parceiras da Microsoft com soluções oficiais de inteligência empresarial (BI) que suportam o Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Os nossos parceiros de inteligência empresarial
-| Parceiro | Description | Link do site/produto |
+| Parceiro | Descrição | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst conecta toda a organização através de uma rede de casos de BI virtualizados entrelaçados no topo de um tecido analítico comum compartilhado|[Página do produto](https://www.birst.com/)<br> |
 | ![Dados de História Clara](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados de História Clara (Insights empresariais contínuos)**<br>O ClearStory Data permite a análise de ciclo rápido através de dados díspares armazenados na piscina Synapse SQL. Plataforma integrada da ClearStory baseada em spark e analítico aplicação speed data access e harmonização de conjuntos de dados díspares. Permitem uma exploração rápida e colaborativa que suporta os utilizadores empresariais a serem autossuficientes para obterem informações rápidas. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |

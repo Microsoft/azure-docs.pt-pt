@@ -4,10 +4,10 @@ description: A lista de exceções do Azure Event Hubs surgiu pelo Azure Resourc
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312528"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs - Exceções do Gestor de Recursos
@@ -20,7 +20,7 @@ As seguintes secções fornecem várias exceções/erros que são surgidos atrav
 
 ## <a name="error-code-conflict"></a>Código de erro: Conflito
 
-| Código de erro | Subcodificador de erro | Mensagem de erro | Description | Recomendação |
+| Código de erro | Subcodificador de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Conflito | 40300 | O número máximo de recursos do tipo EventHub foi atingido ou ultrapassado. Atual: #, Max permitido: # | O espaço de nome atingiu a sua [quota](event-hubs-quotas.md) para o número de Centros de Eventos que pode conter. | Elimine quaisquer centros de eventos não reutilizados ou estranhos do espaço de nomes ou considere o upgrade para um [cluster dedicado](event-hubs-dedicated-overview.md). |
 | Conflito | nenhum | A recuperação de desastres (DR) config não pode ser eliminada porque a replicação está em andamento. Falhe ou quebre o emparelhamento antes de tentar eliminar o DR Config. | [A replicação do GeoDR](event-hubs-geo-dr.md) está em andamento, por isso o config não pode ser eliminado neste momento. | Para desbloquear a eliminação do config, espere até que a replicação esteja concluída, desencadeie uma falha ou quebre o emparelhamento geoDR. |
@@ -28,14 +28,14 @@ As seguintes secções fornecem várias exceções/erros que são surgidos atrav
 
 ## <a name="error-code-429"></a>Código de erro: 429
 
-| Código de erro | Subcodificador de erro | Mensagem de erro | Description | Recomendação |
+| Código de erro | Subcodificador de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | 429 | nenhum | Provisão de espaço de nome em transição | Outra operação está atualmente a ser feita neste espaço de nome. | Aguarde até que a operação atual termine e, em seguida, redaça. |
 | 429 | nenhum | Operação de recuperação de desastres em curso. | Uma operação [GeoDR](event-hubs-geo-dr.md) está atualmente a ser feita neste espaço de nome ou emparelhamento. | Aguarde até que a operação geoDR atual termine e, em seguida, redaça. |
 
 ## <a name="error-code-badrequest"></a>Código de erro: BadRequest
 
-| Código de erro | Subcodificador de erro | Mensagem de erro | Description | Recomendação |
+| Código de erro | Subcodificador de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | BadRequest | 40000 | O PartitionCount não pode ser mudado para um centro de eventos. | O nível básico ou padrão dos Azure Event Hubs não suporta a mudança de divisórias. | Crie um novo centro de eventos com o número de divisórias procurado no seu espaço de nome básico ou padrão. A escala de partição é suportada para [clusters dedicados.](event-hubs-dedicated-overview.md) |
 | BadRequest | 40000 | O valor '#' para MessageRetentionInDays não é válido para o nível Básico. o valor não pode exceder o dia de 1. | Os espaços de nome de eventos de nível básico suportam apenas a retenção de mensagens até 1 dia. | Se for desejada mais de um dia de retenção de mensagens, [crie um espaço de nome padrão para os Centros de Eventos](event-hubs-create.md). | 
@@ -50,6 +50,6 @@ As seguintes secções fornecem várias exceções/erros que são surgidos atrav
 
 ## <a name="error-code-internal-server-error"></a>Código de erro: Erro interno do servidor
 
-| Código de erro | Subcodificador de erro | Mensagem de erro | Description | Recomendação |
+| Código de erro | Subcodificador de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Erro interno do servidor | nenhum | Erro interno do servidor. | O serviço Event Hubs teve um erro interno. | Recandidutar a operação falhada. Se a operação continuar a falhar, contacte o suporte. |
