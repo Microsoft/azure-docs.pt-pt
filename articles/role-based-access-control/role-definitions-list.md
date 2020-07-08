@@ -15,10 +15,9 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982497"
 ---
 # <a name="list-azure-role-definitions"></a>Lista Azure definições de função
@@ -356,7 +355,7 @@ Para listar definições de funções, utilize as [Definições de Função - Li
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de definição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtrar | Descrição |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Lista definições de funções para o âmbito especificado e quaisquer subscópios. |
     > | `$filter=type+eq+'{type}'` | Lista definições de funções do tipo especificado. Tipo de papel pode ser `CustomRole` ou `BuiltInRole` . . |
@@ -474,7 +473,7 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções incorporadas de Azure](built-in-roles.md)
 - [Funções personalizadas Azure](custom-roles.md)

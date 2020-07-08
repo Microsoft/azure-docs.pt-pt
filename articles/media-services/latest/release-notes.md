@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
 ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983377"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
@@ -191,7 +190,7 @@ Os Serviços de Comunicação Social estão agora disponíveis nas regiões sul 
 
 Para mais informações, consulte [Nuvens e regiões em que existem serviços de comunicação v3.](azure-clouds-regions.md)
 
-### <a name="performance-improvements"></a>Melhorias no desempenho
+### <a name="performance-improvements"></a>Melhorias de desempenho
 
 Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Mídia.
 
@@ -376,11 +375,11 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral](media-services-overview.md)
 - [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)

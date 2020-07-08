@@ -5,10 +5,9 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309973"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Executar um failover de no local para Azure
@@ -141,7 +140,7 @@ Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 - **Endereços IP externos**: Pode reter endereços IP públicos no failover. Os VMs Azure criados como parte do processo de failover devem ser atribuídos um endereço IP público Azure disponível na região de Azure. Pode atribuir um endereço IP público manualmente ou automatizando o processo com um plano de recuperação. [Saiba mais](concepts-public-ip-address-with-site-recovery.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter falhado, precisa de ser reprotegido para começar a replicar os VMs do Azure de volta ao local. Depois de a replicação estar a funcionar, podes voltar ao local quando estiveres pronto.
 

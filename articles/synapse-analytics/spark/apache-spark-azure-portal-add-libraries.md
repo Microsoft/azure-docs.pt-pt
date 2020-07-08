@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 5eb67752a57ce7745b1128f5f5eb36414bfe993c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392612"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027312"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Adicione e gere bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -39,9 +38,7 @@ O seguinte corte mostra o formato do ficheiro de requisitos. O nome do pacote Py
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 
@@ -63,7 +60,7 @@ for i in pip.get_installed_distributions(local_only=True):
     print(i)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Documentação de faíscas apache](https://spark.apache.org/docs/2.4.4/)

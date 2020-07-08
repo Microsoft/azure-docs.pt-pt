@@ -4,10 +4,9 @@ description: Ativar automaticamente a insuflada num espaço de nome para aumenta
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322543"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de produção de Hubs de Eventos Azure
@@ -110,7 +109,7 @@ Pode ativar a insuflada automática durante a implementação do modelo do Azure
 Para o modelo completo, consulte o espaço de [nomes Create Event Hubs e ative o modelo de insuflação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) no GitHub.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708948"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à resolução de problemas de conexão no Observador da Rede Azure
@@ -81,6 +80,6 @@ A resolução de problemas de ligação devolve tipos de falhas sobre a ligaçã
 |Regra de Segurança de Rede    | O tráfego é bloqueado por uma regra do NSG (Regra é devolvida)        |
 |UserDefinedRoute|O tráfego é desviado devido a uma rota definida pelo utilizador ou pelo sistema. |
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Saiba como resolver os problemas através do [portal Azure](network-watcher-connectivity-portal.md), [PowerShell,](network-watcher-connectivity-powershell.md) [Azure CLI](network-watcher-connectivity-cli.md)ou [REST API](network-watcher-connectivity-rest.md).

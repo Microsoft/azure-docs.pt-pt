@@ -11,10 +11,9 @@ ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: 7d17a956faf4080f419bc859c8259018b98626a5
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764065"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Ligue o contraste alto ou mude o tema no portal Azure
@@ -50,7 +49,7 @@ Se precisar de mais contraste ou quiser alterar o esquema de cores no portal Azu
 
 1. Selecione **Aplicar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atalhos de teclado no portal Azure](azure-portal-keyboard-shortcuts.md)
 - [Dispositivos e browsers suportados](../azure-preview-portal-supported-browsers-devices.md)

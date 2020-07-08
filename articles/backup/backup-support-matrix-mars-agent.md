@@ -4,10 +4,9 @@ description: Este artigo resume o suporte de backup do Azure quando faz cópias 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709883"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
@@ -117,7 +116,7 @@ Windows 8 (Enterprise, Pro) | Sim | Não | Verifique a versão do servidor corre
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Serviço e Gestão de Imagem de Implantação (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | Não | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 
 Para obter mais informações, consulte [os sistemas operativos MABS e DPM suportados.](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)
@@ -132,9 +131,9 @@ Para ambientes no local ou ambientes hospedados, onde não é possível atualiza
 
 | **Sistema Operativo**                                       | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | Não                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sim               | Não                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
 | Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim               | Sim                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Yes               | Não                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Sim               | Não                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limites de backup
 
@@ -199,7 +198,7 @@ Ao utilizar a funcionalidade [de Restauro Instantâneo](backup-instant-restore-c
 
 As cópias de segurança não podem ser restauradas numa máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança tirada de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posteriormente. Mas uma cópia de segurança tirada de um computador que está a executar o Windows 8 não pode ser restaurada num computador que está a executar o Windows 7.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a arquitetura de backup que usa o agente MARS.](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)
 - Saiba o que é suportado quando [executar o agente MARS no MABS ou num servidor DPM](backup-support-matrix-mabs-dpm.md).

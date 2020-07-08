@@ -1,18 +1,17 @@
 ---
-title: Use o Processo Local com Kubernetes com Visual Studio (pré-visualização)
+title: Utilizar o Processo Local com o Kubernetes com o Visual Studio (pré-visualização)
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Saiba como usar o Processo Local com Kubernetes com o Visual Studio para ligar o seu computador de desenvolvimento a um cluster Kubernetes com a Azure Dev Spaces
 keywords: Processo Local com Kubernetes, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: 8e89baeac8d9042a87685ed1268ed694db8d9455
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84316804"
 ---
-# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Use o Processo Local com Kubernetes com Visual Studio (pré-visualização)
+# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Utilizar o Processo Local com o Kubernetes com o Visual Studio (pré-visualização)
 
 O Processo Local com Kubernetes permite-lhe executar e depurar código no seu computador de desenvolvimento, ainda ligado ao seu cluster Kubernetes com o resto da sua aplicação ou serviços. Por exemplo, se tiver uma grande arquitetura de microserviços com muitos serviços e bases de dados interdependentes, replicar essas dependências no seu computador de desenvolvimento pode ser difícil. Além disso, a construção e implementação do código para o seu cluster Kubernetes para cada alteração de código durante o desenvolvimento do loop interno pode ser lenta, morosa e difícil de usar com um depurador.
 
@@ -25,7 +24,7 @@ Neste guia, você aprenderá a usar o Processo Local com Kubernetes para redirec
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][preview-terms]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este guia utiliza a [aplicação de amostra de partilha de bicicletas Azure Dev Spaces][bike-sharing-github] para demonstrar a ligação do seu computador de desenvolvimento a um cluster Kubernetes. Se já tem a sua própria aplicação a decorrer num cluster Kubernetes, ainda pode seguir os passos abaixo e usar os nomes dos seus próprios serviços.
 
@@ -152,7 +151,7 @@ Utilize o script fornecido para remover a aplicação da amostra do seu cluster.
 ./local-process-quickstart.sh -c -g MyResourceGroup -n MyAKS
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como usar a Azure Dev Spaces e GitHub Actions para testar alterações a partir de um pedido de puxar diretamente na AKS antes que o pedido de puxar seja fundido no ramo principal do seu repositório.
 

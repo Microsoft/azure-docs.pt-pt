@@ -16,10 +16,9 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763453"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas que configuram a palavra-passe de um único sinal para uma aplicação não-galeria
@@ -106,7 +105,7 @@ Para configurar o SSO baseado em palavra-passe para uma aplicação utilizando a
 
 16. Siga as instruções para utilizar o Painel de Acesso.
 
-## <a name="troubleshoot-problems"></a>Resolver problemas
+## <a name="troubleshoot-problems"></a>Resolução de problemas
 
 ### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Eu tenho um erro de "Não conseguimos encontrar nenhum campo de inscrição naquele ERRO URL"
 
@@ -251,5 +250,5 @@ As seguintes informações explicam o que cada item de notificação significa e
 
     Exemplo:```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Fornecer um único s-on às suas apps com Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)

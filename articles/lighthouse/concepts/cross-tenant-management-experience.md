@@ -3,12 +3,11 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 225a7f7725762c6887858366b134a7ad9a7b8eb6
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920593"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -33,9 +32,9 @@ A gestão de recursos delegados da Azure permite uma maior flexibilidade na gest
 
 Pode executar tarefas de gestão em recursos delegados, quer diretamente no portal, quer utilizando APIs e ferramentas de gestão (como Azure CLI e Azure PowerShell). Todas as APIs existentes podem ser utilizadas quando trabalham com recursos delegados, desde que a funcionalidade seja suportada para a gestão de inquilinos cruzados e o utilizador tenha as permissões adequadas.
 
-O cmdlet Azure PowerShell [Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o **inquilinoID** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
+O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o **inquilinoID** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
 
-Da mesma forma, os comandos Azure CLI, tais como [a lista de conta az](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridos PorTenants.**
+Da mesma forma, os comandos Azure CLI, tais como [a lista de conta az](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridos PorTenants.**
 
 > [!TIP]
 > Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .
@@ -148,7 +147,7 @@ Com todos os cenários, esteja atento às seguintes limitações atuais:
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
 - Embora possa embarcar subscrições e grupos de recursos para a Azure delegada gestão de recursos que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - A bordo dos seus clientes para a Azure delegada gestão de recursos, quer [através da utilização de modelos do Azure Resource Manager,](../how-to/onboard-customer.md) quer através [da publicação de uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 - [Ver e gerir clientes](../how-to/view-manage-customers.md) indo para **os meus clientes** no portal Azure.

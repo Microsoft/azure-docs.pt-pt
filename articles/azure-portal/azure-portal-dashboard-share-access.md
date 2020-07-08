@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 60f1f2d20ec2989f73098a18392b936593b85656
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764031"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
@@ -85,7 +84,7 @@ Pode atribuir um grupo de utilizadores a uma função para esse painel de instru
 
 1. Quando terminar de adicionar utilizadores ou grupos, **selecione Save**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma lista de funções, consulte [funções incorporadas para recursos Azure](../role-based-access-control/built-in-roles.md).
 * Para conhecer a gestão de recursos, consulte [gerir os recursos do Azure utilizando o portal Azure.](resource-group-portal.md)

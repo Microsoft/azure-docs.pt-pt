@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84322520"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Ligações do Microsoft Graph para Funções Azure
@@ -91,7 +90,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir obtém informações sobre o perfil do utilizador.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada simbólica:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de entrada simbólica:
 
 ```json
 {
@@ -138,7 +137,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 
 O exemplo a seguir obtém informações sobre o perfil do utilizador.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada simbólica:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de entrada simbólica:
 
 ```json
 {
@@ -203,9 +202,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="auth-token---configuration"></a>Auth token - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Token` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Token` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o token auth. Ver [Utilizando uma ligação de entrada simbólica auth a partir do código](#token-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `token` .|
@@ -247,7 +246,7 @@ Veja o exemplo específico da linguagem:
 
 #### <a name="excel-input---c-script-example"></a>Entrada Excel - Exemplo de script C#
 
-O seguinte ficheiro *função.json* define um gatilho HTTP com uma ligação de entrada do Excel:
+O seguinte *function.jsno* ficheiro define um gatilho HTTP com uma ligação de entrada do Excel:
 
 ```json
 {
@@ -292,7 +291,7 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILog
 
 #### <a name="excel-input---javascript-example"></a>Entrada Excel - Exemplo JavaScript
 
-O seguinte ficheiro *função.json* define um gatilho HTTP com uma ligação de entrada do Excel:
+O seguinte *function.jsno* ficheiro define um gatilho HTTP com uma ligação de entrada do Excel:
 
 ```json
 {
@@ -338,9 +337,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="excel-input---configuration"></a>Entrada Excel - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Excel` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Excel` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a tabela Excel. Ver [Utilização de uma ligação de entrada de tabela Excel a partir do código](#excel-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `excel` .|
@@ -398,7 +397,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir adiciona linhas a uma tabela Excel.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída do Excel:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de saída do Excel:
 
 ```json
 {
@@ -452,7 +451,7 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 
 O exemplo a seguir adiciona linhas a uma tabela Excel.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída do Excel:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de saída do Excel:
 
 ```json
 {
@@ -500,9 +499,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="excel-output---configuration"></a>Saída Excel - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Excel` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Excel` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o token auth. Ver [Utilização de uma ligação de saída de tabela Excel a partir do código](#excel-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `excel` .|
@@ -526,7 +525,7 @@ Esta ligação requer as seguintes permissões AD Azure:
 
 A ligação expõe os seguintes tipos às funções .NET:
 - corda[][]
-- Newtonsoft.Json.Linq.JObject
+- Newtonsoft.Js. Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Tipos de objetos personalizados (utilizando a ligação de modelos estruturais)
 
@@ -557,7 +556,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir lê-se num ficheiro que é armazenado no OneDrive.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada de ficheiro OneDrive:
+O *function.jsno* ficheiro define um gatilho HTTP com uma ligação de entrada de ficheiro OneDrive:
 
 ```json
 {
@@ -601,7 +600,7 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger lo
 
 O exemplo a seguir lê-se num ficheiro que é armazenado no OneDrive.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada de ficheiro OneDrive:
+O *function.jsno* ficheiro define um gatilho HTTP com uma ligação de entrada de ficheiro OneDrive:
 
 ```json
 {
@@ -646,9 +645,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="file-input---configuration"></a>Entrada de ficheiro - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `OneDrive` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `OneDrive` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para o ficheiro. Ver [Utilizar uma ligação de entrada de ficheiro OneDrive a partir do código](#onedrive-input-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `onedrive` .|
@@ -669,7 +668,7 @@ Esta ligação requer as seguintes permissões AD Azure:
 
 A ligação expõe os seguintes tipos às funções .NET:
 - byte[]
-- Transmitir em fluxo
+- Fluxo
 - string
 - Microsoft.Graph.DriveItem
 
@@ -701,7 +700,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir escreve para um ficheiro que é armazenado no OneDrive.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída OneDrive:
+O *function.jsno* ficheiro define um gatilho HTTP com uma ligação OneDrive:
 
 ```json
 {
@@ -729,7 +728,7 @@ O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída On
 }
 ```
 
-O código de script C# obtém texto da cadeia de consulta e escreve-o para um ficheiro de texto (FunctionsTest.txt, tal como definido no exemplo anterior) na raiz do OneDrive do autor da chamada:
+O código de script C# obtém texto da cadeia de consulta e escreve-o para um ficheiro de texto (FunctionsTest.txt conforme definido no exemplo anterior) na raiz do OneDrive do autor do visitante:
 
 ```csharp
 using System.Net;
@@ -751,7 +750,7 @@ public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile
 
 O exemplo a seguir escreve para um ficheiro que é armazenado no OneDrive.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída OneDrive:
+O *function.jsno* ficheiro define um gatilho HTTP com uma ligação OneDrive:
 
 ```json
 {
@@ -779,7 +778,7 @@ O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída On
 }
 ```
 
-O código JavaScript obtém texto a partir da cadeia de consulta e escreve-o para um ficheiro de texto (FunctionsTest.txt, tal como definido no config acima) na raiz do OneDrive do autor da chamada.
+O código JavaScript obtém texto a partir da cadeia de consulta e escreve-o para um ficheiro de texto (FunctionsTest.txt tal como definido no config acima) na raiz do OneDrive do autor da chamada.
 
 ```js
 module.exports = function (context, req) {
@@ -794,9 +793,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="file-output---configuration"></a>Saída de ficheiro - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `OneDrive` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `OneDrive` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para ficheiro. Ver [Utilização de uma saída de ficheiro OneDrive a partir do código](#onedrive-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `onedrive` .|
@@ -817,7 +816,7 @@ Esta ligação requer as seguintes permissões AD Azure:
 
 A ligação expõe os seguintes tipos às funções .NET:
 - byte[]
-- Transmitir em fluxo
+- Fluxo
 - string
 - Microsoft.Graph.DriveItem
 
@@ -848,7 +847,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir envia um e-mail através do Outlook.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída de mensagem Outlook:
+O *function.jsno* ficheiro define um gatilho HTTP com uma saída de mensagem outlook:
 
 ```json
 {
@@ -903,7 +902,7 @@ public class Recipient {
 
 O exemplo a seguir envia um e-mail através do Outlook.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída de mensagem Outlook:
+O *function.jsno* ficheiro define um gatilho HTTP com uma saída de mensagem outlook:
 
 ```json
 {
@@ -945,9 +944,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="outlook-output---configuration"></a>Saída outlook - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Outlook` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Outlook` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `outlook` .|
@@ -967,7 +966,7 @@ Esta ligação requer as seguintes permissões AD Azure:
 
 A ligação expõe os seguintes tipos às funções .NET:
 - Microsoft.Graph.Message
-- Newtonsoft.Json.Linq.JObject
+- Newtonsoft.Js. Linq.JObject
 - string
 - Tipos de objetos personalizados (utilizando a ligação de modelos estruturais)
 
@@ -1013,7 +1012,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir trata de webhooks para mensagens Outlook recebidas. Para utilizar um gatilho webhook [cria uma subscrição](#webhook-output---example), e pode [refrescar a subscrição](#webhook-subscription-refresh) para evitar que expire.
 
-O ficheiro *function.json* define um gatilho webhook:
+O *function.jsno* ficheiro define um gatilho webhook:
 
 ```json
 {
@@ -1052,7 +1051,7 @@ public static async Task Run(Message msg, ILogger log)
 
 O exemplo a seguir trata de webhooks para mensagens Outlook recebidas. Para utilizar um gatilho webhook [cria uma subscrição](#webhook-output---example), e pode [refrescar a subscrição](#webhook-subscription-refresh) para evitar que expire.
 
-O ficheiro *function.json* define um gatilho webhook:
+O *function.jsno* ficheiro define um gatilho webhook:
 
 ```json
 {
@@ -1088,9 +1087,9 @@ Nas [bibliotecas de classe C#,](functions-dotnet-class-library.md)utilize o atri
 
 ### <a name="webhook-trigger---configuration"></a>Webhook trigger - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `GraphWebhookTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `GraphWebhookTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhook` .|
@@ -1132,7 +1131,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir obtém todas as subscrições para o utilizador de chamadas e elimina-as.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada de subscrição e uma ligação de saída de subscrição que utiliza a ação de eliminação:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de entrada de subscrição e uma ligação de saída de subscrição que utiliza a ação de eliminação:
 
 ```json
 {
@@ -1186,7 +1185,7 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 
 O exemplo a seguir obtém todas as subscrições para o utilizador de chamadas e elimina-as.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de entrada de subscrição e uma ligação de saída de subscrição que utiliza a ação de eliminação:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de entrada de subscrição e uma ligação de saída de subscrição que utiliza a ação de eliminação:
 
 ```json
 {
@@ -1240,9 +1239,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="webhook-input---configuration"></a>Entrada Webhook - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `GraphWebhookSubscription` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `GraphWebhookSubscription` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhookSubscription` .|
@@ -1254,7 +1253,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 A ligação expõe os seguintes tipos às funções .NET:
 - corda[]
 - Matrizes de tipo de objeto personalizado
-- Newtonsoft.Json.Linq.JObject[]
+- Newtonsoft.Js. Linq.JObject[]
 - Microsoft.Graph.Subscrição[]
 
 
@@ -1283,7 +1282,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir cria uma subscrição. Pode [refrescar a subscrição](#webhook-subscription-refresh) para evitar que expire.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída de subscrição utilizando a ação de criação:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de saída de subscrição utilizando a ação de criação:
 
 ```json
 {
@@ -1333,7 +1332,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 
 O exemplo a seguir cria uma subscrição. Pode [refrescar a subscrição](#webhook-subscription-refresh) para evitar que expire.
 
-O ficheiro *function.json* define um gatilho HTTP com uma ligação de saída de subscrição utilizando a ação de criação:
+O *function.jsem* ficheiro define um gatilho HTTP com uma ligação de saída de subscrição utilizando a ação de criação:
 
 ```json
 {
@@ -1381,9 +1380,9 @@ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atrib
 
 ### <a name="webhook-output---configuration"></a>Saída Webhook - configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `GraphWebhookSubscription` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `GraphWebhookSubscription` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhookSubscription` .|
@@ -1428,7 +1427,7 @@ Veja o exemplo específico da linguagem:
 
 O exemplo a seguir utiliza a identidade da aplicação para refrescar uma subscrição.
 
-A *função.json* define um gatilho do temporizador com uma ligação de entrada de subscrição e uma ligação de saída de subscrição:
+O *function.jsdefine* um gatilho do temporizador com uma ligação de entrada de subscrição e uma ligação de saída de subscrição:
 
 ```json
 {
@@ -1479,7 +1478,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 
 O exemplo a seguir utiliza a identidade da aplicação para refrescar uma subscrição.
 
-A *função.json* define um gatilho do temporizador com uma ligação de entrada de subscrição e uma ligação de saída de subscrição:
+O *function.jsdefine* um gatilho do temporizador com uma ligação de entrada de subscrição e uma ligação de saída de subscrição:
 
 ```json
 {
@@ -1529,7 +1528,7 @@ module.exports = function (context) {
 
 O exemplo a seguir utiliza a identidade do utilizador para atualizar uma subscrição.
 
-O ficheiro *function.json* define um gatilho do temporizador e adia a ligação da entrada de subscrição ao código de função:
+O *function.jsem* ficheiro define um gatilho do temporizador e adia a ligação da entrada de subscrição ao código de função:
 
 ```json
 {

@@ -4,10 +4,9 @@ description: Este artigo fornece uma introdução à atualização de uma aplica
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710325"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização da aplicação do Tecido de Serviço
@@ -60,7 +59,7 @@ O fluxograma que segue este parágrafo pode ajudá-lo a entender o processo de u
 
 ![O processo de upgrade para uma Aplicação de Tecido de Serviço][image]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
 
 [Atualizar a sua aplicação Utilizando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) acompanha-o através de uma atualização de aplicações utilizando o PowerShell.

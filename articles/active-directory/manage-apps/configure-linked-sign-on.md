@@ -13,17 +13,16 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763487"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o início de sessão ligado
 
 Quando adiciona uma aplicação web de galeria ou não galeria, uma das opções de inscrição única disponíveis para si está [ligada ao sign-on](what-is-single-sign-on.md). Selecione esta opção para adicionar um link à aplicação no Painel de Acesso AD AD da sua organização ou no portal Office 365. Pode utilizar este método para adicionar links a aplicações web personalizadas que atualmente utilizam serviços da Federação de Diretórios Ativos (ou outro serviço de federação) em vez de Azure AD para autenticação. Ou, pode adicionar links profundos a páginas específicas do SharePoint ou a outras páginas web que apenas pretende aparecer nos Painéis de Acesso do utilizador.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte [Adicionar uma aplicação](add-gallery-app.md) de galeria ou [adicionar uma aplicação não-galeria](add-non-gallery-app.md).
 
@@ -47,7 +46,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte 
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

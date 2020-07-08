@@ -8,10 +8,9 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512177"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o emulador de armazenamento Azure para desenvolvimento e teste
@@ -323,7 +322,7 @@ Não existem diferenças específicas para o armazenamento da fila no emulador.
 * A interface gráfica do utilizador do emulador de armazenamento está depreciada. Foi substituído por uma interface de linha de comando scriptável. Para obter mais informações sobre a interface da linha de comando, consulte a referência da ferramenta da linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só pode ser acedida quando o Emulador Compute estiver instalado clicando à direita no ícone da bandeja do sistema e selecionando a UI do Emulator de Armazenamento de Espetáculos.
 * A versão 2013-08-15 dos serviços de armazenamento Azure está agora totalmente suportada. (Anteriormente, esta versão só foi suportada pela versão 2.2.1 preview do Emulador de Armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Avaliar o emulador de armazenamento de código aberto, mantido pela [comunidade, Azurite.](https://github.com/azure/azurite) 
 * [As amostras de armazenamento Azure que utilizam .NET](../storage-samples-dotnet.md) contêm ligações a várias amostras de código que pode utilizar ao desenvolver a sua aplicação.

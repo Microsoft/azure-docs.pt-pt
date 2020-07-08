@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361341"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027397"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -81,12 +80,12 @@ Em seguida, você precisará ativar a autenticação do Ative Directory (AD). Pa
 
 Todos os utilizadores que necessitem de ter perfis FSLogix armazenados na conta de armazenamento devem ser atribuídos à função de Contribuinte de Partilha SMB de Ficheiros de Armazenamento.
 
-Os utilizadores que se inscrevam na sessão virtual do Windows precisam de permissões de acesso para aceder à sua partilha de ficheiros. A concessão de acesso a uma partilha de Ficheiros Azure envolve configurar permissões tanto ao nível das ações como ao nível NTFS, semelhante a uma partilha tradicional do Windows.
+Os utilizadores que se inscrevam nos anfitriões de sessão do Windows Virtual Desktop precisam de permissões de acesso para aceder à partilha de ficheiros. A concessão de acesso a uma partilha de Ficheiros do Azure envolve configurar permissões tanto ao nível das partilhas como ao nível do NTFS, semelhante a uma partilha tradicional do Windows.
 
 Para configurar permissões de nível de partilha, atribua a cada utilizador uma função com as permissões de acesso adequadas. As permissões podem ser atribuídas a utilizadores individuais ou a um grupo AZure AD. Para saber mais, consulte [Atribuir permissões de acesso a uma identidade.](../storage/files/storage-files-identity-ad-ds-assign-permissions.md)
 
 >[!NOTE]
->As contas ou grupos a que atribui permissões deveriam ter sido criadas no domínio e sincronizadas com a Azure AD. As contas criadas em Azure AD não vão funcionar.
+>As contas ou grupos a que atribui permissões deverão ter sido criados no domínio e sincronizados com o Azure Active Directory. As contas criadas no Azure Active Directory não funcionarão.
 
 Para atribuir permissões de controlo de acesso baseado em funções (RBAC):
 
@@ -94,19 +93,21 @@ Para atribuir permissões de controlo de acesso baseado em funções (RBAC):
 
 2. Abra a conta de armazenamento que criou na [Configuração de uma conta de armazenamento.](#set-up-a-storage-account)
 
-3. Selecione **Controlo de Acesso (IAM)**.
+3. Selecione **as ações do Ficheiro**e, em seguida, selecione o nome da partilha de ficheiros que pretende utilizar.
 
-4. **Selecione Adicionar uma atribuição de função**.
+4. Selecione **Controlo de Acesso (IAM)**.
 
-5. No separador **de atribuição de funções Adicionar,** selecione **Storage File Data SMB Share Elevated Contributor** para a conta de administrador.
+5. **Selecione Adicionar uma atribuição de função**.
 
-     Para atribuir permissões aos utilizadores para os seus perfis FSLogix, siga estas mesmas instruções. No entanto, quando chegar ao passo 5, selecione **Storage File Data SMB Share Contributor.**
+6. No separador **de atribuição de funções Adicionar,** selecione **Storage File Data SMB Share Elevated Contributor** para a conta de administrador.
 
-6. Selecione **Guardar**.
+     Para atribuir permissões aos utilizadores para os perfis FSLogix, siga estas mesmas instruções. No entanto, quando chegar ao passo 5, selecione **Storage File Data SMB Share Contributor.**
+
+7. Selecione **Guardar**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões aos utilizadores na partilha de ficheiros Azure
 
-Uma vez atribuídas permissões de RBAC aos seus utilizadores, em seguida terá de configurar as permissões NTFS.
+Uma vez atribuídas as permissões RBAC aos utilizadores, terá de configurar as permissões NTFS.
 
 Precisa de saber duas coisas do portal Azure para começar:
 
@@ -151,7 +152,7 @@ Para configurar as suas permissões NTFS:
 
 1. Abra um pedido de comando num VM ligado ao domínio.
 
-2. Executar o seguinte cmdlet para montar a partilha de ficheiros Azure e atribuir-lhe uma letra de unidade:
+2. Execute o seguinte cmdlet para montar a partilha de ficheiros do Azure e atribua uma letra de unidade: 
 
      ```powershell
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
@@ -192,15 +193,15 @@ Para configurar as suas permissões NTFS:
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configure fSLogix em VMs anfitrião de sessão
 
-Esta secção irá mostrar-lhe como configurar um VM com FSLogix. Terá de seguir estas instruções sempre que configurar um anfitrião da sessão. Antes de começar a configurar, siga as instruções no [Download e instale o FSLogix](/fslogix/install-ht). Existem várias opções disponíveis que garantem que as chaves de registo estão definidas em todos os anfitriões da sessão. Pode definir estas opções numa imagem ou configurar uma política de grupo.
+Esta secção vai mostrar-lhe como configurar uma VM com o FSLogix. Terá de seguir estas instruções sempre que configurar um anfitrião da sessão. Antes de começar a configurar, siga as instruções no [Download e instale o FSLogix](/fslogix/install-ht). Existem várias opções disponíveis que garantem que as chaves do registo estão definidas em todos os anfitriões da sessão. Pode definir estas opções numa imagem ou configurar uma política de grupo.
 
-Para configurar a FSLogix na sua sessão, o anfitrião VM:
+Para configurar o FSLogix na VM do anfitrião da sessão:
 
 1. RDP para o anfitrião da sessão VM da piscina de anfitriões virtual do Windows Desktop.
 
 2. [Descarregue e instale o FSLogix](/fslogix/install-ht).
 
-5. Siga as instruções nas definições de registo de perfis de [perfil configure:](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings)
+5. Siga as instruções em [Configurar as definições do registo do contentor de perfil](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navegue para **o Software**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **FSLogix de**HKEY_LOCAL_MACHINE de Computador .
 
@@ -234,6 +235,6 @@ Para verificar as suas permissões na sua sessão:
 
 Para testes adicionais, siga as instruções em [Certificar-se de que o seu perfil funciona](create-profile-container-adds.md#make-sure-your-profile-works).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para resolver problemas, consulte [este guia de resolução de problemas](/fslogix/fslogix-trouble-shooting-ht).

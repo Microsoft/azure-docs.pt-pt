@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710002"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implementar conjuntos de escala de máquina virtual com IPv6 em Azure
@@ -92,6 +91,6 @@ O único passo que é diferente dos VM individuais é criar a configuração da 
 ## <a name="sample-virtual-machine-scale-set-template-json"></a>Modelo de conjunto de escala de máquina virtual de amostra JSON
 
 Para implementar uma pilha dupla (IPv4 + IPv6) Conjunto de balança de máquina virtual com balanceador de carga externo de pilha dupla e modelo de amostra de visualização de rede virtual [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o suporte do IPv6 nas redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)

@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764541"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD
@@ -200,7 +199,7 @@ Está agora pronto para iniciar seduca no SharePoint usando o URL externo e aute
 
 Se o login no site não estiver a funcionar, pode obter mais informações sobre o problema nos registos do Conector: A partir da máquina que executa o conector, abra o espectador do evento, vá às **Aplicações e Serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**, e inspecione o registo **de Admin.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhar com domínios personalizados em Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

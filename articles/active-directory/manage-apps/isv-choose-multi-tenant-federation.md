@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e7dc40d0e4736b4fef8012b08737cbd07bc36bf
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763300"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo da federação certa para a sua aplicação multi-inquilino

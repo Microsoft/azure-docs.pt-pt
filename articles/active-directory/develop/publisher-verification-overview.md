@@ -1,6 +1,6 @@
 ---
-title: Visão geral da verificação da editora - Plataforma de identidade da Microsoft Azure
-description: Fornece uma visão geral do programa de verificação da editora (pré-visualização) para a plataforma de identidade da Microsoft. Lista os benefícios, requisitos do programa e perguntas frequentes. Quando uma aplicação é marcada como a editora verificada, significa que a editora verificou a sua identidade através de uma conta microsoft Partner Network que completou o processo de verificação e associou esta conta MPN ao seu registo de aplicação.
+title: Visão geral de verificação do editor - Plataforma de identidade da Microsoft Rio Azure
+description: Fornece uma visão geral do programa de verificação de editores (pré-visualização) para a plataforma de identidade da Microsoft. Lista os benefícios, requisitos do programa e perguntas frequentes. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta da Microsoft Partner Network que concluiu o processo de verificação e associou esta conta MPN ao seu registo de candidatura.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,62 +13,61 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682436"
 ---
-# <a name="publisher-verification-preview"></a>Verificação da editora (pré-visualização)
+# <a name="publisher-verification-preview"></a>Verificação do publicador (pré-visualização)
 
-A verificação da editora (pré-visualização) ajuda os administradores e os utilizadores finais a entender a autenticidade dos desenvolvedores de aplicações que se integram com a plataforma de identidade da Microsoft. Quando uma aplicação é marcada como a editora verificada, significa que a editora verificou a sua identidade através de uma conta [microsoft Partner Network](https://partner.microsoft.com/membership) que completou o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de aplicação. 
+A verificação do editor (pré-visualização) ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
 
-Um crachá azul "verificado" aparece no pedido de consentimento da AD Azure e outros ecrãs: Solicitação de ![ consentimento](./media/publisher-verification-overview/consent-prompt.png)
+Um crachá azul "verificado" aparece na solicitação de consentimento Azure AD e outros ecrãs: ![ Pedido de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 
-Esta funcionalidade destina-se principalmente a desenvolvedores que construem aplicações multi-arrendatárias que aproveitem o [OAuth 2.0 e](active-directory-v2-protocols.md) o OpenID Connect com a plataforma de identidade [microsoft](v2-overview.md). Estas aplicações podem contratar utilizadores na utilização do OpenID Connect, ou podem utilizar o OAuth 2.0 para solicitar o acesso a dados usando APIs como [o Microsoft Graph](https://developer.microsoft.com/graph/).
+Esta funcionalidade destina-se principalmente a programadores que couem aplicações multi-arrendadas que alavancam [o OAuth 2.0 e](active-directory-v2-protocols.md) o OpenID Connect com a plataforma de identidade da [Microsoft.](v2-overview.md) Estas aplicações podem assinar utilizadores na utilização do OpenID Connect, ou podem usar o OAuth 2.0 para solicitar o acesso a dados usando APIs como [o Microsoft Graph](https://developer.microsoft.com/graph/).
 
 ## <a name="benefits"></a>Benefícios
 A verificação do editor proporciona os seguintes benefícios:
-- **Maior transparência e redução**de risco para os clientes - esta capacidade ajuda os clientes a entender em que aplicações são usadas nas suas organizações são publicadas por desenvolvedores em quem confiam. 
+- **Maior transparência e redução de risco para os clientes**- esta capacidade ajuda os clientes a entender quais as aplicações que estão a ser usadas nas suas organizações são publicadas pelos desenvolvedores em que confiam. 
 
-- **Marca melhorada**- um crachá "verificado" aparece no pedido de [consentimento](application-consent-experience.md)da AD Azure, página de Aplicações Empresariais e superfícies UX adicionais usadas por utilizadores finais e administradores. 
+- **Melhor marca**- um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
 
-- **Adoção mais suave da empresa**- os administradores podem configurar novas Políticas de Consentimento do Utilizador, e o estado de verificação do editor será um dos principais critérios de política. 
+- **Adoção mais suave da empresa**- os administradores podem configurar novas políticas de consentimento do utilizador, e o estado de verificação do editor será um dos principais critérios de política. 
 
-- **Melhor avaliação**de risco - As deteções da Microsoft para pedidos de consentimento "arriscados" incluirão a verificação do editor como um sinal. 
+- **Melhor avaliação de risco**- As deteções da Microsoft para pedidos de consentimento "arriscados" incluirão a verificação do editor como um sinal. 
 
-## <a name="requirements"></a>Requisitos
-Existem alguns pré-requisitos para a verificação da editora, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. São: 
+## <a name="requirements"></a>Requirements
+Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. São: 
 
--  Um ID MPN para uma conta válida da [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação.](/partner-center/verification-responses) Esta conta MPN deve ser a [conta Partner global (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) para a sua organização. 
+-  Um ID MPN para uma conta válida [da Microsoft Partner Network](https://partner.microsoft.com/membership) que tenha concluído o processo de [verificação.](/partner-center/verification-responses) Esta conta MPN deve ser a [conta global partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) para a sua organização. 
 
--  Um inquilino da AD Azure com um [domínio personalizado](/azure/active-directory/fundamentals/add-custom-domain)verificado pelo DNS. O domínio personalizado deve corresponder ao domínio do endereço de e-mail utilizado durante a verificação na etapa anterior. 
+-  Um inquilino AZure AD com um [domínio personalizado](/azure/active-directory/fundamentals/add-custom-domain)verificado pelo DNS. O domínio personalizado deve corresponder ao domínio do endereço de e-mail utilizado durante a verificação no passo anterior. 
 
--  Uma aplicação registada num inquilino da AD Azure, com um [Domínio editor](howto-configure-publisher-domain.md) configurado usando o mesmo domínio que anteriormente utilizado. 
+-  Uma aplicação registada num inquilino AZure AD, com um [Domínio editor](howto-configure-publisher-domain.md) configurado usando o mesmo domínio que anteriormente utilizado. 
 
--  O utilizador que efetua a verificação deve ser autorizado a efetuar alterações tanto no registo da aplicação em Azure AD como na conta MPN no Partner Center. 
+-  O utilizador que efetua a verificação deve ser autorizado a efetuar alterações tanto no registo da aplicação no AZure AD como na conta MPN no Partner Center. 
 
-    -  No Azure AD este utilizador deve ser o Proprietário da app ou ter uma das seguintes [funções](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): Application Admin, Cloud Application Admin, Global Admin. 
+    -  No Azure AD este utilizador deve ser o Proprietário da app ou ter uma das [seguintes funções](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): Administrador de Aplicação, Cloud Application Admin, Global Admin. 
 
-    -  No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Global Admin (este é um papel partilhado dominado em Azure AD).
+    -  No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado em Azure AD).
     
--  A editora concorda com a plataforma de identidade da [Microsoft para os desenvolvedores Termos de Utilização](/legal/microsoft-identity-platform/terms-of-use).
+-  A editora concorda com a plataforma de identidade da [Microsoft para os desenvolvedores Termos de Utilização.](/legal/microsoft-identity-platform/terms-of-use)
 
-Os desenvolvedores que já cumpriram estes pré-requisitos podem ser verificados em questão de minutos. Se os requisitos não forem cumpridos, a criação é gratuita. 
+Os desenvolvedores que já cumpriram estes pré-requisitos podem ser verificados em questão de minutos. Se os requisitos não tiverem sido cumpridos, a instalação é gratuita. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
-Abaixo estão algumas perguntas frequentes sobre o programa de verificação da editora. Para as PERGUNTAS FaQrelacionadas com os requisitos e o processo, consulte [a marca de uma aplicação como a editora verificou](mark-app-as-publisher-verified.md).
+Abaixo estão algumas perguntas frequentes sobre o programa de verificação de editores. Para perguntas frequentes relacionadas com os requisitos e o processo, consulte [uma aplicação como editor verificado.](mark-app-as-publisher-verified.md)
 
-- **Que informações __a__ verificação do editor não fornece?**  Quando uma aplicação é marcada, o editor verificou que isso não indica se a aplicação ou o seu editor obteve certificações específicas, cumpre os padrões do setor, adere às melhores práticas, etc. Outros programas da Microsoft fornecem estas informações, incluindo a Certificação de [Aplicações Microsoft 365.](/microsoft-365-app-certification/overview)
+- **Que informações a verificação do editor __não__ fornece?**  Quando uma aplicação é marcada, o editor verificado não indica se a aplicação ou o seu editor obteve certificações específicas, cumpre as normas do setor, adere às melhores práticas, etc. Outros programas da Microsoft fornecem esta informação, incluindo [a Certificação de Aplicações Microsoft 365.](/microsoft-365-app-certification/overview)
 
-- **Quanto custa isto? Requer alguma licença?** A Microsoft não cobra aos programadores a verificação do editor e não necessita de nenhuma licença específica. 
+- **Quanto custa isto? Requer licença?** A Microsoft não cobra aos desenvolvedores a verificação do editor e não necessita de nenhuma licença específica. 
 
-- **O que é que isto tem a ver com o Microsoft 365 Publisher Attestation? E a Certificação de Aplicações Microsoft 365?** Estes são programas complementares que os desenvolvedores podem usar para criar aplicações confiáveis que podem ser adotadas com confiança pelos clientes. A verificação do editor é o primeiro passo neste processo, e deve ser completada por todos os desenvolvedores que criam apps que satisfaçam os critérios acima referidos. 
+- **O que é que isto tem a ver com a Microsoft 365 Publisher Attestation? E a Certificação de Aplicações Microsoft 365?** Estes são programas complementares que os desenvolvedores podem usar para criar aplicações confiáveis que podem ser adotadas com confiança pelos clientes. A verificação do editor é o primeiro passo neste processo, e deve ser concluída por todos os desenvolvedores que criam apps que satisfaçam os critérios acima referidos. 
 
-  Os desenvolvedores que também estão a integrar-se com o Microsoft 365 podem receber benefícios adicionais destes programas. Para mais informações, consulte o [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) e a [Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
+  Os desenvolvedores que também estão a integrar-se com o Microsoft 365 podem receber benefícios adicionais destes programas. Para mais informações, consulte a [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) e [a Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
 
-- **Isto é a mesma coisa que a Galeria de Aplicação da AD Azure?** A verificação de não-editores é um programa complementar, mas separado, para a galeria de [aplicações do Azure Ative Directory.](/azure/active-directory/azuread-dev/howto-app-gallery-listing) Os desenvolvedores que se enquadram nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
+- **É a mesma coisa que a Galeria de Aplicações AD AZure?** A verificação de não editores é um programa complementar, mas separado, para a galeria de candidaturas do [Azure Ative Directory.](/azure/active-directory/azuread-dev/howto-app-gallery-listing) Os desenvolvedores que se enquadrarem nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
 
-## <a name="next-steps"></a>Passos seguintes
-* Aprenda a [marcar uma aplicação como a editora verificou.](mark-app-as-publisher-verified.md)
-* Verificação de editor [de problemas.](troubleshoot-publisher-verification.md)
+## <a name="next-steps"></a>Próximos passos
+* Saiba como [marcar uma aplicação como editor verificado.](mark-app-as-publisher-verified.md)
+* [Verificação de](troubleshoot-publisher-verification.md) editor de resolução de problemas.

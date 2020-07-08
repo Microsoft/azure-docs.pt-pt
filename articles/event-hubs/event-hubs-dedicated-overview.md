@@ -4,10 +4,9 @@ description: Este artigo fornece uma visão geral do dedicado Azure Event Hubs, 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322437"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral dos Centros de Eventos Dedicados
@@ -86,7 +85,7 @@ Você pode geo-emparelhar um espaço de nome sob um cluster de nível dedicado c
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Posso migrar os meus espaços de nome padrão para pertencer a um cluster de nível dedicado?
 Não apoiamos atualmente um processo de migração automatizado para migrar os dados dos centros de eventos de um espaço de nome Standard para um Dedicado. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Contacte o seu representante de vendas da Microsoft ou o Microsoft Support para obter detalhes adicionais sobre os Centros de Eventos Dedicados. Também pode criar um cluster ou saber mais sobre os níveis de preços do Event Hubs visitando os seguintes links:
 

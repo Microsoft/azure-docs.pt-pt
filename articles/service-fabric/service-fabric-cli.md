@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
 ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681797"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
@@ -30,7 +29,7 @@ A CLI do Service Fabric destina-se a suportar a versão de runtime mais recente 
 
 | Versão da CLI   | Versão de runtime suportada |
 |---------------|---------------------------|
-| Últimas (~=10) | Últimas (~=7.1)            |
+| Mais recente (~=10) | Última (~=7.1)            |
 | 9.0.0         | 7.1                       |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
@@ -58,11 +57,11 @@ Existem muitas formas de instalar o pip e o Python na sua plataforma. Seguem-se 
 
 Para Windows 10, Windows Server 2016 e Windows Server 2012 R2, utilize as instruções de instalação oficiais padrão. O instalador do Python também instala o pip por predefinição.
 
-1. Vá à página oficial de [downloads](https://www.python.org/downloads/)python , e baixe o mais recente lançamento de Python 3.7.
+1. Vá à página oficial de [downloads python](https://www.python.org/downloads/), e baixe o mais recente lançamento do Python 3.7.
 
 2. Inicie o instalador.
 
-3. Na parte inferior da solicitação, **selecione Adicionar Python 3.7 ao PATH**.
+3. Na parte inferior do pedido, **selecione Adicionar Python 3.7 ao PATH**.
 
 4. Selecione **Instalar Agora** e conclua a instalação.
 
@@ -73,7 +72,7 @@ python --version
 pip --version
 ```
 
-Em seguida, execute o seguinte comando para instalar o Tecido de Serviço Azure CLI (sfctl) e veja a página de ajuda CLI:
+Em seguida, executar o seguinte comando para instalar o CLI do Tecido de Serviço Azure (sfctl) e ver a página de ajuda do CLI:
 
 ```shell
 pip install sfctl
@@ -115,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte de pré-visualização do Service Fabric)
 
-Para instalar o Tecido de Serviço CLI no Chapéu Vermelho, execute os seguintes comandos:
+Para instalar o CLI do Tecido de Serviço no Chapéu Vermelho, execute os seguintes comandos:
 
 ```bash
 sudo yum install -y python34
@@ -135,7 +134,7 @@ Para MacOS, recomendamos utilizar o [Gestor de pacotes HomeBrew](https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Em seguida, a partir do terminal, instale Python 3.7, pip, e o Tecido de Serviço CLI executando os seguintes comandos:
+Em seguida, a partir do terminal, instale Python 3.7, pip e o Service Fabric CLI executando os seguintes comandos:
 
 ```bash
 brew install python3
@@ -266,7 +265,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar uma aplicação com a CLI do Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

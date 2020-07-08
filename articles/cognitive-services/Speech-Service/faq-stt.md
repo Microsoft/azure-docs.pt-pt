@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921029"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -71,7 +70,7 @@ Se tiver adaptado e implementado um modelo com V1.0 de base, essa implantação 
 
 **P: Os meus pedidos estão registados?**
 
-**R**: Tem uma escolha quando cria uma implementação para desligar o rastreio. Nessa altura, não serão registados áudio ou transcrições. Caso contrário, os pedidos são normalmente registados no Azure em armazenamento seguro.
+**A**: Por defeito, os pedidos não são registados (nem áudio, nem transcrição). Se necessário, poderá selecionar *o conteúdo de Log a partir desta* opção de ponto final quando criar um ponto final [personalizado](how-to-custom-speech-deploy-model.md) para ativar o rastreio. Em seguida, os pedidos serão registados em Azure em armazenamento seguro.
 
 **P: Os meus pedidos são acelerados?**
 
@@ -118,6 +117,10 @@ ou
   - a partir dos serviços exibidos escolha o serviço de Discurso que deseja aumentar a conusncy para,
   - exibir o `Properties` para este serviço,
   - copiar o completo `Resource ID` .
+  
+**P: Aumentar o meu limite de concordância aumenta o meu custo?**
+
+**R:** Não, o custo baseia-se na utilização. O aumento da concordância não conduz a custos mais elevados. Consulte [a](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) nossa página de preços para obter detalhes sobre o custo. 
   
 >[!NOTE]
 >[Os contentores](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) não necessitam de aumentos para limites de concordância, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão alojados.
@@ -198,7 +201,7 @@ ou
 
 As experiências de discurso incorporadas no Office 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

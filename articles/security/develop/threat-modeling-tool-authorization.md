@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322658"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
@@ -35,7 +34,7 @@ ms.locfileid: "85322658"
 | **Limite de confiança do tecido de serviço** | <ul><li>[Restringir o acesso do cliente a operações de cluster usando o RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Realizar modelação de segurança e utilizar a Segurança do Nível de Campo sempre que necessário](#modeling-field)</li></ul> |
 | **Portal crm dinâmico** | <ul><li>[Realizar modelação de segurança das contas do portal tendo em conta que o modelo de segurança do portal difere do resto do CRM](#portal-security)</li></ul> |
-| **Storage do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir o Controlo de Acesso Baseado em Funções (RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir o Controlo de Acesso Baseado em Funções (RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Implementar jailbreak implícito ou deteção de enraizamento](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controlo de autorização de implementação do WCF](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implementar mecanismo de autorização adequado na ASP.NET Web API](#authz-aspnet)</li></ul> |

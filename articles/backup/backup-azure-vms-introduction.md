@@ -4,10 +4,9 @@ description: Neste artigo, saiba como o serviço Azure Backup apoia as máquinas
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84322914"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
@@ -82,15 +81,15 @@ A tabela a seguir explica os diferentes tipos de consistência instantânea:
 **Sistema de ficheiros consistente** | As cópias de segurança consistentes do sistema de ficheiros proporcionam consistência, tirando uma imagem instantânea de todos os ficheiros ao mesmo tempo.<br/><br/> | Quando está a recuperar um VM com uma imagem consistente do sistema de ficheiros, o VM arranca. Não há corrupção ou perda de dados. As aplicações precisam implementar o seu próprio mecanismo de "correção" para garantir que os dados restaurados são consistentes. | Windows: Alguns escritores do VSS falharam <br/><br/> Linux: Padrão (se os scripts pré/post não estiverem configurados ou falhados)
 **Consistente com acidentes** | Normalmente, ocorrem instantâneos consistentes em acidentes se um VM Azure desligar no momento da cópia de segurança. Apenas os dados que já existem no disco no momento da cópia de segurança são capturados e apoiados. | Começa com o processo de arranque VM seguido de uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou operações de escrita que não tenham sido transferidas para o disco antes do acidente se perderem. As aplicações implementam a sua própria verificação de dados. Por exemplo, uma aplicação de base de dados pode usar o seu registo de transações para verificação. Se o registo de transações tiver entradas que não estão na base de dados, o software de base de dados ressa o resultado até que os dados sejam consistentes. | A VM está em estado de encerramento (parado/deallocated).
 
-## <a name="backup-and-restore-considerations"></a>Backup e restaurar considerações
+## <a name="backup-and-restore-considerations"></a>Considerações sobre a cópia de segurança e o restauro
 
 **Consideração** | **Detalhes**
 --- | ---
 **Disco** | A cópia de segurança dos discos VM é paralela. Por exemplo, se um VM tiver quatro discos, o serviço de cópia de segurança tenta fazer backup dos quatro discos em paralelo. A cópia de segurança é incremental (apenas dados alterados).
-**Agendamento** |  Para reduzir o tráfego de backup, faça uma cópia de segurança de diferentes VMs em diferentes horas do dia e certifique-se de que os tempos não se sobrepõem. O backup dos VMs ao mesmo tempo causa engarrafamentos.
-**Preparação de backups** | Tenha em mente o tempo necessário para preparar o backup. O tempo de preparação inclui a instalação ou atualização da extensão de backup e o desencadeamento de uma imagem instantânea de acordo com o horário de backup.
-**Transferência de dados** | Considere o tempo necessário para o Azure Backup identificar as alterações incrementais da cópia de segurança anterior.<br/><br/> Numa cópia de segurança incremental, o Azure Backup determina as alterações calculando a parte de verificação do bloco. Se um bloco for alterado, está marcado para ser transferido para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a transferir. Depois de avaliar todos os blocos alterados, o Azure Backup transfere as alterações para o cofre.<br/><br/> Pode haver um intervalo entre tirar a foto e copiá-la para o cofre. Em horas de pico, pode levar até oito horas para as fotos serem transferidas para o cofre. O tempo de reserva para um VM será inferior a 24 horas para o backup diário.
-**Cópia de segurança inicial** | Embora o tempo total de backup para backups incrementais seja inferior a 24 horas, isso pode não ser o caso para o primeiro backup. O tempo necessário para a cópia de segurança inicial dependerá do tamanho dos dados e quando a cópia de segurança for processada.
+**Agendamento** |  Para reduzir o tráfego de backup, faça uma cópia de segurança de diferentes VMs em diferentes horas do dia e certifique-se de que os tempos não se sobrepõem. Fazer cópias de segurança das VMs ao mesmo tempo provoca congestão do tráfego.
+**Preparação de backups** | Tenha em mente o tempo necessário para preparar o backup. O tempo de preparação inclui a instalação ou a atualização da extensão da cópia de segurança e o acionamento de um instantâneo de acordo com o agendamento da cópia de segurança.
+**Transferência de dados** | Considere o tempo necessário para o Azure Backup identificar as alterações incrementais da cópia de segurança anterior.<br/><br/> Numa cópia de segurança incremental, o Azure Backup determina as alterações ao calcular a soma de verificação do bloco. Se um bloco for alterado, será assinalado para transferência para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a transferir. Após avaliar todos os blocos alterados, o Azure Backup transfere as alterações para o cofre.<br/><br/> Pode existir um atraso entre o momento da captura do instantâneo e a sua cópia para o cofre. Em horas de pico, pode levar até oito horas para as fotos serem transferidas para o cofre. O tempo de cópia de segurança de uma VM será inferior a 24 horas se for uma cópia de segurança diária.
+**Cópia de segurança inicial** | Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24 horas, este poderá não ser o caso para a primeira cópia de segurança. O tempo necessário para a cópia de segurança inicial dependerá do tamanho dos dados e de quando a cópia de segurança é processada.
 **Restaurar a fila** | Os processos de Backup Azure restauram os trabalhos de várias contas de armazenamento ao mesmo tempo, e coloca os pedidos de restauro numa fila.
 **Restaurar cópia** | Durante o processo de restauro, os dados são copiados do cofre para a conta de armazenamento.<br/><br/> O tempo total de restauro depende das operações de E/S por segundo (IOPS) e do rendimento da conta de armazenamento.<br/><br/> Para reduzir o tempo de cópia, selecione uma conta de armazenamento que não esteja carregada com outras aplicações que escrevam e lêem.
 
@@ -105,12 +104,12 @@ Estes cenários comuns podem afetar o tempo total de backup:
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Quando está a configurar backups VM, sugerimos seguir estas práticas:
+Quando está a configurar cópias de segurança da VM, sugerimos que siga estas práticas:
 
-- Modifique os horários predefinidos que são definidos numa política. Por exemplo, se o tempo predefinido na apólice for 12:00 AM, incremente o tempo em vários minutos para que os recursos sejam optimizamente utilizados.
+- Modifique as horas de agendamento predefinidas que são definidas numa política. Por exemplo, se a hora predefinida na política for 12:00, aumente o tempo em vários minutos para que os recursos sejam utilizados de forma ideal.
 - Se estiver a restaurar os VMs de um único cofre, recomendamos vivamente que utilize [diferentes contas de armazenamento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para garantir que a conta de armazenamento do alvo não seja estrangulada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restaurados, utilize 10 contas de armazenamento diferentes.
-- Para a cópia de segurança dos VM que estão a utilizar armazenamento premium, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para backups após o primeiro backup estar completo
-- O limite do número de discos por conta de armazenamento é relativo à forte quantidade de discos que estão a ser acedidos por aplicações que estão a funcionar numa infraestrutura como um VM de serviço (IaaS). Como prática geral, se 5 a 10 discos ou mais estiverem presentes numa única conta de armazenamento, equilibre a carga movendo alguns discos para contas de armazenamento separadas.
+- Para a cópia de segurança dos VM que estão a utilizar armazenamento premium, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. Os 50% de espaço livre não são um requisito para as cópias de segurança após a primeira cópia de segurança estar concluída
+- O limite ao número de discos por conta de armazenamento é relativo à frequência de acesso aos discos pelas aplicações que estão a ser executadas numa VM IaaS (infraestrutura como serviço). Como prática geral, se 5 a 10 discos ou mais estiverem presentes numa única conta de armazenamento, equilibre a carga ao mover alguns discos, de modo a separar as contas de armazenamento.
 
 ## <a name="backup-costs"></a>Custos de backup
 

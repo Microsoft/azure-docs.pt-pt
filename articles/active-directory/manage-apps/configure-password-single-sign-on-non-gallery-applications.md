@@ -12,10 +12,9 @@ ms.date: 07/10/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763504"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurar o sign-on único da palavra-passe
@@ -36,7 +35,7 @@ O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as 
 
 -   Permitir que um **administrador** especifique um nome de utilizador e uma palavra-passe para ser usado por indivíduos ou grupos ao iniciar a sessão na aplicação utilizando a funcionalidade 'Credenciais de Atualização' 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte [Adicionar uma aplicação](add-gallery-app.md) de galeria ou [adicionar uma aplicação não-galeria](add-non-gallery-app.md).
 
@@ -92,7 +91,7 @@ Após a captura da página de entrada, pode atribuir utilizadores e grupos, e po
 > [!NOTE]
 > Pode carregar um logotipo de azulejo para a aplicação utilizando o botão **upload logo** no **separador Configurar** para a aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

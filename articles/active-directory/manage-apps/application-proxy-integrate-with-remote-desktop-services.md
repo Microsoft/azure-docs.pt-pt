@@ -17,10 +17,9 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764524"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar desktop remoto com Proxy de aplicação AD Azure
@@ -44,7 +43,7 @@ Numa implementação RDS, o papel da RD Web e o papel RD Gateway funcionam em m�
 >[!TIP]
 >Se ainda não implementou RDS antes, ou quer mais informações antes de começar, aprenda a [implementar o RDS de forma perfeita com o Azure Resource Manager e o Azure Marketplace.](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 - Utilize um cliente que não seja o cliente web remote desktop, uma vez que o cliente web não suporta o Application Proxy.
 
@@ -135,7 +134,7 @@ Para utilizar a autenticação passthrough, existem apenas duas modificações n
 1. Em Publicar o ponto [final do anfitrião RD](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autorização para **Passthrough**.
 2. No [tráfego RDS direto para Application Proxy,](#direct-rds-traffic-to-application-proxy)salte completamente o passo 8.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
 [Considerações de segurança para aceder remotamente a apps através da utilização de Proxy de Aplicação AD AZure](application-proxy-security.md)

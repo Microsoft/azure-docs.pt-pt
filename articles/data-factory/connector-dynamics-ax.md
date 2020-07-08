@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 23a486dfe1256cea46f6722873950ffcb1bde084
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84982701"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados da Dynamics AX utilizando a Azure Data Factory
@@ -63,13 +62,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics AX:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **DynamicsAX**. |Yes |
-| url | O ponto final do Dynamics AX (ou Dynamics 365 Finance and Operations) é o ponto final do OData. |Yes |
-| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Yes |
-| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Yes |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização. Por exemplo, se o seu URL Dinâmico `https://sampledynamics.sandbox.operations.dynamics.com/data/` for, o recurso AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com` . | Yes |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode escolher o Tempo de Execução da Integração Azure ou um Tempo de Execução de Integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade **tipo** deve ser definida para **DynamicsAX**. |Sim |
+| url | O ponto final do Dynamics AX (ou Dynamics 365 Finance and Operations) é o ponto final do OData. |Sim |
+| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização. Por exemplo, se o seu URL Dinâmico `https://sampledynamics.sandbox.operations.dynamics.com/data/` for, o recurso AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com` . | Sim |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode escolher o Tempo de Execução da Integração Azure ou um Tempo de Execução de Integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |Não |
 
 **Exemplo**
 
@@ -107,8 +106,8 @@ Para copiar dados da Dynamics AX, defina a propriedade **tipo** do conjunto de d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **DynamicsAXResource**. | Yes |
-| path | O caminho para a entidade Dynamics AX OData. | Yes |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **DynamicsAXResource**. | Sim |
+| path | O caminho para a entidade Dynamics AX OData. | Sim |
 
 **Exemplo**
 
@@ -141,9 +140,9 @@ Para copiar dados da Dynamics AX, desafine o tipo **de fonte** em Atividade de C
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **DynamicsAXSource**. | Yes |
-| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota:** O conector copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | No |
+| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **DynamicsAXSource**. | Sim |
+| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota:** O conector copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
 
 **Exemplo**
 
@@ -182,6 +181,6 @@ Para copiar dados da Dynamics AX, desafine o tipo **de fonte** em Atividade de C
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Azure IoT Hub erro 409002 LinkCreationConflict
+title: Resolução de problemas Erro do Hub Azure IoT 409002 LinkCreationConflict
 description: Entenda como corrigir o erro 409002 LinkCreationConflict
 author: jlian
 manager: briz
@@ -10,19 +10,18 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758750"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
-Este artigo descreve as causas e soluções para **erros do LinkCreationConflict 409002.**
+Este artigo descreve as causas e soluções para **erros de LinkCreationConflict 409002.**
 
 ## <a name="symptoms"></a>Sintomas
 
-Vê o erro **409002 LinkCreationConflict** registado em registos de diagnóstico juntamente com a desconexão do dispositivo ou falha de mensagem cloud-to-device. 
+Vê o erro **409002 LinkCreationConflict** registado em registos de diagnóstico, juntamente com a desconexão do dispositivo ou falha de mensagem nuvem-dispositivo. 
 
 <!-- When using AMQP? -->
 
@@ -32,12 +31,12 @@ Geralmente, este erro acontece quando o IoT Hub deteta que um cliente tem mais d
 
 ### <a name="cause-1"></a>Causa 1
 
-No caso mais comum, um problema separado (como [o 404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)) faz com que o dispositivo se desconecte. O dispositivo tenta restabelecer imediatamente a ligação, mas o IoT Hub ainda considera o dispositivo ligado. O IoT Hub fecha a ligação anterior e regista este erro.
+No caso mais comum, um problema separado (como [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)) faz com que o dispositivo se desligue. O dispositivo tenta restabelecer a ligação imediatamente, mas o IoT Hub ainda considera o dispositivo ligado. O IoT Hub fecha a ligação anterior e regista este erro.
 
 ### <a name="cause-2"></a>Causa 2
 
-A lógica do lado do dispositivo defeituosa faz com que o dispositivo estabeleça a ligação quando já está aberto.
+A lógica defeituosa do lado do dispositivo faz com que o dispositivo estabeleça a ligação quando um já está aberto.
 
 ## <a name="solution"></a>Solução
 
-Este erro geralmente aparece como um efeito colateral de um problema diferente e transitório, por isso procure outros erros nos registos para resolver ainda mais problemas. Caso contrário, certifique-se de emitir um novo pedido de ligação apenas se a ligação cair.
+Este erro geralmente aparece como um efeito colateral de um problema diferente e transitório, por isso procure outros erros nos registos para resolver ainda mais os problemas. Caso contrário, certifique-se de emitir um novo pedido de ligação apenas se a ligação cair.

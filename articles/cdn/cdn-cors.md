@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 63919d7770746025189f3d6e578919b2fc2799c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921163"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilização de Azure CDN com CORS
 ## <a name="what-is-cors"></a>O que é o CORS?
@@ -82,7 +81,9 @@ Há duas maneiras de o fazer com o motor de regras Premium. Em ambos os casos, o
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Uma expressão regular com todas as origens válidas
 Neste caso, irá criar uma expressão regular que inclui todas as origens que pretende permitir: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **O Azure CDN Premium da Verizon** utiliza [expressões regulares perl compatíveis](https://pcre.org/) como motor para expressões regulares.  Pode utilizar uma ferramenta como [As Expressões Regulares 101](https://regex101.com/) para validar a sua expressão regular.  Note que o caráter "/" é válido em expressões regulares e não precisa de ser escapado, no entanto, escapar a esse personagem é considerado uma boa prática e é esperado por alguns validadores da Regex.

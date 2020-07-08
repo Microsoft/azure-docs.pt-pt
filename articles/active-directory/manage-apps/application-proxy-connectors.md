@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764677"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreenda os conectores Proxy de aplicação AD Azure
@@ -183,7 +182,7 @@ Pode examinar o estado do serviço na janela dos Serviços. O conector é compos
 
  ![Exemplo: Janela de serviços mostrando serviços Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

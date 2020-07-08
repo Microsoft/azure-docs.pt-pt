@@ -4,12 +4,11 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124992"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027170"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -247,9 +246,9 @@ O acesso `download.microsoft.com` é necessário para descarregar componentes ut
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de ficheiros a partir de cópias de segurança da máquina virtual com discos grandes
 
-Esta secção explica como realizar a recuperação de ficheiros a partir de backups de máquinas Azure Virtual com mais de 16 discos e cada tamanho do disco é superior a 32 TB.
+Esta secção explica como realizar a recuperação de ficheiros a partir de cópias de segurança de máquinas Azure Virtual com mais de 16 discos ou cada tamanho do disco é superior a 4 TB.
 
-Uma vez que o processo de recuperação de ficheiros anexa todos os discos da cópia de segurança, quando são utilizados um grande número de discos (>16) ou discos grandes (> 32 TB cada), recomenda-se o seguinte número de pontos de ação:
+Uma vez que o processo de recuperação de ficheiros anexa todos os discos da cópia de segurança, quando são utilizados um grande número de discos (>16) ou discos grandes (> 4 TB cada), recomenda-se o seguinte número de pontos de ação:
 
 - Mantenha um servidor de restauro separado (Azure VM D2v3 VMs) para recuperação de ficheiros. Pode usá-lo apenas para recuperação de ficheiros e, em seguida, desligá-lo quando não for necessário. Restaurar a máquina original não é recomendado, uma vez que terá um impacto significativo no próprio VM.
 - Em seguida, executar o script uma vez para verificar se a operação de recuperação do ficheiro é bem sucedida.
@@ -326,7 +325,7 @@ Qualquer Lista de Controlo de Acesso de Ficheiros (ACL) presente no VM dos pais/
 
 O script dá acesso apenas à leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, em seguida, inscreva-se no Portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para qualquer problema durante a restauração de ficheiros, consulte a secção [de resolução de problemas](#troubleshooting)
 - Saiba como [restaurar ficheiros via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

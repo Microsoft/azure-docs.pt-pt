@@ -3,12 +3,11 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921264"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -102,9 +101,7 @@ As informações nesta secção ajudam-no a completar o fluxo de trabalho de bac
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Prepare as unidades da SATA e envie-a para Azure
 
-O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o centro de dados Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente Azure Backup (no seguinte caminho):
-
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o centro de dados Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente Azure Backup (no seguinte caminho):`*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Vá ao diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador onde as unidades SATA estão ligadas. No computador com as unidades SATA ligadas, certifique-se:
 
@@ -119,9 +116,9 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
 1. Abra um pedido de comando elevado no computador de cópia com o diretório de utilidade *AzureOfflineBackupDiskPrep* como o diretório atual. Execute o seguinte comando:
 
-        ```cmd
-        .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
-        ```
+    ```console
+    .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
+    ```
 
     | Parâmetro | Descrição |
     | --- | --- |
@@ -198,6 +195,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

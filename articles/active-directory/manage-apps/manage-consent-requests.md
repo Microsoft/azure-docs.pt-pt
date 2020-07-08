@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763198"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento
@@ -108,7 +107,7 @@ O acesso dos utilizadores às aplicações ainda pode ser limitado mesmo quando 
 
 Para obter uma visão geral mais ampla, incluindo como lidar com cenários complexos adicionais, consulte [a utilização do Azure AD para a gestão do acesso a aplicações.](what-is-access-management.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Cinco passos para garantir a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
 
