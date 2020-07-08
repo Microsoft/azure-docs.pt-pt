@@ -4,10 +4,10 @@ description: Saiba como usar o portal Azure para apoiar as ações de ficheiros 
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391163"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
@@ -138,7 +138,7 @@ Ocasionalmente, pode querer gerar uma imagem de backup, ou ponto de recuperaçã
 
 * Não remova o cadeado tirado na conta de armazenamento pela Azure Backup. Se eliminar o bloqueio, a sua conta de armazenamento será propensa a eliminação acidental e, se for eliminada, perderá as suas fotos ou cópias de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 

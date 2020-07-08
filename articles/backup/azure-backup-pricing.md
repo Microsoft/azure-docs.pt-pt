@@ -4,10 +4,10 @@ description: Saiba como estimar os seus custos para orçamentar os preços de re
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391116"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup
@@ -148,6 +148,6 @@ Para estimar os custos de backup dos servidores SAP HANA em execução em VMs Az
 - **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
   - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [O que é o serviço de backup Azure?](backup-overview.md)

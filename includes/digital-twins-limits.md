@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391498"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
@@ -18,18 +18,18 @@ A tabela abaixo lista os limites funcionais de Azure Digital Twins na pré-visua
 
 | Área | Funcionalidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
-| Recurso azul | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Yes |
-| Gémeos digitais | Número de gémeos num caso de Gémeos Digitais Azure | 200,000 | Yes |
-| Encaminhamento | Número de pontos finais para uma única instância Azure Digital Twins | 6 | No |
-| Encaminhamento | Número de rotas para uma única instância Azure Digital Twins | 6 | Yes |
-| Modelos | Número de modelos dentro de uma única instância Azure Digital Twins | 10,000 | Yes |
-| Modelos | Número de modelos que podem ser carregados numa única chamada API | 250 | No |
-| Modelos | Número de itens devolvidos numa única página | 100 | No |
-| Consulta | Número de itens devolvidos numa única página | 100 | No |
+| Recurso azul | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Sim |
+| Gémeos digitais | Número de gémeos num caso de Gémeos Digitais Azure | 200,000 | Sim |
+| Encaminhamento | Número de pontos finais para uma única instância Azure Digital Twins | 6 | Não |
+| Encaminhamento | Número de rotas para uma única instância Azure Digital Twins | 6 | Sim |
+| Modelos | Número de modelos dentro de uma única instância Azure Digital Twins | 10,000 | Sim |
+| Modelos | Número de modelos que podem ser carregados numa única chamada API | 250 | Não |
+| Modelos | Número de itens devolvidos numa única página | 100 | Não |
+| Consulta | Número de itens devolvidos numa única página | 100 | Não |
 | Consulta | Número de `AND`  /  `OR` expressões numa consulta | 50 | Sim |
 | Consulta | Número de itens de matriz numa `IN`  /  `NOT IN` cláusula | 50 | Sim |
 | Consulta | Número de caracteres numa consulta | 8,000 | Sim |
-| Consulta | Número de `JOINS` numa consulta | 1 | Yes |
+| Consulta | Número de `JOINS` numa consulta | 1 | Sim |
 
 ### <a name="rate-limits"></a>Limites de taxa
 
@@ -37,11 +37,11 @@ Esta tabela reflete os limites de taxa de diferentes APIs.
 
 | API | Funcionalidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
-| Modelos API | Número de pedidos por segundo | 100 | Yes |
-| API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Yes |
-| API de Consulta | Número de pedidos por segundo | 500 | Yes |
-| API de Consulta | Unidades de consulta por segundo | 4000 | Yes |
-| Rotas do Evento API | Número de pedidos por segundo | 100 | Yes |
+| Modelos API | Número de pedidos por segundo | 100 | Sim |
+| API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Sim |
+| API de Consulta | Número de pedidos por segundo | 500 | Sim |
+| API de Consulta | Unidades de consulta por segundo | 4000 | Sim |
+| Rotas do Evento API | Número de pedidos por segundo | 100 | Sim |
 
 ### <a name="other-limits"></a>Outros limites
 

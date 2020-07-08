@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
 ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392979"
 ---
 # <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Crie um papel personalizado Azure usando um modelo de Gestor de Recursos Azure
@@ -163,7 +163,7 @@ Para remover o papel personalizado, siga estes passos.
 
 1. Insira **Y** para confirmar que deseja remover a função personalizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Compreender definições de função Azure](role-definitions.md)
 - [Quickstart: Adicione uma atribuição de função Azure usando um modelo de Gestor de Recursos Azure](quickstart-role-assignments-template.md)

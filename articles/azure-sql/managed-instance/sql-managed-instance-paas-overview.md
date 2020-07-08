@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
 ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391014"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
@@ -50,18 +50,18 @@ SQL Managed Instance combina as melhores funcionalidades que estão disponíveis
 
 As principais características da SQL Managed Instance são mostradas na tabela seguinte:
 
-|Funcionalidade | Description|
+|Funcionalidade | Descrição|
 |---|---|
 | Versão/construção do SQL Server | Motor de base de dados SQL Server (mais recente estável) |
-| Backups automatizados geridos | Yes |
-| Caso incorporado e monitorização e métricas de bases de dados | Yes |
-| Patching automático de software | Yes |
-| As mais recentes funcionalidades do motor da base de dados | Yes |
+| Backups automatizados geridos | Sim |
+| Caso incorporado e monitorização e métricas de bases de dados | Sim |
+| Patching automático de software | Sim |
+| As mais recentes funcionalidades do motor da base de dados | Sim |
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
-| VNet - Implementação do Gestor de Recursos Azure | Yes |
-| VNet - Modelo de implementação clássico | No |
-| Suporte ao portal | Yes|
+| VNet - Implementação do Gestor de Recursos Azure | Sim |
+| VNet - Modelo de implementação clássico | Não |
+| Suporte ao portal | Sim|
 | Serviço de Integração Incorporada (SSIS) | No - SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | No - SSAS é [paaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
 | Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospedeiro SSRS num Azure VM. Embora a SQL Managed Instance não possa executar o SSRS como um serviço, pode hospedar [bases de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatório instalado na Máquina Virtual Azure, utilizando a autenticação do SQL Server. |
@@ -191,14 +191,14 @@ O quadro que se segue resume a capacidade de cancelar operações de gestão esp
 
 Categoria  |Operação  |Cancelável  |Duração estimada do cancelamento  |
 |---------|---------|---------|---------|
-|Implementação |Criação de exemplos |No |  |
-|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |No |  |
-|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Yes |90% das operações terminam em 5 minutos. |
-|Eliminar |Eliminação da instância |No |  |
-|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |No |  |
+|Implementação |Criação de exemplos |Não |  |
+|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |Não |  |
+|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Sim |90% das operações terminam em 5 minutos. |
+|Eliminar |Eliminação da instância |Não |  |
+|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |Não |  |
 
 Para cancelar a operação de gestão, vá à lâmina de visão geral e clique na caixa de notificação da operação em curso. Do lado direito, aparecerá um ecrã com a operação em curso e haverá botão para cancelar a operação. Após o primeiro clique, ser-lhe-á pedido que clique novamente e confirme que pretende cancelar a operação.
 
@@ -332,7 +332,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact-
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente um caso gerido.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato: `<instanceName>` `<dnsPrefix>` . . database.windows.net, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto é `<dnsPrefix>` autogerido parte do nome que garante a singularidade global do nome DNS ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a criar o seu primeiro exemplo gerido, consulte o [guia Quickstart](instance-create-quickstart.md).
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).

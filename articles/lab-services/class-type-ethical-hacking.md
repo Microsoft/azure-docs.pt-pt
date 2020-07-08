@@ -4,10 +4,10 @@ description: Aprenda a criar um laboratório usando os Serviços Azure Lab para 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444000"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Crie um laboratório para ensinar aulas de hacking ético 
@@ -129,7 +129,7 @@ Para obter mais informações sobre preços, consulte [os preços dos serviços 
 ## <a name="conclusion"></a>Conclusão
 Este artigo acompanhou-o através dos degraus para criar um laboratório para a aula de hacking ético. Inclui passos para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual do hospedeiro para testes de penetração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

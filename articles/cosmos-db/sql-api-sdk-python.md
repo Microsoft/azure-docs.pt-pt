@@ -10,17 +10,17 @@ ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
 ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391915"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
 > [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [SDK v2 de .NET](sql-api-sdk-dotnet.md)
+> * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
 > * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -39,7 +39,7 @@ ms.locfileid: "85391915"
 |**Baixar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**Instruções de instalação da SDK**|[Instruções de instalação python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
-|**Começar**|[Começa com o Python SDK](create-sql-api-python.md)|
+|**Introdução**|[Começa com o Python SDK](create-sql-api-python.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>História do lançamento
@@ -96,11 +96,11 @@ ms.locfileid: "85391915"
 
 * A versão 4.0.0b2 é a segunda iteração nos nossos esforços para construir uma biblioteca de clientes que se adapte às melhores práticas linguísticas python.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 * A ligação ao cliente foi adaptada para consumir o gasoduto HTTP definido em `azure.core.pipeline` .
 
-* Os objetos interativos foram agora renomeados como proxies. Isto inclui:
+* Os objetos interativos foram agora renomeados como proxies. O que está incluído:
 
   * `Database` -> `DatabaseProxy`
   * `User` -> `UserProxy`
@@ -342,6 +342,6 @@ Qualquer pedido à Azure Cosmos DB utilizando um SDK reformado é rejeitado pelo
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 

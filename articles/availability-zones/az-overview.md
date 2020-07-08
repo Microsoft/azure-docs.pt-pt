@@ -8,10 +8,10 @@ ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85413166"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
@@ -95,7 +95,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Gateway de Aplicação | App Configuration | Azure Blockchain Service |
 > | Azure Backup | Serviço de Aplicações | Azure Blueprints |
 > | Azure Cosmos DB | Automatização | Azure Database for MariaDB |
-> | Armazenamento do Azure Data Lake Ger2 | Azure Active Directory Domain Services | HSM Dedicado do Azure |
+> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | HSM Dedicado do Azure |
 > | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
 > | Base de Dados SQL do Azure | Azure Bastion | Azure Digital Twins |
 > | Serviços Cloud | Cache do Azure para Redis | Azure Lab Services |
@@ -107,7 +107,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Serviços cloud: IP reservado | Azure Database Migration Service | Serviços cloud: Série G |
 > | Armazenamento de Discos | Azure Databricks | Serviços cloud: Série H |
 > | Hubs de Eventos | Proteção contra DDoS do Azure | Serviços Cognitivos: Detetor de Anomalias |
-> | Key Vault | Azure DevTest Labs | Serviços Cognitivos : Visão Personalizada |
+> | Cofre de Chaves | Azure DevTest Labs | Serviços Cognitivos : Visão Personalizada |
 > | Load balancer | Azure Firewall Manager | Serviços Cognitivos : Reconhecimento de Altifalantes |
 > | Service Bus | Azure Firewall | Data Box Heavy |
 > | Service Fabric | Funções do Azure | Catálogo de Dados |
@@ -137,7 +137,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > |  | Data Factory | Máquinas Virtuais: Série NC |
 > |  | Event Grid | Máquinas Virtuais: NCv2-Series |
 > |  | HDInsight | Máquinas Virtuais: NCv3-Series |
-> |  | Logic Apps | Máquinas Virtuais: NDs-Series |
+> |  | Aplicações Lógicas | Máquinas Virtuais: NDs-Series |
 > |  | Serviços de Multimédia | Máquinas Virtuais: Série NDv2 |
 > |  | Observador de Rede | Máquinas Virtuais: NV-Series |
 > |  | Hubs de Notificação | Máquinas Virtuais: Série NVv3 |
@@ -175,7 +175,7 @@ Não há custo adicional para máquinas virtuais implantadas numa Zona de Dispon
 - [Criar uma instância do Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Criar um cluster de serviço Azure Kubernetes (AKS) que utiliza Zonas de Disponibilidade](../aks/availability-zones.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Regiões que suportam Zonas de Disponibilidade em Azure](az-region.md)
 - [Modelos de início rápido](https://aka.ms/azqs)

@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
 ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392238"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
@@ -42,7 +42,7 @@ Para obter mais informações, consulte [Configurar a autenticação para os rec
 
 A Azure Machine Learning suporta duas formas de autenticação para serviços web: chave e token. Cada serviço web pode ativar apenas uma forma de autenticação de cada vez.
 
-|Método de autenticação|Description|Azure Container Instances|AKS|
+|Método de autenticação|Descrição|Azure Container Instances|AKS|
 |---|---|---|---|
 |Chave|As chaves são estáticas e não precisam de ser refrescadas. As chaves podem ser regeneradas manualmente.|Desativado por padrão| Ativado por predefinição|
 |Token|As fichas expiram após um período de tempo especificado e precisam de ser atualizadas.| Não disponível| Desativado por padrão |
@@ -90,12 +90,12 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 
 | Recurso | Permissões |
 | ----- | ----- |
-| Área de trabalho | Contribuinte |
+| Área de trabalho | Contribuidor |
 | Conta de armazenamento | Colaborador de dados blob de armazenamento |
 | Key Vault | Acesso a todas as chaves, segredos, certificados |
-| Registo de Contentores do Azure | Contribuinte |
-| Grupo de recursos que contém o espaço de trabalho | Contribuinte |
-| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuinte |
+| Registo de Contentores do Azure | Contribuidor |
+| Grupo de recursos que contém o espaço de trabalho | Contribuidor |
+| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuidor |
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerida aos recursos mencionados na tabela anterior. Pode restaurar o acesso utilizando a operação das teclas de ressínc.
 
@@ -364,7 +364,7 @@ Aqui estão os detalhes:
 
 [![Fluxo de trabalho de inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Serviços web secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

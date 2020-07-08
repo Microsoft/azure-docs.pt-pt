@@ -4,10 +4,10 @@ description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros da 
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391099"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Faça o back up ações de ficheiros Azure com o CLI
@@ -100,7 +100,7 @@ Name                                  ResourceGroup
 
 O atributo **Nome** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a sua operação de "backup on-demand". Para rastrear o estado de um trabalho, use o [az backup show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [restaurar as ações de ficheiros Azure com o CLI](restore-afs-cli.md)
 * Saiba como gerir o [ficheiro Azure partilhar backups com o CLI](manage-afs-backup-cli.md)
