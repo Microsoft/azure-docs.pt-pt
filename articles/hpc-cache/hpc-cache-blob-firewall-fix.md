@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.author: rohogue
 ms.openlocfilehash: 11e57e5d101e35c55dbaa39615dfe48511a8b87c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513819"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Contornar as definições de firewall da conta de armazenamento de blobs

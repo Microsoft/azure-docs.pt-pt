@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: e2e68c7016a37824f1bf307a676c39281d4d41d2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507825"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Resolução de problemas de um dispositivo StorSimple operacional
@@ -63,7 +63,7 @@ Os erros estão listados por ordem numérica.
 | 390061 |O sistema está ocupado ou indisponível. |Espere alguns minutos e tente de novo. Se o erro persistir, contacte o Microsoft Support para os próximos passos. |
 | 390143 |Ocorreu um erro com o código de erro 390143. (Erro desconhecido.) |Se o erro persistir, contacte o Microsoft Support para os próximos passos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se não conseguir resolver o problema, contacte o [Microsoft Support](storsimple-contact-microsoft-support.md) para obter assistência. 
 
 [1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx

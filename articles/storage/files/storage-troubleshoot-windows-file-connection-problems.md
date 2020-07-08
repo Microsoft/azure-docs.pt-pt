@@ -8,10 +8,10 @@ ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511983"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
@@ -99,16 +99,16 @@ Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Solução 1 – Utilize o Azure File Sync
-O Azure File Sync pode transformar o seu Windows Server no local numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona sobre a porta 443 e pode assim ser usado como uma solução alternativa para aceder aos Ficheiros Azure de clientes que tenham a porta 445 bloqueada. [Saiba como configurar o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+O Azure File Sync pode transformar o seu Windows Server no local numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona na porta 443 e pode assim servir como uma solução alternativa para aceder aos Ficheiros do Azure de clientes que tenham a porta 445 bloqueada. [Saiba como configurar o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Solução 2 – Utilizar a VPN
-Ao configurar uma VPN na sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à internet. Siga as [instruções para configurar a VPN](storage-files-configure-p2s-vpn-windows.md) para aceder aos Ficheiros Azure a partir do Windows.
+Ao configurar uma VPN na sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à internet. Siga as [instruções para configurar a VPN](storage-files-configure-p2s-vpn-windows.md) para aceder aos Ficheiros do Azure a partir do Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3 – Desbloqueie a porta 445 com a ajuda do ISP/Administrador de TI
 Trabalhe com o seu departamento de TI ou ISP para abrir as [gamas Azure IP](https://www.microsoft.com/download/details.aspx?id=41653)da porta 445.
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 – Utilize ferramentas com base na API REST como o Explorador de Armazenamento/Powershell
-O Azure Files também suporta o REST para além do SMB. O acesso ao REST funciona sobre a porta 443 (tcp padrão). Existem várias ferramentas que são escritas usando a API REST que permitem uma experiência rica em UI. [O Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) é um deles. [Descarregue e instale o Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e ligue-se à sua partilha de ficheiros apoiada por Ficheiros Azure. Também pode utilizar [o PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) que também utiliza a API REST do utilizador.
+O Azure Files também suporta o REST para além do SMB. O acesso à REST funciona na porta 443 (TCP padrão). Existem várias ferramentas que são escritas através da API REST que permitem uma experiência da IU avançada. [O Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) é um deles. [Transfira e Instale o Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/) e ligue-se à partilha de ficheiros suportada pelos Ficheiros do Azure. Também pode utilizar [o PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) que também utiliza a API REST do utilizador.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está ativado
 
@@ -276,7 +276,7 @@ Este problema pode ocorrer se estiver a utilizar o Sistema de Ficheiros encripta
 Para copiar um ficheiro pela rede, tem primeiro de o desencriptar. Utilizar um dos seguintes métodos:
 
 - Utilize o comando **copy /d.** Permite que os ficheiros encriptados sejam guardados como ficheiros desencriptados no destino.
-- Definir a seguinte chave de registo:
+- Defina a chave de registo seguinte:
   - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor = DWORD
   - Nome = CopyFileAllowDecryptedRemoteDestination

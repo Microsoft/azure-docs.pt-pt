@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509783"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
@@ -30,8 +30,8 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 | Windows 8.1 | SMB 3.0 | Sim | Sim |
 | Windows Server 2012 R2 | SMB 3.0 | Sim | Sim |
 | Windows Server 2012 | SMB 3.0 | Sim | Sim |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Não |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Não |
+| Windows 7<sup>3</sup> | SMB 2.1 | Sim | Não |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sim | Não |
 
 <sup>1</sup> Windows 10, versões 1507, 1607, 1709, 1803, 1809, 1903 e 1909.  
 <sup>2</sup> Windows Server, versões 1809, 1903 e 1909.  
@@ -198,7 +198,7 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 - [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
 - [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [FAQ](../storage-files-faq.md)

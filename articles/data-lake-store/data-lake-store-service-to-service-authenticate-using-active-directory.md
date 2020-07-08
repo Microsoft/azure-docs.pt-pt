@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515146"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 utilizando diretório ativo Azure
@@ -94,7 +94,7 @@ Ao iniciar sessão programática, precisa do ID para a sua aplicação. Se a apl
 
     ![Ponto final simbólico OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto final simbólico OAuth")   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, criou uma aplicação web Azure AD e recolheu as informações de que necessita nas aplicações do seu cliente que você autoriza usando .NET SDK, Java, Python, REST API, etc. Pode agora proceder aos seguintes artigos que falam sobre como usar a aplicação nativa AZURE AD para primeiro autenticar com data lake storage gen1 e, em seguida, realizar outras operações na loja.
 
 * [Autenticação de serviço-a-serviço com Data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md)

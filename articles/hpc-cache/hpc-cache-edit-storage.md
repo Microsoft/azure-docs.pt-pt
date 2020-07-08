@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 1/08/2020
 ms.author: v-erkel
 ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513844"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
@@ -68,7 +68,7 @@ A página de detalhes para um alvo de armazenamento Blob permite modificar o cam
 
 Quando terminar, clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia [Os alvos de armazenamento](hpc-cache-add-storage.md) para saber mais sobre estas opções.
 * Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para mais dicas sobre a utilização de caminhos virtuais.

@@ -8,10 +8,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514394"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para o Azure File Sync com o Azure DataBox
@@ -49,7 +49,7 @@ Eis como configurar o Azure File Sync de uma forma compatível com ferramentas d
 
 ![Diagrama mostrando como configurar o Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Passo | Detalhes |
+| Passo | Detalhe |
 |---|---------------------------------------------------------------------------------------|
 | ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomende a sua Caixa de Dados.](../../databox/data-box-deploy-ordered.md) A família Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber a sua Caixa de Dados, siga a sua [documentação para copiar os seus dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esta trajetória unc na Caixa de * \\ Dados:<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Aqui, *ShareName* é o nome da participação na encenação. Envie a Caixa de Dados de volta para Azure. |
 | ![Passo 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os seus ficheiros apareçam nas ações de ficheiros Azure que escolheu como ações de encenação temporária. *Não permita sincronizar estas ações.* |
@@ -89,6 +89,6 @@ Desative o modo de transferência de dados offline apenas quando o estado estive
 > [!IMPORTANT]
 > Depois de desativar o modo de transferência de dados offline, não poderá voltar a ativá-lo, mesmo que a parte de paragem da migração a granel ainda esteja disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Plano para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)

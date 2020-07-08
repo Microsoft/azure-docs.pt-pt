@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514360"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure CHAP para o seu dispositivo StorSimple
@@ -167,7 +167,7 @@ Pode verificar se o CHAP está a ser utilizado completando os seguintes passos.
    
     ![Detalhes favoritos do alvo](./media/storsimple-configure-chap/IC740952.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a segurança StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

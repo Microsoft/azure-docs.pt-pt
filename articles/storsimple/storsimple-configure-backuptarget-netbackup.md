@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509392"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como alvo de backup com NetBackup
@@ -303,7 +303,7 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 | Tipo de frequência/backup | Completa | Incremental (dias 1-5)  |   
 |---|---|---|
 | Semanal (semanas 1-4) | Saturday | Segunda-feira a sexta-feira |
-| Mensal  | Saturday  |   |
+| Mensalmente  | Saturday  |   |
 | Anual | Saturday  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuir volumes StorSimple a um trabalho de backup netBackup
@@ -414,7 +414,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Semana 2 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2-4 |   |   |   |   |   |
-| Mensal | StorSimple mensalmente |   |   |   |   |   |
+| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
 | Anual | StorSimple anualmente  |   |   |   |   |   |
 
 
@@ -498,7 +498,7 @@ A secção seguinte descreve como criar um script curto para iniciar e eliminar 
 
 ![Diagrama de ciclo de vida de reserva](./media/storsimple-configure-backup-target-using-netbackup/backuplifecycle.png)
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
 -   O servidor que executa o script deve ter acesso aos recursos da nuvem Azure.
 -   A conta de utilizador deve ter as permissões necessárias.
@@ -529,7 +529,7 @@ Os restauros de um dispositivo StorSimple funcionam como restauros de qualquer d
 
 Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue lista cenários comuns de recuperação de desastres.
 
-| Cenário | Impacto | Como recuperar | Notas |
+| Scenario | Impacto | Como recuperar | Notas |
 |---|---|---|---|
 | Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de rescandisção de índices e catálogos pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor NetBackup | As operações de backup e restauro são interrompidas. | Reconstruir o servidor de backup e executar a restauração da base de dados. | Tem de reconstruir ou restaurar o servidor NetBackup no local de recuperação de desastres. Restaurar a base de dados até ao ponto mais recente. Se a base de dados NetBackup restaurada não estiver sincronizada com os seus últimos trabalhos de backup, é necessário indexar e catalogar. Este processo de rescaning de índice e catálogo pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local. Isto torna-o mais intensivo em tempo. |
@@ -544,7 +544,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

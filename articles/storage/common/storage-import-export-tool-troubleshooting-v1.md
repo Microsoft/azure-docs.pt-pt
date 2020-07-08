@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: bc9d338579385001d33669ed06ff71e590571502
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514146"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Resolver problemas da Ferramenta de Importação /Exportação do Azure
@@ -31,7 +31,7 @@ A Ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens d
 ## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Perdi o ficheiro do diário, ainda posso criar o trabalho?  
  O ficheiro do diário para uma unidade contém a informação completa de copiar dados para esta unidade, e é necessário adicionar mais ficheiros à unidade e será usado para criar um trabalho de importação. Se o ficheiro do diário estiver perdido, terá de refazer todas as sessões de cópia para a unidade.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criação da ferramenta de importação/exportação azul](../storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

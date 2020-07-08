@@ -8,10 +8,10 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510734"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
@@ -193,7 +193,7 @@ Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conecte e monte uma partilha de ficheiros no Windows](storage-how-to-use-files-windows.md)
 * [Conecte e monte uma partilha de ficheiros no Linux](storage-how-to-use-files-linux.md)

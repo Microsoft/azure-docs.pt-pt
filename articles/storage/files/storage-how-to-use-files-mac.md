@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509834"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montar uma partilha de ficheiros do Azure através de SMB com macOS
@@ -56,7 +56,7 @@ ms.locfileid: "85509834"
 
     ![Instantâneo da partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
 
 * [Artigo de Suporte da Apple - Como efetuar a ligação à Partilha de ficheiros no Mac](https://support.apple.com/HT204445)

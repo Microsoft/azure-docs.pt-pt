@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511601"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
@@ -428,13 +428,13 @@ Para mais informações, vá à [resolução de problemas para multipatar.](http
 | **Multipathing** |`service multipathd start` |Inicie o daemon multi-path |
 | &nbsp; |`service multipathd stop` |Pare o daemon multi-path |
 | &nbsp; |`service multipathd restart` |Reiniciar o daemon multi-path |
-| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf -with_chkconfig y` |Permitir que o daemon multi-path comece na hora do arranque |
+| &nbsp; |`chkconfig multipathd on` </br> OU </br> `mpathconf -with_chkconfig y` |Permitir que o daemon multi-path comece na hora do arranque |
 | &nbsp; |`multipathd -k` |Inicie a consola interativa para resolução de problemas |
 | &nbsp; |`multipath -l` |Listar ligações e dispositivos multipatas |
 | &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em`/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Como está a configurar o MPIO no anfitrião Linux, também poderá ter de consultar os seguintes documentos CentoS 6.6:
 
 * [Criação do MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)

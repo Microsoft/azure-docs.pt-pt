@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511300"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando .NET SDK
@@ -96,7 +96,7 @@ Algumas coisas para saber sobre o corte anterior:
 * No entanto, se pretender utilizar o seu próprio domínio do Azure AD e o ID de cliente de aplicação, tem de criar uma aplicação nativa do Azure AD e, depois, utilizar o ID de inquilino do Azure AD, o ID de cliente e o URI de redirecionamento da aplicação que criou. Consulte [Criar um pedido de diretório ativo para autenticação de utilizador final com a Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) para obter instruções.
 
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a utilizar a autenticação do utilizador final para autenticar com a Azure Data Lake Storage Gen1 utilizando .NET SDK. Agora pode olhar para os seguintes artigos que falam sobre como usar o .NET SDK para trabalhar com a Azure Data Lake Storage Gen1.
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-get-started-net-sdk.md)

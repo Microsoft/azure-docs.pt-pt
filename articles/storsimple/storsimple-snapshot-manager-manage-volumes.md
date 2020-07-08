@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508925"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
@@ -93,7 +93,7 @@ Utilize o seguinte procedimento para visualizar informações sobre volumes loca
    
    | Coluna de resultados | Descrição |
    |:--- |:--- |
-   |  Nome |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
+   |  Name |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
    |  Dispositivo |A coluna **dispositivo** contém o endereço IP do dispositivo ligado ao computador anfitrião. |
    |  Nome do volume do dispositivo |A coluna **Nome do Volume** do Dispositivo contém o nome do volume do dispositivo ao qual pertence o volume selecionado. Este é o nome de volume definido no portal Azure para esse volume específico. |
    |  Caminhos de acesso |A coluna **Caminhos de Acesso** apresenta o caminho de acesso ao volume. Esta é a letra de acionamento ou ponto de montagem em que o volume está acessível no computador anfitrião. |
@@ -205,7 +205,7 @@ Utilize o seguinte procedimento para configurar um volume dinâmico espelhado e,
    * Para agendar uma cópia de segurança automática, clique em **Criar Política de Backup**. Na página **Geral,** selecione o grupo de volume da lista. Na página **Agendar,** insira os detalhes da agenda. Quando concluir o procedimento, clique em **OK**. 
 7. Podes monitorizar o trabalho de reserva enquanto funciona. No painel **Scope,** expanda o nó **Jobs** e, em seguida, clique em **Executar,** Os detalhes do trabalho aparecem no painel **de resultados.** Quando o trabalho de reserva estiver terminado, os detalhes são transferidos para a lista de trabalho **das últimas 24** horas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para criar e gerir grupos de volume](storsimple-snapshot-manager-manage-volume-groups.md).
 

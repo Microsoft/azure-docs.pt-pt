@@ -10,10 +10,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508508"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
@@ -46,7 +46,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -161,7 +161,7 @@ az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 A saída deste comando mostrará a sua cadeia de definição SAS como `value` .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [chaves, segredos e certificados.](https://docs.microsoft.com/rest/api/keyvault/)
 - Reveja artigos no blog da [equipa do Azure Key Vault](https://blogs.technet.microsoft.com/kv/).

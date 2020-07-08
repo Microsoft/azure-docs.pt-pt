@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507930"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instale a atualização 1.1 no seu StorSimple Virtual Array
@@ -125,6 +125,6 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
 6. Repita os passos 2-4 para instalar a correção de segurança do Windows utilizando o ficheiro `Windows8.1-KB4284815-x64` . A matriz virtual reinicia após a instalação e precisa de iniciar súm na UI web local.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

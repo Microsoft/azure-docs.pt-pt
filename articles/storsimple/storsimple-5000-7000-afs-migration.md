@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514071"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados da série StorSimple 5000-7000 para Azure File Sync
@@ -100,7 +100,7 @@ Se tiver algum problema durante a migração de dados, contacte o [Microsoft Sup
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o AFS não for a solução certa para si, aprenda a [migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](storsimple-8000-migrate-from-5000-7000.md).
 

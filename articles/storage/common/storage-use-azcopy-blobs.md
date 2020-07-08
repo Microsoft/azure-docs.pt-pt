@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513780"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Dados de transferência com armazenamento AzCopy e Blob
@@ -60,7 +60,7 @@ Esta secção contém os seguintes exemplos:
 > [!TIP]
 > Pode ajustar a sua operação de upload utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Cenário|Sinalizador|
+> |Scenario|Sinalizador|
 > |---|---|
 > |Faça upload de ficheiros como Append Blobs ou Page Blobs.|**--blob-type** = \[ \|Apendb BlockBlob PageBlob \|\]|
 > |Faça o upload para um nível de acesso específico (como o nível de arquivo).|**--bloco-blob-tier** = \[ Nenhum \| Arquivo Quente \| Cool \|\]|
@@ -156,7 +156,7 @@ Esta secção contém os seguintes exemplos:
 > [!TIP]
 > Pode ajustar a sua operação de descarregamento utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Cenário|Sinalizador|
+> |Scenario|Sinalizador|
 > |---|---|
 > |Descompressão automática de ficheiros.|**--descompressão**|
 > |Especifique o quão detalhado pretende que as suas entradas de registo relacionados com cópias sejam.|**--nível** = \[ de log \|INFORMAÇÃO DE ERRO \| DE AVISO \| NENHUMA\]|
@@ -234,7 +234,7 @@ As `--include-pattern` `--exclude-pattern` opções aplicam-se apenas aos dados 
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copiar blobs entre contas de armazenamento
 
-Pode utilizar o AzCopy para copiar bolhas para outras contas de armazenamento. A operação de cópia é sincronizada, pelo que quando o comando retorna, indica que todos os ficheiros foram copiados. 
+Pode utilizar o AzCopy para copiar blobs para outras contas de armazenamento. A operação de cópia é sincronizada, pelo que quando o comando é devolvido, indica que todos os ficheiros foram copiados. 
 
 O AzCopy utiliza [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [de servidor a servidor,](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) por isso os dados são copiados diretamente entre servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador. Pode aumentar a produção destas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável ambiente. Para saber mais, consulte [a produção otimiza.](storage-use-azcopy-configure.md#optimize-throughput)
 
@@ -257,7 +257,7 @@ Estes exemplos também funcionam com contas que têm um espaço hierárquico de 
 > [!TIP]
 > Pode ajustar a sua operação de cópia utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Cenário|Sinalizador|
+> |Scenario|Sinalizador|
 > |---|---|
 > |Copie ficheiros como Apêndice Blobs ou Page Blobs.|**--blob-type** = \[ \|Apendb BlockBlob PageBlob \|\]|
 > |Copiar para um nível de acesso específico (como o nível de arquivo).|**--bloco-blob-tier** = \[ Nenhum \| Arquivo Quente \| Cool \|\]|
@@ -322,7 +322,7 @@ Se colocar a `--delete-destination` bandeira no `true` AzCopy elimina ficheiros 
 > [!TIP]
 > Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Cenário|Sinalizador|
+> |Scenario|Sinalizador|
 > |---|---|
 > |Especifique como os hashes MD5 devem ser validados ao descarregar.|**--check-md5** = \[ NoCheck \| LogOnly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 > |Excluir ficheiros com base num padrão.|**--excluir caminho**|
@@ -366,7 +366,7 @@ O primeiro diretório que aparece neste comando é a fonte. O segundo é o desti
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
 | **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais exemplos em qualquer um destes artigos:
 

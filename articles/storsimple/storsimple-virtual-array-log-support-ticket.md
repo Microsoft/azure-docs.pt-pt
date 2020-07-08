@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507675"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para registar um pedido de suporte para o StorSimple Virtual Array
@@ -65,7 +65,7 @@ Para chegar à página de ajuda e suporte, navegue para **procurar > suporte Hel
 
 ![Gerir pedidos de apoio](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [diagnosticar e resolver problemas relacionados com a sua matriz Virtual StorSimple](storsimple-virtual-array-diagnose-problems.md)
 

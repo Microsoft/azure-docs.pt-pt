@@ -9,10 +9,10 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512413"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema do sistema Importar/Exportar do Microsoft Azure
@@ -92,6 +92,6 @@ Um grande número de unidades de unidades pode ser distribuída por vários post
 
 Ao preparar discos rígidos e copiar os dados utilizando a ferramenta WAImportExport, pode utilizar adaptadores USB externos. A maioria dos adaptadores USB 3.0 ou posteriormente fora da prateleira devem funcionar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)

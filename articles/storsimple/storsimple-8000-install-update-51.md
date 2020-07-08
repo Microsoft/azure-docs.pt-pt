@@ -13,10 +13,10 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
 ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508219"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Instale a atualização 5.1 no seu dispositivo StorSimple
@@ -166,6 +166,6 @@ Perform the following steps to download and install the hotfixes.
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a [versão Update 5.1](storsimple-update51-release-notes.md).

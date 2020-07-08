@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514043"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
@@ -137,7 +137,7 @@ O exemplo a seguir mostra como desencriptar, editar e reencrimar um pacote de su
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça as [informações recolhidas no pacote De Apoio](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Saiba como [utilizar pacotes de suporte e registos de dispositivos para resolver problemas na implementação do seu dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

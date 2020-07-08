@@ -9,10 +9,10 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510021"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
@@ -229,7 +229,7 @@ Este comando falhará se a conta de armazenamento estiver contida numa rede virt
 > [!Note]  
 > O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Plano para a implementação de Ficheiros Azure](storage-files-planning.md) ou [Plano para uma implantação do Azure File Sync](storage-sync-files-planning.md). 
 - [Visão geral de ligação em rede](storage-files-networking-overview.md).
 - Ligue e monte uma partilha de ficheiros no [Windows,](storage-how-to-use-files-windows.md) [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md).

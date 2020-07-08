@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511802"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover and disaster recovery for your StorSimple 8000 series devices (Ativação pós-falha e recuperação após desastre para dispositivos da série StorSimple 8000)
@@ -104,7 +104,7 @@ Após a conclusão de uma falha, a StorSimple executa as seguintes ações:
 
 Se estiver a planear falhas de teste ou falhas de teste, recomendamos que teste recipientes de volume com menos dados (Gbs). Normalmente, pode iniciar o failback 24 horas após a falha estar completa.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 P. **O que acontece se o DR falhar ou tiver sucesso parcial?**
 
@@ -128,7 +128,7 @@ Um cenário de recuperação de desastres de continuidade do negócio (BCDR) oco
 
 Se um dispositivo StorSimple foi registado pouco antes de ocorrer um desastre, então este dispositivo poderá ter de ser submetido a um reset de fábrica. Após o desastre, o dispositivo StorSimple aparece no portal Azure como offline. Este dispositivo deve ser eliminado do portal. Repôs o dispositivo às falhas de fábrica e registe-o novamente com o serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se estiver pronto para executar um dispositivo de falha, escolha um dos seguintes cenários para instruções detalhadas:
 

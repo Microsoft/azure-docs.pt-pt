@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513504"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
@@ -219,7 +219,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
    | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

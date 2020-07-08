@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514601"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modifique as definições de interface de rede DATA 0 no seu dispositivo da série StorSimple 8000
@@ -66,7 +66,7 @@ Uma forma alternativa de reconfigurar a interface de rede DATA 0 é através da 
      
      Para obter mais informações sobre a utilização deste cmdlet, aceda ao [Windows PowerShell para obter referência de cmdlet StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para configurar interfaces de rede que não o DATA 0, pode utilizar as definições de [rede Configure no portal Azure](storsimple-8000-modify-device-config.md). 
 * Se tiver algum problema ao configurar as suas interfaces de rede, consulte [os problemas de implementação da Resolução de Problemas](storsimple-troubleshoot-deployment.md).
 

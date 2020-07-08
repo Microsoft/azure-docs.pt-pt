@@ -9,15 +9,15 @@ ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513765"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
-A azCopy é um utilitário de linha de comando que pode usar para copiar bolhas ou ficheiros de ou a partir de uma conta de armazenamento. Este artigo ajuda-o a copiar objetos, diretórios e baldes da Amazon Web Services (AWS) S3 para o armazenamento de blob Azure utilizando a AzCopy.
+O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda-o a copiar objetos, diretórios e baldes da Amazon Web Services (AWS) S3 para o armazenamento de blob Azure utilizando a AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolha como irá fornecer credenciais de autorização
 
@@ -151,7 +151,7 @@ A AzCopy realiza estes passos:
    Esta chave será utilizada para guardar a chave inválida dos metadados **originais**.
    Pode utilizar esta chave para tentar recuperar os metadados do lado Azure, uma vez que a tecla de metadados é preservada como um valor no serviço de armazenamento Blob.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais exemplos em qualquer um destes artigos:
 

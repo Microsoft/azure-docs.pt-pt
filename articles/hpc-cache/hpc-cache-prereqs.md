@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
 ms.openlocfilehash: d7a5bfe56a17ecc2377be7b59dcbe3254d813a0d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513247"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
@@ -160,6 +160,6 @@ Mais informações estão incluídas na [configuração do Troubleshoot NAS e no
 
 * O armazenamento de back-end NFS deve ser uma plataforma de hardware/software compatível. Contacte a equipa da Azure HPC Cache para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma instância cache Azure HPC](hpc-cache-create.md) a partir do portal Azure

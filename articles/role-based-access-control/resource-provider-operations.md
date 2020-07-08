@@ -9,10 +9,10 @@ author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
 ms.openlocfilehash: 3e79f0498aa14bed1cda29148a6b3c7e1e9e2a3d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508474"
 ---
 # <a name="azure-resource-providers-operations"></a>Operações de fornecedores de recursos Azure
@@ -4816,8 +4816,8 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Devoluções de notícias para uma categoria fornecida. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Obtenha notícias relevantes para uma determinada consulta. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Obtenha tópicos de tendência identificados por Bing. Estes são os mesmos tópicos mostrados no banner na parte inferior da página inicial de Bing. |
-> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
-> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
+> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | Criador de FAQ |
+> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | Criador de FAQ |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/write | Substitua os dados de alterações. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
@@ -6535,7 +6535,7 @@ Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | --- | --- |
 > | Microsoft.VisualStudio/Register/Action | Registar subscrição do Azure com o fornecedor Microsoft.VisualStudio |
 > | Microsoft.VisualStudio/Account/Write | Definir Conta |
-> | Microsoft.VisualStudio/Account/Delete | Eliminar conta |
+> | Microsoft.VisualStudio/Account/Delete | Eliminar a Conta |
 > | Microsoft.VisualStudio/Account/Read | Ler Conta |
 > | Microsoft.VisualStudio/Account/Extension/Read | Ler Conta/Extensão |
 > | Microsoft.VisualStudio/Account/Project/Read | Ler Conta/Projeto |
@@ -8531,7 +8531,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -8550,7 +8550,7 @@ Serviço Azure: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listUsageMetrics/action | Listar as métricas para Microsoft.BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | Listar as operações para Microsoft.BingMaps |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções incorporadas de Azure](built-in-roles.md)

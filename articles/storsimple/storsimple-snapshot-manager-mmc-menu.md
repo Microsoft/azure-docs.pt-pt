@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508831"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilize as ações do menu MMC no StorSimple Snapshot Manager
@@ -30,7 +30,7 @@ No StorSimple Snapshot Manager, você verá as seguintes ações listadas em tod
 * Nova Janela a Partir Daqui 
 * Atualizar 
 * Lista de Exportação 
-* Help 
+* Ajuda 
 
 Estas ações fazem parte da Consola de Gestão da Microsoft (MMC) e não são específicas do StorSimple Snapshot Manager. Este tutorial descreve estas ações e explica como usá-las em StorSimple Snapshot Manager.
 
@@ -91,14 +91,14 @@ Pode utilizar a ação **"Lista de Exportação"** para guardar uma lista num fi
       
       ![Lista de exportação como ficheiro de valor separado por vírgula](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Help
+## <a name="help"></a>Ajuda
 Pode utilizar o menu **Ajuda** para visualizar a ajuda online disponível para o StorSimple Snapshot Manager e para o MMC.
 
 #### <a name="to-view-available-online-help"></a>Para ver a ajuda online disponível
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Scope,** clique com o botão direito de qualquer nó ou expanda o nó e clique com o botão direito num item no painel **de resultados** e, em seguida, clique em **Ajuda**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre a interface de [utilizador do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Saiba mais sobre [a utilização do StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 

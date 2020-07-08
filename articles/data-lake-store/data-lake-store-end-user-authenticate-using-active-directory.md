@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
 ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511309"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando O Diretório Ativo Azure
@@ -111,7 +111,7 @@ Para recuperar o URI de redirecionamento, faça os seguintes passos.
 
 5. Repita os dois últimos passos para conceder permissões para **a API de Gestão de Serviços windows Azure.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, criou uma aplicação nativa AZure AD e recolheu as informações de que necessita nas aplicações do seu cliente que você autoriza usando .NET SDK, Java SDK, REST API, etc. Pode agora proceder aos seguintes artigos que falam sobre como usar a aplicação web AZure AD para primeiro autenticar com data lake storage gen1 e, em seguida, realizar outras operações na loja.
 
 * [Autenticação final do utilizador com data lake storage gen1 usando Java SDK](data-lake-store-end-user-authenticate-java-sdk.md)

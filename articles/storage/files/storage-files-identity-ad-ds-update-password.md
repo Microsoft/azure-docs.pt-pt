@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: d16f11a85c6b370b0187975cce965bf3e1b5ba3f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510259"
 ---
 # <a name="update-the-password-of-your-storage-account-identity-in-ad-ds"></a>Atualize a palavra-passe da sua identidade de conta de armazenamento em DS AD

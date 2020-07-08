@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510572"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
@@ -85,7 +85,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como utilizar os ICACLs para definir ACLs do Windows e sobre os diferentes tipos de permissões suportadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que a funcionalidade está ativada e configurada, continue para o artigo seguinte, onde monta a sua partilha de ficheiros Azure a partir de um VM unido a domínio.
 

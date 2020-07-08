@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512135"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utilize o emulador Azurite para o desenvolvimento e testes locais de armazenamento da Azure (pré-visualização)
@@ -148,7 +148,7 @@ Este comando diz à Azurite para armazenar todos os dados num determinado diret�
 
 Esta secção detalha os interruptores da linha de comando disponíveis no lançamento do Azurite.
 
-### <a name="help"></a>Help
+### <a name="help"></a>Ajuda
 
 **Opcional** - Obtenha ajuda de linha de comando utilizando o `-h` ou `--help` comutador.
 
@@ -551,7 +551,7 @@ A azurite suporta a replicação geo-redundante de acesso à leitura (RA-GRS). P
 
 As contribuições e sugestões para a Azurite são bem-vindas. Vá à página do projeto Azurite [GitHub](https://github.com/Azure/Azurite/projects) ou [aos problemas do GitHub](https://github.com/Azure/Azurite/issues) para marcos e itens de trabalho que estamos a seguir para as próximas funcionalidades e correções de bugs. Itens de trabalho detalhados também são rastreados no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize o emulador de armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento Azure, que está a ser substituído pela Azurite.
 - [As cordas de conexão de armazenamento Azure configure](storage-configure-connection-string.md) explicam como montar uma cadeia de ligação Azure STorage válida.

@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510310"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
@@ -222,7 +222,7 @@ Quando o seu Servidor do Windows tiver capacidade disponível suficiente, a reex
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas problemas com o Azure File Sync.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 

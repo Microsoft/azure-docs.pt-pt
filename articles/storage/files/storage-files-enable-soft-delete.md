@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510811"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
@@ -98,6 +98,6 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountNa
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais uma forma de proteção e recuperação de dados, consulte o nosso artigo [Visão geral das fotos de partilha para Ficheiros Azure](storage-snapshots-files.md).

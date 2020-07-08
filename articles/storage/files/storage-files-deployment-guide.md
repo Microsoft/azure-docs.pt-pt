@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510807"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
@@ -147,7 +147,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Plano para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md)
 - [Resolução de problemas dos Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas dos Ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

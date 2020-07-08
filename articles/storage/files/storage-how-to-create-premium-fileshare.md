@@ -8,10 +8,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509987"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros Azure premium
@@ -209,7 +209,7 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou uma parte de ficheiro premium. Para saber o desempenho que esta conta oferece, continue para a secção de desempenho do guia de planeamento.
 

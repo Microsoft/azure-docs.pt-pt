@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: 9a8805666e1e162f76cf5fa6f7d828833c573bed
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510450"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar uma partilha de ficheiros a partir de um VM de domínio
@@ -42,7 +42,7 @@ Se encontrar problemas de montagem com credenciais de DS AD, consulte [Não cons
 
 Se a montagem da sua partilha de ficheiros tiver sido bem sucedida, então ativou e configurado com sucesso a autenticação AD DS no local para as suas ações de ficheiroS Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se a identidade que criou em DS AD para representar a conta de armazenamento estiver num domínio ou OU que aplica a rotação da palavra-passe, continue até ao próximo artigo para instruções sobre a atualização da sua palavra-passe:
 

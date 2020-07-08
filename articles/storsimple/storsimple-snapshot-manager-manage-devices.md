@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513980"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
@@ -33,7 +33,7 @@ Dependendo das seleções **de Visualização,** o painel **de resultados** most
 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
-| Nome |O nome do dispositivo configurado no portal clássico do Azure |
+| Name |O nome do dispositivo configurado no portal clássico do Azure |
 | Modelo |O número de modelo do dispositivo |
 | Versão |A versão do software instalado no dispositivo |
 | Estado |Se o dispositivo está disponível |
@@ -208,7 +208,7 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo de esp
 6. Clique no nó de nível superior no painel **Scope** (StorSimple Snapshot Manager no exemplo) e, em seguida, clique no **Toggle Imports Display**. 
 7. Uma mensagem aparece quando os grupos de volume importados e cópias de segurança são visíveis no StorSimple Snapshot Manager. Clique em **OK**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para visualizar e gerir volumes](storsimple-snapshot-manager-manage-volumes.md).
 

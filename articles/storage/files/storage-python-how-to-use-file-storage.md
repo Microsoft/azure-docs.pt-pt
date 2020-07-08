@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
 ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509647"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os Ficheiros do Azure com Python
@@ -177,7 +177,7 @@ Uma parte que contenha instantâneos não pode ser eliminada a menos que todas a
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que aprendeu a manipular ficheiros Azure com Python, siga estes links para saber mais.
 
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)

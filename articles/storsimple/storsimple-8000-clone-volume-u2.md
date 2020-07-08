@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 1ddc7d9e359fbb43680ae093c4e6cd2b9fb1ab2d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514977"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gestor de Dispositivos do StorSimple no portal do Azure para clonar um volume
@@ -117,7 +117,7 @@ Tens de recuperar um ficheiro de apresentação do Microsoft PowerPoint com um a
 ### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testes no ambiente de produção com um clone permanente
 É necessário verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção e, em seguida, tira uma imagem em nuvem deste clone para criar um volume clonado independente. Neste cenário, é usado um clone permanente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [restaurar um volume StorSimple a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

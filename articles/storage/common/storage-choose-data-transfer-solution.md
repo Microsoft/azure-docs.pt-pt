@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514445"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução Azure para transferência de dados
@@ -68,7 +68,7 @@ Responda às seguintes perguntas para ajudar a selecionar uma solução de trans
 
 Também pode ir à sua conta de Armazenamento Azure no portal Azure e selecionar a função **de transferência de Dados.** Forneça a largura de banda da rede no seu ambiente, o tamanho dos dados que pretende transferir e a frequência da transferência de dados. Verá as soluções ideais de transferência de dados correspondentes à informação que forneceu. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha uma introdução ao Azure Storage Explorer.](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)
 - [Leia uma visão geral da AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).

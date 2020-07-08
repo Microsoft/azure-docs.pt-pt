@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512545"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o portal Azure
@@ -99,7 +99,7 @@ Quando desativa as teclas geridas pelo cliente, a sua conta de armazenamento é 
 1. Navegue para a sua conta de armazenamento e apresente as definições **de Encriptação.**
 1. Desmarcar a caixa de verificação ao lado da definição **de teclas.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

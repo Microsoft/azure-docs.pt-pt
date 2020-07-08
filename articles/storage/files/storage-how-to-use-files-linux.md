@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509851"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
@@ -248,22 +248,22 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04+ | Yes |
-| Debian 8-9 | No |
-| Debian 10+ | Yes |
-| Fedora 29+ | Yes |
-| CentOS 7 | No | 
-| CentOS 8+ | Yes |
-| Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8+ | Yes |
-| openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1+ | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11.x-12.x | No |
-| Empresa SUSE Linux 15 | No |
-| Empresa SUSE Linux 15.1 | No |
+| Ubuntu 14.04-16.04 | Não |
+| Ubuntu 18.04 | Sim |
+| Ubuntu 19.04+ | Sim |
+| Debian 8-9 | Não |
+| Debian 10+ | Sim |
+| Fedora 29+ | Sim |
+| CentOS 7 | Não | 
+| CentOS 8+ | Sim |
+| Red Hat Enterprise Linux 6.x-7.x | Não |
+| Red Hat Enterprise Linux 8+ | Sim |
+| openSUSE Leap 15.0 | Não |
+| openSUSE Leap 15.1+ | Sim |
+| openSUSE Tumbleweed | Sim |
+| SUSE Linux Enterprise 11.x-12.x | Não |
+| Empresa SUSE Linux 15 | Não |
+| Empresa SUSE Linux 15.1 | Não |
 
 Pode verificar se a sua distribuição Linux suporta o parâmetro do `disable_legacy_dialects` módulo através do seguinte comando.
 
@@ -320,7 +320,7 @@ sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)

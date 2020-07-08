@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507641"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir alertas para o StorSimple Virtual Array
@@ -165,6 +165,6 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 |:--- |:--- |:--- |
 | A palavra-passe para <*nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre o Conjunto Virtual StorSimple.](storsimple-ova-overview.md)

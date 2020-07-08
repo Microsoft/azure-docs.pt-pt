@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512390"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação Azure: perguntas frequentes
@@ -155,6 +155,6 @@ Não. A ferramenta WAImportExport só é compatível com sistemas operativos Win
 
 Sim. O serviço Azure Import/Export utiliza encriptação AES-256 BitLocker.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é o serviço Importar/Exportar do Microsoft Azure?](storage-import-export-service.md)

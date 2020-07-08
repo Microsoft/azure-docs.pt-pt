@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512011"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas na resolução de ficheiros Azure em Linux
@@ -277,7 +277,7 @@ Este problema de restabelecimento de ligação no kernel do Linux já foi corrig
 
 - [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Corrigir o restabelecimento de ligação para não diferir do restabelecimento da sessão do smb3 muito depois do restabelecimento de ligação do socket)
 - [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Chamar o serviço de eco imediatamente após o restabelecimento de ligação do socket)
-- [CIFS: Corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: corrigir uma possível corrupção da memória durante o restabelecimento de ligação)
 - [CIFS: Fixar um possível duplo bloqueio de mutex durante a reconexo (para o núcleo v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 No entanto, estas alterações poderão não ser ainda transportadas para todas as distribuições do Linux. Se estiver a utilizar uma distribuição popular do Linux, pode verificar os [Ficheiros Use Azure com o Linux](storage-how-to-use-files-linux.md) para ver qual a versão da sua distribuição que tem as alterações necessárias no núcleo.

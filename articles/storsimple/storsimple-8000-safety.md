@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514539"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instale e opere com segurança o seu dispositivo StorSimple
@@ -152,7 +152,7 @@ Ao transportar ou transportar as baterias por ar, siga o documento de orientaç�
 
 Depois de ter revisto estes avisos de segurança, os próximos passos são desempacotar, grelhar e cabo do seu dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um dispositivo 8100, vá [instalar o seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Para um dispositivo 8600, vá [instalar o seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).

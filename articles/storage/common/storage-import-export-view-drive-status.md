@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514126"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
@@ -76,7 +76,7 @@ O tempo necessário para processar um trabalho de importação/exportação vari
 O serviço de importação/exportação não tem um SLA, mas o serviço esforça-se por completar a cópia em 7 a 10 dias após a recebido dos discos. Além do estado publicado no Portal Azure, as APIs rest podem ser usadas para acompanhar o progresso do trabalho. O parâmetro por cento completo na chamada API da operação [Empregos listas](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso percentual da cópia.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Dados de transferência com utilitário de linha de comando AzCopy](storage-use-azcopy.md)

@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
 ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513738"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utilize interface de utilizador StorSimple Snapshot Manager para gerir trabalhos de backup e catálogo de backup
@@ -118,7 +118,7 @@ A tabela a seguir contém uma lista alfabética de ações do StorSimple Snapsho
 | Detalhes |Clique no nó **dispositivos** e, em seguida, clique com o botão direito num dispositivo no painel **de resultados.** |Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
 | Editar |Clique **em Políticas de Backup**e, em seguida, clique com o botão direito numa política no painel de **resultados.** |Clique **em Editar** para alterar o horário de backup de um grupo de volume. |
 | Lista de Exportação |Clique em qualquer nó ou resultado (Este item aparece em todos os menus de **Ação** e painéis **de ações.)** |Clique na **Lista de Exportação** para guardar uma lista num ficheiro de valor separado por vírgula (CSV). Em seguida, pode importar este ficheiro para um pedido de cálculo para análise. |
-| Help |Clique em qualquer nó ou resultado. (Este item aparece em todos os menus **de Ação** e painéis **de ações.)** |Clique **em Ajuda** para abrir a ajuda on-line numa janela separada do navegador. |
+| Ajuda |Clique em qualquer nó ou resultado. (Este item aparece em todos os menus **de Ação** e painéis **de ações.)** |Clique **em Ajuda** para abrir a ajuda on-line numa janela separada do navegador. |
 | Nova Janela a Partir Daqui |Clique em qualquer nó ou resultado (Este item aparece em todos os menus de **Ação** e painéis **de ações.)** |Clique **em New Window from Here** para abrir uma nova janela StorSimple Snapshot Manager. |
 | Atualizar |Clique em qualquer nó ou resultado (Este item aparece em todos os menus de **Ação** e painéis **de ações.)** |Clique em **Refresh** para atualizar a janela StorSimple Snapshot Manager atualmente apresentada. |
 | Dispositivo de atualização |Clique no nó **dispositivos** e clique com o botão direito num dispositivo no painel **de resultados.** |Clique em **Refresh Device** para sincronizar um dispositivo conectado específico com o StorSimple Snapshot Manager. |
@@ -447,7 +447,7 @@ As tabelas a seguir mostram as combinações de chave de atalho para cada nó no
 | L |Abre a página **Lista de Exportação.** |
 | H |Abre ajuda online |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para ligar e gerir dispositivos](storsimple-snapshot-manager-manage-devices.md).
 

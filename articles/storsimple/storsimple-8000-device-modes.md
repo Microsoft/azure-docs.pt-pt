@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511619"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Altere o modo dispositivo no seu dispositivo StorSimple
@@ -161,7 +161,7 @@ Pode colocar o dispositivo StorSimple no modo de manutenção (a partir do modo 
     Please enter your choice>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [aplicar atualizações normais e de modo de manutenção](storsimple-update-device.md) no seu dispositivo StorSimple.
 

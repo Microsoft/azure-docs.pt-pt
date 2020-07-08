@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514423"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abrir um bilhete de apoio para uma tarefa de importação/exportação
@@ -85,6 +85,6 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
     ![Gerir pedidos de apoio](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [resolver problemas relacionados com o serviço de importação/exportação.](storage-import-export-tool-troubleshooting-v1.md)
