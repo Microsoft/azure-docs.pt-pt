@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343025"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos X-EC-Debug HTTP para motor de regras Azure CDN
@@ -41,7 +40,7 @@ X-EC-Debug: x-ec-check-cacheable | [Cacheable](#cacheable-response-header)
 X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
 X-EC-Debug: x-ec-cache-state | [Estado de cache](#cache-state-response-header)
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 Podem ser solicitados cabeçalhos de resposta de cache de depurg, incluindo o seguinte cabeçalho e as diretivas especificadas no pedido:
 
@@ -54,7 +53,7 @@ Podem ser solicitados cabeçalhos de resposta de cache de depurg, incluindo o se
 ## <a name="cache-status-code-information"></a>Informações sobre o código de estado da cache
 O cabeçalho de resposta X-EC-Debug pode identificar um servidor e como lidou com a resposta através das seguintes diretivas:
 
-Cabeçalho | Description
+Cabeçalho | Descrição
 -------|------------
 X-EC-Debug: x-ec-cache | Este cabeçalho é relatado sempre que o conteúdo é encaminhado através do CDN. Identifica o servidor POP que cumpriu o pedido.
 X-EC-Debug: x-ec-cache-remote | Este cabeçalho só é relatado quando o conteúdo solicitado foi cached em um servidor de escudo de origem ou um servidor de gateway ADN.
@@ -103,7 +102,7 @@ O `X-EC-Debug` cabeçalho de resposta que informa se um pedido poderia ter sido 
 
 O termo utilizado na sintaxe do cabeçalho de resposta acima é definido da seguinte forma:
 
-Valor  | Description
+Valor  | Descrição
 -------| --------
 SIM    | Indica que o conteúdo solicitado era elegível para o caching.
 NO     | Indica que o conteúdo solicitado não era elegível para o caching. Este estatuto pode dever-se a uma das seguintes razões: <br /> - Configuração específica do cliente: Uma configuração específica da sua conta pode impedir que os servidores pop caching um ativo. Por exemplo, o Rules Engine pode impedir que um ativo seja cached, permitindo a funcionalidade Cache bypass para pedidos de qualificação.<br /> - Cabeçalhos de resposta cache: Os cabeçalhos cache-control e expira do ativo solicitado podem impedir que os servidores POP o cache.

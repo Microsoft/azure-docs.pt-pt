@@ -12,10 +12,9 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557474"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Línguas suportadas na Máquina Virtual da Ciência de Dados 
@@ -197,12 +196,12 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias línguas pré-con
 
   A localização padrão da Julia é um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes para o ambiente global, gere a Julia utilizando um dos métodos anteriores. Em seguida, pode executar comandos de gestor de pacotes Julia como `Pkg.add()` instalar ou atualizar pacotes.
 
-## <a name="other-languages"></a>Outras línguas
+## <a name="other-languages"></a>Outras linguagens
 
 **C:** Disponível no Windows e acessível através da edição da Comunidade Visual Studio ou no `Developer Command Prompt for Visual Studio` , onde pode executar o `csc` comando.
 
 **Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para utilizar Java, digite o `javac` ou `java` comande num pedido de comando no Windows ou na casca de bata em Linux.
 
-**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para aceder a Node.js, digite o `node` ou o comando num pedido de comando no Windows ou na casca de choque em `npm` Linux. No Windows, a extensão do Estúdio Visual para as ferramentas Node.js é instalada para fornecer um IDE gráfico para desenvolver a sua aplicação Node.js.
+**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definida no caminho. Para aceder Node.js, digite o `node` ou o comando num pedido de comando no Windows ou na casca de choque em `npm` Linux. No Windows, a extensão do Estúdio Visual para as ferramentas Node.js é instalada para fornecer um IDE gráfico para desenvolver a sua aplicação Node.js.
 
 **F:** Disponível no Windows e acessível através da edição da Comunidade Visual Studio ou num `Developer Command Prompt for Visual Studio` , onde pode executar o `fsc` comando.

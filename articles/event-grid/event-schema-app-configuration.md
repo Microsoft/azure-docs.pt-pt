@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84553158"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de aplicativos Azure como fonte de grade de eventos
@@ -23,7 +22,7 @@ Este artigo fornece as propriedades e esquema para eventos de Configuração de 
 
 A Azure App Configuration emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.AppConfiguration.KeyValueModified | Levantado quando um valor-chave é criado ou substituído. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Levantado quando um valor-chave é eliminado. |
@@ -79,7 +78,7 @@ Um evento tem os seguintes dados de alto nível:
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
-| data | objeto | Dados do evento de configuração de aplicativos. |
+| dados | objeto | Dados do evento de configuração de aplicativos. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
@@ -87,7 +86,7 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| chave | string | A chave do valor-chave que foi modificada ou eliminada. |
+| key | string | A chave do valor-chave que foi modificada ou eliminada. |
 | etiqueta | string | A etiqueta, se houver, do valor-chave que foi modificada ou eliminada. |
 | etag | string | Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag do valor-chave que foi eliminado. |
 
@@ -98,7 +97,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Reagir a eventos de configuração de aplicativos Azure utilizando a Grade de Eventos](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da Configuração de Aplicações Azure com grelha de eventos. |
 | [Quickstart: encaminhe os eventos de Configuração de Aplicações Azure para um ponto final personalizado da Web com Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de Configuração de Aplicações Azure para um WebHook. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

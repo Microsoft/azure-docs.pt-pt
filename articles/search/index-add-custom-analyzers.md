@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555241"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores personalizados a campos de cordas num índice de pesquisa cognitiva Azure
@@ -371,7 +370,7 @@ Na tabela abaixo, os filtros simbólicos que são implementados usando o Apache 
  <sup>1</sup> Os tipos de filtro token são sempre pré-fixados em código com "#Microsoft.Azure.Search" de modo a que "ArabicNormalizationTokenFilter" seja especificado como "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter".  Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo no seu código.  
 
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
  [APIs de pesquisa cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/)   
  [Analisadores em Azure Cognitive Search > Exemplos](search-analyzers.md#examples)    
  [Criar índice &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

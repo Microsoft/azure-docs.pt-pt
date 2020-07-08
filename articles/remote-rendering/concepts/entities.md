@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509207"
 ---
 # <a name="entities"></a>Entidades
@@ -137,7 +136,7 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 
 A consulta terá sucesso mesmo que o objeto não possua nenhum metadados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Componentes](components.md)
 * [Limites dos objetos](object-bounds.md)

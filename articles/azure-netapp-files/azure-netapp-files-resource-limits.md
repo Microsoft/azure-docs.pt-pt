@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: b-juche
 ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84553475"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
@@ -81,7 +80,7 @@ Do plano de navegação do portal Azure:
 
         |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Razão para o aumento das quotas       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  Conta |  *ID de assinatura*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
+        |  Conta |  *ID da subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Conjunto    |  *ID de assinatura, Conta URI*  |  *Solicitado novo número máximo **de piscina***   |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Volume  |  *ID de assinatura, Conta URI, Pool URI*   |  *Novo número máximo de **volume** solicitado*     |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Maxfiles  |  *ID de assinatura, Conta URI, Pool URI, Volume URI*   |  *Pedido novo número máximo **de maxfiles***     |  *Que cenário ou caso de utilização motivou o pedido?*  |    
@@ -91,7 +90,7 @@ Do plano de navegação do portal Azure:
     3. Clique **em Seguinte: Rever + criar** para criar o pedido. 
 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md)

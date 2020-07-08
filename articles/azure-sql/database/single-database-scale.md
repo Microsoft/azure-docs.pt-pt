@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/30/2020
 ms.openlocfilehash: 84e9593884f40fce8affce628b7817c528b3c31d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343290"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensione os recursos de base de dados única na Base de Dados Azure SQL
@@ -150,7 +149,7 @@ Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em 
 - Para cenários de geo-replicação ativos:
   - Criação de uma relação de geo-replicação: Se a base de dados primária for P11 ou P15, o secundário também deve ser P11 ou P15. O tamanho do cálculo mais baixo é rejeitado como secundário, uma vez que não são capazes de suportar mais de 1 TB.
   - A atualização da base de dados primária numa relação de geo-replicação: Alterar o tamanho máximo para mais de 1 TB numa base de dados primária desencadeia a mesma alteração na base de dados secundária. Ambas as atualizações devem ser bem sucedidas para que a mudança nas primárias produza efeitos. Aplicam-se limitações regionais para a opção de mais de 1-TB. Se o secundário está numa região que não suporta mais de 1 TB, as primárias não são melhoradas.
-- Não é suportado o serviço de importação/exportação para o carregamento de bases de dados P11/P15 com mais de 1 TB. Utilize a SqlPackage.exe para [importar](database-import.md) e [exportar](database-export.md) dados.
+- Não é suportado o serviço de importação/exportação para o carregamento de bases de dados P11/P15 com mais de 1 TB. Utilize SqlPackage.exe para [importar](database-import.md) e [exportar](database-export.md) dados.
 
 ## <a name="next-steps"></a>Próximos passos
 

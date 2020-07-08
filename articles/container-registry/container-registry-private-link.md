@@ -4,10 +4,9 @@ description: Crie um ponto final privado num registo de contentores e permita o 
 ms.topic: article
 ms.date: 05/19/2020
 ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509343"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Azure Private Link para um registo de contentores Azure 
@@ -376,7 +375,7 @@ az group delete --name $RESOURCE_GROUP
 
 Para limpar os seus recursos no portal, navegue para o seu grupo de recursos. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos aí armazenados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o Private Link, consulte a documentação do [Azure Private Link.](../private-link/private-link-overview.md)
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

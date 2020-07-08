@@ -7,10 +7,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
 ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484354"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar nuvem de primavera azure com cofre chave em ações do GitHub
@@ -48,7 +47,7 @@ Vá ao painel **de instrumentos key Vault** no portal Azure, clique no menu de c
 
 Copiar o nome credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra o menu **de políticas de acesso,** clique em +Adicionar link **Política de Acesso.**  Selecione `Secret Management` para **Modelo**e, em seguida, selecione **Principal**. Cole o nome credencial na caixa de entrada **Principal** / **Select:**
 
- ![Selecione](./media/github-actions/key-vault2.png)
+ ![Selecionar](./media/github-actions/key-vault2.png)
 
  Clique no botão **Adicionar** o diálogo da política de **acesso ao adicionar** e, em seguida, clique em **Guardar**.
 

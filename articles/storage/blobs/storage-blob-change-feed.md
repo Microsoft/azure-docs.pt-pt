@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465189"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)
@@ -108,7 +107,7 @@ Utilize um modelo de Gestor de Recursos Azure para ativar alterar o feed da sua 
 
 1. No portal Azure, escolha **Criar um recurso.**
 
-2. Em **Pesquisar no Marketplace**, escreva **implementação de modelo** e prima **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
 
 3. Escolha **[Implementar um modelo personalizado](https://portal.azure.com/#create/Microsoft.Template)** e, em seguida, escolher Construir o seu próprio modelo no **editor**.
 
@@ -323,7 +322,7 @@ Esta secção descreve problemas e condições conhecidos na visualização púb
 - Alterar os registos de eventos para qualquer alteração pode aparecer mais de uma vez no seu feed de alteração.
 - Ainda não é possível gerir o período de vida dos ficheiros de registo de ficheiros de registo de ficheiros de alteração, definindo a política de retenção baseada no tempo e não pode eliminar as bolhas.
 - A `url` propriedade do ficheiro de registo está sempre vazia.
-- A `LastConsumable` propriedade do ficheiro segmentos.json não lista o primeiro segmento que o feed de alteração finaliza. Esta questão ocorre apenas após o primeiro segmento ser finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
+- A `LastConsumable` propriedade do segments.jsem arquivo não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão ocorre apenas após o primeiro segmento ser finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
 - Atualmente, não é possível ver **o** $blobchangefeed recipiente quando liga para a API dos ListContainers e o contentor não aparece no portal Azure ou no Storage Explorer. Pode ver o conteúdo ligando diretamente para a API ListBlobs no recipiente $blobchangefeed.
 - As contas de armazenamento que iniciaram previamente uma [falha na conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o ficheiro de registo que não aparece. Quaisquer falhas futuras na conta também podem ter impacto no ficheiro de registo durante a pré-visualização.
 

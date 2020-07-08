@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
 ms.openlocfilehash: a2fe0ffd5f8ac801d15dc08d027c9442c57ef2b9
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457471"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Criar tópicos de sistema na grelha de eventos Azure usando modelos de Gestor de Recursos

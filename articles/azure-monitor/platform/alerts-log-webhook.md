@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84323676"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações webhook para regras de alerta de registo
@@ -37,7 +36,7 @@ As ações webhook requerem as propriedades na tabela seguinte.
 Os Webhooks incluem um URL e uma carga útil formatada em JSON que os dados enviados para o serviço externo. Por predefinição, a carga útil inclui os valores na tabela seguinte. Pode optar por substituir esta carga útil por uma personalizada. Nesse caso, utilize as variáveis na tabela para cada um dos parâmetros para incluir os seus valores na sua carga personalizada.
 
 
-| Parâmetro | Variável | Description |
+| Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
 | *Nome de AlertaRule* |#alertrulename |O nome da regra de alerta. |
 | *Gravidade* |#severity |Severidade definida para o alerta de registo de disparo. |

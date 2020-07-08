@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces e como funciona o encaminhamento
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307423"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como o encaminhamento funciona com a Azure Dev Spaces
@@ -62,7 +61,7 @@ Por exemplo:
 
 Ao utilizar *o azureuser,* todos os pedidos de *serviço A* serão encaminhados para a versão atualizada em *azureuser*. Um pedido de *serviçoB* tentará primeiro ser encaminhado para a versão *azureuser* do *serviçoB*. Uma vez que não existe, será encaminhado para a versão *padrão* do *serviçoB*. Se a versão *azureuser* do *serviçoA* for removida, todos os pedidos de *serviçoA* voltarão a utilizar a versão *padrão* do *serviçoA*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver alguns exemplos de como funciona o Azure Dev Spaces para fornecer iteração e desenvolvimento rápidos, veja [como funciona o Processo Local com Kubernetes,][how-it-works-local-process-kubernetes]Como funciona a [depuração remota do seu código com a Azure Dev Spaces][how-it-works-remote-debugging], e o [GitHub Actions & Serviço Azure Kubernetes.][pr-flow]
 

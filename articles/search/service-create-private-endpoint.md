@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84466175"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
@@ -46,7 +45,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | ------- | ----- |
     | Subscrição | Selecionar a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
-    | Nome | Insira *myVirtualNetwork* |
+    | Name | Insira *myVirtualNetwork* |
     | Região | Selecione a região desejada |
     |||
 
@@ -86,7 +85,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | Localização | Selecione **West US**.|
-    | Nome | Insira *o meuPrivateEndpoint*.  |
+    | Name | Insira *o meuPrivateEndpoint*.  |
     | Sub-recurso-alvo | Deixe o **serviço de pesquisa**predefinido . |
     | **NETWORKING** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* do grupo de recursos *myResourceGroup*. |

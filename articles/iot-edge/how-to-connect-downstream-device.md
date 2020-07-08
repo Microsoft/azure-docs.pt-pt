@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309225"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
@@ -130,7 +129,7 @@ Ter duas coisas prontas antes de utilizar as amostras de nível de aplicação:
 
 Esta secção fornece uma aplicação de amostra para ligar um cliente de dispositivo Azure IoT NodeJS a um gateway IoT Edge. Para aplicações NodeJS, deve instalar o certificado de CA raiz ao nível da aplicação, como mostrado aqui. As aplicações nodeJS não utilizam a loja de certificados do sistema.
 
-1. Obtenha a amostra para **edge_downstream_device.js** do [dispositivo Azure IoT SDK para as amostras de Node.js repo](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+1. Obtenha a amostra para **edge_downstream_device.js** do [dispositivo Azure IoT SDK para Node.js amostras repo](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
 2. Certifique-se de que tem todos os pré-requisitos para executar a amostra, revendo o ficheiro **readme.md.**
 3. No ficheiro edge_downstream_device.js, atualize as variáveis **connectionString** e **edge_ca_cert_path.**
 4. Consulte a documentação SDK para obter instruções sobre como executar a amostra no seu dispositivo.
@@ -151,7 +150,7 @@ Esta secção introduz uma aplicação de amostra para ligar um cliente de dispo
 
 1. Obtenha a amostra de **EdgeDownstreamDevice** na pasta de [amostras IoT Edge .NET](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
 2. Certifique-se de que tem todos os pré-requisitos para executar a amostra, revendo o ficheiro **readme.md.**
-3. No ficheiro **Properties / launchSettings.json,** atualize as variáveis **DEVICE_CONNECTION_STRING** e **CA_CERTIFICATE_PATH.** Se pretender utilizar o certificado instalado na loja de certificados fidedigna no sistema de anfitrião, deixe esta variável em branco.
+3. Nas **Propriedades /launchSettings.jsem** arquivo, atualize as variáveis **DEVICE_CONNECTION_STRING** e **CA_CERTIFICATE_PATH.** Se pretender utilizar o certificado instalado na loja de certificados fidedigna no sistema de anfitrião, deixe esta variável em branco.
 4. Consulte a documentação SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
 Para instalar programáticamente um certificado de confiança na loja de certificados através de uma aplicação .NET, consulte a função **InstallCACert()** no ficheiro **EdgeDownstreamDevice/Program.cs.** Esta operação é idempotente, pelo que pode ser executada várias vezes com os mesmos valores sem efeito adicional.
@@ -211,6 +210,6 @@ Se o seu dispositivo de folha tiver ligação intermitente ao seu dispositivo ga
 2. O nome de anfitrião do portal é resolúvel para um endereço IP? Pode resolver ligações intermitentes utilizando DNS ou adicionando uma entrada de ficheiro de anfitrião no dispositivo de folha.
 3. As portas de comunicação estão abertas na sua firewall? A comunicação com base no protocolo utilizado (MQTTS:8883/AMQPS:5671/HTTPS:433) deve ser possível entre o dispositivo a jusante e o IoT Edge transparente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como o IoT Edge pode estender [as capacidades offline](offline-capabilities.md) a dispositivos a jusante.

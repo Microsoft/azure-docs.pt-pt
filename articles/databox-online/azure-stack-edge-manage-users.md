@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339642"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Utilize o portal Azure para gerir os utilizadores no seu Azure Azure Stack Edge

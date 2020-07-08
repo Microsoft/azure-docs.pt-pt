@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
 ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84449741"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
@@ -109,7 +108,7 @@ Não há limite físico no número de espaços-chave porque são contentores de 
 
 ### <a name="can-i-bring-in-a-lot-of-data-after-starting-from-a-normal-table"></a>Posso trazer muitos dados depois de começar de uma mesa normal?
 
-Yes. Assumindo divisórias distribuídas uniformemente, a capacidade de armazenamento é gerida automaticamente e aumenta à medida que empurra mais dados. Assim, pode importar com confiança os dados que precisar sem gerir e aacaçar nós e muito mais. Mas se está a antecipar um grande crescimento imediato dos dados, faz mais sentido prever diretamente [a produção prevista,](set-throughput.md) em vez de começar mais baixo e ausenhá-lo imediatamente.
+Sim. Assumindo divisórias distribuídas uniformemente, a capacidade de armazenamento é gerida automaticamente e aumenta à medida que empurra mais dados. Assim, pode importar com confiança os dados que precisar sem gerir e aacaçar nós e muito mais. Mas se está a antecipar um grande crescimento imediato dos dados, faz mais sentido prever diretamente [a produção prevista,](set-throughput.md) em vez de começar mais baixo e ausenhá-lo imediatamente.
 
 ### <a name="can-i-use-yaml-file-settings-to-configure-api-behavior"></a>Posso usar as definições de ficheiro YAML para configurar o comportamento da API?
 

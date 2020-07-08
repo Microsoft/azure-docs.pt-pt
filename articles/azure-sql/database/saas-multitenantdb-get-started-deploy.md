@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310092"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos com caco
@@ -99,7 +98,7 @@ Enquanto a aplicação estiver a ser implementada, descarregue o código fonte d
 1. Navegue pelo [wingtipTicketsSaaS-MultiTenantDb GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Clique **em Clone ou descarregue.**
 3. Clique **em Baixar ZIP** e guarde o ficheiro.
-4. Clique com o botão direito no ficheiro **WingtipTicketsSaS-MultiTenantDb-master.zip** e selecione **Propriedades**.
+4. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-MultiTenantDb-master.zip** e selecione **Propriedades**.
 5. No separador **Geral,** selecione **Desbloqueie**e clique em **Aplicar**.
 6. Clique em **OK**.
 7. Extraia os ficheiros.
@@ -155,22 +154,22 @@ Num ambiente de produção, você normalmente cria um registo DE DNS CNAME para 
 
 Agora que a aplicação está implantada, vamos colocá-la a funcionar! O script *Demo-LoadGenerator* PowerShell inicia uma carga de trabalho em execução para cada inquilino. A carga real em muitas aplicações SaaS é tipicamente esporádica e imprevisível. Para simular este tipo de carga, o gerador produz uma carga distribuída por todos os inquilinos. A carga inclui rajadas aleatórias em cada inquilino que ocorram em intervalos aleatórios. Leva vários minutos para o padrão de carga emergir, por isso é melhor deixar o gerador funcionar durante pelo menos três ou quatro minutos antes de monitorizar a carga.
 
-1. No *PowerShell ISE,* abra o ... \\ Módulos de Aprendizagem \\ Utilities \\ *Demo-LoadGenerator.ps1* script.
+1. No *PowerShell ISE,* abra o ... \\ Módulos de Aprendizagem \\ Utilitários \\ *Demo-LoadGenerator.ps1* script.
 2. Prima **F5** para executar o script e iniciar o gerador de carga (deixe os valores predefinidos do parâmetro por agora).
 
-O script *Demo-LoadGenerator.ps1* abre outra sessão PowerShell onde funciona o gerador de carga. O gerador de carga funciona nesta sessão como uma tarefa de primeiro plano que invoca empregos de geração de carga de fundo, um para cada inquilino.
+O *Demo-LoadGenerator.ps1* script abre outra sessão PowerShell onde o gerador de carga funciona. O gerador de carga funciona nesta sessão como uma tarefa de primeiro plano que invoca empregos de geração de carga de fundo, um para cada inquilino.
 
 Após o início da tarefa em primeiro plano, permanece num estado de invocação de emprego. A tarefa inicia trabalhos de fundo adicionais para quaisquer novos inquilinos que sejam posteriormente a provisionados.
 
 Fechar a sessão PowerShell para todos os empregos.
 
-É melhor reiniciar a sessão do gerador de carga para utilizar diferentes valores de parâmetros. Em caso afirmativo, feche a sessão de geração PowerShell e, em seguida, volte a repetir o *Demo-LoadGenerator.ps1*.
+É melhor reiniciar a sessão do gerador de carga para utilizar diferentes valores de parâmetros. Em caso afirmativo, feche a sessão de geração PowerShell e, em seguida, reexame a *Demo-LoadGenerator.ps1*.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Provisione um novo inquilino na base de dados de fragmentos
 
 A implantação inicial inclui três inquilinos de amostra na base de *dados dos Inquilinos1.* Vamos criar outro inquilino e observar os seus efeitos na aplicação implementada. Neste passo, você pressiona uma chave para criar um novo inquilino:
 
-1. Abrir... \\ Fornecimento de Módulos de Aprendizagem \\ e \\ *Demo-ProvisionTenants.ps1* no *PowerShell ISE*.
+1. Abrir... \\ Fornecimento de Módulos de Aprendizagem \\ eDemo-ProvisionTenants.ps1de catálogo no \\ * * *PowerShell ISE*.
 2. Prima **F5** (não **F8)** para executar o script (deixe os valores predefinidos por enquanto).
 
    > [!NOTE]
@@ -193,7 +192,7 @@ Você pode optar por colocar clientes de teste gratuito, ou clientes económicos
 
 Em seguida, nós providenciaremos outro inquilino, desta vez na sua própria base de dados:
 
-1. Em ... \\ Módulos de Aprendizagem \\ Provisão e \\ *Catálogo Demo-ProvisionTenants.ps1,* modificar *$TenantName* a **Salix Salsa,** *$VenueType* para **dançar** e *$Scenario* a **2**.
+1. Em ... \\ Módulos de Aprendizagem \\ Provisão e \\ * catálogoDemo-ProvisionTenants.ps1, *modificar *$TenantName* a **Salix Salsa,** *$VenueType* para **dançar** e *$Scenario* a **2**.
 
 2. Prima **F5** para voltar a executar o guião.
     - Esta **imprensa F5** fornece o novo inquilino numa base de dados separada. A base de dados e o inquilino estão registados no catálogo. Em seguida, o navegador abre para a página eventos do inquilino.
@@ -253,7 +252,7 @@ As cargas de trabalho geradas pelo script do gerador de carga são apenas para i
   - [Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL](elastic-pool-overview.md)
   - [Aumentar horizontalmente com a Base de Dados SQL do Azure](elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ficou a saber:
 

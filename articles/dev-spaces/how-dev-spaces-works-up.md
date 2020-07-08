@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Descreve os processos de execução do seu código no Serviço Azure Kubernetes com Espaços Azure Dev
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307474"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Como funciona o seu código com a Azure Dev Spaces
@@ -157,7 +156,7 @@ configurations:
 
 O controlador usa um Dockerfile para construir e executar a sua aplicação.
 
-A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A propriedade *build.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. As *configurações.develop.build.dockerfile* propriedade configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
+A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A *propriedadebuild.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. A *propriedadeconfigurations.develop.build.dockerfile* configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
 
 Ter diferentes Dockerfiles para desenvolvimento e produção permite-lhe permitir certas coisas durante o desenvolvimento e desativar esses itens para implementações de produção. Por exemplo, pode permitir a depuração ou mais registo verboso durante o desenvolvimento e desativar num ambiente de produção. Também pode atualizar estas propriedades se os seus Dockerfiles forem nomeados de forma diferente ou se estiverem num local diferente.
 
@@ -195,7 +194,7 @@ ingress:
   enabled: true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre networking e como os pedidos são encaminhados em Azure Dev Spaces veja [como o encaminhamento funciona com a Azure Dev Spaces][how-it-works-routing].
 
@@ -205,7 +204,7 @@ Para começar a utilizar a Azure Dev Spaces para executar o seu projeto, consult
 
 * [Iterada e depurada rapidamente com Visual Studio Code e Java][quickstart-java]
 * [Iterada e depurada rapidamente com Visual Studio Code e .NET][quickstart-netcore]
-* [Iterada e depurada rapidamente com Visual Studio Code e Node.js][quickstart-node]
+* [Iterada e depurada rapidamente com Código de Estúdio Visual e Node.js][quickstart-node]
 * [Iterar e depurar rapidamente com Visual Studio e .NET Core][quickstart-vs]
 * [Utilizar o CLI para desenvolver uma aplicação em Kubernetes][quickstart-cli]
 

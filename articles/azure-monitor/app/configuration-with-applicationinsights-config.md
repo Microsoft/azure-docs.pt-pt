@@ -1,27 +1,26 @@
 ---
-title: ApplicationInsights.config referência - Azure / Microsoft Docs
+title: referência ApplicationInsights.config - Azure / Microsoft Docs
 description: Ativar ou desativar os módulos de recolha de dados e adicionar contadores de desempenho e outros parâmetros.
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485124"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O Application Insights .NET SDK consiste numa série de pacotes NuGet. O [pacote principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para o envio de telemetria para os Insights de Aplicação. [Pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem *módulos* de telemetria e *inicializadores* para rastrear automaticamente a telemetria a partir da sua aplicação e do seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar módulos e inicializadores de Telemetria e definir parâmetros para alguns deles.
 
-O ficheiro de configuração é nomeado `ApplicationInsights.config` `ApplicationInsights.xml` ou, dependendo do tipo da sua aplicação. É automaticamente adicionado ao seu projeto quando [instala a maioria das versões do SDK.][start] Por predefinição, ao utilizar a experiência automatizada dos projetos do modelo Visual Studio que suportam **Add > Application Insights Telemetry,** o ficheiro ApplicationInsights.config é criado na pasta raiz do projeto e quando cumprido é copiado para a pasta do caixote do lixo. Também é adicionado a uma aplicação web pelo [Status Monitor num servidor IIS.][redfield] O ficheiro de configuração é ignorado se for utilizada [extensão para o website Azure](azure-web-apps.md) ou [extensão para Azure VM e conjunto de escala de máquina virtual.](azure-vm-vmss-apps.md)
+O ficheiro de configuração é nomeado `ApplicationInsights.config` `ApplicationInsights.xml` ou, dependendo do tipo da sua aplicação. É automaticamente adicionado ao seu projeto quando [instala a maioria das versões do SDK.][start] Por predefinição, ao utilizar a experiência automatizada dos projetos do modelo Visual Studio que **suportam a Add > Application Insights Telemetria,** o ficheiro ApplicationInsights.config é criado na pasta raiz do projeto e quando cumprido é copiado para a pasta do caixote do lixo. Também é adicionado a uma aplicação web pelo [Status Monitor num servidor IIS.][redfield] O ficheiro de configuração é ignorado se for utilizada [extensão para o website Azure](azure-web-apps.md) ou [extensão para Azure VM e conjunto de escala de máquina virtual.](azure-vm-vmss-apps.md)
 
 Não existe um ficheiro equivalente para controlar o [SDK numa página web.][client]
 
 Este documento descreve as secções que vê no ficheiro de configuração, como controlam os componentes do SDK e que os pacotes NuGet carregam esses componentes.
 
 > [!NOTE]
-> AplicaçõesInsights.config e .xml instruções não se aplicam ao .NET Core SDK. Para configurar aplicações .NET Core, siga [este](../../azure-monitor/app/asp-net-core.md) guia.
+> ApplicationInsights.config e instruções .xml não se aplicam ao .NET Core SDK. Para configurar aplicações .NET Core, siga [este](../../azure-monitor/app/asp-net-core.md) guia.
 
 ## <a name="telemetry-modules-aspnet"></a>Módulos de telemetria (ASP.NET)
 Cada Módulo de Telemetria recolhe um tipo específico de dados e utiliza a API central para enviar os dados. Os módulos são instalados por diferentes pacotes NuGet, que também adicionam as linhas necessárias ao ficheiro .config.
@@ -88,7 +87,7 @@ Reporta o tempo de resposta e o código de [resultados](../../azure-monitor/app/
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 O pacote Microsoft.ApplicationInsights fornece a [API central](https://msdn.microsoft.com/library/mt420197.aspx) do SDK. Os outros Módulos de Telemetria usam isto, e também pode [usá-lo para definir a sua própria telemetria.](../../azure-monitor/app/api-custom-events-metrics.md)
 
-* Nenhuma entrada no ApplicationInsights.config.
+* Sem entrada na ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet pacote. Se instalar este NuGet, não é gerado nenhum ficheiro .config.
 
 ## <a name="telemetry-channel"></a>Canal da Telemetria

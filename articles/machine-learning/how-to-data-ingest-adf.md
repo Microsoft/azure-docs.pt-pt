@@ -13,10 +13,9 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 3e8d93c1f04dda9afbcfa0cab4e8fc9036ae7580
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555669"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
@@ -95,7 +94,7 @@ Uma vez que os dados são acessíveis através de uma datastore ou conjunto de d
 
 Uma vez que os conjuntos de dados suportam a versão, e cada corrida a partir do pipeline cria uma nova versão, é fácil entender que versão dos dados foi usada para treinar um modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar um caderno Databricks na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
 * [Dados de acesso nos serviços de armazenamento Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)

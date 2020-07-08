@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484567"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados na Pesquisa Cognitiva do Azure
@@ -156,7 +155,7 @@ Na hora programada, todos os indexantes iniciam a execução, carregando dados, 
 > [!Note]
 > Ao aumentar as réplicas, considere aumentar a contagem de partição se o tamanho do índice for projetado para aumentar significativamente. As divisórias armazenam fatias de conteúdo indexado; quanto mais divisórias tiveres, menor será a fatia que cada um tem para armazenar.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Indexação no portal](search-import-data-portal.md)

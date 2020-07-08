@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309786"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
@@ -159,7 +158,7 @@ Se um utilizador estiver ligado à consola em série e outro utilizador solicita
 > [!CAUTION]
 > Isto significa que um utilizador desligado não será desligado. A capacidade de impor um logout após a desconexão (utilizando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows, existe um tempo limite automático ativado no SAC; para o Linux, pode configurar a definição de tempo limite de terminal.
 
-## <a name="accessibility"></a>Acessibilidade
+## <a name="accessibility"></a>Accessibility (Acessibilidade)
 A acessibilidade é um foco chave para a consola em série Azure. Para tal, garantimos que a consola em série é acessível para pessoas com deficiência visual, ou que são difíceis de ouvir, bem como pessoas que podem não ser capazes de usar um rato.
 
 ### <a name="keyboard-navigation"></a>Navegação através do teclado
@@ -170,7 +169,7 @@ A consola em série tem suporte para leitores de ecrã incorporado. Navegar por 
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para aceder à consola em série
 
-Cenário          | Ações na consola em série
+Scenario          | Ações na consola em série
 :------------------|:-----------------------------------------
 Regras de firewall incorretas | Aceda à consola em série e corrija as regras de firewall do Windows.
 Corrupção/verificação do sistema de ficheiros | Aceda à consola em série e recupere o sistema de ficheiros.
@@ -191,7 +190,7 @@ Colar em PowerShell em SAC resulta num terceiro personagem se o conteúdo origin
 Algumas entradas de teclado produzem uma saída SAC estranha (por exemplo, **[A**, **[3~**). | As sequências de fuga [vT100](https://aka.ms/vtsequences) não são suportadas pelo pedido da SAC.
 Colar cordas compridas não funciona. | A consola em série limita o comprimento das cordas coladas no terminal aos caracteres de 2048 para evitar sobrecargas na largura de banda da porta em série.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Q. Como posso enviar feedback?**
 
@@ -199,7 +198,7 @@ R. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolef
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-R. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+R. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Quem pode ativar ou desativar a consola em série para a minha subscrição?**
 
@@ -217,7 +216,7 @@ R. A sua imagem está provavelmente mal configurada para o acesso à consola em 
 
 R. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter um guia aprofundado dos comandos CMD e PowerShell que pode utilizar no Windows SAC, consulte os [comandos windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * A consola em série também está disponível para Os VMs [Linux.](serial-console-linux.md)
 * Saiba mais sobre [diagnósticos de arranque.](boot-diagnostics.md)

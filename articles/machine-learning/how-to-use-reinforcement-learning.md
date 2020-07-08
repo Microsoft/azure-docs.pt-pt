@@ -11,10 +11,9 @@ author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
 ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84556946"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
@@ -425,10 +424,10 @@ run.wait_for_completion()
 
 O **enredo episode_reward_mean** mostra o número médio de pontos marcados por época de treino. Pode ver que o agente de treino inicialmente teve um mau desempenho, perdendo os seus jogos sem marcar um único ponto (mostrado por um reward_mean de -21). Em 100 iterações, o agente de treino aprendeu a vencer o oponente por uma média de 18 pontos.
 
-Se navegar em registos da execução da criança, pode ver os resultados da avaliação registados no ficheiro driver_log.txt. Pode ter de esperar alguns minutos até que estas métricas fiquem disponíveis na página 'Executar'.
+Se navegar em registos da execução da criança, pode ver os resultados da avaliação registados driver_log.txt ficheiro. Pode ter de esperar alguns minutos até que estas métricas fiquem disponíveis na página 'Executar'.
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://aka.ms/azureml-rl-notebooks)

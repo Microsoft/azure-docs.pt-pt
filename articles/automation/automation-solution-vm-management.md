@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84424079"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
@@ -104,11 +103,11 @@ A tabela que se segue lista os livros que a funcionalidade implementa na sua con
 
 Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de execução leva quando executado sem o parâmetro e valida que os VMs corretos são alvo. Um livro de bordo só executa as suas ações definidas quando o `WhatIf` parâmetro é definido como Falso.
 
-|Runbook | Parâmetros | Description|
+|Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertaAção <br> WebHookURI | Liga do livro dos pais. Este runbook cria alertas por recurso para o cenário de paragem automática.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList`é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf`permite validação da lógica do runbook sem executar.|
-|AutoStop_Disable | Nenhum | Desativa os alertas de paragem automática e o horário predefinido.|
+|AutoStop_Disable | Nenhuma | Desativa os alertas de paragem automática e o horário predefinido.|
 |AutoStop_VM_Child | WebHookData | Liga do livro dos pais. As regras de alerta chamam este runbook para parar um VM clássico.|
 |AutoStop_VM_Child_ARM | WebHookData |Liga do livro dos pais. As regras de alerta chamam este livro de bordo para parar um VM.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Ação: Iniciar ou Parar<br> VMList  | Executa início de ação ou paragem no grupo VM clássico da Cloud Services. |
@@ -124,7 +123,7 @@ A tabela seguinte lista as variáveis criadas na sua conta Automation. Apenas mo
 > [!NOTE]
 > As limitações no nome VM e no grupo de recursos são em grande parte resultado de tamanho variável. Ver [ativos variáveis na Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
-|Variável | Description|
+|Variável | Descrição|
 |---------|------------|
 |External_AutoStop_Condition | O operador condicional necessário para configurar a condição antes de desencadear um alerta. Valores aceitáveis `GreaterThan` `GreaterThanOrEqual` `LessThan` são, , e `LessThanOrEqual` .|
 |External_AutoStop_Description | O alerta para parar o VM se a percentagem de CPU exceder o limiar.|
@@ -156,7 +155,7 @@ A tabela que se segue lista cada um dos horários predefinidos criados na sua co
 
 Não ative todos os horários, porque fazê-lo pode criar ações de horário sobrepostas. É melhor determinar quais as otimizações que pretende fazer e modificá-las em conformidade. Consulte os cenários de exemplo na secção geral para obter mais explicações.
 
-|Nome da agenda | Frequência | Description|
+|Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista de VMs separadas por vírgula utilizando o `VMList` parâmetro.|
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Programado-StartVM**.|
@@ -233,6 +232,6 @@ Para eliminar VMs de início/paragem durante as horas de folga:
 
     4. Se não pretender manter os [componentes](#components)da conta Azure Automation, pode eliminar manualmente cada um deles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ativar a funcionalidade em VMs no seu ambiente, consulte [Ativar VMs de arranque/paragem durante as horas de folga](automation-solution-vm-management-enable.md).

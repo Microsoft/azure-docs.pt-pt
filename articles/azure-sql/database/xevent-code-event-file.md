@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
 ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485472"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do Ficheiro de Eventos para eventos alargados na Base de Dados Azure SQL
@@ -62,7 +61,7 @@ Este PowerShell é a fase 1 da amostra de código de duas fases.
 
 O script começa com comandos para limpar após uma possível execução anterior, e é re-executado.
 
-1. Cole o script PowerShell num simples editor de texto como Notepad.exe e guarde o script como um ficheiro com a extensão **.ps1**.
+1. Cole o script PowerShell num simples editor de texto, como Notepad.exe, e guarde o script como um ficheiro com a extensão **.ps1**.
 2. Iniciar o PowerShell ISE como administrador.
 3. No momento, tipo<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e, em seguida, pressione Enter.
 4. No PowerShell ISE, abra o seu ficheiro **.ps1.** Execute o script.

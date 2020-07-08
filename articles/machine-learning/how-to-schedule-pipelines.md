@@ -11,10 +11,9 @@ author: lobrien
 ms.date: 11/12/2019
 ms.custom: tracking-python
 ms.openlocfilehash: 3fede6bf194d0dd6b18118df7a44b7ccd0224a25
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84552179"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar oleodutos de aprendizagem automática com Azure Machine Learning SDK para Python
@@ -142,7 +141,7 @@ stop_by_schedule_id(ws, schedule_id)
 
 Se voltar a `Schedule.list(ws)` correr, deve ter uma lista vazia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você usou o Azure Machine Learning SDK para Python para agendar um oleoduto de duas maneiras diferentes. Um horário repete-se com base na hora do relógio decorrido. O outro horário é executado se um ficheiro for modificado num determinado `Datastore` ou dentro de um diretório nessa loja. Viu como usar o portal para examinar o oleoduto e as corridas individuais. Finalmente, aprendeu a desativar um horário para que o gasoduto deixe de funcionar.
 

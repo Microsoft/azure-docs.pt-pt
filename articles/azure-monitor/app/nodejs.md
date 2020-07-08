@@ -4,15 +4,14 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309769"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
-[O Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoriza os seus serviços e componentes de backend após a implementação, para ajudá-lo a descobrir e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para serviços Node.js que estão hospedados no seu datacenter, VMs Azure e aplicações web, e até mesmo em outras nuvens públicas.
+[O Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoriza os seus serviços e componentes de backend após a implementação, para ajudá-lo a descobrir e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para Node.js serviços que estão hospedados no seu datacenter, VMs Azure e aplicações web, e até mesmo em outras nuvens públicas.
 
 Para receber, armazenar e explorar os seus dados de monitorização, inclua o SDK no seu código e configure um recurso do Application Insights correspondente no Azure. O SDK envia dados para esse recurso para análise e exploração adicionais.
 
@@ -68,7 +67,7 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorize a sua aplicação
 
-O SDK reúne automaticamente telemetria sobre o tempo de execução no Node.js e alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
+O SDK reúne automaticamente telemetria sobre o tempo de execução Node.js e alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
 
 Em seguida, no [portal do Azure][portal], aceda ao recurso do Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
 
@@ -190,7 +189,7 @@ Para ativar o envio de Métricas Ao Vivo da sua aplicação para a Azure, `setSe
 > [!NOTE]
 > A capacidade de enviar métricas nativas estendidas foi adicionada na versão 1.4.0
 
-Para permitir o envio de métricas nativas estendidas da sua app para a Azure, instale o pacote de métricas nativas separadas. O SDK carregará automaticamente quando estiver instalado e começará a recolher métricas nativas do Node.js.
+Para permitir o envio de métricas nativas estendidas da sua app para a Azure, instale o pacote de métricas nativas separadas. O SDK carregará automaticamente quando estiver instalado e começará a recolher Node.js métricas nativas.
 
 ```bash
 npm install applicationinsights-native-metrics
@@ -412,7 +411,7 @@ Estas propriedades são específicas do cliente, para que possa configurar `appI
 | correlaidretryIntervalms    | O tempo para esperar antes de voltar a tentar recuperar o ID para a correlação entre componentes `30000` (Padrão).     |
 | correlationHeaderExcludedDomains| Uma lista de domínios a excluir da injeção de cabeçalho de correlação de componentes [cruzados (Config.ts Config.ts).](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar a telemetria no portal](../../azure-monitor/app/overview-dashboard.md)
 * [Escrever consultas de análise sobre a telemetria](../../azure-monitor/log-query/get-started-portal.md)

@@ -11,10 +11,9 @@ ms.date: 06/06/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1a7cb964064e229ee29591ca14aa8ef33e393a7d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484173"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Ative Directory B2C

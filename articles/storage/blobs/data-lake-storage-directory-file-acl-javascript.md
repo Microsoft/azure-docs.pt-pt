@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84466073"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o JavaScript para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
@@ -26,7 +25,7 @@ Este artigo mostra-lhe como usar o JavaScript para criar e gerir diretórios, fi
 > [!div class="checklist"]
 > * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
-> * Se estiver a utilizar este pacote numa aplicação Node.js, precisará do Node.js 8.0.0 ou superior.
+> * Se estiver a utilizar este pacote numa aplicação Node.js, terá de Node.js 8.0.0 ou superior.
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
@@ -67,7 +66,7 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 > [!NOTE]
-> Este método de autorização funciona apenas para aplicações Node.js. Se planeia executar o seu código num browser, pode autorizar utilizando o Azure Ative Directory (AD). 
+> Este método de autorização funciona apenas para Node.js pedidos. Se planeia executar o seu código num browser, pode autorizar utilizando o Azure Ative Directory (AD). 
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Conecte-se utilizando o Azure Ative Directory (AD)
 
@@ -221,7 +220,7 @@ async function ManageDirectoryACLs(fileSystemClient) {
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 
-Primeiro, leia um ficheiro. Este exemplo utiliza o módulo Node.js. `fs` Em seguida, crie uma referência de ficheiro no directório-alvo criando uma instância **FileClient** e, em seguida, chamando o método **FileClient.create.** Faça o upload de um ficheiro chamando o método **FileClient.append.** Certifique-se de que completa o upload ligando para o método **FileClient.flush.**
+Primeiro, leia um ficheiro. Este exemplo utiliza o `fs` módulo Node.js. Em seguida, crie uma referência de ficheiro no directório-alvo criando uma instância **FileClient** e, em seguida, chamando o método **FileClient.create.** Faça o upload de um ficheiro chamando o método **FileClient.append.** Certifique-se de que completa o upload ligando para o método **FileClient.flush.**
 
 Este exemplo envia um ficheiro de texto para um diretório chamado `my-directory` .'
 
@@ -358,7 +357,7 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

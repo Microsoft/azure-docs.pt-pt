@@ -4,10 +4,9 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre como prot
 ms.date: 04/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488703"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
@@ -46,7 +45,7 @@ Pode proteger as ações de ficheiros Azure de até 50 Contas de Armazenamento p
 
 Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="what-should-i-do-if-my-backups-start-failing-due-to-the-maximum-limit-reached-error"></a>O que devo fazer se os meus backups começarem a falhar devido ao limite máximo atingido?
 
@@ -105,7 +104,7 @@ Aqui está um exemplo de como isto funciona:
 | -------------- | ------------------------------ | --------- |
 | Diário          | Todos os dias às 21h              | 50 dias   |
 | Semanal         | No domingo, às 21h00              | 3 semanas   |
-| Mensal        | Na última segunda-feira às 21h         | 1 mês   |
+| Mensalmente        | Na última segunda-feira às 21h         | 1 mês   |
 | Anual         | Em jan no terceiro domingo às 21h | 4 anos   |
 
 #### <a name="impact"></a>Impacto
@@ -140,7 +139,7 @@ Aqui está um exemplo de como isto funciona:
 | -------------- | ---------------------- | --------- |
 | Diário          | Todos os dias às 21h     | 10 dias   |
 | Semanal         | Segunda-feira às 21h      | 2 semanas   |
-| Mensal        | Na última segunda-feira às 21h | 2 meses  |
+| Mensalmente        | Na última segunda-feira às 21h | 2 meses  |
 
 #### <a name="impact-of-change"></a>Impacto da mudança
 
@@ -155,6 +154,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo valor **Retenuso Till** especificado no momento da tomada do backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure](troubleshoot-azure-files.md)

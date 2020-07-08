@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.custom: tracking-python
 ms.openlocfilehash: b88ff6e1a58690d1781989a32607d490d791a690
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555451"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics em Código de Estúdio Visual
@@ -179,7 +178,7 @@ Um ficheiro por trás de código é um ficheiro C# associado a um único script 
     ```
 5. Clique com o botão direito no ficheiro **USQL,** pode clicar em **Compile Script** ou **submeter Job** a executar trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Utilizar as Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL corrida local e depurar local com Código de Estúdio Visual](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [Começar com data lake analytics usando PowerShell](data-lake-analytics-get-started-powershell.md)

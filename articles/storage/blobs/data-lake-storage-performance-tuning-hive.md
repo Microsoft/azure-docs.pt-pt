@@ -9,10 +9,9 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465971"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho de sintonização: Hive, HDInsight & Azure Data Lake Storage Gen2
@@ -45,11 +44,11 @@ Aqui estão as configurações mais importantes para sintonizar para melhorar o 
 
 **tez.grouping.max-size** – O parâmetro permite definir o tamanho máximo de cada mapper.  Se o número de mappers que tez escolhe for maior do que o valor deste parâmetro, então tez usará o valor definido aqui.
 
-**hive.exec.reducer.bytes.per.reducer** – Este parâmetro define o tamanho de cada redutor.  Por padrão, cada redutor é de 256MB.  
+**hive.exec.reducer.bytes.per.redutor** – Este parâmetro define o tamanho de cada redutor.  Por padrão, cada redutor é de 256MB.  
 
 ## <a name="guidance"></a>Orientação
 
-**Definir hive.exec.reducer.bytes.per.reducer** – O valor predefinido funciona bem quando os dados não são reprimidos.  Para os dados que são comprimidos, deve reduzir o tamanho do redutor.  
+**Desaprova hive.exec.reducer.bytes.per.reducer** – O valor predefinido funciona bem quando os dados não são reprimidos.  Para os dados que são comprimidos, deve reduzir o tamanho do redutor.  
 
 **Definir hive.tez.container.size** - Em cada nó, a memória é especificada por yarn.nodemanager.resource.memory-mb e deve ser corretamente definida no cluster HDI por predefinição.  Para obter informações adicionais sobre a definição da memória apropriada em YARN, consulte este [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 

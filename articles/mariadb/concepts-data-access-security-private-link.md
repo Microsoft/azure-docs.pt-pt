@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84508850"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
@@ -57,7 +56,7 @@ Com o Private Link, pode permitir o acesso transversal ao ponto final privado ut
 
 Os pontos finais privados são necessários para ativar o Link Privado. Isto pode ser feito usando os seguintes guias de como fazer.
 
-* [Portal Azure](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Portal do Azure](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de aprovação
@@ -125,7 +124,7 @@ Quando esta definição é definida como *SIM,* apenas as ligações através de
 
 Para saber como configurar o Acesso à **Rede Pública de Negação** para a sua Base de Dados de Azure para MariaDB a partir do portal Azure, consulte como configurar o [Acesso à Rede Pública de Negação](howto-deny-public-network-access.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança MariaDB, consulte os seguintes artigos:
 

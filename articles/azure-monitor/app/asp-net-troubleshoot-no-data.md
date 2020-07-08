@@ -4,10 +4,9 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485156"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
@@ -106,7 +105,7 @@ Causas prováveis:
 * O recurso Application Insights para a sua aplicação foi eliminado; ou
 * A chave de instrumentação foi definida ou alterada em ApplicationInsights.config editando-a diretamente, sem atualizar o ficheiro do projeto.
 
-A tecla de instrumentação em ApplicationInsights.config controla onde a telemetria é enviada. Uma linha no ficheiro do projeto controla qual o recurso que é aberto quando utiliza o comando no Visual Studio.
+A chave de instrumentação ApplicationInsights.config controla onde a telemetria é enviada. Uma linha no ficheiro do projeto controla qual o recurso que é aberto quando utiliza o comando no Visual Studio.
 
 Correção:
 
@@ -134,7 +133,7 @@ Correção:
 * No [painel de instrumentos caseiro microsoft Azure,](https://portal.azure.com)veja o mapa de Saúde do Serviço. Se houver algumas indicações de alerta, aguarde até que voltem a OK e, em seguida, feche e volte a abrir a sua lâmina de aplicação Application Insights.
 * Consulte também o [nosso blog de estado.](https://blogs.msdn.microsoft.com/servicemap-status/)
 * Escreveu algum código para o [SDK do lado](../../azure-monitor/app/api-custom-events-metrics.md) do servidor que possa alterar a tecla de instrumentação em `TelemetryClient` casos ou `TelemetryContext` em? Ou escreveu um [filtro ou uma configuração de amostragem](../../azure-monitor/app/api-filtering-sampling.md) que pode estar a filtrar demasiado?
-* Se editou ApplicationInsights.config, verifique cuidadosamente a configuração de [TelemetriaInitializers e TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Um tipo ou parâmetro mal nomeado pode fazer com que o SDK não envie dados.
+* Se editou ApplicationInsights.config, verifique cuidadosamente a configuração de [TelemetriaInitializers e TelemetriaProcessadores](../../azure-monitor/app/api-filtering-sampling.md). Um tipo ou parâmetro mal nomeado pode fazer com que o SDK não envie dados.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Sem dados sobre visualizações de página, navegadores, utilização
 *Vejo dados nos gráficos de tempo de resposta do servidor e pedidos de servidor, mas nenhum dado no tempo de carga da visualização da página, ou nas lâminas de navegador ou de utilização.*
@@ -154,7 +153,7 @@ Os dados de desempenho (CPU, taxa IO, e assim por diante) estão disponíveis pa
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Nenhum (servidor) dados desde que publiquei a app para o meu servidor
 * Verifique se copiou toda a Microsoft. ApplicationInsights DLLs para o servidor, juntamente com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Na sua firewall, poderá ter de [abrir algumas portas TCP.](../../azure-monitor/app/ip-addresses.md)
-* Se tiver de usar um representante para enviar para fora da sua rede corporativa, desconfig [de padrão](https://msdn.microsoft.com/library/aa903360.aspx) em Web.config
+* Se tiver de usar um representante para enviar para fora da sua rede corporativa, desaprote [oProxy em](https://msdn.microsoft.com/library/aa903360.aspx) Web.config
 * Windows Server 2008: Certifique-se de que instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Costumava ver dados, mas parou.
@@ -187,7 +186,7 @@ Siga estas instruções para capturar registos de resolução de problemas para 
 
 1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) a partir do NuGet. A versão que instala deve corresponder à versão atual instalada de`Microsoft.ApplicationInsighs`
 
-2. Modifique o seu ficheiro de aplicaçõesinsights.config para incluir o seguinte:
+2. Modifique o seu ficheiro applicationinsights.config para incluir o seguinte:
 
     ```xml
     <TelemetryModules>

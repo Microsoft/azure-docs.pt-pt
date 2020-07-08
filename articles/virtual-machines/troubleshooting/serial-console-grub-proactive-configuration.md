@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
 ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309837"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia economizar muito tempo de insudor
@@ -105,7 +104,7 @@ O VM deve ser configurado para aceitar um valor de 1 para o parâmetro do núcle
 [Ativar o vídeo sysrq](https://youtu.be/0doqFRrHz_Mc)
 
 
-Para configurar o VM para aceitar um reboot através dos comandos SysRq no portal Azure, terá de definir um valor de 1 para o núcleo de parâmetros kernel.sysrq
+Para configurar o VM para aceitar um reboot através dos comandos SysRq no portal Azure, terá de definir um valor de 1 para o parâmetro kernel kernel.sysrq
 
 Para que esta configuração persista um reboot, adicione uma entrada no ficheiro **sysctl.conf**
 
@@ -436,5 +435,5 @@ Para obter mais informações sobre como aceder ao modo de utilizador único, co
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [a Consola em Série Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)

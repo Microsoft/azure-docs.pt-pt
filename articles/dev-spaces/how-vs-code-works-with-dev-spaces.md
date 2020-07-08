@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Saiba como o Visual Studio Code e o Azure Dev Spaces o ajudam a depurar e a iterar rapidamente as suas aplicações Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307355"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como o Código do Estúdio Visual funciona com a Azure Dev Spaces
@@ -24,10 +23,10 @@ Pode utilizar o Código do Estúdio Visual e a [extensão Azure Dev Spaces][azds
 
 O Código do Estúdio Visual e a extensão Azure Dev Spaces geram os seguintes ativos para o seu projeto:
 
-* Dockerfiles para aplicações Java usando aplicações Maven, Node.js e aplicações .NET Core
+* Dockerfiles para aplicações Java usando aplicações Maven, Node.js e .NET Core
 * Gráficos de leme para quase qualquer língua com um Dockerfile
 * Um `azds.yaml` ficheiro, que é o [ficheiro de configuração Azure Dev Spaces][azds-yaml] para o seu projeto
-* Uma `.vscode` pasta com a configuração de lançamento do Código do Estúdio Visual do seu projeto para aplicações Java utilizando aplicações Maven, Node.js e aplicações .NET Core
+* Uma `.vscode` pasta com a configuração de lançamento do Código do Estúdio Visual do seu projeto para aplicações Java utilizando aplicações Maven, Node.js e .NET Core
 
 O Dockerfile, o gráfico Helm e `azds.yaml` os ficheiros são os mesmos ativos gerados quando estão a `azds prep` funcionar. Esses ficheiros também podem ser usados fora do código Visual Studio para executar o seu projeto em AKS, como executar `azds up` . A `.vscode` pasta só é utilizada pelo código Visual Studio para executar o seu projeto em AKS a partir do Visual Studio Code.
 
@@ -41,7 +40,7 @@ Para projetos .NET Core, tem de ter a [extensão C#][csharp-extension] instalada
 
 ## <a name="debug-your-service-in-aks"></a>Depurar o seu serviço em AKS
 
-Depois de lançar o seu projeto, pode depurar os seus serviços Java, Node.js e .NET Core em execução num espaço dev diretamente do Código do Estúdio Visual. A configuração de lançamento no `.vscode` diretório fornece a informação adicional de depuragem para executar um serviço com depuragem ativada num espaço dev. O Código do Estúdio Visual também se liga ao processo de depuração no recipiente de funcionamento nos seus espaços de dev, permitindo-lhe definir pontos de rutura, inspecionar variáveis e realizar outras operações de depuração.
+Depois de lançar o seu projeto, pode desordiá-lo aos seus serviços Java, Node.js e .NET Core em execução num espaço dev diretamente do Código do Estúdio Visual. A configuração de lançamento no `.vscode` diretório fornece a informação adicional de depuragem para executar um serviço com depuragem ativada num espaço dev. O Código do Estúdio Visual também se liga ao processo de depuração no recipiente de funcionamento nos seus espaços de dev, permitindo-lhe definir pontos de rutura, inspecionar variáveis e realizar outras operações de depuração.
 
 ## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Use código de estúdio visual com espaços Azure Dev
 
@@ -49,7 +48,7 @@ Pode ver o Código do Estúdio Visual e a extensão Azure Dev Spaces trabalhando
 
 * [Iterada e depurada rapidamente com Visual Studio Code e Java][quickstart-java]
 * [Iterada e depurada rapidamente com Visual Studio Code e .NET][quickstart-netcore]
-* [Iterada e depurada rapidamente com Visual Studio Code e Node.js][quickstart-node]
+* [Iterada e depurada rapidamente com Código de Estúdio Visual e Node.js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code

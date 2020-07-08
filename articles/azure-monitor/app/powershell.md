@@ -4,10 +4,9 @@ description: Automatizar a criação e gestão de recursos, alertas e testes de 
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.openlocfilehash: c4e7c4fe14d829338e98a4b7e73726b1e605707c
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485411"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir recursos de Insights de Aplicação utilizando o PowerShell

@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
 ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309650"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
@@ -18,7 +17,7 @@ Este guia contém informações sobre problemas comuns que poderá ter ao utiliz
 
 Se tiver algum problema ao utilizar o Azure Dev Spaces, crie um [problema no repositório Azure Dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para resolver os problemas de forma mais eficaz, pode ajudar a criar registos mais detalhados para revisão.
 
@@ -392,7 +391,7 @@ spec:
 ### <a name="error-required-tools-and-configurations-are-missing"></a>Erro "Faltam ferramentas e configurações necessárias"
 
 Este erro pode ocorrer ao lançar o Código VS: "[Azure Dev Spaces] Faltam ferramentas e configurações necessárias para construir e depurar '[nome do projeto].".
-O erro significa que azds.exe não está na variável ambiente PATH, como visto no Código VS.
+O erro significa que azds.exe não está na variável ambiente PATH, como se vê no Código VS.
 
 Tente lançar o Código VS a partir de uma indicação de comando onde a variável ambiente PATH está corretamente definida.
 
@@ -430,7 +429,7 @@ Pode ver este erro ao executar o depurar código de estúdio visual.
 
 Para corrigir este problema, feche e reabra o Código do Estúdio Visual. Reinicie o depurar.
 
-### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro "O relógio interno falhou: assista ao ENOSPC" ao anexar a depuração a uma aplicação Node.js
+### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro "Relógio interno falhou: assista ENOSPC" ao anexar a depuragem a uma aplicação Node.js
 
 Este erro ocorre quando o nó que executa o pod com a aplicação Node.js a que está a tentar anexar com um depurador excedeu o valor *fs.inotify.max_user_watches.* Em alguns casos, [o valor predefinido de *fs.inotify.max_user_watches* pode ser demasiado pequeno para manusear fixando um depurador diretamente a uma cápsula](https://github.com/Azure/AKS/issues/772).
 

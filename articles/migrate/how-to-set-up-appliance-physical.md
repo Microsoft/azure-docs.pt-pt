@@ -5,10 +5,9 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 6d9cc071ad5d81a09a14b12fe2acdf564c2ea6c8
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84331785"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
@@ -82,7 +81,7 @@ Execute o guião da seguinte forma:
 1. Extraia o ficheiro com fecho para uma pasta no servidor que irá hospedar o aparelho.  Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
 2. Lançar PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Mude o diretório PowerShell para a pasta onde o conteúdo foi extraído do ficheiro fechado descarregado.
-4. Executa o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
+4. Executar o script nomeado **AzureMigrateInstaller.ps1** executando o seguinte comando:
 
     - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
     - Para o Governo de Azure:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```

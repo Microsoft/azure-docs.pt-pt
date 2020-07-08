@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84487955"
 ---
 # <a name="init-image-transformation"></a>Inicializar a Transformação da Imagem
@@ -67,7 +66,7 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name                    | Intervalo   | Tipo    | Predefinição | Description                              |
+| Name                    | Intervalo   | Tipo    | Predefinição | Descrição                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Redimensionar                  | Qualquer     | Booleano | Verdadeiro    | Redimensione a imagem PIL de entrada para o tamanho dado |
 | Tamanho                    | >=1     | Número inteiro | 256     | Especificar o tamanho de saída pretendido          |
@@ -93,10 +92,10 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="output"></a>Saída  
 
-| Name                        | Tipo                    | Description                              |
+| Name                        | Tipo                    | Descrição                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Transformação de imagem de saída | Diretório de Transformação | Transformação de imagem de saída que pode ser ligada ao módulo **de Transformação de Imagem Aplicada.** |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

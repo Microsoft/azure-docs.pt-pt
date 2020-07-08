@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84508799"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
@@ -127,7 +126,7 @@ Se este problema ocorrer, uma solução é aplicar uma cache DNS do lado do clie
 
 Para otimizar a resolução de DNS à réplica mais próxima ao empurrar imagens, configurar um registo geo-replicado nas mesmas regiões do Azure como a fonte das operações push, ou a região mais próxima quando trabalha fora de Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira a série tutorial em três partes, [geo-replicação no Registo de Contentores Azure.](container-registry-tutorial-prepare-registry.md) Caminhe através da criação de um registo geo-replicado, construindo um contentor e, em seguida, implantando-o com um único `docker push` comando para várias aplicações web regionais para instâncias de contentores.
 

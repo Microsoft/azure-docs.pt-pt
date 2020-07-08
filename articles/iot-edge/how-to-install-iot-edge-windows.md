@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
 ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465563"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
@@ -154,13 +153,13 @@ Também pode utilizar o parâmetro do caminho de instalação offline para atual
 2. Encontre a versão que pretende instalar e descarregue os seguintes ficheiros da secção **Ativos** das notas de lançamento para o seu dispositivo IoT:
 
    * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab a partir dos lançamentos 1.0.9 ou mais recentes, ou Microsoft-Azure-IoTEdge.cab a partir de lançamentos 1.0.8 ou mais antigo.
+   * Microsoft-Azure-IoTEdge-amd64.cab dos lançamentos 1.0.9 ou mais recentes, ou Microsoft-Azure-IoTEdge.cab dos lançamentos 1.0.8 ou mais antigos.
 
    Microsoft-Azure-IotEdge-arm32.cab também está disponível a partir de 1.0.9 apenas para fins de teste. O IoT Edge não é suportado atualmente em dispositivos Windows ARM32.
 
    É importante utilizar o script PowerShell a partir da mesma versão que o ficheiro .cabin que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
 
-3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro apenas para **Microsoft-Azure-IoTEdge.cab**.
+3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro para apenas **Microsoft-Azure-IoTEdge.cab**.
 
 4. Opcionalmente, faça o download de um instalador para visual C++ redistribuível. Por exemplo, o script PowerShell utiliza esta versão: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Guarde o instalador na mesma pasta do seu dispositivo IoT que os ficheiros IoT Edge.
 
@@ -282,8 +281,8 @@ O comando Initialize-IoTEdge configura o IoT Edge com a cadeia de ligação do d
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
-| **Manual** | Nenhum | **Parâmetro de comutação**. Se não for especificado nenhum tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer uma cadeia de ligação do dispositivo para fornecer o dispositivo manualmente |
-| **DPS** | Nenhum | **Parâmetro de comutação**. Se não for especificado nenhum tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer um ID de âmbito do Serviço de Provisionamento de Dispositivos (DPS) e o ID de Registo do seu dispositivo através de DPS.  |
+| **Manual** | Nenhuma | **Parâmetro de comutação**. Se não for especificado nenhum tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer uma cadeia de ligação do dispositivo para fornecer o dispositivo manualmente |
+| **DPS** | Nenhuma | **Parâmetro de comutação**. Se não for especificado nenhum tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer um ID de âmbito do Serviço de Provisionamento de Dispositivos (DPS) e o ID de Registo do seu dispositivo através de DPS.  |
 | **DeviceConnectionString** | Uma cadeia de ligação de um dispositivo IoT Edge registado num Hub IoT, em cotações únicas | **Requerido** para o provisionamento manual. Se não fornecer uma cadeia de ligação nos parâmetros do script, será solicitado um. |
 | **ScopeId** | Uma identificação de âmbito a partir de uma instância do Serviço de Provisionamento de Dispositivos associado ao seu Hub IoT. | **Requerido** para o provisionamento de DPS. Se não fornecer uma identificação de âmbito nos parâmetros do script, será solicitado para um. |
 | **RegistroD** | Um ID de registo gerado pelo seu dispositivo | **Requerido** provisões de DPS se utilizar atestado de teclas TPM ou simétricas. **Opcional** se utilizar o certificado X.509. |

@@ -7,10 +7,9 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
 ms.openlocfilehash: 9c8f91cee01273aa2ed1cbfe1812130b600a094a
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84456747"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET fornecedor de cache de saída para cache Azure para Redis
@@ -72,7 +71,7 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 
 ### <a name="setting-connectionstring"></a>Definição *de ligaçãoDesse*
 
-O valor da *ligaçãoStragem* é usado como chave para obter a cadeia de conexão real de AppSettings, se tal cadeia existir em AppSettings. Se não for encontrado dentro de AppSettings, o valor da *ligaçãoSe* ser utilizado como chave para obter o fio de ligação real a partir da secção web.config **ConnectionString,** se essa secção existir. Se o fio de ligação não existir em AppSettings ou na secção web.config **ConnectionString,** o valor literal da *ligaçãoStragem* será utilizado como cadeia de ligação ao criar StackExchange.Redis.ConnectionMultiplexer.
+O valor da *ligaçãoStragem* é usado como chave para obter a cadeia de conexão real de AppSettings, se tal cadeia existir em AppSettings. Se não for encontrado dentro de AppSettings, o valor da *ligaçãoSe* ser utilizado como chave para obter o fio de ligação real da secção **web.config ConnectionString,** se essa secção existir. Se o fio de ligação não existir em AppSettings ou na secção **web.config ConnectionString,** o valor literal da *ligação O Adá de Ligação* será utilizado como cadeia de ligação ao criar StackExchange.Redis.ConnectionMultiplexer.
 
 Os exemplos a seguir ilustram como a *ligação Adagem* é utilizada.
 

@@ -7,10 +7,9 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 20379f6a1e87c7553d6567be5b50f22bbadb8db7
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84514688"
 ---
 # <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Pré-visualização - Azure Kubernetes Service (AKS) upgrades de imagem de nó
@@ -134,7 +133,7 @@ az aks nodepool show \
     --name mynodepool
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte as notas de lançamento da [AKS](https://github.com/Azure/AKS/releases) para obter informações sobre as imagens mais recentes do nó.
 - Saiba como atualizar a versão Kubernetes com [upgrade de um cluster AKS.][upgrade-cluster]

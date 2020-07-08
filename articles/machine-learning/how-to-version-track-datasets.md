@@ -12,10 +12,9 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: tracking-python
 ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555631"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de dados de versão e rastreio em experiências
@@ -189,7 +188,7 @@ A seguinte vista é do painel **de conjuntos de dados** em **Ativos**. Selecione
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar com conjuntos de dados](how-to-train-with-datasets.md)
 * [Mais cadernos de conjuntos de dados de amostra](https://aka.ms/dataset-tutorial)

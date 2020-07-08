@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488040"
 ---
 # <a name="references"></a>Referências
@@ -33,7 +32,7 @@ As APIs FarmBeats contêm documentação técnica da Swagger. Para obter informa
 
 A tabela seguinte resume todos os objetos e recursos no FarmBeats Datahub:
 
-| Objetos e recursos | Description
+| Objetos e recursos | Descrição
 --- | ---|
 Quinta | A quinta corresponde a uma localização física de interesse dentro do sistema FarmBeats. Cada quinta tem um nome de fazenda e uma identificação única da fazenda. |
 Dispositivo  | O dispositivo corresponde a um dispositivo físico presente na quinta. Cada dispositivo tem um ID de dispositivo único. Um dispositivo é normalmente a provisionado para uma fazenda com uma identificação agrícola.
@@ -111,7 +110,7 @@ Por exemplo, quando consulta a lista de dispositivos (chamada GET em /Dispositiv
 
 Azure FarmBeats Databeats Datahub APIs devolve os erros HTTP padrão. Os códigos de erro mais comuns são os seguintes:
 
- |Código de erro             | Description |
+ |Código de erro             | Descrição |
  |---                    | --- |
  |200                    | Êxito |
  |201                    | Criar (Post) Sucesso |

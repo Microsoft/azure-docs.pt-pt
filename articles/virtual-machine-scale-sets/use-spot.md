@@ -10,10 +10,9 @@ ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
 ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310568"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
@@ -156,11 +155,11 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 | Canais Azure               | Disponibilidade de VMs Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrato Enterprise         | Yes                               |
-| Pay As You Go                | Yes                               |
+| Contrato Enterprise         | Sim                               |
+| Pay As You Go                | Sim                               |
 | Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
-| Patrocinado                    | Yes                               |
+| Patrocinado                    | Sim                               |
 | Avaliação Gratuita                   | Não disponível                     |
 
 
@@ -168,6 +167,6 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a [página de preços da escala de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre os preços.

@@ -12,17 +12,16 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484304"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Azure Ative Directory B2C
 
 As seguintes boas práticas e recomendações abrangem alguns dos aspetos primários da integração do Azure Ative Directory (Azure AD) B2C em ambientes de aplicação existentes ou novos.
 
-## <a name="fundamentals"></a>Fundamentos
+## <a name="fundamentals"></a>Noções Básicas
 
 | Melhores práticas | Descrição |
 |--|--|
@@ -92,4 +91,4 @@ Mantenha-se atualizado com o estado do serviço e encontre opções de apoio.
 |--|--|
 | [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Mantenha-se atualizado com as atualizações e anúncios de produtos Azure AD B2C. |
 | [Suporte da Microsoft](support-options.md) | Apresentar um pedido de apoio para problemas técnicos Azure AD B2C. O suporte de gestão de faturação e subscrição é fornecido sem custos. |
-| [Estado do Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços da Azure. |
+| [Estatuto de Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços da Azure. |

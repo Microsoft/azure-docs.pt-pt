@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84462843"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções rbac para acesso administrativo à Pesquisa Cognitiva Azure
@@ -29,7 +28,7 @@ Para a Azure Cognitive Search, as funções estão associadas a níveis de permi
 | Função | Tarefa |
 | --- | --- |
 | Proprietário |Criar ou eliminar o serviço ou qualquer objeto no serviço, incluindo api-keys, índices, indexadores, fontes de dados indexantes e horários de indexante.<p>Ver estado de serviço, incluindo contagens e tamanho de armazenamento.<p>Adicione ou elimine a adesão de funções (apenas um Proprietário pode gerir a adesão ao papel).<p>Os administradores de subscrição e os proprietários de serviços têm adesão automática na função Desema. |
-| Contribuinte |O mesmo nível de acesso que o Proprietário, menos a gestão de funções da RBAC. Por exemplo, um Contribuinte pode criar ou apagar objetos, ou ver e regenerar [as teclas api,](search-security-api-keys.md)mas não pode modificar os membros de funções. |
+| Contribuidor |O mesmo nível de acesso que o Proprietário, menos a gestão de funções da RBAC. Por exemplo, um Contribuinte pode criar ou apagar objetos, ou ver e regenerar [as teclas api,](search-security-api-keys.md)mas não pode modificar os membros de funções. |
 | [Papel integrado do colaborador do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente ao papel de Contribuinte. |
 | Leitor |Ver o essencial do serviço e métricas. Os membros desta função não podem ver índice, indexador, fonte de dados ou informações-chave.  |
 
@@ -50,7 +49,7 @@ A tabela seguinte resume as operações permitidas na Pesquisa Cognitiva Azure e
 | Gerir as teclas de administração | Chave de administração, Rbac Proprietário ou Colaborador no recurso |
 | Gerir chaves de consulta |  Chave de administração, Rbac Proprietário ou Colaborador no recurso  |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização na Pesquisa Cognitiva Azure](search-performance-optimization.md)

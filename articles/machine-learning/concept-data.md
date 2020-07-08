@@ -12,10 +12,9 @@ ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84552631"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
@@ -65,7 +64,7 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Sistema de Ficheiros do Databricks
 + Base de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjuntos de Dados
 
 Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados, por isso não há custos adicionais de armazenamento. Para interagir com os seus dados no armazenamento, [crie um conjunto de dados](how-to-create-register-datasets.md) para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática. Registe o conjunto de dados no seu espaço de trabalho para o partilhar e reutilizar em diferentes experiências sem complexidades de ingestão de dados.
 
@@ -112,7 +111,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://aka.ms/dataset-tutorial)

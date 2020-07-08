@@ -4,10 +4,9 @@ description: Criar um token com permissões apositórios específicos num regist
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509411"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um símbolo com permissões de âmbito de repositório
@@ -423,7 +422,7 @@ az acr token delete --name MyToken --registry myregistry
 
 No portal, selecione o token no ecrã **Tokens (Preview)** e selecione **Descartar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para gerir mapas de âmbito e fichas, utilize comandos adicionais nos grupos de comando [az acr e][az-acr-scope-map] [az acr token.][az-acr-token]
 * Consulte a [visão geral](container-registry-authentication.md) da autenticação para outras opções para autenticar com um registo de contentores Azure, incluindo a utilização de uma identidade do Diretório Ativo Azure, um principal serviço ou uma conta de administração.

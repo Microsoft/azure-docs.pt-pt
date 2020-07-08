@@ -14,13 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310390"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 Encontre respostas a perguntas comuns sobre o Microsoft Azure Dedicado HSM.
 
@@ -131,7 +130,7 @@ PKCS#11, Java (JCA/JCE), Microsoft CAPI, e CNG, OpenSSL
 
 ### <a name="q-can-i-importmigrate-keys-from-luna-56-hsms-to-azure-dedicated-hsms"></a>P: Posso importar/migrar chaves de Luna 5/6 HSMs para Azure Dedicados HSMs?
 
-Yes. Consulte o guia de migração gemalto. 
+Sim. Consulte o guia de migração gemalto. 
 
 ## <a name="using-your-hsm"></a>Utilizando o seu HSM
 
@@ -158,7 +157,7 @@ Não. O HSM dedicado é a provisionado diretamente no espaço de endereço IP pr
 
 ### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-hsms"></a>P: O cliente obtém controlo exclusivo total sobre os HSMs com HSMs dedicados?
 
-Yes. Cada aparelho HSM é totalmente dedicado a um único cliente e mais ninguém tem controlo administrativo uma vez provisionado e a senha do administrador alterada.
+Sim. Cada aparelho HSM é totalmente dedicado a um único cliente e mais ninguém tem controlo administrativo uma vez provisionado e a senha do administrador alterada.
 
 ### <a name="q-what-level-of-access-does-microsoft-have-to-my-hsm"></a>P: Que nível de acesso a Microsoft tem para o meu HSM?
 
@@ -190,17 +189,17 @@ Um cliente tem acesso total aos registos de atividades do HSM através do syslog
 
 ### <a name="q-can-i-get-full-access-log-of-all-hsm-operations-from-dedicated-hsm"></a>P: Posso obter registo de acesso completo de todas as operações do HSM da Dedicada HSM?
 
-Yes. Pode enviar registos do aparelho HSM para um servidor sislog
+Sim. Pode enviar registos do aparelho HSM para um servidor sislog
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar uma elevada disponibilidade na mesma região ou em várias regiões?
 
-Yes. A configuração e configuração de alta disponibilidade são realizadas no software do cliente HSM fornecido pela Gemalto. Os HSMs dos mesmos VNET ou outros VNETs na mesma região ou em regiões, ou em instalações HSMs ligados a um VNET utilizando VPN site-to-local ou ponto-a-ponto podem ser adicionados à mesma configuração de alta disponibilidade. Note-se que este material sincroniza apenas e não itens de configuração específicos, tais como funções.
+Sim. A configuração e configuração de alta disponibilidade são realizadas no software do cliente HSM fornecido pela Gemalto. Os HSMs dos mesmos VNET ou outros VNETs na mesma região ou em regiões, ou em instalações HSMs ligados a um VNET utilizando VPN site-to-local ou ponto-a-ponto podem ser adicionados à mesma configuração de alta disponibilidade. Note-se que este material sincroniza apenas e não itens de configuração específicos, tais como funções.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs da minha rede no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
-Yes. Devem satisfazer os elevados requisitos de disponibilidade para a Rede SafeNet Luna HSM 7.
+Sim. Devem satisfazer os elevados requisitos de disponibilidade para a Rede SafeNet Luna HSM 7.
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
@@ -276,7 +275,7 @@ Serviços dedicados de serviço HSM prevêem aparelhos SafeNet Network HSM 7. El
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>P: O HSM FIPS 140-2 Nível 3 é validado?
 
-Yes. Serviços dedicados de serviço HSM prevêem aparelhos shsm 7 da rede SafeNet que utilizam HSMs validados FIPS 140-2 Nível 3.
+Sim. Serviços dedicados de serviço HSM prevêem aparelhos shsm 7 da rede SafeNet que utilizam HSMs validados FIPS 140-2 Nível 3.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>P: O que preciso de fazer para garantir que opero HSM dedicado no modo validado FIPS 140-2 Nível 3?
 

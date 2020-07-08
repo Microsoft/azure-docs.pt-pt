@@ -7,10 +7,9 @@ ms.date: 05/12/2020
 ms.author: hazeng
 ms.custom: tracking-python
 ms.openlocfilehash: b2582caf407b3983b32c40482fa0f0275f00fb8d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84554763"
 ---
 # <a name="troubleshoot-python-module-errors-in-azure-functions"></a>Resolução de problemas Erros do módulo Python em Funções Azure
@@ -86,9 +85,9 @@ Consulte [a atualização do seu pacote para a versão mais recente](#update-you
 
 Abra o `requirements.txt` com um editor de texto e verifique o pacote em `https://pypi.org/project/<package-name>` . Alguns pacotes funcionam apenas nas plataformas Windows ou macOS. Por exemplo, o pywin32 só funciona no Windows.
 
-O `Module Not Found` erro pode não ocorrer quando estiver a utilizar o Windows ou o macOS para o desenvolvimento local. No entanto, o pacote não importa as funções Azure, que utiliza o Linux em tempo de execução. Isto é provavelmente causado pela utilização `pip freeze` para exportar ambiente virtual em requisitos.txt a partir do seu Windows ou máquina macOS durante a inicialização do projeto.
+O `Module Not Found` erro pode não ocorrer quando estiver a utilizar o Windows ou o macOS para o desenvolvimento local. No entanto, o pacote não importa as funções Azure, que utiliza o Linux em tempo de execução. Isto é provavelmente causado pela utilização `pip freeze` para exportar ambiente virtual para requirements.txt a partir da sua máquina Windows ou macOS durante a inicialização do projeto.
 
-Consulte [Substituir a embalagem por equivalentes](#replace-the-package-with-equivalents) ou [requisitos de artesanato.txt](#handcraft-requirementstxt) para mitigação.
+Consulte [Substituir a embalagem por equivalentes](#replace-the-package-with-equivalents) ou requirements.txtde [artesanato](#handcraft-requirementstxt) para mitigação.
 
 ## <a name="mitigate-modulenotfounderror"></a>Módulo MitigaçãoNotFoundError
 
@@ -119,23 +118,23 @@ Certifique-se de que a versão mais recente de **Ferramentas** Core do Docker e 
 
 Navegue na versão mais recente do pacote `https://pypi.org/project/<package-name>` e verifique os **Classificadores:** secção. A embalagem deve ser `OS Independent` , ou compatível com `POSIX` ou em Sistema `POSIX :: Linux` **Operativo**. Além disso, a Linguagem de Programação deve conter `Python :: 3` `Python :: 3.6` , , ou `Python :: 3.7` `Python :: 3.8` .
 
-Se estiverem corretas, pode atualizar o pacote para a versão mais recente alterando a linha `<package-name>~=<latest-version>` em requisitos.txt.
+Se estes estiverem corretos, pode atualizar o pacote para a versão mais recente, alterando a linha `<package-name>~=<latest-version>` em requirements.txt.
 
-### <a name="handcraft-requirementstxt"></a>Requisitos de artesanato.txt
+### <a name="handcraft-requirementstxt"></a>requirements.txt de artesanato
 
 Alguns desenvolvedores usam `pip freeze > requirements.txt` para gerar a lista de pacotes Python para os seus ambientes em desenvolvimento. Embora esta conveniência deva funcionar na maioria dos casos, pode haver problemas em cenários de implementação de plataformas cruzadas, como o desenvolvimento de funções localmente no Windows ou macOS, mas a publicação para uma aplicação de função, que funciona no Linux. Neste cenário, `pip freeze` pode introduzir dependências ou dependências inesperadas do sistema operativo para o seu ambiente de desenvolvimento local. Estas dependências podem quebrar a aplicação de função Python quando estiver em funcionamento no Linux.
 
-A melhor prática é verificar a declaração de importação de cada ficheiro .py no seu código fonte do projeto e apenas fazer o check-in desses módulos em ficheiro requirements.txt. Isto garante que a resolução de pacotes pode ser manuseada corretamente em diferentes sistemas operativos.
+A melhor prática é verificar a declaração de importação de cada ficheiro .py no seu código fonte do projeto e apenas fazer o check-in desses módulos no ficheiro requirements.txt. Isto garante que a resolução de pacotes pode ser manuseada corretamente em diferentes sistemas operativos.
 
 ### <a name="replace-the-package-with-equivalents"></a>Substitua a embalagem por equivalentes
 
 Em primeiro lugar, devemos dar uma olhada na versão mais recente do pacote em `https://pypi.org/project/<package-name>` . Normalmente, este pacote tem a sua própria página GitHub, vá à secção **de Problemas** no GitHub e procure se o seu problema foi corrigido. Em caso afirmativo, atualize o pacote para a versão mais recente.
 
-Por vezes, o pacote pode ter sido integrado na [Biblioteca Padrão python](https://docs.python.org/3/library/) (como o pathlib). Em caso afirmativo, uma vez que fornecemos uma certa distribuição python em Funções Azure (Python 3.6, Python 3.7 e Python 3.8), o pacote nos seus requisitos.txt deve ser removido.
+Por vezes, o pacote pode ter sido integrado na [Biblioteca Padrão python](https://docs.python.org/3/library/) (como o pathlib). Se assim for, uma vez que fornecemos uma certa distribuição python em Funções Azure (Python 3.6, Python 3.7 e Python 3.8), o pacote no seu requirements.txt deve ser removido.
 
 No entanto, se está a enfrentar um problema que não foi corrigido e que está num prazo. Encorajo-vos a pesquisar e a encontrar um pacote semelhante para o vosso projeto. Normalmente, a comunidade Python irá fornecer-lhe uma grande variedade de bibliotecas semelhantes que você pode usar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não conseguir resolver o seu problema relacionado com o módulo, por favor reporte isto à equipa de Funções:
 

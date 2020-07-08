@@ -4,10 +4,9 @@ description: Saiba como ativar a confiança de conteúdo para o seu registo de c
 ms.topic: article
 ms.date: 09/06/2019
 ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509564"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
@@ -194,7 +193,7 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 ![Desativar a confiança do conteúdo num registo no portal do Azure][content-trust-03-portal]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [a confiança do conteúdo no Docker][docker-content-trust] para obter informações adicionais sobre a confiança dos conteúdos. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
 

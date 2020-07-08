@@ -12,10 +12,9 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84508901"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um oleoduto em resposta a um evento
@@ -73,7 +72,7 @@ Esta secção mostra-lhe como criar um gatilho de evento dentro da Interface de 
 
     ![Mapeamento de propriedades para parâmetros de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no teste de eventos da pasta nos dados da amostra do recipiente. As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando moviesDB.csv é adicionado ao caminho amostra-dados/testes de eventos, `@trigger().outputs.body.folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@trigger().outputs.body.fileName` `moviesDB.csv` . Estes valores são mapeados no exemplo dos parâmetros do gasoduto `sourceFolder` e que podem ser `sourceFile` utilizados em toda a tubagem como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
+No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no teste de eventos da pasta nos dados da amostra do recipiente. As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@trigger().outputs.body.folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@trigger().outputs.body.fileName` `moviesDB.csv` . Estes valores são mapeados no exemplo dos parâmetros do gasoduto `sourceFolder` e que podem ser `sourceFile` utilizados em toda a tubagem como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
 
 ## <a name="json-schema"></a>Esquema JSON
 
@@ -94,7 +93,7 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 > [!IMPORTANT]
 > Tem de incluir o `/blobs/` segmento do percurso, como mostra os seguintes exemplos, sempre que especificar o recipiente e a pasta, o recipiente e o ficheiro, ou o contentor, a pasta e o ficheiro. Para **blobPathBeginsWith,** a UI da Fábrica de Dados adicionará automaticamente `/blobs/` entre a pasta e o nome do recipiente no gatilho JSON.
 
-| Propriedade | Exemplo | Description |
+| Propriedade | Exemplo | Descrição |
 |---|---|---|
 | **O caminho da bolha começa com** | `/containername/` | Recebe eventos para qualquer bolha no recipiente. |
 | **O caminho da bolha começa com** | `/containername/blobs/foldername/` | Recebe eventos para quaisquer bolhas no `containername` recipiente e `foldername` pasta. |
@@ -104,5 +103,5 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 | **O caminho da bolha termina com** | `/containername/blobs/file.txt` | Recebe eventos para uma bolha chamada `file.txt` sob `containername` recipiente. |
 | **O caminho da bolha termina com** | `foldername/file.txt` | Recebe eventos para uma bolha nomeada `file.txt` em pasta sob qualquer `foldername` recipiente. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações detalhadas sobre os gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).

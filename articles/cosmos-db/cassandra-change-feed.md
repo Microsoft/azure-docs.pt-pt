@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
 ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431602"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Mude o feed na API DB AZure Cosmos para Cassandra
@@ -144,6 +143,6 @@ Os seguintes códigos de erro e mensagens são suportados ao utilizar o feed de 
 
 * **Código de erro HTTP 429** - Quando o feed de alteração é limitado, devolve uma página vazia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir recursos da Azure Cosmos DB Cassandra API utilizando modelos de Gestor de Recursos Azure](manage-cassandra-with-resource-manager.md)

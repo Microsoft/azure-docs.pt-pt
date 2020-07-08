@@ -8,10 +8,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465495"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento blob do iOS
@@ -64,7 +63,7 @@ A outra forma de usar a biblioteca é construir a estrutura manualmente:
 1. Primeiro, baixe ou clone o [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
 2. Vá para a biblioteca de clientes de *armazenamento azure-ios*  ->  *Lib*  ->  *Azure Storage,* e abra `AZSClient.xcodeproj` em Xcode.
 3. No topo esquerdo do Xcode, altere o esquema ativo de "Azure Storage Client Library" para "Framework".
-4. Construir o projeto (≤+B). Isto criará um `AZSClient.framework` ficheiro no seu Ambiente de Trabalho.
+4. Construir o projeto (⌘+B). Isto criará um `AZSClient.framework` ficheiro no seu Ambiente de Trabalho.
 
 Em seguida, pode importar o ficheiro-quadro para a sua aplicação, fazendo o seguinte:
 
@@ -87,7 +86,7 @@ Se estiver a utilizar o Swift, terá de criar um cabeçalho de ponte e importar 
 1. Crie um ficheiro de cabeçalho `Bridging-Header.h` e adicione a declaração de importação acima.
 2. Vá ao separador *Definições de Construção* e procure *o cabeçalho de ponte Objective-C*.
 3. Clique duas vezes no campo do Cabeçalho de *Ponte Objective-C* e adicione o caminho ao seu ficheiro de cabeçalho:`ProjectName/Bridging-Header.h`
-4. Construa o projeto (≤+B) para verificar se o cabeçalho de ponte foi captado pela Xcode.
+4. Construa o projeto (⌘+B) para verificar se o cabeçalho de ponte foi captado pela Xcode.
 5. Comece a usar a biblioteca diretamente em qualquer ficheiro Swift, não há necessidade de declarações de importação.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

@@ -11,10 +11,9 @@ ms.author: keli19
 ms.date: 03/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557440"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
@@ -91,7 +90,7 @@ O quadro abaixo fornece informações para diferentes opções de depuragem para
 
 | Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Métrica | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/registo de pítons    | Registar    | `print(val)`<br>`logging.info(message)`                          | Troncos de motorista, Azure Machine Learning designer | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Abate de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | Pitão OpenCensus          | Registar    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de madeira python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -350,9 +349,9 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
 
 1. Para configurar o Código VS para comunicar com o computamento Azure Machine Learning que está a executar o depurador, crie uma nova configuração de depuração:
 
-    1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, selecione __configurações Open__. Um ficheiro chamado __launch.json__ abre.
+    1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, selecione __configurações Open__. Um ficheiro chamado __launch.jsem__ aberturas.
 
-    1. No ficheiro __launch.json,__ encontre a linha que contém `"configurations": [` , e insira o seguinte texto após o mesmo. Altere a `"host": "10.3.0.5"` entrada no endereço IP devolvido nos seus registos a partir da secção anterior. Altere `"localRoot": "${workspaceFolder}/code/step"` a entrada para um diretório local que contenha uma cópia do guião que está a ser depurado:
+    1. No __launch.jsficheiro,__ encontre a linha que contém `"configurations": [` , e insira o seguinte texto após o mesmo. Altere a `"host": "10.3.0.5"` entrada no endereço IP devolvido nos seus registos a partir da secção anterior. Altere `"localRoot": "${workspaceFolder}/code/step"` a entrada para um diretório local que contenha uma cópia do guião que está a ser depurado:
 
         ```json
         {
@@ -379,7 +378,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
         >
         > Se estiver a depurar vários scripts, em diferentes diretórios, crie uma secção de configuração separada para cada script.
 
-    1. Guarde o ficheiro __launch.json.__
+    1. Guarde o __launch.jsarquivado.__
 
 ### <a name="connect-the-debugger"></a>Ligue o depurar
 
@@ -392,7 +391,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
     > [!NOTE]
     > Se o registo apresentar uma entrada indicando `Debugger attached = False` , então o tempo limite expirou e o script continuou sem o depurar. Submeta novamente o gasoduto e ligue o depurar após a `Timeout for debug connection` mensagem e antes que o intervalo expire.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte a referência SDK para obter ajuda com o pacote [de núcleo de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [de passos de gasodutos azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
 

@@ -4,10 +4,9 @@ description: Guia de resolução de problemas - monitorizando aplicações java 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484785"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
@@ -26,8 +25,8 @@ Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo 
 * Verifique se não há `<DisableTelemetry>true</DisableTelemetry>` nó no ficheiro xml.
 * Na sua firewall, poderá ter de abrir as portas 80 e 443 para o tráfego de saída para dc.services.visualstudio.com. Veja a [lista completa de exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * No tabuleiro inicial do Microsoft Azure, veja o mapa do estado do serviço. Se houver algumas indicações de alerta, aguarde até que voltem a OK e, em seguida, feche e volte a abrir a sua lâmina de aplicação Application Insights.
-* [Ligue o registo](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-apergidas com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
-* Certifique-se de que o ficheiro ApplicationInsights.xml correto foi carregado com sucesso pelo Java SDK, olhando para as mensagens de saída da consola para uma declaração de "Configuração foi encontrado com sucesso".
+* [Ligue o registo](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-atuais com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
+* Certifique-se de que o ficheiro ApplicationInsights.xml correto foi carregado com sucesso pelo SDK Java, olhando para as mensagens de saída da consola para uma declaração de "Configuração foi encontrado com sucesso".
 * Se o ficheiro config não for encontrado, verifique as mensagens de saída para ver onde o ficheiro config está a ser procurado e certifique-se de que o ApplicationInsights.xml está localizado num desses locais de pesquisa. Como regra geral, pode colocar o ficheiro config perto dos JARs SDK do Application Insights. Por exemplo: em Tomcat, isto significaria a pasta WEB-INF/classes. Durante o desenvolvimento pode colocar ApplicationInsights.xml na pasta de recursos do seu projeto web.
 * Por favor, consulte também a [página de problemas do GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
 * Certifique-se de utilizar a mesma versão dos appenders core, web, agent e logging para evitar qualquer problema de conflito de versão.
@@ -71,7 +70,7 @@ Em código:
 
 **Ou**
 
-Atualização ApplicationInsights.xml (na pasta de recursos do seu projeto). Adicione o seguinte sob o nó raiz:
+Atualize ApplicationInsights.xml (na pasta de recursos do seu projeto). Adicione o seguinte sob o nó raiz:
 
 ```XML
 
@@ -125,7 +124,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agente Java
 
-Para ativar a atualização do [ficheiro AI-Agent.xml](java-agent.md)do Agente JVM:
+Para ativar a atualização do registo de [AI-Agent.xml do](java-agent.md)agente JVM:
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->

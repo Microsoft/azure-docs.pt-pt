@@ -7,10 +7,9 @@ ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465257"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
@@ -80,7 +79,7 @@ Você pode ter um número limitado de ações Runbook em um Grupo de Ação.
 ### <a name="azure-app-push-notifications"></a>Notificações push da aplicação Azure
 Você pode ter um número limitado de ações de aplicativoS Azure em um Grupo de Ação.
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 Os e-mails serão enviados a partir dos seguintes endereços de e-mail. Certifique-se de que a sua filtragem de e-mail está configurada adequadamente
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
