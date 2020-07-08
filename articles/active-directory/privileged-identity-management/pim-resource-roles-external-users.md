@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743784"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide os utilizadores convidados e atribua funções de recursos da Azure na Gestão de Identidade Privilegiada
@@ -53,7 +53,7 @@ Quando utilizar a colaboração B2B, pode convidar um utilizador externo para a 
 
 Para se certificar de que pode convidar os hóspedes para a sua organização, deverá verificar as definições de colaboração dos seus hóspedes.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 
 1. Selecione as definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
 
@@ -163,7 +163,7 @@ Pode ver os registos de auditoria para acompanhar o que os hóspedes estão a fa
 
     ![Data de listagem de registos de auditoria de diretório, alvo, iniciado por, e atividade](./media/pim-resource-roles-external-users/audit-directory.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de administrador da Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [O que é o acesso do utilizador convidado na colaboração Azure AD B2B?](../b2b/what-is-b2b.md)

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743597"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>A bordo de um domínio de raiz ou ápice na sua porta frontal
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio de raiz ou apex no seu Front Door
 A Azure Front Door utiliza registos CNAME para validar a propriedade do domínio para o embarque de domínios personalizados. Além disso, a Porta Frontal não expõe o endereço IP frontend associado ao seu perfil da Porta frontal e por isso não pode mapear o seu domínio ápice para um endereço IP, se a intenção for a bordo para a Porta frontal Azure.
 
 O protocolo DNS impede a atribuição de registos CNAME no ápice da zona. Por exemplo, se o seu domínio `contoso.com` for; pode criar registos CNAME `somelabel.contoso.com` para; mas não pode criar CNAME por `contoso.com` si só. Esta restrição apresenta um problema para os proprietários de aplicações que têm aplicações equilibradas por trás da Porta Frontal Azure. Uma vez que a utilização de um perfil da Porta Frontal requer a criação de um registo CNAME, não é possível apontar para o perfil da Porta frontal a partir do ápice da zona.
@@ -75,7 +75,7 @@ Neste artigo, vai aprender a:
 > [!WARNING]
 > Certifique-se de que criou regras de encaminhamento adequadas para o seu domínio ápice ou adicione o domínio às regras de encaminhamento existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

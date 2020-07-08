@@ -9,10 +9,10 @@ ms.date: 01/16/2020
 ms.author: femila
 ms.custom: include file
 ms.openlocfilehash: 0d4f4f1563c16e276eb20ce4d4599b7fd5fca683
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84562098"
 ---
 >[!NOTE]

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744328"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ligue-se a uma máquina virtual Windows usando Azure Bastion
@@ -20,7 +20,7 @@ Utilizando o Azure Bastion, pode ligar-se de forma segura e perfeita às suas m�
 
 O Azure Bastion proporciona uma conectividade segura a todos os VMs na rede virtual em que é a provisionado. A utilização do Azure Bastion protege as suas máquinas virtuais de expor portas RDP/SSH ao mundo exterior, ao mesmo tempo que fornece acesso seguro utilizando RDP/SSH. Para obter mais informações, consulte [Descrição Geral](bastion-overview.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em que o VM está localizado. Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar a qualquer VM da rede virtual. Para montar um anfitrião do Azure Bastion, consulte [criar um anfitrião do Azure Bastion.](bastion-create-host-portal.md)
 
@@ -50,6 +50,6 @@ Para ligar ao Windows VM, tem de ter as seguintes portas abertas no seu VM Do Wi
 
    ![Ligação RDP](./media/bastion-connect-vm-rdp/443rdp.png)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [FAQ do Bastião](bastion-faq.md)

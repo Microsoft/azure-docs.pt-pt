@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84742866"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Capacidades de gestão para funções de Ad Azure em Gestão de Identidade Privilegiada
@@ -64,7 +64,7 @@ Tentámos dar o nosso melhor para chegar a todos os clientes que estão a usar a
 
 Para os clientes que estão a utilizar o módulo PowerShell de Gestão de Identidade Privilegiada para funções AD Azure, o PowerShell deixará de trabalhar com a atualização. No lugar dos cmdlets anteriores, deve utilizar os cmdlets de Gestão de Identidade Privilegiada dentro do módulo PowerShell de pré-visualização Azure AD. Instale o módulo Azure AD PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Pode agora [ler a documentação e as amostras para as operações pim neste módulo PowerShell](powershell-for-azure-ad-roles.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)

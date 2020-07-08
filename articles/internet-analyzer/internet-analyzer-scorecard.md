@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744039"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretar a tabela de indicadores
@@ -55,6 +55,6 @@ Para o Analisador de Internet, um intervalo de confiança estreito é bom porque
 Uma série de tempo mostra como uma métrica muda com o tempo. Na Internet, existem muitos fatores temporais que têm impacto no desempenho, como períodos de tráfego máximo, diferenças populacionais durante a semana e feriados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte a nossa [Visão Geral do Analisador de Internet.](internet-analyzer-overview.md)

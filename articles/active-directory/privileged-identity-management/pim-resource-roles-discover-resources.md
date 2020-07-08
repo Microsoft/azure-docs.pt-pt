@@ -15,10 +15,10 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743716"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra recursos da Azure para gerir em Gestão de Identidade Privilegiada
@@ -64,7 +64,7 @@ Quando cria pela primeira vez a Gestão de Identidade Privilegiada para recursos
 
     ![Mensagem confirmando a bordo os recursos selecionados para a gestão](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

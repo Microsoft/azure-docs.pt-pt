@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
 ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744362"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Azure Internet Analyzer resolução de problemas
@@ -31,5 +31,5 @@ Este artigo contém etapas de resolução de problemas para problemas comuns do 
 - As séries de tempo e as contagens de medição são calculadas uma vez por hora, pelo que terá de esperar pelo menos esse tempo para que novos dados de medição apareçam.
 - O Analisador de Internet conta apenas medições bem sucedidas (ou seja, respostas HTTP 200) para a sua análise. Se um ou ambos os pontos finais de um teste não forem inacessíveis ou devolverem um código HTTP não-200, aparecerão com zero medições totais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia o [Analisador de Internet FAQ](internet-analyzer-faq.md)

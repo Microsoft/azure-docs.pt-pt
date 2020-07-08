@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743818"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Complete uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada
@@ -72,7 +72,7 @@ Ver e adicionar revisores à sua análise de acesso existente. Lembre os revisor
 
 ![Nome da listagem de página dos revisores e nome principal do utilizador](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Inicie uma revisão de acesso para funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-start-access-review.md)
 - [Realizar uma revisão de acesso das minhas funções de recursos Azure em Gestão de Identidade Privilegiada](pim-resource-roles-perform-access-review.md)

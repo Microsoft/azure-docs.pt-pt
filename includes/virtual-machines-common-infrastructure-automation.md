@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 3733989ad6eed113e37c87eb7da6748cec10e34d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485759"
 ---
 Para criar e gerir máquinas virtuais Azure (VMs) de forma consistente em escala, alguma forma de automação é tipicamente desejada. Existem muitas ferramentas e soluções que lhe permitem automatizar o ciclo de vida completo da infraestrutura Azure. Este artigo introduz algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Estas ferramentas geralmente se enquadram numa das seguintes abordagens:

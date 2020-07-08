@@ -9,10 +9,10 @@ ms.date: 03/18/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a07b8f9f7ca9113ecba19af7abe0ce9064a0c9e7
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84424756"
 ---
 | Tipo de Disco Standard | S4 | S6 | S10 | S15 | S20 | S30 | S40 | S50 | S60 | S70 | S80 |

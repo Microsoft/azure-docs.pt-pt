@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84749619"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Módulo de modelo de deteção de anomalias de comboio
@@ -49,7 +49,7 @@ Após o treino estar completo:
 + Para guardar uma imagem do modelo treinado, selecione o módulo. Em seguida, selecione o ícone **do conjunto de dados 'Registar'** no **separador Saídas+Logs** no painel direito.   
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

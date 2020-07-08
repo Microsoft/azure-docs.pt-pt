@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743852"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Rever acesso a funções de Azure AD em Gestão de Identidade Privilegiada
@@ -49,6 +49,6 @@ Siga estes passos para encontrar e completar a revisão de acesso:
 4. Escolha **aprovar** ou **negar**. Poderá ter de incluir uma razão para a sua decisão na caixa de texto **'Fornecer'.**  
 5. Feche a lâmina de **funções Azure AD de revisão.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Efetuar uma revisão de acesso das minhas funções de recurso no PIM](pim-resource-roles-perform-access-review.md)

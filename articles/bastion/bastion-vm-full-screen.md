@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744226"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para a vista de ecrã completo para uma sessão em Vm: Azure Bastion
@@ -30,7 +30,7 @@ Selecione o botão **Fullscreen** para mudar a sessão para uma experiência de 
 
 ![ecrã inteiro](./media/bastion-vm-manage/full-screen.png)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [FAQ do Bastião.](bastion-faq.md)
 Aprenda a [copiar e colar](bastion-vm-copy-paste.md) de e para um VM Azure.

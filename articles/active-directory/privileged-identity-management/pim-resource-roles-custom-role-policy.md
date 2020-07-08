@@ -15,10 +15,10 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743750"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Use funções personalizadas para recursos Azure em Gestão de Identidade Privilegiada
@@ -48,7 +48,7 @@ Depois de o papel ser criado na sua organização Azure AD, vá para a página *
 
 Por fim, [atribua funções](pim-resource-roles-assign-roles.md) ao distinto grupo de membros que pretende direcionar com estas definições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
 - [Custom roles in Azure](../../role-based-access-control/custom-roles.md) (Funções personalizadas no Azure)

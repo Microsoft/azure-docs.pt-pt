@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
 ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740058"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Recomendador Profundo
@@ -144,6 +144,6 @@ O Wide & Deep treina em conjunto modelos lineares largos e redes neuronais profu
 Na implementação do recomendador Wide & Deep, o módulo utiliza uma estrutura de modelo padrão. O componente largo leva incorporações de utilizador, incorporações de item e a transformação transversal de ids de utilizador e ids de item como entrada. Para a parte profunda do modelo, um vetor incorporado é aprendido para cada característica categórica. Juntamente com outros vetores de recurso numérico, estes vetores são então alimentados na rede neural de feed-forward profundo. A parte larga e profunda são combinadas resumindo as suas odds finais de registo de saída como a previsão, que finalmente vai para uma função comum de perda para o treino conjunto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

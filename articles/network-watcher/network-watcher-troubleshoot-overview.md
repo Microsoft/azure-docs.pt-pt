@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738656"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Observador da Rede Azure
@@ -49,34 +49,34 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 
 | Tipo de Falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando nenhum erro é detetado |Yes|
-| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |No|
-| PlannedMaintenance |  A instância gateway está sob manutenção  |No|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | No |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
-| PlatformInActive | Existe um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
-| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| No|
-| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Yes|
-| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Yes |
+| NoFault | Quando nenhum erro é detetado |Sim|
+| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
+| PlannedMaintenance |  A instância gateway está sob manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
+| PlatformInActive | Existe um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| Não|
+| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
 | Tipo de Falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando nenhum erro é detetado |Yes|
-| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |No|
-| PlannedMaintenance | A instância gateway está sob manutenção  |No|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | No |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
-| Entidade de ConexãoNotFound | Falta a configuração de ligação | No |
-| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |No|
-| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Yes |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
-| Autenticação | Desajuste de chave pré-partilhada | Yes|
-| PeerReachability | O portal dos pares não é alcançável. | Yes|
-| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
-| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Yes|
+| NoFault | Quando nenhum erro é detetado |Sim|
+| GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
+| PlannedMaintenance | A instância gateway está sob manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
+| Entidade de ConexãoNotFound | Falta a configuração de ligação | Não |
+| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |Não|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
+| Autenticação | Desajuste de chave pré-partilhada | Sim|
+| PeerReachability | O portal dos pares não é alcançável. | Sim|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Sim|
+| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
@@ -208,7 +208,7 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a diagnosticar um problema com uma ligação de gateway ou gateway, consulte [os problemas de comunicação do Diagnóstico entre redes](diagnose-communication-problem-between-networks.md).
 <!--Image references-->

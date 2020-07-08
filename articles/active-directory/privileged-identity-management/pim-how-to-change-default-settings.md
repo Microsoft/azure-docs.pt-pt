@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743954"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada
@@ -210,7 +210,7 @@ Se quiser delegar a aprovação necessária para ativar uma função, siga estes
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada](pim-how-to-configure-security-alerts.md)

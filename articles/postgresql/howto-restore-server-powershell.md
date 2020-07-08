@@ -8,10 +8,10 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: ef12a7168619b10448e70e0358ba8c173fda3c21
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740086"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para servidor PostgreSQL usando PowerShell
@@ -129,7 +129,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras devem ser configuras separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Personalize a Base de Dados de Azure para parâmetros de servidor PostgreSQL utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/01/2020
 ms.author: danlep
 ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84317488"
 ---
 ### <a name="database-tier"></a>Nível de base de dados

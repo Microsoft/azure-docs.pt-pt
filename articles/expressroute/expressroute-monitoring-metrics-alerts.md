@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738911"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
@@ -29,7 +29,7 @@ Para ver **Métricas,** navegue na página *Azure Monitor* e clique em *Métrica
 Uma vez selecionada uma métrica, a agregação padrão será aplicada. Opcionalmente, pode aplicar a divisão, que mostrará a métrica com diferentes dimensões.
 
 ### <a name="available-metrics"></a>Métricas disponíveis
-|**Métricas**|**Categoria**|**Dimensões(s)**|**Recurso(s)**|
+|**Métrica**|**Categoria**|**Dimensões(s)**|**Recurso(s)**|
 | --- | --- | --- | --- |
 |Disponibilidade de ARP|Disponibilidade|<ui><li>Peer (router expressroute primário/secundário)</ui></li><ui><li> Tipo de Peering (Privado/Público/Microsoft)</ui></li>|ExpressRoute|
 |Disponibilidade BGP|Disponibilidade|<ui><li> Peer (router expressroute primário/secundário)</ui></li><ui><li> Tipo de peering</ui></li>|ExpressRoute|
@@ -134,7 +134,7 @@ Nos **Critérios de Alerta,** pode selecionar **O Registo de Atividade** para o 
 
   ![outro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Configurar a ligação do ExpressRoute.
   

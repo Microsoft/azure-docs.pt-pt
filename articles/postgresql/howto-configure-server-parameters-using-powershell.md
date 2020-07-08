@@ -8,10 +8,10 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 2a2c16f681b7b1a5f8e0dac82401d1c485632d8f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740044"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>Personalize a Base de Dados de Azure para parâmetros de servidor PostgreSQL utilizando o PowerShell
@@ -65,7 +65,7 @@ Para atualizar o parâmetro de configuração do servidor de ** \_ \_ registo** 
 Update-AzPostgreSqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Armazenamento de crescimento automático na Base de Dados Azure para servidor PostgreSQL utilizando PowerShell](howto-auto-grow-storage-powershell.md).

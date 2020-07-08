@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a38194c46fa1f5bf7a6a0683e85776abb1f93b
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743801"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada
@@ -135,7 +135,7 @@ Se quiser requerer aprovação para ativar uma função, siga estes passos.
 
 1. Uma vez especificado todas as suas definições de função, selecione **Update** para guardar as suas alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)
 - [Configure alertas de segurança para funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-alerts.md)

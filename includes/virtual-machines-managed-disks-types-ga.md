@@ -9,10 +9,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 90cd1d8968963d428eb2d1de4efb458b5f89ca74
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84436172"
 ---
 ## <a name="premium-ssd"></a>SSD Premium

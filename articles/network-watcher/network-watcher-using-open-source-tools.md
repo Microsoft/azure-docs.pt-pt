@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738639"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualize padrões de tráfego de rede de e para os seus VMs usando ferramentas de código aberto
@@ -25,7 +25,7 @@ As capturas de pacotes contêm dados de rede que permitem realizar a análise fo
 
 O Observador de Rede do Azure fornece-lhe a capacidade de capturar dados, permitindo-lhe realizar capturas de pacotes na sua rede. Este artigo, proporciona uma caminhada de como visualizar e obter insights de capturas de pacotes usando CapAnalysis com Network Watcher.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Você tem uma aplicação web simples implantada em um VM em Azure quer usar ferramentas de código aberto para visualizar o seu tráfego de rede para identificar rapidamente padrões de fluxo e quaisquer anomalias possíveis. Com o Network Watcher, pode obter uma captura de pacotes do ambiente da sua rede e armazená-lo diretamente na sua conta de armazenamento. A CapAnalysis pode então ingerir a captura do pacote diretamente a partir da bolha de armazenamento e visualizar o seu conteúdo.
 
@@ -90,7 +90,7 @@ A CapAnalysis oferece várias opções para visualizar a sua captura de pacotes,
 
 A funcionalidade de captura de pacotes do Network Watcher permite-lhe capturar os dados necessários para realizar a análise forense da rede e compreender melhor o tráfego da sua rede. Neste cenário, mostrámos como as capturas de pacotes do Network Watcher podem ser facilmente integradas com ferramentas de visualização de código aberto. Ao utilizar ferramentas de código aberto, como a CapAnalysis, para visualizar capturas de pacotes, pode realizar uma inspeção de pacotes profundos e identificar rapidamente tendências dentro do tráfego da sua rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os registos de fluxo NSG, visite [os registos do NSG Flow](network-watcher-nsg-flow-logging-overview.md)
 

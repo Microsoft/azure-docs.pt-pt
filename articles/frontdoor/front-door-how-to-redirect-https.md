@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743614"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Criar uma porta frontal com https para reorientação HTTPS usando o portal Azure
@@ -104,7 +104,7 @@ Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhant
 4. Faça a mesma operação para a outra regra de encaminhamento, isto é, para que a sua rota de encaminhamento adicione o domínio personalizado.
 5. Clique em **Guardar** para submeter as suas alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

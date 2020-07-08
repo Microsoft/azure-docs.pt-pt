@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744277"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Criar um anfitrião Azure Bastion usando o portal
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como criar um hospedeiro Azure Bastion usando o portal Az
 
 Pode criar um novo recurso de anfitrião de bastião no portal, especificando manualmente todas as definições, quer utilizando as definições que correspondem a um VM existente. Para criar um hospedeiro de bastião utilizando as definições de VM, consulte o artigo [de arranque rápido.](quickstart-host-portal.md) Opcionalmente, pode utilizar [a Azure PowerShell](bastion-create-host-powershell.md) para criar um hospedeiro Azure Bastion.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 O bastião está disponível nas seguintes regiões públicas do Azure:
 
@@ -59,7 +59,7 @@ Esta secção ajuda-o a criar um novo recurso Azure Bastion a partir do portal A
 1. Na página **Criar um bastião,** clique em **Criar**.
 1. Verá uma mensagem a dizer-lhe que a sua implantação está em curso. O estado será exibido nesta página à medida que os recursos forem criados. Leva cerca de 5 minutos para o recurso Bastion ser criado e implantado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia as [FAQ de Bastião](bastion-faq.md) para obter informações adicionais.
 

@@ -18,10 +18,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84742169"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para utilizar a Gestão de Identidade Privilegiada
@@ -52,7 +52,7 @@ Para obter mais informações sobre licenças, consulte [atribuir ou remover lic
 
 Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar o número de licenças que deve ter.
 
-| Cenário | Cálculo | Número de licenças |
+| Scenario | Cálculo | Número de licenças |
 | --- | --- | --- |
 | O Woodgrove Bank tem 10 administradores para diferentes departamentos e 2 Administradores Globais que configuram e gerem a PIM. Fazem cinco administradores elegíveis. | Cinco licenças para os administradores elegíveis | 5 |
 | O Instituto de Design Gráfico tem 25 administradores dos quais 14 são geridos através da PIM. A ativação de funções requer aprovação e há três utilizadores diferentes na organização que podem aprovar ativações. | 14 licenças para as funções elegíveis + três aprovadores | 17 |
@@ -68,7 +68,7 @@ Se um Azure AD Premium P2, EMS E5 ou licença de julgamento expirar, as funciona
 - Quaisquer revisões de acesso em curso das funções de AD Azure terminarão e as definições de configuração de Gestão de Identidade Privilegiada serão removidas.
 - A Gestão de Identidade Privilegiada deixará de enviar e-mails sobre alterações na atribuição de funções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar o Privileged Identity Management](pim-deployment-plan.md)
 - [Começar a utilizar o Privileged Identity Management](pim-getting-started.md)

@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743172"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD AD em Gestão de Identidade Privilegiada
@@ -62,7 +62,7 @@ Se a função não necessitar de aprovação, é ativada de acordo com as suas d
 
 Se a função necessitar de aprovação para ser ativada, receberá uma notificação do Azure informando-o de que o pedido está pendente de aprovação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)

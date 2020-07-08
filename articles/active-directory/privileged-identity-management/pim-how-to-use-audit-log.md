@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84742271"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Ver histórico de auditoria para funções de Azure AD em Gestão de Identidade Privilegiada
@@ -88,7 +88,7 @@ Siga estes passos para ver o histórico de auditoria para as funções de Azure 
 
     Na parte inferior da página, é apresentada uma tabela com informações sobre cada ação no histórico de auditoria disponível. As colunas têm os seguintes significados:
 
-    | Coluna | Description |
+    | Coluna | Descrição |
     | --- | --- |
     | Hora | Quando a ação ocorreu. |
     | Requerente | Utilizador que solicitou a ativação ou alteração da função. Se o valor for **O Sistema Azure,** consulte o histórico de auditoria do Azure para obter mais informações. |
@@ -138,6 +138,6 @@ Normalmente, o evento de registo de auditoria imediatamente acima do evento de a
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver histórico de atividades e auditorias para funções de recursos da Azure em Gestão de Identidade Privilegiada](azure-pim-resource-rbac.md)

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
 ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744005"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contentor
@@ -281,7 +281,7 @@ az group delete \
   --name <resource-group-name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Navegue no [Mercado GitHub](https://github.com/marketplace?type=actions) para mais ações para automatizar o seu fluxo de trabalho de desenvolvimento
 

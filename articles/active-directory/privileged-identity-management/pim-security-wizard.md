@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cc7aed1cc79a8c08a7ff11382a1c7a51455d5c3
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743665"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Azure AD funções assistente de segurança na Gestão de Identidade Privilegiada
@@ -70,7 +70,7 @@ O segundo passo do assistente dá-lhe a oportunidade de alterar as atribuições
 
 Se precisar de converter outras atribuições de funções privilegiadas para elegíveis, pode voltar a executar o assistente. Se pretender utilizar a interface de Gestão de Identidade Privilegiada em vez do assistente, consulte [as funções de AD de Atribuição em Gestão de Identidade Privilegiada.](pim-how-to-add-role-to-user.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada](pim-how-to-give-access-to-pim.md)

@@ -1,5 +1,5 @@
 ---
-title: Implementar um modelo para uso com Pesquisa Cognitiva
+title: Implementar um modelo para utilizar com o Cognitive Search
 titleSuffix: Azure Machine Learning
 description: Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo para uso com Azure Cognitive Search. A Cognitive Search pode usar modelos implementados pela Azure Machine Learning como uma habilidade personalizada para enriquecer a experiência de pesquisa.
 services: machine-learning
@@ -11,13 +11,13 @@ author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.openlocfilehash: c8b25e1d3ef2d2b780d88fbf2ba6c6568b4a804d
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744960"
 ---
-# <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para uso com Pesquisa Cognitiva
+# <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo para uso com [Azure Cognitive Search](../search/search-what-is-azure-search.md).
@@ -321,6 +321,6 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Construa e implemente uma habilidade personalizada com a Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)
