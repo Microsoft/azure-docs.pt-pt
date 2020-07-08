@@ -1,5 +1,5 @@
 ---
-title: StringToArray em linguagem de consulta de DD Do Cosmos azure
+title: StringToArray em Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre a função do sistema SQL StringToArray em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302921"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
- Expressão de retorno traduzida para um Array. Se a expressão não puder ser traduzida, regressa indefinido.  
+ Retorna a expressão traduzida para um Array. Se a expressão não puder ser traduzida, retorna indefinidamente.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -33,11 +32,11 @@ StringToArray(<str_expr>)
   Devolve uma expressão de matriz ou indefinida. 
   
 ## <a name="remarks"></a>Observações
-  Os valores das cordas aninhados devem ser escritos com duas citações para serem jSON válidos. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)
+  Os valores das cordas aninhadas devem ser escritos com ações duplas para serem JSON válidos. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que `StringToArray` se segue mostra como se comporta em diferentes tipos. 
+  O exemplo a seguir mostra como `StringToArray` se comporta em diferentes tipos. 
   
  Seguem-se exemplos com entrada válida.
 
@@ -58,8 +57,8 @@ Aqui está o conjunto de resultados.
 
 Segue-se um exemplo de entrada inválida. 
    
- As cotações únicas dentro da matriz não são válidas JSON.
-Mesmo que sejam válidos dentro de uma consulta, não irão analisar matrizes válidas. As cordas dentro da corda de matriz devem ser escapadas "[\\"\\"]" ou a citação circundante deve ser única "["]".
+ As cotações individuais dentro da matriz não são JSON válidas.
+Apesar de serem válidos dentro de uma consulta, não irão analisar as matrizes válidas. As cordas dentro da corda da matriz devem ser escapados \\ "[" \\ ou a citação circundante deve ser única '[""]".
 
 ```sql
 SELECT
@@ -74,7 +73,7 @@ Aqui está o conjunto de resultados.
 
 Seguem-se exemplos de entrada inválida.
    
- A expressão aprovada será analisada como uma matriz JSON; os seguintes não avaliam a matriz de tipo e, assim, regressam indefinidos.
+ A expressão passada será analisada como uma matriz JSON; o seguinte não avaliar para escrever matriz e, assim, devolver indefinidamente.
    
 ```sql
 SELECT
@@ -95,8 +94,8 @@ Aqui está o conjunto de resultados.
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

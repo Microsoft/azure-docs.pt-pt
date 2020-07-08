@@ -1,7 +1,7 @@
 ---
-title: Integração git para Azure Machine Learning
+title: Integração de Git para Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como o Azure Machine Learning se integra com um repositório git local. Ao submeter uma formação a partir de um diretório local que é um repositório Git, as informações sobre repo, filial e compromisso atual são rastreadas como parte da corrida.
+description: Saiba como a Azure Machine Learning se integra com um repositório local de Git. Ao submeter uma corrida de formação a partir de um diretório local que é um repositório git, as informações sobre repo, branch e compromisso atual são rastreadas como parte da corrida.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,36 +10,35 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402834"
 ---
-# <a name="git-integration-for-azure-machine-learning"></a>Integração git para Azure Machine Learning
+# <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
-[Git](https://git-scm.com/) é um sistema de controlo de versão popular que lhe permite partilhar e colaborar nos seus projetos. 
+[Git](https://git-scm.com/) é um popular sistema de controlo de versão que permite partilhar e colaborar nos seus projetos. 
 
-O Azure Machine Learning suporta totalmente os repositórios git para o trabalho de rastreio - pode clonar repositórios diretamente no seu sistema de ficheiros de espaço de trabalho partilhado, usar Git na sua estação de trabalho local, ou usar Git a partir de um pipeline CI/CD.
+A Azure Machine Learning suporta totalmente os repositórios de Git para o trabalho de rastreio - pode clonar repositórios diretamente no seu sistema de ficheiros de espaço de trabalho partilhado, usar Git na sua estação de trabalho local ou usar Git a partir de um oleoduto CI/CD.
 
-Ao submeter um trabalho ao Azure Machine Learning, se os ficheiros de origem forem armazenados num repositório local, então as informações sobre o repo são rastreadas como parte do processo de formação.
+Ao submeter um trabalho ao Azure Machine Learning, se os ficheiros de origem forem armazenados num repositório local, então a informação sobre o repo é rastreada como parte do processo de treino.
 
-Uma vez que o Azure Machine Learning rastreia informações de um repo local, não está ligado a nenhum repositório central específico. O seu repositório pode ser clonado a partir de GitHub, GitLab, Bitbucket, Azure DevOps ou qualquer outro serviço compatível com git.
+Uma vez que a Azure Machine Learning rastreia informações de um repo local, não está ligada a nenhum repositório central específico. O seu repositório pode ser clonado do GitHub, GitLab, Bitbucket, Azure DevOps ou de qualquer outro serviço compatível com git.
 
-## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clone Git repositórios no seu sistema de ficheiros espaço de trabalho
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonar repositórios Git no sistema de ficheiros da área de trabalho
 O Azure Machine Learning fornece um sistema de ficheiros partilhado para todos os utilizadores no espaço de trabalho.
-Para clonar um repositório Git nesta partilha de ficheiros, recomendamos que crie um Compute Instance & abrir um terminal.
-Uma vez aberto o terminal, você tem acesso a um cliente Git completo e pode clonar e trabalhar com git através da experiência Git CLI.
+Para clonar um repositório git nesta partilha de ficheiros, recomendamos que crie uma Instância de Computação & abrir um terminal.
+Uma vez aberto o terminal, você tem acesso a um cliente Git completo e pode clonar e trabalhar com Git através da experiência Git CLI.
 
 Recomendamos que clone o repositório no diretório dos seus utilizadores para que outros não façam colisões diretamente no seu ramo de trabalho.
 
-Você pode clonar qualquer repositório Git que você pode autenticar (GitHub, Azure Repos, BitBucket, etc.)
+Você pode clonar qualquer repositório git que você pode autenticar (GitHub, Azure Repos, BitBucket, etc.)
 
-Para obter um guia sobre como utilizar o Git CLI, leia [aqui](https://guides.github.com/introduction/git-handbook/).
+Para um guia sobre como usar o Git CLI, leia [aqui.](https://guides.github.com/introduction/git-handbook/)
 
-## <a name="track-code-that-comes-from-git-repositories"></a>Código de pista que vem dos repositórios de Git
+## <a name="track-code-that-comes-from-git-repositories"></a>Código de rastreio que vem dos repositórios de Git
 
-Quando submete uma execução de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se `git` o comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload usa-o para verificar se os ficheiros são armazenados num repositório git. Em caso afirmativo, as informações do seu repositório git também são enviadas como parte do treino. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
+Quando submete uma corrida de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se o `git` comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload utiliza-o para verificar se os ficheiros estão armazenados num repositório de git. Em caso afirmativo, então a informação do seu repositório de git também é carregada como parte da formação. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
 
 | Propriedade | Comando Git usado para obter o valor | Descrição |
 | ----- | ----- | ----- |
@@ -47,37 +46,37 @@ Quando submete uma execução de treino a partir do Python SDK ou do Machine Lea
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
 | `azureml.git.branch` | `git symbolic-ref --short HEAD` | O ramo ativo quando a corrida foi submetida. |
 | `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | O ramo ativo quando a corrida foi submetida. |
-| `azureml.git.commit` | `git rev-parse HEAD` | O hash de compromisso do código que foi submetido para a execução. |
-| `mlflow.source.git.commit` | `git rev-parse HEAD` | O hash de compromisso do código que foi submetido para a execução. |
-| `azureml.git.dirty` | `git status --porcelain .` | `True`, se o ramo/compromisso estiver sujo; caso contrário, `false`. |
+| `azureml.git.commit` | `git rev-parse HEAD` | O haxixe do código que foi submetido para a corrida. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | O haxixe do código que foi submetido para a corrida. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, se o ramo/compromisso estiver sujo; caso contrário, `false` . . |
 
-Esta informação é enviada para executagens que usam um estimador, um pipeline de aprendizagem automática ou uma execução de script.
+Esta informação é enviada para corridas que utilizem um estimador, um pipeline de aprendizagem automática ou script run.
 
-Se os seus ficheiros de treino não estiverem localizados num `git` repositório git sobre o seu ambiente de desenvolvimento, ou se o comando não estiver disponível, então nenhuma informação relacionada com o git é rastreada.
+Se os seus ficheiros de treino não estiverem localizados num repositório de git no seu ambiente de desenvolvimento, ou se o `git` comando não estiver disponível, então nenhuma informação relacionada com git é rastreada.
 
 > [!TIP]
-> Para verificar se o comando git está disponível no seu ambiente de desenvolvimento, abra uma sessão de concha, pedido de comando, PowerShell ou outra interface de linha de comando e escreva o seguinte comando:
+> Para verificar se o comando git está disponível no seu ambiente de desenvolvimento, abra uma sessão de shell, pedido de comando, PowerShell ou outra interface de linha de comando e digite o seguinte comando:
 >
 > ```
 > git --version
 > ```
 >
-> Se instalado, e no caminho, receberá uma `git version 2.4.1`resposta semelhante a . Para obter mais informações sobre a instalação do git no seu ambiente de desenvolvimento, consulte o [site git](https://git-scm.com/).
+> Se instalado, e no caminho, recebe uma resposta semelhante a `git version 2.4.1` . Para obter mais informações sobre a instalação do git no seu ambiente de desenvolvimento, consulte o [site da Git.](https://git-scm.com/)
 
-## <a name="view-the-logged-information"></a>Ver a informação registada
+## <a name="view-the-logged-information"></a>Ver as informações registadas
 
-A informação git é armazenada nas propriedades para um treino. Pode ver esta informação utilizando o portal Azure, Python SDK e CLI. 
+A informação do git é armazenada nas propriedades para uma corrida de treino. Pode ver esta informação utilizando o portal Azure, Python SDK e CLI. 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho.
 1. Selecione __Experimentos__e, em seguida, selecione uma das suas experiências.
-1. Selecione uma das correções da coluna __NÚMERO DE EXECUÇÃO.__
-1. Selecione __Registos__e, em seguida, expanda os __registos__ e as entradas __em azul.__ Selecione o __ ### \___ link que começa com azul .
+1. Selecione uma das correções da coluna __RUN NUMBER.__
+1. Selecione __Logs__e, em seguida, expanda os __registos__ e as entradas __azureml.__ Selecione o link que começa com __ ### \_ azul__.
 
     ![A entrada ###_azure no portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
-As informações registadas contêm textosemelhante ao seguinte JSON:
+As informações registadas contêm texto semelhante ao seguinte JSON:
 
 ```json
 "properties": {
@@ -98,7 +97,7 @@ As informações registadas contêm textosemelhante ao seguinte JSON:
 
 ### <a name="python-sdk"></a>SDK Python
 
-Depois de submeter um treino, um objeto [run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) é devolvido. O `properties` atributo deste objeto contém a informação de git registado. Por exemplo, o seguinte código recupera o hash de compromisso:
+Depois de submeter uma corrida de treino, um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) é devolvido. O `properties` atributo deste objeto contém a informação do git registado. Por exemplo, o seguinte código recupera o haxixe do compromisso:
 
 ```python
 run.properties['azureml.git.commit']
@@ -106,14 +105,14 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>CLI
 
-O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma corrida. Por exemplo, o seguinte comando devolve as propriedades `train-on-amlcompute`para a última execução na experiência denominada:
+O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma corrida. Por exemplo, o seguinte comando devolve as propriedades para a última execução da experiência `train-on-amlcompute` denominada:
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para mais informações, consulte a documentação de referência [az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest)
+Para mais informações, consulte a documentação de referência [az ml run.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Configurar e utilizar alvos de cálculo para formação de modelos](how-to-set-up-training-targets.md)
+* [Configurar e utilizar metas de computação para a formação de modelos](how-to-set-up-training-targets.md)

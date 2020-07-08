@@ -12,21 +12,20 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304566"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de transmissão e compilar URLs
 
-Nos Serviços Azure Media, para construir um URL de streaming, é necessário criar primeiro um Localizador de [Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome de [anfitrião do Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o **ponto final de streaming** *predefinido.* Quando criar uma conta de Serviço de Media, este **ponto final** de streaming *padrão* estará em estado de paragem, pelo que precisa de ligar para **começar** a transmitir.
+No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
 
 Este artigo demonstra como criar um localizador de streaming e construir um URL de streaming usando Java e .NET SDKs.
 
 ## <a name="prerequisite"></a>Pré-requisito 
 
-Embalagem [dinâmica](dynamic-packaging-overview.md) de pré-visualização
+Pré-visualização [De embalagem dinâmica](dynamic-packaging-overview.md)
 
 ## <a name="java"></a>Java
 
@@ -85,7 +84,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-Ver a amostra completa do código: [CodificaçãoComMESPredefinedPresetPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Consulte a amostra de código completa: [Codificação ComMESPredefinedPredefinedPredeset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -158,14 +157,14 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-Ver a amostra completa do código: [CodificaçãoComMESPredefinedPresetPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Consulte a amostra de código completa: [Codificação ComMESPredefinedPredefinedPredeset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com REST](filters-dynamic-manifest-rest-howto.md)
 * [Criar filtros com CLI](filters-dynamic-manifest-cli-howto.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Proteja o seu conteúdo com a DRM](protect-with-drm.md).
+[Proteja o seu conteúdo com DRM](protect-with-drm.md).

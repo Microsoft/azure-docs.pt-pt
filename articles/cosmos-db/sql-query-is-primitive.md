@@ -1,5 +1,5 @@
 ---
-title: IS_PRIMITIVE em linguagem de consulta de Azure Cosmos DB
+title: IS_PRIMITIVE na linguagem de consulta DB do Cosmos Azure
 description: Saiba mais sobre a função do sistema SQL IS_PRIMITIVE em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 04c8e41f1a431b329f2093851e4430e69ab6aee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303788"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
- Devolve um valor booleano indicando se o tipo da expressão especificada é primitivo (corda, booleano, numérico ou nulo).  
+ Devolve um valor booleano indicando se o tipo de expressão especificada é primitivo (corda, booleana, numérico ou nulo).  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +33,7 @@ IS_PRIMITIVE(<expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte verifica objetos de JSON Boolean, número, corda, `IS_PRIMITIVE` nulo, objeto, matriz e tipos indefinidos utilizando a função.  
+  O exemplo a seguir verifica objetos de JSON Boolean, número, corda, nulo, objeto, matriz e tipos indefinidos que utilizam a `IS_PRIMITIVE` função.  
   
 ```sql
 SELECT   
@@ -55,10 +54,10 @@ SELECT
 
 ## <a name="remarks"></a>Observações
 
-Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
+Esta função do sistema beneficiará de um [índice de intervalo.](index-policy.md#includeexclude-strategy)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Funções de verificação de tipos Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

@@ -1,6 +1,6 @@
 ---
-title: Use mapReduce e Curl com Apache Hadoop em HDInsight - Azure
-description: Aprenda a executar remotamente mapReduce jobs com Apache Hadoop no HDInsight usando Curl.
+title: Use MapReduce e Curl com Apache Hadoop em HDInsight - Azure
+description: Aprenda a executar remotamente trabalhos mapReduce com Apache Hadoop em HDInsight usando Curl.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,37 +9,36 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302717"
 ---
-# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar mapeia Empregos com Apache Hadoop no HDInsight usando REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando REST
 
-Aprenda a usar a Apache Hive WebHCat REST API para executar mapReduce jobs em um Apache Hadoop em cluster HDInsight. O curl é usado para demonstrar como pode interagir com o HDInsight usando pedidos CRUHTTP para executar trabalhos MapReduce.
+Aprenda a usar a Apache Hive WebHCat REST API para executar trabalhos MapReduce num Apache Hadoop no cluster HDInsight. O curl é usado para demonstrar como pode interagir com o HDInsight usando pedidos HTTP brutos para executar trabalhos mapReduce.
 
 > [!NOTE]  
-> Se já está familiarizado com a utilização de servidores Hadoop baseados em Linux, mas é novo no HDInsight, veja o que precisa de saber sobre o [Apache Hadoop baseado em Linux no documento HDInsight.](../hdinsight-hadoop-linux-information.md)
+> Se já está familiarizado com a utilização de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte o [que precisa de saber sobre o Apache Hadoop baseado em Linux no documento HDInsight.](../hdinsight-hadoop-linux-information.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um aglomerado Apache Hadoop no HDInsight. Consulte os [clusters De Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* Um aglomerado Apache Hadoop em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 Faça o seguinte:
   * Windows PowerShell ou,
-  * [Caracol](https://curl.haxx.se/) com [jq](https://stedolan.github.io/jq/)
+  * [Enrolar](https://curl.haxx.se/) com [jq](https://stedolan.github.io/jq/)
 
 ## <a name="run-a-mapreduce-job"></a>Executar um trabalho mapReduce
 
 > [!NOTE]  
 > Quando utilizar o Curl ou qualquer outra comunicação REST com o WebHCat, deve autenticar os pedidos fornecendo o nome de utilizador e palavra-passe do administrador do cluster HDInsight. Deve utilizar o nome do cluster como parte do URI que é utilizado para enviar os pedidos para o servidor.
 >
-> A API REST é protegida utilizando a [autenticação de acesso básico.](https://en.wikipedia.org/wiki/Basic_access_authentication) Deve sempre fazer pedidos utilizando https para garantir que as suas credenciais são enviadas de forma segura para o servidor.
+> A API REST é assegurada utilizando [a autenticação de acesso básico.](https://en.wikipedia.org/wiki/Basic_access_authentication) Deve sempre esedição de pedidos utilizando HTTPS para garantir que as suas credenciais são enviadas de forma segura para o servidor.
 
 ### <a name="curl"></a>Curl
 
-1. Para facilitar a utilização, desloque as variáveis abaixo. Este exemplo baseia-se num ambiente Windows, revisto conforme necessário para o seu ambiente.
+1. Para facilitar a utilização, desa um ponto das variáveis abaixo. Este exemplo baseia-se num ambiente Windows, reveja conforme necessário para o seu ambiente.
 
     ```cmd
     set CLUSTERNAME=
@@ -54,10 +53,10 @@ Faça o seguinte:
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-u**: Indica o nome do utilizador e a palavra-passe utilizada para autenticar o pedido
-   * **-G**: Indica que esta operação é um pedido get
+   * **-u**: Indica o nome de utilizador e a palavra-passe utilizada para autenticar o pedido
+   * **-G**: Indica que esta operação é um pedido GET
 
-   O início do `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`URI, é o mesmo para todos os pedidos.
+   O início do `https://CLUSTERNAME.azurehdinsight.net/templeton/v1` URI, é o mesmo para todos os pedidos.
 
     Recebe uma resposta semelhante à seguinte JSON:
 
@@ -65,7 +64,7 @@ Faça o seguinte:
     {"version":"v1","status":"ok"}
     ```
 
-1. Para submeter um trabalho MapReduce, utilize o seguinte comando. Modifique o caminho para **o jq** conforme necessário.
+1. Para submeter um trabalho de MapReduce, utilize o seguinte comando. Modifique o caminho para **jq** conforme necessário.
 
     ```cmd
     curl -u admin:%PASSWORD% -d user.name=admin ^
@@ -75,19 +74,19 @@ Faça o seguinte:
     C:\HDI\jq-win64.exe .id
     ```
 
-    O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce de uma classe num ficheiro de frascos. Os parâmetros utilizados neste comando são os seguintes:
+    O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce a partir de uma classe num ficheiro de frasco. Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-d** `-G` : não é utilizado, pelo que o pedido não se aplica ao método POST. `-d`especifica os valores de dados enviados com o pedido.
+   * **-d**: `-G` não é utilizado, pelo que o pedido é predefinido ao método POST. `-d`especifica os valores de dados que são enviados com o pedido.
      * **user.name**: O utilizador que está a comandar o comando
-     * **jar**: A localização do arquivo do frasco que contém classe a ser ranuosa
+     * **jar**: A localização do ficheiro do frasco que contém classe a ser correu
      * **classe**: A classe que contém a lógica MapReduce
-     * **arg**: Os argumentos a serem transmitidos para o trabalho MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
+     * **arg**: Os argumentos a serem passados para o trabalho mapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são usados para a saída
 
-    Este comando deve devolver uma identificação de trabalho que possa ser usada para verificar o estado do trabalho:
+    Este comando deve devolver uma ID de trabalho que pode ser usada para verificar o estado do trabalho:
 
        job_1415651640909_0026
 
-1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua o `JOBID` valor pelo valor **real** devolvido no passo anterior. Reveja a localização do **JQ** conforme necessário.
+1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua o valor pelo `JOBID` valor **real** devolvido no passo anterior. Rever a localização do **JQ** conforme necessário.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -98,7 +97,7 @@ Faça o seguinte:
 
 ### <a name="powershell"></a>PowerShell
 
-1. Para facilitar a utilização, desloque as variáveis abaixo. Substitua-o `CLUSTERNAME` pelo seu nome real de cluster. Execute o comando e introduza a senha de login do cluster quando solicitado.
+1. Para facilitar a utilização, desa um ponto das variáveis abaixo. `CLUSTERNAME`Substitua-o pelo seu nome de cluster real. Execute o comando e introduza a palavra-passe de login do cluster quando solicitado.
 
     ```powershell
     $clusterName="CLUSTERNAME"
@@ -120,7 +119,7 @@ Faça o seguinte:
     {"version":"v1","status":"ok"}
     ```
 
-1. Para submeter um trabalho MapReduce, utilize o seguinte comando:
+1. Para submeter um trabalho mapReduce, utilize o seguinte comando:
 
     ```powershell
     $reqParams = @{}
@@ -139,14 +138,14 @@ Faça o seguinte:
     $jobID
     ```
 
-    O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce de uma classe num ficheiro de frascos. Os parâmetros utilizados neste comando são os seguintes:
+    O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce a partir de uma classe num ficheiro de frasco. Os parâmetros utilizados neste comando são os seguintes:
 
     * **user.name**: O utilizador que está a comandar o comando
-    * **jar**: A localização do arquivo do frasco que contém classe a ser ranuosa
+    * **jar**: A localização do ficheiro do frasco que contém classe a ser correu
     * **classe**: A classe que contém a lógica MapReduce
-    * **arg**: Os argumentos a serem transmitidos para o trabalho MapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são utilizados para a saída
+    * **arg**: Os argumentos a serem passados para o trabalho mapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são usados para a saída
 
-   Este comando deve devolver uma identificação de trabalho que possa ser usada para verificar o estado do trabalho:
+   Este comando deve devolver uma ID de trabalho que pode ser usada para verificar o estado do trabalho:
 
        job_1415651640909_0026
 
@@ -167,17 +166,17 @@ Faça o seguinte:
 
 ### <a name="both-methods"></a>Ambos os métodos
 
-1. Se o trabalho estiver completo, `SUCCEEDED`o Estado devolvido é.
+1. Se o trabalho estiver completo, o estado devolvido `SUCCEEDED` é.
 
-1. Quando o estado do trabalho `SUCCEEDED`tiver mudado para, pode recuperar os resultados do trabalho a partir do armazenamento da Blob Azure. O `statusdir` parâmetro que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a `/example/curl`localização é . Este endereço armazena a saída do trabalho `/example/curl`nos clusters de armazenamento padrão em .
+1. Quando o estado do trabalho tiver mudado `SUCCEEDED` para, você pode recuperar os resultados do trabalho a partir do armazenamento de Azure Blob. O `statusdir` parâmetro que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a localização é `/example/curl` . Este endereço armazena a saída do trabalho no armazenamento por defeito dos clusters em `/example/curl` .
 
-Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI para trabalhar com o armazenamento Azure Blob, consulte [Quickstart: Create, download e list blobs com Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
+Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do CLI Azure para trabalhar com o armazenamento Azure Blob, consulte [Quickstart: Criar, descarregar e listar bolhas com Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter informações sobre outras formas de trabalhar com Hadoop no HDInsight:
+Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 
-* [Use mapReduce com Hadoop Apache no HDInsight](hdinsight-use-mapreduce.md)
-* [Use a Colmeia Apache com Hadoop Apache no HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce com Apache Hadoop em HDInsight](hdinsight-use-mapreduce.md)
+* [Use a Colmeia Apache com Apache Hadoop em HDInsight](hdinsight-use-hive.md)
 
 Para obter mais informações sobre a interface REST que é utilizada neste artigo, consulte a [Referência WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

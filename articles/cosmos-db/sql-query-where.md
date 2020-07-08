@@ -1,21 +1,20 @@
 ---
-title: ONDE a cláusula em Azure Cosmos DB
-description: Conheça a cláusula SQL WHERE para Azure Cosmos DB
+title: CLÁUSULA ONDE em Azure Cosmos DB
+description: Saiba mais sobre a cláusula SQL WHERE para Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898788"
 ---
-# <a name="where-clause-in-azure-cosmos-db"></a>ONDE a cláusula em Azure Cosmos DB
+# <a name="where-clause-in-azure-cosmos-db"></a>CLÁUSULA ONDE em Azure Cosmos DB
 
-A cláusula opcional`WHERE <filter_condition>`WHERE () especifica condição(s) que os itens JSON de origem devem satisfazer para que a consulta os inclua nos resultados. Um item JSON deve avaliar `true` as condições especificadas a considerar para o resultado. A camada de índice utiliza a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula OPCIONAL WHERE `WHERE <filter_condition>` () especifica a condição(s) que os itens JSON de origem devem satisfazer para que a consulta os inclua em resultados. Um item JSON deve avaliar as condições especificadas `true` a considerar para o resultado. A camada de índice utiliza a cláusula WHERE para determinar o subconjunto mais pequeno de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -33,17 +32,17 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   Expressão que representa o valor a calcular. Consulte [expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
+   Expressão que representa o valor a calcular. Consulte [as expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
   
 ## <a name="remarks"></a>Observações
   
-  Para que o documento seja devolvido, uma expressão especificada como condição do filtro deve avaliar com a verdade. Apenas o `true` valor booleano satisfará a condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não satisfará a condição.
+  Para que o documento seja devolvido, uma expressão especificada como condição de filtro deve avaliar a verdade. Apenas o valor `true` booleano irá satisfazer a condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não satisfaz a condição.
 
-  Se incluir a sua `WHERE` chave de partição na cláusula como parte de um filtro de igualdade, a sua consulta filtrará automaticamente apenas para as divisórias relevantes.
+  Se incluir a sua chave de partição na `WHERE` cláusula como parte de um filtro de igualdade, a sua consulta filtrará automaticamente apenas as divisórias relevantes.
 
 ## <a name="examples"></a>Exemplos
 
-A seguinte consulta solicita itens que `id` contenham um `AndersenFamily`imóvel cujo valor é . Exclui qualquer item que não `id` tenha uma propriedade ou `AndersenFamily`cujo valor não corresponda.
+A consulta seguinte solicita itens que contenham um `id` imóvel cujo valor seja `AndersenFamily` . Exclui qualquer item que não tenha uma `id` propriedade ou cujo valor não corresponda. `AndersenFamily`
 
 ```sql
     SELECT f.address
@@ -65,16 +64,16 @@ Os resultados são:
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>Expressões escalar na cláusula WHERE
 
-O exemplo anterior mostrou uma simples consulta de igualdade. A API SQL também suporta [várias expressões escalar.](sql-query-scalar-expressions.md) Os mais utilizados são expressões binárias e não-secundárias. Referências de propriedade do objeto JSON fonte também são expressões válidas.
+O exemplo anterior mostrou uma simples consulta sobre a igualdade. A API SQL também suporta várias [expressões escalares.](sql-query-scalar-expressions.md) As expressões mais usadas são binárias e não-árias. As referências de propriedade do objeto JSON de origem também são expressões válidas.
 
 Pode utilizar os seguintes operadores binários suportados:  
 
 |**Tipo de operadores**  | **Valores** |
 |---------|---------|
 |Aritmética | +,-,*,/,% |
-|Bitwise    | \|, &,  <<, >>, >>>  (turno direito de preenchimento zero) |
+|Bitwise    | \|, &, ^, <<, >> >>>  (turno certo de preenchimento zero) |
 |Lógico    | E, OU, NÃO      |
-|Comparação | =, &lt;!=, &gt; &lt;=, &gt;=, <> |
+|Comparação | =, !=, &lt; &gt; , &lt; =, &gt; =, <> |
 |String     |  \|\|(concatenato) |
 
 As seguintes consultas utilizam operadores binários:
@@ -93,7 +92,7 @@ As seguintes consultas utilizam operadores binários:
     WHERE c.grade >= 5    -- matching grades == 5
 ```
 
-Também pode utilizar os operadores não-,-, ~, e NÃO em consultas, como mostram os seguintes exemplos:
+Também pode utilizar os operadores não ,-, ~, e NÃO em consultas, como mostram os seguintes exemplos:
 
 ```sql
     SELECT *
@@ -105,10 +104,10 @@ Também pode utilizar os operadores não-,-, ~, e NÃO em consultas, como mostra
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON contendo o imóvel `isRegistered` com valor igual a `true`. Qualquer outro valor, `false` `null`como, `<number>` `<string>`, `<object>` `Undefined`, `<array>`, ou , exclui o item do resultado.
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como, por exemplo, , `false` , ou , exclui o item do `null` `Undefined` `<number>` `<string>` `<object>` `<array>` resultado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução](sql-query-getting-started.md)
-- [Na palavra-chave](sql-query-keywords.md#in)
+- [IN palavra-chave](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

@@ -1,6 +1,6 @@
 ---
-title: Implementar o streaming de failover com a Azure Media Services [ Serviços de Comunicação Social] Microsoft Docs
-description: Este artigo mostra como implementar um cenário de streaming de falhas com a Azure Media Services.
+title: Implementar o streaming de failover com a Azure Media Services Microsoft Docs
+description: Este artigo mostra como implementar um cenário de streaming falhado com a Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,58 +14,57 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78939224"
 ---
-# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar o streaming failover com media services v2
+# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com Serviços de Media v2
 
-Este walkthrough demonstra como copiar conteúdo (blobs) de um ativo para outro, a fim de lidar com o despedimento para o streaming a pedido. Este cenário é útil se pretender configurar a Rede de Entrega de Conteúdos Azure para falhar entre dois datacenters, em caso de falha num centro de dados. Este walkthrough utiliza o Azure Media Services SDK, o Azure Media Services REST API e o Azure Storage SDK para demonstrar as seguintes tarefas:
+Este walkthrough demonstra como copiar conteúdo (bolhas) de um ativo para outro, a fim de lidar com a redundância para o streaming a pedido. Este cenário é útil se pretender configurar a Rede de Entrega de Conteúdos Azure para falhar entre dois centros de dados, em caso de uma falha num centro de dados. Este walkthrough utiliza o Azure Media Services SDK, o Azure Media Services REST API e o Azure Storage SDK para demonstrar as seguintes tarefas:
 
-1. Criar uma conta de Media Services no "Data Center A".
-2. Faça upload de um ficheiro mezanino para um ativo de origem.
-3. Codificar o ativo em ficheiros MP4 de taxa múltipla. 
-4. Crie um localizador de assinatura de acesso partilhado só de leitura. Isto é para que o ativo de origem tenha lido o acesso ao contentor na conta de armazenamento que está associada ao ativo de origem.
-5. Obtenha o nome do recipiente do ativo de origem do localizador de assinatura de acesso partilhado de leitura criado no passo anterior. Isto é necessário para copiar bolhas entre contas de armazenamento (explicadas mais tarde no tópico.)
-6. Criar um localizador de origem para o ativo que foi criado pela tarefa de codificação. 
+1. Crie uma conta de Serviços de Comunicação em "Data Center A".
+2. Faça o upload de um ficheiro mezanino para um ativo de origem.
+3. Codificar o ativo em ficheiros MP4 de taxa multi-bit. 
+4. Crie um localizador de assinatura de acesso partilhado apenas para leitura. Isto é para que o ativo de origem tenha lido o acesso ao contentor na conta de armazenamento que está associada ao ativo de origem.
+5. Obtenha o nome do dado de origem do localizador de assinatura de acesso partilhado apenas de leitura criado no passo anterior. Isto é necessário para copiar bolhas entre contas de armazenamento (explicadas mais tarde no tópico.)
+6. Crie um localizador de origem para o ativo que foi criado pela tarefa de codificação. 
 
-Em seguida, para lidar com a falha:
+Então, para lidar com a falha:
 
-1. Criar uma conta de Media Services no "Data Center B".
-2. Criar um ativo vazio alvo na conta de Media Services alvo.
-3. Crie um localizador de assinatura de acesso partilhado de escrita. Isto é para que o ativo vazio alvo tenha acesso escrito ao recipiente na conta de armazenamento alvo que está associada ao ativo alvo.
-4. Utilize o Azure Storage SDK para copiar bolhas (ficheiros de ativos) entre a conta de armazenamento de origem em "Data Center A" e a conta de armazenamento alvo em "Data Center B". Estas contas de armazenamento estão associadas aos ativos de juros.
-5. Associe bolhas (ficheiros de ativos) que foram copiadas para o recipiente de bolha alvo com o ativo alvo. 
-6. Crie um localizador de origem para o ativo em "Data Center B", e especifique o ID do localizador que foi gerado para o ativo em "Data Center A".
+1. Crie uma conta de Serviços de Comunicação em "Data Center B".
+2. Crie um ativo vazio alvo na conta-alvo dos Media Services.
+3. Crie um localizador de assinatura de acesso partilhado por escrito. Isto é para que o ativo vazio alvo tenha acesso ao recipiente na conta de armazenamento alvo que está associado ao ativo alvo.
+4. Utilize o SDK de armazenamento Azure para copiar bolhas (ficheiros de ativos) entre a conta de armazenamento de origem em "Data Center A" e a conta de armazenamento alvo em "Data Center B". Estas contas de armazenamento estão associadas aos ativos de juros.
+5. Associar blobs (ficheiros de ativos) que foram copiados para o recipiente de bolha-alvo com o ativo alvo. 
+6. Crie um localizador de origem para o ativo em "Data Center B", e especifique o ID localizador que foi gerado para o ativo em "Data Center A".
 
 Isto dá-lhe os URLs de streaming onde os caminhos relativos dos URLs são os mesmos (apenas os URLs de base são diferentes). 
 
-Em seguida, para lidar com quaisquer interrupções, pode criar uma Rede de Entrega de Conteúdos para além destes localizadores de origem. 
+Em seguida, para lidar com eventuais interrupções, pode criar uma Rede de Entrega de Conteúdos em cima destes localizadores de origem. 
 
 As seguintes considerações são aplicáveis:
 
-* A versão atual do Media Services SDK não suporta a geração programática de informações do IAssetFile que associariam um ativo a ficheiros de ativos. Em vez disso, utilize o CreateFileInfos Media Services REST API para o fazer. 
-* Os ativos encriptados de armazenamento (AssetCreationOptions.StorageEncrypted) não são suportados para replicação (porque a chave de encriptação é diferente em ambas as contas dos Media Services). 
-* Se quiser aproveitar a embalagem dinâmica, certifique-se de que o ponto final de streaming a partir do qual pretende transmitir o seu conteúdo encontra-se no estado **de Execução.**
+* A versão atual da Media Services SDK não suporta informações de geração programática de IAssetFile que associem um ativo a ficheiros de ativos. Em vez disso, utilize a API de Serviços de Mídia CreateFileInfos REST para o fazer. 
+* Os ativos encriptados de armazenamento (AssetCreationOptions.StorageEncrypted) não são suportados para replicação (porque a chave de encriptação é diferente em ambas as contas de Serviços de Mídia). 
+* Se quiser aproveitar a embalagem dinâmica, certifique-se de que o ponto final de streaming a partir do qual pretende transmitir o seu conteúdo está no estado **de Funcionamento.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Duas contas de Media Services numa subscrição Azure nova ou existente. Ver Como Criar uma Conta de [Serviços de Media](media-services-portal-create-account.md).
+* Duas contas de Serviços de Mídia numa subscrição Azure nova ou existente. Ver [Como Criar uma Conta de Serviços de Mídia.](media-services-portal-create-account.md)
 * Sistema operativo: Windows 7, Windows 2008 R2 ou Windows 8.
-* .QUADRO LÍQUIDO 4.5 ou .NET Quadro 4.
+* .NET Quadro 4.5 ou .NET Quadro 4.
 * Visual Studio 2010 SP1 ou versão posterior (Profissional, Premium, Ultimate ou Express).
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
-Nesta secção, cria-se e cria um projeto de Aplicação de Consola C#.
+Nesta secção, cria-se e cria um projeto de Aplicação para consolas C.
 
-1. Utilize o Visual Studio para criar uma nova solução que contenha o projeto de Aplicação de Consola C#. Introduza **handleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique em **OK**.
-2. Crie a pasta **SupportFiles** no mesmo nível do ficheiro do projeto **HandleRedundancyForOnDemandStreaming.csproj.** Na pasta **SuporteFiles,** crie as pastas **OutputFiles** e **MP4Files.** Copie um ficheiro .mp4 na pasta **MP4Files.** (Neste exemplo, o ficheiro **ignite.mp4** é utilizado.) 
-3. Use **o NuGet** para adicionar referências a DLLs relacionados com serviços de media. No **Menu Principal do Estúdio Visual,** selecione **TOOLS** > **NuGet Package Manager** > **Manager Console**. Na janela da consola, **digite instalação de pacote windowsazure.mediaservices**, e prima Enter.
-4. Adicione outras referências que são necessárias para este projeto: System.Runtime.Serialization e System.Web.
-5. Substitua **as** declarações adicionadas ao ficheiro **Programs.cs** por padrão com as seguintes:
+1. Utilize o Visual Studio para criar uma nova solução que contenha o projeto C# Console Application. **Insira HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique **em OK**.
+2. Crie a pasta **SupportFiles** no mesmo nível que o ficheiro do projeto **HandleRedundancyForOnDemandStreaming.csproj.** Sob a pasta **SupportFiles,** crie as **pastas Desaquicha** e **MP4Files.** Copie um ficheiro .mp4 na pasta **MP4Files.** (Neste exemplo, é utilizado o **ficheiroignite.mp4.)** 
+3. Utilize **o NuGet** para adicionar referências a DLLs relacionados com os Serviços de Mídia. No **Menu Principal do Estúdio Visual**, selecione **TOOLS**  >  **NuGet Package Manager**Package Manager  >  **Consola**. Na janela da consola, **escreva o Pacote de Instalação windowsazure.mediaservices**e prima Enter.
+4. Adicione outras referências necessárias para este projeto: System.Runtime.Serialization e System.Web.
+5. Substitua **a utilização de** declarações adicionadas ao ficheiro **Programs.cs** por predefinição com as seguintes:
 
 ```csharp
 using System;
@@ -84,11 +83,11 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using System.Runtime.Serialization.Json;
 ```
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adicione código que lida com a redundância para o streaming a pedido
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adicionar código que lida com a redundância para o streaming a pedido
 
 Nesta secção, cria-se a capacidade de lidar com a redundância.
 
-1. Adicione os seguintes campos de nível de classe à classe Program.
+1. Adicione os seguintes campos de nível de classe à classe Programa.
 
     ```csharp
     private static readonly string storageNameTarget = "amsstorageacct2";
@@ -112,7 +111,7 @@ Nesta secção, cria-se a capacidade de lidar com a redundância.
     private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\ignite.mp4");
     private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
     ```
-2. Substitua a definição de método principal predefinido pela seguinte. As definições de método que são chamadas de Main são definidas abaixo.
+2. Substitua a definição do método principal predefinido pela seguinte. As definições de método que são chamadas de Main são definidas abaixo.
         
     ```csharp
     static void Main(string[] args)
@@ -205,10 +204,10 @@ Nesta secção, cria-se a capacidade de lidar com a redundância.
         }
     }
     ```
-3. As seguintes definições de método são chamadas de Main. Consulte os comentários para obter mais detalhes sobre cada método.
+3. As seguintes definições de método são chamadas de Main. Consulte os comentários para mais detalhes sobre cada método.
 
     >[!NOTE]
-    >Existe um limite de 1.000.000 políticas para diferentes políticas de Serviços de Media (por exemplo, para a política de localização ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver sempre a usar os mesmos dias e permissões de acesso. Por exemplo, utilize o mesmo ID para políticas para localizadores que se destinem a permanecer no lugar por um longo período de tempo (políticas de não upload). Para mais informações, consulte [este tema.](media-services-dotnet-manage-entities.md#limit-access-policies)
+    >Existe um limite de 1.000.000 políticas para diferentes políticas de Serviços de Comunicação (por exemplo, para a política de Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver sempre a utilizar os mesmos dias e permissões de acesso. Por exemplo, utilize o mesmo ID para políticas para localizadores que se destinem a permanecer no lugar por um longo período de tempo (políticas de não carregamento). Para mais informações, consulte [este tópico.](media-services-dotnet-manage-entities.md#limit-access-policies)
 
     ```csharp
     public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
@@ -748,15 +747,15 @@ Nesta secção, cria-se a capacidade de lidar com a redundância.
     
 ## <a name="content-protection"></a>Proteção de conteúdo
 
-O exemplo neste tópico mostra um streaming claro. Se pretender fazer streaming protegido, existem algumas outras coisas que precisa de configurar, precisa de utilizar a mesma Política de Entrega de **Ativos,** o mesmo URL de Autorização de **Conteúdo** ou de servidor de chaves externos, e precisa de duplicar as teclas de conteúdo com o mesmo identificador.
+O exemplo neste tópico mostra um streaming claro. Se quiser fazer streaming protegido, há algumas outras coisas que precisa de configurar, precisa de utilizar o mesmo **AssetDeliveryPolicy**, o mesmo **ContentKeyAuthorizationPolicy** ou URL de servidor de chave externa, e precisa de duplicar as teclas de conteúdo com o mesmo identificador.
 
-Para obter mais informações sobre a proteção de conteúdos, consulte [Utilize encriptação dinâmica AES-128 e o serviço de entrega chave](media-services-protect-with-aes128.md).
+Para obter mais informações sobre a proteção de conteúdos, consulte [a encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-[Use Webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
+[Use webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora pode utilizar um gestor de tráfego para encaminhar pedidos entre os dois centros de dados, e assim falhar em caso de interrupções.
 

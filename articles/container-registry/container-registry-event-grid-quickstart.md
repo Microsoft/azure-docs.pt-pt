@@ -1,33 +1,32 @@
 ---
-title: Quickstart - Envie eventos para a Grelha de Eventos
-description: Neste arranque rápido, ativa os eventos da Rede de Eventos para o seu registo de contentores, em seguida, envie impulso de imagem de contentor e elimine eventos para uma aplicação de amostra.
+title: Quickstart - Enviar eventos para a Grade de Eventos
+description: Neste arranque rápido, você ativa eventos de Grade de Evento para o seu registo de contentores, em seguida, envie o push de imagem do recipiente e elimine eventos para uma aplicação de amostragem.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403236"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Envie eventos do registo de contentores privados para a Grelha de Eventos
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 
-A Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que fornece um consumo uniforme de eventos utilizando um modelo de subscrição de publicações. Neste arranque rápido, utiliza o Azure CLI para criar um registo de contentores, subscrever eventos de registo e, em seguida, implementar uma aplicação web de amostra para receber os eventos. Finalmente, você dispara `push` `delete` imagem e eventos do recipiente e vê a carga útil do evento na aplicação da amostra.
+A Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que proporciona um consumo uniforme de eventos usando um modelo de subscrição de publicação. Neste arranque rápido, você usa o CLI Azure para criar um registo de contentores, subscrever eventos de registo e, em seguida, implementar uma aplicação web de amostra para receber os eventos. Finalmente, desencadeia a imagem e eventos do contentor `push` e vê a carga útil do evento na `delete` aplicação da amostra.
 
-Depois de completar os passos deste artigo, os eventos enviados do seu registo de contentores para a Rede de Eventos aparecem na aplicação web da amostra:
+Depois de completar os passos deste artigo, os eventos enviados do seu registo de contentores para a Grade de Eventos aparecem na aplicação web da amostra:
 
-![Web browser renderizando a aplicação web da amostra com três eventos recebidos][sample-app-01]
+![Navegador web tornando a aplicação web da amostra com três eventos recebidos][sample-app-01]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita][azure-account] antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Os comandos Azure CLI neste artigo são formatados para **a** concha bash. Se estiver a utilizar uma concha diferente, como powerShell ou Command Prompt, poderá ter de ajustar caracteres de continuação da linha ou linhas de atribuição variáveis em conformidade. Este artigo utiliza variáveis para minimizar a quantidade de edição de comando necessária.
+Os comandos Azure CLI neste artigo são formatados para a concha **bash.** Se estiver a utilizar uma concha diferente, como PowerShell ou Command Prompt, poderá ter de ajustar caracteres de continuação de linha ou linhas de atribuição variáveis em conformidade. Este artigo utiliza variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos Azure é um recipiente lógico no qual você implanta e gere os seus recursos Azure. O seguinte [grupo az criar][az-group-create] comando cria um grupo de recursos chamado *myResourceGroup* na região *oriental.* Se quiser usar um nome diferente para `RESOURCE_GROUP_NAME` o seu grupo de recursos, detetete tacada para um valor diferente.
+Um grupo de recursos Azure é um recipiente lógico no qual você implanta e gere os seus recursos Azure. O seguinte [grupo az cria][az-group-create] um grupo de recursos chamado *myResourceGroup* na região *leste.* Se quiser utilizar um nome diferente para o seu grupo de recursos, desaprotendo `RESOURCE_GROUP_NAME` um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -37,7 +36,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Em seguida, insere um registo de contentores no grupo de recursos com os seguintes comandos. Antes de executar o [az acr criar][az-acr-create] comando, coloque `ACR_NAME` um nome para o seu registo. O nome deve ser único dentro de Azure, e é restrito a 5-50 caracteres alfanuméricos.
+Em seguida, inserção de um registo de contentores no grupo de recursos com os seguintes comandos. Antes de executar o [az acr criar][az-acr-create] comando, definir `ACR_NAME` um nome para o seu registo. O nome deve ser único dentro de Azure, e é restrito a 5-50 caracteres alfanuméricos.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -45,7 +44,7 @@ ACR_NAME=<acrName>
 az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic
 ```
 
-Uma vez criado o registo, o Azure CLI devolve a saída semelhante à seguinte:
+Uma vez criado o registo, o CLI Azure devolve a saída semelhante à seguinte:
 
 ```json
 {
@@ -69,11 +68,11 @@ Uma vez criado o registo, o Azure CLI devolve a saída semelhante à seguinte:
 
 ```
 
-## <a name="create-an-event-endpoint"></a>Criar um ponto final de evento
+## <a name="create-an-event-endpoint"></a>Criar um ponto final do evento
 
-Nesta secção, você usa um modelo de Gestor de Recursos localizado num repositório GitHub para implementar uma aplicação web de amostra pré-construída para o Serviço de Aplicações Azure. Mais tarde, subscreve os eventos da Grelha de Eventos do seu registo e especifique esta aplicação como o ponto final para o qual os eventos são enviados.
+Nesta secção, você usa um modelo de Gestor de Recursos localizado num repositório GitHub para implementar uma aplicação web de amostra pré-construída para o Azure App Service. Mais tarde, subscreve os eventos da Grelha de Eventos do seu registo e especifica esta aplicação como o ponto final para o qual os eventos são enviados.
 
-Para implementar a aplicação de amostra, detete `SITE_NAME` tede um nome único para a sua aplicação web e execute os seguintes comandos. O nome do site deve ser único dentro do Azure porque faz parte do nome de domínio totalmente qualificado (FQDN) da aplicação web. Numa secção posterior, navega para o FQDN da aplicação num navegador web para ver os eventos do seu registo.
+Para implementar a aplicação da amostra, desloque-se `SITE_NAME` a um nome único para a sua aplicação web e execute os seguintes comandos. O nome do site deve ser único dentro do Azure porque faz parte do nome de domínio totalmente qualificado (FQDN) da aplicação web. Numa secção posterior, você navega para o FQDN da aplicação em um navegador web para ver os eventos do seu registro.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -84,19 +83,19 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Uma vez que a implementação tenha sido bem sucedida (pode demorar alguns minutos), abra um navegador e navegue para a sua aplicação web para se certificar de que está em execução:
+Uma vez que a implementação tenha sido bem sucedida (pode levar alguns minutos), abra um navegador e navegue na sua aplicação web para se certificar de que está em execução:
 
 `http://<your-site-name>.azurewebsites.net`
 
-Deve ver a aplicação de amostras renderizada sem mensagens de evento apresentadas:
+Deve ver a aplicação da amostra renderizada sem mensagens de evento apresentadas:
 
-![Web browser mostrando app web da amostra sem eventos apresentados][sample-app-02]
+![Navegador web mostrando aplicação web de amostra sem eventos exibidos][sample-app-02]
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## <a name="subscribe-to-registry-events"></a>Subscreva eventos de registo
 
-Em Event Grid, subscreve um *tópico* para lhe dizer quais os eventos que pretende acompanhar e para onde enviá-los. O seguinte [az eventgrid eventgrid cria][az-eventgrid-event-subscription-create] um comando subscrito supor o registo de contentores que criou, e especifica o URL da sua aplicação web como o ponto final para o qual deve enviar eventos. As variáveis ambientais que povoou em secções anteriores são reutilizadas aqui, por isso não são necessárias edições.
+Em Event Grid, você subscreve um *tópico* para dizer-lhe quais eventos você quer rastrear, e para onde enviá-los. O seguinte comando [de subscrição de eventos az eventgrid][az-eventgrid-event-subscription-create] subscreve o registo de contentores que criou e especifica o URL da sua aplicação web como o ponto final para o qual deve enviar eventos. As variáveis ambientais que povoou em secções anteriores são reutilizadas aqui, pelo que não são necessárias edições.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -108,7 +107,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-Quando a subscrição estiver concluída, deverá ver a saída semelhante à seguinte:
+Quando a subscrição estiver concluída, deverá ver uma saída semelhante à seguinte:
 
 ```json
 {
@@ -135,19 +134,19 @@ Quando a subscrição estiver concluída, deverá ver a saída semelhante à seg
 }
 ```
 
-## <a name="trigger-registry-events"></a>Eventos de registo de gatilho
+## <a name="trigger-registry-events"></a>Eventos de registo de desencadeamento
 
-Agora que a aplicação de amostras está a funcionar e que subscreveste o teu registo com a Event Grid, estás pronto para gerar alguns eventos. Nesta secção, utiliza tarefas ACR para construir e empurrar uma imagem de contentor para o seu registo. A Cr Tasks é uma característica do Registo de Contentores Azure que lhe permite construir imagens de contentores na nuvem, sem precisar do Motor Docker instalado na sua máquina local.
+Agora que a aplicação da amostra está a funcionar e que subscreveu o seu registo com a Grade de Eventos, está pronto para gerar alguns eventos. Nesta secção, utiliza-se ACR Tasks para construir e empurrar uma imagem de contentor para o seu registo. ACR Tasks é uma característica do Registo de Contentores Azure que lhe permite construir imagens de contentores na nuvem, sem precisar do Motor Docker instalado na sua máquina local.
 
 ### <a name="build-and-push-image"></a>Construir e empurrar imagem
 
-Execute o seguinte comando Azure CLI para construir uma imagem de recipiente a partir do conteúdo de um repositório GitHub. Por padrão, as Tarefas ACR empurram automaticamente uma imagem construída com `ImagePushed` sucesso para o seu registo, o que gera o evento.
+Execute o seguinte comando Azure CLI para construir uma imagem de contentor a partir do conteúdo de um repositório GitHub. Por predefinição, a ACR Tasks empurra automaticamente uma imagem construída com sucesso para o seu registo, o que gera o `ImagePushed` evento.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Deve ver a saída semelhante à seguinte enquanto as Tarefas ACR constroem e, em seguida, empurra a sua imagem. A saída da amostra seguinte foi truncada para a brevidade.
+Deve ver a saída semelhante à seguinte enquanto a ACR Tasks constrói e, em seguida, empurra a sua imagem. A seguinte produção de amostra foi truncada para a brevidade.
 
 ```output
 Sending build context to ACR...
@@ -163,13 +162,13 @@ Step 1/5 : FROM node:9-alpine
 ...
 ```
 
-Para verificar se a imagem incorporada está no seu registo, execute o seguinte comando para ver as etiquetas no repositório "myimage":
+Para verificar se a imagem incorporada está no seu registo, execute o seguinte comando para visualizar as etiquetas no repositório "myimage":
 
 ```azurecli-interactive
 az acr repository show-tags --name $ACR_NAME --repository myimage
 ```
 
-A etiqueta "v1" da imagem que construiu deve figurar na saída, semelhante à seguinte:
+A etiqueta "v1" da imagem que construiu deve aparecer na saída, semelhante à seguinte:
 
 ```output
 [
@@ -179,13 +178,13 @@ A etiqueta "v1" da imagem que construiu deve figurar na saída, semelhante à se
 
 ### <a name="delete-the-image"></a>Apagar a imagem
 
-Agora, gere `ImageDeleted` um evento eliminando a imagem com o [repositório az acr eliminar][az-acr-repository-delete] o comando:
+Agora, gere um `ImageDeleted` evento eliminando a imagem com o comando [de eliminação do repositório az acr:][az-acr-repository-delete]
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
 ```
 
-Deve ver saída semelhante à seguinte, pedindo confirmação para apagar as imagens manifestas e associadas:
+Deverá ver uma saída semelhante à seguinte, pedindo confirmação para apagar o manifesto e as imagens associadas:
 
 ```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
@@ -194,19 +193,19 @@ Are you sure you want to continue? (y/n):
 
 ## <a name="view-registry-events"></a>Ver eventos de registo
 
-Agora empurrou uma imagem para o seu registo e depois apagou-a. Navegue para a sua aplicação web `ImageDeleted` Event `ImagePushed` Grid Viewer, e deverá ver tanto como eventos. Pode também ver um evento de validação de subscrição gerado pela execução do comando na secção [Subscrever eventos](#subscribe-to-registry-events) de registo.
+Agora empurrou uma imagem para o seu registo e depois apagou-a. Navegue para a sua aplicação web Event Grid Viewer, e deverá ver ambos `ImageDeleted` e `ImagePushed` eventos. Poderá também ver um evento de validação de subscrição gerado executando o comando na secção [Descênso para eventos de registo.](#subscribe-to-registry-events)
 
-A imagem seguinte mostra a aplicação de `ImageDeleted` amostras com os três eventos, e o evento é expandido para mostrar os seus detalhes.
+A imagem que se segue mostra a aplicação da amostra com os três eventos, e o `ImageDeleted` evento é expandido para mostrar os seus detalhes.
 
-![Navegador web mostrando a aplicação da amostra com eventos ImagePushed e ImageDeleted][sample-app-03]
+![Navegador web mostrando a app da amostra com eventos ImagePushed e ImageDeleted][sample-app-03]
 
-Parabéns! Se vir `ImagePushed` os `ImageDeleted` eventos e eventos, o seu registo está a enviar eventos para a Event Grid, e a Event Grid está a encaminhar esses eventos para o seu ponto final da sua aplicação web.
+Parabéns! Se vir os `ImagePushed` eventos e `ImageDeleted` eventos, o seu registo está a enviar eventos para a Grade de Eventos, e a Grade de Eventos está a encaminhar esses eventos para o ponto final da sua aplicação web.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Assim que terminar com os recursos que criou neste arranque rápido, pode eliminá-los todos com o seguinte comando Azure CLI. Ao eliminar um grupo de recursos, todos os recursos que contém são permanentemente eliminados.
+Uma vez terminado os recursos que criou neste arranque rápido, pode eliminá-los todos com o seguinte comando Azure CLI. Quando elimina um grupo de recursos, todos os recursos que contém são permanentemente eliminados.
 
-**AVISO**: Esta operação é irreversível. Certifique-se de que não precisa mais de nenhum dos recursos do grupo antes de dirigir o comando.
+**AVISO:** Esta operação é irreversível. Certifique-se de que já não precisa de nenhum dos recursos do grupo antes de executar o comando.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME
@@ -214,13 +213,13 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
-Pode encontrar a referência de schema de mensagem de evento do registo de contentores Azure na documentação da Grelha de Eventos:
+Pode encontrar a referência de mensagem do registo do registo do contentor Azure na documentação da Grelha de Eventos:
 
-[Esquema de evento da Grelha de Eventos Azure para registo de contentores](../event-grid/event-schema-container-registry.md)
+[Esquema de evento de Azure Event Grid para registo de contentores](../event-grid/event-schema-container-registry.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, implementou um registo de contentores, construiu uma imagem com Tarefas ACR, apagou-a e consumiu os eventos do seu registo a partir da Rede de Eventos com uma aplicação de amostra. Em seguida, passe para o tutorial de Tarefas ACR para saber mais sobre a construção de imagens de contentores na nuvem, incluindo construções automatizadas na atualização de imagem base:
+Neste quickstart, você implantou um registo de contentores, construiu uma imagem com tarefas ACR, apagou-a e consumiu os eventos do seu registo a partir da Grade de Eventos com uma aplicação de amostragem. Em seguida, passe para o tutorial de tarefas ACR para saber mais sobre a construção de imagens de contentores na nuvem, incluindo construções automatizadas na atualização da imagem base:
 
 > [!div class="nextstepaction"]
 > [Construa imagens de contentores na nuvem com tarefas ACR](container-registry-tutorial-quick-task.md)
