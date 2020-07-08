@@ -1,32 +1,31 @@
 ---
-title: Ligações azure IoT Hub para funções azure
-description: Aprenda a utilizar o gatilho ioT Hub e a ligação em Funções Azure.
+title: Ligações Azure IoT Hub para Funções Azure
+description: Aprenda a usar o gatilho do Hub IoT e a encadernação em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586139"
 ---
-# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Ligações azure IoT Hub para funções azure
+# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Ligações Azure IoT Hub para Funções Azure
 
-Este conjunto de artigos explica como trabalhar com as ligações das Funções Azure para o IoT Hub. O suporte ioT Hub baseia-se na [Ligação de Hubs de Eventos Azure.](functions-bindings-event-hubs.md)
+Este conjunto de artigos explica como trabalhar com as ligações Azure Functions para o IoT Hub. O suporte IoT Hub baseia-se na [Ligação Azure Event Hubs](functions-bindings-event-hubs.md).
 
 > [!IMPORTANT]
-> Enquanto as seguintes amostras de código utilizam a API do Hub de Eventos, a sintaxe dada é aplicável às funções do Hub IoT.
+> Embora as seguintes amostras de código utilizem a API do Centro de Eventos, a sintaxe dada é aplicável para as funções IoT Hub.
 
 | Ação | Tipo |
 |--------|------|
-| Responda a eventos enviados para um fluxo de eventos ioT hub. | [Acionador](./functions-bindings-event-iot-trigger.md) |
-| Escreva eventos para um fluxo de eventos IoT | [Encadernação de saída](./functions-bindings-event-iot-output.md) |
+| Responda aos eventos enviados para um fluxo de eventos ioT hub. | [Acionador](./functions-bindings-event-iot-trigger.md) |
+| Escreva eventos para um stream de eventos IoT | [Ligação de saída](./functions-bindings-event-iot-output.md) |
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Responda a eventos enviados para um fluxo de eventos de eventos (Trigger)](./functions-bindings-event-iot-trigger.md)
-- [Escreva eventos para um fluxo de eventos (encadernação de saída)](./functions-bindings-event-iot-output.md)
+- [Responda aos eventos enviados para um stream de eventos hub (Trigger)](./functions-bindings-event-iot-trigger.md)
+- [Escreva eventos para um fluxo de eventos (ligação de saída)](./functions-bindings-event-iot-output.md)

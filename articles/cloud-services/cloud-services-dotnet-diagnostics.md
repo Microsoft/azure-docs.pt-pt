@@ -1,6 +1,6 @@
 ---
-title: Como utilizar diagnósticos Azure (.NET) com Serviços cloud / Microsoft Docs
-description: Utilizando diagnósticos Azure para recolher dados dos Serviços de nuvem Azure para depuração, medição do desempenho, monitorização, análise de tráfego, entre outros.
+title: Como utilizar diagnósticos Azure (.NET) com serviços cloud Microsoft Docs
+description: Usando diagnósticos Azure para recolher dados dos Serviços de nuvem Azure para depuração, medição de desempenho, monitorização, análise de tráfego, entre outros.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -11,31 +11,30 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469770"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitar diagnósticos azure em serviços de nuvem azure
-Consulte a visão geral do [Azure Diagnostics](../azure-diagnostics.md) para obter um fundo sobre o Azure Diagnostics.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitar diagnósticos Azure em Serviços cloud Azure
+Consulte [a visão geral do Azure Diagnostics](../azure-diagnostics.md) para obter um fundo sobre O Diagnóstico Azure.
 
-## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como ativar diagnósticos em um papel de trabalhador
-Este walkthrough descreve como implementar uma função de trabalhador Azure que emite dados de telemetria usando a classe .NET EventSource. O Azure Diagnostics é utilizado para recolher os dados da telemetria e armazená-lo numa conta de armazenamento Azure. Ao criar uma função de trabalhador, o Visual Studio permite automaticamente o Diagnóstico 1.0 como parte da solução em SDKs Azure para .NET 2.4 e anterior. As seguintes instruções descrevem o processo de criação da função do trabalhador, desativando diagnósticos 1.0 da solução e implantando diagnósticos 1.2 ou 1.3 para o seu papel de trabalhador.
+## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como permitir diagnósticos numa função de trabalhador
+Este walkthrough descreve como implementar um papel de trabalhador Azure que emite dados de telemetria usando a classe .NET EventSource. O Azure Diagnostics é utilizado para recolher os dados de telemetria e armazená-los numa conta de armazenamento Azure. Ao criar uma função de trabalhador, o Visual Studio ativa automaticamente o Diagnóstico 1.0 como parte da solução em Azure SDKs para .NET 2.4 e anteriores. As seguintes instruções descrevem o processo de criação do papel do trabalhador, desativando o Diagnóstico 1.0 da solução e implantando os Diagnósticos 1.2 ou 1.3 para o seu papel de trabalhador.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Este artigo assume que tem uma subscrição Azure e está a usar o Estúdio Visual com o Azure SDK. Se não tiver uma subscrição Azure, pode inscrever-se no [Free Trial][Free Trial]. Certifique-se de instalar e configurar a [versão Azure PowerShell 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
+Este artigo pressupõe que tem uma subscrição do Azure e está a usar o Visual Studio com o Azure SDK. Se não tiver uma subscrição do Azure, pode inscrever-se no [Teste Gratuito.][Free Trial] Certifique-se de [instalar e configurar a versão Azure PowerShell 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passo 1: Criar um papel de trabalhador
 1. Inicie o **Visual Studio**.
-2. Crie um projeto **de Serviço de Nuvem Azure** a partir do modelo **Cloud** que visa .NET Framework 4.5.  Nomeie o projeto "WadExample" e clique em Ok.
+2. Crie um projeto **Azure Cloud Service** a partir do modelo **Cloud** que visa .NET Framework 4.5.  Nomeie o projeto "WadExample" e clique em Ok.
 3. Selecione **Função de Trabalhador** e clique em Ok. O projeto será criado.
-4. No **Solution Explorer,** clique duas vezes no ficheiro de propriedades **do WorkerRole1.**
-5. No separador **Configuração,** desverifique **o Enable Diagnostics** para desativar os diagnósticos 1.0 (Azure SDK 2.4 e anterior).
+4. No **Solution Explorer,** clique duas vezes no ficheiro **propriedades WorkerRole1.**
+5. No **separador Configuração,** **desative o Enable Diagnostics** para desativar o Diagnóstico 1.0 (Azure SDK 2.4 e anterior).
 6. Construa a sua solução para verificar se não tem erros.
 
-### <a name="step-2-instrument-your-code"></a>Passo 2: Instrumente o seu código
-Substitua o conteúdo do WorkerRole.cs pelo seguinte código. A classe SampleEventSourceWriter, herdada da [Classe EventSource,][EventSource Class]implementa quatro métodos de exploração de madeira: **SendEnums,** **MessageMethod,** **SetOther** e **HighFreq**. O primeiro parâmetro do método **WriteEvent** define o ID para o respetivo evento. O método Run implementa um ciclo infinito que chama cada um dos métodos de registo implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
+### <a name="step-2-instrument-your-code"></a>Passo 2: Instrumento o seu código
+Substitua o conteúdo de WorkerRole.cs pelo seguinte código. A classe SampleEventSourceWriter, herdada da [Classe EventSource,][EventSource Class]implementa quatro métodos de registo: **SendEnums,** **MessageMethod,** **SetOther** e **HighFreq**. O primeiro parâmetro do método **WriteEvent** define o ID para o evento respetivo. O método Run implementa um loop infinito que chama cada um dos métodos de registo implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -118,30 +117,30 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Passo 3: Implementar a sua função de trabalhador
+### <a name="step-3-deploy-your-worker-role"></a>Passo 3: Implementar o seu papel de trabalhador
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
-1. Implemente o seu papel de trabalhador para o Azure a partir do Visual Studio selecionando o projeto **WadExample** no Solution Explorer **e depois publique** a partir do menu **Build.**
+1. Desdobre o seu papel de trabalhador para a Azure a partir de dentro do Visual Studio, selecionando o projeto **WadExample** no Solution Explorer **e,** em seguida, publique a partir do menu **Build.**
 2. Escolha a sua subscrição.
-3. No diálogo **Microsoft Azure Publish Settings,** selecione **Create New...**.
-4. No diálogo **create Cloud Service and Storage Account,** introduza um **Nome** (por exemplo, "WadExample") e selecione uma região ou grupo de afinidade.
-5. Desloque o **Ambiente** à **Encenação**.
-6. Modifique quaisquer outras **Definições** conforme apropriado e clique **em Publicar**.
-7. Depois de concluída a implantação, verifique no portal Azure que o seu serviço de cloud está em estado de **Execução.**
+3. No diálogo microsoft **Azure Publish Settings,** selecione **Create New...**.
+4. No diálogo **de serviço de nuvem e armazenamento Create,** insira um **Nome** (por exemplo, "WadExample") e selecione uma região ou grupo de afinidade.
+5. Definir o **Ambiente** para **encenar**.
+6. Modificar quaisquer **outras Definições** conforme apropriado e clicar **em Publicar.**
+7. Depois de concluída a implementação, verifique no portal Azure que o seu serviço em nuvem está em **funcionamento.**
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Passo 4: Crie o ficheiro de configuração de Diagnósticos e instale a extensão
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Passo 4: Criar o seu ficheiro de configuração de Diagnóstico e instalar a extensão
 1. Descarregue a definição de esquema de ficheiro de configuração pública executando o seguinte comando PowerShell:
 
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Adicione um ficheiro XML ao seu projeto **WorkerRole1** clicando no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** -> **Itens visuais C# itens** -> **Data** -> **XML File**. Nomeie o ficheiro "WadExample.xml".
+2. Adicione um ficheiro XML ao seu projeto **WorkerRole1** clicando à direita no projeto **WorkerRole1** e selecione **Add**  ->  **New Item...** -> **Itens visuais**  ->  C# **Dados**  ->  **Ficheiro XML**. Diga o nome do ficheiro "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associe o WadConfig.xsd ao ficheiro de configuração. Certifique-se de que a janela do editor WadExample.xml é a janela ativa. Pressione **F4** para abrir a janela **Propriedades.** Clique na propriedade **Schemas** na janela **Propriedades.** Clique no **...** na propriedade **de Schemas.** Clique no botão **Adicionar…** botão e navegar para o local onde guardou o ficheiro XSD e selecione o ficheiro WadConfig.xsd. Clique em **OK**.
+3. Associar o WadConfig.xsd com o ficheiro de configuração. Certifique-se de que a janela do editor WadExample.xml é a janela ativa. Prima **F4** para abrir a janela **Propriedades.** Clique na propriedade **Schemas** na janela **Propriedades.** Clique no **...** na propriedade **Schemas.** Clique no botão **Adicionar…** botão e navegue para o local onde guardou o ficheiro XSD e selecione o ficheiro WadConfig.xsd. Clique em **OK**.
 
-4. Substitua o conteúdo do ficheiro de configuração WadExample.xml pelo seguinte XML e guarde o ficheiro. Este ficheiro de configuração define um par de contadores de desempenho para recolher: um para utilização de CPU e outro para utilização da memória. Em seguida, a configuração define os quatro eventos correspondentes aos métodos da classe SampleEventSourceWriter.
+4. Substitua o conteúdo do ficheiro de configuração WadExample.xml pelo seguinte XML e guarde o ficheiro. Este ficheiro de configuração define um par de contadores de desempenho para recolher: um para utilização do CPU e outro para utilização da memória. Em seguida, a configuração define os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -166,11 +165,11 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Passo 5: Instale diagnósticos na sua função de trabalhador
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Passo 5: Instalar diagnósticos na sua função de trabalhador
 Os cmdlets PowerShell para gerir diagnósticos numa função web ou de trabalhador são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
-1. Open Azure PowerShell.
-2. Execute o script para instalar Diagnósticos na sua função de trabalhador (substitua *storageAccountKey* com a chave da conta de armazenamento para a sua conta de armazenamento wadexample e *config_path* com o caminho para o ficheiro *WadExample.xml):*
+1. Abra o Azure PowerShell.
+2. Execute o script para instalar Diagnósticos na sua função de trabalhador (substitua o *StorageAccountKey* pela chave de conta de armazenamento da sua conta de armazenamento de wadexample e *config_path* com o caminho para o ficheiro *WadExample.xml):*
 
 ```powershell
 $storage_name = "wadexample"
@@ -181,19 +180,19 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>Passo 6: Olhe para os seus dados de telemetria
-No Visual Studio **Server Explorer,** navegue para a conta de armazenamento wadexample. Depois de o serviço de nuvem ter funcionado cerca de cinco (5) minutos, deverá ver as **tabelas WADEnumsTable**, **WADHighFreqTable,** **WADMessageTable,** **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes numa das tabelas para ver a telemetria que foi recolhida.
+### <a name="step-6-look-at-your-telemetry-data"></a>Passo 6: Veja os seus dados de telemetria
+No Visual Studio **Server Explorer,** navegue para a conta de armazenamento wadexample. Depois de o serviço de nuvem estar a funcionar cerca de cinco (5) minutos, deverá ver as **tabelas WADEnumsTable**, **WADHighFreqTable,** **WADMessageTable,** **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes numa das tabelas para ver a telemetria que foi recolhida.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
-## <a name="configuration-file-schema"></a>Esquema de Arquivo de Configuração
-O ficheiro de configuração de Diagnóstico define valores que são usados para inicializar as definições de configuração de diagnóstico quando o agente de diagnóstico começa. Consulte a [mais recente referência de esquemas](/azure/azure-monitor/platform/diagnostics-extension-schema) para valores e exemplos válidos.
+## <a name="configuration-file-schema"></a>Esquema de ficheiro de configuração
+O ficheiro de configuração de Diagnóstico define valores que são utilizados para inicializar as definições de configuração de diagnóstico quando o agente de diagnóstico começa. Consulte a [última referência de esquema](/azure/azure-monitor/platform/diagnostics-extension-schema) para valores e exemplos válidos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se tiver problemas, consulte a [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
+Se tiver problemas, consulte [o Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Consulte uma lista de artigos de diagnóstico de máquinas virtuais relacionadas azure](../azure-monitor/platform/diagnostics-extension-overview.md) para alterar os dados que está a recolher, problemas de resolução de problemas ou saber mais sobre diagnósticos em geral.
+[Consulte uma lista de artigos de diagnóstico de máquina virtual Azure relacionados](../azure-monitor/platform/diagnostics-extension-overview.md) para alterar os dados que está a recolher, problemas de resolução de problemas ou saiba mais sobre diagnósticos em geral.
 
 [EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

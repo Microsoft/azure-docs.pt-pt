@@ -1,6 +1,6 @@
 ---
-title: Instalação de alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS no Azure [ Microsoft Docs
-description: Instalação de alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS
+title: INSTALAÇÃO DE ALTA Disponibilidade DO SAP NetWeaver num cluster de falha do Windows e partilha de ficheiros para casos SAP ASCS/SCS no Azure ; Microsoft Docs
+description: Instalação de alta disponibilidade DO SAP NetWeaver num cluster de falha do Windows e partilha de ficheiros para casos SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -17,13 +17,12 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617335"
 ---
-# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS no Azure
+# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a alta disponibilidade do SAP NetWeaver num cluster de failover do Windows e partilhe a partilha de ficheiros para as instâncias SAP ASCS/SCS no Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -89,7 +88,7 @@ ms.locfileid: "77617335"
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade sap multi-SID)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade DE SAP multi-SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -203,49 +202,49 @@ Este artigo descreve como instalar e configurar um sistema SAP de alta disponibi
 
 Antes de iniciar a instalação, reveja os seguintes artigos:
 
-* [Guia de arquitetura: Cluster uma instância SAP ASCS/SCS num cluster de falhas do Windows utilizando a partilha de ficheiros][sap-high-availability-guide-wsfc-file-share]
+* [Guia de arquitetura: Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando a partilha de ficheiros][sap-high-availability-guide-wsfc-file-share]
 
-* [Prepare a alta disponibilidade da infraestrutura Azure SAP utilizando um cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
+* [Prepare a infraestrutura Azure SAP alta disponibilidade utilizando um cluster de failover do Windows e uma partilha de ficheiros para as instâncias SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [Alta disponibilidade para SAP NetWeaver em VMs Azure][high-availability-guide]
 
 Precisa dos seguintes executáveis e DLLs da SAP:
-* SAP Software Provisioning Manager (SWPM) versão de ferramenta de instalação SPS25 ou posterior.
-* SAP Kernel 7.49 ou mais tarde
+* Versão de ferramenta de instalação SPS25 ou mais tarde do GESTOR DE Provisão de Software SAP (SWPM).
+* Kernel SAP 7.49 ou mais tarde
 
 > [!IMPORTANT]
-> Clustering SAP ASCS/SCS, utilizando uma parte de ficheiro, é suportado para SAP NetWeaver 7.40 (e mais tarde), com SAP Kernel 7.49 (e mais tarde).
+> O agrupamento de casos SAP ASCS/SCS utilizando uma partilha de ficheiros é suportado por SAP NetWeaver 7.40 (e mais tarde), com SAP Kernel 7.49 (e mais tarde).
 >
 
 
-Não descrevemos a configuração do Sistema de Gestão de Bases de Dados (DBMS) porque as configurações variam consoante o DBMS que utiliza. No entanto, assumimos que as preocupações de alta disponibilidade com o DBMS são abordadas com as funcionalidades que vários fornecedores dbmS suportam para o Azure. Tais funcionalidades incluem alwaysOn ou base de dados espelhando para SQL Server, e Oracle Data Guard para bases de dados Oracle. No cenário que usamos neste artigo, não adicionamos mais proteção ao DBMS.
+Não descrevemos a configuração do Sistema de Gestão de Bases de Dados (DBMS) porque as configurações variam consoante o DBMS que utiliza. No entanto, assumimos que as preocupações de alta disponibilidade com o DBMS são abordadas com as funcionalidades que vários fornecedores de DBMS suportam para o Azure. Tais funcionalidades incluem o espelho de AlwaysOn ou base de dados para o SQL Server e a Oracle Data Guard para bases de dados Oracle. No cenário que usamos neste artigo, não adicionamos mais proteção ao DBMS.
 
 Não existem considerações especiais quando vários serviços DBMS interagem com este tipo de configuração SAP ASCS/SCS agrupada em Azure.
 
 > [!NOTE]
-> Os procedimentos de instalação dos sistemas SAP NetWeaver ABAP, sistemas Java e ABAP+Java são quase idênticos. A diferença mais significativa é que um sistema SAP ABAP tem uma instância ASCS. O sistema SAP Java tem uma instância SCS. O sistema SAP ABAP+Java tem uma instância ASCS e uma instância SCS a funcionar no mesmo grupo de clusters da Microsoft failover. Quaisquer diferenças de instalação para cada pilha de instalação SAP NetWeaver são explicitamente mencionadas. Pode supor que todas as outras partes são iguais.  
+> Os procedimentos de instalação dos sistemas SAP NetWeaver ABAP, sistemas Java e sistemas ABAP+Java são quase idênticos. A diferença mais significativa é que um sistema SAP ABAP tem uma instância ASCS. O sistema SAP Java tem uma instância SCS. O sistema SAP ABAP+Java tem uma instância ASCS e uma instância SCS a decorrer no mesmo grupo de cluster de failover da Microsoft. Quaisquer diferenças de instalação para cada pilha de instalação SAP NetWeaver são explicitamente mencionadas. Pode assumir que todas as outras partes são iguais.  
 >
 >
 
-## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>Prepare um anfitrião global da SAP no cluster SOFS
+## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>Prepare um anfitrião global SAP no cluster SOFS
 
-Criar a seguinte partilha de volume e ficheiro no cluster SOFS:
+Criar o seguinte volume e partilha de ficheiros no cluster SOFS:
 
-* Estrutura de ficheiros `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST sobre volume partilhado de cluster SOFS (CSV)
+* Estrutura de ficheiros SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` no volume partilhado do cluster SOFS (CSV)
 
 * Partilha de ficheiros SAPMNT
 
-* Detete a segurança na partilha e pasta de ficheiros SAPMNT com controlo total para:
-    * O \<domain>\SAP_\<SID>_GlobalAdmin grupo de utilizadores
-    * O nó de cluster SAP ASCS/SCS objetos \<de \<computador DOMAIN>\ClusterNode1$ e DOMAIN>\ClusterNode2$
+* Definir a segurança na partilha e pasta de ficheiros SAPMNT com controlo total para:
+    * O \<DOMAIN> grupo de \<SID> utilizadores de _GlobalAdmin \SAP_
+    * Os objetos de computador do nó de cluster SAP ASCS/SCS \<DOMAIN> \ClusterNode1$ e \<DOMAIN> \ClusterNode2$
 
-Para criar um volume CSV com resiliência do espelho, execute o seguinte cmdlet PowerShell num dos nós de cluster SOFS:
+Para criar um volume CSV com resiliência espelhada, execute o seguinte cmdlet PowerShell num dos nóns de cluster SOFS:
 
 
 ```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
-Para criar a SAPMNT e definir a pasta e partilhar a segurança, execute o seguinte script PowerShell num dos nós de cluster SOFS:
+Para criar a PASTA SAPMNT e definir pasta e partilhar a segurança, execute o seguinte script PowerShell num dos nóns de cluster SOFS:
 
 ```powershell
 # Create SAPMNT on file share
@@ -288,18 +287,18 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
 
-## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Criar um nome de anfitrião virtual para a instância SAP ASCS/SCS agrupada
+## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Criar um nome de hospedeiro virtual para a instância SAP ASCS/SCS agrupada
 
-Crie um nome de rede de cluster SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]),** como descrito na [Create um nome de hospedeiro virtual para a instância SAP ASCS/SCS agrupada.][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]
+Criar um nome de rede de cluster SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]**), conforme descrito na [Criação de um nome de hospedeiro virtual para a instância SAP ASCS/SCS agrupada][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instale um ASCS/SCS e ERS no cluster
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
 
-Instale uma instância SAP ASCS/SCS no nó do primeiro cluster. Para instalar a instância, na ferramenta de instalação SAP SWPM, vá a:
+Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Para instalar o caso, na ferramenta de instalação SAP SWPM, aceda a:
 
-**\<Produto>**  >  ** \<DBMS>**  > Servidor de **Aplicação** > de**Instalação ABAP** (ou **Java)**> **sistema** > de alta disponibilidade**ASCS/SCS exemplo** > **Primeiro nó**de cluster .
+**\<Product>** > **\<DBMS>** > **Instalação**  >  **Servidor de aplicações ABAP** (ou **Java)**> **sistema de alta disponibilidade**  >  **ASCS/SCS primeiro**nó de  >  **cluster**.
 
 ### <a name="add-a-probe-port"></a>Adicione uma porta de sonda
 
@@ -307,37 +306,37 @@ Configure um recurso de cluster SAP, a porta de sonda SAP-SID-IP, utilizando o P
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no segundo nó de cluster ASCS/SCS
 
-Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Para instalar a instância, na ferramenta de instalação SAP SWPM, vá a:
+Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Para instalar o caso, na ferramenta de instalação SAP SWPM, aceda a:
 
-**\<Produto>**  >  ** \<DBMS>**  > Servidor de Aplicação de **Instalação** > **ABAP** (ou **Java)**> **sistema** > de alta disponibilidade**ASCS/SCS instância** > adicional de**cluster**.
+**\<Product>** > **\<DBMS>** > **Instalação**  >  **Servidor de aplicações ABAP** (ou **Java)**> **Sistema de Alta Disponibilidade**  >  **ASCS/SCS exemplo**nó de cluster  >  **adicional**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil de instância SAP ASCS/SCS
 
-Atualizar os parâmetros no perfil \<de instância SAP ASCS/SCS SID>_ASCS/SCS\<Nr>_ \<host>.
+Atualizar parâmetros no perfil de instância SAP ASCS/SCS \<SID> _ASCS/SCS \<Nr> _ \<Host> .
 
 
 | Nome do parâmetro | Valor do parâmetro |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/ncni/set_so_keepalive  | **verdade** |
+| enque/encni/set_so_keepalive  | **verdade** |
 | serviço/ha_check_node | **1** |
 
-Reiniciar a instância SAP ASCS/SCS. Defina parâmetros em ambos os nós de cluster SAP ASCS/SCS sigam as instruções para definir as entradas de [registo nos nós do cluster da instância SAP ASCS/SCS][high-availability-guide]. `KeepAlive` 
+Reinicie a instância SAP ASCS/SCS. Os `KeepAlive` parâmetros definidos em ambos os nós de cluster SAP ASCS/SCS seguem as instruções para [definir as entradas de registo nos nós de cluster da instância SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instale uma instância DBMS e servidores de aplicações SAP
 
-Finalize a instalação do seu sistema SAP instalando:
+Finalizar a instalação do sistema SAP instalando:
 * Um caso DBMS.
 * Um servidor de aplicação SAP primário.
-* Um servidor adicional de aplicações SAP.
+* Um servidor de aplicação SAP adicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Instale uma instância ASCS/SCS num cluster de failover sem discos partilhados - Diretrizes oficiais do SAP para partilha de ficheiros de alta disponibilidade][sap-official-ha-file-share-document]
+* [Instale uma instância ASCS/SCS num cluster de falha sem discos partilhados - Diretrizes oficiais do SAP para partilha de ficheiros de alta disponibilidade][sap-official-ha-file-share-document]
 
 * [Espaços de Armazenamento Direto no Windows Server 2016][s2d-in-win-2016]
 
 * [Servidor de ficheiros scale-out para visão geral dos dados da aplicação][sofs-overview]
 
-* [Novidades no Windows Server 2016][new-in-win-2016-storage]
+* [Novidades no armazenamento no Windows Server 2016][new-in-win-2016-storage]

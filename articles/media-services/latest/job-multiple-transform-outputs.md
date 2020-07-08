@@ -1,6 +1,6 @@
 ---
-title: Criar um trabalho azure Media Services com múltiplas saídas de transformação
-description: Este tópico demonstra como criar um trabalho de Azure Media Services com múltiplas saídas de transformação.
+title: Criar um trabalho de Azure Media Services com várias saídas de transformação
+description: Este tópico demonstra como criar um trabalho da Azure Media Services com múltiplas saídas de transformação.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,22 @@ ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
 ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77563144"
 ---
-# <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com várias saídas de transformação
+# <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
 
-Este tópico mostra como criar uma Transform com duas Saídas Transform. O primeiro exige que a entrada seja codificada para streaming de bitrate adaptativo com um pré-definido [adaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) incorporado. A segunda pede que o sinal de áudio no vídeo de entrada seja processado com o [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Após a criação da Transform, pode submeter um trabalho que processe o seu vídeo em conformidade. Uma vez que neste exemplo estamos a especificar duas saídas transformos, temos de especificar duas saídas de trabalho. Pode optar por direcionar ambas as Saídas de Emprego para o mesmo Ativo (como mostrado abaixo), ou pode ter os resultados escritos para separar os Ativos.
+Este tópico mostra como criar uma Transformação com duas Saídas de Transformação. O primeiro pede que a entrada seja codificada para o streaming de bitrate adaptativo com uma predefinição [adaptivestreaming](encoding-concept.md#builtinstandardencoderpreset) incorporada. O segundo pede que o sinal de áudio no vídeo de entrada seja processado com o [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Após a criação do Transform, pode submeter um trabalho que irá processar o seu vídeo em conformidade. Uma vez que neste exemplo estamos especificando duas Saídas de Transformação, temos de especificar duas Saídas de Trabalho. Pode optar por direcionar ambas as Saídas de Emprego para o mesmo Ativo (como mostrado abaixo), ou pode ter os resultados escritos para separar ativos.
  
 
 > [!TIP]
-> Antes de começar a desenvolver, reveja [o Desenvolvimento com Os Serviços de Media v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
+> Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 
 ## <a name="create-a-transform"></a>Criar uma transformação
 
-O código seguinte mostra como criar uma transformação que produz duas saídas.
+O código que se segue mostra como criar uma transformação que produz duas saídas.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -67,7 +66,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 ```
 ## <a name="submit-a-job"></a>Submeter um emprego
 
-Crie um trabalho com uma entrada DE URL HTTPS e com duas saídas de emprego.
+Crie um trabalho com uma entrada URL HTTPS e com duas saídas de trabalho.
 
 ```csharp
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
@@ -131,8 +130,8 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 ```
 ## <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Ver [Códigos de Erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Amostras v3 do Azure Media Services utilizando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
+[Azure Media Services v3 amostras usando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

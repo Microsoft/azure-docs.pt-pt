@@ -1,6 +1,6 @@
 ---
-title: Recolha em Balcões de Performance nos Serviços Azure Cloud [ Microsoft Docs
-description: Saiba como descobrir, usar e criar contadores de desempenho em Cloud Services com Diagnósticos Azure e Insights de Aplicação.
+title: Recolha em Contadores de Desempenho nos Serviços Azure Cloud Microsoft Docs
+description: Aprenda a descobrir, usar e criar contadores de desempenho em Serviços cloud com Azure Diagnostics e Application Insights.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -9,17 +9,16 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469532"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Colete contadores de desempenho para o seu Serviço Azure Cloud
+# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Colete contadores de desempenho para o seu Azure Cloud Service
 
-Os contadores de desempenho fornecem uma forma de rastrear o desempenho da sua aplicação e do anfitrião. O Windows Server fornece muitos contadores de desempenho diferentes relacionados com hardware, aplicações, o sistema operativo e muito mais. Ao recolher e enviar contadores de desempenho para o Azure, pode analisar esta informação para ajudar a tomar melhores decisões. 
+Os contadores de desempenho fornecem uma forma de acompanhar o desempenho da sua aplicação e do anfitrião. O Windows Server fornece muitos contadores de desempenho diferentes relacionados com hardware, aplicações, sistema operativo e muito mais. Ao recolher e enviar contadores de desempenho para o Azure, pode analisar esta informação para ajudar a tomar melhores decisões. 
 
-## <a name="discover-available-counters"></a>Descubra os balcões disponíveis
+## <a name="discover-available-counters"></a>Descubra balcões disponíveis
 
 Um contador de desempenho é composto por duas partes, um nome definido (também conhecido como categoria) e um ou mais contadores. Pode utilizar o PowerShell para obter uma lista de contadores de desempenho disponíveis:
 
@@ -46,9 +45,9 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 #... results cut to save space ...
 ```
 
-O `CounterSetName` imóvel representa um conjunto (ou categoria), e é um bom indicador do que os contadores de desempenho estão relacionados. A `Paths` propriedade representa uma coleção de balcões para um conjunto. Você também poderia `Description` obter a propriedade para mais informações sobre o conjunto de balcão.
+A `CounterSetName` propriedade representa um conjunto (ou categoria), e é um bom indicador do que os contadores de desempenho estão relacionados. A `Paths` propriedade representa uma coleção de balcões para um conjunto. Você também pode obter a `Description` propriedade para mais informações sobre o conjunto de contadores.
 
-Para obter todos os balcões para `CounterSetName` um conjunto, `Paths` use o valor e expanda a coleção. Cada item de caminho é um contador que você pode consultar. Por exemplo, para obter os contadores `Processor` disponíveis relacionados com o conjunto, expandir a `Paths` coleção:
+Para obter todos os balcões para um conjunto, use o `CounterSetName` valor e expanda a `Paths` coleção. Cada item de caminho é um contador que pode consultar. Por exemplo, para obter os balcões disponíveis relacionados com o `Processor` conjunto, expanda a `Paths` coleção:
 
 ```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
@@ -70,17 +69,17 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Estes contra-caminhos individuais podem ser adicionados à estrutura de diagnóstico sintetizador que o seu serviço de nuvem utiliza. Para obter mais informações sobre como é construído um contra-caminho de desempenho, consulte [especificar um Contra-Caminho](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Estes caminhos de contra-ataque individuais podem ser adicionados à estrutura de diagnósticos que o seu serviço de nuvem utiliza. Para obter mais informações sobre como um contra-caminho de desempenho é construído, consulte [especificar um contra-caminho](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
 
-## <a name="collect-a-performance-counter"></a>Recolher um contador de desempenho
+## <a name="collect-a-performance-counter"></a>Colete um balcão de performance
 
-Um contador de desempenho pode ser adicionado ao seu serviço de nuvem para o Azure Diagnostics ou para application Insights.
+Um contador de desempenho pode ser adicionado ao seu serviço de nuvem para Azure Diagnostics ou Application Insights.
 
 ### <a name="application-insights"></a>Application Insights
 
-Os Insights de Aplicação Azure para serviços na nuvem permitem especificar quais os contadores de desempenho que pretende recolher. Depois de adicionar Insights de [Aplicação ao seu projeto,](../azure-monitor/app/cloudservices.md#sdk)um ficheiro config chamado **ApplicationInsights.config** é adicionado ao seu projeto Visual Studio. Este ficheiro config define que tipo de informação a Application Insights recolhe e envia para o Azure.
+O Azure Application Insights for Cloud Services permite especificar quais os contadores de desempenho que pretende recolher. Depois de [adicionar Application Insights ao seu projeto,](../azure-monitor/app/cloudservices.md#sdk)um ficheiro config chamado **ApplicationInsights.config** é adicionado ao seu projeto Visual Studio. Este ficheiro config define que tipo de informação a Application Insights recolhe e envia para o Azure.
 
-Abra o ficheiro **ApplicationInsights.config** e encontre o elemento **ApplicationInsights** > **TelemettryModules.** Cada `<Add>` elemento infantil define um tipo de telemetria para recolher, juntamente com a sua configuração. O tipo de módulo de `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`telemetria de contador de desempenho é . Se este elemento já estiver definido, não o adicione uma segunda vez. Cada contador de desempenho para recolher `<Counters>`é definido sob um nó chamado . Aqui está um exemplo que recolhe contadores de desempenho de unidade:
+Abra o ficheiro **ApplicationInsights.config** e encontre o elemento Telemetriamodules **ApplicationInsights.**  >  **TelemetryModules** Cada `<Add>` elemento infantil define um tipo de telemetria para recolher, juntamente com a sua configuração. O tipo de módulo de telemetria de contador de desempenho é `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector` . Se este elemento já estiver definido, não o adicione uma segunda vez. Cada contador de desempenho a recolher é definido sob um nó denominado `<Counters>` . Aqui está um exemplo que recolhe contadores de desempenho de unidade:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -99,9 +98,9 @@ Abra o ficheiro **ApplicationInsights.config** e encontre o elemento **Applicati
 <!-- ... cut to save space ... -->
 ```
 
-Cada contador de desempenho `<Add>` é `<Counters>`representado como um elemento abaixo de . O `PerformanceCounter` atributo define qual contador de desempenho recolher. O `ReportAs` atributo é o título a exibir no portal Azure para o contador de desempenho. Qualquer contador de desempenho que recolher é colocado numa categoria chamada **Custom** no portal. Ao contrário do Azure Diagnostics, não é possível definir o intervalo que estes contadores de desempenho são recolhidos e enviados para o Azure. Com os Insights de Aplicação, os contadores de desempenho são recolhidos e enviados a cada minuto. 
+Cada contador de desempenho é representado como um `<Add>` elemento sob `<Counters>` . O `PerformanceCounter` atributo define qual o contador de desempenho a recolher. O `ReportAs` atributo é o título a exibir no portal Azure para o contador de desempenho. Qualquer contador de desempenho que recolher é colocado numa categoria chamada **Custom** no portal. Ao contrário do Azure Diagnostics, não é possível definir o intervalo que estes contadores de desempenho são recolhidos e enviados para a Azure. Com a Application Insights, os contadores de desempenho são recolhidos e enviados a cada minuto. 
 
-Os Insights de Aplicação recolhem automaticamente os seguintes contadores de desempenho:
+O Application Insights recolhe automaticamente os seguintes contadores de desempenho:
 
 * \Processo(?? APP_WIN32_PROC??) \% Tempo do processador
 * \Memory\Available Bytes
@@ -110,22 +109,22 @@ Os Insights de Aplicação recolhem automaticamente os seguintes contadores de d
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Para mais informações, consulte os contadores de desempenho do Sistema em Insights de [Aplicação](../azure-monitor/app/performance-counters.md) e Insights de [Aplicação para Serviços de Nuvem Azure](../azure-monitor/app/cloudservices.md#performance-counters).
+Para obter mais informações, consulte [os contadores de desempenho do Sistema em Insights de Aplicações](../azure-monitor/app/performance-counters.md) e [Insights de Aplicações para Serviços em Nuvem Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
 > [!IMPORTANT]
-> Embora todos estes dados sejam agregados na conta de armazenamento, o portal **não** fornece uma forma nativa de traçar os dados. É altamente recomendável que integre outro serviço de diagnóstico, como o Application Insights, na sua aplicação.
+> Embora todos estes dados são agregados na conta de armazenamento, o portal **não** fornece uma forma nativa de traçar os dados. É altamente recomendável que integre outro serviço de diagnóstico, como o Application Insights, na sua aplicação.
 
-A extensão de Diagnóstico Azure para Serviços na Nuvem permite especificar quais os contadores de desempenho que pretende recolher. Para configurar o Azure Diagnostics, consulte a [visão geral](cloud-services-how-to-monitor.md#setup-diagnostics-extension)do serviço de nuvem .
+A extensão Azure Diagnostics para Serviços cloud permite-lhe especificar quais os contadores de desempenho que pretende recolher. Para configurar o Azure Diagnostics, consulte [a Visão Geral de Monitorização do Serviço de Nuvem](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Os contadores de desempenho que pretende recolher são definidos no ficheiro **diagnostics.wadcfgx.** Abra este ficheiro (é definido por função) no Estúdio Visual e encontre o elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters.** Adicione um novo elemento **PerformanceCounterConfiguration** em criança. Este elemento tem `counterSpecifier` dois `sampleRate`atributos: e . O `counterSpecifier` atributo define qual o conjunto de contador de desempenho do sistema (delineado na secção anterior) para recolher. O `sampleRate` valor indica quantas vezes esse valor é sondado. No seu conjunto, todos os contadores de desempenho `PerformanceCounters` são transferidos para OAzure de acordo com o valor do atributo do `scheduledTransferPeriod` elemento-mãe.
+Os contadores de desempenho que pretende recolher estão definidos no ficheiro **diagnostics.wadcfgx.** Abra este ficheiro (está definido por função) no Estúdio Visual e encontre o elemento **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters.** Adicione um novo elemento **de Configuração do DesempenhoCounter** quando criança. Este elemento tem dois atributos: `counterSpecifier` e `sampleRate` . O `counterSpecifier` atributo define qual o conjunto de contador de desempenho do sistema (delineado na secção anterior) para recolher. O `sampleRate` valor indica a frequência com que esse valor é sondado. No seu conjunto, todos os contadores de desempenho são transferidos para a Azure de acordo com o `PerformanceCounters` valor de atributo do `scheduledTransferPeriod` elemento-mãe.
 
-Para obter mais `PerformanceCounters` informações sobre o elemento esquema, consulte o [Azure Diagnostics Schema](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
+Para obter mais informações sobre o `PerformanceCounters` elemento esquema, consulte o [Esquema de DiagnósticoS Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
-O período definido `sampleRate` pelo atributo utiliza o tipo de dados de duração XML para indicar com que frequência o contador de desempenho é inquirido. No exemplo abaixo, a taxa `PT3M`é `[P]eriod[T]ime[3][M]inutes`fixada para , o que significa : a cada três minutos.
+O período definido pelo `sampleRate` atributo utiliza o tipo de dados de duração XML para indicar com que frequência o contador de desempenho é sondado. No exemplo abaixo, a taxa é definida para , o que significa : a `PT3M` `[P]eriod[T]ime[3][M]inutes` cada três minutos.
 
-Para obter mais `sampleRate` informações sobre como e stão `scheduledTransferPeriod` definidos, consulte a secção Tipo de Dados de **Duração** no tutorial [de data seleções W3 XML e data](https://www.w3schools.com/XML/schema_dtypes_date.asp) de tempo.
+Para obter mais informações sobre como `sampleRate` o e `scheduledTransferPeriod` são definidos, consulte a secção **tipo de dados de duração** no tutorial [de data e data de hora W3 XML.](https://www.w3schools.com/XML/schema_dtypes_date.asp)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -159,11 +158,11 @@ Para obter mais `sampleRate` informações sobre como e stão `scheduledTransfer
 </DiagnosticsConfiguration>
 ```
 
-## <a name="create-a-new-perf-counter"></a>Criar um novo contador perf
+## <a name="create-a-new-perf-counter"></a>Criar um novo balcão perf
 
-Um novo contador de desempenho pode ser criado e usado pelo seu código. O seu código que cria um novo contador de desempenho deve estar a funcionar elevado, caso contrário falhará. O seu `OnStart` código de arranque de serviço na nuvem pode criar o contador de desempenho, exigindo que você execute o papel num contexto elevado. Ou pode criar uma tarefa de arranque que seja elevada e crie o contador de desempenho. Para obter mais informações sobre as tarefas de arranque, consulte [como configurar e executar tarefas](cloud-services-startup-tasks.md)de arranque para um serviço na nuvem.
+Um novo contador de desempenho pode ser criado e usado pelo seu código. O seu código que cria um novo contador de desempenho deve estar a funcionar elevado, caso contrário falhará. O código de arranque do serviço de nuvem `OnStart` pode criar o contador de desempenho, exigindo que você execute o papel num contexto elevado. Ou pode criar uma tarefa de startup que executa elevada e cria o contador de desempenho. Para obter mais informações sobre tarefas de arranque, consulte [Como configurar e executar tarefas de arranque para um serviço de cloud](cloud-services-startup-tasks.md).
 
-Para configurar a sua função `<Runtime>` para ser elevado, adicione um elemento ao ficheiro [.csdef.](cloud-services-model-and-package.md#servicedefinitioncsdef)
+Para configurar o seu papel para correr elevado, adicione um `<Runtime>` elemento ao ficheiro [.csdef.](cloud-services-model-and-package.md#servicedefinitioncsdef)
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -181,7 +180,7 @@ Para configurar a sua função `<Runtime>` para ser elevado, adicione um element
 </ServiceDefinition>
 ```
 
-Pode criar e registar um novo contador de desempenho com algumas linhas de código. Utilize `System.Diagnostics.PerformanceCounterCategory.Create` a sobrecarga do método que cria tanto a categoria como o contador. O código seguinte verifica primeiro se a categoria existe e, se falta, cria tanto a categoria como o contador.
+Pode criar e registar um novo contador de desempenho com algumas linhas de código. Utilize a `System.Diagnostics.PerformanceCounterCategory.Create` sobrecarga do método que cria tanto a categoria como o contador. O código a seguir verifica primeiro se a categoria existe, e em caso de falta, cria tanto a categoria como o contador.
 
 ```csharp
 using System.Diagnostics;
@@ -224,19 +223,19 @@ namespace WorkerRoleWithSBQueue1
 }
 ```
 
-Quando quiser utilizar o contador, `Increment` `IncrementBy` ligue para o ou o método.
+Quando quiser utilizar o balcão, ligue para o `Increment` ou `IncrementBy` método.
 
 ```csharp
 // Increase the counter by 1
 counterServiceUsed.Increment();
 ```
 
-Agora que a sua aplicação utiliza o seu contador personalizado, precisa de configurar o Azure Diagnostics ou a Application Insights para rastrear o contador.
+Agora que a sua aplicação utiliza o seu contador personalizado, tem de configurar o Azure Diagnostics ou Application Insights para rastrear o contador.
 
 
 ### <a name="application-insights"></a>Application Insights
 
-Como indicado anteriormente, os contadores de desempenho para Insights de Aplicação são definidos no ficheiro **ApplicationInsights.config.** Abra **applicationInsights.config** e encontre o elemento **ApplicationInsights** > **TelemettryModules** > **Add** > **Counters.** Crie `<Add>` um elemento `PerformanceCounter` infantil e detete o atributo à categoria e nome do contador de desempenho que criou no seu código. Detete o `ReportAs` atributo para um nome amigável que deseja ver no portal.
+Como indicado anteriormente, os contadores de desempenho para Insights de Aplicação são definidos no ficheiro **ApplicationInsights.config.** Abra **ApplicationInsights.config** e encontre o elemento **ApplicationInsights**  >  **TelemetryModules**  >  **Add**  >  **Counters.** Crie um `<Add>` elemento infantil e desaponte o `PerformanceCounter` atributo para a categoria e nome do contador de desempenho que criou no seu código. Desa parte `ReportAs` para um nome amigável que pretende ver no portal.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -259,7 +258,7 @@ Como indicado anteriormente, os contadores de desempenho para Insights de Aplica
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-Como indicado anteriormente, os contadores de desempenho que pretende recolher são definidos no ficheiro **diagnostics.wadcfgx.** Abra este ficheiro (é definido por função) no Estúdio Visual e encontre o elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters.** Adicione um novo elemento **PerformanceCounterConfiguration** em criança. Detete o `counterSpecifier` atributo para a categoria e nome do contador de desempenho que criou no seu código. 
+Como indicado anteriormente, os contadores de desempenho que pretende recolher são definidos no ficheiro **diagnostics.wadcfgx.** Abra este ficheiro (está definido por função) no Estúdio Visual e encontre o elemento **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters.** Adicione um novo elemento **de Configuração do DesempenhoCounter** quando criança. Desaprote o `counterSpecifier` atributo para a categoria e o nome do contador de desempenho que criou no seu código. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -289,9 +288,9 @@ Como indicado anteriormente, os contadores de desempenho que pretende recolher s
 ## <a name="more-information"></a>Mais informações
 
 - [Application Insights para os Serviços Cloud do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Contadores de desempenho do sistema em Insights de Aplicação](../azure-monitor/app/performance-counters.md)
-- [Especificação de um contra-caminho](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure Diagnostics Schema - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
+- [Contadores de desempenho do sistema em Insights de Aplicações](../azure-monitor/app/performance-counters.md)
+- [Especificando um caminho de contra-ataque](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Azure Diagnostics Schema - Contadores de desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
 
 
 

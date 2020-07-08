@@ -1,7 +1,7 @@
 ---
-title: Recuperar pares de valor-chave a partir de um ponto-em-tempo
+title: Recupere os pares de valor-chave de um ponto no tempo
 titleSuffix: Azure App Configuration
-description: Recupere os pares de valor-chave antigos usando instantâneos pontuais na configuração da app Azure
+description: Recupere os antigos pares de valor-chave usando instantâneos pontuais na configuração da aplicação Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
@@ -9,19 +9,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523667"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo para um ponto anterior no tempo
 
-A Configuração de Aplicações Azure mantém um registo de alterações feitas em pares de valor-chave. Este registo fornece uma cronologia de alterações de valor-chave. Pode reconstruir a história de qualquer valor-chave e fornecer o seu valor passado a qualquer momento nos sete dias anteriores. Utilizando esta funcionalidade, pode "viajar no tempo" para trás e recuperar um antigo valor-chave. Por exemplo, pode recuperar as definições de configuração utilizadas antes da implementação mais recente, a fim de reverter a aplicação para a configuração anterior.
+A Azure App Configuration mantém um registo de alterações feitas em pares de valor-chave. Este registo fornece uma linha temporal de alterações de valor-chave. Pode reconstruir a história de qualquer valor-chave e fornecer o seu valor passado a qualquer momento nos sete dias anteriores. Utilizando esta função, pode "viajar no tempo" para trás e recuperar um valor-chave antigo. Por exemplo, pode recuperar as definições de configuração utilizadas antes da implementação mais recente, de modo a reverter a aplicação para a configuração anterior.
 
-## <a name="key-value-retrieval"></a>Recuperação de valor-chave
+## <a name="key-value-retrieval"></a>Recuperação do valor-chave
 
-Pode utilizar o Azure PowerShell para recuperar valores-chave passados.  Utilizar, `az appconfig revision list`adicionando parâmetros adequados para recuperar os valores necessários.  Especifique a instância de configuração da`--name {app-config-store-name}`aplicação Azure fornecendo o nome da loja ( ) ou utilizando uma corda de ligação ().`--connection-string {your-connection-string}` Restringir a saída especificando um ponto`--datetime`específico no tempo e especificando o número`--top`máximo de itens para devolver ( ).
+Pode utilizar a Azure PowerShell para recuperar valores de teclas anteriores.  Utilizar `az appconfig revision list` , adicionar parâmetros apropriados para recuperar os valores necessários.  Especifique a instância de Configuração da Aplicação Azure fornecendo o nome da loja `--name {app-config-store-name}` () ou utilizando uma cadeia de ligação `--connection-string {your-connection-string}` (). Restringir a saída especificando um ponto específico no tempo ( `--datetime` ) e especificando o número máximo de itens a devolver `--top` ().
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,31 +30,31 @@ Recupere todas as alterações registadas nos seus valores-chave.
 az appconfig revision list --name {your-app-config-store-name}.
 ```
 
-Recupere todas as `environment` alterações gravadas para a chave e as etiquetas `test` e `prod`.
+Recupere todas as alterações registadas para a chave `environment` e para as etiquetas e `test` `prod` .
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
 ```
 
-Recupere todas as alterações registadas no espaço-chave `environment:prod`hierárquico.
+Recupere todas as alterações registadas no espaço de chave hierárquica. `environment:prod`
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
 ```
 
-Recupere todas as `color` alterações gravadas para a chave num determinado ponto no tempo.
+Recupere todas as alterações registadas para a chave `color` num ponto específico no tempo.
 
 ```azurepowershell
 az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
-Recupere as últimas 10 alterações gravadas nos `key` `label`seus `last-modified` valores-chave e devolva apenas os valores para, e carimbo de tempo.
+Recupere as últimas 10 alterações registadas nos valores-chave e devolva apenas os valores para `key` , e a hora de `label` `last-modified` marcação.
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web ASP.NET Core](./quickstart-aspnet-core-app.md)  

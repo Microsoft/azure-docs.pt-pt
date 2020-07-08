@@ -1,6 +1,6 @@
 ---
-title: Lista de livros SRE [ Microsoft Docs
-description: Aumente o seu conhecimento sobre engenharia de fiabilidade do site com estes livros
+title: Lista de livros SRE / Microsoft Docs
+description: Aumente o seu conhecimento de engenharia de fiabilidade do site com estes livros
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
 ms.openlocfilehash: 4a350953a5755f24c938011ae4b98e1e35e094e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77599044"
 ---
 # <a name="books-about-site-reliability-engineering"></a>Livros sobre engenharia de fiabilidade do site
@@ -30,4 +29,4 @@ Cada um destes livros fornece um conjunto importante de informações:
 
 - <bpt i="1000001" x="1000001" type="formatting">{i&gt;</bpt>Seeking SRE<ept i="1000001">&lt;i}</ept> – apresenta uma visão mais abrangente do mundo da SRE além da sua origem, incluindo informações sobre como foi implementada noutros ambientes.
 
-Como estes livros descrevem a experiência, ambientes e cultura de organizações que podem ou não se assemelhar à que você está, é importante ler estes livros com um olhar crítico. Ao ler, tente determinar quais as práticas que teriam ou não sucesso na sua organização. Perca algum tempo para identificar as informações que irão certamente fornecer um valor positivo. Pense nas partes da cultura e dos valores da sua organização que podem suportar o trabalho de SRE conforme descrito e que o poderão tornar mais desafiador. Um abraço cuidadoso e iterativo da SRE produzirá quase sempre melhores resultados do que uma duplicação por grosso de algo que se lê nestes livros.
+Como estes livros descrevem a experiência, os ambientes e a cultura de organizações que podem ou não se assemelhar ao que você está, é importante ler estes livros com um olhar crítico. Como lê, tente determinar quais práticas seriam ou não bem sucedidas na sua organização. Perca algum tempo para identificar as informações que irão certamente fornecer um valor positivo. Pense nas partes da cultura e dos valores da sua organização que podem suportar o trabalho de SRE conforme descrito e que o poderão tornar mais desafiador. Um abraço cuidadoso e iterativo da SRE produzirá quase sempre melhores resultados do que uma duplicação por grosso de algo que se lê nestes livros.

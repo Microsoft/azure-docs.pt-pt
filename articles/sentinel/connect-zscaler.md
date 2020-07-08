@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Zscaler ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados da Zscaler ao Azure Sentinel. Microsoft Docs
 description: Saiba como ligar os dados do Zscaler ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,19 +15,18 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587996"
 ---
-# <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Ligue o acesso à Internet de Zscaler ao Sentinela Azure
+# <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Ligue o acesso à Internet Zscaler ao Azure Sentinel
 
 > [!IMPORTANT]
 > O conector de dados Zscaler em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo explica como ligar o seu aparelho zscaler Internet Access ao Azure Sentinel. O conector de dados Zscaler permite-lhe ligar facilmente os seus registos de Acesso à Internet (ZIA) ao Azure Sentinel, ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Zscaler no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
+Este artigo explica como ligar o seu aparelho Zscaler Internet Access ao Azure Sentinel. O conector de dados Zscaler permite-lhe ligar facilmente os seus registos Zscaler Internet Access (ZIA) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Zscaler no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
 
 
 ## <a name="configure-your-zscaler-to-send-cef-messages"></a>Configure o seu Zscaler para enviar mensagens CEF
@@ -36,21 +35,21 @@ Este artigo explica como ligar o seu aparelho zscaler Internet Access ao Azure S
     - Protocolo = TCP
     - Porta = 514
     - Formato = CEF
-    - Endereço IP - certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que dedicou para o efeito.
- Para mais informações, consulte o Guia de [Implantação Zscaler e Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
+    - Endereço IP - certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que dedicou para este fim.
+ Para mais informações, consulte o Guia de [Implantação do Zscaler e do Azure Sentinel.](https://aka.ms/ZscalerCEFInstructions)
  
    > [!NOTE]
-   > Esta solução suporta syslog RFC 3164 ou RFC 5424.
+   > Esta solução suporta o Syslog RFC 3164 ou o RFC 5424.
 
 
-1. Para utilizar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos CEF, procure .
-1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
+1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog` .
+1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar o Acesso à Internet Zscaler ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+## <a name="next-steps"></a>Próximos passos
+Neste documento, aprendeu a ligar o Zscaler Internet Access ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 
 

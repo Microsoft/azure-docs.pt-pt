@@ -1,6 +1,6 @@
 ---
-title: Como instalar a HANA no SAP HANA no Azure (Grandes Instâncias) [ Microsoft Docs
-description: Como instalar a HANA no SAP HANA em Azure (Grandes Instâncias).
+title: Como instalar o HANA no SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+description: Como instalar o HANA no SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -14,53 +14,52 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617218"
 ---
-# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instale HANA no SAP HANA em Azure (Grandes Instâncias)
+# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instale HANA em SAP HANA em Azure (Grandes Instâncias)
 
-Para instalar hana no SAP HANA no Azure (Grandes Instâncias), deve primeiro fazer o seguinte:
-- Fornece à Microsoft todos os dados para ser implantado numa Grande Instância SAP HANA.
-- Recebe o SAP HANA Large Instance da Microsoft.
+Para instalar o HANA no SAP HANA em Azure (Grandes Instâncias), deve primeiro fazer o seguinte:
+- Fornece à Microsoft todos os dados para implementar para si numa Grande Instância SAP HANA.
+- Você recebe o SAP HANA Large Instance da Microsoft.
 - Cria uma rede virtual Azure que está ligada à sua rede no local.
-- Liga o circuito ExpressRoute para as Grandes Instâncias HANA à mesma rede virtual Azure.
-- Instala uma máquina virtual Azure que utiliza como caixa de salto para grandes instâncias HANA.
-- Certifique-se de que pode ligar-se da caixa de salto à sua unidade HANA Large Instance e vice-versa.
-- Verifique se estão instalados todos os pacotes e patches necessários.
-- Leu as notas do SAP e documentação sobre a instalação da HANA no sistema operativo que está a utilizar. Certifique-se de que a libertação de escolha da HANA é suportada na libertação do sistema operativo.
+- Liga o circuito ExpressRoute para HANA Large Instances à mesma rede virtual Azure.
+- Instala uma máquina virtual Azure que utiliza como caixa de salto para HANA Large Instances.
+- Certifique-se de que pode ligar da caixa de salto à sua unidade HANA Large Instance e vice-versa.
+- Verifique se todas as embalagens e patches necessários estão instalados.
+- Você leu as notas sap e documentação sobre a instalação HANA no sistema operativo que está a usar. Certifique-se de que a libertação de HANA de escolha é suportada na libertação do sistema operativo.
 
 A secção seguinte mostra um exemplo de descarregamento dos pacotes de instalação HANA para a máquina virtual jump box. Neste caso, o sistema operativo é o Windows.
 
 ## <a name="download-the-sap-hana-installation-bits"></a>Descarregue os bits de instalação SAP HANA
-As unidades HANA Large Instance não estão diretamente ligadas à internet. Não é possível descarregar diretamente os pacotes de instalação do SAP para a máquina virtual HANA Large Instance. Em vez disso, descarrega os pacotes para a máquina virtual da caixa de salto.
+As unidades HANA Large Instance não estão diretamente ligadas à internet. Não é possível baixar diretamente os pacotes de instalação do SAP para a máquina virtual HANA Large Instance. Em vez disso, descarrega os pacotes para a máquina virtual jump box.
 
-You need an SAP S-user or other user, which allows you to access the SAP Marketplace.
+Precisa de um utilizador SAP S ou outro utilizador, que lhe permita aceder ao SAP Marketplace.
 
-1. Inscreva-se e vá ao [SAP Service Marketplace.](https://support.sap.com/en/index.html) **Selecione descarregue** > instalações de software**e atualize** > **por índice alfabético**. Em seguida, selecione **Under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalação**. Descarregue os ficheiros apresentados na seguinte imagem.
+1. Inscreva-se e vá ao [SAP Service Marketplace.](https://support.sap.com/en/index.html) Selecione Transferir instalações **de software**  >  **e atualizar**por índice  >  **alfabético**. Em seguida, selecione **Under H – SAP HANA Platform Edition**SAP  >  **HANA Platform Edition 2.0**  >  **Installation**. Descarregue os ficheiros apresentados na imagem seguinte.
 
    ![Screenshot dos ficheiros para descarregar](./media/hana-installation/image16_download_hana.PNG)
 
-2. Neste exemplo, descarregámos pacotes de instalação SAP HANA 2.0. Na máquina virtual da caixa de salto Azure, expanda os arquivos auto-extractos para o diretório, como mostrado abaixo.
+2. Neste exemplo, descarregámos pacotes de instalação SAP HANA 2.0. Na máquina virtual da caixa de salto Azure, expanda os arquivos auto-extrativos para o diretório, como mostrado abaixo.
 
-   ![Screenshot do arquivo auto-extracto](./media/hana-installation/image17_extract_hana.PNG)
+   ![Screenshot do arquivo auto-extrator](./media/hana-installation/image17_extract_hana.PNG)
 
 3. À medida que os arquivos são extraídos, copie o diretório criado pela extração (neste caso, 51052030). Copie o diretório da unidade HANA Large Instance /hana/volume partilhado num diretório que criou.
 
    > [!Important]
-   > Não copie os pacotes de instalação na raiz ou arranque LUN, porque o espaço é limitado e precisa de ser usado por outros processos também.
+   > Não copie os pacotes de instalação na raiz ou no arranque LUN, porque o espaço é limitado e precisa de ser usado por outros processos também.
 
 
 ## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>Instale o SAP HANA na unidade HANA Large Instance
-Para instalar o SAP HANA, inscreva-se como raiz do utilizador. Só a raiz tem permissões suficientes para instalar o SAP HANA. Detete permissões no diretório que copiou para /hana/shared.
+Para instalar o SAP HANA, inscreva-se como raiz do utilizador. Só a raiz tem permissões suficientes para instalar o SAP HANA. Desa estade permissões no diretório que copiou para /hana/shared.
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-Se pretender instalar o SAP HANA utilizando a configuração da interface gráfica do utilizador, a embalagem gtk2 tem de ser instalada em HANA Large Instances. Para verificar se está instalado, execute o seguinte comando:
+Se pretender instalar o SAP HANA utilizando a configuração da interface gráfica do utilizador, o pacote GTK2 tem de ser instalado em HANA Large Instances. Para verificar se está instalado, execute o seguinte comando:
 
 ```
 rpm –qa | grep gtk2
@@ -68,69 +67,69 @@ rpm –qa | grep gtk2
 
 (Em etapas posteriores, mostramos a configuração SAP HANA com a interface gráfica do utilizador.)
 
-Entre no diretório de instalação e navegue no sub diretório HDB_LCM_LINUX_X86_64. 
+Entre no diretório de instalações e navegue no sub-directório HDB_LCM_LINUX_X86_64. 
 
-Fora desse diretório, comece:
+Fora do diretório, comece:
 
 ```
 ./hdblcmgui 
 ```
-Neste ponto, você progride através de uma sequência de ecrãs em que fornece os dados para a instalação. Neste exemplo, estamos a instalar o servidor de base de dados SAP HANA e os componentes do cliente SAP HANA. Portanto, a nossa seleção é **base de dados SAP HANA**.
+Neste ponto, progride através de uma sequência de ecrãs em que fornece os dados para a instalação. Neste exemplo, estamos a instalar o servidor de base de dados SAP HANA e os componentes do cliente SAP HANA. Portanto, a nossa seleção é **SAP HANA Database.**
 
-![Screenshot do ecrã sap HANA Lifecycle Management, com base de dados SAP HANA selecionada](./media/hana-installation/image18_hana_selection.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com base de dados SAP HANA selecionado](./media/hana-installation/image18_hana_selection.PNG)
 
-No ecrã seguinte, selecione **Instalar novo sistema**.
+No ecrã seguinte, **selecione Instalar Novo Sistema**.
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, com instalar novo sistema selecionado](./media/hana-installation/image19_select_new.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com instalação de novo sistema selecionado](./media/hana-installation/image19_select_new.PNG)
 
 Em seguida, selecione entre vários componentes adicionais que pode instalar.
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, com lista de componentes adicionais](./media/hana-installation/image20_select_components.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com lista de componentes adicionais](./media/hana-installation/image20_select_components.PNG)
 
-Aqui, escolhemos o Cliente SAP HANA e o Estúdio SAP HANA. Também instalamos uma instância de escala. Em seguida, escolha **o sistema de hospedeiro único**. 
+Aqui, escolhemos o Sap HANA Client e o Sap HANA Studio. Também instalamos uma instância de escala. Em seguida, escolha **o sistema de anfitrião único.** 
 
-![Screenshot do ecrã sap HANA Lifecycle Management, com sistema de anfitriões único selecionado](./media/hana-installation/image21_single_host.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com sistema de anfitriões único selecionado](./media/hana-installation/image21_single_host.PNG)
 
 Em seguida, forneça alguns dados.
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, com campos de propriedades do sistema para definir](./media/hana-installation/image22_provide_sid.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com campos de propriedades do sistema para definir](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> Como HANA System ID (SID), deve fornecer o mesmo SID que forneceu à Microsoft quando encomendou a implementação de Hana Large Instance. A escolha de um SID diferente faz com que a instalação falhe, devido a problemas de permissão de acesso nos diferentes volumes.
+> Como ID do Sistema HANA (SID), deve fornecer o mesmo SID que forneceu à Microsoft quando encomendou a implementação da HANA Large Instance. A escolha de um SID diferente faz com que a instalação falhe, devido a problemas de permissão de acesso nos diferentes volumes.
 
-Para o percurso de instalação, utilize o diretório /hana/partilhado. No passo seguinte, fornece as localizações dos ficheiros de dados HANA e dos ficheiros de registo HANA.
+Para o caminho de instalação, utilize o diretório /hana/shared. No passo seguinte, fornece as localizações dos ficheiros de dados HANA e dos ficheiros de registo HANA.
 
 
-![Screenshot do ecrã de Gestão de Ciclo de Vida SAP HANA, com dados e campos de área de registo](./media/hana-installation/image23_provide_log.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com campos de dados e área de log](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> O SID que especificou quando definiu as propriedades do sistema (há dois ecrãs) deve coincidir com o SID dos pontos de montagem. Se houver uma incompatibilidade, volte e ajuste o SID ao valor que tem nos pontos de montagem.
+> O SID especificado quando definiu as propriedades do sistema (há dois ecrãs) deve coincidir com o SID dos pontos de montagem. Se houver uma incompatibilidade, volte para trás e ajuste o SID ao valor que tem nos pontos de montagem.
 
 No passo seguinte, reveja o nome do anfitrião e, eventualmente, corrija-o. 
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, com nome anfitrião](./media/hana-installation/image24_review_host_name.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com nome de anfitrião](./media/hana-installation/image24_review_host_name.PNG)
 
-No passo seguinte, também precisa de recuperar os dados que deu à Microsoft quando ordenou a implementação da HANA Large Instance. 
+No passo seguinte, também precisa de recuperar os dados que deu à Microsoft quando encomendou a implementação da HANA Large Instance. 
 
-![Screenshot da SAP HANA Lifecycle Management, com campos de administrador do sistema para definir](./media/hana-installation/image25_provide_guid.PNG)
+![Screenshot da SAP HANA Lifecycle Management, com campos de administrador de sistema para definir](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> Forneça o mesmo ID e **ID do Utilizador do** Administrador do **Sistema** que forneceu à Microsoft, como encomenda a implementação da unidade. Caso contrário, a instalação do SAP HANA na unidade HANA Large Instance falha.
+> Forneça o mesmo **ID** do Utilizador do Administrador de Sistema e **ID do Grupo de Utilizador** que forneceu à Microsoft, uma vez que encomenda a implementação da unidade. Caso contrário, a instalação de SAP HANA na unidade HANA Large Instance falha.
 
-Os próximos dois ecrãs não são mostrados aqui. Permitem-lhe fornecer a palavra-passe para o utilizador do SISTEMA da base de dados SAP HANA e a palavra-passe para o utilizador do sapadm. Este último é utilizado para o Agente hospedeiro SAP que é instalado como parte da instância de base de dados SAP HANA.
+Os próximos dois ecrãs não são mostrados aqui. Permitem-lhe fornecer a palavra-passe para o utilizador system da base de dados SAP HANA e a palavra-passe para o utilizador do sapadm. Este último é utilizado para o Agente anfitrião SAP que é instalado como parte da caixa de dados sap HANA.
 
-Depois de definir a palavra-passe, consulte um ecrã de confirmação. verifique todos os dados listados e continue com a instalação. Chega-se a um ecrã de progresso que documenta o progresso da instalação, como este:
+Depois de definir a palavra-passe, vê um ecrã de confirmação. verifique todos os dados listados e continue com a instalação. Chega-se a um ecrã de progresso que documenta o progresso da instalação, como este:
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, com indicadores de progresso da instalação](./media/hana-installation/image27_show_progress.PNG)
+![Screenshot do ecrã de gestão de ciclo de vida SAP HANA, com indicadores de progresso da instalação](./media/hana-installation/image27_show_progress.PNG)
 
 À medida que a instalação termina, deve ver um ecrã como este:
 
-![Screenshot do ecrã SAP HANA Lifecycle Management, indicando que a instalação está terminada](./media/hana-installation/image28_install_finished.PNG)
+![Screenshot do ecrã de gestão do ciclo de vida SAP HANA, indicando que a instalação está terminada](./media/hana-installation/image28_install_finished.PNG)
 
-A instância SAP HANA deve agora estar a funcionar e pronta para ser utilizada. Deves poder ligar-te a ele do Estúdio SAP HANA. Certifique-se também de que verifica e aplica as últimas atualizações.
+A instância SAP HANA deve estar agora a funcionar e pronta para ser utilizada. Você deve ser capaz de ligar-se a ele a partir do Estúdio SAP HANA. Certifique-se também de que verifica e aplica as últimas atualizações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [SAP HANA Grandes Instâncias alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md)
 

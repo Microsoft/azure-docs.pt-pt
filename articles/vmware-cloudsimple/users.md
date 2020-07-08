@@ -1,6 +1,6 @@
 ---
-title: Ver utilizadores do portal CloudSimple Azure VMware - Solução Azure VMware by CloudSimple
-description: Descreve como visualizar a lista de utilizadores que têm acesso ao portal CloudSimple através do portal Azure
+title: Ver utilizadores do portal Azure VMware CloudSimple - Azure VMware Solution by CloudSimple
+description: Descreve como ver a lista de utilizadores que têm acesso ao portal CloudSimple através do portal Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,17 +9,16 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f9043fbbb77059eb4e4ed42dbef8a42e5790d565
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564011"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Ver a lista de utilizadores do portal CloudSimple
 
-Os utilizadores são adicionados à lista de utilizadores quando acedem pela primeira vez ao portal CloudSimple. Para visualizar a lista de utilizadores que tenham acesso ao portal CloudSimple através do Azure, [aceda ao portal CloudSimple,](access-cloudsimple-portal.md)selecione **Conta** no menu lateral e, em seguida, selecione **Utilizadores** no portal CloudSimple.
+Os utilizadores são adicionados à lista de utilizadores quando acedem pela primeira vez ao portal CloudSimple. Para ver a lista de utilizadores que tenham acesso ao portal CloudSimple através do Azure, [aceda ao portal CloudSimple](access-cloudsimple-portal.md), selecione **Conta** no menu lateral e, em seguida, selecione **Utilizadores** no portal CloudSimple.
 
-* Para mostrar os dados do utilizador, incluindo a subscrição do Azure, o inquilino e as iDs do utilizador, clique numa entrada na página **do Utilizador.**
+* Para mostrar os dados do utilizador, incluindo a subscrição Azure, inquilino e IDs do utilizador, clique numa entrada na página **do Utilizador.**
 
-* Para visualizar um registo de atividade de auditoria para um utilizador, selecione o separador **de registo de auditoria.**
-* Para bloquear ou desbloquear uma conta de utilizador, clique no alternância **do 'Locked'** ao visualizar os dados do utilizador. Quando a conta é desbloqueada, o utilizador pode aceder ao portal CloudSimple. Quando a conta está bloqueada, o acesso ao portal está bloqueado.
+* Para visualizar um registo de auditoria da atividade de um utilizador, selecione o **separador de registo de auditoria.**
+* Para bloquear ou desbloquear uma conta de utilizador, clique na tosca **bloqueada** ao visualizar os dados do utilizador. Quando a conta é desbloqueada, o utilizador pode aceder ao portal CloudSimple. Quando a conta está bloqueada, o acesso ao portal fica bloqueado.

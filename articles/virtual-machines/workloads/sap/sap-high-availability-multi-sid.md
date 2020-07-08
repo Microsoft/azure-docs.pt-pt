@@ -1,5 +1,5 @@
 ---
-title: Criar uma configuração Multi-SID SAP em Azure Microsoft Docs
+title: Criar uma configuração SAP multi-SID em Azure Microsoft Docs
 description: Guia para configuração multi-SID SAP NetWeaver de alta disponibilidade em máquinas virtuais do Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617404"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID SAP NetWeaver
@@ -47,36 +46,36 @@ ms.locfileid: "77617404"
 [sap-ha-guide-9.6]:sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 
 [sap-ha-guide-10]:sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9
 
-Em setembro de 2016, a Microsoft lançou uma funcionalidade onde pode gerir vários endereços IP virtuais utilizando um equilibrador de carga interna Do Azure. Esta funcionalidade já existe no equilibrador de carga externa Azure.
+Em setembro de 2016, a Microsoft lançou uma funcionalidade onde é possível gerir vários endereços IP virtuais utilizando um equilibrador interno de carga Azure. Esta funcionalidade já existe no equilibrador de carga externo Azure.
 
-Se tiver uma implementação SAP, pode utilizar um balancedor de carga interno para criar uma configuração de cluster Windows para SAP ASCS/SCS, conforme documentado no [guia para a alta disponibilidade Do SAP NetWeaver em VMs do Windows][sap-ha-guide].
+Se tiver uma implementação SAP, pode utilizar um equilibrador de carga interno para criar uma configuração de cluster Do Windows para SAP ASCS/SCS, conforme documentado no [guia para alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide].
 
-Este artigo centra-se em como passar de uma única instalação ASCS/SCS para uma configuração multi-SID SAP, instalando instâncias adicionais agrupadas SAP ASCS/SCS num cluster de clustering de falha de servidor do Windows existente (WSFC). Quando este processo estiver concluído, terá configurado um cluster multi-SID SAP.
+Este artigo centra-se em como passar de uma única instalação ASCS/SCS para uma configuração MULTI-SID SAP, instalando instâncias adicionais agrupadas SAP ASCS/SCS num cluster de cluster de failover do servidor do Windows (WSFC) existente. Quando este processo estiver concluído, terá configurado um cluster SAP multi-SID.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Já configuraum cluster WSFC que é usado para uma instância SAP ASCS/SCS, como discutido no [guia para alta disponibilidade SAP NetWeaver em VMs Windows][sap-ha-guide] e como mostrado neste diagrama.
+Você já configura um cluster WSFC que é usado para uma instância SAP ASCS/SCS, como discutido no [guia para alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide] e como mostrado neste diagrama.
 
-![Instância SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-6001]
+![Caso SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-6001]
 
 ## <a name="target-architecture"></a>Arquitetura-alvo
 
-O objetivo é instalar múltiplas instâncias agrupadas SAP ABAP ASCS ou SAP Java SCS agrupadas no mesmo cluster WSFC, como ilustrado aqui:
+O objetivo é instalar vários casos AGS ABAP ASCS ou SAP Java SCS agrupados no mesmo cluster WSFC, como ilustrado aqui:
 
 ![Múltiplas instâncias agrupadas SAP ASCS/SCS em Azure][sap-ha-guide-figure-6002]
 
 > [!NOTE]
->Existe um limite para o número de IPs frontais privados para cada equilibrador de carga interna do Azure.
+>Existe um limite para o número de IPs frontais privados para cada balançador interno de carga Azure.
 >
->O número máximo de instâncias SAP ASCS/SCS num cluster WSFC é igual ao número máximo de IPs frontais privados para cada equilíbrio interno de carga azure.
+>O número máximo de casos SAP ASCS/SCS num cluster WSFC é igual ao número máximo de IPs frontais privados para cada balançador interno de carga Azure.
 >
 
-Para obter mais informações sobre os limites do equilíbrio de carga, consulte "IP frontal privado por equilibrante de carga" nos limites de [networking: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre os limites do balanceador de carga, consulte "Private front end IP per load balancer" em [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 A paisagem completa com dois sistemas SAP de alta disponibilidade seria assim:
 
-![Configuração multi-SID de alta disponibilidade SAP com dois SIDs do sistema SAP][sap-ha-guide-figure-6003]
+![Configuração multi-SID de alta disponibilidade SAP com dois SIDs de sistema SAP][sap-ha-guide-figure-6003]
 
 > [!IMPORTANT]
 > A configuração deve satisfazer as seguintes condições:
@@ -86,25 +85,25 @@ A paisagem completa com dois sistemas SAP de alta disponibilidade seria assim:
 
 
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
-Para preparar a sua infraestrutura, pode instalar uma instância Adicional SAP ASCS/SCS com os seguintes parâmetros:
+Para preparar a sua infraestrutura, pode instalar uma instância SAP ASCS/SCS adicional com os seguintes parâmetros:
 
 | Nome do parâmetro | Valor |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
-| Balanceador de carga interna SAP DBMS | PR5 |
+| Equilibrador interno de carga SAP DBMS | PR5 |
 | Nome de anfitrião virtual SAP | pr5-sap-cl |
-| Endereço IP do hospedeiro virtual SAP ASCS/SCS (endereço IP adicional do equilíbrio de carga Azure) | 10.0.0.50 |
+| Endereço IP do anfitrião virtual SAP ASCS/SCS (endereço IP adicional do balanceador de carga Azure) | 10.0.0.50 |
 | Número de instância SAP ASCS/SCS | 50 |
-| Porta sonda ILB para instância adicional SAP ASCS/SCS | 62350 |
+| Porta de sonda ILB para instâncias SAP ASCS/SCS adicionais | 62350 |
 
 > [!NOTE]
-> Para as instâncias de cluster SAP ASCS/SCS, cada endereço IP requer uma porta de sonda única. Por exemplo, se um endereço IP num equilibrador de carga interna do Azure utilizar a porta de sonda 62300, nenhum outro endereço IP nesse equilíbrio de carga pode utilizar a porta de sonda 62300.
+> Para as instâncias de cluster SAP ASCS/SCS, cada endereço IP requer uma porta de sonda única. Por exemplo, se um endereço IP num equilibrador interno de carga Azure utilizar a porta de sonda 62300, nenhum outro endereço IP nesse balanceador de carga pode utilizar a porta de sonda 62300.
 >
->Para os nossos propósitos, porque a porta de sonda 62300 já está reservada, estamos a usar a porta de sonda 62350.
+>Para os nossos propósitos, como a porta de sonda 62300 já está reservada, estamos a usar a porta de sonda 62350.
 
-Pode instalar instâncias sAP ASCS/SCS adicionais no cluster WSFC existente com dois nós:
+Pode instalar instâncias SAP ASCS/SCS adicionais no cluster WSFC existente com dois nós:
 
-| Papel de máquina virtual | Nome do hospedeiro da máquina virtual | Endereço IP estático |
+| Papel da máquina virtual | Nome do anfitrião da máquina virtual | Endereço IP estático |
 | --- | --- | --- |
 | 1º nó de cluster para instância ASCS/SCS |pr1-ascs-0 |10.0.0.10 |
 | 2º nó de cluster para instância ASCS/SCS |pr1-ascs-1 |10.0.0.9 |
@@ -113,24 +112,24 @@ Pode instalar instâncias sAP ASCS/SCS adicionais no cluster WSFC existente com 
 
 Pode criar uma entrada DNS para o nome de anfitrião virtual da instância ASCS/SCS utilizando os seguintes parâmetros:
 
-| Novo nome de hospedeiro virtual SAP ASCS/SCS | Endereço IP associado |
+| Novo nome de anfitrião virtual SAP ASCS/SCS | Endereço IP associado |
 | --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
-O novo nome do anfitrião e o endereço IP são apresentados no Gestor DNS, como mostra a seguinte imagem:
+O novo nome de anfitrião e o endereço IP são apresentados no DNS Manager, como mostrado na seguinte imagem:
 
-![Lista de Gestor dNS destacando a entrada definida de DNS para o novo nome virtual do cluster SAP ASCS/SCS e endereço TCP/IP][sap-ha-guide-figure-6004]
+![Lista de Gestores de DNS que destaca a entrada definida de DNS para o novo nome virtual do cluster SAP ASCS/SCS e endereço TCP/IP][sap-ha-guide-figure-6004]
 
-O procedimento para a criação de uma entrada DNS também é descrito em detalhe no guia principal [para a alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-9.1.1].
+O procedimento para a criação de uma entrada de DNS também é descrito em detalhe no guia principal [para o SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide-9.1.1].
 
 > [!NOTE]
-> O novo endereço IP que atribui ao nome de anfitrião virtual da instância ascs/SCS adicional deve ser o mesmo que o novo endereço IP que atribuiu ao balancedor de carga SAP Azure.
+> O novo endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS adicional deve ser o mesmo que o novo endereço IP que atribuiu ao equilibrador de carga SAP Azure.
 >
 >No nosso cenário, o endereço IP é 10.0.0.50.
 
-### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a>Adicione um endereço IP a um equilibrador de carga interna Azure existente utilizando powerShell
+### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a>Adicione um endereço IP a um equilibrador interno de carga Azure existente utilizando o PowerShell
 
-Para criar mais do que uma instância SAP ASCS/SCS no mesmo cluster WSFC, utilize a PowerShell para adicionar um endereço IP a um equilibrador de carga interna Azure existente. Cada endereço IP requer as suas próprias regras de equilíbrio de carga, porta de sonda, piscina IP frontal e piscina traseira.
+Para criar mais de uma instância SAP ASCS/SCS no mesmo cluster WSFC, utilize o PowerShell para adicionar um endereço IP a um equilibrador interno de carga Azure existente. Cada endereço IP requer as suas próprias regras de equilíbrio de carga, porta sonda, piscina IP frontal e piscina traseira.
 
 O seguinte script adiciona um novo endereço IP a um equilibrador de carga existente. Atualize as variáveis PowerShell para o seu ambiente. O script criará todas as regras necessárias de equilíbrio de carga para todas as portas SAP ASCS/SCS.
 
@@ -215,17 +214,17 @@ Após a execução do script, os resultados são apresentados no portal Azure, c
 
 ![Novo pool IP frontal no portal Azure][sap-ha-guide-figure-6005]
 
-### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Adicione discos às máquinas de cluster e configure o disco de partilha de cluster SIOS
+### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Adicione discos a máquinas de cluster e configuure o disco de partilha de cluster SIOS
 
-Deve adicionar um novo disco de partilha de cluster para cada instância adicional SAP ASCS/SCS. Para o Windows Server 2012 R2, o disco de partilha de cluster WSFC atualmente em uso é a solução de software SIOS DataKeeper.
+Deve adicionar um novo disco de partilha de cluster para cada instância SAP ASCS/SCS adicional. Para o Windows Server 2012 R2, o disco de partilha de cluster WSFC atualmente em uso é a solução de software SIOS DataKeeper.
 
 Faça o seguinte:
-1. Adicione um disco adicional ou discos do mesmo tamanho (que precisa de riscar) a cada um dos nós do cluster e forme-os.
-2. Configure a replicação de armazenamento com o SIOS DataKeeper.
+1. Adicione um disco ou discos adicionais do mesmo tamanho (que precisa de riscar) a cada um dos nós do cluster e formate-os.
+2. Configure a replicação do armazenamento com o SIOS DataKeeper.
 
-Este procedimento pressupõe que já instalou o SIOS DataKeeper nas máquinas de cluster WSFC. Se o instalou, tem agora de configurar a replicação entre as máquinas. O processo é descrito em detalhe no guia principal [para a alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-8.12.3.3].  
+Este procedimento pressupõe que já instalou o SIOS DataKeeper nas máquinas de cluster WSFC. Se o instalou, tem agora de configurar a replicação entre as máquinas. O processo é descrito em detalhe no guia principal [para alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-8.12.3.3].  
 
-![DataKeeper espelhamento sincronizado para o novo disco de partilha SAP ASCS/SCS][sap-ha-guide-figure-6006]
+![O espelhamento sincronizado do DataKeeper para o novo disco de partilha SAP ASCS/SCS][sap-ha-guide-figure-6006]
 
 ### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>Implementar VMs para servidores de aplicações SAP e cluster DBMS
 
@@ -237,38 +236,38 @@ Para completar a preparação da infraestrutura para o segundo sistema SAP, faç
 
 ## <a name="install-the-second-sap-sid2-netweaver-system"></a>Instale o segundo sistema SAP SID2 NetWeaver
 
-O processo completo de instalação de um segundo sistema SAP SID2 é descrito no guia principal [para a alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-9].
+O processo completo de instalação de um segundo sistema SAP SID2 está descrito no guia principal [para o SAP NetWeaver de alta disponibilidade nos VMs do Windows][sap-ha-guide-9].
 
 O procedimento de alto nível é o seguinte:
 
-1. [Instale o primeiro nó][sap-ha-guide-9.1.2]de cluster SAP .  
- Neste passo, está a instalar o SAP com uma instância ASCS/SCS de alta disponibilidade no **nó de cluster WSFC existente 1**.
+1. [Instale o primeiro nó de cluster SAP][sap-ha-guide-9.1.2].  
+ Neste passo, está a instalar o SAP com uma instância ASCS/SCS de alta disponibilidade no nó de **cluster WSFC existente 1**.
 
 2. [Modificar o perfil SAP da instância ASCS/SCS][sap-ha-guide-9.1.3].
 
-3. [Configure uma porta de sonda][sap-ha-guide-9.1.4].  
- Neste passo, está a configurar uma porta de sonda SAP-SID2-IP de recurso de cluster SAP-SID2 utilizando o PowerShell. Execute esta configuração num dos nós de cluster SAP ASCS/SCS.
+3. [Configure uma porta de sonda.][sap-ha-guide-9.1.4]  
+ Neste passo, está a configurar uma porta de sonda SAP-SID2-IP de recurso SAP-SID2-IP utilizando o PowerShell. Execute esta configuração num dos nós do cluster SAP ASCS/SCS.
 
 4. [Instale a instância da base de dados] [sap-ha-guide-9.2].  
- Neste passo, está a instalar o DBMS num cluster WSFC dedicado.
+ Neste passo, está a instalar o DBMS num cluster dedicado da WSFC.
 
 5. [Instale o segundo nó de cluster] [sap-ha-guide-9.3].  
- Neste passo, está a instalar o SAP com uma instância ASCS/SCS de alta disponibilidade no nó 2 do cluster WSFC existente.
+ Neste passo, está a instalar o SAP com uma instância ASCS/SCS de alta disponibilidade no nó de cluster WSFC 2 existente.
 
-6. Abra as portas de Firewall do Windows para a instância SAP ASCS/SCS e ProbePort.  
- Em ambos os nós de cluster que são utilizados para instâncias SAP ASCS/SCS, está a abrir todas as portas do Windows Firewall que são utilizadas pelo SAP ASCS/SCS. Estas portas estão listadas no [guia para a alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-8.8].  
- Abra também a porta de sonda de sonorizador de carga interna Azure, que é 62350 no nosso cenário.
+6. Abra as portas do Windows Firewall para a instância SAP ASCS/SCS e o ProbePort.  
+ Em ambos os nós de cluster que são utilizados para casos SAP ASCS/SCS, está a abrir todas as portas do Windows Firewall que são utilizadas pelo SAP ASCS/SCS. Estas portas estão listadas no [guia para alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide-8.8].  
+ Abra também a porta de sonda de carga interna Azure, que é 62350 no nosso cenário.
 
-7. [Altere o tipo de início da instância de serviço SAP ERS Windows][sap-ha-guide-9.4].
+7. [Alterar o tipo de início da instância de serviço SAP ERS Windows][sap-ha-guide-9.4].
 
-8. [Instale o servidor de aplicações primárias SAP][sap-ha-guide-9.5] no novo VM dedicado.
+8. [Instale o servidor de aplicação primária SAP][sap-ha-guide-9.5] no novo VM dedicado.
 
-9. [Instale o servidor de aplicações adicional SAP][sap-ha-guide-9.6] no novo VM dedicado.
+9. [Instale o servidor de aplicações adicionais SAP][sap-ha-guide-9.6] no novo VM dedicado.
 
-10. [Teste a falha da instância SAP ASCS/SCS e a replicação do SIOS][sap-ha-guide-10].
+10. [Teste a falha de falha da instância SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Limites de networking: Gestor de Recursos Azure][networking-limits-azure-resource-manager]
-- [Múltiplos VIPs para O Equilíbrio de Carga Azure][load-balancer-multivip-overview]
+- [Limites de rede: Gestor de Recursos Azure][networking-limits-azure-resource-manager]
+- [Vários VIPs para Equilibrador de Carga Azure][load-balancer-multivip-overview]
 - [Guia para alta disponibilidade SAP NetWeaver em VMs windows][sap-ha-guide]

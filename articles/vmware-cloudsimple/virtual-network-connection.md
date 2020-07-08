@@ -1,6 +1,6 @@
 ---
-title: Conecte rede virtual Azure à CloudSimple utilizando a ExpressRoute - Azure VMware Solution by CloudSimple
-description: Descreve como obter informações de procura de uma ligação entre a rede virtual Azure e o seu ambiente CloudSimple
+title: Ligue a rede virtual Azure ao CloudSimple utilizando o ExpressRoute - Azure VMware Solution by CloudSimple
+description: Descreve como obter informações de peering para uma ligação entre a rede virtual Azure e o seu ambiente CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,15 +9,14 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6b20ee4e04a4443529ecceca8c6fc2206f7df39d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77563987"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Ligue a rede virtual Azure à CloudSimple usando o ExpressRoute
 
-Pode estender a sua rede Private Cloud à sua rede virtual Azure e aos recursos Azure. Uma ligação ExpressRoute permite-lhe aceder a recursos que executam a subscrição do Azure a partir da sua Cloud Privada.
+Pode estender a sua rede Private Cloud à sua rede virtual Azure e recursos Azure. Uma ligação ExpressRoute permite-lhe aceder a recursos em execução na sua subscrição Azure a partir da sua Cloud Privada.
 
 ## <a name="request-authorization-key"></a>Chave de autorização de pedido
 
@@ -28,24 +27,24 @@ Pode estender a sua rede Private Cloud à sua rede virtual Azure e aos recursos 
 * Serviço: **Solução VMware by CloudSimple**
 * Tipo de problema: **Pedido de serviço**
 * Subtipo de problema: **Chave de autorização para ligação Azure VNET**
-* Objeto: **Pedido de autorização para ligação Azure VNET**
+* Objeto: **Pedido de autorização chave para ligação Azure VNET**
 
-## <a name="get-peering-information-from-cloudsimple-portal"></a>Obtenha informações de peering do portal CloudSimple
+## <a name="get-peering-information-from-cloudsimple-portal"></a>Obtenha informações de espreitar do portal CloudSimple
 
-Para configurar a ligação, deve estabelecer uma ligação entre a rede virtual Azure e o seu ambiente CloudSimple.  Como parte do procedimento, deve fornecer o circuito de pares URI e a chave de autorização. Obtenha a chave URI e autorização do [portal CloudSimple](access-cloudsimple-portal.md).  Selecione **Rede** no menu lateral e, em seguida, selecione **Ligação de Rede Azure**. Ou selecione **Conta** no menu lateral e, em seguida, selecione a **ligação de rede Azure**.
+Para configurar a ligação, tem de estabelecer uma ligação entre a rede virtual Azure e o seu ambiente CloudSimple.  Como parte do procedimento, deve fornecer o circuito de pares URI e a chave de autorização. Obtenha a chave URI e a chave de autorização do [portal CloudSimple](access-cloudsimple-portal.md).  Selecione **Rede** no menu lateral e, em seguida, selecione **Azure Network Connection**. Ou selecione **Conta** no menu lateral e, em seguida, selecione **a ligação à rede Azure.**
 
-Copiar o circuito de pares URI e para a chave de autorização para cada uma das regiões usando o ícone *de cópia.* Para cada região cloudSimple pretende ligar:
+Copie o circuito de pares URI e para a chave de autorização de cada uma das regiões utilizando o ícone de *cópia.* Para cada região CloudSimple pretende ligar:
 
-1. Clique em **Copiar** para copiar o URI. Cola-o num ficheiro onde pode estar disponível para adicionar ao portal Azure.  
+1. Clique **em Copy** para copiar o URI. Cole-o num ficheiro onde possa estar disponível para adicionar ao portal Azure.  
 2. Clique em **Copiar** para copiar a chave de autorização e cole-a também no ficheiro.
 
-Copie a chave de autorização e o circuito de pares URI que se encontra em estado **disponível.**  **O** estado utilizado indica que a chave já foi utilizada para criar uma ligação de rede virtual.
+Copie a chave de autorização e o circuito de pares URI que está em estado **disponível.**  **O** estado utilizado indica que a chave já foi utilizada para criar uma ligação de rede virtual.
 
-![Página de ligação de rede virtual](media/virtual-network-connection.png)
+![Página de conexão de rede virtual](media/virtual-network-connection.png)
 
-Para mais detalhes sobre a configuração da rede virtual Azure para o link CloudSimple, consulte [Connect your Cloud Private Cloud ambiente para a rede virtual Azure utilizando expressRoute](azure-expressroute-connection.md).
+Para obter mais detalhes sobre a configuração da rede virtual Azure para a ligação CloudSimple, consulte [o ambiente CloudSimple Private Cloud à rede virtual Azure utilizando o ExpressRoute](azure-expressroute-connection.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Ligação de rede virtual Azure à Cloud Privada](azure-expressroute-connection.md)
-* [Ligue-se à rede no local utilizando o Azure ExpressRoute](on-premises-connection.md)
+* [Ligação de rede virtual Azure à Nuvem Privada](azure-expressroute-connection.md)
+* [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](on-premises-connection.md)

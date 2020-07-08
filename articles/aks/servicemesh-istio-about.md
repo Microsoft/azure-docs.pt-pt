@@ -6,41 +6,40 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593905"
 ---
 # <a name="istio"></a>Istio
 
 ## <a name="overview"></a>Descrição geral
 
-[Istio][istio] é uma malha de serviço totalmente em destaque, personalizável e extensível.
+[Istio][istio] é uma malha de serviço completa, personalizável e extensível.
 
 ## <a name="architecture"></a>Arquitetura
 
-Istio fornece um avião de dados que é composto por sidecars baseados no [enviado.][envoy-proxy] Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas aplicações e cargas de trabalho.
+A Istio fornece um plano de dados composto por sidecars baseados em [enviados.][envoy-proxy] Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas apps e cargas de trabalho.
 
 O plano de controlo gere a configuração, a política e a telemetria através dos [seguintes componentes:][what-is-istio]
 
 - **Mixer** - Aplica as políticas de controlo de acesso e utilização. Recolhe telemetria dos proxies que são empurrados para [Prometeu.][prometheus]
 
-- **Piloto** - Fornece a política/configuração de gestão de tráfego e deteção de serviços para os proxies.
+- **Pilot** - Fornece a política/configuração de descoberta de serviços e gestão de tráfego para os proxies.
 
-- **A Cidadela** - Fornece capacidades de identidade e segurança que permitem o mTLS entre serviços.
+- **Cidadela** - Fornece capacidades de identidade e segurança que permitem mTLS entre serviços.
 
-- **Galé** - Resumos e fornece configuração aos componentes.
+- **Galé** - Resumos e fornece configuração para componentes.
 
-O diagrama de arquitetura seguinte demonstra como os vários componentes dentro do plano de dados e plano de controlo interagem.
+O seguinte diagrama de arquitetura demonstra como os vários componentes dentro do plano de dados e do plano de controlo interagem.
 
 
-![Visão geral dos componentes istio e arquitetura.](media/servicemesh/istio/about-architecture.png)
+![Visão geral dos componentes e arquitetura istio.](media/servicemesh/istio/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante compreender e considerar as seguintes áreas ao avaliar istio para as suas cargas de trabalho:
+É importante compreender e considerar as seguintes áreas ao avaliar a Istio para as suas cargas de trabalho:
 
 - [Objetivos de Design](#design-goals)
 - [Capacidades](#capabilities)
@@ -51,50 +50,50 @@ O diagrama de arquitetura seguinte demonstra como os vários componentes dentro 
 
 Os seguintes objetivos de design [guiam][design-goals] o projeto Istio:
 
-- **Maximizar transparência** - Permitir a adoção com a quantidade mínima de trabalho para obter valor real do sistema.
+- **Maximizar a Transparência** - Permitir a adoção com a quantidade mínima de trabalho para obter valor real do sistema.
 
-- **Extensibility** - Deve ser capaz de crescer e adaptar-se com necessidades em mudança.
+- **Extensibilidade** - Deve ser capaz de crescer e adaptar-se com necessidades em mudança.
 
 - **Portabilidade** - Corra facilmente em diferentes tipos de ambientes - nuvem, no local.
 
-- **Uniformidade política** - Coerência na definição de políticas entre a variedade de recursos.
+- **Uniformidade política** - Coerência na definição de políticas entre variedades de recursos.
 
 
 ### <a name="capabilities"></a>Capacidades
 
-Istio fornece o seguinte conjunto de capacidades:
+A Istio fornece o seguinte conjunto de capacidades:
 
 - **Malha** – gateways (multi-cluster), máquinas virtuais (expansão da malha)
 
-- **Gestão de Tráfego** – encaminhamento, divisão, intervalos, disjuntores, repetições, ingressos, saídas
+- **Gestão de Tráfego** - encaminhamento, divisão, intervalos, disjuntores, retrações, entrasss, saídas
 
-- **Política** – controlo de acesso, limite de tarifas, quota, adaptadores de políticas personalizadas
+- **Política** – controlo de acesso, limite de tarifas, quota, adaptadores de políticas personalizados
 
-- **Segurança** – autenticação (jwt), autorização, encriptação (mTLS), CA externa (Cofre HashiCorp)
+- **Segurança** – autenticação (jwt), autorização, encriptação (mTLS), CA externa (HashiCorp Vault)
 
-- **Observabilidade** - métricas douradas, espelho, rastreio, adaptadores personalizados, prometheus, grafana
+- **Visibilidade** – métricas douradas, espelho, rastreio, adaptadores personalizados, prometheus, grafana
 
 ### <a name="scenarios"></a>Cenários
 
-Istio é bem adequado e sugerido para os seguintes cenários:
+Istio é bem adaptado e sugerido para os seguintes cenários:
 
-- Requerem extebilidade e um conjunto rico de capacidades
+- Requer extensibilidade e rico conjunto de capacidades
 
 - Expansão da malha para incluir cargas de trabalho baseadas em VM
 
 - Malha de serviço multi-cluster
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-A seguinte documentação descreve como pode instalar o Istio no Serviço Azure Kubernetes (AKS):
+A documentação que se segue descreve como pode instalar o Istio no Serviço Azure Kubernetes (AKS):
 
 > [!div class="nextstepaction"]
-> [Instalar istio no Serviço Azure Kubernetes (AKS)][istio-install]
+> [Instalar istio no serviço Azure Kubernetes (AKS)][istio-install]
 
-Também pode explorar ainda mais conceitos Istio e modelos de implementação adicionais:
+Você também pode explorar ainda mais conceitos istio e modelos de implementação adicionais:
 
 - [Conceitos Istio][what-is-istio]
-- [Modelos de implantação istio][deployment-models]
+- [Modelos de implantação de Istio][deployment-models]
 
 <!-- LINKS - external -->
 [istio]: https://istio.io
