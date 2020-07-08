@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 5abc3395152e03520eaff14b02d150892abf0e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085451"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON utilizando a Colmeia Apache em Azure HDInsight
 
@@ -156,7 +156,7 @@ SerDe é a melhor escolha para analisar documentos JSON aninhados. Permite defin
 
 O tipo de operador JSON na Colmeia que escolher depende do seu cenário. Com um documento JSON simples e um campo para olhar para cima, escolha o **get_json_object**hive UDF . Se tiver mais do que uma chave para olhar para cima, então pode **usájson_tuple**. Para documentos aninhados, utilize o **JSON SerDe**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para artigos relacionados, consulte:
 

@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: cf12e1c5c4f220aca7a1d1125581f41b1f0ada91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297856"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083513"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -181,6 +181,3 @@ Neste exemplo, utilizará um endereço na gama 192.168.0.0/24.
 Na máquina virtual do hóspede, abra o seu navegador e navegue para uma página web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>Configurar conectividade intranet para a máquina virtual convidada
-
-Para obter instruções sobre como permitir uma conectividade transparente entre VMs de hóspedes e VMs Azure, consulte [este documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

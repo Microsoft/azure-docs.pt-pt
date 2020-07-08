@@ -11,11 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d5faa08b0b493ac9b7fc03cd15c4747c3e602f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84049919"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084346"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,11 +43,11 @@ Os níveis de serviço baseados em vCore são diferenciados com base na disponib
 | | Tipo de recurso | Fins Gerais |  Hyperscale | Critical de negócios |
 |:---:|:---:|:---:|:---:|:---:|
 | **Melhor para** |Todos|Oferece opções de cálculo e armazenamento equilibrados orientados para o orçamento.|A maioria das cargas de trabalho. Autoscaling tamanho de armazenamento até 100 TB, escala rápida vertical e horizontal do cálculo, restauração rápida da base de dados.|Aplicações OLTP com alta taxa de transação e baixa latência IO. Oferece maior resiliência a falhas e falhas rápidas usando múltiplas réplicas sincronizadas atualizadas.|
-|  **Tipo de recurso** ||Base de dados única / piscina elástica / instância gerida | Base de dados individual | Base de dados única / piscina elástica / instância gerida |
-| **Tamanho do cálculo**|Base de dados única / piscina elástica* | 1 a 80 vCores | 1 a 80 vCores* | 1 a 80 vCores |
+|  **Tipo de recurso** ||SQL Database / SQL Managed Instance | Base de dados individual | SQL Database / SQL Managed Instance |
+| **Tamanho do cálculo**|Base de Dados SQL* | 1 a 80 vCores | 1 a 80 vCores* | 1 a 80 vCores |
 | |Instância Gerida do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Todos |Armazenamento remoto premium (por exemplo) | Armazenamento desacopdo com cache SSD local (por exemplo) | Armazenamento SSD local super rápido (por exemplo) |
-| **Tamanho do armazenamento** | Base de dados única / piscina elástica *| 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
+| **Tamanho do armazenamento** | Base de Dados SQL *| 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
 | | Instância Gerida do SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **IOPS** | Base de dados individual | 500 IOPS por vCore com 7000 IOPS máximos | Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximos|
 | | Instância Gerida do SQL | Depende do tamanho do ficheiro | N/D | 1375 IOPS/vCore |

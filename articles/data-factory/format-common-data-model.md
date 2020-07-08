@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083785"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O sistema de metadados Common Data Model (CDM) permite que os dados e o seu significado sejam facilmente partilhados entre aplicações e processos de negócio. Para saber mais, consulte a visão geral [do Modelo de Dados Comum.](https://docs.microsoft.com/common-data-model/)
 
-Na Azure Data Factory, os utilizadores podem transformar-se de e para entidades de CDM armazenadas na [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) utilizando fluxos de dados de mapeamento.
+Na Azure Data Factory, os utilizadores podem transformar-se de e para entidades de CDM armazenadas na [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) utilizando fluxos de dados de mapeamento. Escolha entre model.jse fontes de CDM de estilo manifesto e escreva para ficheiros manifestos de CDM.
 
 > [!NOTE]
 > O conector de formato Common Data Model (CDM) para fluxos de dados ADF está atualmente disponível como pré-visualização pública.
@@ -27,6 +27,9 @@ Na Azure Data Factory, os utilizadores podem transformar-se de e para entidades 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
 O Modelo Comum de Dados está disponível como um [conjunto de dados inline no](data-flow-source.md#inline-datasets) mapeamento de fluxos de dados como uma fonte e um lavatório.
+
+> [!NOTE]
+> Ao escrever entidades de CDM, deve ter uma definição de entidade cdm existente (esquema de metadados) já definida. O sumidouro de fluxo de dados ADF irá ler o ficheiro da entidade CDM e importar o esquema para a pia para mapeamento de campo.
 
 ### <a name="source-properties"></a>Propriedades de origem
 
@@ -51,8 +54,16 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 
 #### <a name="import-schema"></a>Esquema de importação
 
-O CDM só está disponível como conjunto de dados inline e, por padrão, não tem um esquema associado. Para obter metadados de coluna, clique no botão **de esquema de importação** no **separador Projeção.** Isto permitir-lhe-á fazer referência aos nomes das colunas e tipos de dados especificados pelo corpus. Para importar o esquema, uma [sessão de depurar fluxo de dados](concepts-data-flow-debug-mode.md) deve estar ativa.
+O CDM só está disponível como conjunto de dados inline e, por padrão, não tem um esquema associado. Para obter metadados de coluna, clique no botão **de esquema de importação** no **separador Projeção.** Isto permitir-lhe-á fazer referência aos nomes das colunas e tipos de dados especificados pelo corpus. Para importar o esquema, uma [sessão de depuramento de fluxo de dados](concepts-data-flow-debug-mode.md) deve estar ativa e você deve ter um ficheiro de definição de entidade CDM existente para apontar.
 
+> [!NOTE]
+>  Ao utilizar model.jsno tipo de origem que se origina a partir de fluxos de dados power BI ou Power Platform, poderá encontrar erros "corpus path is null or empty" da transformação da fonte. Isto deve-se, provavelmente, a problemas de formatação do caminho de localização da partição no model.jsarquivado. Para corrigir isto, siga estes passos: 
+
+1. Abra a model.jsem arquivo num editor de texto
+2. Encontre as divisórias. Propriedade de localização 
+3. Mude o "blob.core.windows.net" para "dfs.core.windows.net"
+4. Fixar qualquer codificação "%2F" no URL para "/"
+ 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Exemplo de script de fluxo de dados de fonte de CDM
 

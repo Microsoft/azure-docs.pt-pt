@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar o SQL Server para o SQL gerido instância'
+title: 'Tutorial: Migrar o SqL Server para a SQL Managed Instance'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar do SQL Server para um Azure SQL Managed Instance utilizando o Azure Database Migration Service.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085536"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance offline usando DMS
 
@@ -60,7 +61,7 @@ Para concluir este tutorial, precisa de:
 - Se estiver a executar várias instâncias chamadas SQL Server utilizando portas dinâmicas, pode desejar ativar o Serviço de Navegador SQL e permitir o acesso à porta UDP 1434 através das suas firewalls para que o Serviço de Migração da Base de Dados Azure possa ligar-se a uma instância nomeada no seu servidor de origem.
 - Se estiver a utilizar um aparelho de firewall em frente às suas bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base de dados de origem para migração, bem como ficheiros através da porta SMB 445.
 - Criar uma SQL Managed Instance seguindo os detalhes do artigo [Criar uma SqL Managed Instance no portal Azure](https://aka.ms/sqldbmi).
-- Certifique-se de que os logins utilizados para ligar o sql server de origem e a instância gerida pelo alvo são membros da função do servidor sysadmin.
+- Certifique-se de que os logins utilizados para ligar o sql server de origem e o alvo SQL Managed Instance são membros da função do servidor sysadmin.
 
     >[!NOTE]
     >Por padrão, o Azure Database Migration Service suporta apenas logins SQL migratórios. No entanto, pode ativar a capacidade de migrar os logins do Windows através de:
@@ -112,7 +113,7 @@ Para concluir este tutorial, precisa de:
 
     Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual utilizando o portal Azure](https://aka.ms/DMSVnet).
 
-    Para mais detalhes, consulte as [topologias da rede para Azure SQL DB geridas por migrações de exemplos utilizando o Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Para mais detalhes, consulte as topologias da rede para as migrações de [instância gerida do Azure SQL utilizando o Serviço de Migração da Base de Dados Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selecione um escalão de preço.
 
@@ -244,6 +245,6 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para um tutorial que lhe mostre como migrar uma base de dados para uma instância gerida utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para uma instância gerida utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Para obter informações sobre casos geridos, consulte [O que é um caso gerido](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Para obter informações sobre a ligação de aplicações a um caso gerido, consulte [aplicações Connect](../azure-sql/managed-instance/connect-application-instance.md).
+- Para um tutorial que lhe mostre como migrar uma base de dados para SQL Managed Instance utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para SQL Managed Instance utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Para obter informações sobre a SQL Managed Instance, consulte [o que é a sql Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Para obter informações sobre a ligação de aplicações a SQL Managed Instance, consulte [aplicações Connect](../azure-sql/managed-instance/connect-application-instance.md).

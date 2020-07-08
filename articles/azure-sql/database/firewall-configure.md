@@ -1,6 +1,6 @@
 ---
 title: Regras de firewall IP
-description: Configure as regras de firewall IP ao nível do servidor para uma base de dados na Base de Dados Azure SQL ou na firewall Azure Synapse Analytics. Gerir o acesso e configurar as regras de firewall IP ao nível da base de dados para uma base de dados única ou agimiutada.
+description: Configure as regras de firewall IP ao nível do servidor para uma base de dados na Base de Dados Azure SQL ou na firewall Azure Synapse Analytics. Gerir o acesso e configurar as regras de firewall IP de nível de base de dados para a Base de Dados SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976817"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085111"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database e regras de firewall IP Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

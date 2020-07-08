@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET [ Microsoft Docs
-description: Neste tutorial, configura uma aplicação ASP.NET central para ler um segredo do seu cofre chave.
+title: Tutorial - Use Azure Key Vault com uma máquina virtual Windows em .NET / Microsoft Docs
+description: Neste tutorial, você configura uma aplicação principal ASP.NET para ler um segredo do seu cofre chave.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -10,57 +10,48 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 6ba78a44af7beb9b5b79aa1a87e08f5a82589cce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8db1c511ab9defb140720655588b27279a0f08be
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085485"
 ---
-# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Use o cofre da chave Azure com uma máquina virtual Windows em .NET
 
-O Azure Key Vault ajuda-o a proteger segredos como chaves API, as cordas de ligação à base de dados que precisa para aceder às suas aplicações, serviços e recursos de TI.
+O Azure Key Vault ajuda-o a proteger segredos como as chaves API, as cadeias de ligação de base de dados que precisa para aceder às suas aplicações, serviços e recursos de TI.
 
-Neste tutorial, aprende-se a obter uma aplicação de consola para ler informações do Azure Key Vault. Para isso, utiliza-se identidades geridas para os recursos do Azure. 
+Neste tutorial, aprende-se a obter uma aplicação de consola para ler informações do Azure Key Vault. A aplicação usaria a identidade gerida por máquina virtual para autenticar o Key Vault. 
 
 Este tutorial mostra-lhe como:
 
 > [!div class="checklist"]
 > * Crie um grupo de recursos.
 > * Criar um cofre de chaves.
-> * Adicione um segredo ao cofre da chave.
+> * Adicione um segredo ao cofre das chaves.
 > * Obter um segredo do cofre de chaves.
 > * Crie uma máquina virtual Azure.
 > * Ativar uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para a Máquina Virtual.
-> * Atribuir permissões à identidade VM.
+> * Atribua permissões à identidade VM.
 
 Antes de começar, leia [os conceitos básicos do Key Vault.](basic-concepts.md) 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Este tutorial requer que você dirija o Azure CLI localmente. Tem de ter a versão 2.0.4 do Azure CLI ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
-
-## <a name="about-managed-service-identity"></a>Sobre a Identidade de Serviço Gerida
-
-O Azure Key Vault armazena credenciais de forma segura, por isso não são exibidos no seu código. No entanto, precisa autenticar o Cofre de Chaves Azure para recuperar as suas chaves. Para autenticar o Cofre chave, precisa de uma credencial. É um dilema clássico de botas. A Identidade de Serviço Gerida (MSI) resolve este problema fornecendo uma identidade de _bootstrap_ que simplifica o processo.
-
-Quando ativa o MSI para um serviço Azure, como máquinas virtuais Azure, Serviço de Aplicações Azure ou Funções Azure, o Azure cria um diretor de [serviço.](basic-concepts.md) A MSI faz isto por exemplo do serviço no Azure Ative Directory (Azure AD) e injeta as credenciais principais do serviço nesse caso. 
-
-![MSI](../media/MSI.png)
-
-Em seguida, para obter um sinal de acesso, o seu código chama um serviço de metadados local que está disponível no recurso Azure. Para autenticar um serviço Azure Key Vault, o seu código utiliza o sinal de acesso que obtém do ponto final local da MSI. 
+  * O [Núcleo .NET 3.1 SDK ou mais tarde](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+  * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-resources-and-assign-permissions"></a>Criar recursos e atribuir permissões
 
-Antes de começar a codificar, precisa de criar alguns recursos, colocar um segredo no seu cofre chave e atribuir permissões.
+Antes de começar a codificar, precisa criar alguns recursos, colocar um segredo no cofre e atribuir permissões.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Para iniciar sessão no Azure utilizando o Azure CLI, introduza:
+Para iniciar súm na Azure utilizando o CLI Azure, insira:
 
 ```azurecli
 az login
@@ -77,22 +68,22 @@ Este exemplo cria um grupo de recursos na localização dos EUA Ocidentais:
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-O seu grupo de recursos recém-criado será utilizado ao longo deste tutorial.
+O seu grupo de recursos recém-criado será utilizado durante todo este tutorial.
 
-### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>Crie um cofre chave e povoei-o com um segredo
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>Crie um cofre chave e povoe-o com um segredo
 
-Crie um cofre chave no seu grupo de recursos, fornecendo o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando com as seguintes informações:
+Crie um cofre chave no seu grupo de recursos, fornecendo ao [keyvault az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando com as seguintes informações:
 
-* Nome do cofre chave: uma cadeia de 3 a 24 caracteres que pode conter apenas números (0-9), letras (a-z, A-Z) e hífenes (-)
+* Nome do cofre chave: uma sequência de 3 a 24 caracteres que pode conter apenas números (0-9), letras (a-z, A-Z) e hífens (-)
 * Nome do grupo de recursos
-* Localização: **Oeste DOS EUA**
+* Localização: **West US**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-Neste ponto, a sua conta Azure é a única que está autorizada a realizar operações neste novo cofre chave.
+Neste momento, a sua conta Azure é a única que está autorizada a realizar operações neste novo cofre.
 
-Agora adicione um segredo ao seu cofre usando o comando secreto do [cofre az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set)
+Agora adicione um segredo ao seu cofre chave usando o comando [secreto az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set)
 
 
 Para criar um segredo no cofre de chaves chamado **AppSecret,** insira o seguinte comando:
@@ -111,13 +102,13 @@ Criar uma máquina virtual utilizando um dos seguintes métodos:
 * [O portal do Azure](../../virtual-machines/windows/quick-create-portal.md)
 
 ### <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
-Crie uma identidade atribuída ao sistema para a máquina virtual com o comando de atribuição de [identidade az vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
+Criar uma identidade atribuída ao sistema para a máquina virtual com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Note a identidade atribuída ao sistema que está exposta no seguinte código. A saída do comando anterior seria: 
+Note a identidade atribuída ao sistema que é apresentada no seguinte código. A saída do comando anterior seria: 
 
 ```output
 {
@@ -127,7 +118,7 @@ Note a identidade atribuída ao sistema que está exposta no seguinte código. A
 ```
 
 ### <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade VM
-Atribua as permissões de identidade previamente criadas para o seu cofre chave com o comando [de definição de teclado az keyvault:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
+Atribua as permissões de identidade previamente criadas para o seu cofre de chaves com o comando [de definição de chave-chave az:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -135,38 +126,40 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ### <a name="sign-in-to-the-virtual-machine"></a>Inscreva-se na máquina virtual
 
-Para iniciar sessão na máquina virtual, siga as instruções em [Connect e inste uma máquina virtual Azure que executa](../../virtual-machines/windows/connect-logon.md)o Windows .
+Para iniciar seduca na máquina virtual, siga as instruções em [Connect e inscreva-se numa máquina virtual Azure que executa o Windows](../../virtual-machines/windows/connect-logon.md).
 
 ## <a name="set-up-the-console-app"></a>Configurar a aplicação de consola
 
-Crie uma aplicação de consola e `dotnet` instale as embalagens necessárias utilizando o comando.
+Crie uma aplicação para consolas e instale as embalagens necessárias utilizando o `dotnet` comando.
 
 ### <a name="install-net-core"></a>Instalar .NET Core
 
-Para instalar .NET Core, vá à página de [downloads .NET.](https://www.microsoft.com/net/download)
+Para instalar .NET Core, aceda à página [de downloads .NET.](https://www.microsoft.com/net/download)
 
-### <a name="create-and-run-a-sample-net-app"></a>Criar e executar uma aplicação de amostra .NET
+### <a name="create-and-run-a-sample-net-app"></a>Criar e executar uma amostra .NET app
 
 Abra uma linha de comandos.
 
-Pode imprimir "Hello World" para a consola executando os seguintes comandos:
+Pode imprimir "Hello World" na consola executando os seguintes comandos:
 
 ```console
-dotnet new console -o helloworldapp
-cd helloworldapp
+dotnet new console -n keyvault-console-app
+cd keyvault-console-app
 dotnet run
 ```
 
-### <a name="install-the-packages"></a>Instale as embalagens
+### <a name="install-the-package"></a>Instale o pacote
 
-A partir da janela da consola, instale as embalagens .NET necessárias para este arranque rápido:
+A partir da janela da consola, instale a biblioteca cliente Azure Key Vault Secrets para .NET:
 
 ```console
-dotnet add package System.IO;
-dotnet add package System.Net;
-dotnet add package System.Text;
-dotnet add package Newtonsoft.Json;
-dotnet add package Newtonsoft.Json.Linq;
+dotnet add package Azure.Security.KeyVault.Secrets
+```
+
+Para este arranque rápido, terá de instalar o seguinte pacote de identidade para autenticar no Cofre da Chave Azure:
+
+```console
+dotnet add package Azure.Identity
 ```
 
 ## <a name="edit-the-console-app"></a>Editar a aplicação de consola
@@ -175,72 +168,70 @@ Abra o ficheiro *Program.cs* e adicione estes pacotes:
 
 ```csharp
 using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 ```
 
-Editar o ficheiro de classe para conter o código no seguinte processo de três etapas:
-
-1. Pegue um símbolo do ponto final local da MSI no VM. Fazê-lo também requer um símbolo da Azure AD.
-2. Passe o símbolo para o seu cofre e depois pegue o seu segredo. 
-3. Adicione o nome do cofre e o nome secreto ao pedido.
+Adicione estas linhas, atualizando o URI para refletir o `vaultUri` cofre da chave. Abaixo o código está a usar ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está a usar o token da identidade gerida pela aplicação para autenticar. Também está a usar recuo exponencial para retros em caso de adoção de cofre-chave estar a ser estrangulada.
 
 ```csharp
- class Program
+  class Program
     {
         static void Main(string[] args)
         {
-            // Step 1: Get a token from the local (URI) Managed Service Identity endpoint, which in turn fetches it from Azure AD
-            var token = GetToken();
+            string secretName = "mySecret";
 
-            // Step 2: Fetch the secret value from your key vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-        
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            //Step 3: Add the vault name and secret name to the request.
-            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
+            var kvUri = "https://<your-key-vault-name>.vault.azure.net";
+            SecretClientOptions options = new SecretClientOptions()
             {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
+                Retry =
+                {
+                    Delay= TimeSpan.FromSeconds(2),
+                    MaxDelay = TimeSpan.FromSeconds(16),
+                    MaxRetries = 5,
+                    Mode = RetryMode.Exponential
+                 }
+            };
 
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];             
-                token = ojObject.Value.ToString();
-            }
-            return token;
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential(),options);
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+
+            client.SetSecret(secretName, secretValue);
+
+            Console.WriteLine(" done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
+
+            KeyVaultSecret secret = client.GetSecret(secretName);
+
+            Console.WriteLine("Your secret is '" + secret.Value + "'.");
+
+            Console.Write("Deleting your secret from " + keyVaultName + " ...");
+
+            client.StartDeleteSecret(secretName);
+
+            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine(" done.");
+
         }
     }
 ```
 
-O código anterior mostra-lhe como fazer operações com o Azure Key Vault numa máquina virtual windows.
+O código anterior mostra-lhe como fazer operações com o Azure Key Vault numa máquina virtual Windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não forem necessários, apague a máquina virtual e o cofre da chave.
+Quando já não forem necessários, elimine a máquina virtual e o cofre da chave.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Cofre de Chaves Azure REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [Cofre chave Azure REST API](https://docs.microsoft.com/rest/api/keyvault/)

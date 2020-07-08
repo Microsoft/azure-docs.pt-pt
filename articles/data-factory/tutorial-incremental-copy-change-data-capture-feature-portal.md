@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085723"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
 
@@ -113,7 +113,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
    O nome da fábrica de dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+    *O nome da fábrica de dados "ADFTutorialDataFactory" não está disponível.*
 3. Selecione **V2** para a **versão**.
 4. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
 5. No **Grupo de Recursos**, siga um destes passos:
@@ -278,12 +278,12 @@ Neste passo, cria-se um gasoduto que verifica primeiro o número de registos alt
    2. Selecione **Consulta** em **Utilize Consulta**.
    3. Introduza o seguinte para **consulta.**
 
-    ```sql
-    DECLARE @from_lsn binary(10), @to_lsn binary(10); 
-    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-    ```
+      ```sql
+      DECLARE @from_lsn binary(10), @to_lsn binary(10); 
+      SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
+      SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
+      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      ```
 
    ![Atividade Copy - definições da origem](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
 
@@ -409,7 +409,7 @@ Vai ver um segundo ficheiro na pasta `customers/incremental/YYYY/MM/DD` do conte
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png)
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

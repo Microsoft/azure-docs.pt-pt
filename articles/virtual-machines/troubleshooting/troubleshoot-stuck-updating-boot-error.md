@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084023"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Startup Azure VM está presa na atualização do Windows
 
@@ -47,14 +48,19 @@ Dependendo do número de atualizações que estão a ser instaladas ou enroladas
 
 4. Abra uma instância de ordem elevada (Executar como administrador). Executar o seguinte comando para obter a lista dos pacotes de atualização que estão no disco oss anexado:
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     Por exemplo, se o disco de sos anexado estiver a unidade F, executar o seguinte comando:
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. Abra o ficheiro C:\temp\Patch_level.txt e leia-o de baixo para cima. Localizar a atualização que está em **Instalar Estado Pendente** ou **Desinstalar.**  Segue-se uma amostra do estado de atualização:
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

@@ -6,18 +6,18 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083462"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - Lançar notas e descarregar informações
 
 Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma lista de atualizações de funcionalidades que foram feitas em cada lançamento. Também lista a versão mais recente do emulador para descarregar e usar.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Download
 
 | | |
 |---------|---------|
@@ -26,7 +26,11 @@ Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma list
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="2111"></a>2.11.1
+### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+
+- Esta versão altera a forma como os vestígios etl necessários quando se recolhiam os problemas do emulador Cosmos. WPR (ferramentas de runtime de desempenho do Windows) são agora as ferramentas predefinidas para capturar vestígios baseados em ETL, enquanto a captura antiga baseada em LOGMAN foi depreciada. Esta alteração é necessária em parte porque as atualizações de segurança mais recentes do Windows tiveram um impacto inesperado no funcionamento do LOGMAN quando executados através do emulador Cosmos.
+
+### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
 
 - Esta versão corrige alguns bugs relacionados com o Explorador de Dados do Emulador. Em certos casos, ao utilizar o emulador Data Explorer através de um navegador web, não consegue ligar-se ao ponto final do emulador Cosmos e todas as ações relacionadas, como a criação de uma base de dados ou um contentor, irão falhar. O segundo problema corrigido está relacionado com a criação de um item a partir de um ficheiro JSON utilizando a ação de upload do Data Explorer.
 

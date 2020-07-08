@@ -1,7 +1,7 @@
 ---
 title: Controlos de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerir e controlar o acesso à rede para a Base de Dados Azure SQL e para o Armazém de Dados Azure SQL (anteriormente Azure SQL Data Warehouse).
+description: Visão geral de como gerir e controlar o acesso à rede para a Base de Dados Azure SQL e para a Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 3a88ce96ca95bd02481558597bcc8082adf7c975
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085468"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
@@ -106,7 +106,7 @@ Agora pode adicionar estas como regras de firewall distintas e, em seguida, defi
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 
-A firewall baseada em IP é uma característica do servidor lógico SQL em Azure que impede todo o acesso ao seu servidor de base de dados até adicionar explicitamente [endereços IP](firewall-create-server-level-portal-quickstart.md) das máquinas do cliente.
+A firewall baseada em IP é uma característica do servidor lógico SQL em Azure que impede todo o acesso ao seu servidor até adicionar explicitamente [endereços IP](firewall-create-server-level-portal-quickstart.md) das máquinas do cliente.
 
 ## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
@@ -131,14 +131,14 @@ Esteja atento aos seguintes termos de Rede Azure enquanto explora as regras de f
 
 A firewall Azure SQL Database permite especificar as gamas de endereços IP a partir das quais as comunicações são aceites na Base de Dados SQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. No entanto, as máquinas virtuais (VMs) dentro da rede privada Azure estão configuradas com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem ser alterados quando o seu VM é reiniciado e, por sua vez, invalidar a regra de firewall baseada em IP. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
 
-Pode contornar esta limitação obtendo um endereço IP *estático* para o seu VM. Para mais informações, consulte [endereços IP privados configurar uma máquina virtual utilizando o portal Azure](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). No entanto, a abordagem ip estática pode tornar-se difícil de gerir, e é dispendiosa quando feita em escala.
+Pode contornar esta limitação obtendo um endereço IP *estático* para o seu VM. Para mais informações, consulte [Criar uma máquina virtual com um endereço IP público estático utilizando o portal Azure](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). No entanto, a abordagem ip estática pode tornar-se difícil de gerir, e é dispendiosa quando feita em escala.
 
 As regras de rede virtual são mais fáceis de estabelecer e gerir o acesso a partir de uma sub-rede específica que contém os seus VMs.
 
 > [!NOTE]
 > Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs podem comunicar com a SQL Database sem precisar de quaisquer regras de rede virtuais ou regras de IP.
 
-## <a name="private-link"></a>Private Link
+## <a name="private-link"></a>Ligação Privada
 
 O Private Link permite-lhe ligar-se a um servidor através de um **ponto final privado.** Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e sub-rede.
 

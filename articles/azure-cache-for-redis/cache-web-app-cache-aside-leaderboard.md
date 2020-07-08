@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195581"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082782"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação cache-aside no ASP.NET
 
@@ -680,8 +680,8 @@ Nesta secção, irá providenciar uma nova base de dados na Base de Dados SQL pa
 
     | Marcador de posição | Valor sugerido |
     | --- | --- |
-    | *{o_seu_nome_de_utilizador}* | Utilize o **início de sessão de administrador do servidor** do servidor da base de dados que acabou de criar. |
-    | *{a_sua_palavra-passe}* | Utilize a palavra-passe do servidor da base de dados que acabou de criar. |
+    | *{o_seu_nome_de_utilizador}* | Utilize o **login de administração** do servidor para o servidor que acabou de criar. |
+    | *{a_sua_palavra-passe}* | Use a palavra-passe para o servidor que acabou de criar. |
 
     Ao adicionar o nome de utilizador e a palavra-passe como uma Definição da Aplicação, o nome de utilizador e a palavra-passe não são incluídos no código. Esta abordagem ajuda a proteger essas credenciais.
 
@@ -733,7 +733,7 @@ Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os
 
     Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como escalar cache Azure para Redis](./cache-how-to-scale.md)

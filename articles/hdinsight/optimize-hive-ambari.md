@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796372"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084363"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
 
@@ -132,12 +132,12 @@ Os empregos de hadoop são geralmente engarrafamentos. A compressão de dados po
 
 Os tipos de compressão disponíveis são:
 
-| Formato | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
+| Formatar | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
 | --- | --- | --- | --- | --- |
-| Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | No |
-| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Yes |
+| Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | Não |
+| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Sim |
 | LZO | `Lzop` | LZO | `.lzo` | Sim, se indexado |
-| Snappy | N/D | Snappy | Snappy | No |
+| Snappy | N/D | Snappy | Snappy | Não |
 
 Regra geral, ter o método de compressão splittable é importante, caso contrário poucos mappers serão criados. Se os dados de entrada forem texto, `bzip2` é a melhor opção. Para o formato ORC, snappy é a opção de compressão mais rápida.
 
@@ -241,7 +241,7 @@ Recomendações adicionais para otimizar o motor de execução da Colmeia:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20 000 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -2,20 +2,20 @@
 title: Aviso de migração de tráfego gateway
 description: Artigo fornece aviso aos utilizadores sobre a migração de endereços IP gateway de gateway de dados Azure SQL
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: d9ec21657f871211df575b56ff56962aad3f5c88
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084958"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,10 +24,25 @@ ms.locfileid: "84324720"
 
 Os clientes serão notificados via e-mail e no portal Azure com muita antecedência de qualquer alteração aos gateways disponíveis em cada região. As informações mais atualizadas serão mantidas na tabela de [endereços IP do gateway de gateway Azure SQL.](connectivity-architecture.md#gateway-ip-addresses)
 
-## <a name="impact-of-this-change"></a>Impacto desta mudança
+## <a name="status-updates"></a>Atualizações de estado
 
-A primeira ronda de migração de tráfego para os mais recentes gateways está marcada para **14 de outubro de 2019** nas seguintes regiões:
+# <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
 
+### <a name="august-2020"></a>agosto de 2020
+
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+
+- Austrália Leste : 13.70.112.9
+- Canadá Central : 52.246.152.0, 20.38.144.1 
+- Oeste DOS EUA 2 : 40.78.240.8
+
+Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 10 de agosto de 2020. 
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+
+As seguintes migrações de gateway estão completas: 
+
+### <a name="october-2019"></a>Outubro de 2019
 - Sul do Brasil
 - E.U.A. Oeste
 - Europa Ocidental
@@ -42,11 +57,16 @@ A primeira ronda de migração de tráfego para os mais recentes gateways está 
 - E.U.A. Leste 2
 - Ásia Leste
 
-A migração de tráfego alterará o endereço IP público que o DNS resolve para a sua base de dados na Base de Dados Azure SQL.
-Será impactado se tiver:
+---
+
+## <a name="impact-of-this-change"></a>Impacto desta mudança
+
+A migração de tráfego pode alterar o endereço IP público que o DNS resolve para a sua base de dados na Base de Dados Azure SQL.
+Pode ser afetado se:
 
 - Codificado o endereço IP para qualquer porta de entrada em particular na sua firewall no local
-- Quaisquer sub-redes que utilizem o Microsoft.SQL como ponto final de serviço, mas não podem comunicar com os endereços IP gateway
+- Ter quaisquer sub-redes que utilizem o Microsoft.SQL como um Ponto Final de Serviço, mas não podem comunicar com os endereços IP gateway
+- Utilize a [configuração redundante](high-availability-sla.md#zone-redundant-configuration) da zona para a sua base de dados
 
 Não será impactado se tiver:
 

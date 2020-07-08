@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195099"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084533"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight
 
@@ -141,7 +141,9 @@ Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.or
 
     c. Concatenar os três valores, separados por um cólon **.**
 
-        com.databricks:spark-csv_2.10:1.4.0
+    ```
+    com.databricks:spark-csv_2.10:1.4.0
+    ```
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Onde estão guardados os cadernos zeppelin?
 
@@ -195,7 +197,7 @@ Para validar o serviço a partir de Ambari, navegue `https://CLUSTERNAME.azurehd
 
 Para validar o serviço a partir de uma linha de comando, SSH para o nó de cabeça. Mude o utilizador para zeppelin utilizando o comando `sudo su zeppelin` . Comandos de estado:
 
-|Comando |Description |
+|Comando |Descrição |
 |---|---|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Estado de serviço.|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Versão de serviço.|
@@ -222,7 +224,7 @@ Para validar o serviço a partir de uma linha de comando, SSH para o nó de cabe
 
 1. Guarde as alterações e reinicie o serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)

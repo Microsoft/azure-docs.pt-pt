@@ -2,7 +2,7 @@
 title: Configure a exportação de métricas e registos de recursos
 description: Saiba como configurar a exportação de métricas e registos de recursos, incluindo análise inteligente de diagnóstico da Base de Dados Azure SQL e da Azure SQL Managed Instance para o destino da sua escolha para armazenar informações sobre a utilização de recursos e estatísticas de execução de consultas.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 49550453885ebaba40380a4675ace8fb012fcaa1
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085612"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configure exportação de streaming de Azure SQL Database e SQL Managed Instance telemetria de diagnóstico
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Você também vai aprender sobre os destinos para os quais você pode transmitir
 
 - [Log Analytics e SQL Analytics](#stream-into-sql-analytics)
 - [Hubs de Eventos](#stream-into-event-hubs)
-- [Storage do Azure](#stream-into-azure-storage)
+- [Armazenamento do Azure](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export"></a>Telemetria de diagnóstico para exportação
 
@@ -37,16 +37,16 @@ Além de transmitir a exportação do registo De Insights Inteligentes, também 
 
 | Telemetria de diagnóstico para bases de dados | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :------------------- | ----- | ----- |
-| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Yes | Não |
-| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Yes | Não |
+| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Sim | Não |
+| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Sim | Não |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de consulta, tais como estatísticas de utilização de CPU e duração de consulta. | Sim | Sim |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (em que as suas consultas aguardavam) tais como CPU, LOG e LOCKING. | Sim | Sim |
 | [Erros](#errors-dataset): Contém informações sobre erros SQL numa base de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Yes | Não |
-| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Yes | Não |
-| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Yes | Não |
-| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Yes | Não |
-| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Yes | Não |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Sim | Não |
+| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Sim | Não |
+| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Sim | Não |
+| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Sim | Não |
+| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Sim | Não |
 | [SQLInsights](#intelligent-insights-dataset): Contém insights inteligentes sobre o desempenho de uma base de dados. Para saber mais, consulte [Insights Inteligentes.](intelligent-insights-overview.md) | Sim | Sim |
 
 > [!NOTE]
@@ -133,9 +133,9 @@ Para permitir o streaming de telemetria de diagnóstico para um recurso elástic
 > [!IMPORTANT]
 > Além de configurar a telemetria de diagnóstico para uma piscina elástica, também é necessário configurar a telemetria de diagnóstico para cada base de dados na piscina elástica.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Bases de dados individuais e agrizadas na Base de Dados Azure SQL
+### <a name="databases-in-azure-sql-database"></a>Bases de dados em Azure SQL Database
 
-Pode configurar um recurso de base de dados único ou agmado para recolher a seguinte telemetria de diagnóstico:
+Pode configurar um recurso de base de dados para recolher a seguinte telemetria de diagnóstico:
 
 | Recurso | Telemetria de monitorização |
 | :------------------- | ------------------- |
@@ -453,7 +453,7 @@ Consulte as seguintes tabelas para obter detalhes sobre métricas básicas por r
 
 Consulte a tabela seguinte para obter detalhes sobre métricas avançadas.
 
-|**Métricas**|**Nome de exibição métrica**|**Descrição**|
+|**Métrica**|**Nome de exibição métrica**|**Descrição**|
 |---|---|---|
 |sqlserver_process_core_percent<sup>1</sup>|Núcleo de processo SQL por cento|Percentagem de utilização do CPU para o processo SQL, medido pelo sistema operativo.|
 |sqlserver_process_memory_percent<sup>1</sup> |SQL processa a memória por cento|Percentagem de utilização da memória para o processo SQL, medido pelo sistema operativo.|
@@ -743,7 +743,7 @@ Saiba mais sobre [estatísticas de espera na base de dados.](https://docs.micros
 
 Saiba mais sobre o [formato de registo de Insights Inteligentes.](intelligent-insights-use-diagnostics-log.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender como permitir a exploração madeireira e compreender as métricas e categorias de registo suportadas pelos vários serviços Azure, consulte:
 

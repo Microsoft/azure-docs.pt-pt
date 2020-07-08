@@ -6,15 +6,15 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73044760"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085060"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começa com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual
 
@@ -73,7 +73,7 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como usar o Visual Studio com a Caixa de Areia Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70c1b35759241c2fdf687e7b7042cf4a18232bf5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945380"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085502"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -32,7 +32,7 @@ Os insights fornecem uma experiência de monitorização personalizada para apli
 [Monitor Azure para grupos de recursos (pré-visualização)](insights/resource-group-insights.md) |  Triagem e diagnóstico de quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto quanto à saúde e desempenho do grupo de recursos como um todo. |
 | [Monitor Azure para armazenamento](insights/storage-insights-overview.md) | Fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de armazenamento Azure. |
 | [Azure Monitor para VMs](insights/vminsights-overview.md) | Monitoriza as suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais à escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos. |
-| [Monitor Azure para Cofre de Chaves (pré-visualização)](insights/key-vaults-insights-overview.md) | Povides monitoriza completamente os seus cofres chave, fornecendo uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência. |
+| [Monitor Azure para Cofre de Chaves (pré-visualização)](insights/key-vaults-insights-overview.md) | Fornece uma monitorização completa dos seus cofres chave, fornecendo uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência. |
 | [Monitor Azure para Cache Azure para Redis (pré-visualização)](insights/redis-cache-insights-overview.md) |  Proporciona uma visão unificada e interativa do desempenho global, falhas, capacidade e saúde operacional. |
 
 
@@ -73,7 +73,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Serviço de Attestation | Não | Não | Não |  |
 |Automatização | Sim | Sim | Não |  |
 |Gestor de Serviços Azure (RDFE) | Não | Não | Não |  |
-|Backup | Não | Sim | Não |  |
+|Cópia de segurança | Não | Sim | Não |  |
 |Bastion | Não | Não | Não |  |
 |Batch | Sim | Sim | Não |  |
 |Batch AI | Não | Não | Não |  |
@@ -84,7 +84,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Cloud Shell | Não | Não | Não |  |
 |Serviços Cognitivos | Sim | Sim | Não |  |
 |Container Instances | Sim | Não | Não |  |
-|Container Registry | Sim | Sim | Não |  |
+|Registo de Contentor | Sim | Sim | Não |  |
 |Rede de Entrega de Conteúdos (CDN) | Não | Sim | Não |  |
 |BD do Cosmos | Sim | Sim | [Sim](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | Não | Não | Não |  |
@@ -120,7 +120,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |IoT Hub | Sim | Sim | Não |  |
 |Cofre de Chaves | Sim | Sim | [Sim](insights/key-vaults-insights-overview.md) |  |
 |Serviço do Kubernetes (AKS) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
-|Balanceador de Carga | Sim | Sim | Não |  |
+|Load balancer | Sim | Sim | Não |  |
 |Aplicações Lógicas | Sim | Sim | Não |  |
 |Serviço Machine Learning | Não | Não | Não |  |
 |Aplicações Geridas  | Não | Não | Não |  |
@@ -142,14 +142,14 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Plataforma de Comunicação de Spool de Projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
 |Cache de Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | Não | Não | Não |  |
+|Gráfico de Recursos | Não | Não | Não |  |
 |Resource Manager | Não | Não | Não |  |
 |Pesquisa de Varejo - por Bing | Não | Não | Não |  |
 |Pesquisa | Sim | Sim | Não |  |
 |Service Bus | Sim | Sim | Não |  |
 |Service Fabric | Não | Sim | Não | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
 |Portal de Inscrição | Não | Não | Não |  |
-|Recuperação de sites | Não | Sim | Não |  |
+|Site Recovery | Não | Sim | Não |  |
 |Serviço cloud de primavera | Não | Não | Não |  |
 |SQL Data Warehouse | Sim | Sim | Não |  |
 |SQL Database | Sim | Sim | Não |  |
@@ -164,7 +164,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Gestor de Tráfego | Sim | Sim | Não |  |
 |Impressão Universal | Não | Não | Não |  |
 |Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
-|Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
+|Virtual Machines | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
 |Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
 |Rede Virtual - Registos de Fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
@@ -184,7 +184,7 @@ Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma definição de diagnóstico para enviar registos para o Azure Monitor. Consulte [enviar dados de registo para armazenamento, centros de eventos ou analíticos de registo em Intune (pré-visualização)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor de Desempenho da Rede](insights/network-performance-monitor.md) - Monitorizar a conectividade da rede e o desempenho para os pontos finais de serviço e aplicação.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analise os registos e métricas do Gateway de Aplicação Azure.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analisa os registos de fluxo do grupo de segurança da rede Network Watcher (NSG) para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitorize o ambiente do Seu Escritório 365. Versão atualizada com melhor embarque disponível através do Azure Sentinel. |
-| [Análise de SQL](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL, piscinas elásticas e casos geridos em escala e em várias subscrições. |
+| [Análise de SQL](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL e das instâncias geridas sql em escala e em várias subscrições. |
 | [Surface Hub](insights/surface-hubs.md) | Acompanhe a saúde e a utilização dos dispositivos Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Recolher dados de agentes do Gestor de Operações ligando o seu grupo de gestão ao Azure Monitor. Ver [Gestor de Operações de Ligação ao Monitor Azure](platform/om-agents.md)<br> Avalie o risco e a saúde do seu grupo de gestão de operações do System Center Com a solução [de Avaliação do Gestor de Operações.](insights/scom-assessment.md) |
 | [Salas microsoft teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestão integrada e de ponta a ponta dos dispositivos Microsoft Teams Rooms. |

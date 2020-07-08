@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Migrar o SQL Server para o SQL caso gerido'
+title: 'PowerShell: Migrar o Servidor SQL para a sql-managed instance'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar do SQL Server para Azure SQL Managed Instance utilizando a Azure PowerShell e o Azure Database Migration Service.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: caa936e0d61056336d11f58e59ba512b62cd6108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248656"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083666"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar o SqL Server para o SQL Gerenciado Instância com PowerShell & Serviço de Migração de Bases de Dados Azure
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084001"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -57,7 +57,7 @@ No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
 | Espaço de Nomes | abcd1234namespace |
 
-Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para ligar ao Centro de Eventos especificado.
+Em seguida, pode escolher qualquer política de acesso partilhado a partir do drop-down, como mostrado na imagem acima. Só mostra políticas que têm as permissões **ServiceConnect** para ligar ao Centro de Eventos especificado.
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 

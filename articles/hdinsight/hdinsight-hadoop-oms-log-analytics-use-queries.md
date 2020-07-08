@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: 65e85548420116bdfcab87fe9f81a20e66226beb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74803842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085366"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight
 

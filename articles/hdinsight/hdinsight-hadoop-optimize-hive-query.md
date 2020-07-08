@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791498"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085298"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight (Otimizar as consultas do Apache Hive no Azure HDInsight)
 
@@ -193,7 +193,7 @@ Existem mais métodos de otimização que pode considerar, por exemplo:
 * **Junte-se à otimização:** otimização do planeamento de execução de consultas da Hive para melhorar a eficiência das juntas e reduzir a necessidade de sugestões do utilizador. Para obter mais informações, consulte [a otimização do Join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumentar os Redutores**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu vários métodos comuns de otimização de consulta de Colmeia. Para saber mais, consulte os seguintes artigos:
 
