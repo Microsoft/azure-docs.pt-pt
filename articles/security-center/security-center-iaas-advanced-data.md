@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: 673524f08ecae28fb6f2e18f3c0c7230cf102b06
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513476"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043874"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Segurança avançada de dados para máquinas SQL (Pré-visualização)
 
@@ -31,7 +31,7 @@ Esta funcionalidade de pré-visualização inclui funcionalidades para identific
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - O serviço de deteção que monitoriza continuamente os seus servidores SQL por ameaças como injeção de SQL, ataques de força bruta e abuso de privilégios. Este serviço fornece alertas de segurança orientados para a ação no Centro de Segurança Azure com detalhes da atividade suspeita, orientações sobre como mitigar as ameaças e opções para continuar as suas investigações com a Azure Sentinel.
 
 >[!TIP]
-> A segurança avançada de dados para máquinas SQL é uma extensão do pacote avançado de segurança de [dados](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)do Azure Security Center, já disponível para Azure SQL Databases, Synapse e SQL Managed Instances.
+> A segurança avançada de dados para máquinas SQL é uma extensão do pacote avançado de segurança de [dados](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)do Azure Security Center, disponível para Azure SQL Database, Azure Synapse e SQL Managed Instance.
 
 
 ## <a name="set-up-advanced-data-security-for-sql-machines"></a>Criar segurança de dados avançada para máquinas SQL 
@@ -91,14 +91,14 @@ O painel de avaliação de vulnerabilidades fornece uma visão geral dos resulta
 
 Pode ver os resultados da avaliação da vulnerabilidade diretamente do Centro de Segurança.
 
-1. A partir da barra lateral do Security Center, abra a página **recomendações** e selecione a recomendação **Vulnerabilidades nos servidores de base de dados SQL em máquinas devem ser remediadas (Pré-visualização)**. Para mais informações, consulte [as Recomendações do Centro de Segurança.](security-center-recommendations.md) 
+1. A partir da barra lateral do Centro de Segurança, abra a página **recomendações** e selecione a recomendação **Vulnerabilidades nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)**. Para mais informações, consulte [as Recomendações do Centro de Segurança.](security-center-recommendations.md) 
 
 
-    [![**As vulnerabilidades nas bases de dados sql em máquinas devem ser remediadas (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![**As vulnerabilidades nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     A opinião pormenorizada desta recomendação aparece.
 
-    [![A visão detalhada das vulnerabilidades nas bases de dados do SQL em máquinas deve ser remediada (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![A visão detalhada das vulnerabilidades dos seus servidores SQL em máquinas deve ser remediada (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. Para mais detalhes, desacaia:
 
@@ -127,7 +127,7 @@ Os alertas de segurança estão disponíveis na página de alerta do Security Ce
     [Saiba mais sobre como gerir e responder a alertas.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para material relacionado, consulte o seguinte artigo:
 

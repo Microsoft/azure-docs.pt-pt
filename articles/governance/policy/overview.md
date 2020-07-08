@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944666"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044197"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -82,7 +82,7 @@ Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [f
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos abrangidos pela Política Azure
 
-A Azure Policy avalia todos os recursos em Azure. Para certos fornecedores de recursos, como [a Configuração de Hóspedes](./concepts/guest-configuration.md), [Serviço Azure Kubernetes](../../aks/intro-kubernetes.md)e [Azure Key Vault,](../../key-vault/key-vault-overview.md)existe uma integração mais profunda para gerir configurações e objetos. Para saber mais, consulte os [modos Provedor de Recursos.](./concepts/definition-structure.md)
+A Azure Policy avalia todos os recursos em Azure. Para certos fornecedores de recursos, como [a Configuração de Hóspedes](./concepts/guest-configuration.md), [Serviço Azure Kubernetes](../../aks/intro-kubernetes.md)e [Azure Key Vault,](../../key-vault/general/overview.md)existe uma integração mais profunda para gerir configurações e objetos. Para saber mais, consulte os [modos Provedor de Recursos.](./concepts/definition-structure.md)
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendações para a gestão de políticas
 
@@ -174,7 +174,7 @@ Para obter mais informações sobre a definição de atribuições através do p
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 

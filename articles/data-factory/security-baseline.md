@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 854d95f95d6ecf2fe35bcc93ddeaafdc9bafbf8f
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485638"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044180"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de segurança Azure para Azure Data Factory
 
@@ -512,7 +512,7 @@ Se estiver a executar o seu Tempo de Execução de Integração numa Máquina Vi
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Fornecer à Microsoft acesso aos dados relevantes dos clientes durante cenários de suporte
 
-**Orientação**: Em cenários de suporte onde a Microsoft precisa de aceder aos dados dos clientes, o Azure Customer Lockbox fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. Note que, embora o Azure Lockbox não esteja disponível para a própria Azure Data Factory, o Azure Lockbox suporta bases de dados Azure SQL e máquinas virtuais Azure.
+**Orientação**: Em cenários de suporte onde a Microsoft precisa de aceder aos dados dos clientes, o Azure Customer Lockbox fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. Note que, embora o Azure Lockbox não esteja disponível para a própria Azure Data Factory, o Azure Lockbox suporta a Base de Dados Azure SQL e máquinas virtuais Azure.
 
 * [Compreender o bloqueio do cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -672,7 +672,7 @@ Você pode armazenar credenciais ou valores secretos em um Cofre de Chave Azure 
 
 Se estiver a executar o seu Tempo de Execução de Integração numa Máquina Virtual Azure (VM), siga as recomendações do Azure Security Center sobre a realização de avaliações de vulnerabilidade nos seus VMs. Utilize a solução recomendada para a Azure Security ou para a realização de avaliações de vulnerabilidade para as suas máquinas virtuais.
 
-* [Como executar avaliações de vulnerabilidade nas suas Bases de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Como executar avaliações de vulnerabilidade na Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Como permitir a Segurança Avançada de Dados](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -896,7 +896,7 @@ Note que isto só se aplica se o seu tempo de execução de integração estiver
 
 * [O que é o Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [O que é Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [O que é a Firewall de Aplicações Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
