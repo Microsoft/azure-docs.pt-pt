@@ -1,72 +1,71 @@
 ---
-title: Migrate Azure Monitor regista atualizações para portal Azure
-description: Este artigo diz como migrar o Azure Monitor atualiza ções de atualização para o portal Azure.
+title: Migrar Azure Monitor regista atualização de implementações para o portal Azure
+description: Este artigo diz como migrar o Azure Monitor regista a atualização das implementações para o portal Azure.
 services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745632"
 ---
-# <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrate Azure Monitor regista atualizações para portal Azure
+# <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar Azure Monitor regista atualização de implementações para o portal Azure
 
-O portal De Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/platform/oms-portal-transition.md) Toda a funcionalidade que estava disponível no portal OMS para Gestão de Atualizações está disponível no portal Azure, através de registos do Monitor Azure. Este artigo fornece a informação que precisa para migrar para o portal Azure.
+O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/platform/oms-portal-transition.md) Todas as funcionalidades que estavam disponíveis no portal OMS para Gestão de Atualização estão disponíveis no portal Azure, através dos registos do Azure Monitor. Este artigo fornece a informação necessária para migrar para o portal Azure.
 
-## <a name="key-information"></a>Informação chave
+## <a name="key-information"></a>Informações-chave
 
-* As missões existentes continuarão a funcionar. Depois de recriar a implantação em Azure, pode eliminar a sua antiga implantação.
-* Todas as funcionalidades existentes que tinha em OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualizações, consulte a [visão geral da Gestão de Atualizações.](automation-update-management.md)
+* As missões existentes continuarão a funcionar. Uma vez recriado a implantação em Azure, pode eliminar a sua antiga implantação.
+* Todas as funcionalidades existentes que tinha no OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualização, consulte [a visão geral da Gestão de Atualização](automation-update-management.md).
 
 ## <a name="access-the-azure-portal"></a>Aceder ao portal do Azure
 
-1. A partir do seu espaço de trabalho, clique **em Open in Azure**. 
+1. A partir do seu espaço de trabalho, clique **em Abrir em Azure.** 
 
     ![Aberto em Azure - Log Analytics](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
-2. No portal Azure, clique na **Conta de Automação**
+2. No portal Azure, clique na **Conta Dem automação**
 
     ![Registos do Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-3. Na sua conta De automação, clique em **Gestão de Atualização**.
+3. Na sua conta de Automação, clique em **Gestão de Atualização.**
 
     ![Gestão de Atualizações](media/migrate-oms-update-deployments/azure-automation.png)
 
-4. No portal Azure, selecione **Contas de Automação** em **todos os serviços.** 
+4. No portal Azure, selecione **Contas de Automação** em Todos os **serviços**. 
 
-5. Em **Ferramentas de Gestão,** selecione a conta de Automação apropriada e clique em **Gestão de Atualização**.
+5. Em **Ferramentas de Gestão,** selecione a conta de Automação adequada e clique em **Gestão de Atualização.**
 
 ## <a name="recreate-existing-deployments"></a>Recriar as implementações existentes
 
-Todas as implementações de atualizações criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
+Todas as implementações de atualização criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
 
 ![Gestão de Atualizações](media/migrate-oms-update-deployments/oms-deployment.png)
 
 Para utilizar esta pesquisa guardada existente, siga estes passos:
 
-1. Para criar uma nova implementação de atualização, vá ao portal Azure, selecione a conta Automation que é utilizada e clique em Gestão de **Atualização**. Clique na **implementação da atualização de agenda**.
+1. Para criar uma nova implementação de atualização, vá ao portal Azure, selecione a conta Automation that is used e clique em **Update Management**. Clique **na implementação da atualização do calendário**.
 
-    ![Programar atualização de implementação](media/migrate-oms-update-deployments/schedule-update-deployment.png)
+    ![Implementação da atualização de horários](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-2. Abre-se o painel de implementação da nova atualização. Introduza valores para as propriedades descritas na tabela a seguir e clique em **Criar:**
+2. O painel de implementação da nova atualização abre. Introduza os valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **Criar**:
 
-3. Para que as **Máquinas atualizem,** selecione a procura guardada utilizada pela implementação oMS.
+3. Para **que as Máquinas se atualizem,** selecione a procura guardada utilizada pela implementação OMS.
 
     | Propriedade | Descrição |
     | --- | --- |
     |Name |O nome exclusivo para identificar a implementação de atualizações. |
     |Sistema Operativo| Selecione **Linux** ou **Windows**.|
-    |Máquinas para atualizar |Selecione uma pesquisa Saved, grupo importado ou escolha máquina a partir do dropdown e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos em registos do Monitor Azure](../azure-monitor/platform/computer-groups.md) |
-    |Classificações de atualizações|Selecione todas as classificações de atualização de que necessita. O CentOS não suporta isto fora da caixa.|
-    |Atualizações para excluir|Introduza as atualizações para excluir. Para Windows, introduza o artigo KB sem o prefixo **KB.** Para linux, introduza o nome do pacote ou use um personagem wildcard.  |
-    |Configurações de agenda|Selecione a hora de iniciar e, em seguida, selecione **uma vez** ou **recorrente** para a recorrência. | 
+    |Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do dropdown e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../azure-monitor/platform/computer-groups.md) |
+    |Classificações de atualizações|Selecione todas as classificações de atualização que necessita. O CentOS não suporta isto fora da caixa.|
+    |Atualizações para excluir|Introduza as atualizações para excluir. Para windows, introduza o artigo KB sem o prefixo **KB.** Para Linux, introduza o nome do pacote ou use um caractere wildcard.  |
+    |Definições de agenda|Selecione a hora de partida e, em seguida, selecione **uma vez** ou **recorrente** para a recorrência. | 
     | Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
-    | Controlo de reiniciar| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+    | Reiniciar o controlo| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
-4. Clique em **atualizações agendadas** para ver o estado da implementação da atualização recém-criada.
+4. Clique **em implementações de atualização programadas** para ver o estado da implementação da atualização recentemente criada.
 
     ![nova implementação de atualização](media/migrate-oms-update-deployments/new-update-deployment.png)
 
@@ -74,4 +73,4 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre a Gestão de Atualizações na Automação Azure, consulte a [visão geral da Gestão de Atualizações.](automation-update-management.md)
+Para saber mais sobre a Gestão de Atualização na Azure Automation, consulte [a visão geral da Gestão de Atualização](automation-update-management.md).

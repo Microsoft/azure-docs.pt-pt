@@ -1,51 +1,50 @@
 ---
-title: Como conceber a sua implementação de Insights de Aplicação - Um vs muitos recursos?
-description: Telemetria direta para diferentes recursos para o desenvolvimento, teste e selos de produção.
+title: Como conceber a sua implementação de Application Insights - Um vs muitos recursos?
+description: Telemetria direta a diferentes recursos para desenvolvimento, teste e carimbos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773699"
 ---
-# <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Aplicação Insights devo implementar
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
 
-Quando está a desenvolver a próxima versão de uma aplicação web, não pretende misturar a telemetria [Application Insights](../../azure-monitor/app/app-insights-overview.md) da nova versão e a versão já lançada. Para evitar confusões, envie a telemetria de diferentes fases de desenvolvimento para separar os recursos da Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação à medida que uma versão se move de um estágio para outro, pode ser útil definir a chave em código em vez de no ficheiro de configuração.
+Quando está a desenvolver a próxima versão de uma aplicação web, não pretende misturar a telemetria [Application Insights](../../azure-monitor/app/app-insights-overview.md) a partir da nova versão e da versão já lançada. Para evitar confusões, envie a telemetria de diferentes fases de desenvolvimento para separar os recursos de Application Insights, com teclas de instrumentação separadas (ikeys). Para facilitar a alteração da tecla de instrumentação à medida que uma versão se move de um estágio para outro, pode ser útil definir o ikey em código em vez de no ficheiro de configuração.
 
-(Se o seu sistema for um Serviço azure cloud, há [outro método de configuração de ikeys separados](../../azure-monitor/app/cloudservices.md).)
+(Se o seu sistema é um Serviço de Nuvem Azure, existe [outro método de configuração de ikeys separados](../../azure-monitor/app/cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Sobre recursos e chaves de instrumentação
 
-Quando configura a monitorização de Application Insights para a sua aplicação web, cria um *recurso* Desinformação de aplicações no Microsoft Azure. Abre este recurso no portal Azure para ver e analisar a telemetria recolhida na sua app. O recurso é identificado por uma chave de *instrumentação* (ikey). Quando instala o pacote Application Insights para monitorizar a sua aplicação, configurá-lo com a chave de instrumentação, para que saiba onde enviar a telemetria.
+Quando configura a monitorização do Application Insights para a sua aplicação web, cria um *recurso* Application Insights no Microsoft Azure. Abre este recurso no portal Azure para ver e analisar a telemetria recolhida na sua app. O recurso é identificado por uma *chave de instrumentação* (ikey). Quando instala o pacote Application Insights para monitorizar a sua aplicação, configura-a com a chave de instrumentação, para que saiba para onde enviar a telemetria.
 
-Cada recurso Application Insights vem com métricas que estão disponíveis fora da caixa. Se componentes completamente separados reportarem ao mesmo recurso Application Insights, estas métricas podem não fazer sentido para o dashboard/alerta.
+Cada recurso De Insights de Aplicação vem com métricas que estão disponíveis fora da caixa. Se componentes completamente separados reportarem ao mesmo recurso Application Insights, estas métricas podem não fazer sentido para o dashboard/alerta.
 
-### <a name="when-to-use-a-single-application-insights-resource"></a>Quando utilizar um único recurso de Insights de Aplicação
+### <a name="when-to-use-a-single-application-insights-resource"></a>Quando utilizar um único recurso Application Insights
 
--   Para componentes de aplicação que são implantados em conjunto. Normalmente desenvolvido por uma única equipa, gerida pelo mesmo conjunto de utilizadores DevOps/ITOps.
--   Se fizer sentido agregar indicadores-chave de desempenho (KPIIs) tais como durações de resposta, taxas de falha no dashboard, etc., em todos eles por padrão (pode optar por segmentar por nome de papel na experiência Metrics Explorer).
--   Se não houver necessidade de gerir o Controlo de Acesso baseado em Funções (RBAC) de forma diferente entre os componentes da aplicação.
--   Se não precisar de critérios de alerta métricos diferentes entre os componentes.
--   Se não precisar de gerir as exportações contínuas de forma diferente entre os componentes.
+-   Para os componentes de aplicação que são implantados em conjunto. Normalmente desenvolvido por uma única equipa, gerido pelo mesmo conjunto de utilizadores de DevOps/ITOps.
+-   Se fizer sentido agregar indicadores-chave de desempenho (KPI's) tais como durações de resposta, taxas de falha no painel de instrumentos, etc., em todos eles por padrão (pode optar por segmentar por nome de função na experiência Metrics Explorer).
+-   Se não houver necessidade de gerir o Controlo de Acesso baseado em funções (RBAC) de forma diferente entre os componentes da aplicação.
+-   Se não precisar de critérios de alerta de métricas que sejam diferentes entre os componentes.
+-   Se não for necessário gerir as exportações contínuas de forma diferente entre os componentes.
 -   Se não precisar de gerir a faturação/quotas de forma diferente entre os componentes.
--   Se não houver problema em ter uma chave API, terá o mesmo acesso aos dados de todos os componentes. E 10 chaves API são suficientes para as necessidades em todas elas.
--   Se não houver problema em ter as mesmas definições de integração de itens de deteção inteligente e de trabalho em todas as funções.
+-   Se não houver problema em ter uma chave API tem o mesmo acesso aos dados de todos os componentes. E 10 chaves API são suficientes para as necessidades em todas elas.
+-   Se não houver problema em ter as mesmas definições inteligentes de deteção e integração de artigos de trabalho em todas as funções.
 
 ### <a name="other-things-to-keep-in-mind"></a>Outras coisas a ter em mente
 
--   Pode ser necessário adicionar código personalizado para garantir que valores significativos são definidos no [atributo Cloud_RoleName.](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) Sem valores significativos definidos para este atributo, *nenhuma* das experiências do portal funcionará.
-- Para aplicações de Tecido de Serviço e serviços clássicos na nuvem, o SDK lê automaticamente a partir do Ambiente de Papel Azure e define-os. Para todos os outros tipos de aplicações, provavelmente terá de o definir explicitamente.
--   A experiência Live Metrics não suporta a divisão pelo nome do papel.
+-   Pode ser necessário adicionar código personalizado para garantir que valores significativos são definidos no [atributo Cloud_RoleName.](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) Sem valores significativos definidos para este atributo, *NENHUMA* das experiências do portal funcionará.
+- Para aplicações de Tecido de Serviço e serviços clássicos de nuvem, o SDK lê automaticamente do Azure Role Environment e define-as. Para todos os outros tipos de aplicações, provavelmente terá de definir isto explicitamente.
+-   A experiência Live Metrics não suporta a divisão pelo nome de papel.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
 
-Para facilitar a alteração da tecla à medida que o código se move entre as fases de produção, detetete-o em código em vez de no ficheiro de configuração.
+Para facilitar a alteração do ikey à medida que o código se move entre fases de produção, desave-o em código em vez de no ficheiro de configuração.
 
-Desloque a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
+Desa parte num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -55,12 +54,12 @@ Desloque a chave num método de inicialização, como global.aspx.cs num serviç
           WebConfigurationManager.AppSettings["ikey"];
       ...
 
-Neste exemplo, os ikeys para os diferentes recursos são colocados em diferentes versões do ficheiro de configuração web. Trocar o ficheiro de configuração web - o que pode fazer como parte do script de lançamento - irá trocar o recurso-alvo.
+Neste exemplo, os ikeys para os diferentes recursos são colocados em diferentes versões do ficheiro de configuração web. A troca do ficheiro de configuração web - que pode fazer como parte do script de lançamento - irá trocar o recurso-alvo.
 
 ### <a name="web-pages"></a>Páginas Web
-O iKey também é usado nas páginas web da sua aplicação, no [script que obteve do painel de arranque rápido](../../azure-monitor/app/javascript.md). Em vez de codificar literalmente o script, gere-o a partir do estado do servidor. Por exemplo, numa aplicação ASP.NET:
+O iKey também é usado nas páginas web da sua aplicação, no [script que obteve a partir do painel de arranque rápido.](../../azure-monitor/app/javascript.md) Em vez de codificar literalmente no script, gere-o a partir do estado do servidor. Por exemplo, numa aplicação ASP.NET:
 
-*JavaScript em Navalha*
+*JavaScript em Razor*
 
     <script type="text/javascript">
     // Standard Application Insights web page script:
@@ -75,25 +74,25 @@ O iKey também é usado nas páginas web da sua aplicação, no [script que obte
 
 ## <a name="create-additional-application-insights-resources"></a>Criar recursos adicionais de Insights de Aplicação
 
-Para criar um recurso Applications Insights siga o guia de criação de [recursos.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
+Para criar um recurso Applications Insights siga o [guia de criação de recursos.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
 
-### <a name="getting-the-instrumentation-key"></a>Obter a chave de instrumentação
+### <a name="getting-the-instrumentation-key"></a>Obtenção da chave de instrumentação
 A chave de instrumentação identifica o recurso que criou.
 
 Precisa das chaves de instrumentação de todos os recursos para os quais a sua aplicação enviará dados.
 
 ## <a name="filter-on-build-number"></a>Filtro no número de construção
-Quando publicar uma nova versão da sua aplicação, vai querer ser capaz de separar a telemetria de diferentes construções.
+Ao publicar uma nova versão da sua aplicação, vai querer separar a telemetria de diferentes construções.
 
-Pode definir a propriedade versão de aplicação para que possa filtrar a [pesquisa](../../azure-monitor/app/diagnostic-search.md) e os resultados do [explorador métrico.](../../azure-monitor/platform/metrics-charts.md)
+Pode definir a propriedade Versão aplicação para que possa filtrar os resultados [da pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [explorador métrico.](../../azure-monitor/platform/metrics-charts.md)
 
-Existem vários métodos diferentes para definir a propriedade versão de aplicação.
+Existem vários métodos diferentes de definir a propriedade Versão aplicação.
 
 * Definir diretamente:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Envolva essa linha num inicializador de [telemetria](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para garantir que todas as instâncias do TelemettryClient sejam definidas de forma consistente.
-* [ASP.NET] Desloque a versão `BuildInfo.config` em . O módulo web irá captar a versão do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
+* Embrulhe esta linha num [inicializador de telemetria](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para garantir que todas as instâncias de TelemetriaClient sejam definidas de forma consistente.
+* [ASP.NET] Coloque a versão em `BuildInfo.config` . O módulo web irá recolher a versão a partir do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
 
     ```XML
 
@@ -108,7 +107,7 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Gere buildInfo.config automaticamente na MSBuild. Para isso, adicione algumas linhas ao seu `.csproj` ficheiro:
+* [ASP.NET] Gere BuildInfo.config automaticamente em MSBuild. Para isso, adicione algumas linhas ao seu `.csproj` arquivo:
 
     ```XML
 
@@ -117,11 +116,11 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
     </PropertyGroup>
     ```
 
-    Isto gera um ficheiro chamado *"ProjectName*". BuildInfo.config. O processo Publish renomea-o para BuildInfo.config.
+    Isto gera um ficheiro chamado *.BuildInfo.config de Nome Deprojecto.* O processo de Publicação renomea-o para BuildInfo.config.
 
     A etiqueta de construção contém um espaço reservado (AutoGen_...) quando se constrói com o Visual Studio. Mas quando construído com MSBuild, é povoado com o número de versão correta.
 
-    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
+    Para permitir que o MSBuild gere números de versão, desave a versão como `1.0.*` em AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controlo de versão
 Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No seu `.csproj` ficheiro, adicione:  
@@ -135,12 +134,12 @@ Para controlar a versão da aplicação, certifique-se de que `buildinfo.config`
 
 Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](../../azure-monitor/platform/metrics-charts.md).
 
-No entanto, note que o número da versão build é gerado apenas pelo Microsoft Build Engine, e não pela construção do desenvolvedor a partir do Visual Studio.
+No entanto, note que o número da versão de construção é gerado apenas pelo Microsoft Build Engine, e não pelo desenvolvedor construído a partir de Visual Studio.
 
 ### <a name="release-annotations"></a>Anotações da versão
-Se utilizar o Azure DevOps, pode obter um marcador de [anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. 
+Se utilizar O Azure DevOps, pode [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Recursos partilhados para múltiplos papéis](../../azure-monitor/app/app-map.md)
-* [Criar um Inicializador de Telemetria para distinguir A. Variantes B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)
+* [Criar um Inicializador de Telemetria para distinguir A/ Variantes B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

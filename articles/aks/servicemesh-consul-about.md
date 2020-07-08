@@ -6,29 +6,28 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 77cb6a693c5a73d0498b0acf9bc4ad8cc9f8f32f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773995"
 ---
 # <a name="consul"></a>Cônsul
 
 ## <a name="overview"></a>Descrição geral
 
-[O Cônsul][consul] é uma solução de rede de serviços consciente multi data center para conectar e proteger serviços através de plataformas de tempo de execução. [O connect][consul-features] é o componente que fornece capacidades de malha de serviço.
+[O Cônsul][consul] é uma solução de rede de serviços de vários centros de dados para conectar e proteger serviços através de plataformas de tempo de funcionamento. [O Connect][consul-features] é o componente que fornece capacidades de malha de serviço.
 
 ## <a name="architecture"></a>Arquitetura
 
-O cônsul fornece um plano de dados que é composto por [sidecars][consul-sidecar] baseados em [enviado][envoy-proxy]por padrão. O cônsul tem uma arquitetura de procuração pluggable. Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas aplicações e cargas de trabalho.
+O Cônsul fornece um plano de dados composto por [padrão][envoy-proxy]de [sidecars baseados em enviados.][consul-sidecar] Cônsul tem uma arquitetura de procuração pluggável. Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas apps e cargas de trabalho.
 
 O plano de controlo gere a configuração e a política através dos [seguintes componentes:][consul-architecture]
 
-- **Servidor** - Um agente cônsul em modo Servidor que mantém o estado de cluster do Cônsul.
+- **Servidor** - Um Agente Cônsul em execução no modo Servidor que mantém o estado do cluster do Cônsul.
 
-- **Cliente** - Um Agente Cônsul a funcionar em modo cliente leve. Cada nó computacional deve ter um agente cliente a funcionar. Esta configuração e política de corretores de clientes entre as cargas de trabalho e a configuração do Cônsul. 
+- **Cliente** - Um Agente Cônsul em execução em modo cliente leve. Cada nó de cálculo deve ter um agente cliente a funcionar. Esta configuração e política de corretores de clientes entre as cargas de trabalho e a configuração do Cônsul. 
 
-O diagrama de arquitetura seguinte demonstra como os vários componentes dentro do plano de dados e plano de controlo interagem.
+O seguinte diagrama de arquitetura demonstra como os vários componentes dentro do plano de dados e do plano de controlo interagem.
 
 ![Visão geral dos componentes do Cônsul e arquitetura.](media/servicemesh/consul/about-architecture.png)
 
@@ -42,24 +41,24 @@ O diagrama de arquitetura seguinte demonstra como os vários componentes dentro 
 - [Cenários](#scenarios)
 
 
-### <a name="consul-principles"></a>Princípios do cônsul
+### <a name="consul-principles"></a>Princípios do Cônsul
 
-Os seguintes princípios [orientam][consul-principles] o projeto cônsul:
+Os seguintes princípios [orientam][consul-principles] o projeto Cônsul:
 
-- **API-Driven** - Codificar toda a configuração e política.
+- **API-Driven** - Codificar todas as configurações e políticas.
 
-- **Executar e Ligar qualquer lugar** - Conecte cargas de trabalho através de plataformas de tempo de execução (Kubernetes, VMs, Serverless).
+- **Executar e Ligar Qualquer Lugar** - Conecte cargas de trabalho através de plataformas de tempo de execução (Kubernetes, VMs, Serverless).
 
-- **Estender e Integrar** - Ligue de forma segura as cargas de trabalho através da infraestrutura.
+- **Estender e Integrar** - Ligar de forma segura cargas de trabalho em toda a infraestrutura.
 
 
 ### <a name="capabilities"></a>Capacidades
 
 O Cônsul fornece o seguinte conjunto de capacidades:
 
-- **Malha** – gateway (centro de dados multi), máquinas virtuais (fora de nós de cluster), sincronização de serviço, construída em opção de depuração
+- **Malha** – gateway (centro de dados multi), máquinas virtuais (fora dos nóns de cluster), sincronização de serviço, construída em opção de depuração
 
-- **Proxies** – Enviado, proxy incorporado, pluggable, l4 proxy disponível para cargas de trabalho do Windows
+- **Proxies** – Enviado, proxy incorporado, pluggable, proxy l4 disponível para cargas de trabalho do Windows
 
 - **Gestão de Tráfego** - encaminhamento, divisão, resolução
 
@@ -67,36 +66,36 @@ O Cônsul fornece o seguinte conjunto de capacidades:
 
 - **Segurança** – autorização, autenticação, encriptação, identidades baseadas em SPIFFE, CA externa (Cofre), gestão de certificados e rotação
 
-- **Observabilidade** - métricas, painel de instrumentos ui, prometheus, grafana
+- **Visibilidade** – métricas, painel ui, prometeu, grafana
 
 
 ### <a name="scenarios"></a>Cenários
 
 O cônsul é adequado e sugerido para os seguintes cenários:
 
-- Alargar as cargas de trabalho existentes do Cônsul
+- Alargamento das cargas de trabalho conexas do Cônsul existentes
 
 - Requisitos de conformidade em torno da gestão de certificados
 
-- Malha de serviço multicluster
+- Malha de serviço de vários clusters
 
 - Cargas de trabalho baseadas em VM a incluir na malha de serviço
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-A seguinte documentação descreve como pode instalar o Cônsul no Serviço Azure Kubernetes (AKS):
+A documentação que se segue descreve como pode instalar o Cônsul no Serviço Azure Kubernetes (AKS):
 
 > [!div class="nextstepaction"]
 > [Instalar cônsul no Serviço Azure Kubernetes (AKS)][consul-install]
 
 Você também pode explorar ainda mais as características do Cônsul e arquitetura:
 
-- [Cônsul iniciando tutoriais][consul-getting-started]
-- [Características do cônsul][consul-features]
-- [Arquitetura do Cônsul][consul-architecture]
-- [Cônsul - Como funciona a Ligação][consul-how-connect-works]
+- [Cônsul começando tutoriais][consul-getting-started]
+- [Características do Cônsul][consul-features]
+- [Arquitetura Cônsul][consul-architecture]
+- [Cônsul - Como Se Conecta][consul-how-connect-works]
 
 <!-- LINKS - external -->
 [consul]: https://www.consul.io/mesh.html

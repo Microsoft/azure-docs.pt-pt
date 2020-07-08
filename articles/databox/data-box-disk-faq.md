@@ -1,6 +1,6 @@
 ---
 title: FAQ do Microsoft Azure Data Box Disk | Microsoft Docs em dados
-description: Contém perguntas e respostas frequentemente feitas para o Disco de Caixa de Dados Do Azure, uma solução cloud que lhe permite transferir grandes quantidades de dados para o Azure
+description: Contém perguntas e respostas frequentes para O Disco de Caixa de Dados Azure, uma solução em nuvem que permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745803"
 ---
-# <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados azure: Perguntas frequentes
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
 A solução na cloud Microsoft Azure Data Box Disk permite-lhe enviar terabytes de dados para o Azure de forma rápida, económica e fiável. Estas FAQ contêm perguntas e respostas para dúvidas que possa ter ao utilizar o Azure Data Box Disk no portal do Azure. 
 
@@ -42,25 +41,25 @@ Os discos são encriptados com a Encriptação de Unidade BitLocker da Microsoft
 R. Se tiver 40 TB (ou menos) de dados e quiser transferi-los para o Azure, pode tirar partido dos discos do Data Box Disk.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P. Qual é o preço dos discos do Data Box Disk?
-R. Para obter informações sobre o preço dos Discos de Caixa de Dados, vá à [página de Preços](https://azure.microsoft.com/pricing/details/databox/disk/).
+R. Para obter informações sobre o preço dos Discos caixa de dados, [aceda](https://azure.microsoft.com/pricing/details/databox/disk/)à página de Preços .
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como recebo os discos do Data Box Disk? 
-R.  Para obter discos de caixa de dados Azure, inicie sessão no portal Azure e crie uma ordem data box para discos. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.
+R.  Para obter discos de caixa de dados Azure, inicie sessão no portal Azure e crie uma encomenda de caixa de dados para discos. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com os discos do Data Box Disk numa instância?
 R. Para cinco discos de 8 TB cada (7 TB de capacidade utilizável), a capacidade utilizável máxima são 35 TB. Assim, pode transferir 35 TB de dados numa instância. Para transferir mais dados, tem de encomendar mais discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P. Como posso saber se os discos do Data Box Disk estão disponíveis na minha região? 
-R.  Para ver onde estão atualmente disponíveis os Discos da Caixa de Dados, vá à disponibilidade da [Região.](data-box-disk-overview.md#region-availability)  
+R.  Para ver onde os Discos de Caixa de Dados estão atualmente disponíveis, aceda à disponibilidade da [Região.](data-box-disk-overview.md#region-availability)  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
-R. Data Box Disk é apoiado para todas as regiões dos EUA, Canadá, Austrália, Europa Ocidental e Norte da Europa, Coreia e Japão. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
+R. O Disco de Caixa de Dados é suportado para todas as regiões dos EUA, Canadá, Austrália, Europa Ocidental e Europa do Norte, Coreia e Japão. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>P. Será que o meu Disco de Caixa de Dados atravessará as fronteiras país/região durante o transporte?
-R. O Data Box Disk é enviado de dentro do mesmo país/região que o seu destino e não atravessará quaisquer fronteiras internacionais. A única exceção é para as encomendas na União Europeia (UE), onde os discos podem ser enviados de e para qualquer país/região da UE.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>P. O meu disco de caixa de dados atravessará as fronteiras país/região durante o transporte?
+R. O Disco de Caixa de Dados é enviado de dentro do mesmo país/região que o seu destino e não atravessará nenhuma fronteira internacional. A única exceção é para as encomendas na União Europeia (UE), onde os discos podem enviar de e para qualquer país/região da UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contactar se me deparar com problemas com os discos do Data Box Disk?
-R. Se encontrar algum problema com discos de caixa de dados, [contacte o Suporte da Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
+R. Se encontrar algum problema com discos de caixa de dados, [contacte o Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Configurar e ligar
  
@@ -76,7 +75,7 @@ Para obter instruções passo a passo, aceda a [Desbloquear discos num cliente W
 R.  Sim. Os clientes Linux e Windows podem ser utilizados para ligar e copiar os dados para os discos do Data Box. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-disk-system-requirements.md) do seu computador anfitrião.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Os meus discos foram enviados, mas quero cancelar esta encomenda. Por que é que o botão de cancelamento não está disponível?
-R.  Só pode cancelar a encomenda depois de os discos terem sido encomendados e antes de serem enviados. Após o envio, já não pode cancelar a encomenda. No entanto, pode devolver os seus discos a uma carga. 
+R.  Só pode cancelar a encomenda depois de os discos terem sido encomendados e antes de serem enviados. Após o envio, já não pode cancelar a encomenda. No entanto, pode devolver os seus discos com uma carga. 
 
 ### <a name="q-can-i-connect-multiple-data-box-disks-at-the-same-to-the-host-computer-to-transfer-data"></a>P. Posso ligar vários discos do Data Box Disk ao mesmo computador anfitrião para transferir os dados?
 R. Sim. É possível ligar vários discos do Data Box ao mesmo computador anfitrião para transferir os dados e podem ser executados múltiplos trabalhos de cópia em paralelo.
@@ -89,22 +88,22 @@ R.  Pode acompanhar o estado da encomenda do Data Box Disk no portal do Azure. Q
 ### <a name="q-how-do-i-return-the-disks"></a>P. Como posso devolver os discos? 
 R.  A Microsoft fornece uma etiqueta de envio com o Data Box Disk na embalagem. Afixe a etiqueta à caixa de envio e entregue a embalagem fechada na localização da sua transportadora. Se a etiqueta estiver danificada ou se perder, aceda a **Overview > Download shipping label** (Descrição geral > Transferir etiqueta de envio) e transfira uma etiqueta de devolução nova.
 
-### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Posso pegar a minha ordem do Disco da Caixa de Dados? Posso devolver os discos através de um porta-aviões que escolher?
-R. Sim. A Microsoft também oferece envios autogeridos apenas na região de Us Gov. Ao colocar a encomenda do Disco da Caixa de Dados, pode escolher a opção de envio autogerida. Para recolher a sua encomenda de Disco de Caixa de Dados, tome os seguintes passos:
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Posso pegar o meu pedido de caixa de dados? Posso devolver os discos através de um porta-aviões que escolho?
+R. Sim. A Microsoft também oferece envios auto-geridos apenas na região do Gov dos EUA. Ao fazer a encomenda do Disco caixa de dados, pode escolher a opção de envio auto-gerida. Para recolher a sua encomenda de disco de caixa de dados, tome os seguintes passos:
     
-1. Depois de ter feito a encomenda, a encomenda é processada e os discos estão preparados. Será notificado através de um e-mail que a sua encomenda está pronta para ser recolhida. 
-2. Uma vez que a encomenda esteja pronta para recolha, vá à sua encomenda no portal Azure e navegue até à lâmina **de visão geral.** 
-3. Verá uma notificação com um código no portal Azure. Envie um e-mail à equipa de Operações de Caixa de [Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código. A equipa fornecerá a localização e marcará uma data e hora de recolha. Deve ligar para a equipa no prazo de 5 dias úteis após receber a notificação por e-mail.
+1. Depois de ter feito a encomenda, a encomenda é processada e os discos são preparados. Será notificado através de um e-mail que o seu pedido está pronto para ser recolhido. 
+2. Assim que a encomenda estiver pronta para ser recolhida, vá ao seu pedido no portal Azure e navegue até à lâmina **de visão geral.** 
+3. Verá uma notificação com um código no portal Azure. Envie um e-mail à equipa de [Operações da Caixa de Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código. A equipa fornecerá a localização e marcará uma data e hora de recolha. Deve ligar para a equipa no prazo de 5 dias úteis após receber a notificação por e-mail.
 
-Assim que a cópia e validação de dados estiverem completas, tome os seguintes passos para devolver o disco:
+Uma vez concluída a cópia e validação dos dados, tome os seguintes passos para devolver o seu disco:
 
 1. Após a validação de dados ser concluída, desligue os discos. Remova os cabos de ligação.
 2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Podem aplicar-se custos se faltarem os acessórios.
 
     - Reutilize a embalagem do envio inicial. Recomendamos que embrulhe os discos em plástico-bolha e que o prenda bem.
     - Assegure que o plástico-bolha envolve bem os discos para reduzir os movimentos dentro da caixa.
-3. Vá à **lâmina de visão geral** para a sua encomenda no portal Azure. Devia ver uma notificação com um código.
-4. Utilize esse código e envie um e-mail à equipa de Operações de Caixas de [Dados Do Azure](mailto:adbops@microsoft.com) e forneça-lhes o código. Eles fornecer-lhe-iam informações sobre onde e quando deixar os discos.
+3. Vá à **lâmina de visão geral** para o seu pedido no portal Azure. Deve ver uma notificação com um código.
+4. Utilize esse código e envie um e-mail à [equipa de Operações da Caixa de Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código. Eles fornecer-lhe-iam informações sobre onde e quando deixar os discos.
 
 
 ## <a name="migrate-data"></a>Migrar dados
@@ -113,7 +112,7 @@ Assim que a cópia e validação de dados estiverem completas, tome os seguintes
 R.  A solução Data Box Disk pode ter até cinco discos com uma capacidade utilizável máxima de 35 TB. Os discos propriamente ditos têm 8 TB (7 TB utilizáveis).
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>P. Quais são os tamanhos máximos de blobs de blocos e de blobs de páginas que os discos do Data Box Disk suportam? 
-R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, consulte [a escalabilidade e os objetivos](../storage/blobs/scalability-targets.md)de desempenho para o armazenamento blob .
+R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, consulte [os objetivos de Escalabilidade e desempenho para o armazenamento blob.](../storage/blobs/scalability-targets.md)
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>P. Qual é a velocidade da transferência de dados do Data Box Disk?
 R. Nos testes com discos ligados por USB 3.0, o desempenho dos discos foi de 430 MB/s. A velocidade real pode variar consoante o tamanho do ficheiro utilizado. Para ficheiros mais pequenos, o desempenho poderá ser mais lento.
@@ -131,35 +130,35 @@ R.  Para acelerar o processo de cópia:
 - Utilize várias sessões.
 - Em vez de copiar através de uma partilha de rede (em que pode estar limitado pelas velocidades da rede), certifique-se de que os dados residem localmente no computador ao qual os discos vão ser ligados.
 - Confirme que está a utilizar o USB 3.0 ou posterior ao longo de todo o processo de cópia. Transfira e utilize a [ferramenta USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) para identificar os controladores de USB e os dispositivos USB ligados ao computador.
-- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a mais recente construção x86 ou x64, selecione o separador **Artefactos** e baixe o MSI.
+- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a mais recente construção x86 ou x64, selecione o **separador Artefactos** e descarregue o MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>P. Como posso acelerar os dados se os dados de origem tiverem ficheiros pequenos (KBs ou poucos MBs)?
 R.  Para acelerar o processo de cópia:
 
 - Crie um VHDx local num armazenamento rápido ou crie um VHD vazio no HDD/SSD (mais lento).
 - Monte-o numa VM.
-- Copiar ficheiros para o disco do VM.
+- Copie ficheiros para o disco do VM.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>P. Posso utilizar várias contas de armazenamento com os discos do Data Box Disk?
-R.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clássica, para os discos do Data Box Disk. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. Atualmente, apenas são apoiadas as contas de armazenamento nos EUA, na Europa Ocidental e no Norte da Europa na nuvem pública de Azure.
+R.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clássica, para os discos do Data Box Disk. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. Atualmente, apenas as contas de armazenamento nos EUA, Europa Ocidental e Norte da Europa na nuvem pública de Azure são apoiadas.
 
-### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P. Qual é o conjunto de ferramentas disponível para os meus dados com Discos de Caixa de Dados?
-R. O conjunto de ferramentas disponível com o Disco da Caixa de Dados contém três ferramentas:
- - **Ferramenta de desbloqueio**do disco de caixa de dados : Utilize esta ferramenta para desbloquear os discos encriptados que são enviados da Microsoft. Ao desbloquear os discos utilizando a ferramenta, é necessário fornecer uma chave-passe disponível na ordem do Disco da Caixa de Dados no portal Azure. 
- - Ferramenta de validação do disco de caixa de **dados:** Utilize esta ferramenta para validar os nomes de tamanho, formato e blob de acordo com as convenções de nomeação Azure. Também gera verificações para os dados copiados que são depois utilizados para verificar os dados enviados para o Azure.
- - **Ferramenta**de cópia de cópia de divisão de disco de caixa de dados : Utilize esta ferramenta quando estiver a utilizar vários discos e tenha um conjunto de dados grande que precisa de ser dividido e copiado em todos os discos. Esta ferramenta encontra-se atualmente disponível para Windows. Esta ferramenta não é suportada com discos geridos. Esta ferramenta também valida à medida que copia os dados, pelo que pode saltar o passo de validação ao utilizar esta ferramenta.
+### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P. Qual é o conjunto de ferramentas disponível para os meus dados com discos de caixa de dados?
+R. O conjunto de ferramentas disponível com o Disco caixa de dados contém três ferramentas:
+ - **Ferramenta Desbloqueia a caixa de dados**: Utilize esta ferramenta para desbloquear os discos encriptados que são enviados da Microsoft. Ao desbloquear os discos utilizando a ferramenta, é necessário fornecer uma chave-passe disponível na ordem do disco da Caixa de Dados no portal Azure. 
+ - **Ferramenta de validação do disco de caixa de dados**: Utilize esta ferramenta para validar o tamanho, formato e nomes blob de acordo com as convenções de nomeação Azure. Também gera datas de verificação para os dados copiados que são depois utilizados para verificar os dados enviados para o Azure.
+ - **Ferramenta Copy Split Copy da Caixa de Dados**: Utilize esta ferramenta quando estiver a utilizar vários discos e tenha um conjunto de dados grande que precisa de ser dividido e copiado em todos os discos. Esta ferramenta encontra-se atualmente disponível para o Windows. Esta ferramenta não é suportada com discos geridos. Esta ferramenta também valida à medida que copia os dados, pelo que pode saltar o passo de validação ao utilizar esta ferramenta.
 
-O conjunto de ferramentas está disponível tanto para Windows como Linux. Pode descarregar o conjunto de ferramentas aqui:
+O toolset está disponível tanto para Windows como Linux. Pode baixar o toolset aqui:
 - [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
 - [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
-### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso usar o Disco de Caixa de Dados para transferir dados para ficheiros Azure e depois utilizar os dados com o Azure File Sync? 
-R. Os Ficheiros Azure são suportados com o Disco da Caixa de Dados, mas não funcionarão bem com o Azure File Sync. Os metadados não são retidos se os dados do ficheiro forem utilizados com o Azure File Sync.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Posso utilizar o Disco de Caixa de Dados para transferir dados para ficheiros Azure e, em seguida, utilizar os dados com o Azure File Sync? 
+R. Os Ficheiros Azure são suportados com o Disco de Caixa de Dados, mas não funcionarão bem com o Azure File Sync. Os metadados não são retidos se os dados do ficheiro forem utilizados com o Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>P. Quando posso aceder aos meus dados em Azure assim que enviar os discos de volta? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>P. Quando posso aceder aos meus dados em Azure depois de enviar os discos de volta? 
 R.  Quando o estado da encomenda para Cópia de Dados aparecer como concluído, deverá conseguir aceder aos seus dados de imediato.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Depois do carregamento, onde é que os meus dados ficam localizados no Azure?
@@ -183,14 +182,14 @@ R. Sim. Se decidir validar os seus dados (recomendamos que o faça!), tem de vol
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>P. Utilizei todos os discos para transferir os dados e preciso de encomendar mais. Existe alguma forma de fazer a encomenda rapidamente?
 R. Pode clonar a encomenda anterior. A clonagem cria a mesma encomenda e permite-lhe editar os detalhes da mesma, sem ter de voltar a introduzir as informações de morada, contacto e notificação.
 
-### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>P. Copiei dados para a pasta ManagedDisk. Não vejo discos geridos com o grupo de recursos especificados para discos geridos. Os meus dados foram enviados para o Azure e como posso localizá-lo?
-R. Sim. Os seus dados foram enviados para o Azure, mas se não vir nenhum disco gerido com os grupos de recursos especificados, é provável que os dados não sejam válidos. Se as bolhas de página, blocos, Ficheiros Azure e discos geridos não fossem válidos, estas iriam para as seguintes pastas:
- - As bolhas de página iriam para um recipiente de blocos de bolhas começando com *databoxdisk-invalid-pb-*.
- - Os Ficheiros Azure iriam para um contentor de blocos a partir de *databoxdisk-invalid-invalid-af-*.
- - Os discos geridos iriam para um recipiente de blocos de bolhas a partir de *databoxdisk-invalid-invalid-md-*.
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>P. Copiei dados para a pasta ManagedDisk. Não vejo discos geridos com o grupo de recursos especificado para discos geridos. Os meus dados foram enviados para o Azure e como posso localizá-lo?
+R. Sim. Os seus dados foram enviados para o Azure, mas se não vir nenhum disco gerido com os grupos de recursos especificados, é provável que os dados não fossem válidos. Se as bolhas de página, as bolhas de blocos, os ficheiros Azure e os discos geridos não fossem válidos, estes iriam para as seguintes pastas:
+ - As bolhas de página iriam para um recipiente de blocos blob começando com *databoxdisk-invalid-pb-*.
+ - A Azure Files iria para um recipiente de blocos blob começando com *databoxdisk-invalid-af-*.
+ - Os discos geridos iriam para um contentor de blocos blob começando com *databoxdisk-invalid-md-*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Reveja os [requisitos](data-box-disk-system-requirements.md)do sistema de disco de caixa de dados .
+- Reveja os requisitos do [sistema de disco de caixa de dados.](data-box-disk-system-requirements.md)
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).
 - Implemente rapidamente o [Azure Data Box Disk](data-box-disk-quickstart-portal.md) no portal do Azure.

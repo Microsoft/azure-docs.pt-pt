@@ -6,42 +6,41 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2bc356060bacd1c04ecb3d3dd10b8322ae40b8ba
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83758678"
 ---
 # <a name="materials"></a>Materiais
 
-Os [materiais](../concepts/lifetime.md) são recursos partilhados que definem como as [meshes](meshes.md) são renderizadas. Os materiais são usados para especificar quais texturas a aplicar, se tornar os [objetos](textures.md) transparentes e como a iluminação será calculada.
+Os materiais são [recursos partilhados](../concepts/lifetime.md) que definem como [as malhas](meshes.md) são renderizadas. Os materiais são utilizados para especificar quais [as texturas](textures.md) a aplicar, se para tornar os objetos transparentes e como a iluminação será calculada.
 
-Os materiais são automaticamente criados durante a conversão do [modelo](../how-tos/conversion/model-conversion.md) e são acessíveis em tempo de execução. Também pode criar materiais personalizados a partir de código e substituir os existentes. Este cenário faz especial mente se quiser partilhar o mesmo material em muitas malsheas. Uma vez que as modificações de um material são visíveis em todas as malhas que o referenciam, este método pode ser usado para aplicar facilmente alterações.
+Os materiais são criados automaticamente durante [a conversão do modelo](../how-tos/conversion/model-conversion.md) e são acessíveis em tempo de execução. Também pode criar materiais personalizados a partir do código e substituir os existentes. Este cenário faz especialmente sentido se quiser partilhar o mesmo material através de muitas malhas. Uma vez que as modificações de um material são visíveis em cada malha que o referencia, este método pode ser usado para aplicar facilmente alterações.
 
 > [!NOTE]
-> Alguns casos de utilização, como destacar um objeto escolhido, podem ser feitos modificando materiais, mas são muito mais fáceis de conseguir através do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md).
+> Alguns casos de uso, como destacar um objeto escolhido pode ser feito modificando materiais, mas são muito mais fáceis de alcançar através do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md).
 
 ## <a name="material-types"></a>Tipos de materiais
 
-A renderização remota Azure tem dois tipos de material distintos:
+A renderização remota Azure tem dois tipos distintos de material:
 
-* Os [materiais PBR](../overview/features/pbr-materials.md) são utilizados para superfícies que devem ser tornadas o mais fisicamente corretas possível. A iluminação realista é calculada para estes materiais utilizando *renderização baseada fisicamente* (PBR). Para tirar o máximo partido deste tipo de material, é importante fornecer dados de entrada de alta qualidade, como asperezas e mapas normais.
+* [Os materiais PBR](../overview/features/pbr-materials.md) são utilizados para superfícies que devem ser o mais corretas fisicamente possível. A iluminação realista é calculada para estes materiais utilizando *renderização física* (PBR). Para tirar o máximo partido deste tipo de material, é importante fornecer dados de entrada de alta qualidade, como aspereza e mapas normais.
 
-* São utilizados [materiais](../overview/features/color-materials.md) de cor para casos em que não é desejada iluminação adicional. Estes materiais são sempre brilhantes e são mais fáceis de configurar. Os materiais de cor são utilizados para dados que não devem ter iluminação, ou já incorpora iluminação estática, como modelos obtidos através da [fotogrammetria.](https://en.wikipedia.org/wiki/Photogrammetry)
+* [Os materiais de](../overview/features/color-materials.md) cor são utilizados em casos em que não é desejada iluminação adicional. Estes materiais são sempre cheios de brilho e são mais fáceis de configurar. Os materiais de cor são utilizados para dados que não devem ter iluminação, ou que já incorporam iluminação estática, como modelos obtidos através de [fotogrammetria.](https://en.wikipedia.org/wiki/Photogrammetry)
 
-## <a name="mesh-vs-meshcomponent-material-assignment"></a>Atribuição de material de malha vs. MalhaComponent
+## <a name="mesh-vs-meshcomponent-material-assignment"></a>Malha vs. MeshComponent atribuição de material
 
-[As malsheas](meshes.md) têm uma ou mais submeshes. Cada submalha refere um material. Pode alterar o material para utilizar diretamente na malha, ou pode substituir o material a utilizar para uma submalha num Componente de [Malha](meshes.md#meshcomponent).
+[As malhas](meshes.md) têm uma ou mais submechas. Cada submesh refere um material. Pode alterar o material para utilizar diretamente na malha, ou pode substituir o material a utilizar para um submesh numa [MeshComponent](meshes.md#meshcomponent).
 
-Quando modifica um material diretamente no recurso de malha, esta alteração afeta todos os casos dessa malha. No entanto, a alteração do componente de malha só afeta essa instância de malha. Qual o método mais apropriado depende do comportamento desejado, mas modificar um MeshComponent é a abordagem mais comum.
+Quando modifica um material diretamente no recurso de malha, esta alteração afeta todas as instâncias dessa malha. A sua alteração no MeshComponent, no entanto, apenas afeta essa única instância de malha. Qual método mais apropriado depende do comportamento desejado, mas modificar um MeshComponent é a abordagem mais comum.
 
-## <a name="material-de-duplication"></a>Desduplicação de material
+## <a name="material-de-duplication"></a>Des duplicação de material
 
-Durante a conversão, vários materiais com as mesmas propriedades e texturas são automaticamente desduplicados num único material. Pode desativar esta funcionalidade nas definições de [conversão,](../how-tos/conversion/configure-model-conversion.md)mas recomendamos deixá-la ativa da melhor forma.
+Durante a conversão, vários materiais com as mesmas propriedades e texturas são automaticamente desprovaduídos num único material. Pode desativar esta função nas definições de [conversão,](../how-tos/conversion/configure-model-conversion.md)mas recomendamos deixá-la on para melhor desempenho.
 
 ## <a name="material-classes"></a>Aulas de material
 
-Todos os materiais fornecidos pela API derivam da classe `Material` base. O seu tipo pode ser consultado através `Material.MaterialSubType` ou lançando-os diretamente:
+Todos os materiais fornecidos pela API derivam da classe `Material` base. O seu tipo pode ser questionado através `Material.MaterialSubType` ou lançando-os diretamente:
 
 ```cs
 void SetMaterialColorToGreen(Material material)
@@ -82,7 +81,7 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Materiais PBR](../overview/features/pbr-materials.md)
 * [Materiais de cor](../overview/features/color-materials.md)

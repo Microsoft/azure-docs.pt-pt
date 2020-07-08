@@ -1,29 +1,28 @@
 ---
 title: Reflexos do céu
-description: Descreve como configurar mapas ambientais para reflexos do céu
+description: Descreve como configurar mapas ambientais para reflexões no céu
 author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83759120"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 
-Na Renderização Remota Azure, uma textura do céu é usada para iluminar objetos de forma realista. Para aplicações de realidade aumentada, esta textura deve assemelhar-se ao seu ambiente real, para fazer com que os objetos pareçam convincentes. Este artigo descreve como mudar a textura do céu.
+Na renderização remota de Azure, uma textura do céu é usada para iluminar objetos de forma realista. Para aplicações de realidade aumentada, esta textura deve assemelhar-se ao seu ambiente real, para fazer com que os objetos pareçam convincentes. Este artigo descreve como mudar a textura do céu.
 
 > [!NOTE]
 > A textura do céu também é referida como um *mapa ambiental.* Estes termos são usados intercambiavelmente.
 
 ## <a name="object-lighting"></a>Iluminação de objetos
 
-A Azure Remote Rendering emprega *renderização baseada fisicamente* (PBR) para computações de iluminação realistas. Embora possa adicionar [fontes de luz](lights.md) à sua cena, usar uma boa textura do céu tem o maior impacto.
+A renderização remota Azure emprega *renderização física* (PBR) para computaçãos de iluminação realistas. Embora possa adicionar [fontes de luz](lights.md) à sua cena, usar uma boa textura do céu tem o maior impacto.
 
-As imagens abaixo mostram resultados de iluminação de diferentes superfícies apenas com uma textura do céu:
+As imagens abaixo mostram resultados de iluminação de diferentes superfícies apenas com uma textura de céu:
 
 | Aspereza  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
@@ -33,11 +32,11 @@ As imagens abaixo mostram resultados de iluminação de diferentes superfícies 
 Para obter mais informações sobre o modelo de iluminação, consulte o capítulo dos [materiais.](../../concepts/materials.md)
 
 > [!IMPORTANT]
-> A Renderização Remota Azure utiliza a textura do céu apenas para modelos de iluminação. Não torna o céu como pano de fundo, uma vez que as aplicações de Realidade Aumentada já têm um passado adequado - o mundo real.
+> A renderização remota Azure usa a textura do céu apenas para modelos de iluminação. Não torna o céu como pano de fundo, uma vez que as aplicações de Realidade Aumentada já têm um fundo próprio - o mundo real.
 
 ## <a name="changing-the-sky-texture"></a>Mudando a textura do céu
 
-Para alterar o mapa ambiental, tudo o que precisa fazer é [carregar uma textura](../../concepts/textures.md) e mudar a sessão: `SkyReflectionSettings`
+Para alterar o mapa ambiental, tudo o que precisa fazer é [carregar uma textura](../../concepts/textures.md) e alterar a sessão: `SkyReflectionSettings`
 
 ```cs
 LoadTextureAsync _skyTextureLoad = null;
@@ -90,52 +89,52 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 
 ```
 
-Note que a `LoadTextureFromSASAsync` variante é usada acima porque uma textura incorporada é carregada. Em caso de carregamento a partir de [armazenamentos de blob ligados,](../../how-tos/create-an-account.md#link-storage-accounts)utilize a `LoadTextureAsync` variante.
+Note que a `LoadTextureFromSASAsync` variante é usada acima porque uma textura incorporada é carregada. Em caso de carregamento a partir de [armazenamentos de bolhas ligados,](../../how-tos/create-an-account.md#link-storage-accounts)utilize a `LoadTextureAsync` variante.
 
 ## <a name="sky-texture-types"></a>Tipos de textura do céu
 
-Você pode usar ambos *[os cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* e *texturas 2D* como mapas de ambiente.
+Você pode usar tanto *[os cubos](https://en.wikipedia.org/wiki/Cube_mapping)* como *as texturas 2D como mapas ambientais.*
 
-Todas as texturas têm de estar num formato de [textura suportada.](../../concepts/textures.md#supported-texture-formats) Não é preciso fornecer mipmaps para texturas do céu.
+Todas as texturas têm de estar num [formato de textura suportado.](../../concepts/textures.md#supported-texture-formats) Você não precisa fornecer mipmaps para texturas do céu.
 
 ### <a name="cube-environment-maps"></a>Mapas do ambiente do cubo
 
-Para referência, aqui está um mapa cubo desembrulhado:
+Para referência, aqui está um mapa de cubos desembrulhado:
 
-![Um mapa cubo desembrulhado](media/Cubemap-example.png)
+![Um mapa de cubos desembrulhado](media/Cubemap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` com para `TextureType.CubeMap` carregar texturas de cubos.
+Use `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` com para `TextureType.CubeMap` carregar texturas de mapas de cubos.
 
 ### <a name="sphere-environment-maps"></a>Mapas do ambiente da esfera
 
-Quando se usa uma textura 2D como mapa ambiental, a imagem tem de estar no espaço de [coordenadas esféricas.](https://en.wikipedia.org/wiki/Spherical_coordinate_system)
+Ao utilizar uma textura 2D como mapa ambiental, a imagem tem de estar no [espaço de coordenadas esféricas.](https://en.wikipedia.org/wiki/Spherical_coordinate_system)
 
 ![Uma imagem do céu em coordenadas esféricas](media/spheremap-example.png)
 
-Utilize `AzureSession.Actions.LoadTextureAsync` com para carregar mapas `TextureType.Texture2D` ambientais esféricos.
+Use `AzureSession.Actions.LoadTextureAsync` com para carregar `TextureType.Texture2D` mapas de ambiente esférico.
 
-## <a name="built-in-environment-maps"></a>Mapas ambientais embutidos
+## <a name="built-in-environment-maps"></a>Mapas ambientais incorporados
 
-A Azure Remote Rendering fornece alguns mapas ambientais incorporados que estão sempre disponíveis. Todos os mapas ambientais embutidos são mapas de cubos.
+A renderização remota Azure fornece alguns mapas ambientais incorporados que estão sempre disponíveis. Todos os mapas ambientais incorporados são cubos.
 
 |Identificador                         | Descrição                                              | Ilustração                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Variedade de luzes de listras, iluminação interior brilhante da base    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Ajuste de luz interior brilhante, múltiplas luzes da janela      | ![Sala da Caldeira](media/boiler-room.png)
-|builtin://ColorfulStudio           | Luzes variadamente coloridas em ambiente interior de luz média  | ![Estúdio Colorido](media/colorful-studio.png)
+|builtin://Autoshop                 | Variedade de luzes de listras, iluminação de base interior brilhante    | ![Autoshop](media/autoshop.png)
+|builtin://BoilerRoom               | Definição de luz interior brilhante, múltiplas luzes de janela      | ![Sala da Caldeira](media/boiler-room.png)
+|builtin://ColorfulStudio           | Luzes coloridas variadamente na configuração interior de luz média  | ![Studio colorido](media/colorful-studio.png)
 |builtin://Hangar                   | Luz ambiente moderadamente brilhante                     | ![Pequeno Hangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Ajuste interior escuro com contraste escuro-claro              | ![Tubagem industrial e válvula](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Luz ambiente diurna da sala, luz de área de janela brilhante     | ![Lebombo](media/lebombo.png)
+|builtin://IndustrialPipeAndValve   | Definição interior fraca com contraste claro-escuro              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Luz ambiente diurna, luz de área de janela brilhante     | ![Rio Lebombo](media/lebombo.png)
 |builtin://SataraNight              | Céu noturno escuro e chão com muitas luzes circundantes   | ![Noite de Satara](media/satara-night.png)
-|builtin://SunnyVondelpark          | Luz solar brilhante e contraste de sombra                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Clara luz do céu com iluminação terrestre moderada            | ![Syferfonteina](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Sol e sombra moderadamente variáveis                         | ![Ponte TearsofSteel](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Luz do pôr do sol da noite aproximando-se do crepúsculo                    | ![VenezaSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Tons brilhantes, verde-exuberante, e luz branca, chão escurecido | ![Parque Regional WhippleCreek](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Durante o dia com luz de chão ambiente brilhante                 | ![Rio Winter](media/winter-river.png)
-|builtin://DefaultSky               | O mesmo que TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://SunnyVondelpark          | Luz solar brilhante e contraste de sombra                      | ![Parque SunnyVondel](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Luz clara do céu com iluminação terrestre moderada            | ![Syferfontein](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Sol e sombra moderadamente variáveis                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Luz do pôr do sol da noite aproximando-se do crepúsculo                    | ![VeniceSunset](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Tons de luz brilhantes, verde-exuberantes e brancos, terreno escurecido | ![Parque WhippleCreekRegional](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dia diurno com luz de terra ambiente brilhante                 | ![Rio WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | O mesmo que TearsOfSteelBridge                               | ![PadrãoSky](media/tears-of-steel-bridge.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Luzes](../../overview/features/lights.md)
 * [Materiais](../../concepts/materials.md)

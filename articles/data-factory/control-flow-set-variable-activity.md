@@ -1,6 +1,6 @@
 ---
-title: Definir atividade variável na fábrica de dados azure
-description: Saiba como utilizar a atividade variável definida para definir o valor de uma variável existente definida num pipeline data Factory
+title: Definir atividade variável na fábrica de dados Azure
+description: Saiba como utilizar a atividade de Variável Definida para definir o valor de uma variável existente definida num pipeline de Fábrica de Dados
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,34 +12,33 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83832797"
 ---
-# <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade variável na fábrica de dados azure
+# <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade variável na fábrica de dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Utilize a atividade Variável definida para definir o valor de uma variável existente de cadeia de tipo, bool ou Matriz definida num pipeline data Factory.
+Utilize a atividade de Variável Definida para definir o valor de uma variável existente de tipo String, Bool ou Array definida num pipeline de Fábrica de Dados.
 
-## <a name="type-properties"></a>Propriedades de tipo
+## <a name="type-properties"></a>Tipo de propriedades
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 name | Nome da atividade em pipeline | sim
 descrição | Texto descrevendo o que a atividade faz | não
-tipo | Deve ser definido para **Definir Variável** | sim
-valor | Valor de objeto literal ou de expressão de corda a que a variável é atribuída | sim
+tipo | Deve ser definido para **SetVariable** | sim
+valor | Valor de objeto literal ou expressão de corda a que a variável é atribuída | sim
 nome variável | Nome da variável que é definida por esta atividade | sim
 
 ## <a name="incrementing-a-variable"></a>Incrementando uma variável
 
-Um cenário comum que envolve variáveis na Azure Data Factory está a usar uma variável como iterador dentro de uma atividade de até ou foreach. Numa atividade variável definida não se pode referenciar a variável que está a ser definida no `value` campo. Para contornar esta limitação, delineie uma variável temporária e, em seguida, crie uma segunda atividade variável. A segunda atividade variável define o valor do iterante para a variável temporária. 
+Um cenário comum envolvendo variáveis na Azure Data Factory está usando uma variável como iterador dentro de uma atividade até ou forecach. Numa atividade variável definida não é possível fazer referência à variável definida no `value` campo. Para contornar esta limitação, desabine uma variável temporária e, em seguida, crie uma segunda atividade variável definida. A segunda atividade variável definida define o valor do iterador para a variável temporária. 
 
 Abaixo está um exemplo deste padrão:
 
-![Variável de incremento](media/control-flow-set-variable-activity/increment-variable.png "Variável de incremento")
+![Variável incremento](media/control-flow-set-variable-activity/increment-variable.png "Variável incremento")
 
 ``` json
 {
@@ -96,7 +95,7 @@ Abaixo está um exemplo deste padrão:
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
-Conheça uma atividade de fluxo de controlo relacionada suportada pela Data Factory: 
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre uma atividade de fluxo de controlo relacionada suportada pela Data Factory: 
 
 - [Acrescentar a Atividade Variável](control-flow-append-variable-activity.md)

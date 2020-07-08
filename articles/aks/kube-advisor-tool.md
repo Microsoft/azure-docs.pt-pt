@@ -1,35 +1,34 @@
 ---
-title: Verifique as implementações para obter as melhores práticas
+title: Verifique as implementações para as melhores práticas
 titleSuffix: Azure Kubernetes Service
-description: Saiba como verificar a implementação das melhores práticas nas suas implementações no Serviço Azure Kubernetes utilizando kube-advisor
+description: Saiba como verificar a implementação das melhores práticas nas suas implementações no Serviço Azure Kubernetes utilizando o kube-advisor
 services: container-service
 author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773791"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de melhores práticas do Kubernetes no seu cluster
 
-Existem várias boas práticas que deve seguir nas suas implementações kubernetes para garantir o melhor desempenho e resiliência para as suas aplicações. Pode utilizar a ferramenta kube-advisor para procurar implementações que não seguem essas sugestões.
+Existem várias boas práticas que deve seguir nas suas implementações de Kubernetes para garantir o melhor desempenho e resiliência para as suas aplicações. Pode utilizar a ferramenta kube-advisor para procurar implementações que não estejam a seguir essas sugestões.
 
 ## <a name="about-kube-advisor"></a>Sobre kube-advisor
 
-A [ferramenta kube-advisor][kube-advisor-github] é um único recipiente projetado para ser executado no seu cluster. Consulta o servidor Kubernetes API para obter informações sobre as suas implementações e devolve um conjunto de melhorias sugeridas.
+A [ferramenta kube-advisor][kube-advisor-github] é um único recipiente projetado para ser executado no seu cluster. Consulta o servidor API da Kubernetes para obter informações sobre as suas implementações e devolve um conjunto de melhorias sugeridas.
 
-A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites em falta em PodSpecs para aplicações Windows, bem como aplicações Linux, mas a própria ferramenta de kube-advisor deve ser agendada num casulo Linux. Você pode agendar uma cápsula para correr em uma piscina de nó com um SISTEMA específico usando um [seletor][k8s-node-selector] de nó na configuração do casulo.
+A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites em falta em PodSpecs para aplicações Windows, bem como aplicações Linux, mas a própria ferramenta de kube-advisor deve ser agendada num pod Linux. Pode agendar um pod para correr numa piscina de nó com um sistema operativo específico utilizando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
 > [!NOTE]
-> A ferramenta kube-advisor é suportada pela Microsoft numa base de melhor esforço. As questões e sugestões devem ser arquivadas no GitHub.
+> A ferramenta kube-advisor é suportada pela Microsoft numa base de melhor esforço. As questões e sugestões devem ser apresentadas no GitHub.
 
-## <a name="running-kube-advisor"></a>Running kube-advisor
+## <a name="running-kube-advisor"></a>Corrida kube-advisor
 
-Para executar a ferramenta num cluster configurado para [o controlo de acesso baseado em funções (RBAC),](azure-ad-integration.md)utilizando os seguintes comandos. O primeiro comando cria uma conta de serviço Kubernetes. O segundo comando executa a ferramenta numa cápsula utilizando essa conta de serviço e configura a cápsula para eliminação após a sua saída. 
+Para executar a ferramenta num cluster configurado para [controlo de acesso baseado em funções (RBAC),](azure-ad-integration.md)utilizando os seguintes comandos. O primeiro comando cria uma conta de serviço Kubernetes. O segundo comando executa a ferramenta numa cápsula utilizando essa conta de serviço e configura a cápsula para eliminação após a sua saída. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -43,31 +42,31 @@ Se não estiver a utilizar o RBAC, pode executar o comando da seguinte forma:
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
 ```
 
-Dentro de alguns segundos, deve ver uma tabela descrevendo potenciais melhorias nas suas implementações.
+Dentro de alguns segundos, deverá ver uma tabela descrevendo possíveis melhorias nas suas implementações.
 
 ![Saída de kube-advisor](media/kube-advisor-tool/kube-advisor-output.png)
 
 ## <a name="checks-performed"></a>Verificações realizadas
 
-A ferramenta valida várias boas práticas kubernetes, cada uma com a sua própria reparação sugerida.
+A ferramenta valida várias boas práticas de Kubernetes, cada uma com a sua própria remediação sugerida.
 
 ### <a name="resource-requests-and-limits"></a>Pedidos e limites de recursos
 
-A Kubernetes suporta a definição de [pedidos de recursos e limites nas especificações][kube-cpumem]do pod . O pedido define o CPU mínimo e a memória necessária para executar o recipiente. O limite define o CPU máximo e a memória que deve ser permitida.
+A Kubernetes suporta a definição de [pedidos de recursos e limites nas especificações do pod][kube-cpumem]. O pedido define o CPU mínimo e a memória necessárias para executar o contentor. O limite define o CPU máximo e a memória que deve ser permitida.
 
-Por predefinição, não são definidos pedidos ou limites nas especificações do casulo. Isto pode levar a que os nós sejam sobreprogramados e os contentores esfomeados. A ferramenta kube-advisor destaca as cápsulas sem pedidos e limites definidos.
+Por predefinição, não são definidos pedidos ou limites nas especificações do pod. Isto pode levar a que os nós sejam sobre-programados e os contentores sejam esfomeados. A ferramenta kube-advisor destaca as cápsulas sem pedidos e limites definidos.
 
 ## <a name="cleaning-up"></a>Limpeza
 
-Se o seu cluster tiver RBAC ativado, pode limpar a ferramenta depois de `ClusterRoleBinding` executar a ferramenta utilizando o seguinte comando:
+Se o seu cluster tiver RBAC ativado, pode limpar a `ClusterRoleBinding` ferramenta depois de ter executado a ferramenta utilizando o seguinte comando:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Se estiver a executar a ferramenta contra um cluster que não esteja ativado por RBAC, não é necessária qualquer limpeza.
+Se estiver a executar a ferramenta contra um cluster que não esteja ativado pelo RBAC, não é necessária uma limpeza.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Problemas de resolução de problemas com o Serviço Azure Kubernetes](troubleshooting.md)
 

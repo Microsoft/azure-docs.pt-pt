@@ -1,20 +1,19 @@
 ---
-title: Performance de consulta de resolução de problemas - Base de Dados Azure para MariaDB
-description: Saiba como usar o EXPLAIN para resolver o desempenho da consulta na Base de Dados Azure para o MariaDB.
+title: Desempenho da consulta de resolução de problemas - Base de Dados Azure para MariaDB
+description: Aprenda a usar o EXPLAIN para resolver problemas de desempenho na Base de Dados Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834310"
 ---
-# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho na Base de Dados Azure para MariaDB
-**Explicar** é uma ferramenta útil para otimizar consultas. A declaração de EXPLICAÇÃO pode ser usada para obter informações sobre como as declarações do SQL são executadas. A saída seguinte mostra um exemplo da execução de uma declaração de EXPLICA.
+# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como utilizar o EXPLAIN para o desempenho da consulta de perfil na Base de Dados Azure para a MariaDB
+**O EXPLAIN** é uma ferramenta útil para otimizar as consultas. A declaração de EXPLICAÇÃO pode ser usada para obter informações sobre como as declarações sql são executadas. A seguinte saída mostra um exemplo da execução de uma declaração EXPLICADA.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +32,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Como se pode ver a partir deste exemplo, o valor da *chave* é NULO. Esta saída significa que a MariaDB não encontra quaisquer índices otimizados para a consulta e realiza uma digitalização completa da tabela. Vamos otimizar esta consulta adicionando um índice na coluna **de identificação.**
+Como se pode ver a partir deste exemplo, o valor da *chave* é NU. Esta saída significa que a MariaDB não consegue encontrar quaisquer índices otimizados para a consulta e realiza uma verificação completa da tabela. Vamos otimizar esta consulta adicionando um índice na coluna **ID.**
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -53,10 +52,10 @@ possible_keys: id
         Extra: NULL
 ```
 
-O novo EXPLAIN mostra que mariaDB usa agora um índice para limitar o número de linhas a 1, o que por sua vez encurtou drasticamente o tempo de pesquisa.
+O novo EXPLAIN mostra que a MariaDB usa agora um índice para limitar o número de linhas a 1, o que por sua vez encurtou drasticamente o tempo de pesquisa.
  
 ## <a name="covering-index"></a>Índice de cobertura
-Um índice de cobertura consiste em todas as colunas de uma consulta no índice para reduzir a recuperação de valor a partir de tabelas de dados. Aqui está uma ilustração no seguinte **comunicado do GRUPO BY.**
+Um índice de cobertura consiste em todas as colunas de uma consulta no índice para reduzir a recuperação de valor das tabelas de dados. Aqui está uma ilustração no seguinte **comunicado do GRUPO BY.**
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,9 +74,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como se pode ver pela saída, a MariaDB não utiliza quaisquer índices porque não existem índices adequados. Também mostra *usar temporário; Utilizando o tipo de ficheiro*, o que significa que a MariaDB cria uma tabela temporária para satisfazer a cláusula GROUP **BY.**
+Como se pode ver pela produção, a MariaDB não utiliza nenhum índice porque não existem índices adequados. Também mostra *a utilização temporária; Utilizando o tipo de ficheiro*, o que significa que o MariaDB cria uma tabela temporária para satisfazer a cláusula GROUP **BY.**
  
-A criação de um índice só na coluna **c2** não faz diferença, e a MariaDB ainda precisa de criar uma tabela temporária:
+Criar um índice só na coluna **c2** não faz diferença, e MariaDB ainda precisa de criar uma tabela temporária:
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -97,7 +96,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, pode ser criado um **índice coberto** tanto em **c1** como **c2,** pelo que a adição do valor de **c2**" diretamente no índice para eliminar a procura de dados adicionais.
+Neste caso, pode ser criado um **índice coberto** tanto em **c1** como **em c2,** acrescentando o valor de **c2**" diretamente no índice para eliminar mais análises de dados.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -117,10 +116,10 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-Como mostra o explicador acima, a MariaDB usa agora o índice coberto e evita criar uma tabela temporária. 
+Como mostra o EXPLAIN acima, a MariaDB usa agora o índice coberto e evita a criação de uma tabela temporária. 
 
 ## <a name="combined-index"></a>Índice combinado
-Um índice combinado consiste em valores de várias colunas e pode ser considerado um conjunto de linhas que são ordenadas por valores concatenantes das colunas indexadas.Este método pode ser útil numa declaração do **GROUP BY.**
+Um índice combinado consiste em valores de várias colunas e pode ser considerado um conjunto de linhas que são classificadas por valores concatenantes das colunas indexadas.Este método pode ser útil numa declaração **do GRUPO BY.**
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -139,7 +138,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB executa uma operação de *tipo de arquivo* que é bastante lenta, especialmente quando tem que ordenar muitas linhas. Para otimizar esta consulta, pode ser criado um índice combinado em ambas as colunas que estão a ser ordenadas.
+A MariaDB realiza uma operação *de classificação de ficheiros* bastante lenta, especialmente quando tem de separar muitas linhas. Para otimizar esta consulta, um índice combinado pode ser criado em ambas as colunas que estão sendo classificadas.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,11 +158,11 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-O EXPLAIN mostra agora que o MariaDB é capaz de usar o índice combinado para evitar a triagem adicional, uma vez que o índice já está classificado.
+O EXPLAIN mostra agora que o MariaDB é capaz de utilizar o índice combinado para evitar uma triagem adicional, uma vez que o índice já está classificado.
  
 ## <a name="conclusion"></a>Conclusão
  
-A utilização de EXPLAIN e de diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que mariaDB seria capaz de usá-lo para as suas consultas. Valide sempre os seus pressupostos usando o EXPLAIN e otimize as suas consultas utilizando índices.
+A utilização de EXPLAIN e diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que a MariaDB possa usá-lo para as suas consultas. Valide sempre os seus pressupostos utilizando o EXPLAIN e otimize as suas consultas utilizando índices.
 
-## <a name="next-steps"></a>Passos seguintes
-- Para encontrar respostas dos pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite o [Microsoft Q&Uma página](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) de perguntas ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+## <a name="next-steps"></a>Próximos passos
+- Para encontrar respostas de pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite [o Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

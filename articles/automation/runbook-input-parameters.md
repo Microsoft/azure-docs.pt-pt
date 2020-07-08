@@ -1,39 +1,38 @@
 ---
-title: Configure parâmetros de entrada de livro de execução na Automação Azure
-description: Este artigo diz como configurar os parâmetros de entrada do livro de execução, que permitem que os dados sejam passados para um livro de execução quando é iniciado.
+title: Configurar parâmetros de entrada de runbook na Azure Automation
+description: Este artigo diz como configurar os parâmetros de entrada do runbook, que permitem que os dados sejam passados para um livro de recortes quando é iniciado.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830043"
 ---
 # <a name="configure-runbook-input-parameters"></a>Configurar parâmetros de entrada do runbook
 
-Os parâmetros de entrada do livro de execução aumentam a flexibilidade de um livro de execução, permitindo que os dados lhe sejam transmitidos quando é iniciado. Estes parâmetros permitem que as ações do livro de corridas sejam direcionadas para cenários e ambientes específicos. Este artigo descreve a configuração e utilização de parâmetros de entrada nos seus livros de execução.
+Os parâmetros de entrada do runbook aumentam a flexibilidade de um livro de execução, permitindo que os dados sejam transmitidos quando este é iniciado. Estes parâmetros permitem que as ações do runbook sejam direcionadas para cenários e ambientes específicos. Este artigo descreve a configuração e utilização de parâmetros de entrada nos seus livros de execução.
 
-Pode configurar parâmetros de entrada para powerShell, PowerShell Workflow, graphical e Python. Um livro de execução pode ter múltiplos parâmetros com diferentes tipos de dados, ou nenhum parâmetro. Os parâmetros de entrada podem ser obrigatórios ou opcionais, podendo utilizar valores predefinidos para parâmetros opcionais.
+Pode configurar parâmetros de entrada para powerShell, PowerShell Workflow, gráficos e livros python. Um runbook pode ter vários parâmetros com diferentes tipos de dados, ou nenhum parâmetro em tudo. Os parâmetros de entrada podem ser obrigatórios ou opcionais, e pode utilizar valores predefinidos para parâmetros opcionais.
 
-Atribui valores aos parâmetros de entrada para um livro de execução quando o iniciar. Pode iniciar um livro de execução a partir do portal Azure, um serviço web ou PowerShell. Você também pode começar um como um livro de corridas de crianças que é chamado inline em outro livro de corridas.
+Atribui valores aos parâmetros de entrada para um livro de execução quando o inicia. Pode iniciar um runbook a partir do portal Azure, um serviço web ou PowerShell. Também pode iniciar um como um livro infantil que é chamado inline em outro runbook.
 
-### <a name="configure-input-parameters-in-powershell-runbooks"></a>Configure parâmetros de entrada em livros de execução PowerShell
+### <a name="configure-input-parameters-in-powershell-runbooks"></a>Configurar parâmetros de entrada em livros de powerShell
 
-Os livros de execução powerShell e PowerShell Workflow em Azure Automation suportam parâmetros de entrada que são definidos através das seguintes propriedades. 
+Os livros de fluxo de trabalho PowerShell e PowerShell em Azure Automation suportam parâmetros de entrada que são definidos através das seguintes propriedades. 
 
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
 | Tipo |Necessário. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
-| Name |Necessário. O nome do parâmetro. Este nome deve ser único dentro do livro de execução, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
-| Obrigatório |Opcional. Valor booleano especificando se o parâmetro requer um valor. Se você definir isto para True, um valor deve ser fornecido quando o livro de execução é iniciado. Se definir isto como Falso, um valor é opcional. Se não especificar um valor para a `Mandatory` propriedade, a PowerShell considera o parâmetro de entrada opcional por padrão. |
-| Valor predefinido |Opcional. Um valor que é usado para o parâmetro se não for passado qualquer valor de entrada quando o livro de execução começar. O livro de execução pode definir um valor predefinido para qualquer parâmetro. |
+| Name |Necessário. O nome do parâmetro. Este nome deve ser único dentro do livro de bordo, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
+| Obrigatório |Opcional. Valor booleano especificando se o parâmetro requer um valor. Se o definir para True, deve ser fornecido um valor quando o livro de bordo for iniciado. Se definir isto para Falso, um valor é opcional. Se não especificar um valor para a propriedade, o `Mandatory` PowerShell considera o parâmetro de entrada opcional por padrão. |
+| Valor predefinido |Opcional. Um valor que é utilizado para o parâmetro se não for transmitido qualquer valor de entrada quando o livro de execução começar. O livro de execução pode definir um valor predefinido para qualquer parâmetro. |
 
-O Windows PowerShell suporta mais atributos de parâmetros de entrada do que os acima indicados, tais como validação, pseudónimos e conjuntos de parâmetros. No entanto, a Azure Automation suporta atualmente apenas as propriedades listadas de parâmetros de entrada.
+O Windows PowerShell suporta mais atributos de parâmetros de entrada do que os listados acima, tais como validação, pseudónimos e conjuntos de parâmetros. No entanto, a Azure Automation suporta atualmente apenas as propriedades dos parâmetros de entrada listados.
 
-Como exemplo, vamos olhar para uma definição de parâmetro num livro de fluxo de fluxo de fluxo de powerShell. Esta definição tem a seguinte forma geral, onde vários parâmetros são separados por vírgulas.
+Como exemplo, vamos olhar para uma definição de parâmetro num livro de fluxo de trabalho PowerShell. Esta definição tem a seguinte forma geral, onde vários parâmetros são separados por vírgulas.
 
 ```powershell
 Param
@@ -46,13 +45,13 @@ Param
 )
 ```
 
-Agora vamos configurar os parâmetros de entrada para um livro de fluxo de fluxo de fluxo de powerShell que produz detalhes sobre máquinas virtuais, um único VM ou todos os VMs dentro de um grupo de recursos. Este livro tem dois parâmetros, como mostra a seguinte imagem: o nome da máquina virtual `VMName` ( ) e o nome do grupo de recursos ( `resourceGroupName` ).
+Agora vamos configurar os parâmetros de entrada para um manual de fluxo de trabalho PowerShell que produz detalhes sobre máquinas virtuais, quer um único VM ou todos os VMs dentro de um grupo de recursos. Este livro tem dois parâmetros, como mostra a seguinte imagem: o nome da máquina virtual ( `VMName` ) e o nome do grupo de recursos ( `resourceGroupName` ).
 
-![Fluxo de trabalho PowerShell automation](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
+![Fluxo de trabalho powershell de automação](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
 
-Nesta definição de parâmetro, os parâmetros de entrada são parâmetros simples de cadeia de tipo.
+Nesta definição de parâmetro, os parâmetros de entrada são parâmetros simples de cadeia tipo.
 
-Note que os livros de execução powerShell e PowerShell Workflow suportam todos os tipos simples e tipos complexos, tais como ou para parâmetros de `Object` `PSCredential` entrada. Se o seu livro de execução tiver um parâmetro de entrada de objetos, deve utilizar um hashtable PowerShell com pares de valor de nome para passar em um valor. Por exemplo, tem o seguinte parâmetro num livro de corridas.
+Note que os livros de fluxo de trabalho PowerShell e PowerShell suportam todos os tipos e tipos complexos simples, tais como `Object` ou `PSCredential` para parâmetros de entrada. Se o seu runbook tiver um parâmetro de entrada de objetos, deve utilizar um hashtable PowerShell com pares de valor-nome para passar num valor. Por exemplo, tem o seguinte parâmetro num livro de recortes.
 
 ```powershell
 [Parameter (Mandatory = $true)]
@@ -66,31 +65,31 @@ Neste caso, pode passar o seguinte valor para o parâmetro.
 ```
 
 > [!NOTE]
-> Quando não passa um valor para um parâmetro de corda opcional com um valor predefinido nulo, o valor do parâmetro é uma corda vazia em vez de Nulo.
+> Quando não passa um valor para um parâmetro de corda opcional com um valor predefinido nulo, o valor do parâmetro é uma cadeia vazia em vez de Nulo.
 
-### <a name="configure-input-parameters-in-graphical-runbooks"></a>Configure parâmetros de entrada em livros gráficos
+### <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurar parâmetros de entrada em runbooks gráficos
 
-Para ilustrar a configuração dos parâmetros de entrada para um livro de execução gráfico, vamos criar um livro de execução que produz detalhes sobre máquinas virtuais, seja um único VM ou todos os VMs dentro de um grupo de recursos. Para mais detalhes, consulte [o meu primeiro livro de execução gráfico.](automation-first-runbook-graphical.md)
+Para ilustrar a configuração dos parâmetros de entrada para um runbook gráfico, vamos criar um runbook que produz detalhes sobre máquinas virtuais, seja um único VM ou todos os VMs dentro de um grupo de recursos. Para mais detalhes, consulte [o meu primeiro livro gráfico.](automation-first-runbook-graphical.md)
 
-Um livro gráfico usa estas grandes atividades do livro de corridas:
+Um livro gráfico utiliza estas principais atividades de runbook:
 
 * Configuração do Azure Run Como conta para autenticar com Azure. 
-* Definição de cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) para obter propriedades VM.
-* Utilização da atividade [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) para a saída dos nomes VM. 
+* Definição de um [cmdlet Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) para obter propriedades VM.
+* Utilização da atividade [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) para obter os nomes VM. 
 
-A `Get-AzVM` atividade define duas inputs, o nome VM e o nome do grupo de recursos. Uma vez que estes nomes podem ser diferentes sempre que o livro de execução começa, você deve adicionar parâmetros de entrada ao seu livro de execução para aceitar estas inputs. Consulte a [autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
+A `Get-AzVM` atividade define duas entradas, o nome VM e o nome do grupo de recursos. Uma vez que estes nomes podem ser diferentes cada vez que o livro de execuções começa, tem de adicionar parâmetros de entrada ao seu runbook para aceitar estas entradas. Consulte a [autoria gráfica da Azure Automation](automation-graphical-authoring-intro.md).
 
 Siga estes passos para configurar os parâmetros de entrada.
 
-1. Selecione o livro de execução gráfico na página 'Livros De Rineais' e, em seguida, clique em **Editar**.
-2. No editor gráfico, clique no botão **de entrada e saída** **e,** em seguida, adicione a entrada para abrir a vidraça do parâmetro de entrada de saída.
+1. Selecione o runbook gráfico a partir da página Runbooks e, em seguida, clique em **Editar**.
+2. No editor gráfico, clique no botão **entrada e saída e** adicione a **entrada** para abrir o painel de parâmetros de entrada runbook.
 
    ![Livro gráfico de automação](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 
-3. O controlo de entrada e saída apresenta uma lista de parâmetros de entrada definidos para o livro de execução. Aqui pode adicionar um novo parâmetro de entrada ou editar a configuração de um parâmetro de entrada existente. Para adicionar um novo parâmetro para o livro de execução, clique em **Adicionar entrada** para abrir a lâmina de parâmetro de **entrada Runbook,** onde pode configurar parâmetros utilizando as propriedades definidas na [autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md).
+3. O controlo de entrada e saída apresenta uma lista de parâmetros de entrada definidos para o livro de execução. Aqui pode adicionar um novo parâmetro de entrada ou editar a configuração de um parâmetro de entrada existente. Para adicionar um novo parâmetro para o runbook, clique em **Adicionar entrada** para abrir a lâmina do parâmetro de **entrada Runbook,** onde pode configurar parâmetros utilizando as propriedades definidas na [autoria gráfica em Azure Automation](automation-graphical-authoring-intro.md).
 
-    ![Adicione nova entrada](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. Crie dois parâmetros com as seguintes propriedades a utilizar pela `Get-AzVM` atividade e, em seguida, clique **OK**OK .
+    ![Adicionar nova entrada](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
+4. Crie dois parâmetros com as seguintes propriedades a serem utilizadas pela `Get-AzVM` atividade e, em seguida, clique em **OK**.
 
    * Parâmetro 1:
         * **Nome**  --  **VMName**
@@ -98,49 +97,49 @@ Siga estes passos para configurar os parâmetros de entrada.
         * **Obrigatório**  --  **Não, não, não**
 
    * Parâmetro 2:
-        * **Nome**  --  **nome de grupo de recursos**
+        * **Nome**  --  **nome do Grupo de Recursos**
         * **Tipo** - Corda
         * **Obrigatório**  --  **Não, não, não**
-        * Valor por **defeito**  --  **Personalizado**
+        * **Valor predefinido**  --  **Personalizado**
         * Valor padrão personalizado -- Nome do grupo de recursos que contém os VMs
 
 5. Ver os parâmetros no controlo de entrada e saída. 
-6. Clique **OK** ok novamente e, em seguida, clique em **Guardar**.
-7. Clique em **Publicar** para publicar o seu livro de execução.
+6. Clique **em OK** novamente e, em seguida, clique em **Guardar**.
+7. Clique em **Publicar** para publicar o seu runbook.
 
-### <a name="configure-input-parameters-in-python-runbooks"></a>Configure parâmetros de entrada em livros de execução python
+### <a name="configure-input-parameters-in-python-runbooks"></a>Configurar parâmetros de entrada em livros de python
 
-Ao contrário da PowerShell, PowerShell Workflow e livros gráficos, os livros de execução python não têm parâmetros nomeados. O editor do livro de corridas analisa todos os parâmetros de entrada como uma variedade de valores de argumento. Pode aceder à matriz importando o módulo para o seu script Python e, em `sys` seguida, usando a `sys.argv` matriz. É importante notar que o primeiro elemento da `sys.argv[0]` matriz, é o nome do script. Portanto, o primeiro parâmetro de entrada real é `sys.argv[1]` .
+Ao contrário do PowerShell, powerShell Workflow e dos runbooks gráficos, os livros de gráficos Python não tomam parâmetros nomeados. O editor de runbook analisa todos os parâmetros de entrada como uma variedade de valores de argumento. Você pode aceder à matriz importando o `sys` módulo para o seu script Python, e depois usando a `sys.argv` matriz. É importante notar que o primeiro elemento da matriz, `sys.argv[0]` é o nome do script. Portanto, o primeiro parâmetro de entrada real é `sys.argv[1]` .
 
-Para um exemplo de como usar parâmetros de entrada num livro python, consulte o meu primeiro livro python [em Automação Azure](automation-first-runbook-textual-python2.md).
+Para um exemplo de como usar parâmetros de entrada num livro de aplicação python, consulte [o meu primeiro livro de aplicações Python em Azure Automation](automation-first-runbook-textual-python2.md).
 
-## <a name="assign-values-to-input-parameters-in-runbooks"></a>Atribuir valores aos parâmetros de entrada em livros de execução
+## <a name="assign-values-to-input-parameters-in-runbooks"></a>Atribuir valores aos parâmetros de entrada nos livros de bordo
 
-Esta secção descreve várias formas de passar valores para os parâmetros de entrada em livros de execução. Pode atribuir valores de parâmetros quando:
+Esta secção descreve várias formas de passar valores para os parâmetros de entrada nos livros de execução. Pode atribuir valores de parâmetros quando:
 
 * [Iniciar um runbook](#start-a-runbook-and-assign-parameters)
 * [Testar um runbook](#test-a-runbook-and-assign-parameters)
 * [Ligue um horário para o livro de corridas](#link-a-schedule-to-a-runbook-and-assign-parameters)
 * [Criar um webhook para o runbook](#create-a-webhook-for-a-runbook-and-assign-parameters)
 
-### <a name="start-a-runbook-and-assign-parameters"></a>Inicie um livro de corridas e atribua parâmetros
+### <a name="start-a-runbook-and-assign-parameters"></a>Inicie um livro de execução e atribua parâmetros
 
-Um livro de corridas pode ser iniciado de muitas maneiras: através do portal Azure, com um webhook, com cmdlets PowerShell, com a API REST, ou com o SDK. 
+Um runbook pode ser iniciado de muitas maneiras: através do portal Azure, com um webhook, com cmdlets PowerShell, com a API REST, ou com o SDK. 
 
 #### <a name="start-a-published-runbook-using-the-azure-portal-and-assign-parameters"></a>Inicie um livro publicado utilizando o portal Azure e atribua parâmetros
 
-Quando [iniciar o livro](start-runbooks.md#start-a-runbook-with-the-azure-portal) de corridas no portal Azure, a lâmina **Start Runbook** abre-se e pode introduzir valores para os parâmetros que criou.
+Quando [inicia o livro](start-runbooks.md#start-a-runbook-with-the-azure-portal) de recortes no portal Azure, a lâmina **Start Runbook** abre-se e pode introduzir valores para os parâmetros que criou.
 
 ![Comece a usar o portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
-Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram definidas para definir atributos de parâmetros, por exemplo, obrigatórios ou opcionais, tipo, valor predefinido. O balão de ajuda ao lado do nome do parâmetro também define a informação chave necessária para tomar decisões sobre os valores de entrada de parâmetros. 
+Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram definidas para definir atributos de parâmetro, por exemplo, obrigatórios ou opcionais, tipo, valor predefinido. O balão de ajuda ao lado do nome do parâmetro também define as informações-chave necessárias para tomar decisões sobre os valores de entrada de parâmetros. 
 
 > [!NOTE]
-> Os parâmetros de corda suportam valores vazios do tipo String. A entrada na caixa de parâmetros de `[EmptyString]` entrada passa uma corda vazia para o parâmetro. Além disso, os parâmetros das cordas não suportam o Nulo. Se não passar qualquer valor a um parâmetro de corda, a PowerShell interpreta-o como Nulo.
+> Os parâmetros de corda suportam valores vazios do tipo String. A entrada `[EmptyString]` na caixa de parâmetros de entrada passa uma corda vazia para o parâmetro. Além disso, os parâmetros das cordas não suportam o Nulo. Se não passar qualquer valor para um parâmetro de corda, o PowerShell interpreta-o como Nulo.
 
-#### <a name="start-a-published-runbook-using-powershell-cmdlets-and-assign-parameters"></a>Inicie um livro publicado utilizando cmdlets PowerShell e atribua parâmetros
+#### <a name="start-a-published-runbook-using-powershell-cmdlets-and-assign-parameters"></a>Inicie um livro de bordo publicado utilizando cmdlets PowerShell e atribua parâmetros
 
-* **Cmdlets do Gestor de Recursos Azure:** Pode iniciar um livro de execução automation que foi criado num grupo de recursos utilizando o [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
+* **Cmdlets Azure Resource Manager:** Pode iniciar um runbook Automation que foi criado num grupo de recursos utilizando [o Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 ).
 
    ```powershell
@@ -149,7 +148,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Cmdlets modelo de implantação clássico Azure:** Pode iniciar um livro de execução de automatização que foi criado num grupo de recursos padrão utilizando o [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdlets de modelo clássico de implantação Azure:** Pode iniciar um runbook de automatização criado num grupo de recursos predefinidos utilizando [o Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
@@ -158,11 +157,11 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
    ```
 
 > [!NOTE]
-> Quando inicia um livro de execução utilizando cmdlets PowerShell, um parâmetro `MicrosoftApplicationManagementStartedBy` predefinido, é criado com o valor `PowerShell` . Pode ver este parâmetro no painel de detalhes do trabalho.  
+> Quando inicia um livro de bordo utilizando cmdlets PowerShell, um parâmetro `MicrosoftApplicationManagementStartedBy` padrão, é criado com o valor `PowerShell` . Pode ver este parâmetro no painel de detalhes do Trabalho.  
 
-#### <a name="start-a-runbook-using-an-sdk-and-assign-parameters"></a>Inicie um livro de corridas usando um SDK e atribua parâmetros
+#### <a name="start-a-runbook-using-an-sdk-and-assign-parameters"></a>Inicie um livro de execução usando um SDK e atribua parâmetros
 
-* **Método de Gestor de Recursos Azure:** Pode iniciar um livro de execução utilizando o SDK de uma linguagem de programação. Abaixo está um snippet de código C# para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)
+* **Método Azure Resource Manager:** Pode iniciar um livro de bordo utilizando o SDK de uma linguagem de programação. Abaixo está um corte de código C# para iniciar um runbook na sua conta Automation. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)
 
    ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -182,7 +181,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
       }
    ```
 
-* Método de modelo de **implantação clássico azure:** Pode iniciar um livro de recorrem utilizando o SDK de uma linguagem de programação. Abaixo está um snippet de código C# para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)
+* **Método de modelo clássico de implantação azul:** Pode iniciar um runbook utilizando o SDK de uma linguagem de programação. Abaixo está um corte de código C# para iniciar um runbook na sua conta Automation. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)
 
    ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -202,7 +201,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
     }
    ```
 
-   Para iniciar este método, crie um dicionário para armazenar os parâmetros do livro `VMName` e `resourceGroupName` os seus valores. Então comece o livro de corridas. Abaixo está o snippet de código C# para chamar o método que é definido acima.
+   Para iniciar este método, crie um dicionário para armazenar os parâmetros do livro de bordo `VMName` `resourceGroupName` e os seus valores. Em seguida, começar o livro de corridas. Abaixo está o corte de código C# para chamar o método que está definido acima.
 
    ```csharp
    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
@@ -215,23 +214,23 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
    StartRunbook("Get-AzureVMGraphical", RunbookParameters);
    ```
 
-#### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Inicie um livro de corridas utilizando a API REST e atribua parâmetros
+#### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Inicie um livro de execução utilizando a API REST e atribua parâmetros
 
-Pode criar e iniciar um trabalho de livro com a API de Automação Azure, utilizando o `PUT` método com o seguinte pedido URI:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+Pode criar e iniciar um trabalho de runbook com a API AZure Automation REST, utilizando o `PUT` método com o seguinte pedido URI:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 No pedido URI, substitua os seguintes parâmetros:
 
-* `subscriptionId`: O seu ID de subscrição Azure.  
+* `subscriptionId`: O seu ID de assinatura Azure.  
 * `resourceGroupName`: O nome do grupo de recursos para a conta Automation.
-* `automationAccountName`: O nome da conta Automation que está alojada dentro do serviço de nuvem especificado.  
-* `jobName`: O GUID para o trabalho. GuiDs em PowerShell podem ser criados usando `[GUID]::NewGuid().ToString()*` .
+* `automationAccountName`: O nome da conta Automation que está hospedada no serviço de nuvem especificado.  
+* `jobName`: O GUID para o trabalho. Os GUIDs em PowerShell podem ser criados utilizando `[GUID]::NewGuid().ToString()*` .
 
-Para passar os parâmetros para o trabalho do livro de corridas, use o corpo de pedido. Tem as seguintes informações, fornecidas no formato JSON:
+Para passar parâmetros para a função de livro de bordo, utilize o corpo de pedido. Toma as seguintes informações, fornecidas no formato JSON:
 
 * Nome do livro de corridas: Obrigatório. O nome do livro de corridas para o trabalho começar.  
-* Parâmetros do livro de corridas: Opcional. Um dicionário da lista de parâmetros em formato (nome, valor), onde o nome é de tipo String e valor pode ser qualquer valor JSON válido.
+* Parâmetros do livro de corridas: Opcional. Um dicionário da lista de parâmetros no formato (nome, valor), onde o nome é do tipo String e valor pode ser qualquer valor JSON válido.
 
-Se pretender iniciar o livro de execução **Get-AzureVMTextual** criado anteriormente com `VMName` e como `resourceGroupName` parâmetros, utilize o seguinte formato JSON para o organismo de pedido.
+Se pretender iniciar o runbook **Get-AzureVMTextual** criado anteriormente com `VMName` e como `resourceGroupName` parâmetros, utilize o seguinte formato JSON para o corpo pedido.
 
 ```json
     {
@@ -245,39 +244,39 @@ Se pretender iniciar o livro de execução **Get-AzureVMTextual** criado anterio
     }
 ```
 
-Um código de estado HTTP 201 é devolvido se o trabalho for criado com sucesso. Para obter mais informações sobre os cabeçalhos de resposta e o corpo de resposta, consulte criar um trabalho de [livro de rés-do-lista utilizando a API REST](/rest/api/automation/job/create).
+Um código de estado HTTP 201 é devolvido se o trabalho for criado com sucesso. Para obter mais informações sobre os cabeçalhos de resposta e o corpo de resposta, consulte [criar um trabalho de runbook utilizando a API REST](/rest/api/automation/job/create).
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Teste um livro de execução e atribua parâmetros
 
-Quando [testar a versão de projeto do seu livro](automation-testing-runbook.md) de ensaios utilizando a opção de teste, a página de Teste abre. Utilize esta página para configurar valores para os parâmetros que criou.
+Quando [testar a versão de projeto do seu runbook](automation-testing-runbook.md) utilizando a opção de teste, a página de Teste abre.a página de Teste. Utilize esta página para configurar valores para os parâmetros que criou.
 
-![Parâmetros de teste e atribuição](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
+![Testar e atribuir parâmetros](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
-### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Ligue um horário a um livro de execução e atribua parâmetros
+### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Ligue um horário a um livro de bordo e atribua parâmetros
 
-Pode [ligar um horário](automation-schedules.md) ao seu livro de corridas para que o livro de corridas comece num momento específico. Você atribui parâmetros de entrada quando cria o horário, e o livro de execução usa estes valores quando é iniciado pela programação. Não pode guardar o horário até que todos os valores obrigatórios dos parâmetros sejam fornecidos.
+Pode [ligar um horário](automation-schedules.md) ao seu runbook para que o livro de bordo comece numa hora específica. Atribui parâmetros de entrada quando cria o horário, e o livro de execução utiliza estes valores quando é iniciado pelo calendário. Não é possível guardar o horário até que todos os valores de parâmetros obrigatórios sejam fornecidos.
 
 ![Agendar e atribuir parâmetros](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
-### <a name="create-a-webhook-for-a-runbook-and-assign-parameters"></a>Crie um webhook para um livro de execução e atribua parâmetros
+### <a name="create-a-webhook-for-a-runbook-and-assign-parameters"></a>Crie um webhook para um livro de bordo e atribua parâmetros
 
-Pode criar um [webhook](automation-webhooks.md) para o seu livro de execução e configurar parâmetros de entrada de livro de execução. Não pode guardar o webhook até que todos os valores obrigatórios do parâmetro sejam fornecidos.
+Pode criar um [webhook](automation-webhooks.md) para o seu runbook e configurar os parâmetros de entrada do runbook. Não é possível guardar o webhook até que todos os valores de parâmetros obrigatórios sejam fornecidos.
 
-![Criar webhook e atribuir parâmetros](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
+![Crie webhook e atribua parâmetros](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Quando executa um livro de execução utilizando um webhook, o parâmetro de entrada predefinido `[WebhookData](automation-webhooks.md)` é enviado, juntamente com os parâmetros de entrada que define. 
+Quando executa um runbook utilizando um webhook, o parâmetro de entrada predefinido `[WebhookData](automation-webhooks.md)` é enviado, juntamente com os parâmetros de entrada que define. 
 
 ![Parâmetro WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
-## <a name="pass-a-json-object-to-a-runbook"></a>Passe um objeto JSON para um livro de corridas
+## <a name="pass-a-json-object-to-a-runbook"></a>Passe um objeto JSON para um livro de execução
 
-Pode ser útil armazenar dados que pretende passar para um livro de execução num ficheiro JSON. Por exemplo, pode criar um ficheiro JSON que contenha todos os parâmetros que pretende passar para um livro de execução. Para isso, tem de converter o código JSON numa corda e depois converter a corda num objeto PowerShell antes de o passar para o livro de execução.
+Pode ser útil armazenar dados que pretende passar para um livro de aplicação num ficheiro JSON. Por exemplo, pode criar um ficheiro JSON que contenha todos os parâmetros que pretende passar para um livro de aplicação. Para isso, tem de converter o código JSON numa cadeia e, em seguida, converter a cadeia num objeto PowerShell antes de o passar para o livro de recortes.
 
-Esta secção utiliza um exemplo no qual um script PowerShell chama [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) para iniciar um livro de execução PowerShell, passando o conteúdo do ficheiro JSON para o livro de execução. O livro de execução PowerShell inicia um VM Azure recuperando os parâmetros para o VM do objeto JSON.
+Esta secção utiliza um exemplo no qual um script PowerShell chama [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) para iniciar um livro de execução PowerShell, passando o conteúdo do ficheiro JSON para o runbook. O manual powerShell inicia um Azure VM recuperando os parâmetros para o VM a partir do objeto JSON.
 
 ### <a name="create-the-json-file"></a>Criar o ficheiro JSON
 
-Digite o seguinte código num ficheiro de texto e guarde-o como **test.json** algures no seu computador local.
+Digite o seguinte código num ficheiro de texto e guarde-o como **test.jsem** algum lugar do seu computador local.
 
 ```json
 {
@@ -286,11 +285,11 @@ Digite o seguinte código num ficheiro de texto e guarde-o como **test.json** al
 }
 ```
 
-### <a name="create-the-runbook"></a>Criar o livro de corridas
+### <a name="create-the-runbook"></a>Criar o livro de execução
 
-Crie um novo livro de execução powerShell chamado **Test-Json** na Automação Azure. Veja o meu primeiro livro de [corridas powerShell.](automation-first-runbook-textual-powershell.md)
+Crie um novo livro de cabos PowerShell chamado **Test-Json** na Azure Automation. Consulte [o meu primeiro livro powerShell.](automation-first-runbook-textual-powershell.md)
 
-Para aceitar os dados da JSON, o livro de execução deve tomar um objeto como parâmetro de entrada. O livro de execução pode então utilizar as propriedades definidas no ficheiro JSON.
+Para aceitar os dados JSON, o livro deve tomar um objeto como parâmetro de entrada. O livro pode então utilizar as propriedades definidas no ficheiro JSON.
 
 ```powershell
 Param(
@@ -310,20 +309,20 @@ $json = $json | ConvertFrom-Json
 Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 ```
 
-Guarde e publique este livro na sua conta De automação.
+Guarde e publique este livro na sua conta de Automação.
 
-### <a name="call-the-runbook-from-powershell"></a>Ligue para o livro de corridas da PowerShell
+### <a name="call-the-runbook-from-powershell"></a>Ligue para o livro de recortes da PowerShell
 
-Agora pode ligar para o livro de execução da sua máquina local utilizando o Azure PowerShell. 
+Agora pode ligar para o livro de recortes da sua máquina local utilizando o Azure PowerShell. 
 
-1. Inscreva-se no Azure como mostrado. Depois, é-lhe pedido que introduza as suas credenciais Azure.
+1. Inscreva-se no Azure como mostrado. Depois, é-lhe pedido que introduza as suas credenciais de Azure.
 
    ```powershell
    Connect-AzAccount
    ```
 
     >[!NOTE]
-    >Para os livros de execução da PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Note que estes pseudónimos não estão disponíveis para livros gráficos. Um livro gráfico só pode `Connect-AzAccount` usar-se sozinho.
+    >Para os livros powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Note que estes pseudónimos não estão disponíveis para livros gráficos. Um livro gráfico só pode `Connect-AzAccount` usar-se sozinho.
 
 1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath`indica o caminho onde guardou o ficheiro JSON.
 
@@ -331,13 +330,13 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
    ```
 
-1. Converta o conteúdo da corda `$json` num objeto PowerShell.
+1. Converta o conteúdo das cordas `$json` num objeto PowerShell.
 
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
 
-1. Crie um hashtable para os parâmetros para `Start-AzAutomationRunbook` . 
+1. Crie um haxixe para os parâmetros para `Start-AzAutomationRunbook` . 
 
    ```powershell
    $RBParams = @{
@@ -349,13 +348,13 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
    ```
 
    Note que está a definir o valor do `Parameters` objeto PowerShell que contém os valores do ficheiro JSON.
-1. Inicie o livro de corridas.
+1. Começa o livro de corridas.
 
    ```powershell
    $job = Start-AzAutomationRunbook @RBParams
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para preparar um livro textual, consulte [editar livros de texto em Automação Azure](automation-edit-textual-runbook.md).
-* Para preparar um livro de execução gráfico, consulte os livros de execução gráfico sinuosos [em Automação Azure.](automation-graphical-authoring-intro.md)
+* Para preparar um livro textual, consulte [editar livros texuais em Azure Automation](automation-edit-textual-runbook.md).
+* Para preparar um runbook gráfico, consulte [os runbooks gráficos do Autor na Azure Automation](automation-graphical-authoring-intro.md).

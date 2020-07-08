@@ -1,6 +1,6 @@
 ---
 title: Detalhes do pagamento por região - Mercado comercial da Microsoft
-description: Saiba como o tempo estimado para transferir pagamentos, e as montras da Microsoft a partir das quais pode receber pagamentos, variam consoante o seu país/região e o tipo de conta de pagamento.
+description: Saiba como o tempo estimado para transferir pagamentos, e as montras da Microsoft a partir das quais pode receber pagamentos, variar dependendo do seu país/região e do tipo de conta de pagamento.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
@@ -8,24 +8,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745019"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limiares, métodos e períodos de tempo de pagamento
 
-O tempo estimado para transferir pagamentos, e as montras de onde pode receber pagamentos, pode variar consoante o seu país/região e o tipo de conta de pagamento. Este artigo descreve os métodos de pagamento apoiados em cada país e região.
+O tempo estimado para transferir pagamentos, e as montras de onde pode receber pagamentos, pode variar dependendo do seu país/região e do tipo de conta de pagamento. Este artigo descreve os métodos de pagamento suportados em cada país e região.
 
 Para qualquer país e região, pagamos usando ACH/SEPA ou transferência bancária. Alguns países e regiões também apoiam o PayPal como um método de pagamento.
 
 > [!NOTE]
-> Para obter mais informações sobre quando a Microsoft emite pagamentos para o mercado comercial após a operação, consulte [detalhes da política](./payout-policy-details.md)de pagamento .
+> Para obter mais informações sobre quando a Microsoft emite pagamentos para o mercado comercial após a operação, consulte [Detalhes da Política de Pagamento](./payout-policy-details.md).
 
-## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Número de dias para os pagamentos chegarem à conta de pagamento
+## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Número de dias para pagamentos para chegar à conta de pagamento
 
-Normalmente enviaremos qualquer pagamento que seja devido num dado mês até ao 15º dia daquele mês. No entanto, levará mais tempo para o pagamento chegar à sua conta. O número de dias variará consoante o método de pagamento que utilizamos para a sua conta, como descrito abaixo.
+Normalmente enviaremos qualquer pagamento que seja devido num dado mês até ao 15º dia desse mês. No entanto, levará mais tempo para o pagamento chegar à sua conta. O número de dias variará consoante o método de pagamento que utilizamos para a sua conta, conforme descrito abaixo.
 
 | Método de pagamento | Dias aproximados para chegar à conta |
 | --- | --- |
@@ -36,9 +35,9 @@ Normalmente enviaremos qualquer pagamento que seja devido num dado mês até ao 
 
 ## <a name="payment-methods-in-countries-and-regions"></a>Métodos de pagamento em países e regiões
 
-Estes são os países e regiões em que os métodos de pagamento acima referidos são utilizados para cada mercado. O limiar de pagamento em todos os casos é $50 USD.
+Estes são os países e regiões em que os métodos de pagamento acima referidos são utilizados para cada mercado. O limiar de pagamento em todos os casos é de USD $50.
 
-| País/Região | Azure Marketplace | Loja, Publicidade, Mixer e Minecraft | Office | Pagamentos PayPal  |
+| País/Região | Azure Marketplace | Loja, Publicidade, Misturador e Minecraft | Office | Pagamentos PayPal  |
 | --- | --- | --- | --- | --- |
 | Afeganistão | Sim | Sim | Não | Não |
 | Albânia | Sim | Sim | Sim | Sim |
@@ -73,7 +72,7 @@ Estes são os países e regiões em que os métodos de pagamento acima referidos
 | Colômbia | Sim | Sim | Sim | Sim |
 | Comoros | Sim | Sim | Não | Não |
 | República Democrática do Congo | Sim | Sim | Sim | Não |
-| Congo, República de | Sim | Sim | Sim | Não |
+| Congo, República da | Sim | Sim | Sim | Não |
 | Costa Rica | Sim | Sim | Sim | Sim |
 | Costa do Marfim | Sim | Sim | Sim | Não |
 | Croácia | Sim | Sim | Sim | Não |
@@ -137,7 +136,7 @@ Estes são os países e regiões em que os métodos de pagamento acima referidos
 | Marrocos | Sim | Sim | Sim | Não |
 | Moçambique | Sim | Sim | Sim | Sim |
 | Nepal | Sim | Sim | Sim | Não |
-| Holanda, The | Sim | Sim | Sim | Sim |
+| Holanda | Sim | Sim | Sim | Sim |
 | Nova Zelândia | Sim | Sim | Sim | Sim |
 | Nicarágua | Sim | Sim | Sim | Sim |
 | Níger | Sim | Sim | Sim | Não |
