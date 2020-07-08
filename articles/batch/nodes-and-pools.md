@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 46c78fe1c45d2effe03008667dd424d943d75ec4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888378"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964047"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -80,7 +80,7 @@ Tal como acontece com as funções de trabalho nos Serviços Cloud, pode especif
 
 ### <a name="node-agent-skus"></a>Agente de nó SKUs
 
-Quando cria um agrupamento, tem de selecionar o **nodeAgentSkuId** adequado, consoante o SO da imagem de base do VHD. Você pode obter um mapeamento de agentes de nó disponíveis SKU IDs para as suas referências de imagem OS, ligando para a operação [SKUs do Agente de Nó Suportado lista.](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus)
+Quando cria um agrupamento, tem de selecionar o **nodeAgentSkuId** adequado, consoante o SO da imagem de base do VHD. Você pode obter um mapeamento de agentes de nó disponíveis SKU IDs para as suas referências de imagem OS, ligando para a operação [SKUs do Agente de Nó Suportado lista.](/rest/api/batchservice/list-supported-node-agent-skus)
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Imagens personalizadas para agrupamentos de Máquinas Virtuais
 
@@ -129,7 +129,7 @@ Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 - **Métricas de recurso**: baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
 - **Métricas de tarefas**: baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma [*opção de deallocação de nó*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que definir a opção de translocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de piscina até que todas as tarefas tenham terminado, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
+Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma [*opção de deallocação de nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que definir a opção de translocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de piscina até que todas as tarefas tenham terminado, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
 
 Para obter mais informações sobre o dimensionamento automático de uma aplicação, consulte [Dimensionar automaticamente nós de computação num conjunto do Azure Batch](batch-automatic-scaling.md).
 
@@ -189,12 +189,12 @@ Uma abordagem combinada é normalmente usada para manusear uma carga variável, 
 
 Normalmente, tem de utilizar certificados quando encriptar ou desencriptar informações confidenciais relativas a tarefas, como a chave de uma [conta de Armazenamento do Azure](accounts.md#azure-storage-accounts). Para suportar esta situação, pode instalar certificados em nós. Os segredos encriptados são transmitidos para as tarefas através dos parâmetros da linha de comandos ou incorporados num dos recursos da tarefa, sendo que os certificados instalados podem ser utilizados para desencriptá-los.
 
-Utilize a operação [Adicionar certificado](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (REST do Batch) ou o método [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET do Batch) para adicionar um certificado a uma conta do Batch. Em seguida, pode associar o certificado a um conjunto novo ou existente.
+Utilize a operação [Adicionar certificado](/rest/api/batchservice/certificate/add) (REST do Batch) ou o método [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET do Batch) para adicionar um certificado a uma conta do Batch. Em seguida, pode associar o certificado a um conjunto novo ou existente.
 
 Quando um certificado é associado a um conjunto, o serviço Batch instala o certificado em cada nó no conjunto. O serviço Batch instala os certificados apropriados quando o nó arranca, antes de lançar quaisquer tarefas (incluindo a [tarefa inicial](jobs-and-tasks.md#start-task) e a tarefa de gerente [de emprego).](jobs-and-tasks.md#job-manager-task)
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

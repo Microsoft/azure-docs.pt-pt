@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 70085cda4252e5435c450ae80dae2e49829b1474
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 63c4c7b596a32901d127642118d224c2b318510f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101812"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963024"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da versão do servidor SQL em Azure VM
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da Versão do SQL Server na VM do Azure
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -107,7 +107,7 @@ Depois de alterar a versão do SQL Server, registe novamente o seu SQL Server VM
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verificar versão":::
 
 > [!NOTE]
-> Se já tiver o Fornecedor de Recursos instalado, [não registe o Recurso SQL VM](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) e, em seguida, [registe novamente o recurso SQL VM](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) para que detete a versão e edição corretas do SQL Server que está instalado no VM. Isto atualiza os metadados e informações de faturação que estão associados a este VM.
+> Se já se registou com o fornecedor de recursos SQL VM, [não registo do RP](sql-vm-resource-provider-register.md#unregister-from-rp) e, em seguida, [registar novamente o recurso SQL VM](sql-vm-resource-provider-register.md#register-with-rp) para que detete a versão e edição corretas do SQL Server que está instalado no VM. Isto atualiza os metadados e informações de faturação que estão associados a este VM.
 
 ## <a name="remarks"></a>Observações
 

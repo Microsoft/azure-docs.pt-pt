@@ -1,21 +1,21 @@
 ---
-title: Evento de início de tarefa do Lote Azure
-description: Informações de referência para evento de início de tarefa de Lote. Este evento é emitido uma vez que uma tarefa está programada para começar em um nó de computação pelo programador.
+title: Evento de início de tarefa de Azure Batch
+description: Informações de referência para o evento de início de tarefa do Lote. Este evento é emitido uma vez que uma tarefa foi agendada para começar em um nó de computação pelo agendador.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725793"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965098"
 ---
 # <a name="task-start-event"></a>Evento de início de tarefa
 
- Este evento é emitido uma vez que uma tarefa está programada para começar em um nó de computação pelo programador. Note que se a tarefa for novamente experimentada ou ressued este evento será novamente emitido para a mesma tarefa, mas a contagem de volta e a versão de tarefa do sistema serão atualizadas em conformidade.
+ Este evento é emitido uma vez que uma tarefa foi agendada para começar em um nó de computação pelo agendador. Note que se a tarefa for novamente julgada ou requeada este evento será novamente emitido para a mesma tarefa, mas a contagem de repetição e a versão de tarefa do sistema serão atualizadas em conformidade.
 
 
- O exemplo que se segue mostra o corpo de um evento de início de tarefa.
+ O exemplo a seguir mostra o corpo de um evento de arranque de tarefa.
 
 ```
 {
@@ -43,34 +43,34 @@ ms.locfileid: "83725793"
 |------------------|----------|-----------|
 |`jobId`|String|A identificação do trabalho que contém a tarefa.|
 |`id`|String|A identificação da tarefa.|
-|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego.|
-|`systemTaskVersion`|Int32|Este é o contador de retry interno numa tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a questões transitórias. Estas questões podem incluir erros de agendamento interno ou tentativas de recuperação de nóóis computacionais em mau estado.|
-|[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó computacional sobre o qual a tarefa funcionou.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é tarefa multi-instância que requer vários nódosos de computação.  Consulte [várias Definições](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) de Instâncias para obter detalhes.|
-|[`constraints`](#constraints)|Tipo complexo|Os constrangimentos de execução que se aplicam a esta tarefa.|
-|[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
+|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego.|
+|`systemTaskVersion`|Int32|Este é o contra-ataque interno de uma tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a problemas transitórios. Estas questões podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em mau estado.|
+|[`nodeInfo`](#nodeInfo)|Tipo Complexo|Contém informações sobre o nó de computação em que a tarefa foi executada.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo Complexo|Especifica que a tarefa é tarefa multi-instância que requer múltiplos nós de computação.  Consulte [as multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) para obter mais detalhes.|
+|[`constraints`](#constraints)|Tipo Complexo|Os constrangimentos de execução que se aplicam a esta tarefa.|
+|[`executionInfo`](#executionInfo)|Tipo Complexo|Contém informações sobre a execução da tarefa.|
 
 ###  <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|String|A identificação da piscina em que a tarefa correu.|
-|`nodeId`|String|A identificação do nó em que a tarefa correu.|
+|`poolId`|String|A identificação da piscina em que a tarefa funcionou.|
+|`nodeId`|String|A identificação do nó em que a tarefa funcionou.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstânciaSDefinições
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`numberOfInstances`|int|O número de nós computacionais exigidos pela tarefa.|
+|`numberOfInstances`|int|O número de nós de computação exigidos pela tarefa.|
 
 ###  <a name="constraints"></a><a name="constraints"></a>constrangimentos
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser novamente tentada. O serviço 'Lote' retenta uma tarefa se o seu código de saída não for zero.<br /><br /> Note que este valor controla especificamente o número de repetições. O serviço Batch tentará a tarefa uma vez e poderá, em seguida, voltar a tentar até este limite. Por exemplo, se a contagem máxima de repetição for de 3, o Lote tenta uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de retry for de 0, o serviço De lote não retry tarefas.<br /><br /> Se a contagem máxima de retry for -1, o serviço de lote retenta tarefas sem limite.<br /><br /> O valor predefinido é 0 (sem repetições).|
+|`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser novamente julgado. O serviço Batch retrição uma tarefa se o seu código de saída não for zero.<br /><br /> Note que este valor controla especificamente o número de retrações. O serviço Batch tentará a tarefa uma vez e poderá voltar a tentar até este limite. Por exemplo, se a contagem máxima de repetição for 3, Batch tenta uma tarefa até 4 vezes (uma tentativa inicial e 3 retrórias).<br /><br /> Se a contagem máxima de repetição for 0, o serviço Batch não relemca as tarefas.<br /><br /> Se a contagem máxima de repetição for de -1, o serviço de recauchutagem do Lote tarefas sem limite.<br /><br /> O valor predefinido é 0 (sem retrações).|
 
 ###  <a name="executioninfo"></a><a name="executionInfo"></a>execuçãoInfo
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`retryCount`|Int32|O número de vezes que a tarefa foi novamente tentada pelo serviço Batch. A tarefa é novamente tentada se sair com um código de saída não zero, até ao específico MaxTaskRetryCount|
+|`retryCount`|Int32|O número de vezes que a tarefa foi novamente experimentada pelo serviço Batch. A tarefa é novamente julgada se sair com um código de saída não zero, até ao MaxTaskRetryCount especificado|

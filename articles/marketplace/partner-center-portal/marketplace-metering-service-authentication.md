@@ -7,19 +7,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 0f8078c52945b52a27144c1f73ea4a136bf536d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783406"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963160"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
 O serviço de medição de mercado suporta duas estratégias de autenticação:
 
-* [Ficha de segurança da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Ficha de segurança da AD AZure](../../active-directory/develop/access-tokens.md)
+* [Identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Explicaremos quando e como usar as diferentes estratégias de autenticação para submeter com segurança contadores personalizados usando o serviço de medição do Marketplace.
 
@@ -38,7 +38,7 @@ Para aplicações Azure com plano de aplicação gerido, deve considerar a utili
 
 Uma vez registado o seu pedido, pode solicitar programáticamente um sinal de segurança Azure. Espera-se que a editora use este símbolo e faça um pedido para resolvê-lo.
 
-Para obter mais informações sobre estes tokens, consulte [os tokens de acesso do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para obter mais informações sobre estes tokens, consulte [os tokens de acesso do Azure Ative Directory](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenha um token com base na app AD AZure
 
@@ -106,17 +106,17 @@ A utilização desta abordagem permitirá que a identidade dos recursos implanta
 >[!Note]
 >O editor deve garantir que os recursos que emitem o uso estão bloqueados, para que não seja adulterado.
 
-A sua aplicação gerida pode conter diferentes tipos de recursos, desde Máquinas Virtuais a Funções Azure.  Para obter mais informações sobre como autenticar usando identidades geridas para diferentes serviços, consulte [como utilizar identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+A sua aplicação gerida pode conter diferentes tipos de recursos, desde Máquinas Virtuais a Funções Azure.  Para obter mais informações sobre como autenticar usando identidades geridas para diferentes serviços, consulte [como utilizar identidades geridas para recursos Azure).](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources)
 
 Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 1. Certifique-se de que a Identidade Gerida está configurada utilizando um dos métodos:
-    * [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Modelo de gestor de recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [SDKs do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Azure portal UI](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Modelo de gestor de recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Obtenha um token de acesso para o ID da aplicação de medição do Marketplace ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) usando a identidade do sistema, RDP para o VM, abra a consola PowerShell e execute o comando abaixo
 
@@ -153,7 +153,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 1. Utilize o [serviço de medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
 * [Criar uma oferta de SaaS transacionável](./offer-creation-checklist.md)

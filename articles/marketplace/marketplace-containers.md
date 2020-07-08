@@ -1,6 +1,6 @@
 ---
-title: Guia de publicação para ofertas de contentores no Azure Marketplace
-description: Este artigo descreve os requisitos para publicar ofertas de contentores no Azure Marketplace.
+title: Guia de publicação de ofertas de contentores no Azure Marketplace
+description: Este artigo descreve os requisitos para a publicação de ofertas de contentores no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,40 +8,40 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 99aecee930e5d77302ad54babd927588519e33fd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: fae11343332fe741301016d4871d098b0214c7f5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160465"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964452"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Guia de publicação para ofertas de contentores
+# <a name="publishing-guide-for-container-offers"></a>Guia de publicação de ofertas de contentores
 
 As ofertas de contentores ajudam-no a publicar a sua imagem de contentor no Azure Marketplace. Utilize este guia para compreender os requisitos desta oferta. 
 
 As ofertas de contentores são ofertas de transações que são implementadas e faturadas através do Azure Marketplace. A chamada à ação que um utilizador vê é "Get It Now".
 
-Utilize o tipo de oferta *do Recipiente* quando a sua solução for uma imagem de contentor Docker que é configurada como uma instância de serviço de contentores Azure baseada em Kubernetes. 
+Utilize o tipo de oferta *de recipiente* quando a sua solução é uma imagem de contentor Docker que é configurada como uma instância de serviço de contentores Azure baseada em Kubernetes. 
 
 > [!NOTE]
-> Exemplos de casos de serviço de contentores Azure baseados em Kubernetes são o Serviço Azure Kubernetes ou as Instâncias de Contentores Azure, a escolha dos clientes Azure para um tempo de execução de contentores baseado em Kubernetes.  
+> Exemplos de casos de serviço de contentores Azure baseados em Kubernetes são o Serviço Azure Kubernetes ou instâncias de contentores Azure, a escolha dos clientes Azure para um tempo de funcionamento do contentor baseado em Kubernetes.  
 
-A Microsoft suporta atualmente modelos de licenciamento gratuitos e de porta-a-licença (BYOL).
+A Microsoft suporta atualmente modelos de licenciamento gratuitos e de trazer a sua própria licença (BYOL).
 
 ## <a name="container-offer-requirements"></a>Requisitos de oferta de contentores
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
 | Faturação e medição | Apoie o modelo de faturação gratuito ou BYOL.<br><br> |  
-| Imagem construída a partir de um Dockerfile | As imagens do recipiente devem basear-se na especificação de imagem do Docker e construídas a partir de um Dockerfile.<br> <br>Para obter mais informações sobre a construção de imagens do Docker, consulte a secção "Utilização" da [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
-| Hospedagem num repositório de registo de contentores azure | As imagens do contentor devem ser hospedadas num repositório de registo de contentores azure.<br> <br>Para obter mais informações sobre o trabalho com o Registo de Contentores Azure, consulte [Quickstart: Crie um registo de contentores privados utilizando o portal Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).<br><br> |  
-| Etiquetagem de imagens | As imagens do recipiente devem conter pelo menos uma etiqueta (número máximo de etiquetas: 16).<br><br>Para obter mais informações sobre `docker tag` a marcação de uma imagem, consulte a página no site de [Documentação do Docker.](https://docs.docker.com/engine/reference/commandline/tag)<br><br> |  
+| Imagem construída a partir de um Dockerfile | As imagens do contentor devem basear-se na especificação de imagem do Docker e construídas a partir de um Dockerfile.<br> <br>Para obter mais informações sobre a construção de imagens Docker, consulte a secção "Utilização" da [referência Dockerfile](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
+| Hospedagem num repositório de registo de contentores Azure | As imagens do contentor devem ser acolhidas num repositório de registo de contentores Azure.<br> <br>Para obter mais informações sobre o trabalho com o Registo do Contentor Azure, consulte [Quickstart: Criar um registo privado de contentores utilizando o portal Azure](../container-registry/container-registry-get-started-portal.md).<br><br> |  
+| Etiquetagem de imagens | As imagens do recipiente devem conter pelo menos uma etiqueta (número máximo de etiquetas: 16).<br><br>Para obter mais informações sobre a marcação de uma imagem, consulte a `docker tag` página no site da [Documentação do Docker.](https://docs.docker.com/engine/reference/commandline/tag)<br><br> |  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se ainda não o fez, aprenda a cultivar o seu negócio de cloud com o [Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
+Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 
 Para se inscrever e começar a trabalhar no Partner Center:
 
 - [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
-- Consulte a criação de uma oferta de [contentores Azure](./partner-center-portal/create-azure-container-offer.md) para mais informações.
+- Consulte [a criação de uma oferta de recipiente Azure](./partner-center-portal/create-azure-container-offer.md) para obter mais informações.

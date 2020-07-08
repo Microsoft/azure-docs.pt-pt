@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 856555008f5edb04c167e00f3db49abc9e5e6402
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b83b6fc0da6a8b2016676d7fb748fc87880868f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740009"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964571"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias para faturação medido
 
-O [serviço de medição marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis-faq) permite criar ofertas no programa de marketplace comercial que são cobradas de acordo com unidades não padrão. Com a faturação medido, envia eventos de utilização para o uso do seu cliente para a Microsoft e preparamos a faturação com base nessa utilização.
+O [serviço de medição marketplace](marketplace-metering-service-apis-faq.md) permite criar ofertas no programa de marketplace comercial que são cobradas de acordo com unidades não padrão. Com a faturação medido, envia eventos de utilização para o uso do seu cliente para a Microsoft e preparamos a faturação com base nessa utilização.
 
 Dados de utilização incorretos podem vir de uma variedade de causas, tais como bugs, configurações erradas no seu rastreio de consumo, ou fraude. Dados de utilização incorretos resultariam em encargos incorretos do cliente e em litígios de faturação.
 
@@ -74,8 +74,8 @@ Para submeter um bilhete:
     - **Mercado**  >  Comercial **Faturação medido**  >  **Uso errado enviado para oferta SaaS**
 3. No **passo seguinte**, selecione o botão de **soluções de Avaliação** a direcionar para iniciar sação no Partner Center para submeter um bilhete de apoio.
 
-Para obter mais opções de suporte ao editor, consulte [Suporte para o programa de marketplace comercial no Partner Center.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+Para obter mais opções de suporte ao editor, consulte [Suporte para o programa de marketplace comercial no Partner Center.](support.md)
 
 ## <a name="next-step"></a>Passo seguinte
 
-- Conheça o [serviço de medição marketplace API.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis)
+- Conheça o [serviço de medição marketplace API.](marketplace-metering-service-apis.md)

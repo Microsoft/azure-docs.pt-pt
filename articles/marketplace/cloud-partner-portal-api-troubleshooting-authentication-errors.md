@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: ffabfe55ee01adc08414d04f8c82a1daca4d9f95
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 7684e097118fce4dcd471257ec0d9d476ce342be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516381"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964928"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Resolução de erros comuns de autenticação
 
@@ -23,7 +23,7 @@ Este artigo fornece assistência com erros de autenticação comuns ao utilizar 
 
 ## <a name="unauthorized-error"></a>Erro não autorizado
 
-Se tiver `401 unauthorized` erros consistentemente, verifique se tem um token de acesso válido.  Se ainda não o fez, crie uma aplicação básica do Azure Ative Directory (Azure AD) e um principal de serviço, conforme descrito no [portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) Em seguida, utilize a aplicação ou um simples pedido HTTP POST para verificar o seu acesso.  Você incluirá o ID do inquilino, ID de aplicação, ID de objeto, e a chave secreta para obter o token de acesso como mostrado na imagem seguinte:
+Se tiver `401 unauthorized` erros consistentemente, verifique se tem um token de acesso válido.  Se ainda não o fez, crie uma aplicação básica do Azure Ative Directory (Azure AD) e um principal de serviço, conforme descrito no [portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md) Em seguida, utilize a aplicação ou um simples pedido HTTP POST para verificar o seu acesso.  Você incluirá o ID do inquilino, ID de aplicação, ID de objeto, e a chave secreta para obter o token de acesso como mostrado na imagem seguinte:
 
 ![Resolução de problemas do erro 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 

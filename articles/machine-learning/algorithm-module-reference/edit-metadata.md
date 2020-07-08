@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 6683dd445b4d209a6420c7490216b8e325b34c91
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669975"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965013"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
 
@@ -55,8 +55,8 @@ As mudanças típicas de metadados podem incluir:
     + O tipo e os valores da coluna serão alterados após a realização da operação editar metadados. Pode recuperar o tipo de dados original a qualquer momento utilizando metadados de edição para redefinir o tipo de dados da coluna.  
 
     > [!NOTE]
-        > O **formato DateTime** segue [o formato de datação incorporada python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
-        > Se alterar qualquer tipo de número para o tipo **DateTime,** deixe o campo **de formato DateTime** em branco. Atualmente não é possível especificar o formato de dados-alvo.
+    > O **formato DateTime** segue [o formato de datação incorporada python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > Se alterar qualquer tipo de número para o tipo **DateTime,** deixe o campo **de formato DateTime** em branco. Atualmente não é possível especificar o formato de dados-alvo.
 
 1. Selecione a opção **Categórica** para especificar que os valores nas colunas selecionadas devem ser tratados como categorias.
 

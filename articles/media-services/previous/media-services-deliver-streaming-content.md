@@ -1,6 +1,6 @@
 ---
-title: Publique o conteúdo da Azure Media Services utilizando .NET [ Microsoft Docs
-description: Aprenda a criar um localizador que é usado para construir um URL de streaming. As amostras de código são escritas em C# e utilizam o SDK de Serviços de Media para .NET.
+title: Publique conteúdo da Azure Media Services usando .NET Microsoft Docs
+description: Aprenda a criar um localizador que seja usado para construir um URL de streaming. As amostras de código são escritas em C# e utilizam o SDK dos Serviços de Mídia para .NET.
 author: juliako
 manager: femila
 editor: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c7a29ebb355a5733201ff01af9e38f371def1cf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476703"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962820"
 ---
-# <a name="publish-media-services-content-using-net"></a>Publique conteúdo dos Media Services usando .NET  
+# <a name="publish-media-services-content-using-net"></a>Publicar conteúdo dos Serviços de Comunicação Social através de .NET  
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -30,33 +30,33 @@ ms.locfileid: "80476703"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Pode transmitir um BIT4 bitrate adaptativo, criando um localizador de streaming OnDemand e construindo um URL de streaming. A [codificação de um](media-services-encode-asset.md) tópico de ativo mostra como codificar um conjunto de MP4 bitrate adaptativo. 
+Pode transmitir um conjunto de MP4 bitrate adaptativo, criando um localizador de streaming OnDemand e construindo um URL de streaming. A [codificação de um](media-services-encode-asset.md) tópico de ativo mostra como codificar num conjunto de MP4 bitrate adaptativo. 
 
 > [!NOTE]
-> Se o seu conteúdo estiver encriptado, configure a política de entrega de ativos (conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
+> Se o seu conteúdo estiver encriptado, configuure a política de entrega de ativos (conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
 > 
 > 
 
 Também pode utilizar um localizador de streaming OnDemand para construir URLs que apontam para ficheiros MP4 que podem ser descarregados progressivamente.  
 
-Este tópico mostra como criar um localizador de streaming OnDemand para publicar o seu ativo e construir um URLs de streaming Smooth, MPEG DASH e HLS. Também mostra quente para construir URLs de download progressivo. 
+Este tópico mostra como criar um localizador de streaming OnDemand para publicar o seu ativo e construir um URLs de streaming Smooth, MPEG e HLS. Também mostra quente para construir URLs de descarregamento progressivo. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming OnDemand
-Para criar o localizador de streaming OnDemand e obter URLs, precisa fazer as seguintes coisas:
+Para criar o localizador de streaming OnDemand e obter URLs, tem de fazer as seguintes coisas:
 
 1. Se o conteúdo estiver encriptado, defina uma política de acesso.
 2. Crie um localizador de streaming OnDemand.
-3. Se planeia transmitir, obtenha o ficheiro manifesto de streaming (.ism) no ativo. 
+3. Se pretender transmitir, obtenha o ficheiro manifesto de streaming (.ism) no ativo. 
    
-   Se planeia descarregar progressivamente, obtenha os nomes dos ficheiros MP4 no ativo.  
+   Se pretender descarregar progressivamente, obtenha os nomes dos ficheiros MP4 no ativo.  
 4. Construa URLs para o ficheiro manifesto ou ficheiros MP4. 
 
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de acesso/ dias. Por exemplo, políticas para localizadores que se destinam a permanecer em vigor por muito tempo (políticas de não upload). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de acesso/ dias. Por exemplo, políticas para localizadores que se destinam a permanecer em vigor por muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 ### <a name="use-media-services-net-sdk"></a>Utilizar serviços de mídia .NET SDK
-Construir URLs de Streaming 
+Construir URLs de streaming 
 
 ```csharp
     private static void BuildStreamingURLs(IAsset asset)
@@ -99,20 +99,19 @@ Construir URLs de Streaming
 
 As saídas:
 
-    URL to manifest for client streaming using Smooth Streaming protocol:
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
-    URL to manifest for client streaming using HLS protocol:
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
-    URL to manifest for client streaming using MPEG DASH protocol:
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
-
+- URL para manifestar-se para o streaming de clientes usando o protocolo de Streaming Suave:\
+  `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest`
+- URL para manifestar-se para o streaming de clientes usando o protocolo HLS:\
+  `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)`
+- URL para manifestar-se para o streaming de clientes usando o protocolo MPEG DASH:\
+  `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)`
 
 > [!NOTE]
 > Também pode transmitir o seu conteúdo através de uma ligação TLS. Para fazer esta abordagem, certifique-se de que os seus URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.
 > 
 > 
 
-Construir URLs de descarregamento progressivo 
+Construa URLs de descarregamento progressivo 
 
 ```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -145,15 +144,15 @@ Construir URLs de descarregamento progressivo
 ```
 As saídas:
 
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4
+- `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
+- `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4`
+- `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4`
+- `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4`
 
     . . . 
 
-### <a name="use-media-services-net-sdk-extensions"></a>Utilize os Serviços de Mídia .NET SDK Extensões
-Os seguintes códigos chama métodos de extensões .NET SDK que criam um localizador e geram os URLs de Streaming Suave, HLS e MPEG-DASH para streaming adaptativo.
+### <a name="use-media-services-net-sdk-extensions"></a>Utilizar extensões de Mídia .NET SDK
+O código seguinte chama.NET SDK métodos de extensões que criam um localizador e geram os URLs smooth streaming, HLS e MPEG-DASH para streaming adaptativo.
 ```csharp
     // Create a loctor.
     _context.Locators.Create(
@@ -178,7 +177,7 @@ Os seguintes códigos chama métodos de extensões .NET SDK que criam um localiz
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-* [Descarregue os ativos](media-services-deliver-asset-download.md)
-* [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>Próximos passos
+* [Baixar ativos](media-services-deliver-asset-download.md)
+* [Configure a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 

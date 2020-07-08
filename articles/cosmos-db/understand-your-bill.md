@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 34f55d628b4e334df4b3e74edfd3c0defbdeaa93
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114246"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964588"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 
 Como um serviço de base de dados totalmente gerido na nuvem, a Azure Cosmos DB simplifica a faturação cobrando apenas para o rendimento provisitado e armazenamento consumido. Não existem taxas adicionais de licença, hardware, custos de utilidade ou custos de instalação em comparação com as alternativas no local ou alternativas hospedadas pelo IaaS. Quando se considera as capacidades multi-regiões da Azure Cosmos DB, o serviço de base de dados proporciona uma redução substancial dos custos em comparação com as soluções existentes no local ou iaaS.
 
-Com a Azure Cosmos DB, você é cobrado de hora a hora com base na produção a provisionada e no armazenamento consumido. Para o rendimento previsto, a unidade de faturação é de 100 RU/seg por hora, cobrada a $0.008 por hora, assumindo o preço público padrão, consulte [a página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/). Para o armazenamento consumido, é cobrado $0,25 por 1 GB de armazenamento por mês, consulte [a página de Preços.](https://azure.microsoft.com/pricing/details/cosmos-db/) 
+Com a Azure Cosmos DB, você é cobrado de hora a hora com base na produção a provisionada e no armazenamento consumido. Para o rendimento previsto, a unidade de faturação é de 100 RU/seg por hora, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre os preços. Para o armazenamento consumido, você é cobrado por 1 GB de armazenamento por mês, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) mais recente.
 
-Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes apresentados na fatura mensal. Os números mostrados nos exemplos poderão ser diferentes se os seus contentores do Azure Cosmos tiverem uma quantidade diferente de débito aprovisionado, se estiverem em várias regiões ou se forem executados durante um período diferente ao longo de um mês.
+Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes apresentados na fatura mensal. Os números mostrados nos exemplos poderão ser diferentes se os seus contentores do Azure Cosmos tiverem uma quantidade diferente de débito aprovisionado, se estiverem em várias regiões ou se forem executados durante um período diferente ao longo de um mês. Todos os exemplos deste artigo calculam a fatura com base nas informações de preços mostradas na [página de preços.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> Faturação é para qualquer parte de uma hora de relógio de parede, não uma duração de 60 minutos.
+> Faturação é para qualquer parte de uma hora de relógio de parede, não uma duração de 60 minutos. Todos os exemplos mostrados neste doc baseiam-se no preço de uma conta Azure Cosmos implantada numa região não governamental nos EUA. Os preços e cálculos variam consoante a região que está a usar, consulte a [página de preços da Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter informações mais recentes sobre preços.
 
 ## <a name="billing-examples"></a>Exemplos de faturação
 
@@ -234,19 +234,18 @@ Este exemplo reflete [o preço multi-mestre](https://azure.microsoft.com/pricing
 
 Vamos considerar outro exemplo, onde quer estimar proactivamente a sua conta antes do final do mês. Pode estimar a sua conta da seguinte forma:
 
-|**Custo de Armazenamento** | |
-|----|----|
-|Tamanho do recorde de Avg (KB) |1 |
-|Número de Registos  |100,000,000  |
-|Armazenamento total (GB)  |100 |
-|Custo mensal por GB  |$0,25  |
-|Custo Mensal Esperado para Armazenamento   |$25,00  |
+**Custo do armazenamento**
 
-<br>
+* Tamanho recorde de Avg (KB) = 1 
+* Número de Registos = 100.000.000 
+* Armazenamento total (GB) = 100 
+* Custo mensal por GB = $0,25 
+* Custo Mensal Esperado para Armazenamento = $25,00 
 
-|**Custo de Produção** | | | |
-|----|----|----|----|
+**Custo de Produção**
+
 |Tipo de operação| Pedidos/seg| Avg. RU/pedido| RUs necessários|
+|----|----|----|----|
 |Escrita| 100 | 5 | 500|
 |Leitura| 400| 1| 400|
 

@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: df9d1989253bd1e6b168aa00dad941917ca2dfd3
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412486"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964639"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para apps Azure Logic
 
@@ -49,7 +49,7 @@ Um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual
 
 * **Desenvolvedor** ISE: Este SKU não tem capacidade para aumentar, nenhum acordo de nível de serviço (SLA) e nenhum limite publicado. Utilize este SKU apenas para experimentar, desenvolvimento e testes, não testes de produção ou desempenho.
 
-Para aplicações lógicas que cria e corre num ISE, paga um [preço mensal fixo](https://azure.microsoft.com/pricing/details/logic-apps) por estas capacidades:
+Para aplicações lógicas que cria e funciona num ISE, paga-se um [preço fixo](https://azure.microsoft.com/pricing/details/logic-apps) (versus pagamento por utilização) por estas capacidades:
 
 * [Gatilhos](../connectors/apis-list.md#built-in) e ações incorporados
 
@@ -57,7 +57,7 @@ Para aplicações lógicas que cria e corre num ISE, paga um [preço mensal fixo
 
 * [Conectores](../connectors/apis-list.md#managed-connectors) standard e conectores [Enterprise,](../connectors/apis-list.md#enterprise-connectors) que lhe permitem ter quantas ligações da Enterprise quiser
 
-   Os conectores Standard e Enterprise que exibem a etiqueta **ISE** funcionam na mesma ISE que as suas aplicações lógicas. Os conectores que não exibem a etiqueta ISE funcionam em público, serviço "global", multi-inquilino Logic Apps. O preço mensal fixo também se aplica aos conectores que funcionam no serviço multi-inquilino quando os utiliza com aplicações lógicas que funcionam num ISE.
+   Os conectores Standard e Enterprise que exibem a etiqueta **ISE** funcionam na mesma ISE que as suas aplicações lógicas. Os conectores que não exibem a etiqueta ISE funcionam em público, serviço "global", multi-inquilino Logic Apps. O preço fixo também se aplica aos conectores que funcionam no serviço multi-inquilino quando os utiliza com aplicações lógicas que funcionam num ISE.
 
 * [Utilização](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) da conta de integração sem custos adicionais, com base no seu [ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
@@ -167,7 +167,7 @@ Para ajudá-lo a monitorizar o consumo de armazenamento da sua aplicação lógi
 
 1. No painel de ação da **aplicação Logic,** encontre os tamanhos para as entradas e saídas dessa ação aparecem respectivamente no **link inputs** e **na ligação Outputs**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre a Azure Logic Apps](logic-apps-overview.md)
 * [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md)

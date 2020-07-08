@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 609b5903d02e9265e211cf25606ae3852e03e913
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254026"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963959"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
    Na página **'Criar Grupo de Sincronização de Dados',** altere as seguintes definições:
 
-   | Definição                        | Description |
+   | Definição                        | Descrição |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do grupo de sincronização** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
    | **Base de Dados de Metadados sincronizado** | Opte por criar uma base de dados (recomendada) ou utilizar uma base de dados existente.<br/><br/>Se escolher **Nova base de dados,** selecione Criar uma nova base de **dados.** Em seguida, na página **sql Database,** nome e configurar a nova base de dados e selecione **OK**.<br/><br/>Se escolher **Utilizar a base de dados existente,** selecione a base de dados da lista. |
@@ -63,7 +63,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
    | **Resolução de Conflitos** | Selecione **o Hub ganhe** ou o Membro **ganhe**.<br/><br/>**A vitória** do hub significa que quando ocorrem conflitos, os dados na base de dados do hub substituem dados contraditórios na base de dados dos membros.<br/><br/>**A vitória do membro** significa que quando ocorrem conflitos, os dados na base de dados dos membros substituem dados contraditórios na base de dados do hub. |
 
    > [!NOTE]
-   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metrô sincronizado** para todos os grupos de sincronização numa região selecionada e não é possível alterar a base de dados ou o seu nome sem remover todos os grupos de sincronização e agentes de sincronização na região.
+   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metríduo sincronizado** para todos os grupos sincronizados numa região selecionada e subscrição. Não é possível alterar a base de dados ou o nome sem remover todos os grupos de sincronização e agentes sincronizados da região.
 
    Selecione **OK** e aguarde que o grupo de sincronização seja criado e implantado.
 
@@ -83,7 +83,7 @@ Na secção **Base de Dados** dos Membros, adicione opcionalmente uma base de da
 
   Na página **Configure Azure SQL Database,** altere as seguintes definições:
 
-  | Definição                       | Description |
+  | Definição                       | Descrição |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome do membro do sync** | Forneça um nome para o novo membro da sincronização. Este nome é distinto do próprio nome da base de dados. |
   | **Subscrição** | Selecione a subscrição Azure associada para efeitos de faturação. |
@@ -231,7 +231,7 @@ Depois de exportar uma base de dados como ficheiro *.bacpac* e importar o fichei
 
 Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-data-sync-agent-overview.md#agent-faq)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

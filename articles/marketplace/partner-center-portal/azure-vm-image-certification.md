@@ -1,54 +1,54 @@
 ---
-title: Certificação de máquina virtual Azure - Azure Marketplace
-description: Aprenda a testar e submeter uma oferta virtual de máquina no mercado comercial.
+title: Certificação de máquinas virtuais Azure - Azure Marketplace
+description: Saiba como testar e submeter uma oferta de máquina virtual no mercado comercial.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 63f18556847a717322b00092b973f59877102a1d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726150"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963908"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Certificação de imagem da máquina virtual Azure (VM)
+# <a name="azure-virtual-machine-vm-image-certification"></a>Certificação de imagem de máquina virtual Azure (VM)
 
-Este artigo descreve como testar e submeter uma imagem de máquina virtual (VM) no mercado comercial para garantir que cumpre os mais recentes requisitos de publicação do Azure Marketplace.
+Este artigo descreve como testar e enviar uma imagem de máquina virtual (VM) no mercado comercial para garantir que satisfaz os mais recentes requisitos de publicação do Azure Marketplace.
 
-Complete estes passos antes de submeter a sua oferta vm:
+Complete estes passos antes de submeter a sua oferta de VM:
 
 1. Criar e implementar certificados.
-2. Implante um VM Azure utilizando a sua imagem generalizada.
+2. Implemente um VM Azure utilizando a sua imagem generalizada.
 3. Executar validações.
 
-## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Criar e implementar certificados para o Cofre chave Azure
+## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Criar e implementar certificados para Azure Key Vault
 
-Esta secção descreve como criar e implementar os certificados auto-assinados necessários para configurar a conectividade Windows Remote Management (WinRM) a uma máquina virtual hospedada pelo Azure.
+Esta secção descreve como criar e implementar os certificados auto-assinados necessários para configurar a conectividade de Gestão Remota do Windows (WinRM) a uma máquina virtual alojada pelo Azure.
 
-### <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Cofre chave Azure
+### <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para Azure Key Vault
 
 Este processo consiste em três etapas:
 
 1. Crie o certificado de segurança.
-2. Crie o Cofre chave Azure para armazenar o certificado.
-3. Guarde os certificados para o cofre da chave.
+2. Crie o Cofre da Chave Azure para armazenar o certificado.
+3. Guarde os certificados no cofre das chaves.
 
 Pode utilizar um novo ou um grupo de recursos Azure existente para este trabalho.
 
 #### <a name="create-the-security-certificate"></a>Criar o certificado de segurança
 
-Editar e executar o seguinte script Azure PowerShell para criar o ficheiro de certificado (.pfx) numa pasta local. Substitua os valores pelos parâmetros apresentados na tabela a seguir.
+Edite e execute o seguinte script Azure PowerShell para criar o ficheiro de certificado (.pfx) numa pasta local. Substitua os valores dos parâmetros indicados na tabela seguinte.
 
 | **Parâmetro** | **Descrição** |
 | --- | --- |
 | $certroopath | Pasta local para guardar o ficheiro .pfx para. |
-| $location | Uma das localizações geográficas padrão do Azure. |
+| $location | Uma das localizações geográficas padrão de Azure. |
 | $vmName | Nome da máquina virtual Azure planeada. |
 | $certname | Nome do certificado; deve corresponder ao nome de domínio totalmente qualificado do VM planeado. |
-| $certpassword | A palavra-passe para os certificados deve coincidir com a palavra-passe utilizada para o VM planeado. |
+| $certpassword | A palavra-passe para os certificados deve corresponder à palavra-passe utilizada para o VM planeado. |
 | | |
 
 ```PowerShell
@@ -79,14 +79,14 @@ Editar e executar o seguinte script Azure PowerShell para criar o ficheiro de ce
 ```
 
 > [!TIP]
-> Mantenha aberta e em execução a mesma sessão de consola Azure PowerShell durante estes passos para manter os valores dos vários parâmetros.
+> Mantenha a mesma sessão de consola Azure PowerShell aberta e em funcionamento durante estes passos para manter os valores dos vários parâmetros.
 
 > [!WARNING]
 > Se guardar este script, guarde-o apenas num local seguro porque contém informações de segurança (uma palavra-passe).
 
-#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Crie o cofre chave Azure para armazenar o certificado
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Crie o cofre de chaves Azure para armazenar o certificado
 
-Copie o conteúdo do modelo abaixo para um ficheiro na sua máquina local. No exemplo abaixo, este recurso `C:\certLocation\keyvault.json` é).
+Copie o conteúdo do modelo abaixo para um ficheiro na sua máquina local. No roteiro de exemplo abaixo, este recurso é `C:\certLocation\keyvault.json` ).
 
 ```json
 {
@@ -181,15 +181,15 @@ Copie o conteúdo do modelo abaixo para um ficheiro na sua máquina local. No ex
 
 ```
 
-Editar e executar o seguinte script Azure PowerShell para criar um Cofre chave Azure e o grupo de recursos associados. Substitua os valores pelos parâmetros apresentados no quadro seguinte
+Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves Azure e o grupo de recursos associado. Substitua os valores dos parâmetros indicados na tabela seguinte
 
 | **Parâmetro** | **Descrição** |
 | --- | --- |
-| $postfix | Cadeia numérica aleatória ligada aos identificadores de implantação. |
+| $postfix | Corda numérica aleatória ligada aos identificadores de implantação. |
 | $rgName | Nome do grupo de recursos Azure (RG) para criar. |
-| $location | Uma das localizações geográficas padrão do Azure. |
-| $kvTemplateJson | Caminho de arquivo (keyvault.json) contendo modelo de Gestor de Recursos para cofre chave. |
-| $kvname | Nome do novo cofre chave.|
+| $location | Uma das localizações geográficas padrão de Azure. |
+| $kvTemplateJson | Caminho do ficheiro (keyvault.jsligado) contendo o modelo do Gestor de Recursos para o cofre de chaves. |
+| $kvname | Nome do novo cofre da chave.|
 |   |   |
 
 ```PowerShell
@@ -288,9 +288,9 @@ Editar e executar o seguinte script Azure PowerShell para criar um Cofre chave A
 
 ```
 
-#### <a name="store-the-certificates-to-the-key-vault"></a>Guarde os certificados para o cofre chave
+#### <a name="store-the-certificates-to-the-key-vault"></a>Guarde os certificados para o cofre da chave
 
-Guarde os certificados contidos no ficheiro .pfx para o novo cofre de chaves utilizando este script:
+Guarde os certificados contidos no ficheiro .pfx no novo cofre de chaves utilizando este script:
 
 ```PowerShell
      $fileName =$certroopath+"\$certname"+".pfx"
@@ -314,13 +314,13 @@ Guarde os certificados contidos no ficheiro .pfx para o novo cofre de chaves uti
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Implante um VM Azure utilizando a sua imagem generalizada
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Implemente um VM Azure usando a sua imagem generalizada
 
-Esta secção descreve como implantar uma imagem VHD generalizada para criar um novo recurso Azure VM. Para este processo, usaremos o modelo de Gestor de Recursos Azure fornecido e o script Azure PowerShell.
+Esta secção descreve como implementar uma imagem VHD generalizada para criar um novo recurso Azure VM. Para este processo, usaremos o modelo de Gestor de Recursos Azure fornecido e o script Azure PowerShell.
 
-### <a name="prepare-an-azure-resource-manager-template"></a>Prepare um modelo de Gestor de Recursos Azure
+### <a name="prepare-an-azure-resource-manager-template"></a>Prepare um modelo de gestor de recursos Azure
 
-Copie o seguinte modelo de Gestor de Recursos Azure para a implementação de VHD para um ficheiro local chamado VHDtoImage.json. O próximo script solicitará a localização na máquina local para usar este JSON.
+Copie o seguinte modelo de Gestor de Recursos Azure para a implementação de VHD num ficheiro local nomeado VHDtoImage.js. O próximo script solicitará a localização da máquina local para usar este JSON.
 
 ```JSON
 {
@@ -559,28 +559,28 @@ Editar este ficheiro para fornecer valores para estes parâmetros:
 
 | **Parâmetro** | **Descrição** |
 | --- | --- |
-| ResourceGroupName | Nome de grupo de recursos Azure existente. Normalmente, use o mesmo RG que o seu cofre chave. |
-| ModeloFile | Nome completo do caminho para o ficheiro VHDtoImage.json. |
-| userStorageAccountName | Nome da conta de armazenamento. |
-| sNameForPublicIP | Nome DNS para o IP público; deve ser minúscula. |
+| ResourceGroupName | Nome do grupo de recursos Azure existente. Normalmente, use o mesmo RG que o seu cofre de chaves. |
+| ModeloFile | Nome de caminho completo para o ficheiro VHDtoImage.jsligado. |
+| utilizadorStorageAccountName | Nome da conta de armazenamento. |
+| sNameForPublicIP | Nome DNS para o IP público; deve ser minúsculo. |
 | subscriptionId | Identificador de assinatura Azure. |
-| Localização | Localização geográfica Standard Azure do grupo de recursos. |
+| Localização | Localização geográfica padrão do grupo de recursos. |
 | vmName | Nome da máquina virtual. |
 | nome do cofre | Nome do cofre da chave. |
-| vaultResourceGroup | Grupo de recursos do cofre chave. |
-| certificadoUrl | Endereço web (URL) do certificado, incluindo versão armazenada no cofre da chave, por exemplo: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` . |
+| vaultResourceGroup | Grupo de recursos do cofre de chaves. |
+| certificateUrl | Endereço web (URL) do certificado, incluindo versão armazenada no cofre da chave, por exemplo: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` . |
 | vhdUrl | Endereço web do disco rígido virtual. |
-| vmSize | Tamanho da caixa de máquinavirtual. |
-| nome de endereço ipaddress público | Nome do endereço IP público. |
+| vmSize | Tamanho da caixa da máquina virtual. |
+| publicIPAddressName | Nome do endereço IP público. |
 | virtualNetworkName | Nome da rede virtual. |
 | nicName | Nome do cartão de interface de rede para a rede virtual. |
-| adminUserName | Nome de utilizador da conta de administrador. |
+| adminUserName | Nome de utilizador da conta do administrador. |
 | adminPassword | Senha de administrador. |
 |   |   |
 
 ### <a name="deploy-an-azure-vm"></a>Implementar um VM Azure
 
-Copiar e editar o seguinte script para fornecer valores para as `$storageaccount` `$vhdUrl` e variáveis. Execute-o para criar um recurso Azure VM a partir do vHD generalizado existente.
+Copiar e editar o seguinte script para fornecer valores para as `$storageaccount` `$vhdUrl` variáveis e variáveis. Execute-o para criar um recurso Azure VM a partir do seu VHD generalizado existente.
 
 ```PowerShell
 
@@ -602,51 +602,51 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 ## <a name="run-validations"></a>Executar validações
 
-Existem duas formas de executar validações na imagem implementada:
+Existem duas formas de executar validações na imagem implantada:
 
-- Utilize ferramenta de teste de certificação para certificação Azure
+- Utilize a ferramenta de teste de certificação para a Azure Certified
 - Use a API auto-teste
 
 ### <a name="download-and-run-the-certification-test-tool"></a>Descarregue e execute a ferramenta de teste de certificação
 
-A ferramenta de teste de certificação da Azure Certified funciona numa máquina local do Windows, mas testa um Windows ou VM Linux baseados em Azure. Certifica que a imagem VM do utilizador pode ser utilizada com o Microsoft Azure e que foram cumpridas as orientações e requisitos em torno da preparação do seu VHD. A saída da ferramenta é um relatório de compatibilidade que irá enviar para o portal Partner Center para solicitar a certificação VM.
+A Ferramenta de Teste de Certificação para Azure Certified funciona numa máquina local do Windows, mas testa um Windows baseado em Azure ou Um VM Linux baseado em Azure. Certifica que a imagem VM do seu utilizador pode ser usada com o Microsoft Azure e que as orientações e requisitos em torno da preparação do seu VHD foram cumpridos. A saída da ferramenta é um relatório de compatibilidade que irá enviar para o portal Partner Center para solicitar a certificação VM.
 
-1. Descarregue e instale a mais recente ferramenta de teste de [certificação para a Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
-2. Abra a ferramenta de certificação e, em seguida, selecione **Iniciar Novo Teste**.
-3. A partir do ecrã de informações de **teste,** introduza um nome de **teste** para o ensaio.
-4. Selecione a **Plataforma** para o seu VM, seja windows server ou Linux. A escolha da sua plataforma afeta as opções restantes.
-5. Se o seu VM estiver a utilizar este serviço de base de dados, selecione o Teste para a caixa de verificação de base de **dados Azure SQL.**
+1. Descarregue e instale a mais recente [Ferramenta de Teste de Certificação para Azure Certified.](https://www.microsoft.com/download/details.aspx?id=44299)
+2. Abra a ferramenta de certificação e, em seguida, **selecione Iniciar Novo Teste**.
+3. A partir do ecrã **de Informação de Teste,** introduza um **nome de teste** para a execução do teste.
+4. Selecione a **Plataforma** para o seu VM, servidor do Windows ou Linux. A escolha da sua plataforma afeta as restantes opções.
+5. Se o seu VM estiver a utilizar este serviço de base de dados, selecione a caixa **de verificação test for Azure SQL Database.**
 
 ### <a name="connect-the-certification-tool-to-a-vm-image"></a>Ligue a ferramenta de certificação a uma imagem VM
 
-A ferramenta liga-se a VMs baseados no Windows com o [Azure PowerShell](https://docs.microsoft.com/powershell/) e liga-se aos VMs Linux através [de SSH.Net](https://www.ssh.com/ssh/protocol/).
+A ferramenta liga-se aos VMs baseados no Windows com [o Azure PowerShell](https://docs.microsoft.com/powershell/) e liga-se aos VMs Linux através [de SSH.Net](https://www.ssh.com/ssh/protocol/).
 
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Ligue a ferramenta de certificação a uma imagem De Linux VM
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Ligue a ferramenta de certificação a uma imagem Linux VM
 
-1. Selecione o modo de **autenticação SSH:** Autenticação de palavra-passe ou autenticação de ficheiros chave.
-2. Se utilizar a autenticação baseada em palavra-passe, introduza valores para o **nome DNS VM,** nome do **utilizador**, e **palavra-passe**. Também pode alterar o número de **porta SSH** predefinido.
+1. Selecione o modo **de autenticação SSH:** Autenticação por palavra-passe ou autenticação de ficheiros de chave.
+2. Se utilizar a autenticação baseada em palavra-passe, introduza valores para o **Nome VM DNS,** **nome de utilizador**e **palavra-passe**. Também pode alterar o número padrão da **Porta SSH.**
 
-    ![Ferramenta de teste certificada Azure, autenticação de senha de Imagem VM Linux](media/avm-cert2.png)
+    ![Ferramenta de teste certificada Azure, autenticação de senha da Imagem Linux VM](media/avm-cert2.png)
 
-3. Se utilizar a autenticação baseada em ficheiros chave, introduza valores para o **Nome DNS VM,** **nome do utilizador**e localização da chave **privada.** Também pode incluir uma **palavra-passe** ou alterar o número de **porta SSH** padrão.
+3. Se utilizar a autenticação baseada em ficheiros chave, introduza valores para o **Nome VM DNS,** **nome de utilizador**e localização da chave **privada.** Também pode incluir uma **palavra-passe** ou alterar o número padrão da **Porta SSH.**
 
 ### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ligue a ferramenta de certificação a uma imagem VM baseada no Windows**
 
-1. Introduza o **nome DNS VM** totalmente qualificado (por exemplo, MyVMName.Cloudapp.net).
-2. Introduza valores para o Nome de **Utilizador** e **palavra-passe**.
+1. Introduza o **nome de DNS VM** totalmente qualificado (por exemplo, MyVMName.Cloudapp.net).
+2. Introduza os valores para o **Nome de Utilizador** e **palavra-passe.**
 
-    ![Ferramenta de teste certificada Azure, autenticação de senha de imagem VM baseada no Windows](media/avm-cert4.png)
+    ![Ferramenta de teste certificada Azure, autenticação de palavra-passe da Imagem VM baseada no Windows](media/avm-cert4.png)
 
 ### <a name="run-a-certification-test"></a>Realizar um teste de certificação
 
-Depois de ter dado os valores do parâmetro para a sua imagem VM na ferramenta de certificação, selecione **Test Connection** para criar uma ligação válida ao seu VM. Depois de verificada uma ligação, selecione **Next** para iniciar o teste. Quando o teste estiver concluído, os resultados dos testes são mostrados numa tabela. A coluna 'Status' mostra (Passar/Falhar/Aviso) para cada teste. Se algum dos testes falhar, a sua imagem _não_ está certificada. Neste caso, reveja os requisitos e as mensagens de falha, efaça as alterações sugeridas e faça o teste novamente.
+Depois de ter dado os valores dos parâmetros para a sua imagem VM na ferramenta de certificação, selecione **a Ligação de Teste** para criar uma ligação válida ao seu VM. Depois de verificada uma ligação, selecione **Seguinte** para iniciar o teste. Quando o teste estiver concluído, os resultados dos testes são apresentados numa tabela. A coluna status mostra (Passe/Falha/Aviso) para cada teste. Se algum dos testes falhar, a sua imagem _não_ está certificada. Neste caso, reveja os requisitos e as mensagens de falha, faça as alterações sugeridas e volte a executar o teste.
 
-Após o teste automatizado, forneça informações adicionais sobre a sua imagem VM nos dois separadores do ecrã do **Questionário,** **Avaliação Geral** e **Personalização kernel,** e, em seguida, selecione **Next**.
+Após a conclusão do teste automatizado, forneça informações adicionais sobre a sua imagem em VM nos dois separadores do ecrã do **Questionário,** **Avaliação Geral** e **Personalização kernel**, e, em seguida, selecione **Next**.
 
-O último ecrã permite-lhe fornecer mais informações, como informações de acesso SSH para uma imagem De VM Linux, e uma explicação para quaisquer avaliações falhadas se estiver à procura de exceções.
+O último ecrã permite-lhe fornecer mais informações, como informações de acesso SSH para uma imagem Linux VM, e uma explicação para eventuais avaliações falhadas se estiver à procura de exceções.
 
-Por fim, selecione **Generate Report** para descarregar os resultados dos testes e registar ficheiros para os casos de teste executados, juntamente com as suas respostas ao questionário. Guarde os resultados no mesmo recipiente que os seus VHDs.
+Por fim, selecione **'Relatório de Geração'** para descarregar os resultados dos testes e registar ficheiros para os casos de teste executados, juntamente com as suas respostas ao questionário. Guarde os resultados no mesmo recipiente que os seus VHDs.
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Gerar um identificador de recursos uniformes (URI) para cada VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Problemas e correções comuns da SAS URI](common-sas-uri-issues.md)

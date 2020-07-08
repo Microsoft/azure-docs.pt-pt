@@ -1,156 +1,173 @@
 ---
-title: Perguntas comuns sobre a migração para partner center - mercado comercial da Microsoft
-description: Respostas a perguntas comumente feitas sobre a migração de ofertas do Cloud Partner Portal para partner Center.
+title: Perguntas frequentes sobre a transição do Portal de Parceiros cloud para Partner Center - Mercado comercial da Microsoft
+description: Respostas a perguntas comumente sobre ofertas de transição do Cloud Partner Portal para Partner Center.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/29/2020
 ms.author: mingshen
-ms.openlocfilehash: c4fdde94ea703d194e2de27a8df429f62ea374f4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 349306a8bcdffda8511436540acde92129ff8662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727670"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964945"
 ---
-# <a name="common-questions-about-migrating-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas comuns sobre a migração do Portal do Parceiro cloud para o Partner Center
+# <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
-Este artigo aborda comumente perguntas sobre a migração de ofertas do Portal do Parceiro cloud para o Partner Center.
+O Portal do Parceiro Cloud passou para o Partner Center. O Partner Center oferece uma experiência simplificada e integrada para a publicação de novas ofertas no [Microsoft AppSource](https://appsource.microsoft.com/) ou [no Azure Marketplace](https://azuremarketplace.microsoft.com/) e para gerir as ofertas existentes que foram migradas do Portal dos Parceiros cloud. Todas as funções do Portal do Parceiro cloud estão disponíveis no Partner Center. Este artigo aborda perguntas comumente sobre este assunto.
 
-## <a name="what-does-offer-migration-mean"></a>O que significa migração?
+## <a name="what-does-the-transition-to-partner-center-mean-for-me"></a>O que significa a transição para o Centro de Parceiros para mim?
 
-Estamos a mover os seus dados de oferta do Portal do Parceiro cloud para o Partner Center com alterações na experiência de publicação e gestão da oferta.
+Pode continuar a fazer negócios como de costume no Partner Center:
 
-| Área  | Alterações  |
-|-------|----------|
-| **Experiência de gestão de publicações e ofertas** | Terá uma experiência de utilizador melhorada com uma interface intuitiva no Partner Center. Para mais detalhes, veja [Quais são as diferenças entre partner center e o Portal de Parceiros cloud?](#what-are-the-differences-between-partner-center-and-the-cloud-partner-portal) |
-| **Disponibilidade das suas ofertas no mercado** | Sem alterações. Se a sua oferta estiver ao vivo no mercado, continuará a estar ao vivo durante e após a migração estar concluída. |
-| **Novas compras e implementações** | Sem alterações. Os seus clientes continuarão a poder adquirir e implementar as suas ofertas sem interrupções. |
-| **Pagamentos** | Quaisquer compras e implementações que ocorram durante ou após a migração continuarão a ser-lhe pagas normalmente. |
-|**Integrações da API com as [APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) existentes do Portal do Parceiro de Nuvem** | As APIs existentes do Portal do Parceiro cloud continuarão a ser apoiadas após a migração e as suas integrações existentes continuarão a funcionar. Para mais detalhes, consulte será apoiado o Portal de [Parceiros de Nuvem AS APIs após a migração?](#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
-| | |
+| Área<img src="" width=200px> | Alterações |
+| --- | --- |
+| Conta | Não há necessidade de criar uma nova conta partner Center; pode utilizar as credenciais existentes do Cloud Partner Portal para iniciar sessão no Partner Center, onde irá agora gerir a sua conta, utilizadores, permissões e faturação. O contrato de publicação e as informações de perfil da empresa são migrados para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento, contas e permissões de utilizador e ofertas ativas. Saiba mais na [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
+| Oferecer experiência de publicação e gestão de ofertas | Mudamos os dados da sua oferta do Portal do Parceiro Cloud para o Partner Center. Agora terá acesso às suas ofertas no Partner Center, que oferece uma melhor experiência de utilizador e interface intuitiva. Saiba como [atualizar uma oferta existente no Mercado Comercial.](partner-center-portal/update-existing-offer.md) |
+| Disponibilidade das suas ofertas no mercado comercial | Sem alterações. Se a sua oferta for ao vivo no mercado comercial, continuará a ser ao vivo. |
+| Novas compras e implementações | Sem alterações. Os seus clientes podem continuar a comprar e implementar as suas ofertas sem interrupções. |
+| Pagamentos | Quaisquer compras e implementações continuarão a ser pagos normalmente. Saiba mais sobre [ser pago no mercado comercial.](partner-center-portal/get-paid.md) |
+| Integrações da API com apIs do [Portal do Parceiro cloud existentes](cloud-partner-portal-api-overview.md) | As APIs do Portal do Parceiro Cloud existentes ainda são suportadas e as suas integrações existentes ainda funcionam. Saiba mais no [Portal do Parceiro Cloud REST APIs será suportado?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
+| Análise | Pode continuar a monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas no mercado comercial, visualizando análises no Partner Center. Saiba mais na [Access analítica reportagens para o mercado comercial no Partner Center.](partner-center-portal/analytics.md) |
+|||
 
-## <a name="can-i-still-access-the-cloud-partner-portal-and-manage-my-offers-during-migration"></a>Ainda posso aceder ao Portal do Parceiro cloud e gerir as minhas ofertas durante a migração?
+## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Preciso de criar uma nova conta para gerir as minhas ofertas no Partner Center?
 
-Todas as ofertas foram migradas para o Partner Center. O período de migração para cada oferta deveria ter sido inferior a 24 horas. Depois de a sua oferta ter sido migrada, deveria ter recebido uma notificação por e-mail.
+Não, a sua conta será preservada. Isto significa que, se for um parceiro existente, pode utilizar as credenciais de conta do Cloud Partner para iniciar singing no Partner Center. Não crie uma nova conta ou quaisquer ofertas criadas no Portal do Parceiro Cloud e transferidas para o Partner Center não serão associadas a ela.
 
-Depois de as suas ofertas serem migradas, estarão em modo de leitura **apenas por um período limitado de tempo** no Portal do Parceiro cloud. O seu estatuto mostrará "Moved to Partner Center" e incluirá um link para a sua oferta no Partner Center, como mostram as seguintes imagens. A partir deste ponto, irá gerir atualizações para todas as suas ofertas ou criar novas ofertas exclusivamente através do Partner Center,
+## <a name="what-pages-in-partner-center-correspond-to-pages-i-used-in-the-cloud-partner-portal"></a>Que páginas no Partner Center correspondem às páginas que usei no Portal do Parceiro Cloud?
 
-:::image type="content" source="media/migration-faq/all-offers-2.png" alt-text="Ilustra a mensagem dada para ofertas que foram migradas para o Partner Center":::
+Seguem-se os links partner Center para páginas comumente utilizadas no Portal do Parceiro cloud. Se guardou as ligações do Portal do Parceiro Cloud como marcadores, irá querer atualizá-las.
 
-:::image type="content" source="media/migration-faq/offer-has-moved.png" alt-text="Ilustra a página cloud partner portal para uma oferta migrada.":::
+| Página do Portal do Parceiro de Nuvem <img src="" width=100px>| Link de página do Portal do Parceiro de Nuvem | Link de página do Centro parceiro |
+| --- | --- | --- |
+| Página com todas as ofertas | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
+| Página com todos os editores | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
+| Perfil de editor | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/management](https://partner.microsoft.com/dashboard/account/management) |
+| Página de utilizadores | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/usermanagement](https://partner.microsoft.com/dashboard/account/usermanagement) |
+| Página de história | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | A funcionalidade História ainda não é suportada no Partner Center. |
+| Painel de insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
+| Relatório de pagamento | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
 
-## <a name="how-will-i-create-new-offers"></a>Como vou criar novas ofertas?
+## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>E as ofertas que publiquei no Portal do Parceiro Cloud?
 
-A partir do Portal do Parceiro cloud, você será direcionado para criar novas ofertas no Partner Center
+As ofertas foram transferidas para o Partner Center e estarão acessíveis depois de iniciar seduca no Partner Center, com exceção das ofertas da Dynamics Nav Managed Service e cortana Intelligence. Se a sua oferta foi ao vivo no mercado comercial, continuará a ser ao vivo e os seus clientes continuarão a poder comprá-la e implantá-la sem interrupções. Veja a próxima pergunta, **que ofertas foram transferidas para o Partner Center?**
 
-:::image type="content" source="media/migration-faq/create-new-offer-1.png" alt-text="Ilustra o menu para criar uma nova oferta no Cloud Partner Portal":::
+## <a name="what-offers-were-moved-to-partner-center"></a>Que ofertas foram transferidas para o Partner Center?
 
-Depois de selecionar uma nova oferta, verá uma mensagem, como a seguinte.
+Todos os tipos de oferta previamente suportados no Portal do Parceiro Cloud são suportados no Partner Center, com exceção das ofertas dynamics Nav Managed Service e Cortana Intelligence.
 
-:::image type="content" source="media/migration-faq/create-new-offer-2.png" alt-text="Ilustra a mensagem recebida ao criar uma nova oferta no CPP":::
+Para os tipos de oferta suportados no Partner Center, todas as ofertas foram movidas independentemente do seu estatuto; rascunho, des-listado, e ofertas apenas de pré-visualização também mudou.
 
-## <a name="do-i-need-to-create-a-new-account-to-manage-offers-in-partner-center"></a>Preciso de criar uma nova conta para gerir ofertas no Partner Center?
+| Tipo de oferta <img src="" width=150px>| Mudou-se para o Partner Center? <img src="" width=100px>| Próximos passos |
+| --- | --- | --- |
+| SaaS | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create uma nova oferta SaaS no mercado comercial.](partner-center-portal/create-new-saas-offer.md) |
+| Máquina Virtual | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a azure virtual machine offer no Azure Marketplace.](partner-center-portal/azure-vm-create-offer.md) |
+| Aplicação Azure | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de aplicações Azure.](partner-center-portal/create-new-azure-apps-offer.md) |
+| Dynamics 365 Business Central | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
+| Dinâmica 365 para Envolvimento de Clientes & PowerApps | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](partner-center-portal/create-new-customer-engagement-offer.md) |
+| Dynamics 365 for Operations | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Oferta Create a Dynamics 365 for Operations.](partner-center-portal/create-new-operations-offer.md) |
+| Aplicação Power BI | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Power BI app para AppSource.](partner-center-portal/create-power-bi-app-offer.md) |
+| Módulo IoT Edge | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace.](partner-center-portal/azure-iot-edge-module-creation.md) |
+| Contentor | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de recipienteS Azure](partner-center-portal/create-azure-container-offer.md). |
+| Serviço de Consultoria | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a consulting service offer.](partner-center-portal/create-consulting-service-offer.md) |
+| Serviço Gerido | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md). |
+| Serviço gerido por Navegação Dinâmica | Não | A Microsoft desenvolveu o Dynamics NAV Managed Service para [a Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), por isso desanumeroumos ofertas ao vivo do Serviço Gerido Dynamics NAV da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no AppSource, adapte-as às ofertas da Dynamics 365 Business Central e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
+| Cortana Intelligence | Não | A Microsoft desenvolveu o roteiro do produto para a Cortana Intelligence, por isso desaubornamos as ofertas ao vivo da Cortana Intelligence da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no mercado comercial, adapte as suas ofertas ao Software como um Serviço (SaaS) oferece e submeta-as no [Partner Center.](hhttps://partner.microsoft.com/) Saiba mais na [SaaS offer a lista de verificação de criação no Partner Center.](partner-center-portal/offer-creation-checklist.md) |
 
-Não. A sua conta subjacente será preservada, e já deve geri-la no Partner Center. Isto significa que, se for um parceiro existente, pode utilizar as credenciais existentes do Portal cloud partner para entrar no Partner Center pós-migração. Apenas ofertas e a experiência de gestão associada estão passando do Portal do Parceiro cloud para partner Center. Pedimos que não crie novas contas, uma vez que as suas ofertas não serão associadas à nova conta.
+## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Não encontro as ofertas do meu Portal de Parceiros Cloud no Partner Center
 
-## <a name="i-see-a-message-in-the-cloud-partner-portal-to-activate-my-account-what-does-this-mean"></a>Vejo uma mensagem no Portal do Parceiro cloud para ativar a minha conta, o que significa isto?
+O que vê no Partner Center depende dos programas em que está inscrito, das contas a que pertence e das funções e permissões de utilizador que lhe foram atribuídas. Existem muitos programas do Partner Center disponíveis e você pode estar inscrito em vários programas. Pode também ter acesso a várias contas com as mesmas credenciais de utilizador.
 
-Precisamos de mais alguns detalhes para migrar corretamente a sua conta para partner center e permitir-lhe gerir as suas ofertas no Partner Center após a migração da oferta estar completa. Para mais detalhes sobre a ativação da conta, consulte a [migração da Conta do Portal do Parceiro cloud para o Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+As ofertas que criou no Cloud Partner Portal estão disponíveis no Partner Center no âmbito do programa **Mercado Comercial** e na conta utilizada para criar as ofertas. Para se certificar de que está a ver o programa certo e a conta certa, siga os passos abaixo. Para obter outras dicas de resolução de problemas, consulte [Gerir a sua conta Partner Center](https://docs.microsoft.com/partner-center/partner-center-account-setup).
 
-Os passos necessários para completar a ativação da conta variam em função da sua conta.
+### <a name="access-the-right-program-in-partner-center"></a>Aceda ao programa certo no Partner Center
 
-| Papel de conta | Etapas de ativação |
-|--------------|----------------|
-|Proprietário | Vá à página de Perfil da [Editora](https://cloudpartner.azure.com/#profile) no Portal do Parceiro cloud e, em seguida, clique no link no banner para ativar. Será redirecionado para o Partner Center para completar a ativação da conta. |
-| Contribuinte | Apenas um utilizador na conta com uma função de proprietário pode ativar a conta. Contacte os proprietários da sua conta para completar a ativação da conta. Os donos da sua conta devem estar listados na mensagem do banner. |
-| | |
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com as mesmas credenciais usadas para assinar no Portal do Parceiro Cloud. O painel de navegação à esquerda apresenta opções associadas aos programas em que está inscrito.
 
-## <a name="im-having-trouble-logging-in-to-my-account-and-opening-a-support-ticket"></a>Estou com problemas para entrar na minha conta e abrir um bilhete de apoio.
+    Exemplo: assuma que tem acesso a três programas: o programa MPN, o programa de Referências e o programa Mercado Comercial. Quando assinar no Partner Center, verá estes três programas no painel de navegação.
 
-Se não conseguir fazer login na sua conta, pode abrir um bilhete de [apoio.](https://partner.microsoft.com/support/v2/?stage=1)
+2. Selecione **Commercial Marketplace**  >  **Overview** para aceder às suas ofertas.
 
-## <a name="where-can-i-find-documentation-on-the-new-partner-center-publishing-experience"></a>Onde posso encontrar documentação sobre a nova experiência de publicação do Partner Center?
+    Se não vir o programa Mercado Comercial no painel de navegação à esquerda, pode estar na conta errada. Siga os passos na secção seguinte para aceder à conta certa.
 
-Vá à documentação do [mercado comercial.](https://docs.microsoft.com/azure/marketplace/) Em seguida, expandir **o Portal do Mercado Comercial no Partner Center**   >  **Crie uma nova oferta** para ver os tópicos de ajuda para criar cada tipo de oferta.
+    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
-:::image type="content" source="media/migration-faq/marketplace-help-topics.png" alt-text="Ilustra os tópicos de ajuda para o Partner Center":::
+### <a name="access-the-right-account-in-partner-center"></a>Aceda à conta certa no Partner Center
 
-### <a name="what-are-the-differences-between-partner-center-and-the-cloud-partner-portal"></a>Quais são as diferenças entre o Partner Center e o Cloud Partner Portal?
+Se fizer parte de várias contas, no centro Partner verá um botão de recolha de conta marcado por duas setas no menu de navegação à esquerda. Selecione o botão de recolha de conta para visualizar uma lista de todas as contas a que pertence. Selecione qualquer conta na lista para mudar para ela e ver todos os programas e informações relativos a essa conta. Se não vir um botão de recolha de conta no menu de navegação, é membro de uma única conta.
 
-Pode notar as seguintes diferenças entre o Portal do Parceiro cloud e o Partner Center.
+[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+
+## <a name="how-do-i-create-new-offers"></a>Como crio novas ofertas?
+
+Aceda ao programa de marketplace comercial no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar novas ofertas. Na página 'Vista Geral', selecione **+ Nova oferta.**
+
+[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+
+## <a name="i-cant-sign-in-and-need-to-open-a-support-ticket"></a>Não posso entrar e preciso abrir um bilhete de apoio.
+
+Se não puder entrar na sua conta, pode abrir um [bilhete de apoio](https://partner.microsoft.com/support/v2/?stage=1) aqui.
+
+## <a name="where-are-instructions-for-using-partner-center"></a>Onde estão as instruções para a utilização do Partner Center?
+
+Vá à documentação do [mercado comercial,](index.yml)depois expanda o **Portal do Mercado Comercial no Partner Center.** Para ver artigos de ajuda para criar ofertas no Partner Center, expandir **Crie uma nova oferta.**
+
+## <a name="what-are-the-publishing-and-offer-management-differences"></a>Quais são as diferenças de gestão de publicações e ofertas?
+
+Aqui ficam algumas diferenças entre o Portal do Parceiro Cloud e o Partner Center.
 
 ### <a name="modular-publishing-capabilities"></a>Capacidades de publicação modulares
 
-O Partner Center oferece uma opção de publicação modular que permite selecionar as alterações que pretende publicar em vez de publicar sempre todas as atualizações ao mesmo tempo. Por exemplo, a imagem a seguir mostra que as únicas alterações selecionadas para serem publicadas são as alterações para **Imóveis** e **Listade Oferta**.
+O Partner Center fornece uma opção de publicação modular que permite selecionar as alterações que pretende publicar em vez de publicar sempre todas as atualizações de uma só vez. Por exemplo, o seguinte ecrã mostra que as únicas alterações selecionadas a serem publicadas são as alterações à **Listagem de Propriedades** e **Ofertas.** As alterações que es fizer na página de Pré-visualização não serão publicadas.
 
-:::image type="content" source="media/migration-faq/review-and-publish-migration.png" alt-text="Ilustra a página pré-visualização e publicação":::
+[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
 
-As atualizações que não publica são guardadas como rascunhos. Continue a utilizar a sua pré-visualização para verificar a sua oferta antes de a tornar em direto ao público.
-
-### <a name="rich-text-format"></a>Formato de texto rico
-
-Melhore a sua oferta e a descrição do plano usando o Rich Text Editor na página de Listagem de Ofertas e Planos.
-
-:::image type="content" source="media/migration-faq/rich-text-editor-migration.png" alt-text="Ilustra o rico editor de texto":::
+As atualizações que não publica são guardadas como rascunhos. Continue a usar a sua pré-visualização da oferta para verificar a sua oferta antes de a tornar ao vivo ao público.
 
 ### <a name="enhanced-preview-options"></a>Opções de pré-visualização melhoradas
 
-O Partner Center inclui uma [funcionalidade de comparação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#compare-changes-to-marketplace-offers) com opções de filtragem melhoradas. Isto dá-lhe a capacidade de comparar com a pré-visualização e versões ao vivo da oferta.
+O Partner Center inclui uma [funcionalidade de comparação](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) com opções de filtragem melhoradas. Isto dá-lhe a capacidade de comparar com as versões de pré-visualização e ao vivo da oferta.
 
-:::image type="content" source="media/migration-faq/enhanced-preview.png" alt-text="Ilustra a característica de comparação":::
+[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
-### <a name="branding-and-navigation-changes"></a>Mudanças de marca e navegação
+### <a name="branding-and-navigation-changes"></a>Alterações de marca e navegação
 
-Vai notar algumas mudanças de marca. Por exemplo, "SKUs" são marcados como "Planos" no Partner Center.
+Vai notar algumas mudanças de marca. Por exemplo, *os SKUs* são marcados como Planos no Centro de *Parceiros:*
 
-:::image type="content" source="media/migration-faq/plan-overview-migration.png" alt-text="Ilustra a visão geral do plano.":::
+[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
 
-Além disso, as informações que usou para fornecer nas páginas **Marketplace** ou S**torefront Details** (Consulting Service, Power BI app) no Portal do Parceiro cloud são recolhidas na página **de listagem de oferta** no Partner Center.
+Além disso, as informações que forneceu anteriormente nas páginas **Marketplace** ou **Storefront Details** (Serviço de Consultoria, Power BI) no Portal do Parceiro cloud são agora recolhidas na página **de listagem de Ofertas** no Partner Center:
 
-:::image type="content" source="media/migration-faq/offer-listing-migration.png" alt-text="Ilustra a página de listagem de ofertas.":::
+[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
-As informações que usou para fornecer sKUs numa única página no Portal do Parceiro cloud podem agora ser recolhidas ao longo de várias páginas no Partner Center:
+As informações que forneceu anteriormente para SKUs numa única página no Portal do Parceiro cloud podem agora ser recolhidas ao longo de várias páginas no Partner Center:
 
-* Página de configuração do plano
-* Página de listagem de planos
-* Página de disponibilidade do plano
-* Planeie a página de configuração técnica, como mostrado nesta imagem.
+- Plano configurado página
+- Página de listagem de plano
+- Página de disponibilidade do plano
+- Plane página de configuração técnica, como mostrado aqui: ![ ![] (media/cpp-pc-faq/technical-configuration.png "Mostra a página de configuração técnica do Centro parceiro")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
-:::image type="content" source="media/migration-faq/tech-config-migration.png" alt-text="Ilustra a página de configuração técnica do Plano.":::
+O seu ID de oferta é agora mostrado na barra de navegação à esquerda da oferta:
 
-A sua oferta de identificação é agora mostrada na barra de navegação à esquerda da oferta.
-
-:::image type="content" source="media/migration-faq/offer-id-offer-overview.png" alt-text="Ilustra o menu de navegação à esquerda com o ID da oferta.":::
+![Mostra a localização do ID da oferta do centro de parceiros](media/cpp-pc-faq/offer-id.png)
 
 ### <a name="stop-selling-an-offer"></a>Pare de vender uma oferta
 
-Pode solicitar para [parar de vender uma oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) no mercado diretamente do portal Partner Center. A opção está disponível na página **de visão geral** da Oferta para a sua oferta.
+Pode solicitar para [parar de vender uma oferta](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) no mercado diretamente a partir do portal Partner Center. A opção está disponível na página geral da **Oferta** para a sua oferta.
 
-:::image type="content" source="media/migration-faq/stop-selling-migration.png" alt-text="Ilustra a página de visão geral da Oferta com a opção stop selling.":::
+[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+<br><br>
 
-## <a name="what-pages-in-partner-center-correspond-to-pages-i-used-in-the-cloud-partner-portal"></a>Que páginas no Partner Center correspondem às páginas que usei no Portal do Parceiro cloud?
+## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>As APIs do Portal cloud Partner rest ainda estão suportadas?
 
-A tabela seguinte mostra as ligações correspondentes entre os dois portais.
+As APIs do Portal do Parceiro cloud estão integradas com o Partner Center e continuarão a funcionar. A transição para o Partner Center introduz pequenas alterações. Reveja a tabela abaixo para garantir que o seu código continua a funcionar no Partner Center.
 
-| Página | Ligação portal do parceiro de nuvem | Ligação do Partner Center |
-|------|---------------------------|---------------------|
-| **Página com todas as ofertas** | https://cloudpartner.azure.com/#alloffers | https://partner.microsoft.com/dashboard/commercial-marketplace/overview |
-| **Página com todos os editores** | https://cloudpartner.azure.com/#publishers | https://partner.microsoft.com/dashboard/account/v3/publishers/list |
-| **Perfil da editora** | https://cloudpartner.azure.com/#profile | https://partner.microsoft.com/dashboard/account/management |
-| **Página de utilizadores** | https://cloudpartner.azure.com/#users | https://partner.microsoft.com/dashboard/account/usermanagement |
-| **Página de história** | https://cloudpartner.azure.com/#history | A funcionalidade História ainda não é suportada no Partner Center. |
-| **Painel de insights** | https://cloudpartner.azure.com/#insights | https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary |
-| **Relatório de pagamento** | https://cloudpartner.azure.com/#insights/payout | https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| | |
-
-## <a name="will-the-cloud-partner-portal-rest-apis-be-supported-post-migration"></a>O Portal de Parceiros de Nuvem REST APIs será apoiado após a migração?
-
-As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a trabalhar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas alterações. Reveja as alterações na tabela abaixo para garantir que o seu código continua a funcionar após a migração para o Partner Center.
-
-| **API** | **Alteração de descrição** | **Impacto** |
-| ------- | ---------------------- | ---------- |
-| POST Publicar, GoLive, Cancelar | Para ofertas migradas, o cabeçalho de resposta terá um formato diferente, mas continuará a funcionar da mesma forma, denotando um caminho relativo para recuperar o estado de funcionamento. | Ao enviar qualquer um dos pedidos post correspondentes para uma oferta, o cabeçalho de localização terá um de dois formatos dependendo do estado de migração da oferta:<ul><li>Ofertas não migradas<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| OPERAÇÃO GET | Para ofertas que anteriormente suportadas no campo de "notificação-e-mail" na resposta, este campo será depreciado e não mais devolvido para ofertas migradas. | Para ofertas migradas, deixaremos de enviar notificações para a lista de e-mails especificados nos pedidos. Em vez disso, o serviço API irá alinhar-se com o processo de e-mail de notificação no Partner Center para enviar e-mails. Especificamente, as notificações serão enviadas para o endereço de e-mail definido na secção de informações de contacto do Vendedor das definições da sua Conta no Partner Center, para notificá-lo do progresso da operação.<br><br>Reveja o endereço de e-mail definido na secção de informações de contacto do Vendedor nas [definições de Conta](https://partner.microsoft.com/dashboard/account/management) no Partner Center para garantir que o e-mail correto é fornecido para notificações.  |
-| | | |
+| API <img src="" width=100px>| Alterar descrição | Impacto |
+| --- | --- | --- |
+| POST Publish, GoLive, Cancele | Para as ofertas migradas, o cabeçalho de resposta terá um formato diferente, mas continuará a funcionar da mesma forma, denotando um caminho relativo para recuperar o estado de funcionamento. | Ao enviar qualquer um dos pedidos de envio de uma oferta, o cabeçalho Localização terá um de dois formatos dependendo do estado de migração da oferta: <ul><li>Ofertas não migradas:`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas:`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
+| Operação GET | Para ofertas que anteriormente suportassem um campo de 'notification-email' na resposta, este campo será depreciado e deixará de ser devolvido para ofertas migratórias. | Para ofertas migradas, não enviaremos mais notificações para a lista de e-mails especificados nos pedidos. Em vez disso, o serviço API irá alinhar-se com o processo de e-mail de notificação no Partner Center para enviar e-mails. Especificamente, as notificações de progresso da operação serão enviadas para o endereço de e-mail definido na secção de informações de conta do Vendedor das definições da sua conta no Partner Center.<br><br>Certifique-se de que o endereço de e-mail definido na secção de informações de contacto do Vendedor nas [definições de Conta](https://partner.microsoft.com/dashboard/account/management) no Centro de Parceiros está correto para receber notificações. |
+|||

@@ -1,6 +1,6 @@
 ---
-title: A bordo do Azure Security Center com powerShell
-description: Este documento acompanha-o através do processo de embarque no Azure Security Center utilizando cmdlets PowerShell.
+title: A bordo do Centro de Segurança Azure com PowerShell
+description: Este documento acompanha-o através do processo de embarque do Azure Security Center utilizando cmdlets PowerShell.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,96 +13,97 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435481"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963364"
 ---
-# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque do Azure Security Center usando o PowerShell
+# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque no Azure Security Center usando o PowerShell
 
 Pode fixar as suas cargas de trabalho Azure programáticamente, utilizando o módulo PowerShell do Centro de Segurança Azure.
-A utilização do PowerShell permite-lhe automatizar tarefas e evitar o erro humano inerente às tarefas manuais. Isto é especialmente útil em implementações em larga escala que envolvem dezenas de subscrições com centenas e milhares de recursos – todos os quais devem ser assegurados desde o início.
+A utilização do PowerShell permite-lhe automatizar tarefas e evitar o erro humano inerente a tarefas manuais. Isto é especialmente útil em implantações em larga escala que envolvem dezenas de subscrições com centenas e milhares de recursos – todos os quais devem ser garantidos desde o início.
 
-O Onboarding Azure Security Center utilizando o PowerShell permite-lhe automatizar programaticamente o embarque e a gestão dos seus recursos Azure e adicionar os controlos de segurança necessários.
+O Centro de Segurança Azure que utiliza o PowerShell permite-lhe automatizar programáticamente o embarque e a gestão dos seus recursos Azure e adicionar os controlos de segurança necessários.
 
-Este artigo fornece um script PowerShell de amostra que pode ser modificado e usado no seu ambiente para lançar o Security Center através das suas subscrições. 
+Este artigo fornece uma amostra do script PowerShell que pode ser modificada e usada no seu ambiente para lançar o Security Center através das suas subscrições. 
 
-Neste exemplo, permitiremos o Centro de Segurança numa subscrição com ID: d07c0080-170c-4c24-861d-9c81742786c e aplicaras as definições recomendadas que proporcionam um alto nível de proteção, implementando o nível padrão de Centro de Segurança, que fornece capacidades avançadas de proteção e deteção de ameaças:
+Neste exemplo, permitiremos ao Centro de Segurança uma subscrição com ID: d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as definições recomendadas que proporcionam um elevado nível de proteção, através da implementação do nível padrão do Centro de Segurança, que fornece capacidades avançadas de proteção e deteção de ameaças:
 
-1. Desempor o [nível padrão de proteção do Centro de Segurança.](https://azure.microsoft.com/pricing/details/security-center/) 
+1. Desa esta medida de [proteção do Centro de Segurança.](https://azure.microsoft.com/pricing/details/security-center/) 
  
-2. Detete o espaço de trabalho do Log Analytics para o qual o agente Log Analytics enviará os dados que recolhe nos VMs associados à subscrição – neste exemplo, um espaço de trabalho definido pelo utilizador existente (myWorkspace).
+2. Desabroque o espaço de trabalho Log Analytics para o qual o agente Log Analytics enviará os dados que recolhe nos VMs associados à subscrição – neste exemplo, um espaço de trabalho definido pelo utilizador existente (myWorkspace).
 
-3. Ativar o fornecimento automático de agentes do Security Center que [implementa o agente Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
+3. Ativar o fornecimento automático do agente do Security Center que [implementa o agente Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Detete o CISO da organização [como o contacto de segurança para alertas do Centro de Segurança e eventos notáveis.](security-center-provide-security-contact-details.md)
+5. Desa ciso da organização [como o contacto de segurança para alertas do Centro de Segurança e eventos notáveis](security-center-provide-security-contact-details.md).
 
-6. Atribuir as políticas [de segurança padrão](tutorial-security-policy.md)do Centro de Segurança.
+6. Atribua as políticas de [segurança padrão](tutorial-security-policy.md)do Centro de Segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Estes passos devem ser realizados antes de executar o Centro de Segurança cmdlets:
+Estes passos devem ser realizados antes de executar os cmdlets do Centro de Segurança:
 
-1.  Executar powerShell como administrador.
-2.  Executar os seguintes comandos no PowerShell:
+1. Executar PowerShell como administrador.
+
+1. Executar os seguintes comandos em PowerShell:
       
-        Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Install-Module -Name Az.Security -Force
+    ```Set-ExecutionPolicy -ExecutionPolicy AllSigned```
+
+    ```Install-Module -Name Az.Security -Force```
 
 ## <a name="onboard-security-center-using-powershell"></a>Centro de Segurança a bordo usando PowerShell
 
-1.  Registe as suas assinaturas no Fornecedor de Recursos do Centro de Segurança:
+1. Registe as suas subscrições no Fornecedor de Recursos do Centro de Segurança:
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-2.  Opcional: Definir o nível de cobertura (nível de preços) das assinaturas (se não definido, o nível de preços é definido para Free):
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+1. Opcional: Definir o nível de cobertura (nível de preços) das subscrições (se não estiver definido, o nível de preços é definido como Gratuito):
 
-3.  Configure um espaço de trabalho de Log Analytics ao qual os agentes irão reportar. Você deve ter um espaço de trabalho Log Analytics que você já criou, que os VMs da subscrição irão reportar. Pode definir várias subscrições para reportar ao mesmo espaço de trabalho. Se não for definido, o espaço de trabalho padrão será utilizado.
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
-        "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    ```Set-AzSecurityPricing -Name "default" -PricingTier "Standard"```
 
-4.  Instalação automática do agente Log Analytics nos seus VMs Azure:
+1. Configure um espaço de trabalho Log Analytics ao qual os agentes irão reportar. Você deve ter um espaço de trabalho Log Analytics que você já criou, que os VMs da subscrição reportarão. Pode definir várias subscrições para reportar ao mesmo espaço de trabalho. Se não estiver definido, o espaço de trabalho predefinido será utilizado.
+
+    ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
+
+1. Instalação automática do agente Log Analytics nos seus VMs Azure:
     
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
-        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+    ```Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision```
 
     > [!NOTE]
-    > Recomenda-se que o fornecimento automático garanta que as suas máquinas virtuais Azure estão automaticamente protegidas pelo Azure Security Center.
+    > Recomenda-se que o fornecimento automático se certifique de que as suas máquinas virtuais Azure estão automaticamente protegidas pelo Azure Security Center.
     >
 
-5.  Opcional: É altamente recomendável que defina os dados de contacto de segurança para as subscrições que você está a bordo, que serão usados como destinatários de alertas e notificações gerados pelo Security Center:
+1. Opcional: É altamente recomendado que defina os dados de contacto de segurança para as subscrições que está a bordo, que serão utilizados como destinatários de alertas e notificações geradas pelo Security Center:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
 
-6.  Atribuir a iniciativa política padrão do Centro de Segurança:
+1. Atribua a iniciativa de política do Centro de Segurança predefinido:
 
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-Agora abordou com sucesso no Azure Security Center com a PowerShell!
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
-Agora pode usar estes cmdlets PowerShell com scripts de automação para iterar programáticamente através de subscrições e recursos. Isto poupa tempo e reduz a probabilidade de erro humano. Pode utilizar este [script de amostra](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) como referência.
+Conseguiu embarcar no Centro de Segurança Azure com a PowerShell.
 
-
+Agora pode utilizar estes cmdlets PowerShell com scripts de automação para iterar programáticamente através de subscrições e recursos. Isto poupa tempo e reduz a probabilidade de erro humano. Pode utilizar este [script de amostra](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) como referência.
 
 
 
 
-## <a name="see-also"></a>Consulte também
-Para saber mais sobre como pode usar o PowerShell para automatizar o embarque no Security Center, consulte o seguinte artigo:
+## <a name="see-also"></a>Veja também
+Para saber mais sobre como pode utilizar o PowerShell para automatizar o embarque no Security Center, consulte o seguinte artigo:
 
-* [Az.Security.](https://docs.microsoft.com/powershell/module/az.security)
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Para saber mais sobre o Centro de Segurança, consulte o seguinte artigo:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure -- Aprenda a gerir e responder a alertas de segurança.
+* [Gerir e responder aos alertas de segurança no Azure Security Center--](security-center-managing-and-responding-alerts.md) Aprender a gerir e responder aos alertas de segurança.

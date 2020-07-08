@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295631"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963806"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro comercial do Marketplace e atribuição de uso do cliente
 
@@ -66,7 +66,7 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
 
 1. Inscreva-se como [editor de mercado comercial.](https://aka.ms/JoinMarketplace)
 
-   * Os parceiros são obrigados a [ter um perfil no Partner Center.](https://docs.microsoft.com/azure/marketplace/become-publisher) Você é encorajado a listar a oferta no Azure Marketplace ou AppSource.
+   * Os parceiros são obrigados a [ter um perfil no Partner Center.](become-publisher.md) Você é encorajado a listar a oferta no Azure Marketplace ou AppSource.
    * Os parceiros podem registar vários GUIDs.
    * Os parceiros podem registar GUIDs para modelos e ofertas de soluções não-marketplace.
 
@@ -74,7 +74,7 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
 
 1. Na **página de definições**de conta, selecione **Add Tracking GUID.**
 
-1. Na caixa **GUID,** insira o seu tracking GUID. Introduza apenas o GUID sem o **prefixo pid.** Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
+1. Na caixa **GUID,** insira o seu tracking GUID. Introduza apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
 
 1. Para registar mais do que um GUID, **selecione Add Tracking GUID** novamente. Caixas adicionais aparecem na página.
 
@@ -85,7 +85,7 @@ Muitas soluções parceiras são implementadas usando modelos de Gestor de Recur
 
 > [!NOTE]
 > Para obter mais informações sobre a criação e publicação de modelos de solução, consulte
-> * [Crie e implemente o seu primeiro modelo de Gestor de Recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+> * [Crie e implemente o seu primeiro modelo de Gestor de Recursos.](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 >* [Oferta de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Vídeo: [Modelos de solução de construção e aplicações geridas para o Mercado Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -96,9 +96,9 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 
 1. Abra o modelo de Gestor de Recursos.
 
-1. Adicione um novo recurso no ficheiro do modelo principal. O recurso precisa de estar apenas no ficheiro **mainTemplate.json** ou **azuredeploy.json,** e não em nenhum modelo aninhado ou ligado.
+1. Adicione um novo recurso no ficheiro do modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
-1. Introduza o valor GUID após o **pid-prefixo** (por exemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Introduza o valor GUID após o `pid-` prefixo (por exemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Verifique se o modelo é de eventuais erros.
 
@@ -109,7 +109,7 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 ### <a name="sample-resource-manager-template-code"></a>Código de modelo do gestor de recursos da amostra
 
 Para ativar os recursos de rastreio do seu modelo, precisa adicionar o seguinte recurso adicional na secção de recursos. Por favor, certifique-se de modificar o código de amostra abaixo com as suas próprias entradas quando o adicionar ao ficheiro do modelo principal.
-O recurso precisa de ser adicionado apenas no ficheiro **mainTemplate.json** ou **azuredeploy.json,** e não em modelos aninhados ou ligados.
+O recurso precisa de ser adicionado no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
 ```
 // Make sure to modify this sample code with your own inputs where applicable
@@ -137,12 +137,12 @@ Se estiver a utilizar um modelo de Gestor de Recursos, deverá marcar a sua solu
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Marque uma implementação com as APIs do Gestor de Recursos
 
-Para ativar a atribuição de utilização do cliente, quando conceber as suas chamadas API, inclua um GUIADO no cabeçalho do agente do utilizador no pedido. Adicione o GUID para cada oferta ou SKU. Formatar a cadeia com o prefixo **pid** e incluir o GUID gerado pelo parceiro. Aqui está um exemplo do formato GUID para inserção no agente do utilizador:
+Para ativar a atribuição de utilização do cliente, quando conceber as suas chamadas API, inclua um GUIADO no cabeçalho do agente do utilizador no pedido. Adicione o GUID para cada oferta ou SKU. Formatar a cadeia com o `pid-` prefixo e incluir o GUID gerado pelo parceiro. Aqui está um exemplo do formato GUID para inserção no agente do utilizador:
 
 ![Exemplo de formato GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> O formato da corda é importante. Se o prefixo **pid** não estiver incluído, não é possível consultar os dados. Diferentes SDKs seguem diferente. Para implementar este método, reveja a abordagem de suporte e rastreio para o seu Azure SDK preferido.
+> O formato da corda é importante. Se o `pid-` prefixo não estiver incluído, não é possível consultar os dados. Diferentes SDKs seguem diferente. Para implementar este método, reveja a abordagem de suporte e rastreio para o seu Azure SDK preferido.
 
 #### <a name="example-the-python-sdk"></a>Exemplo: The Python SDK
 
@@ -168,7 +168,7 @@ Quando utilizar o CLI Azure para anexar o seu GUID, desaprote o **AZURE_HTTP_USE
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Para mais informações, consulte [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
+Para mais informações, consulte [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utilizar Terraform
 
@@ -257,7 +257,7 @@ Existem dois canais de suporte dependendo das questões que está a enfrentar.
 
 Se encontrar algum problema no Centro de Parceiros, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de apoio do Centro de Parceiros aqui:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Screenshot da página de suporte get](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Se necessitar de assistência para o Marketplace Onboarding e/ou atribuição de utilização do cliente em geral, como como configurar a atribuição de utilização do cliente, siga os passos abaixo:
 
@@ -332,7 +332,7 @@ O formulário GUID Generator da Azure Storage é garantido para gerar um GUID do
 
 **Posso usar um VHD personalizado e privado para uma oferta de modelo de solução no Azure Marketplace?**
 
-Não, não pode. A imagem da máquina virtual deve vir do Mercado Azure, consulte: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+Não, não pode. A imagem da máquina virtual deve vir do Azure Marketplace, consulte: [Guia de publicação de ofertas de máquinas virtuais no Azure Marketplace](marketplace-virtual-machines.md).
 
 Você pode criar uma oferta VM no mercado usando o seu VHD personalizado e marcá-lo como Privado para que ninguém possa vê-lo. Em seguida, refira-se a este VM no seu modelo de solução.
 

@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b7372d1e542c4261e982721386c96a34e4be633e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 60d184b3739d05063a0cddd108a2b2d7d49b57d7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667440"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962770"
 ---
-# <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider"></a>Registe um SQL Server VM em Azure com o fornecedor de recursos SQL VM
+# <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registar um SQL Server VM em Azure com o fornecedor de recursos SQL VM (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo descreve como registar a sua máquina virtual SQL Server (VM) em Azure com o fornecedor de recursos SQL VM. Registar-se com o fornecedor de recursos cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso separado do recurso de máquina virtual. Desregralar o seu SQL Server VM do fornecedor de recursos removerá o _recurso_ **da máquina virtual SQL,** mas não deixará cair a máquina virtual real. 
+Este artigo descreve como registar a sua máquina virtual SQL Server (VM) em Azure com o fornecedor de recursos SQL VM (RP). Registar-se com o fornecedor de recursos cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso separado do recurso de máquina virtual. Desregralar o seu SQL Server VM do fornecedor de recursos removerá o _recurso_ **da máquina virtual SQL,** mas não deixará cair a máquina virtual real. 
 
 A implementação de uma imagem do SQL Server VM Azure Marketplace através do portal Azure regista automaticamente o SQL Server VM com o fornecedor de recursos. No entanto, se optar por instalar o SQL Server numa máquina virtual Azure ou providenciar uma máquina virtual Azure a partir de um VHD personalizado, deverá registar o seu SQL Server VM com o fornecedor de recursos para:
 
@@ -50,7 +50,7 @@ A implementação de uma imagem do SQL Server VM Azure Marketplace através do p
 
    ---
 
-Para utilizar o fornecedor de recursos SQL VM, tem primeiro de [registar a sua subscrição junto do fornecedor de recursos, o](#register-a-subscription-with-the-resource-provider)que dá ao fornecedor de recursos a capacidade de criar recursos dentro dessa subscrição específica.
+Para utilizar o fornecedor de recursos SQL VM, tem primeiro de [registar a sua subscrição junto do fornecedor de recursos, o](#register-subscription-with-rp)que dá ao fornecedor de recursos a capacidade de criar recursos dentro dessa subscrição específica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,7 +82,7 @@ Pode ver o modo atual do seu agente IAAS do Servidor SQL utilizando o PowerShell
   $sqlvm.SqlManagementType
   ```
 
-## <a name="register-a-subscription-with-the-resource-provider"></a>Registar uma subscrição com o fornecedor de recursos
+## <a name="register-subscription-with-rp"></a>Registar subscrição com RP
 
 Para registar o seu SQL Server VM com o fornecedor de recursos SQL VM, tem primeiro de registar a sua subscrição junto do fornecedor de recursos. Isto dá ao fornecedor de recursos SQL VM a capacidade de criar recursos dentro da sua subscrição.  Pode fazê-lo utilizando o portal Azure, o Azure CLI ou o PowerShell.
 
@@ -117,7 +117,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-with-the-resource-provider"></a>Registar-se junto do fornecedor de recursos 
+## <a name="register-with-rp"></a>Registe-se com RP
 
 ### <a name="lightweight-management-mode"></a>Modo de gestão leve
 
@@ -223,9 +223,9 @@ Registe a sua máquina virtual SQL Server 2008 no modo NoAgent com PowerShell:
 
 ---
 
-## <a name="upgrade-to-full-management-mode"></a>Upgrade para o modo de gestão completa 
+## <a name="upgrade-to-full"></a>Upgrade para completo  
 
-Os VMs do Servidor SQL que tenham a extensão IaaS *leve* instalada podem atualizar o modo para _a totalidade_ utilizando o portal Azure, o Azure CLI ou o PowerShell. OS VMs do SQL Server no modo _NoAgent_ podem ser atualizados para _a totalidade_ depois de o SISTEMA ser atualizado para o Windows 2008 R2 e acima. Não é possível desclassificar - para tal, terá de [desagrear](#unregister-from-the-resource-provider) o SQL Server VM do fornecedor de recursos SQL VM. Ao fazê-lo, removerá o _recurso_ **de máquina virtual SQL,** mas não eliminará a máquina virtual real. 
+Os VMs do Servidor SQL que tenham a extensão IaaS *leve* instalada podem atualizar o modo para _a totalidade_ utilizando o portal Azure, o Azure CLI ou o PowerShell. OS VMs do SQL Server no modo _NoAgent_ podem ser atualizados para _a totalidade_ depois de o SISTEMA ser atualizado para o Windows 2008 R2 e acima. Não é possível desclassificar - para tal, terá de [desagrear](#unregister-from-rp) o SQL Server VM do fornecedor de recursos SQL VM. Ao fazê-lo, removerá o _recurso_ **de máquina virtual SQL,** mas não eliminará a máquina virtual real. 
 
 Pode ver o modo atual do seu agente IAAS do Servidor SQL utilizando o PowerShell: 
 
@@ -310,7 +310,7 @@ Verifique o estado atual do registo do SQL Server VM utilizando o Azure CLI ou o
 Um erro indica que o SQL Server VM não foi registado com o fornecedor de recursos. 
 
 
-## <a name="unregister-from-the-resource-provider"></a>Não registro do fornecedor de recursos
+## <a name="unregister-from-rp"></a>Não registro de RP
 
 Para desregistralar o seu SQL Server VM com o fornecedor de recursos SQL VM, elimine o *recurso* de máquina virtual SQL utilizando o portal Azure ou O CLI Azure. A eliminação do *recurso* de máquina virtual SQL não elimina o SQL Server VM. No entanto, tenha cuidado e siga os passos cuidadosamente porque é possível eliminar inadvertidamente a máquina virtual ao tentar remover o *recurso*. 
 
@@ -367,7 +367,7 @@ O fornecedor de recursos SQL VM só suporta:
 - VMs do servidor SQL implantados para o público ou nuvem do Governo Azure. As deslocações para outras nuvens privadas ou governamentais não são apoiadas. 
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
 **Devo registar o meu SQL Server VM a partir de uma imagem do SQL Server no Azure Marketplace?**
 
@@ -427,7 +427,7 @@ Sim. A atualização do modo de gestão de peso para cheio é suportada através
 
 Não. A redução do modo de gestão de extensão SQL Server IaaS não é suportada. O modo de gestão não pode ser desclassificado do modo completo para o modo leve ou sem agente, e não pode ser desclassificado do modo leve para o modo sem agente. 
 
-Para alterar o modo de gestão da plena gestibilidade, [não registe](#unregister-from-the-resource-provider) o SQL Server VM do fornecedor de recursos SQL VM, largando o *recurso* SQL Server e reregistando novamente o SQL Server VM com o fornecedor de recursos SQL VM num modo de gestão diferente.
+Para alterar o modo de gestão da plena gestibilidade, [não registe](#unregister-from-rp) o SQL Server VM do fornecedor de recursos SQL VM, largando o *recurso* SQL Server e reregistando novamente o SQL Server VM com o fornecedor de recursos SQL VM num modo de gestão diferente.
 
 **Posso inscrever-me no fornecedor de recursos SQL VM do portal Azure?**
 

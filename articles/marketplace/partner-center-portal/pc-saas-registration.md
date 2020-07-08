@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: 0201ea7b207b7d4c0eaa56de1ee062ea405f0bbb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 630dceedcac36cf6d37d54612d73fabe676d74f6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119244"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963721"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
@@ -20,7 +20,7 @@ Este artigo explica como registar uma aplicação SaaS utilizando o portal Micro
 
 O Azure Marketplace não impõe quaisquer constrangimentos ao método de autenticação que o seu serviço SaaS utiliza para os utilizadores finais. O fluxo abaixo é necessário apenas para autenticar o Serviço SaaS no Azure Marketplace.
 
-Para obter mais informações sobre a Azure AD (Ative Directory), consulte [o que é a autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+Para obter mais informações sobre a Azure AD (Ative Directory), consulte [o que é a autenticação?](../../active-directory/develop/authentication-scenarios.md)
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registe uma aplicação azure ad-secureed
 
@@ -36,10 +36,10 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
     -   **Nome**: Introduza um nome de aplicação significativo
     -   **Tipo de aplicação:**  
         
-        Selecione **aplicativo Web / API** para aplicações de [clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de recursos/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciais da OAuth e [clientes públicos baseados em agentes de utilizadores.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)
+        Selecione **aplicativo Web / API** para [aplicações de clientes)](../../active-directory/develop/active-directory-dev-glossary.md#client-application)e [aplicações de recursos/API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)que são instaladas num servidor seguro. Esta definição é utilizada para [clientes web](../../active-directory/develop/active-directory-dev-glossary.md#web-client)confidenciais da OAuth e [para clientes públicos baseados em agentes de utilizadores).](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)
         A mesma aplicação também pode expor um cliente e um recurso/API.
 
-        Para exemplos específicos de aplicações web, confira as configurações guiadas de arranque rápido que estão disponíveis na secção [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) do [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).
+        Para exemplos específicos de aplicações web, confira as configurações guiadas de arranque rápido que estão disponíveis na secção [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) do [Azure AD Developers Guide](../../active-directory/develop/index.yml).
 
 5. Quando terminar, clique em **Registar.**  A Azure AD atribui um *ID de aplicação* único à sua nova aplicação. Recomendamos o registo de uma aplicação que aceda apenas à API, e como inquilino único.
 
@@ -54,7 +54,7 @@ O **ID da aplicação AD AZure** está associado ao ID da sua editora, por isso 
 
 Uma vez registado a sua candidatura, pode solicitar programáticamente o token de autorização da editora (token de acesso AD AD Azure, utilizando o ponto final Azure AD V1). O editor deve usar este símbolo ao chamar as várias APIs de Cumprimento do SaaS. Este símbolo só é válido por uma hora. 
 
-Para obter mais informações sobre estes tokens, consulte [os tokens de acesso do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Note que no fluxo abaixo do sinal de ponta V1 é utilizado.
+Para obter mais informações sobre estes tokens, consulte [os tokens de acesso do Azure Ative Directory](../../active-directory/develop/access-tokens.md).  Note que no fluxo abaixo do sinal de ponta V1 é utilizado.
 
 ### <a name="get-the-token-with-an-http-post"></a>Obtenha o token com um HTTP POST
 
@@ -111,6 +111,6 @@ Resposta da amostra:
 
 O `"access_token"` valor de campo na resposta é o que passará como parâmetro de autorização ao chamar todas as `<access_token>` APIs de realização de SaaS e de medição de mercado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua aplicação Azure AD-secured pode agora usar a [Versão API da API de Cumprimento SaaS](./pc-saas-fulfillment-api-v2.md).

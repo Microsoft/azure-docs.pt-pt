@@ -7,20 +7,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 6a5335a1048adaa50344e75662b4ad593955f34d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7bc5dc0e21bc9218c0e67b4e8e96299d73628e97
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694948"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963177"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de faturação medido no mercado
 
 As APIs de faturação medido devem ser utilizadas quando a editora cria dimensões de medição personalizadas para uma oferta a publicar no Partner Center. A integração com as APIs de faturação medido é necessária para qualquer oferta adquirida que tenha um ou mais planos com dimensões personalizadas para emitir eventos de uso.
 
-Para obter mais informações sobre a criação de dimensões de medição personalizadas para o SaaS, consulte [a faturação com contador saaS.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/saas-metered-billing)
+Para obter mais informações sobre a criação de dimensões de medição personalizadas para o SaaS, consulte [a faturação com contador saaS.](saas-metered-billing.md)
 
-Para obter mais informações sobre a criação de dimensões de medição personalizadas para uma oferta de aplicação Azure com um plano de aplicações gerido, consulte a [secção de configuração técnica da criação de uma nova oferta de Apps Azure.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer#technical-configuration-managed-application-plans-only)
+Para obter mais informações sobre a criação de dimensões de medição personalizadas para uma oferta de aplicação Azure com um plano de aplicações gerido, consulte a [secção de configuração técnica da criação de uma nova oferta de Apps Azure).](create-new-azure-apps-offer.md#technical-configuration)
 
 ## <a name="enforcing-tls-12-note"></a>Aplicação TLS 1.2 Nota
 
@@ -38,14 +38,14 @@ Apenas um evento de utilização pode ser emitido por cada hora de um dia de cal
 
 *Parâmetros de consulta:*
 
-|            |          |
+| Paramter | Recomendação          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |
 
 *Pedido de cabeçalhos:*
 
-| Tipo de conteúdo       | `application/json`    |
+| Tipo de conteúdo       | Utilizar `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor único de corda para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -151,13 +151,13 @@ O evento de utilização do lote API permite-lhe emitir eventos de utilização 
 
 *Parâmetros de consulta:*
 
-|            |     |
+| Parâmetro  | Recomendação     |
 | ---------- | -------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 
 *Pedido de cabeçalhos:*
 
-| Tipo de conteúdo       | `application/json`       |
+| Tipo de conteúdo       | Utilizar `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor único de corda para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se este valor não for fornecido, um será gerado, e fornecido nos cabeçalhos de resposta. |
@@ -275,6 +275,6 @@ Você também pode usar um plano privado para uma oferta ao vivo existente para 
 
 Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](./support.md) para compreender as opções de suporte dos editores e abrir um bilhete de apoio com a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o serviço de medição APIs , consulte [o serviço de medição de mercado APIs FAQ](./marketplace-metering-service-apis-faq.md).

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 6c1cc8c08fa4dc09d033cf4752a81f01419e8f2c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 361e35aea90a9817e365d66014faf5f23433c1dc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694931"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964792"
 ---
 # <a name="marketplace-metered-billing-apis---faq"></a>APIs de faturação medido no mercado - FAQ
 
@@ -76,7 +76,7 @@ Por exemplo, o cliente cancelou a subscrição do SaaS hoje às 15h. Agora são 
 
 ### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Pode obter uma lista de todas as subscrições do SaaS, incluindo subscrições ativas e não subscritas?
 
-Sim, quando liga para a [Lista de Assinaturas GET API,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#subscription-api) uma vez que inclui uma lista de todas as subscrições do SaaS. O campo de estado na resposta para cada subscrição do SaaS capta se a subscrição está ativa ou não subscrita.
+Sim, quando liga para a [Lista de Assinaturas GET API,](pc-saas-fulfillment-api-v2.md#subscription-apis) uma vez que inclui uma lista de todas as subscrições do SaaS. O campo de estado na resposta para cada subscrição do SaaS capta se a subscrição está ativa ou não subscrita.
 
 ### <a name="are-the-start-and-end-dates-of-saas-subscription-term-and-overage-usage-emission-connected"></a>As datas de início e fim do termo de subscrição do SaaS e as emissões de utilização excessiva estão ligadas?
 
@@ -86,6 +86,6 @@ Por exemplo, se a editora definir um plano SaaS que inclui 1000 e-mails por $100
 
 Quando o cliente comprar e ativar a subscrição no dia 6 de janeiro, o e-mail 1000 incluído na taxa fixa será contado a partir deste dia. Assim, se até 5 de fevereiro (final do primeiro mês da subscrição) apenas 900 e-mails forem enviados, o cliente pagará a taxa fixa apenas para o primeiro mês desta subscrição, e nenhum evento de utilização excessiva será emitido pela editora entre 6 de janeiro e 5 de fevereiro. No dia 6 de fevereiro, a subscrição será automaticamente renovada e a contagem recomeçará. Se em 15 de fevereiro o cliente tiver chegado aos 1000 e-mails enviados, os restantes e-mails enviados até 5 de março serão cobrados como overage ($1 por e-mail) com base nos eventos de utilização excessivo emitidos pela editora.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações, consulte [o serviço de medição de marketplace APIs](./marketplace-metering-service-apis.md).

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e147e896966f88f05f60732da9d85308b8e4bd0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389637"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963211"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -28,6 +28,32 @@ A Azure Database for MySQL expõe a capacidade de alterar o valor de vários par
 A lista de parâmetros suportados do servidor está em constante crescimento. Utilize o separador parâmetros do servidor no portal Azure para visualizar a lista completa e configurar os valores dos parâmetros do servidor.
 
 Consulte as seguintes secções abaixo para saber mais sobre os limites dos vários parâmetros do servidor comumente atualizados. Os limites são determinados pelo nível de preços e vCores do servidor.
+
+### <a name="thread-pools"></a>Piscinas de rosca
+
+O MySQL atribui tradicionalmente um fio para cada ligação ao cliente. À medida que o número de utilizadores simultâneos aumenta, há uma diminuição correspondente no desempenho. Muitos fios ativos podem impactar significativamente o desempenho devido ao aumento da comutação de contexto, contenção de fios e má localidade para caches de CPU.
+
+As piscinas de rosca, que é uma característica lateral do servidor e distinta da ligação, maximizam o desempenho introduzindo um conjunto dinâmico de fios de trabalhador que podem ser usados para limitar o número de fios ativos que correm no servidor e minimizar o churn de rosca. Isto ajuda a garantir que uma explosão de ligações não fará com que o servidor fique sem recursos ou se despenhe com um erro de memória. As piscinas de roscas são mais eficientes para consultas curtas e cargas de trabalho intensivas da CPU, por exemplo, cargas de trabalho OLTP.
+
+Para saber mais sobre piscinas de fios, consulte a [Introdução de piscinas de fios na Base de Dados Azure para o MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+
+> [!NOTE]
+> A função de piscina thread não é suportada para a versão MySQL 5.6. 
+
+### <a name="configuring-the-thread-pool"></a>Configurar a piscina de fios
+Para ativar a piscina de fios, atualize o parâmetro do `thread_handling` servidor para "pool-of-threads". Por predefinição, este parâmetro é definido para `one-thread-per-connection` , o que significa que o MySQL cria um novo fio para cada nova ligação. Por favor, note que este é um parâmetro estático e requer que um servidor reinicie para aplicar.
+
+Também pode configurar o número máximo e mínimo de fios na piscina definindo os seguintes parâmetros do servidor: 
+- `thread_pool_max_threads`: Este valor garante que não haverá mais do que este número de fios na piscina.
+- `thread_pool_min_threads`: Este valor define o número de fios que serão reservados mesmo após o fecho das ligações.
+
+Para melhorar as questões de desempenho de consultas curtas na piscina de fios, a Base de Dados Azure para o MySQL permite-lhe ativar a execução do lote onde, em vez de voltar à piscina de fios imediatamente após a execução de uma consulta, os fios manter-se-ão ativos por um curto período de tempo para aguardar a próxima consulta através desta ligação. Em seguida, o fio executa a consulta rapidamente e uma vez concluída, aguarda a próxima, até que o consumo total de tempo deste processo exceda um limiar. O comportamento de execução do lote é determinado utilizando os seguintes parâmetros do servidor:  
+
+-  `thread_pool_batch_wait_timeout`: Este valor especifica o tempo que um fio espera que outra consulta processe.
+- `thread_pool_batch_max_time`: Este valor determina o tempo máximo que um fio repetirá o ciclo de execução de consultas e aguarda a próxima consulta.
+
+> [!IMPORTANT]
+> Por favor, teste a piscina de rosca antes de ligá-la em produção. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -230,7 +256,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outras variáveis não listadas aqui são definidas para os valores padrão MySQL fora da caixa. Consulte os docs MySQL para versões [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)e [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) para os valores predefinidos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-using-cli.md)
