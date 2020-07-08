@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1a20abf72ca25ba7c4b5600953766be4d62c708d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.openlocfilehash: c435e171c7e3cabea4007c7b78cf60727bf55efd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516347"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958234"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos da API
 ================
@@ -26,7 +25,7 @@ Existem dois ativos programáticos necessários para utilizar o Portal do Parcei
 <a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Crie um diretor de serviço no seu inquilino Azure Ative Directory
 ----------------------------------------------------------------
 
-Primeiro, você precisa criar um diretor de serviço no seu inquilino AZure AD. Este inquilino será atribuído o seu próprio conjunto de permissões no Portal do Parceiro Cloud. O seu código chamará APIs usando como inquilino em vez de usar as suas credenciais pessoais.  Para obter uma explicação completa da criação de um principal de serviço, consulte [o portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+Primeiro, você precisa criar um diretor de serviço no seu inquilino AZure AD. Este inquilino será atribuído o seu próprio conjunto de permissões no Portal do Parceiro Cloud. O seu código chamará APIs usando como inquilino em vez de usar as suas credenciais pessoais.  Para obter uma explicação completa da criação de um principal de serviço, consulte [Como: Use o portal para criar uma aplicação AD AD Azure que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md)
 
 
 <a name="add-the-service-principal-to-your-account"></a>Adicione o principal de serviço à sua conta
@@ -63,7 +62,7 @@ As APIs do Portal do Parceiro cloud utilizam os seguintes ativos e protocolos du
 
 - Um símbolo do portador da JSON Web Token (JWT) para solicitar o acesso aos recursos
 - O protocolo [OpenID Connect](https://openid.net/connect/) (OIDC) para verificar a identidade
-- [Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) como autoridade de identidade
+- [Azure Ative Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) como autoridade de identidade
 
 Existem duas abordagens principais para a aquisição programática de um símbolo JWT:
 

@@ -4,10 +4,9 @@ description: Visão geral do controlo de acesso do Service Bus utilizando a vis�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340961"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
@@ -295,7 +294,7 @@ A tabela a seguir mostra os direitos de acesso necessários para várias operaç
 | Eliminar uma regra |Gerir |.. /myTopic/Subscrições/mySubscription |
 | Enumerar regras |Gerir ou Ouvir |.. /myTopic/Subscrições/mySubscription/Regras
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 

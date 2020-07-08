@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080848"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competência cognitiva de reconhecimento de entidades
@@ -35,7 +34,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis a casos e são todos opcionais.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `categories`    | Conjunto de categorias que devem ser extraídas.  Possíveis tipos de categorias: `"Person"` , , , , , , , . `"Location"` `"Organization"` `"Quantity"` `"Datetime"` `"URL"` `"Email"` . Se não for fornecida nenhuma categoria, todos os tipos são devolvidos.|
 | `defaultLanguageCode` |    Código linguístico do texto de entrada. São apoiadas as seguintes línguas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` . Nem todas as categorias de entidades são apoiadas para todas as línguas; ver nota abaixo.|
@@ -45,7 +44,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | `languageCode`    | Opcional. A predefinição é `"en"`.  |
 | `text`          | O texto para analisar.          |
@@ -55,7 +54,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 > [!NOTE]
 > Nem todas as categorias de entidades são suportadas para todas as línguas. Os `"Person"` `"Location"` tipos de categorias , e `"Organization"` entidades são suportados para a lista completa de idiomas acima. Apenas _de,_ _en_, _es_, _fr_, e _zh-hans_ apoiam a extração `"Quantity"` `"Datetime"` de, `"URL"` e `"Email"` tipos. Para mais informações, consulte [o suporte de Língua e região para a API text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
-| Nome de saída      | Description                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | `persons`       | Uma variedade de cordas onde cada corda representa o nome de uma pessoa. |
 | `locations`  | Uma matriz de cordas onde cada corda representa uma localização. |
@@ -192,7 +191,7 @@ Note que as compensações devolvidas às entidades na saída desta habilidade s
 ## <a name="error-cases"></a>Casos de erro
 Se o código linguístico do documento não for suportado, um erro é devolvido e nenhuma entidade é extraída.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

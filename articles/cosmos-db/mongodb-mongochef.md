@@ -8,12 +8,11 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 0159f69dcef2a98a8597762902ff2f45f30b0bef
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.openlocfilehash: 18a9f97d2cee9dd17345a1c8c0ae0efe442d79a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799399"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Ligue-se a uma conta Azure Cosmos usando o Studio 3T
 
@@ -63,25 +62,29 @@ Para criar uma base de dados, recolha e documentos utilizando o Studio 3T, execu
     :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Screenshot do item do menu Studio 3T Add Document":::
 5. No diálogo 'Adicionar Documento', cole o seguinte e, em seguida, clique em **Adicionar Documento**.
 
-        {
+    ```json
+    {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-               { "firstName": "Thomas" },
-               { "firstName": "Mary Kay"}
+            { "firstName": "Thomas" },
+            { "firstName": "Mary Kay"}
         ],
         "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
+            {
+                "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+                "pets": [{ "givenName": "Fluffy" }]
+            }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
-        }
+    }
+    ```
+    
 6. Adicione outro documento, desta vez com o seguinte conteúdo:
 
-        {
+    ```json
+    {
         "_id": "WakefieldFamily",
         "parents": [
             { "familyName": "Wakefield", "givenName": "Robin" },
@@ -90,7 +93,7 @@ Para criar uma base de dados, recolha e documentos utilizando o Studio 3T, execu
         "children": [
             {
                 "familyName": "Merriam",
-                 "givenName": "Jesse",
+                "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -99,18 +102,20 @@ Para criar uma base de dados, recolha e documentos utilizando o Studio 3T, execu
             },
             {
                 "familyName": "Miller",
-                 "givenName": "Lisa",
-                 "gender": "female",
-                 "grade": 8 }
+                "givenName": "Lisa",
+                "gender": "female",
+                "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
-        }
+    }
+    ```
+
 7. Execute uma consulta de amostra. Por exemplo, procure famílias com o apelido 'Andersen' e devolva os pais e os campos do Estado.
 
     :::image type="content" source="./media/mongodb-mongochef/QueryDocument1.png" alt-text="Screenshot dos resultados da consulta do Mongo Chef":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para a MongoDB.
 - Explore [as amostras](mongodb-samples.md) do MongoDB com a API da Azure Cosmos para a MongoDB.

@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b35af58141dc46e0cc36efe009023c1bf52850e7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080059"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
@@ -38,7 +37,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas                | Description |
+| Entradas                | Descrição |
 |---------------------|-------------|
 | códigoToLanguageCode | (Obrigatório) O código linguístico para traduzir documentos em documentos que não especificam explicitamente a linguagem. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) |
 | defaultFromLanguageCode | (Opcional) O código linguístico para traduzir documentos de documentos que não especificam explicitamente o da língua.  Se o Código de Identificação Padrão não for especificado, a deteção automática da linguagem fornecida pela API de Texto do Tradutor será utilizada para determinar a partir da idioma. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) |
@@ -46,7 +45,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada     | Description |
+| Nome de entrada     | Descrição |
 |--------------------|-------------|
 | texto | O texto a ser traduzido.|
 | toLanguageCode    | Uma cadeia que indique a língua para a que o texto deve ser traduzido. Se esta entrada não for especificada, o Código de Liga Padrão será utilizado para traduzir o texto. <br/>Ver [lista completa de línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
@@ -54,7 +53,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída    | Description |
+| Nome de saída    | Descrição |
 |--------------------|-------------|
 | traduzidoText | O resultado da sequência da tradução de texto do Código de Liga traduzido para o Código de Honra traduzido.|
 | traduzidoToLanguageCode  | Uma cadeia indicando o código de linguagem para o que o texto foi traduzido. Útil se estiver a traduzir para várias línguas e quiser ser capaz de acompanhar qual o texto que é a língua.|
@@ -148,7 +147,7 @@ Se fornecer um código linguístico não suportado para o idioma ou para a líng
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão traduzidos e um aviso será emitido.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

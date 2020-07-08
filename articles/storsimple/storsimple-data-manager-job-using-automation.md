@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514926"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Use a Azure Automation para desencadear um trabalho
@@ -116,6 +115,6 @@ Execute os seguintes passos para importar, publicar e executar o livro de bordo 
 
     ![Adicionar runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Utilize o StorSimple Data Manager UI para transformar os seus dados](storsimple-data-manager-ui.md).

@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84190742"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e walkthroughs para apps Azure Logic
@@ -86,7 +85,7 @@ Para sistemas e serviços que não tenham conectores publicados, também pode es
 Para soluções de integração empresarial e comunicação perfeita entre organizações, pode construir fluxos de trabalho escaláveis automatizados para estes cenários utilizando o Pack de Integração Empresarial (EIP) com Apps Azure Logic. Embora as organizações utilizem diferentes protocolos e formatos, podem trocar mensagens eletronicamente. O EIP transforma diferentes formatos num formato que os sistemas das suas organizações podem processar e suportar protocolos padrão da indústria, incluindo AS2, X12, EDIFACT e RosettaNet. Para construir estas soluções, cria uma conta de integração, que é um recurso Azure separado que fornece um recipiente seguro, escalável e manejável para os artefactos que define e utiliza com os fluxos de trabalho da sua aplicação lógica. Por exemplo, os artefactos incluem parceiros comerciais, acordos, mapas, esquemas, certificados e configurações de lote.
 
 * [Visão geral: Soluções de integração empresarial B2B com apps lógicas Azure e Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Criar e gerir contas de integração para integrações empresariais B2B em Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 ## <a name="access-azure-virtual-network-resources"></a>Aceder recursos de rede virtual Azure
 
@@ -99,12 +98,12 @@ Por vezes, as suas aplicações lógicas e contas de integração precisam de ac
 
 Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Studio, Azure DevOps ou qualquer outro controlo de origem e ferramentas de construção automatizadas. Para suportar a implementação de fluxos de trabalho e conexões dependentes num modelo de recurso, as aplicações lógicas usam modelos de implementação de recursos Azure. As ferramentas visual Studio geram automaticamente estes modelos, que pode fazer check-in no controlo de origem para a versão. Para registos de notificação e diagnóstico para o estado de execução do fluxo de trabalho, a Azure Logic Apps também fornece monitorização e alertas.
 
-### <a name="deploy"></a>Implementar
+### <a name="deploy"></a>Implementação
 
 * [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados utilizando apps Azure Logic - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visão geral: Automatizar a implementação de aplicativos de lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Crie modelos de Gestor de Recursos Azure para automatizar a implementação de apps Azure Logic](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Implementar modelos de gestor de recursos Azure para apps Azure Logic](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Criar modelos do Azure Resource Manager para automatizar a implementação do Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Implementar modelos do Azure Resource Manager para o Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Amostra: Ligue-se às filas de autocarros da Azure Service de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Amostra: Ligue-se às contas de armazenamento Azure a partir de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Amostra: Crie uma ação de aplicação de função para apps Azure Logic e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -119,9 +118,9 @@ Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Stu
 
 ### <a name="monitor"></a>Monitorizar
 
-* [Monitorize o estado de execução, reveja o histórico do gatilho e crie alertas para apps Azure Logic](../logic-apps/monitor-logic-apps.md)
+* [Monitorizar o estado de execução, rever o histórico do acionador e configurar alertas para o Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](../logic-apps/monitor-logic-apps-log-analytics.md)
-* [Configurar registos do Azure Monitor e recolher dados de diagnóstico para mensagens B2B em Apps Azure Logic](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Configurar os registos do Azure Monitor e recolher dados de diagnóstico para mensagens B2B no Azure Logic Apps](../logic-apps/monitor-b2b-messages-log-analytics.md)
 * [Ver e criar consultas para monitorização e rastreio em registos do Azure Monitor para Apps Azure Logic](../logic-apps/create-monitoring-tracking-queries.md)
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Lidar com tipos de conteúdo, conversões e transformações
@@ -141,7 +140,7 @@ A Azure Logic Apps integra-se com muitos serviços, tais como Azure Functions, A
 * [Tutorial: Criar um painel de insights de clientes em streaming com apps Azure Logic e Funções Azure](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutorial: Criar uma função que se integre com Azure Logic Apps e Azure Cognitive Services para analisar o sentimento de publicação do Twitter](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Construa um dashboard social movido a IA utilizando aplicações de lógica Power BI e Azure Logic](https://aka.ms/logicappsdemo)
-* [Tutorial: Monitorize alterações na máquina virtual utilizando a grelha de eventos Azure e aplicações lógicas](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Monitorizar alterações de máquina virtual através do Azure Event Grid e do Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Tutorial: Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Serviços de SABONETE de Chamada utilizando apps Azure Logic](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
@@ -153,7 +152,7 @@ A Azure Logic Apps integra-se com muitos serviços, tais como Azure Functions, A
 
 Saiba como a Azure Logic Apps, juntamente com outros serviços Azure e produtos da Microsoft, ajudou [estas empresas](https://aka.ms/logic-apps-customer-stories) a melhorar a sua agilidade e a concentrarem-se nos seus negócios principais, simplificando, organizando, automatizando e orquestrando processos complexos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre conectores para Apps Lógicas](../connectors/apis-list.md)
 * Conheça os [cenários de integração empresarial B2B com a Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-overview.md)

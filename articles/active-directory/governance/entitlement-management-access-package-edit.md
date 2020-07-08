@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da450a2dfc4351f5bd2c3c759b483cea0c110d9e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078794"
 ---
 # <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou apagar um pacote de acesso na gestão de direitos Azure AD
@@ -63,7 +62,7 @@ Um pacote de acesso só pode ser eliminado se não tiver atribuições ativas do
 
 1. Na mensagem de exclusão que aparece, clique em **Sim**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver, adicionar e remover atribuições para um pacote de acesso](entitlement-management-access-package-assignments.md)
 - [Ver relatórios e registos](entitlement-management-reports.md)

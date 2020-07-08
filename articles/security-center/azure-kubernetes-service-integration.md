@@ -10,28 +10,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 3f58afa41a27427f8deabb945261d96763edb4bc
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: 94d1bccc9a7f45d24d8c5b92aecba54d9f7f630a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800187"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Integração dos Serviços Azure Kubernetes com o Security Center
 
 O Azure Kubernetes Service (AKS) é o serviço gerido pela Microsoft para desenvolver, implantar e gerir aplicações contentorizadas. 
 
-Utilize o AKS juntamente com o nível padrão do Azure Security Center (ver [preços)](security-center-pricing.md)para obter uma visibilidade mais profunda aos seus nós AKS, tráfego na nuvem e controlos de segurança.
+Se estiver no nível padrão do Azure Security Center, pode adicionar o pacote AKS (ver [preços)](security-center-pricing.md)para obter uma visibilidade mais profunda aos seus nós AKS, tráfego em nuvem e controlos de segurança.
 
-O Security Center traz benefícios de segurança para os seus clusters AKS usando dados já recolhidos pelo nó mestre AKS. 
+Juntos, o Security Center e o AKS formam a melhor oferta de segurança de Kubernetes nativa da nuvem.
 
-![Centro de Segurança Azure e Serviço Azure Kubernetes (AKS) visão geral de alto nível](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+## <a name="what-are-the-components-of-security-centers-kubernetes-protection"></a>Quais são os componentes da proteção kubernetes do Centro de Segurança?
 
-Juntas, estas duas ferramentas formam a melhor oferta de segurança de Kubernetes nativa da nuvem. 
+As proteções do Centro de Segurança para Kubernetes são fornecidas por uma combinação de dois elementos:
 
-## <a name="benefits-of-integration"></a>Benefícios da integração
+- **A proteção contra ameaças do Azure Security Center para máquinas virtuais** - Utilizando o mesmo agente Log Analytics que o Security Center utiliza em outros VMs, o Security Center pode mostrar-lhe problemas de segurança que ocorrem nos seus nós AKS. O agente também monitoriza para análises específicas de contentores.
+
+- **O pacote opcional de Kubernetes do Azure Security Center** - O pacote Kubernetes recebe registos e informações do subsistema Kubernetes através do serviço AKS. Estes registos já estão disponíveis no Azure através do serviço AKS. Quando ativa o pacote Kubernetes do Security Center, concede ao Centro de Segurança acesso aos registos. Assim, o Security Center traz benefícios de segurança para os seus clusters AKS usando dados já recolhidos pelo nó mestre AKS. Alguns dos dados digitalizados pelo Azure Security Center do seu ambiente Kubernetes podem conter informações sensíveis.
+
+    ![Centro de Segurança Azure e Serviço Azure Kubernetes (AKS) visão geral de alto nível](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+
+## <a name="what-protections-are-provided"></a>Que proteções são fornecidas?
 
 A utilização dos dois serviços em conjunto fornece:
 
@@ -39,21 +44,28 @@ A utilização dos dois serviços em conjunto fornece:
 
 * **Endurecimento do ambiente** - O Security Center monitoriza constantemente a configuração dos seus clusters Kubernetes e das configurações do Docker. Em seguida, gera recomendações de segurança que refletem os padrões da indústria.
 
-* **Proteção do tempo de execução** - Através de uma análise contínua das seguintes fontes AKS, o Security Center alerta-o para ameaças e atividades maliciosas detetadas ao nível do cluster hospedeiro *e* AKS:
-    * Eventos de segurança bruta, como dados de rede e criação de processos
-    * O registo de auditoria de Kubernetes
+* **Proteção do tempo de execução** - Através de uma análise contínua das seguintes fontes AKS, o Security Center alerta-o para ameaças e atividades maliciosas detetadas ao nível do cluster hospedeiro *e* AKS. [Saiba mais sobre a proteção contra ameaças para contentores](threat-protection.md#azure-containers).
 
-    Para mais informações, consulte [a proteção contra ameaças para contentores Azure](threat-protection.md#azure-containers)
 
-    Para obter a lista de possíveis alertas, consulte estas secções na tabela de referência dos alertas: [alertas de nível de cluster AKS](alerts-reference.md#alerts-akscluster) e [alertas de nível de hospedeiro do contentor](alerts-reference.md#alerts-containerhost).  
+     
 
 ![Azure Security Center e Azure Kubernetes Service (AKS) com mais detalhes](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 
-> [!NOTE]
-> Alguns dos dados digitalizados pelo Azure Security Center do seu ambiente Kubernetes podem conter informações sensíveis.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="aks-with-security-center-faq"></a>AKS com Centro de Segurança FAQ
+
+### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Ainda posso ter proteções AKS sem o agente Log Analytics?
+
+Como mencionado acima, o pacote opcional kubernetes fornece proteções ao nível do cluster, o agente Log Analytics do Nível padrão do Azure Security Center protege os seus nós. 
+
+Recomendamos a colocação de ambos, para a proteção mais completa possível.
+
+Se optar por não instalar o agente nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
+
+
+
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
 

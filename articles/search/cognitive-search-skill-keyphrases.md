@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080814"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de frase-chave
@@ -37,21 +36,21 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas                | Description |
+| Entradas                | Descrição |
 |---------------------|-------------|
 | `defaultLanguageCode` | (Opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua.  Se o código linguístico predefinido não for especificado, o inglês (en) será utilizado como código idioma predefinido. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) |
 | `maxKeyPhraseCount`   | (Opcional) O número máximo de frases-chave a produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Entrada  | Description |
+| Entrada  | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 | `languageCode`    |  Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o código linguístico predefinido será utilizado para analisar os registos. <br/>Ver [lista completa de línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Saída     | Description |
+| Saída     | Descrição |
 |--------------------|-------------|
 | `keyPhrases` | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são devolvidas por ordem de importância. |
 
@@ -114,7 +113,7 @@ Se fornecer um código linguístico não suportado, é gerado um erro e não sã
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão analisados e será emitido um aviso.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

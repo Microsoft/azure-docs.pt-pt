@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84188250"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolução de problemas de Sincronização de Dados SQL
@@ -181,7 +180,7 @@ A sua tentativa de eliminar um grupo de sincronização falha. Qualquer um dos s
     d. Clique com o botão direito no serviço **SQL Data Sync.**  
     e. Se o serviço estiver a funcionar, para.  
     f. Clique com o botão direito no serviço e, em seguida, **selecione Start**.  
-    g. Verifique se a base de dados ainda está registada. Se já não estiver registado, está feito. Caso contrário, prossiga com o próximo passo.
+    exemplo, Verifique se a base de dados ainda está registada. Se já não estiver registado, está feito. Caso contrário, prossiga com o próximo passo.
   1. Abra a aplicação de agente cliente (SqlAzureDataSyncAgent).
   1. Selecione **'Credenciais de Edição'** e, em seguida, introduza as credenciais para a base de dados.
   1. Proceda com a não inscrição.
@@ -239,7 +238,7 @@ Não é possível eliminar um grupo de sincronização no prazo de três minutos
 
 Se restaurar uma base de dados perdida ou corrompida a partir de uma cópia de segurança, pode haver uma não convergência de dados nos grupos de sincronização a que a base de dados pertence.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o SQL Data Sync, consulte:
 
 -   Visão geral - [Sync dados em várias bases de dados de nuvem e no local com SQL Data Sync em Azure](sql-data-sync-data-sql-server-sql-database.md)

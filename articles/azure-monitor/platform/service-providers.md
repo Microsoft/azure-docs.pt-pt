@@ -7,10 +7,9 @@ author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
 ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340887"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
@@ -79,7 +78,7 @@ Existem duas opções para implementar registos numa localização central:
 
 2. Power BI como localização central: O Power BI pode funcionar como a localização central quando os vários espaços de trabalho exportam dados para ele utilizando a integração entre o espaço de trabalho Log Analytics e [o Power BI](../../azure-monitor/platform/powerbi.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Automatizar a criação e configuração de espaços de trabalho usando [modelos de Gestor de Recursos](template-workspace-configuration.md)
 

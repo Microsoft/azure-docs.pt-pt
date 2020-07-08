@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080789"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de deteção de linguagem
@@ -39,13 +38,13 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas     | Description |
+| Entradas     | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída    | Description |
+| Nome de saída    | Descrição |
 |--------------------|-------------|
 | `languageCode` | O código linguístico ISO 6391 para a língua identificada. Por exemplo, "en". |
 | `languageName` | O nome da linguagem. Por exemplo, "Inglês". |
@@ -134,7 +133,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se o texto for expresso numa língua não apoiada, é gerado um erro e nenhum identificador de idiomas é devolvido.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

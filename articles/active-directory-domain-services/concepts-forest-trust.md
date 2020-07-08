@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d5c0878a5999f1d7d716d8caaf9f3fffa5e401dc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982369"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040338"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Azure Ative Directory Domain Services
 
@@ -26,6 +25,10 @@ Para verificar esta relação de confiança, o sistema de segurança do Windows 
 Os mecanismos de controlo de acesso fornecidos pela AD DS e pelo modelo de segurança distribuído pelo Windows proporcionam um ambiente para o funcionamento de fundos de domínio e floresta. Para que estes fidedignos funcionem corretamente, todos os recursos ou computadores devem ter um caminho de confiança direto para um DC no domínio em que está localizado.
 
 O caminho de confiança é implementado pelo serviço Net Logon utilizando uma ligação autenticada de chamada de procedimento remoto (RPC) à autoridade de domínio fidedigna. Um canal seguro também se estende a outros domínios AD DS através de relações de confiança interdomínio. Este canal seguro é utilizado para obter e verificar informações de segurança, incluindo identificadores de segurança (SIDs) para utilizadores e grupos.
+
+Para uma visão geral de como os trusts se aplicam ao Azure AD DS, consulte [conceitos e funcionalidades da floresta de recursos.][create-forest-trust]
+
+Para começar a usar fundos em Azure AD DS, [crie um domínio gerido que utilize fundos florestais.][tutorial-create-advanced]
 
 ## <a name="trust-relationship-flows"></a>Fluxos de relacionamento de confiança
 
@@ -58,7 +61,7 @@ A transitividade determina se uma confiança pode ser estendida fora dos dois do
 
 Cada vez que se cria um novo domínio numa floresta, uma relação de confiança transitiva e bidireccioniva é automaticamente criada entre o novo domínio e o seu domínio principal. Se os domínios infantis forem adicionados ao novo domínio, o caminho da confiança flui para cima através da hierarquia do domínio, estendendo o caminho de confiança inicial criado entre o novo domínio e o seu domínio principal. As relações de confiança transitivas fluem para cima através de uma árvore de domínio à medida que é formada, criando fidedignidades transitivas entre todos os domínios na árvore do domínio.
 
-Os pedidos de autenticação seguem estes caminhos de confiança, para que as contas de qualquer domínio da floresta possam ser autenticadas por qualquer outro domínio na floresta. Com um único processo de início de são, as contas com as permissões adequadas podem aceder a recursos em qualquer domínio da floresta.
+Os pedidos de autenticação seguem estes caminhos de confiança, para que as contas de qualquer domínio da floresta possam ser autenticadas por qualquer outro domínio na floresta. Com um único sinal em processo, as contas com as permissões adequadas podem aceder a recursos em qualquer domínio da floresta.
 
 ## <a name="forest-trusts"></a>Confianças de floresta
 
@@ -128,7 +131,7 @@ Se o cliente utilizar Kerberos V5 para autenticação, solicita um bilhete para 
 
 2. Existe uma relação de confiança transitiva entre o domínio atual e o próximo domínio no caminho da confiança?
     * Se sim, envie ao cliente uma referência para o próximo domínio no caminho da confiança.
-    * Se não, envie ao cliente uma mensagem negada ao logo.
+    * Se não, envie ao cliente uma mensagem negada.
 
 ### <a name="ntlm-referral-processing"></a>Processamento de referência NTLM
 
@@ -152,7 +155,7 @@ Quando duas florestas estão ligadas por um fundo florestal, os pedidos de auten
 
 Quando um fundo florestal é estabelecido pela primeira vez, cada floresta recolhe todos os espaços de nome fidedignos na sua floresta parceira e armazena a informação num [objeto de domínio fidedigno.](#trusted-domain-object) Os espaços de nome fidedignos incluem nomes de árvores de domínio, sufixos de nome principal do utilizador (UPN), sufixos de nome principal de serviço (SPN) e espaços de identificação de segurança (SID) usados na outra floresta. Os objetos TDO são replicados no catálogo global.
 
-Antes de os protocolos de autenticação poderem seguir o caminho da confiança florestal, o nome principal de serviço (SPN) do computador de recurso deve ser resolvido para um local na outra floresta. Um SPN pode ser um dos seguintes:
+Antes de os protocolos de autenticação poderem seguir o caminho da confiança florestal, o nome principal de serviço (SPN) do computador de recurso deve ser resolvido para um local na outra floresta. Um SPN pode ser um dos seguintes nomes:
 
 * O nome DNS de um hospedeiro.
 * O nome DNS de um domínio.
@@ -164,7 +167,7 @@ O diagrama e os passos seguintes fornecem uma descrição detalhada do processo 
 
 ![Diagrama do processo Kerberos sobre um fundo florestal](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
-1. *O Utilizador1* inicia sessão no *Workstation1* utilizando credenciais do domínio *europe.tailspintoys.com.* O utilizador tenta então aceder a um recurso partilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com.*
+1. *O utilizador1* assina no *Workstation1* utilizando credenciais do domínio *europe.tailspintoys.com.* O utilizador tenta então aceder a um recurso partilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com.*
 
 2. *Workstation1* contacta o Kerberos KDC num controlador de domínio no seu domínio, *ChildDC1,* e solicita um bilhete de serviço para o *FileServer1* SPN.
 
@@ -228,7 +231,7 @@ Uma alteração de palavra-passe não é finalizada até que a autenticação us
 
 Se a autenticação utilizando a nova palavra-passe falhar porque a palavra-passe é inválida, o controlador de domínio fidedigno tenta autenticar usando a senha antiga. Se autenticar com sucesso a senha antiga, retoma o processo de alteração da palavra-passe dentro de 15 minutos.
 
-As atualizações de palavras-passe de confiança precisam de ser replicadas aos controladores de domínio de ambos os lados do fundo dentro de 30 dias. Se a palavra-passe de confiança for alterada após 30 dias e um controlador de domínio só tiver a palavra-passe N-2, não pode utilizar a confiança do lado de confiança e não pode criar um canal seguro no lado fidedigno.
+As atualizações de palavras-passe de confiança precisam de ser replicadas aos controladores de domínio de ambos os lados do fundo dentro de 30 dias. Se a palavra-passe de confiança for alterada após 30 dias e um controlador de domínio tiver apenas a palavra-passe N-2, não pode utilizar a confiança do lado de confiança e não pode criar um canal seguro no lado fidedigno.
 
 ## <a name="network-ports-used-by-trusts"></a>Portas de rede utilizadas por fidedignidades
 
@@ -272,7 +275,7 @@ Os administradores podem usar *Domínios e Fidedignidades de Diretório Ativo,* 
 * *Ative Directory Domains and Trusts* é a Consola de Gestão da Microsoft (MMC) que é usada para administrar fundos de domínio, níveis funcionais de domínio e floresta, e sufixos de nome principal do utilizador.
 * As ferramentas de linha de comando *Netdom* e *Nltest* podem ser usadas para encontrar, exibir, criar e gerir fidedignos. Estas ferramentas comunicam diretamente com a autoridade LSA num controlador de domínio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as florestas de recursos, veja [como funcionam os fundos florestais em Azure AD DS?][concepts-trust]
 

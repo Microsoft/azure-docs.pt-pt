@@ -16,10 +16,9 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85077984"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Reveja o acesso a grupos e aplicações em avaliações de acesso a Azure AD
@@ -203,7 +202,7 @@ Para aceitar recomendações para todos os utilizadores certifique-se de que nin
 >[!NOTE]
 >Quando aceitar recomendações anteriores, as decisões anteriores não serão alteradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Complete uma revisão de acesso de grupos ou aplicações](complete-access-review.md)
 

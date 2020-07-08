@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 14cc62caad4c45d8e48a05b3f7fab6b41a975bbd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734984"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040423"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure
 
@@ -80,7 +79,7 @@ Os alertas de estado de saúde são categorizados nos seguintes níveis de gravi
  * **Os alertas** notificam-no de problemas que podem afetar as operações de domínio geridos se o problema persistir. Estes alertas também oferecem recomendações para garantir o domínio gerido.
  * **Alertas informativos** são notificações que não afetam negativamente o domínio gerido. Os alertas informativos fornecem algumas informações sobre o que está a acontecer no domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre alertas que sejam mostrados na página do estado de saúde, consulte [alertas resolvedores no seu domínio gerido][troubleshoot-alerts]
 

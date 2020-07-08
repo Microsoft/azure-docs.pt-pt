@@ -4,10 +4,9 @@ description: Este artigo mostra como adicionar um utilizador ao papel de Criador
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444289"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicione criadores de laboratório a uma conta de laboratório nos Serviços do Laboratório Azure
@@ -60,7 +59,7 @@ Na página **de opções de iniciar sção,** selecione **Iniciar sôs com o Git
 Finalmente, são solicitados a criar uma conta Microsoft que esteja ligada à sua conta GitHub. Acontece automaticamente quando o instrutor seleciona **Next**.  O instrutor é imediatamente assinado e ligado ao laboratório da sala de aula.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como dono de laboratório, crie e gere laboratórios](how-to-manage-classroom-labs.md)

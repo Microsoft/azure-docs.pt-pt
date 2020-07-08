@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080745"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Competência cognitiva de deteção de PII
@@ -38,7 +37,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis a casos e todos são opcionais.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `defaultLanguageCode` |    Código linguístico do texto de entrada. Por enquanto, só `en` é apoiado. |
 | `minimumPrecision` | Um valor entre 0,0 e 1.0. Se a pontuação de confiança (na `piiEntities` saída) for inferior ao `minimumPrecision` valor definido, a entidade não é devolvida ou mascarada. O padrão é 0.0. |
@@ -48,14 +47,14 @@ Os parâmetros são sensíveis a casos e todos são opcionais.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | `languageCode`    | Opcional. A predefinição é `en`.  |
 | `text`          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída      | Description                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | `piiEntities` | Uma variedade de tipos complexos que contém os seguintes campos: <ul><li>texto (O PII real extraído)</li> <li>tipo</li><li>subtiType</li><li>pontuação (Maior valor significa que é mais provável ser uma entidade real)</li><li>compensação (no texto de entrada)</li><li>length</li></ul> </br> [Possíveis tipos e subtiTypes podem ser encontrados aqui.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
 | `maskedText` | Se `maskingMode` for definida para um valor `none` diferente, esta saída será o resultado da máscara realizada no texto de entrada, tal como descrito pelo selecionado `maskingMode` .  Se `maskingMode` estiver programado para , esta saída não estará `none` presente. |
@@ -136,7 +135,7 @@ Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 cara
 
 Se a habilidade devolver um aviso, a saída `maskedText` pode estar vazia.  Isto significa que, se espera que essa saída exista para a entrada em competências posteriores, não funcionará como pretendido. Tenha isto em mente ao escrever a sua definição de skillset.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

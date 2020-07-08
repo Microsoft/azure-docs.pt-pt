@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7d7227a0eeaa496dd774eb962946a4ee85e22009
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080012"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competência cognitiva de reconhecimento de entidades nomeada
@@ -38,7 +37,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | categories    | Conjunto de categorias que devem ser extraídas.  Possíveis tipos de categorias: `"Person"` `"Location"` . . . `"Organization"` . Se não for fornecida nenhuma categoria, todos os tipos são devolvidos.|
 |Código de padrãoLanguage |  Código linguístico do texto de entrada. São apoiadas as seguintes línguas:`de, en, es, fr, it`|
@@ -46,14 +45,14 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
 | texto          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída     | Description                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma variedade de cordas onde cada corda representa o nome de uma pessoa. |
 | localizações  | Uma matriz de cordas onde cada corda representa uma localização. |
@@ -153,7 +152,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se o código linguístico do documento não for suportado, um erro é devolvido e nenhuma entidade é extraída.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

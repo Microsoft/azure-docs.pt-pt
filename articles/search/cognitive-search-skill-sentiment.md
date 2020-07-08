@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 15118c9c3d2d1a528c62b539ab7bdd8f174c19de
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080101"
 ---
 # <a name="sentiment-cognitive-skill"></a>Capacidade cognitiva do sentimento
@@ -42,14 +41,14 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades 
 
-| Nome de entrada | Description |
+| Nome de entrada | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 | `languageCode`    |  (Opcional) Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o valor predefinido é "en". <br/>Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/text-analytics-supported-languages.md)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
-| Nome de saída | Description |
+| Nome de saída | Descrição |
 |--------------------|-------------|
 | `score` | Um valor entre 0 e 1 que representa o sentimento do texto analisado. Valores próximos de 0 têm sentimento negativo, perto de 0,5 têm sentimento neutro, e valores próximos de 1 têm sentimento positivo.|
 
@@ -116,7 +115,7 @@ Se estiver vazio, uma pontuação de sentimento não é devolvida para esses reg
 ## <a name="error-cases"></a>Casos de erro
 Se uma língua não for suportada, um erro é gerado e nenhuma pontuação de sentimento é devolvida.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

@@ -10,15 +10,14 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515015"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
 
-Para mover uma conta de armazenamento, crie uma cópia da sua conta de armazenamento noutra região. Em seguida, mova os seus dados para essa conta usando o AzCopy, ou outra ferramenta à sua escolha.
+Para mover uma conta de armazenamento, crie uma cópia da conta de armazenamento noutra região. Em seguida, mova os seus dados para essa conta usando o AzCopy, ou outra ferramenta à sua escolha.
 
 Neste artigo, aprenderá a:
 
@@ -33,9 +32,9 @@ Neste artigo, aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que os serviços e funcionalidades que a sua conta utiliza são suportados na região alvo.
+- Garanta que os serviços e as funcionalidades que a conta utiliza são suportados na região de destino.
 
-- Para funcionalidades de pré-visualização, certifique-se de que a sua subscrição está em whitelist para a região alvo.
+- Para as funcionalidades de pré-visualização, garanta que a subscrição está na lista de permissões da região de destino.
 
 <a id="prepare"></a>
 
@@ -45,11 +44,11 @@ Para começar, exportar e, em seguida, modificar um modelo de Gestor de Recursos
 
 ### <a name="export-a-template"></a>Exportar um modelo
 
-Este modelo contém configurações que descrevem a sua conta de armazenamento. 
+Este modelo contém definições que descrevem a conta de armazenamento. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para exportar um modelo utilizando o portal Azure:
+Para exportar um modelo com o portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -95,23 +94,23 @@ Para exportar um modelo utilizando o PowerShell:
 
 ### <a name="modify-the-template"></a>Modificar o modelo 
 
-Modifique o modelo alterando o nome e região da conta de armazenamento.
+Modifique o modelo ao alterar o nome e a região da conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para implementar o modelo utilizando o portal Azure:
 
-1. No portal do Azure, selecione **Criar um recurso**.
+1. No portal Azure, selecione **Criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, escreva **implementação de modelo** e prima **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
 
-3. Selecione **Implementação de modelo**.
+3. Selecione **a implementação do modelo**.
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Selecione **Criar**.
 
-5. Selecione **Crie o seu próprio modelo no editor**.
+5. Selecione **Construa o seu próprio modelo no editor.**
 
 6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js**no** ficheiro que descarregou na última secção.
 
@@ -178,7 +177,7 @@ Para implementar o modelo utilizando o PowerShell:
 
 ## <a name="move"></a>Mover
 
-Implemente o modelo para criar uma nova conta de armazenamento na região alvo. 
+Implemente o modelo para criar uma nova conta de armazenamento na região de destino. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -215,9 +214,9 @@ Implemente o modelo para criar uma nova conta de armazenamento na região alvo.
 
 ### <a name="configure-the-new-storage-account"></a>Configurar a nova conta de armazenamento
 
-Algumas funcionalidades não serão exportadas para um modelo, pelo que terá de adicioná-las à nova conta de armazenamento. 
+Algumas funcionalidades não serão exportadas para um modelo, pelo que terá de as adicionar à nova conta de armazenamento. 
 
-A tabela que se segue lista estas funcionalidades juntamente com orientações para adicioná-las à sua nova conta de armazenamento.
+A tabela seguinte lista estas funcionalidades juntamente com as orientações para as adicionar à nova conta de armazenamento.
 
 | Funcionalidade    | Orientação    |
 |--------|-----------|
@@ -232,26 +231,26 @@ A tabela que se segue lista estas funcionalidades juntamente com orientações p
 
 ### <a name="move-data-to-the-new-storage-account"></a>Mover dados para a nova conta de armazenamento
 
-A AzCopy é a ferramenta preferida para mover os seus dados. Está otimizado para o desempenho.  Uma maneira de ser mais rápido, é que os dados são copiados diretamente entre servidores de armazenamento, para que o AzCopy não use a largura de banda de rede do seu computador. Utilize o AzCopy na linha de comando ou como parte de um script personalizado. Ver [Começar com a AzCopy.](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+A AzCopy é a ferramenta preferida para mover os seus dados. Está otimizada para o desempenho.  Uma maneira mais rápida consiste em copiar os dados diretamente entre os servidores de armazenamento para que o AzCopy não utilize a largura de banda de rede do computador. Utilize o AzCopy na linha de comandos ou como parte de um script personalizado. Ver [Começar com a AzCopy.](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Também pode utilizar a Azure Data Factory para transferir os seus dados. Fornece uma interface de utilizador intuitiva. Para utilizar a Azure Data Factory, consulte qualquer uma destas ligações:. 
 
-  - [Copiar dados para ou a partir do armazenamento da Azure Blob utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copiar dados para ou a partir de Azure Data Lake Storage Gen2 usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copiar dados de ou para Azure File Storage utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copiar dados de e para o armazenamento da Tabela Azure utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Copiar dados de/para o Armazenamento de blobs do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Copiar os dados de/para o Azure Data Lake Storage Gen2 com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copiar dados de/para o Armazenamento de Ficheiros do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
+  - [Copiar dados de/para o armazenamento de Tabelas do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
 
 ---
 
-## <a name="discard-or-clean-up"></a>Descartar ou limpar
+## <a name="discard-or-clean-up"></a>Eliminar ou limpar
 
 Após a implantação, se quiser recomeçar, pode eliminar a conta de armazenamento do alvo e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
 
-Para cometer as alterações e concluir a mudança de uma conta de armazenamento, elimine a conta de armazenamento de origem.
+Para consolidar as alterações e concluir a mudança de uma conta de armazenamento, elimine a conta de armazenamento de origem.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para remover uma conta de armazenamento utilizando o portal Azure:
+Para remover uma conta de armazenamento com o portal do Azure:
 
 1. No portal Azure, expanda o menu do lado esquerdo para abrir o menu de **serviços** e escolha as contas de Armazenamento para exibir a lista das suas contas de armazenamento.
 
@@ -268,7 +267,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você mudou uma conta de armazenamento Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

@@ -12,10 +12,9 @@ ms.reviewer: larryfr
 ms.date: 04/27/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080246"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure
@@ -74,7 +73,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes R. São nece
 | ---- | ---- |
 | **cloud.r-project.org** | Utilizado na instalação de embalagens CRAN. |
 
-Passos seguintes
+Próximos passos
 
 * [[Implementar e configurar firewall Azure](../firewall/tutorial-firewall-deploy-portal.md)]
 * [Secure Azure ML experimentação e inferências de empregos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md)

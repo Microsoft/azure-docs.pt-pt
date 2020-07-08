@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080041"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
@@ -31,7 +30,7 @@ Neste artigo, você aprende sobre as habilidades cognitivas fornecidas com a Azu
 
 Várias competências são flexíveis naquilo que consomem ou produzem. Em geral, a maioria das habilidades baseia-se em modelos pré-treinados, o que significa que não se pode treinar o modelo usando os seus próprios dados de treino. A tabela a seguir enumera e descreve as competências fornecidas pela Microsoft. 
 
-| Habilidade | Description |
+| Habilidade | Descrição |
 |-------|-------------|
 |[Microsoft.Skills.text.customentityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Procura texto a partir de uma lista personalizada de palavras e frases definida pelo utilizador.|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes com base na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
@@ -53,7 +52,7 @@ Várias competências são flexíveis naquilo que consomem ou produzem. Em geral
 
 Para obter orientações sobre a criação de uma [habilidade personalizada,](cognitive-search-custom-skill-web-api.md)consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Definição de interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)

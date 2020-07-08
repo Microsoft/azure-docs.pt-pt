@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080837"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Capacidade cognitiva de análise de imagem
@@ -32,7 +31,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `defaultLanguageCode` |  Uma corda indicando a linguagem para voltar. O reconhecimento de retornos de serviço resulta numa língua especificada. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>As línguas apoiadas são: <br/>*en* - Inglês (padrão) <br/> *es* - Espanhol <br/> *ja* - Japonês <br/> *pt* - Português <br/> *zh* - Chinês simplificado|
 | `visualFeatures` |    Uma série de cordas que indicam os tipos de funcionalidades visuais para regressar. Os tipos de recursos visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é pornográfica (representa nudez ou um ato sexual), ou é sangrenta (retrata extrema violência ou sangue). Também é detetado conteúdo sexualmente sugestivo (também conhecido como conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)dos Serviços Cognitivos . </li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li>   *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A função visual dos *objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis a casos. Note que as características visuais de *cor* e *imagemType* foram depreciadas, mas esta funcionalidade ainda pode ser acedida através de uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
@@ -40,7 +39,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente, apenas funciona com o campo "/document/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` é definido para um valor diferente de ```none``` . Consulte a [amostra](#sample-output) para mais informações.|
 
@@ -512,7 +511,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
 ## <a name="error-cases"></a>Casos de erro
 Nos seguintes casos de erro, não são extraídos elementos.
 
-| Código de Erro | Description |
+| Código de Erro | Descrição |
 |------------|-------------|
 | `NotSupportedLanguage` | A linguagem fornecida não é suportada. |
 | `InvalidImageUrl` | O URL de imagem está mal formatado ou não está acessível.|
@@ -538,7 +537,7 @@ Se obter o erro `"One or more skills are invalid. Details: Error in skill #<num>
             ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

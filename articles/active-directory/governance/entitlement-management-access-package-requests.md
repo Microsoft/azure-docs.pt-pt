@@ -17,10 +17,9 @@ ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086623378b64aecb91c4e70e6e69bb13453f7681
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078645"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver pedidos de um pacote de acesso na gestão de direitos Azure AD
@@ -41,7 +40,7 @@ Na gestão de direitos da AD Azure, pode ver quem solicitou pacotes de acesso, a
 
     ![Lista de pedidos de um pacote de acesso](./media/entitlement-management-access-package-requests/requests-list.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Alterar as definições de pedido e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md)
 - [Ver, adicionar e remover atribuições para um pacote de acesso](entitlement-management-access-package-assignments.md)
