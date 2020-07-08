@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: ba50e10eee61c571249a9b99c7e3b53d74474382
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854762"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -33,7 +33,7 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | AlertUniqueId_s |Texto |Identificador único do alerta gerado |
 | AlertType_s |Texto |Tipo de alerta, por exemplo, Backup |
 | AlertStatus_s |Texto |Estado do alerta, por exemplo, Ativo |
-| AlertOccurrenceDateTime_s |Date/Time |Data e hora quando o alerta foi criado |
+| AlertOccurrenceDateTime_s |Data/Hora |Data e hora quando o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, Critical |
 |AlertTimeToResolveInMinutes_s    | Número        |Tempo tomado para resolver um alerta. Em branco para alertas ativos.         |
 |AlertConsolidationStatus_s   |Texto         |Identifique se o alerta é um alerta consolidado ou não         |
@@ -152,7 +152,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 | JobOperation_s |Texto |Operação para que trabalho é executado por exemplo, Backup, Restaurar, Configurar Backup |
 | JobStatus_s |Texto |Estado do trabalho acabado, por exemplo, Concluído, Falhado |
 | JobFailureCode_s |Texto |Cadeia de código de falha por causa da falha de trabalho |
-| JobStartDateTime_s |Date/Time |Data e hora quando o trabalho começou a correr |
+| JobStartDateTime_s |Data/Hora |Data e hora quando o trabalho começou a correr |
 | BackupStorageDestination_s |Texto |Destino do armazenamento de backup, por exemplo, Cloud, Disco  |
 | AdHocOrScheduledJob_s |Texto | Campo para especificar se o trabalho é Ad Hoc ou Agendado |
 | JobDurationInSecs_s | Número |Duração total do trabalho em segundos |
@@ -467,6 +467,30 @@ Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backu
 
 Consulte a terceira coluna 'Descrição' no modelo de [dados](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) acima descrito para identificar quais colunas pertencem apenas ao esquema V1.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modificar as suas consultas para usar o esquema V2
+Como o esquema V1 está em caminho de depreciação, recomenda-se a utilização apenas do esquema V2 em todas as suas consultas personalizadas sobre dados de diagnóstico de backup Azure. Abaixo está um exemplo de como atualizar as suas consultas para remover a dependência do esquema V1:
+
+1. Identifique se a sua consulta está a utilizar qualquer campo que seja aplicável apenas ao esquema V1. Assuma que tem uma consulta para listar todos os itens de backup e os seus servidores protegidos associados da seguinte forma:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+A consulta acima utiliza o campo ProtectedServerUniqueId_s que só é aplicável ao esquema V1. O equivalente ao esquema V2 deste campo é ProtectedContainerUniqueId_s (consulte as tabelas acima). O campo BackupItemUniqueId_s é aplicável mesmo ao esquema V2 e o mesmo campo pode ser utilizado nesta consulta.
+
+2. Atualize a consulta para utilizar os nomes do campo de esquema V2. É uma prática recomendada utilizar o filtro 'onde SchemaVersion_s=="V2" em todas as suas consultas, de modo que apenas os registos correspondentes ao esquema V2 são analisados pela consulta:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
+
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez que reveja o modelo de dados, pode começar [a criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) nos registos do Azure Monitor para construir o seu próprio dashboard.

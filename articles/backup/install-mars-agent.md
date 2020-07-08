@@ -3,12 +3,12 @@ title: Instale o agente Microsoft Azure Recovery Services (MARS)
 description: Saiba como instalar o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 767e04e45f88294ac4ffa58ec263a9a6d05eafb6
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855227"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente Azure Backup MARS
 
@@ -71,6 +71,7 @@ Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as def
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Endereços IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Pode fazer o back up dos seus dados através do Azure ExpressRoute utilizando o 
 Para utilizar o espreguiçadamento público, primeiro garantir o acesso aos seguintes domínios e endereços:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -133,7 +135,7 @@ Se já instalou o agente em alguma máquina, certifique-se de que está a execut
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
-1. Executar o ficheiro *MARSagentinstaller.exe* nas máquinas que pretende fazer recuar.
+1. Faça o ficheiro *MARSagentinstaller.exe* nas máquinas que pretende fazer.
 1. No assistente de configuração do agente MARS, selecione **Definições de instalação**. Lá, escolha onde instalar o agente e escolha um local para a cache. Em seguida, selecione **Seguinte**.
    * A Azure Backup utiliza a cache para armazenar imagens de dados antes de enviá-las para a Azure.
    * A localização da cache deve ter espaço livre igual a pelo menos 5% do tamanho dos dados que irá apoiar.
@@ -160,6 +162,6 @@ Se já instalou o agente em alguma máquina, certifique-se de que está a execut
 
 1. Selecione **Concluir**. O agente está agora instalado, e a sua máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer backup das máquinas do Windows utilizando o agente Azure Backup MARS](backup-windows-with-mars-agent.md)

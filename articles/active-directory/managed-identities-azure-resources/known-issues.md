@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 971ec1fcda87a9db61147133604dd0e28cc4d102
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976171"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855126"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -104,7 +104,7 @@ Quando a funcionalidade de exportação de esquemas se tornar disponível para a
 
 Se mover um VM no estado de funcionamento, ele continua a funcionar durante a mudança. No entanto, após a mudança, se o VM for parado e reiniciado, não começará. Esta questão acontece porque o VM não está a atualizar a referência às identidades geridas para a identidade dos recursos Azure e continua a apontar-lhe no antigo grupo de recursos.
 
-**Solução alternativa** 
+**Solução** 
  
 Desencadeie uma atualização sobre o VM para que possa obter valores corretos para as identidades geridas para os recursos Azure. Pode fazer uma alteração de propriedade em VM para atualizar a referência às identidades geridas para identidade de recursos Azure. Por exemplo, pode definir um novo valor de etiqueta no VM com o seguinte comando:
 
@@ -132,6 +132,8 @@ Solução alternativa para identidades geridas numa subscrição que foi transfe
 
  - Para identidades geridas atribuídas pelo sistema: desativar e reativar. 
  - Para as identidades geridas atribuídas pelo utilizador: eliminar, recriar e ligá-las novamente aos recursos necessários (por exemplo, máquinas virtuais)
+
+Para obter mais informações, consulte [transferir uma subscrição do Azure para um diretório AD Azure diferente (Preview)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover uma identidade gerida atribuída pelo utilizador para um grupo/subscrição de recursos diferentes
 

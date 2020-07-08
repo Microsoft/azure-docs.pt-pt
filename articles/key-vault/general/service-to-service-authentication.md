@@ -3,21 +3,23 @@ title: Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 description: Utilize a biblioteca Microsoft.Azure.Services.AppAuthentication para autenticar o Cofre da Chave Azure utilizando .NET.
 keywords: credenciais locais de autenticação azure-cofre
 author: msmbaldwin
-manager: rkarlin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/28/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 22f727688de46ae95f128a1589c8ae5d6792f232
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855080"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
+
+> [!NOTE]
+> Os métodos de autenticação documentados neste artigo deixaram de ser considerados as melhores práticas. Encorajamo-lo a adotar os métodos de autenticação atualizados em [Como autenticar para a Azure Key Vault](authentication.md).
 
 Para autenticar o Azure Key Vault, precisa de uma credencial Azure Ative Directory (Azure AD), seja um segredo partilhado ou um certificado.
 
@@ -130,7 +132,7 @@ Esta abordagem aplica-se apenas ao desenvolvimento local. Quando a sua solução
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Executar a aplicação utilizando identidade gerida ou identidade atribuída ao utilizador
 
-Quando executa o seu código num Serviço de Aplicações Azure ou num VM Azure com uma identidade gerida ativada, a biblioteca utiliza automaticamente a identidade gerida. Não são necessárias alterações de código, mas a identidade gerida deve *ter* permissões para o cofre da chave. Pode dar *permissões* à identidade gerida através das Políticas de *Acesso*do cofre da chave.
+Quando executa o seu código num Serviço de Aplicações Azure ou num VM Azure com uma identidade gerida ativada, a biblioteca utiliza automaticamente a identidade gerida. Não são necessárias alterações de código, mas a identidade gerida deve ter permissões *GET* para o cofre de chaves. Pode dar permissões *de* acesso à identidade gerida através das Políticas de *Acesso*do cofre da chave.
 
 Em alternativa, pode autenticar com uma identidade atribuída ao utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador, consulte [Sobre Identidades Geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Para autenticar com uma identidade atribuída ao utilizador, é necessário especificar o ID do Cliente da identidade atribuída ao utilizador na cadeia de ligação. A cadeia de ligação é especificada no [Suporte de Cordas de Ligação](#connection-string-support).
 
@@ -230,7 +232,7 @@ Para controlar o processo, utilize uma cadeia de ligação passada ao `AzureServ
 
 As seguintes opções são suportadas:
 
-| Opção de cadeia de ligação | Cenário | Comentários|
+| Opção de cadeia de ligação | Scenario | Comentários|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | `AzureServiceTokenProvider`usa AzureCli para obter ficha. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | `AzureServiceTokenProvider`usa o Visual Studio para obter o token. |
