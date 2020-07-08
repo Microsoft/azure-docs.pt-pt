@@ -1,90 +1,89 @@
 ---
 title: Ativar a cópia de segurança quando cria uma VM do Azure
-description: Descreve como ativar a cópia de segurança quando cria um VM Azure com Backup Azure.
+description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672814"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
-Utilize o serviço de backup Azure para fazer backup de máquinas virtuais Azure (VMs). Os VMs são apoiados de acordo com um calendário especificado numa política de backup, e os pontos de recuperação são criados a partir de backups. Os pontos de recuperação estão guardados nos cofres dos Serviços de Recuperação.
+Utilize o serviço de backup Azure para fazer backup de máquinas virtuais Azure (VMs). Os VMs são apoiados de acordo com um calendário especificado numa política de backup, e os pontos de recuperação são criados a partir de backups. Os pontos de recuperação são armazenados em cofres dos Serviços de Recuperação.
 
 Este artigo detalha como ativar a cópia de segurança quando cria uma máquina virtual (VM) no portal Azure.  
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Verifique](backup-support-matrix-iaas.md#supported-backup-actions) quais os sistemas operativos suportados se ativa rés em suporte quando criar um VM.
+- [Verifique](backup-support-matrix-iaas.md#supported-backup-actions) quais os sistemas operativos suportados se ativar a cópia de segurança quando criar um VM.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure](https://portal.azure.com).
+Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure.](https://portal.azure.com)
 
-## <a name="create-a-vm-with-backup-configured"></a>Criar um VM com Backup configurado
+## <a name="create-a-vm-with-backup-configured"></a>Criar um VM com backup configurado
 
 1. No portal Azure, clique em **Criar um recurso.**
 
 2. No Mercado Azure, clique em **Compute**e, em seguida, selecione uma imagem VM.
 
-3. Instale o VM de acordo com as instruções [do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [do Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+3. Configurar o VM de acordo com as instruções [do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 
-4. No separador **'Gestão',** em **'Backup',** clique **em .**
-5. Reforços Azure para um cofre dos Serviços de Recuperação. Clique em **Criar Novo** se não tiver um cofre existente.
-6. Aceite o nome do cofre sugerido ou especifique o seu.
+4. No separador **Gestão,** em **Ativar a cópia de segurança,** clique **em On**.
+5. Backups Azure para um cofre dos Serviços de Recuperação. Clique **em Criar Novo** se não tiver um cofre existente.
+6. Aceite o nome do cofre sugerido ou especifique o seu próprio.
 7. Especifique ou crie um grupo de recursos no qual o cofre será localizado. O cofre do grupo de recursos pode ser diferente do grupo de recursos VM.
 
-    ![Ativar backup para um VM](./media/backup-during-vm-creation/enable-backup.png)
+    ![Ativar a cópia de segurança para um VM](./media/backup-during-vm-creation/enable-backup.png)
 
-8. Aceite a política de cópia de segurança predefinida ou modifique as definições.
-    - Uma política de backup especifica com que frequência tirar fotografias de backup do VM e quanto tempo para manter essas cópias de reserva.
-    - A política de incumprimento apoia o VM uma vez por dia.
-    - Pode personalizar a sua própria política de backup para um VM Azure para receber backups diariamente ou semanais.
-    - [Saiba mais](backup-azure-vms-introduction.md#backup-and-restore-considerations) sobre considerações de backup para VMs Azure.
+8. Aceite a política de backup predefinido ou modifique as definições.
+    - Uma política de backup especifica a frequência com que tirar fotos de backup do VM e quanto tempo para manter essas cópias de backup.
+    - A política por defeito confirma o VM uma vez por dia.
+    - Pode personalizar a sua própria política de backup para um Azure VM para fazer backups diariamente ou semanalmente.
+    - [Saiba mais](backup-azure-vms-introduction.md#backup-and-restore-considerations) sobre considerações de backup para Azure VMs.
     - [Saiba mais](backup-instant-restore-capability.md) sobre a funcionalidade de restauro instantâneo.
 
-      ![Política de backup padrão](./media/backup-during-vm-creation/daily-policy.png)
+      ![Política de backup predefinido](./media/backup-during-vm-creation/daily-policy.png)
 
-## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup Azure para Máquinas Virtuais
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup Azure para máquinas virtuais
 
-O serviço de backup cria um grupo de recursos separado (RG), diferente do grupo de recursos do VM para armazenar a coleção de pontos de restauro (RPC). O RPC abriga os pontos de recuperação instantâneas de VMs geridos. O formato de nomeação predefinido do `AzureBackupRG_<Geo>_<number>`grupo de recursos criado pelo serviço de backup é: . Por exemplo: *AzureBackupRG_northeurope_1*. Agora pode personalizar o nome do grupo Resource criado pela Azure Backup.
+O serviço De Backup cria um grupo de recursos separado (RG), diferente do grupo de recursos do VM para armazenar a coleção de pontos de restauração (RPC). O RPC abriga os pontos de recuperação instantâneos de VMs geridos. O formato de nomeação padrão do grupo de recursos criado pelo serviço Desarmamento é: `AzureBackupRG_<Geo>_<number>` . Por exemplo: *AzureBackupRG_northeurope_1*. Agora pode personalizar o nome do grupo De recurso criado por Azure Backup.
 
 Pontos a notar:
 
 1. Pode utilizar o nome padrão do RG ou editá-lo de acordo com os requisitos da sua empresa.
-2. Você fornece o padrão de nome RG como entrada durante a criação de política de backup VM. O nome RG deve ser `<alpha-numeric string>* n <alpha-numeric string>`do seguinte formato: . 'n' é substituído por um inteiro (a partir de 1) e é utilizado para escalonar se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs hoje.
-              ![Escolha o nome ao criar a política](./media/backup-during-vm-creation/create-policy.png)
-3. O padrão deve seguir as regras de nomeação RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido do nome RG.
-    1. Os nomes de grupos de recursos apenas permitem caracteres alfanuméricos, períodos, sublinhados, hífenes e parênteses. Não podem terminar num período.
+2. Você fornece o padrão de nome RG como entrada durante a criação de política de backup VM. O nome RG deve ser do seguinte formato: `<alpha-numeric string>* n <alpha-numeric string>` . 'n' é substituído por um inteiro (a partir de 1) e é utilizado para escalonar se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs hoje.
+              ![Escolha o nome ao criar política](./media/backup-during-vm-creation/create-policy.png)
+3. O padrão deve seguir as regras de nomeação RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido da denominação RG.
+    1. Os nomes do grupo de recursos só permitem caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Não podem terminar num período.
     2. Os nomes de grupos de recursos podem conter até 74 caracteres, incluindo o nome do RG e o sufixo.
-4. O `<alpha-numeric-string>` primeiro é obrigatório, enquanto o segundo após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.
-5. Pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, novos RPs serão criados no novo RG. No entanto, os antigos RPs continuarão a residir no antigo RG e não serão movidos, uma vez que a RP Collection não suporta o movimento de recursos. Eventualmente, os RPs receberão lixo recolhido à medida que os pontos expirarem.
+4. O primeiro `<alpha-numeric-string>` é obrigatório enquanto o segundo após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.
+5. Pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, novos RPs serão criados no novo RG. No entanto, os antigos RPs continuarão a residir no antigo RG e não serão movidos, uma vez que a RP Collection não suporta movimento de recursos. Eventualmente, os RPs receberão lixo recolhido à medida que os pontos expirarem.
 ![Alterar nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
-6. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço de backup.
+6. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço De backup.
 
-Para configurar o grupo de recursos de backup Azure para máquinas virtuais utilizando o PowerShell, consulte o [grupo de recursos de backup Azure durante](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention)a retenção de instantâneos .
+Para configurar o grupo de recursos de backup Azure para máquinas virtuais utilizando o PowerShell, consulte a [Criação do grupo de recursos backup Azure durante a retenção de instantâneos](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Inicie uma cópia de segurança depois de criar o VM
 
-O seu backup vm será executado de acordo com a sua política de backup. No entanto, recomendamos que faça uma cópia de segurança inicial.
+A sua cópia de segurança VM será executada de acordo com a sua política de backup. No entanto, recomendamos que faça uma cópia de segurança inicial.
 
-Depois da criação do VM, faça o seguinte:
+Após a criação do VM, faça o seguinte:
 
-1. Nas propriedades VM, clique em **Backup**. O estado VM é backup inicial pendente até que a cópia de segurança inicial seja executado
-2. Clique em **Back up agora** para executar uma cópia de segurança a pedido.
+1. Nas propriedades VM, clique em **Backup**. O estado de VM é backup inicial pendente até que o backup inicial seja executado
+2. Clique **em Backup agora** para executar uma cópia de segurança a pedido.
 
-    ![Faça um backup a pedido](./media/backup-during-vm-creation/run-backup.png)
+    ![Faça uma cópia de segurança a pedido](./media/backup-during-vm-creation/run-backup.png)
 
-## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Use um modelo de Gestor de Recursos para implementar um VM protegido
+## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utilize um modelo de Gestor de Recursos para implementar um VM protegido
 
-Os passos anteriores explicam como usar o portal Azure para criar uma máquina virtual e protegê-la num cofre dos Serviços de Recuperação. Para implementar rapidamente um ou mais VMs e protegê-los num cofre dos Serviços de Recuperação, consulte o modelo [Implementar um VM do Windows e ativar a cópia](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)de segurança .
+Os passos anteriores explicam como usar o portal Azure para criar uma máquina virtual e protegê-la num cofre dos Serviços de Recuperação. Para implementar rapidamente um ou mais VMs e protegê-los num cofre dos Serviços de Recuperação, consulte o modelo [Implementar um VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que protegeu o seu VM, aprenda a geri-los e restaurá-los.
+Agora que protegeste o teu VM, aprende a geri-los e a restaurá-los.
 
 - [Gerir e monitorizar VMs](backup-azure-manage-vms.md)
 - [Restaurar VMs](backup-azure-arm-restore-vms.md)

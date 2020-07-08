@@ -1,43 +1,42 @@
 ---
-title: Limites do Serviço Blockchain Azure
+title: Limites de serviço Azure Blockchain
 description: Visão geral do serviço e limites funcionais no Serviço Azure Blockchain
 ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80676522"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço Blockchain Azure
+# <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço Azure Blockchain
 
-O Serviço Azure Blockchain tem limites de serviço e funcionais, tais como o número de nós que um membro pode ter, restrições de consórcio e valores de armazenamento.
+O Azure Blockchain Service tem limites de serviço e funcionais, tais como o número de nós que um membro pode ter, restrições de consórcio e valores de armazenamento.
 
 ## <a name="pricing-tier"></a>Escalão de preço
 
-Os limites máximos para transações e nódeos validadores dependem se você fornecer o Serviço Azure Blockchain em níveis de preços básicos ou standard.
+Os limites máximos nas transações e nos nós validadores dependem de se fornece o Serviço Azure Blockchain nos níveis básicos ou padrão de preços.
 
-| Escalão de preço | Nósodetransações max | Nódoreos validadores max |
+| Escalão de preço | Nó de transações máximas | Nódoa máximo validador |
 |:---|:---:|:---:|
-| Básico | 10 | 1 |
+| Básica | 10 | 1 |
 | Standard | 10 | 2 |
 
-A sua rede de consórcios deverá ter pelo menos dois nódos os nível padrão do Azure Blockchain Service. Os nódosos de nível padrão incluem dois nódeos validadores. São necessários quatro nódosos validadores para se encontrarem com o consenso de [Tolerância à Falta bizantina](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)de Istambul.
+A sua rede de consórcios deve ter pelo menos dois nós de nível padrão do Serviço Azure Blockchain. Os nós de nível padrão incluem dois nós validadores. Quatro nós validadores são necessários para cumprir o consenso de Tolerância à [Falha Bizantina de Istambul.](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
 
-A utilização do nível básico é para desenvolvimento, teste e prova de conceitos. Utilize o nível padrão para as implementações de nível de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Gestor de Dados blockchain ou a enviar um elevado volume de transações privadas.
+A utilização do nível básico é para desenvolvimento, teste e prova de conceitos. Utilize o nível padrão para implantações de nível de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Blockchain Data Manager ou a enviar um grande volume de transações privadas.
 
-A alteração do nível de preços entre a criação de base e a norma após a criação dos membros não é suportada.
+A alteração do nível de preços entre o básico e o padrão após a criação dos membros não é apoiada.
 
 ## <a name="storage-capacity"></a>Capacidade de armazenamento
 
-A quantidade máxima de armazenamento que pode ser usada por nó para dados e registos de livros é de 1,8 terabytes.
+A quantidade máxima de armazenamento que pode ser usada por nó para dados de contabilidade e registos é de 1,8 terabytes.
 
-Não é suportado o tamanho do livro de contabilidade e do armazenamento de registos.
+O tamanho do livro de registos e do armazenamento de registos não é suportado.
 ## <a name="consortium-limits"></a>Limites do consórcio
 
-* **Os nomes do consórcio e dos membros devem ser exclusivos** de outros nomes de consórcio e membros no Serviço Azure Blockchain.
+* **Os nomes do consórcio e dos membros devem ser exclusivos** de outros nomes de consórcio e membros do Serviço Azure Blockchain.
 
 * **Os nomes dos membros e do consórcio não podem ser alterados**
 
@@ -45,26 +44,26 @@ Não é suportado o tamanho do livro de contabilidade e do armazenamento de regi
 
 * **Todos os membros que participam num consórcio devem residir na mesma região**
 
-    O primeiro membro criado num consórcio dita a região. Os membros convidados do consórcio devem residir na mesma região que o primeiro membro. Limitar todos os membros à mesma região ajuda a garantir que o consenso da rede não seja impactado negativamente.
+    O primeiro membro criado num consórcio dita a região. Os membros convidados para o consórcio devem residir na mesma região que o primeiro membro. Limitar todos os membros à mesma região ajuda a garantir que o consenso da rede não seja impactado negativamente.
 
 * **Um consórcio deve ter pelo menos um administrador**
 
     Se houver apenas um administrador num consórcio, não podem retirar-se do consórcio ou eliminar o seu membro até que outro administrador seja adicionado ou promovido no consórcio.
 
-* **Os membros retirados do consórcio não podem ser adicionados novamente**
+* **Membros removidos do consórcio não podem ser adicionados novamente**
 
-    Pelo contrário, devem ser reconvidados a juntarem-se ao consórcio e a criarem um novo membro. Os recursos dos membros existentes não são suprimidos para preservar transações históricas.
+    Pelo contrário, devem ser novamente convidados a aderir ao consórcio e criar um novo membro. Os seus recursos membros existentes não são suprimidos para preservar transações históricas.
 
-* **Todos os membros de um consórcio devem estar usando a mesma versão de livro-razão**
+* **Todos os membros de um consórcio devem usar a mesma versão de livro**
 
-    Para obter mais informações sobre as versões de patching, atualizações e livros disponíveis no Serviço Blockchain Azure, consulte [Patching, atualizações e versões](ledger-versions.md).
+    Para obter mais informações sobre as versões de patching, atualizações e livros disponíveis no Azure Blockchain Service, consulte [Patching, atualizações e versões](ledger-versions.md).
 
 ## <a name="performance"></a>Desempenho
 
-Não utilize a função de gás *eth.estimate* para cada submissão de transação. A função *de estimativa eth.é* intensiva de memória. Chamar a função várias vezes reduz drasticamente as transações por segundo.
+Não utilize a função de gás *eth.estima* para cada submissão de transação. A *função eth.estima* é intensiva em memória. Chamar a função várias vezes reduz drasticamente as transações por segundo.
 
-Se possível, utilize um valor de gás conservador para a apresentação de transações e minimize a utilização do *eth.estimate*.
+Se possível, utilize um valor de gás conservador para submeter transações e minimize a utilização da estimativa de *eth.estima*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre as políticas relativas a patching e upgrades de sistemas - [Patching, atualizações e versões](ledger-versions.md).
+Saiba mais sobre políticas de patching e upgrades de sistemas - [Patching, atualizações e versões](ledger-versions.md).

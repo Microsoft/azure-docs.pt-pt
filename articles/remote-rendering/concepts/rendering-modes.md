@@ -6,43 +6,42 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681704"
 ---
 # <a name="rendering-modes"></a>Modos de composição
 
-A renderização remota oferece dois modos principais de funcionamento, o modo **TileBasedComposition** e o modo **DepthBasedComposition.** Estes modos determinam como a carga de trabalho é distribuída por vários GPUs no servidor. O modo tem de ser especificado no momento da ligação e não pode ser alterado durante o tempo de funcionamento.
+A Renderização Remota oferece dois modos principais de funcionamento, o modo **TileBasedComposition** e o modo **DepthBasedComposition.** Estes modos determinam como a carga de trabalho é distribuída por várias GPUs no servidor. O modo tem de ser especificado no tempo de ligação e não pode ser alterado durante o tempo de funcionamento.
 
-Ambos os modos vêm com vantagens, mas também com limitações inerentes à funcionalidade, por isso escolher o modo mais adequado é usar o caso específico.
+Ambos os modos vêm com vantagens, mas também com limitações inerentes à funcionalidade, pelo que escolher o modo mais adequado é usar caso específico.
 
 ## <a name="modes"></a>Modos
 
-Os dois modos são agora discutidos mais detalhadamente.
+Os dois modos são agora discutidos com mais pormenor.
 
 ### <a name="tilebasedcomposition-mode"></a>Modo 'TileBasedComposition'
 
-No modo **TileBasedComposition,** todos os GPU envolvidos tornam subrectângulos específicos (azulejos) no ecrã. A GPU principal compõe a imagem final dos azulejos antes de ser enviada como uma moldura de vídeo para o cliente. Assim, todas as GPUs necessitam de ter o mesmo conjunto de recursos para renderização, pelo que os ativos carregados precisam de se encaixar na memória de uma única GPU.
+No modo **TileBasedComposition,** todos os GPU envolvidos prestam subrectangles específicos (azulejos) no ecrã. A GPU principal compõe a imagem final dos azulejos antes de ser enviada como moldura de vídeo para o cliente. Assim, todas as GPUs requerem ter o mesmo conjunto de recursos para renderização, pelo que os ativos carregados precisam de se encaixar na memória de uma única GPU.
 
-A qualidade de renderização neste modo é ligeiramente melhor do que no modo **DepthBasedComposition,** uma vez que a MSAA pode trabalhar em todo o conjunto de geometria para cada GPU. A imagem que se segue mostra que o antialiasing funciona corretamente para ambas as bordas:
+A qualidade de renderização neste modo é ligeiramente melhor do que no modo **DepthBasedComposition,** uma vez que a MSAA pode trabalhar no conjunto completo de geometria para cada GPU. A imagem que se segue mostra que o antialiasing funciona corretamente para ambas as bordas da mesma forma:
 
-![MSAA em TileBasedComposition](./media/service-render-mode-quality.png)
+![MSAA em TileBasedComposição](./media/service-render-mode-quality.png)
 
-Além disso, neste modo, cada peça pode ser mudada para um material transparente ou comutada para modo **transparente** através do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
+Além disso, neste modo cada peça pode ser mudada para um material transparente ou comutada para modo **transparente** através do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
 
-### <a name="depthbasedcomposition-mode"></a>Modo 'DepthBasedComposition'
+### <a name="depthbasedcomposition-mode"></a>Modo 'ProfundidadeBasedComposição'
 
-No modo **DepthBasedComposition,** todos os GPU envolvidos renderizam em resolução completa do ecrã, mas apenas um subconjunto de meshes. A composição final da imagem na GPU principal tem o cuidado de as peças serem devidamente fundidas de acordo com as suas informações de profundidade. Naturalmente, a carga útil da memória é distribuída pelas GPUs, permitindo assim renderizar modelos que não se encaixam na memória de uma única GPU.
+No modo **DepthBasedComposition,** todos os GPU envolvidos prestam em resolução completa do ecrã, mas apenas um subconjunto de malhas. A composição final da imagem na GPU principal tem o cuidado de que as peças são devidamente fundidas de acordo com as suas informações de profundidade. Naturalmente, a carga útil da memória é distribuída pelas GPUs, permitindo assim a renderização de modelos que não se enquadrariam na memória de uma única GPU.
 
-Cada GPU usa mSAA para antialias conteúdo local. No entanto, pode haver alias inerente entre bordas de GPUs distintos. Este efeito é atenuado pelo pós-processamento da imagem final, mas a qualidade da MSAA ainda é pior do que no modo **TileBasedComposition.**
+Cada GPU usa MSAA para conteúdo local antialias. No entanto, pode haver um aliasing inerente entre as bordas de GPUs distintos. Este efeito é atenuado pelo pós-processamento da imagem final, mas a qualidade da MSAA ainda é pior do que no modo **TileBasedComposition.**
 
-Os artefactos da MSAA são ![ilustrados na seguinte imagem: MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
+Os artefactos da MSAA são ilustrados na seguinte imagem: ![ MSAA em DepthBasedComposition](./media/service-render-mode-balanced.png)
 
-O antialiasing funciona corretamente entre a escultura e a cortina, porque ambas as partes são renderizadas na mesma GPU. Por outro lado, a borda entre a cortina e a parede mostra algum pseudónimo porque estas duas partes são compostas por GPUs distintos.
+O antialiasing funciona corretamente entre a escultura e a cortina, porque ambas as partes são renderizadas na mesma GPU. Por outro lado, a borda entre a cortina e a parede mostra alguns pseudónimos porque estas duas partes são compostas por GPUs distintos.
 
-A maior limitação deste modo é que as peças de geometria não podem ser trocadas para materiais transparentes dinamicamente, nem o modo **transparente** funciona para o [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Outras características de sobreposição do estado (contorno, cor, ...) funcionam. Também os materiais que foram marcados como transparentes no tempo de conversão funcionam corretamente neste modo.
+A maior limitação deste modo é que as peças de geometria não podem ser mudadas para materiais transparentes dinamicamente, nem o modo **transparente** funciona para o [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Outras características de sobreposição de estado (contorno, tonalidade colorida, ...) funcionam, no entanto. Também os materiais que foram marcados como transparentes no tempo de conversão funcionam corretamente neste modo.
 
 ### <a name="performance"></a>Desempenho
 
@@ -50,7 +49,7 @@ As características de desempenho de ambos os modos variam em função do caso d
 
 ## <a name="setting-the-render-mode"></a>Definição do modo de renderização
 
-O modo de renderização utilizado num VM `AzureSession.ConnectToRuntime` de `ConnectToRuntimeParams`renderização remota é especificado durante o . .
+O modo de renderização utilizado num VM de renderização remota é especificado durante `AzureSession.ConnectToRuntime` a `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -71,7 +70,7 @@ async void ExampleConnect(AzureSession session)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Sessões](../concepts/sessions.md)
-* [Componente hierárquico de sobreposição do estado](../overview/features/override-hierarchical-state.md)
+* [Componente hierárquico de sobreposição de estado](../overview/features/override-hierarchical-state.md)

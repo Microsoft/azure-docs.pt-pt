@@ -1,61 +1,60 @@
 ---
 title: Tipos de recursos extensão
-description: Listas os tipos de recursos Azure são usados para alargar as capacidades de outros tipos de recursos.
+description: Listas os tipos de recursos Azure são usados para aumentar as capacidades de outros tipos de recursos.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80754864"
 ---
-# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que alargam capacidades de outros recursos
+# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que ampliam capacidades de outros recursos
 
-Um recurso de extensão é um recurso que adiciona às capacidades de outro recurso. Por exemplo, o bloqueio de recursos é um recurso de extensão. Aplica um bloqueio de recursos a outro recurso para evitar que seja eliminado ou modificado. Não faz sentido criar um bloqueio de recursos por si só. Um recurso de extensão é sempre aplicado a outro recurso.
+Um recurso de extensão é um recurso que adiciona às capacidades de outro recurso. Por exemplo, o bloqueio de recursos é um recurso de extensão. Aplica um bloqueio de recursos a outro recurso para evitar que seja eliminado ou modificado. Não faz sentido criar uma fechadura de recursos por si só. Um recurso de extensão é sempre aplicado a outro recurso.
 
 ## <a name="extension-resource-types"></a>Tipos de recursos extensão
 
 - Microsoft.Advisor/configurações
 - Microsoft.Advisor/recomendações
 - Microsoft.Advisor/supressões
-- Microsoft.AlertesGe/alertas
-- Microsoft.AlertsGe/alertasSSummary
-- Microsoft.Authorization/checkAccess
-- Microsoft.Autorizações/negações
+- Microsoft.AlertsManagement/alertas
+- Microsoft.AlertsManagement/alertsSummary
+- Microsoft.Autorização/checkAccess
+- Microsoft.Autorização/negam Assignments
 - Microsoft.Authorization/findOrphanRoleAssignments
-- Microsoft.Autorização/fechaduras
+- Microsoft.Autorização/bloqueios
 - Microsoft.Autorização/permissões
-- Microsoft.Autorizações/políticas
-- Microsoft.Autorizações/políticasDefinições
-- Microsoft.Authorization/policySetDefinis
-- Microsoft.Autorizações/tarefas
-- Microsoft.Autorização/roleAssignmentsUsageMetrics
-- Microsoft.Autorizações/definições de funções
-- Microsoft.Billing/BillingPeriods
+- Microsoft.Autorização/políticaAssins de assinaturas
+- Microsoft.Autorização/políticaDefinitions
+- Microsoft.Authorization/policySetDefinitions
+- Microsoft.Autorização/funAssignments
+- Microsoft.Autorização/funAssignmentsUsageMetrics
+- Microsoft.Autorização/funDefinitions
+- Microsoft.Billing/billingPeriods
 - Microsoft.Billing/billingPermissions
 - Microsoft.Billing/billingRoleAssignments
 - Microsoft.Billing/billingRoleDefinitions
 - Microsoft.Billing/createBillingRoleAssignment
 - Microsoft.Blueprint/blueprintAssignments
 - Microsoft.Blueprint/blueprints
-- Microsoft.Consumo/Custo agregado
-- Microsoft.Consumo/Saldos
+- Microsoft.Consumption/AggregatedCost
+- Microsoft.Consumption/Saldos
 - Microsoft.Consumo/Orçamentos
-- Microsoft.Consumo/Encargos
-- Microsoft.Consumo/CostTags
-- Microsoft.Consumo/Previsões
-- Microsoft.Consumo/Marketplaces
-- Microsoft.Consumo/FuncionamentoResultados
-- Microsoft.Consumo/Estado de Funcionamento
-- Microsoft.Consumo/Folhas de Preços
-- Microsoft.Consumo/Reservas
-- Microsoft.Recomendações de consumo/reservas
-- Microsoft.Consumo/ReservasResumos
-- Microsoft.Consumo/ReservasTransacções
-- Microsoft.Consumo/Etiquetas
-- Microsoft.Consumo/Termos
-- Microsoft.Consumo/utilização
+- Microsoft.Consumption/Charges
+- Microsoft.Consumption/CostTags
+- Microsoft.Consumption/Previsões
+- Microsoft.Consumption/Marketplaces
+- Microsoft.Consumo/OperaçãoResults
+- Microsoft.Consumption/OperationStatus
+- Microsoft.Consumption/Pricesheets
+- Microsoft.Consumption/ReservationDetails
+- Microsoft.Consumption/ReservasRecommendations
+- Microsoft.Consumption/ReservasSummaries
+- Microsoft.Consumption/ReservasTransacções
+- Microsoft.Consumption/Tags
+- Microsoft.Consumption/Termos
+- Microsoft.Consumption/UsageDetails
 - Microsoft.Consumo/créditos
 - Microsoft.Consumo/eventos
 - Microsoft.Consumo/lotes
@@ -63,9 +62,9 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.Consumo/inquilinos
 - Microsoft.ContainerInstance/serviceAssociationLinks
 - Microsoft.CostManagement/Alerts
-- Microsoft.CostManagement/Budgets
+- Microsoft.CostManagement/Orçamentos
 - Microsoft.CostManagement/Dimensions
-- Microsoft.CostManagement/Exportações
+- Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
 - Microsoft.CostManagement/Forecast
 - Microsoft.CostManagement/Consulta
@@ -76,20 +75,20 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.CustomProviders/associações
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
-- Microsoft.GuestConfigura/configuraçãoProfileAssignments
+- Microsoft.GuestConfiguration/configurationProfileAsssignments
 - Microsoft.GuestConfiguration/guestConfigurationAssignments
 - Microsoft.GuestConfiguration/software
 - Microsoft.GuestConfiguration/softwareUpdateProfile
 - Microsoft.GuestConfiguration/softwareUpdates
-- microsoft.insights/baseline
-- microsoft.insights/calcular base
+- microsoft.insights/linha de base
+- microsoft.insights/calcularbaseline
 - microsoft.insights/dataCollectionRuleAssociations
-- microsoft.insights/diagnósticoDefinições
-- microsoft.insights/diagnósticoSettingsCategories
+- microsoft.insights/diagnosticSettings
+- microsoft.insights/diagnosticSettingsCategories
 - microsoft.insights/eventtypes
-- microsoft.insights/extendedDiagnosticSettings
+- microsoft.insights/ExtendedDiagnosticSettings
 - microsoft.insights/guestDiagnosticSettingsAssociation
-- microsoft.insights/logDefinis
+- microsoft.insights/logDefinitions
 - microsoft.insights/logs
 - microsoft.insights/metricDefinitions
 - microsoft.insights/metricNamespaces
@@ -99,40 +98,40 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - microsoft.insights/topologia
 - microsoft.insights/transações
 - microsoft.insights/vmInsightsOnboardingStatuses
-- Microsoft.KubernetesConfigurações/sourceControlConfiguras
-- Microsoft.Manutenção/aplicaçãoUpdates
-- Microsoft.Maintenance/configuraçãoAtribuis
+- Microsoft.KubernetesConfiguration/sourceControlConfigurations
+- Microsoft.Manutenção/aplicades
+- Microsoft.Manutenção/configuraçãoAssignments
 - Microsoft.Manutenção/atualizações
 - Microsoft.ManagedIdentity/Identities
 - Microsoft.ManagedServices/registrationAssignments
-- Microsoft.ManagedServices/registrationDefinições
-- Microsoft.OperationalInsights/storageInsightsConfigs
+- Microsoft.ManagedServices/registrationDefinitions
+- Microsoft.OperationalInsights/storageInsightConfigs
 - Microsoft.OperationsManagement/managementassociations
 - Microsoft.PolicyInsights/policyEvents
 - Microsoft.PolicyInsights/policyStates
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediações
 - Microsoft.RecoveryServices/backupProtectedItems
-- Microsoft.RecoveryServices/replicationEligibilityResults    
+- Microsoft.RecoveryServices/replicationEtsesibilidade    
 - Microsoft.ResourceHealth/availabilityStatuses
-- Microsoft.ResourceHealth/childAvailabilityStatuses
-- Microsoft.RecursosHealth/childResources
-- Microsoft.ResourceHealth/events
-- Microsoft.RecursosHealth/Impactrecursos
+- Microsoft.ResourceHealth/childSetilabilityStatuses
+- Microsoft.ResourceHealth/childResources
+- Microsoft.ResourceHealth/eventos
+- Microsoft.ResourceHealth/impactedResources
 - Microsoft.ResourceHealth/notificações
-- Microsoft.Recursos/links
-- Microsoft.Recursos/tags
+- Microsoft.Resources/links
+- Microsoft.Resources/tags
 - Microsoft.Security/Compliances
 - Microsoft.Security/InformationProtectionPolicies
 - Microsoft.Security/adaptiveNetworkHardenings
 - Microsoft.Security/advancedThreatProtectionSettings
-- Microsoft.Segurança/avaliaçãoMetas
-- Microsoft.Segurança/avaliações
-- Microsoft.Segurança/conformidadeResultados
+- Microsoft.Security/assessmentMetadata
+- Microsoft.Security/assessments
+- Microsoft.Security/complianceResults
 - Microsoft.Security/dataCollectionAgents
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/networkData
-- Microsoft.Security/serverVulnerabilityAssessments
+- Microsoft.Security/serverVulnerabilityAssesments
 - Microsoft.SecurityInsights/agregações
 - Microsoft.SecurityInsights/alertRuleTemplates
 - Microsoft.SecurityInsights/alertRules
@@ -141,19 +140,19 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.SecurityInsights/dataConnectors
 - Microsoft.SecurityInsights/dataConnectorsCheckRequirements
 - Microsoft.SecurityInsights/entidades
-- Microsoft.SecurityInsights/entidadeQueries
+- Microsoft.SecurityInsights/entityQueries
 - Microsoft.SecurityInsights/incidentes
 - Microsoft.SecurityInsights/officeConsents
-- Microsoft.SecurityInsights/definições
+- Microsoft.SecurityInsights/configurações
 - Microsoft.SoftwarePlan/hybridUseBenefits
-- Microsoft.Subscrição/CreateSubscription
+- Microsoft.Subscrição/Cria subscrição
 - microsoft.support/supporttickets
 - Microsoft.WorkloadMonitor/componentes
 - Microsoft.WorkloadMonitor/monitorInstances
 - Microsoft.WorkloadMonitor/monitores
 - Microsoft.WorkloadMonitor/notificationSettings
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter o ID de recurso para um recurso de extensão num modelo de Gestor de Recursos Azure, utilize a [extensãoResourceId](../templates/template-functions-resource.md#extensionresourceid).
-- Para um exemplo de criação de um recurso de extensão num modelo, consulte [as assinaturas](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions)do Evento Grid Event .
+- Para um exemplo de criação de um recurso de extensão num modelo, consulte [subscrições de eventos de grelha de eventos](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).
