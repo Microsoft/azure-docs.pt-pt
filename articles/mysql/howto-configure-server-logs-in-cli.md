@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 87db1a2af0bfdc854c909ef4221a3d97f9bf10d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 356d4e916695c9ac8bcece2867a23d7f7f53d299
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81270677"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101670"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurar e aceder a registos de consulta lenta utilizando o Azure CLI
 Pode baixar a Base de Dados Azure para registos de consulta lenta mySQL utilizando o Azure CLI, o utilitário da linha de comando Azure.

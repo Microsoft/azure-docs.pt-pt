@@ -1,18 +1,14 @@
 ---
 title: Azure subscrição como fonte de Grade de Eventos
 description: Descreve as propriedades que são fornecidas para eventos de subscrição com Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: reference
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 72b1a73bf418b417cd29f88063781e7b45979998
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105902"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Subscrição do Azure como fonte de Grade de Eventos
 
@@ -35,7 +31,7 @@ O assunto do evento é o ID de recursos do recurso que é o alvo da operação. 
 
 As subscrições do Azure emitem eventos de gestão do Azure Resource Manager, como quando um VM é criado ou uma conta de armazenamento é eliminada.
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Levantado quando a ação sobre o recurso é cancelada. |
 | Microsoft.Resources.ResourceActionFailure | Levantado quando a ação sobre o recurso falha. |
@@ -235,7 +231,7 @@ O exemplo a seguir mostra o esquema para um evento **ResourceActionSuccess.** O 
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -248,7 +244,7 @@ Um evento tem os seguintes dados de alto nível:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
 | sinistros | objeto | As propriedades das reclamações. Para mais informações, consulte [a especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
@@ -269,7 +265,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Azure CLI: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-cli-azure-subscription.md) |O script de amostra que cria uma subscrição de Grade de Eventos para uma subscrição do Azure e envia eventos para um WebHook. |
 | [PowerShell: subscreva eventos para uma subscrição do Azure](./scripts/event-grid-powershell-azure-subscription.md)| O script de amostra que cria uma subscrição de Grade de Eventos para uma subscrição do Azure e envia eventos para um WebHook. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

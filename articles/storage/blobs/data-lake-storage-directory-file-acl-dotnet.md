@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: fc2013a3875c74a1371196cacb0096356cf3ffdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf21b8714554dcdc52ab6e34041c738ec2653f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105069"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -199,6 +200,8 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 }
 
 ```
+
+Também pode obter e definir o ACL do diretório de raiz de um sistema de ficheiros. Para obter o diretório de raiz, passe uma corda vazia `""` () para o método [DataLakeFileSystemClient.GetDirectoryClient.](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient)
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 

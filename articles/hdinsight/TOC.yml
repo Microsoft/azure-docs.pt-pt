@@ -428,8 +428,6 @@
               href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
             - name: Falhas de tarefa do Apache Spark - InvalidClassException
               href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-            - name: Tarefas do Apache Spark lentas - listStatus
-              href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
             - name: Tarefas de Apache Spark lentas – contentor de armazenamento
               href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
             - name: Exceção IllegalArgumentException
@@ -723,8 +721,6 @@
               href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
             - name: Tempos limite com o comando “hbase hbck”
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-            - name: Resolução de problemas do Apache HBase
-              href: ./hbase/apache-troubleshoot-hbase.md
             - name: API REST para consultar o Apache HBase
               href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query

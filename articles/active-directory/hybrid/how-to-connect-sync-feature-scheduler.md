@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357397"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103556"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o programador incorporado na sincronização Azure AD Connect (motor de sincronização).
@@ -39,6 +39,10 @@ O programador é responsável por duas tarefas:
 * **Tarefas de manutenção**. Renovar chaves e certificados para reset de password e serviço de registo de dispositivos (DRS). Purgue entradas antigas no registo de operações.
 
 O agendador em si está sempre em execução, mas pode ser configurado para executar apenas uma ou nenhuma destas tarefas. Por exemplo, se precisar de ter o seu próprio processo de ciclo de sincronização, pode desativar esta tarefa no programador, mas ainda assim executar a tarefa de manutenção.
+
+>[!IMPORTANT]
+>É necessário certificar-se de que um ciclo de sincronização é executado pelo menos uma vez a cada 7 dias. Se não o fizer, poderá causar problemas de sincronização que exigirão que execute uma sincronização completa para resolver.
+
 
 ## <a name="scheduler-configuration"></a>Configuração do programador
 Para ver as definições de configuração atuais, vá ao PowerShell e corra `Get-ADSyncScheduler` . Mostra algo como esta foto:

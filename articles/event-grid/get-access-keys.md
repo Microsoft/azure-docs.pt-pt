@@ -1,17 +1,14 @@
 ---
 title: Obtenha a chave de acesso para um recurso de Grade de Eventos
 description: Este artigo descreve como obter a chave de acesso para um tópico ou domínio de Grade de Eventos
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 75ab09de40a4305ebd215985f2f9f181bfd69a24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414893"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105868"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtenha chaves de acesso para recursos da Grade de Eventos (tópicos ou domínios)
 As teclas de acesso são utilizadas para autenticar uma aplicação que publica eventos para recursos da Azure Event Grid (tópicos e domínios). Recomendamos que se regenerar regularmente as suas chaves e guardá-las de forma segura. É-lhe fornecida duas teclas de acesso para que possa manter as ligações utilizando uma chave enquanto regenera a outra.

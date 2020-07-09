@@ -1,17 +1,16 @@
 ---
 title: Serviços de consultoria no mercado comercial da Microsoft
 description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação de novas ofertas de serviços de consultoria no Microsoft AppSource e no Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957993"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103760"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
 

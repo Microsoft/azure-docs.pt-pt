@@ -4,14 +4,14 @@ description: A Proteção de Ameaças deteta atividades anómalas de bases de da
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f419836b9e73e49ec510fc359487633523e0ef0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79530143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104610"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção Avançada de Ameaças para Base de Dados de Azure para MariaDB
 
@@ -60,7 +60,7 @@ Clique **em alerta de deteção de ameaças** para lançar a página de alertas 
    ![Alerta de deteção de ameaças](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
    
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços da MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)  

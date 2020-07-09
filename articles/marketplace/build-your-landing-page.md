@@ -1,18 +1,18 @@
 ---
 title: Construa a sua página de aterragem no Mercado Azure Rio Azure
 description: Saiba como criar uma página de aterragem no Azure Marketplace e microsoft AppSource, para editores de aplicações e serviços.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-ms.author: dsindona
-ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7f80910e19348dfa3540f141424205a7531f5e7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80387806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102825"
 ---
 # <a name="build-your-landing-page"></a>Construa a sua página de aterragem
 
@@ -48,7 +48,7 @@ Quando tiver um plano de campanha pronto, crie a sua página de aterragem no Mar
 | **Coloque os nomes e palavras-chave relevantes do produto "acima da dobra"** | Fazendo com que os utilizadores percorram para ver o produto ou solução que está a apresentar. |
 | **Utilize imagens de marca para validar a sua solução de acordo com as diretrizes de marca da Microsoft, tais como Azure Certified** | Usando imagens de marca microsoft que não são aprovadas. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 *   Para obter mais informações sobre o crachá certificado Azure, consulte [as diretrizes certificadas microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
 *   Para obter mais recursos sobre branding, consulte [Brand Central.](https://microsoft.sharepoint.com/teams/brandcentral)

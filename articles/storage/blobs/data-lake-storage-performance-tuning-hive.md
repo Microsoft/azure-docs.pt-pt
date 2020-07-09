@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522f9215a0b66c5e6bec5abf41e45489efec19ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465971"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106316"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho de sintonização: Hive, HDInsight & Azure Data Lake Storage Gen2
 
@@ -56,17 +57,18 @@ As cargas de trabalho intensivas de I/O podem beneficiar de um maior paralelismo
 
 O número simultâneo de tarefas em execução ou paralelismo será limitado pela memória total do YARN.  O número de contentores DE FIOS ditará quantas tarefas simultâneas podem ser executadas.  Para encontrar a memória yarn por nó, você pode ir a Ambari.  Navegue até YARN e veja o separador Configs.  A memória YARN é apresentada nesta janela.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+- Total da memória YARN = nós * memória YARN por nó
+- \#de recipientes YARN = Total memória YARN / Tamanho do recipiente Tez
+
 A chave para melhorar o desempenho usando data lake storage gen2 é aumentar a conúnquidade o mais possível.  O Tez calcula automaticamente o número de tarefas que devem ser criadas para que não seja necessário defini-lo.   
 
 ## <a name="example-calculation"></a>Cálculo de exemplo
 
 Digamos que tem um aglomerado de 8 nó D14.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+- Total da memória YARN = nós * memória YARN por nó
+- Total de memória YARN = 8 nóns * 96GB = 768GB
+- \#de contentores YARN = 768GB / 3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a afinação da Colmeia
 

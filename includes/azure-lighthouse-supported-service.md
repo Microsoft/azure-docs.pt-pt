@@ -5,15 +5,15 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7da1a3501d74cc7f46d35597df5a985c3e571388
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76846028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106067"
 ---
 > [!NOTE]
-> Este serviço suporta [a gestão de recursos delegada da Azure,](../articles/lighthouse/concepts/azure-delegated-resource-management.md)que permite que os prestadores de serviços inscrevam-se no seu próprio inquilino para gerir subscrições e grupos de recursos que os clientes delegaram. Para mais informações, consulte [o Farol Azure.](../articles/lighthouse/overview.md)
+> Este serviço suporta [o Azure Lighthouse,](../articles/lighthouse/overview.md)que permite que os prestadores de serviços inscrevam-se no seu próprio inquilino para gerir subscrições e grupos de recursos que os clientes delegaram.

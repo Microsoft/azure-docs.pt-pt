@@ -1,18 +1,18 @@
 ---
 title: Práticas de segurança recomendadas
-description: Ao utilizar a gestão de recursos delegada da Azure, é importante considerar o controlo de segurança e acesso.
-ms.date: 03/24/2020
+description: Ao utilizar o Farol Azure, é importante considerar o controlo de segurança e acesso.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246913"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105426"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
-Ao utilizar [a gestão de recursos delegada da Azure,](azure-delegated-resource-management.md)é importante considerar o controlo de segurança e acesso. Os utilizadores do seu inquilino terão acesso direto a subscrições de clientes e grupos de recursos, pelo que deverá tomar medidas para manter a segurança do seu inquilino. Também vai querer ter a certeza de que apenas permite o acesso necessário para gerir eficazmente os recursos dos seus clientes. Este tópico fornece recomendações para ajudá-lo a fazê-lo.
+Ao utilizar [o Farol Azure,](../overview.md)é importante considerar o controlo de segurança e acesso. Os utilizadores do seu inquilino terão acesso direto a subscrições de clientes e grupos de recursos, pelo que deverá tomar medidas para manter a segurança do seu inquilino. Também vai querer ter a certeza de que apenas permite o acesso necessário para gerir eficazmente os recursos dos seus clientes. Este tópico fornece recomendações para ajudá-lo a fazê-lo.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Exigir a Multi-Factor Authentication do Azure
 
@@ -33,17 +33,17 @@ Por exemplo, pode querer usar uma estrutura como esta:
 
 |Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de papel  |
 |---------|---------|---------|---------|---------|
-|Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuidor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Especialistas em VM     |Grupo de utilizadores         |\<principalId\>         |Colaborador VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |Nome principal do serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automatização     |Nome principal do serviço (SPN)         |\<principalId\>         |Contribuidor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Uma vez criados estes grupos, pode atribuir os utilizadores conforme necessário. Adicione apenas os utilizadores que realmente precisam de ter acesso. Certifique-se de rever regularmente a adesão ao grupo e remover quaisquer utilizadores que já não sejam apropriados ou necessários para incluir.
 
 Tenha em mente que quando você [estiver a bordo de clientes através de uma oferta de serviço gerido pelo público,](../how-to/publish-managed-services-offers.md)qualquer grupo (ou utilizador ou diretor de serviço) que você inclua terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir diferentes grupos para trabalhar com cada cliente, terá de publicar um plano privado separado que seja exclusivo de cada cliente, ou clientes a bordo individualmente, utilizando modelos de Gestor de Recursos Azure. Por exemplo, pode publicar um plano público que tenha acesso muito limitado, e depois trabalhar com o cliente diretamente para bordo dos seus recursos para acesso adicional usando um Modelo de Recursos Azure personalizado que concede acesso adicional conforme necessário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar a autenticação multi-factor Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Conheça as [experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)

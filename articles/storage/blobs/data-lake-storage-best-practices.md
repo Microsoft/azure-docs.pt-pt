@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104882"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen2
 
@@ -76,11 +77,11 @@ Ao aterrar dados num lago de dados, é importante pré-planear a estrutura dos d
 
 Nas cargas de trabalho ioT, pode haver uma grande quantidade de dados a serem desembarcados na loja de dados que se estende por inúmeros produtos, dispositivos, organizações e clientes. É importante pré-planear o layout do diretório para organização, segurança e processamento eficiente dos dados para consumidores em fluxo. Um modelo geral a considerar pode ser o seguinte layout:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por exemplo, a telemetria de aterragem para um motor de avião no Reino Unido pode parecer a seguinte estrutura:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*REINO UNIDO/Aviões/BA1293/Motor1/2017/08/11/12/*
 
 Há uma razão importante para colocar a data no final da estrutura do diretório. Se pretender bloquear determinadas regiões ou sujeitar assuntos a utilizadores/grupos, então pode facilmente fazê-lo com as permissões POSIX. Caso contrário, se houvesse a necessidade de restringir um determinado grupo de segurança à visualização apenas dos dados do Reino Unido ou de certos aviões, com a estrutura da data à frente seria necessária uma autorização separada para numerosos diretórios ao abrigo de cada diretório de hora. Além disso, ter a estrutura da data à frente aumentaria exponencialmente o número de diretórios à medida que o tempo passava.
 
@@ -90,13 +91,13 @@ A partir de um nível elevado, uma abordagem comumente utilizada no processament
 
 Por vezes, o processamento de ficheiros não é bem sucedido devido à corrupção de dados ou a formatos inesperados. Nesses casos, a estrutura do diretório pode beneficiar de uma pasta **/má** para mover os ficheiros para uma inspeção posterior. O trabalho em lote também pode tratar do relatório ou notificação destes ficheiros *maus* para intervenção manual. Considere a seguinte estrutura do modelo:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter(s)}/out/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por exemplo, uma empresa de marketing recebe extratos diários de dados de atualizações de clientes dos seus clientes na América do Norte. Pode parecer o seguinte corte antes e depois de ser processado:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/Extratos/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
+*NA/Extratos/ACMEPaperCo/out/2017/08/14/processed_updates_08142017.csv*
 
 No caso comum de os dados dos lotes serem tratados diretamente em bases de dados como a Hive ou as bases de dados tradicionais do SQL, não há necessidade de uma pasta **/dentro** **ou/fora,** uma vez que a saída já vai para uma pasta separada para a tabela Hive ou base de dados externa. Por exemplo, extratos diários de clientes aterrariam nas respetivas pastas, e a orquestração por algo como Azure Data Factory, Apache Oozie ou Apache Airflow desencadearia um trabalho diário de Hive ou Spark para processar e escrever os dados numa tabela da Colmeia.

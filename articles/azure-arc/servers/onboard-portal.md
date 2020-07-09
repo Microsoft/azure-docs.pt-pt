@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: c1801c1b26742661987ea822a3cb1479f40ec059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751283"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103998"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -67,7 +67,7 @@ Pode instalar manualmente o agente 'Máquina Conectada' executando o pacote do I
 
 Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, é necessário executar um comando que é descrito mais tarde no artigo. Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` .
 
-Se não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, reveja [as opções padrão da linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [as opções de linha de comando Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Se não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, reveja [as opções padrão da linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [as opções de linha de comando Msiexec](/windows/win32/msi/command-line-options).
 
 Por exemplo, executar o programa de instalação com o `/?` parâmetro para rever a ajuda e a opção de referência rápida. 
 

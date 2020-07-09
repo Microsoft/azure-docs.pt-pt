@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: e4643f78482fe497dc90bb26c414331d46f7c7c2
-  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+  ms.openlocfilehash: f90782dc2edc9ce21b82c6b18e4efe014d160c20
+  ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/23/2020
-  ms.locfileid: "85212484"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86086743"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -119,7 +119,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: API do Reconhecedor de Formato v2.0
-      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
     - text: API do Reconhecedor de Formato v1.0
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: SDK .NET

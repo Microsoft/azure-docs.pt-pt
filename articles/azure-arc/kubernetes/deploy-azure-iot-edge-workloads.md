@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Implementar cargas de trabalho de borda IoTure Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193792"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103981"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Implementar cargas de trabalho de borda IoTure (pré-visualização)
 
@@ -25,7 +25,7 @@ Azure Arc e Azure IoT Edge complementam muito bem as capacidades uns dos outros.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-* [Registe um dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) e [implante o módulo de sensor de temperatura simulado](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Certifique-se de que regista a ligação do dispositivo.
+* [Registe um dispositivo IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) e [implante o módulo de sensor de temperatura simulado](../../iot-edge/quickstart-linux.md#deploy-a-module). Certifique-se de que regista a ligação do dispositivo.
 
 * Utilize o [suporte da IoT Edge para a Kubernetes](https://aka.ms/edgek8sdoc) para o implementar através do operador de fluxo de Azure Arc.
 

@@ -3,16 +3,16 @@ title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269135"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105273"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
-Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para a Azure delegada gestão de recursos. O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão mais eficientes.
+Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../overview.md) O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão mais eficientes.
 
 O Azure Sentinel fornece analítica de segurança e inteligência de ameaças, fornecendo uma única solução para deteção de alerta, visibilidade de ameaças, caça proativa e resposta a ameaças. Com o Azure Lighthouse, você pode gerir vários espaços de trabalho Azure Sentinel em todos os inquilinos em escala. Isto permite que cenários como executar consultas em vários espaços de trabalho, ou criar livros de trabalho para visualizar e monitorizar dados a partir das suas fontes de dados conectadas para obter insights. IP como consultas e playbooks permanecem no seu inquilino gerente, mas pode ser usado para realizar gestão de segurança nos inquilinos do cliente.
 
@@ -35,7 +35,7 @@ Este modelo centralizado de implantação tem as seguintes vantagens:
 
 ## <a name="granular-role-based-access-control-rbac"></a>Controlo de acesso baseado em funções granulares (RBAC)
 
-Cada subscrição de clientes que um MSSP irá gerir deve ser [a bordo para a gestão de recursos delegada da Azure.](onboard-customer.md) Isto permite que os utilizadores designados no inquilino gerente acedam e realizem operações de gestão em espaços de trabalho Azure Sentinel implantados em inquilinos de clientes.
+Cada subscrição de cliente que um MSSP irá gerir deve ser [a bordo do Farol de Azure.](onboard-customer.md) Isto permite que os utilizadores designados no inquilino gerente acedam e realizem operações de gestão em espaços de trabalho Azure Sentinel implantados em inquilinos de clientes.
 
 Ao criar as suas autorizações, pode atribuir as funções incorporadas do Azure Sentinel aos utilizadores, grupos ou diretores de serviços no seu inquilino-gerente:
 

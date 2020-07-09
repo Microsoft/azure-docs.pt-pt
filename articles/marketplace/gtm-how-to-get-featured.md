@@ -1,17 +1,18 @@
 ---
 title: Serviços Go-To-Market - Como entrar em destaque no mercado Mercado Azure
 description: Go-To-Market Services - Esta secção descreve como obter uma listagem em destaque no Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103573"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como ser apresentado no AppSource e no Azure Marketplace
 

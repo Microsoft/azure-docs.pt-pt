@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf22ce87ed3d535a7c1bd03a8d7f747bee3ab13a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465988"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106395"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -64,13 +65,13 @@ Para as cargas de trabalho da Colmeia, a poda de partição de dados da série d
 
 Os oleodutos que ingerem dados de séries de tempo, muitas vezes colocam os seus ficheiros com um nome muito estruturado para ficheiros e pastas. Abaixo está um exemplo muito comum que vemos para os dados que são estruturados por data:
 
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
 
 Note que as informações da data aparecem tanto como pastas como no nome de ficheiro.
 
 Para data e hora, o seguinte é um padrão comum
 
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Mais uma vez, a escolha que faz com a pasta e a organização de ficheiros deve otimizar para os tamanhos de ficheiros maiores e um número razoável de ficheiros em cada pasta.
 

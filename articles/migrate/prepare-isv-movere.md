@@ -3,11 +3,12 @@ title: Prepare a Azure Migrate para trabalhar com uma ferramenta ISV/Movere
 description: Este artigo descreve como preparar o Azure Migrate para trabalhar com uma ferramenta ISV ou Movere e, em seguida, como começar a usar a ferramenta.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770378"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103930"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Prepare-se para trabalhar com uma ferramenta ISV ou Movere
 
@@ -35,7 +36,7 @@ Na sua subscrição Azure, a sua conta precisa do acesso **microsoft.Authorizati
 1. No portal do Azure, abra as **Subscrições**.
 2. Selecione a subscrição relevante. Se não o vir, selecione o **filtro global de subscrições**. 
 3. Selecione **as minhas permissões.** Em seguida, **selecione Clique aqui para ver detalhes completos de acesso para esta subscrição**.
-4. Em **atribuições de funções**  >  **Ver,** verifique as permissões. Se a sua conta não tiver permissões, peça ao administrador de subscrição para o adicionar à função [de Administrador de Acesso](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ao Utilizador ou à função [Proprietário.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+4. Em **atribuições de funções**  >  **Ver,** verifique as permissões. Se a sua conta não tiver permissões, peça ao administrador de subscrição para o adicionar à função [de Administrador de Acesso](../role-based-access-control/built-in-roles.md#user-access-administrator) ao Utilizador ou à função [Proprietário.](../role-based-access-control/built-in-roles.md#owner)
 
 ## <a name="allow-access-to-urls"></a>Permitir o acesso aos URLs
 

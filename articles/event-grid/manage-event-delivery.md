@@ -1,18 +1,14 @@
 ---
 title: Carta morta e políticas de repetição - Azure Event Grid
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Desabrar um destino de letra morta e especificar quanto tempo para voltar a tentar a entrega.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
-ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72794042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105511"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Carta morta e políticas de relícula
 
@@ -129,7 +125,7 @@ New-AzEventGridSubscription `
 
 Se definir ambos `EventTtl` `MaxDeliveryAttempt` e, o Event Grid utiliza o primeiro para expirar para determinar quando parar a entrega do evento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma aplicação de amostra que utiliza uma aplicação Azure Function para processar eventos de letras mortas, consulte [amostras de letra morta da grelha de eventos Azure para .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)

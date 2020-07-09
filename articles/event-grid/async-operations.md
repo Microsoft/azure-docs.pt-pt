@@ -1,19 +1,16 @@
 ---
-title: Estado das operações assíncronos
-description: Descreve como rastrear operações assíncronas em Azure. Mostra os valores que usa para obter o estatuto de uma operação de longa duração.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+title: Estado das operações assíncronos da Grelha de Eventos
+description: Descreve como rastrear operações assíncronas da Grade de Eventos em Azure. Mostra os valores que usa para obter o estatuto de uma operação de longa duração.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.author: spelluru
-ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892020"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103335"
 ---
-# <a name="track-asynchronous-azure-operations"></a>Rastreio assíncrona operações de Azure assíncrona
+# <a name="track-event-grid-asynchronous-azure-operations"></a>Operações de Azure assíncrona de track Event Grid assíncronas
 Algumas operações do Azure REST funcionam de forma assíncrona porque a operação não pode ser concluída rapidamente. Este artigo descreve como rastrear o estado das operações assíncronas através de valores devolvidos na resposta.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Códigos de estado para operações assíncronos

@@ -105,12 +105,8 @@
       items:
         - name: Adicionar uma aplicação da cloud
           items:
-            - name: Adicionar uma aplicação de galeria
-              href: add-gallery-app.md
             - name: Adicionar uma aplicação que não seja de galeria
               href: add-non-gallery-app.md
-            - name: Alterar o nome ou o logótipo da aplicação
-              href: change-name-or-logo-portal.md
         - name: Configurar o início de sessão único
           items:
             - name: Configurar o início de sessão único baseado em SAML

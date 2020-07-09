@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 55cf57d283433936b0cba03b67de8726d0ee98c8
-  ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+  ms.openlocfilehash: 629616c00ffbc53500392c12155c077722cc310d
+  ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84945601"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86078600"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault

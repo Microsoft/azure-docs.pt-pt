@@ -3,15 +3,16 @@ title: Configurar um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102451"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
 
-Siga este artigo para criar um [aparelho Azure Migrate](deploy-appliance.md) para a avaliação/migração de VMware VMs e Hiper-VMs. Você executou um script para criar um aparelho, e verificar se ele pode ligar-se ao Azure. 
+Siga este artigo para criar um [aparelho Azure Migrate](./migrate-appliance-architecture.md) para a avaliação/migração de VMware VMs e Hiper-VMs. Você executou um script para criar um aparelho, e verificar se ele pode ligar-se ao Azure. 
 
 Pode implantar o aparelho para VMware e Hiper-VMs utilizando um script ou utilizando um modelo que descarrega a partir do portal Azure. A utilização de um script é útil se não conseguir criar um VM utilizando o modelo descarregado.
 
@@ -25,7 +26,7 @@ O script configura o aparelho Azure Migrate numa máquina física ou VM existent
 
 - A máquina que funcionará como aparelho deve satisfazer os seguintes requisitos de hardware e so:
 
-Scenario | Requirements
+Scenario | Requisitos
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
 Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco

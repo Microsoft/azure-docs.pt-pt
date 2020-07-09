@@ -1,18 +1,14 @@
 ---
 title: Recuperação de desastres geo na Grelha de Eventos de Azure Microsoft Docs
 description: Descreve como a Azure Event Grid suporta automaticamente a recuperação de geo desastres (GeoDR).
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
-ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66307321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105851"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastres geo-side do servidor na Grelha de Eventos Azure
 A Event Grid tem agora uma recuperação automática de geo-desastres (GeoDR) de meta-dados não só para novos, mas para todos os domínios, tópicos e subscrições de eventos existentes. Se toda uma região do Azure cair, a Event Grid já terá todos os seus metadados de infraestrutura relacionados com eventos sincronizados numa região emparelhada. Os seus novos eventos voltarão a fluir sem intervenção tua. 
@@ -36,5 +32,5 @@ A falha automática da Event Grid tem diferentes RPOs e RTOs para os seus metada
 > O custo para os metadados GeoDR na Grelha de Eventos é: $0.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se quiser implementar a sua própria lógica de failover do lado do cliente, consulte [# Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos](custom-disaster-recovery.md)

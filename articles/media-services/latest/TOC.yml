@@ -1,7 +1,5 @@
 - name: Documentação dos Serviços de Multimédia
   href: ./index.yml
-- name: Documentação sobre Mudar para o Live Video Analytics no IoT Edge
-  href: ../live-video-analytics-edge/overview.md
 - name: Descrição geral
   items:
     - name: Sobre os Serviços de Multimédia

@@ -1,18 +1,18 @@
 ---
 title: Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
 description: Aqui está como embarcar no Programa isv connect aplicações empresariais.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 7/12/2019
-ms.author: dsindona
-ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fe518cf5b01bbefd5b596b10dff27d0e3ecfcfcc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964894"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104952"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
 

@@ -1,18 +1,18 @@
 ---
 title: Guia de publicação para ofertas de modelo de solução de aplicações Azure - Azure Marketplace
 description: Este artigo descreve os requisitos para a publicação de modelos de solução no Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 4d395aa68c579b8e1271f4225ba57fa5f9932246
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9933e2fd170f8d2fd2f3b483670f184d0cd5eeb5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103063"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guia de publicação para ofertas de modelo de solução de aplicações Azure
 

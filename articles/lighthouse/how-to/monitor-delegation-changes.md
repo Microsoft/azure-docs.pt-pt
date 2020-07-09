@@ -1,18 +1,18 @@
 ---
 title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919131"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105171"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
-Como prestador de serviços, poderá querer estar ciente de que as subscrições de clientes ou grupos de recursos são delegados ao seu inquilino através da [gestão de recursos delegados da Azure,](../concepts/azure-delegated-resource-management.md)ou quando os recursos previamente delegados são removidos.
+Como prestador de serviços, poderá querer estar ciente de que as subscrições de clientes ou grupos de recursos são delegados ao seu inquilino através [do Farol Azure,](../overview.md)ou quando os recursos previamente delegados são removidos.
 
 No inquilino gerente, o [log de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md) acompanha a atividade da delegação ao nível do inquilino. Esta atividade registada inclui quaisquer delegações adicionadas ou removidas de todos os inquilinos do cliente.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba como embarcar clientes na [gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
+- Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

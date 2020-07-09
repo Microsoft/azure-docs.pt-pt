@@ -4,14 +4,14 @@ description: Saiba como gerir uma Base de Dados Azure para servidor MariaDB a pa
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79530245"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104695"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MariaDB utilizando o portal Azure
 Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MariaDB. As tarefas de gestão incluem o dimensionamento de cálculo e armazenamento, o reset da palavra-passe de administração e a visualização de detalhes do servidor.
@@ -102,6 +102,6 @@ Pode eliminar o seu servidor se já não precisar dele.
 3. Selecione **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais [sobre backups e restauro do servidor](howto-restore-server-portal.md)
 - Saiba mais sobre [opções de afinação e monitorização na Base de Dados Azure para MariaDB](concepts-monitoring.md)

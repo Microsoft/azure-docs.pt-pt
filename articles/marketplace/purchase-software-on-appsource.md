@@ -1,17 +1,18 @@
 ---
 title: Como adquirir software no AppSource Mercado Azure
 description: Passos para alguém comprar software no AppSource Mercado Azure.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 0271bd08e01cdbd442e64db0c04184995f7d8d09
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e3faad025a794b0ae9905fa73b090b55799f3279
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103043"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
 
@@ -19,7 +20,7 @@ O Microsoft [AppSource](https://appsource.microsoft.com/) permite agora que os c
 
 O AppSource fornece-lhe uma seleção de aplicações para escolher, incluindo gratuitas, testes e subscrições pagas. Este artigo descreve como as subscrições pagas podem ser compradas através do AppSource.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para comprar ofertas SaaS, você precisa:
 

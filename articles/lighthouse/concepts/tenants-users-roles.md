@@ -1,30 +1,30 @@
 ---
 title: Inquilinos, papéis e utilizadores em cenários do Farol de Azure
 description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser usados em cenários do Farol Azure.
-ms.date: 04/03/2020
+ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcfd1603469ba27971fffa8e7c46f0f696bb6a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105392"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, papéis e utilizadores em cenários do Farol de Azure
 
-Antes de embarcar clientes para a [Azure delegada gestão](azure-delegated-resource-management.md)de recursos, é importante entender como os inquilinos, utilizadores e funções da Azure Ative Directory (Azure AD) funcionam, bem como como podem ser usados em cenários do Farol de Azure.
+Antes de embarcar clientes para [o Azure Lighthouse,](../overview.md)é importante entender como os inquilinos, utilizadores e funções da Azure Ative Directory (Azure AD) funcionam, bem como como podem ser usados em cenários do Farol Azure.
 
-Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cada inquilino representa uma única organização. A gestão de recursos delegados Azure permite a projeção lógica de recursos de um inquilino para outro inquilino. Isto permite que os utilizadores do inquilino gerente (como um pertencente a um prestador de serviços) acedam a recursos delegados no inquilino de um cliente, ou permitem que [empresas com vários inquilinos centralizem as suas operações de gestão.](enterprise.md)
+Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cada inquilino representa uma única organização. [A gestão de recursos delegados Azure](azure-delegated-resource-management.md) permite a projeção lógica de recursos de um inquilino para outro inquilino. Isto permite que os utilizadores do inquilino gerente (como um pertencente a um prestador de serviços) acedam a recursos delegados no inquilino de um cliente, ou permitem que [empresas com vários inquilinos centralizem as suas operações de gestão.](enterprise.md)
 
 Para alcançar esta projeção lógica, uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição) no arrendatário do cliente deve ser *a bordo* para a gestão de recursos delegados da Azure. Este processo de embarque pode ser feito [através de modelos Azure Resource Manager](../how-to/onboard-customer.md) ou através da publicação de uma oferta pública ou privada ao [Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
 Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica uma conta de utilizador no inquilino gerente que terá acesso aos recursos delegados, e uma função incorporada que define as permissões que cada um destes utilizadores terá para estes recursos.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Apoio de função à Azure delegada gestão de recursos
+## <a name="role-support-for-azure-lighthouse"></a>Apoio de função para o Farol de Azure
 
 Ao definir uma autorização, cada conta de utilizador deve ser atribuída a uma das [funções de controlo de acesso (RBAC) incorporadas.](../../role-based-access-control/built-in-roles.md) As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 
-Todas as [funções incorporadas](../../role-based-access-control/built-in-roles.md) são atualmente apoiadas com a gestão de recursos delegada da Azure, com as seguintes exceções:
+Todas as [funções incorporadas](../../role-based-access-control/built-in-roles.md) são atualmente suportadas com o Farol Azure, com as seguintes exceções:
 
 - A função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) não é suportada.
 - Quaisquer funções incorporadas com permissão [DataActions](../../role-based-access-control/role-definitions.md#dataactions) não são suportadas.
@@ -45,7 +45,7 @@ Ao criar as suas autorizações, recomendamos as seguintes boas práticas:
 > [!IMPORTANT]
 > Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser a **Segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais [sobre as práticas de segurança recomendadas para a gestão de recursos delegados da Azure.](recommended-security-practices.md)
-- A bordo dos seus clientes para a Azure delegada gestão de recursos, quer [através da utilização de modelos do Azure Resource Manager,](../how-to/onboard-customer.md) quer através [da publicação de uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
+- Saiba mais [sobre as práticas de segurança recomendadas para o Farol Azure.](recommended-security-practices.md)
+- A bordo dos seus clientes para o Azure Lighthouse, quer [utilizando modelos de Gestor de Recursos Azure,](../how-to/onboard-customer.md) quer [publicando uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)

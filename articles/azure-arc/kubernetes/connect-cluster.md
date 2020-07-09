@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341390"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104286"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
@@ -30,7 +30,7 @@ Verifique se tem os seguintes requisitos prontos:
 * Você precisará de um ficheiro kubeconfig para aceder ao cluster e papel de administração de cluster no cluster para implantação de agentes Kubernetes habilitados pela Arc.
 * O utilizador ou o principal de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões de 'Ler' e 'Escrever' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Azure Arc for Kubernetes Onboarding" com estas permissões pode ser usada para atribuições de funções no utilizador ou principal de serviço utilizado com Azure CLI para o embarque.
 * O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
-* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
+* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
 * Instale as extensões CLI ativadas pelo Arco:
   
   Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:

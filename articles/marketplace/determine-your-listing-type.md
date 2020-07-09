@@ -1,18 +1,18 @@
 ---
 title: Determine a sua opção de publicação - Mercado comercial da Microsoft
 description: Este artigo descreve critérios de elegibilidade e requisitos para a publicação de ofertas ao Microsoft AppSource e ao Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027108"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103658"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 

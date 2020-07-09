@@ -4,15 +4,16 @@ description: Este artigo descreve como configurar e aceder aos registos de consu
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81270605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104984"
 ---
-# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta a partir do portal Azure
+# <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurar e aceder à Base de Dados de Azure para registos de consulta lenta de Maria DB a partir do portal Azure
 
 Pode configurar, listar e baixar a [Base de Dados Azure para registos de consulta lenta mariaDB](concepts-server-logs.md) a partir do portal Azure.
 
