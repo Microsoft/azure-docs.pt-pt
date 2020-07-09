@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478283"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131333"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastres para uma aplicação web baseada em IIS de vários níveis
 
@@ -31,7 +31,7 @@ Este artigo descreve como proteger uma aplicação web baseada em Serviços de I
 Antes de começar, certifique-se de que sabe como fazer as seguintes tarefas:
 
 * [Replicar uma máquina virtual para Azure](vmware-azure-tutorial.md)
-* [Desenhe uma rede de recuperação](site-recovery-network-design.md)
+* [Desenhe uma rede de recuperação](./concepts-on-premises-to-azure-networking.md)
 * [Faça um teste de failover para Azure](site-recovery-test-failover-to-azure.md)
 * [Faça um failover para Azure](site-recovery-failover.md)
 * [Replicar um controlador de domínio](site-recovery-active-directory.md)
@@ -58,12 +58,12 @@ Para os exemplos deste artigo, utilizamos máquinas virtuais VMware com IIS 7.5 
 
 ### <a name="source-and-target"></a>Fonte e alvo
 
-Cenário | Para um site secundário | Para o Azure
+Scenario | Para um site secundário | Para o Azure
 --- | --- | ---
 Hyper-V | Sim | Sim
 VMware | Sim | Sim
-Servidor físico | Não | Yes
-Azure|ND|Yes
+Servidor físico | Não | Sim
+Azure|ND|Sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
@@ -92,7 +92,7 @@ Para mais informações, consulte [Personalizar o plano de recuperação.](site-
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Adicione um roteiro ao plano de recuperação
-Para que a web farm IIS funcione corretamente, poderá ser necessário fazer algumas operações nas máquinas virtuais Azure pós-failover ou durante um teste de failover. Pode automatizar algumas operações pós-falha. Por exemplo, pode atualizar a entrada de DNS, alterar uma ligação do site ou alterar uma cadeia de ligação adicionando scripts correspondentes ao plano de recuperação. [Adicione um script VMM a um plano de recuperação](site-recovery-how-to-add-vmmscript.md) descreve como configurar tarefas automatizadas usando um script.
+Para que a web farm IIS funcione corretamente, poderá ser necessário fazer algumas operações nas máquinas virtuais Azure pós-failover ou durante um teste de failover. Pode automatizar algumas operações pós-falha. Por exemplo, pode atualizar a entrada de DNS, alterar uma ligação do site ou alterar uma cadeia de ligação adicionando scripts correspondentes ao plano de recuperação. [Adicione um script VMM a um plano de recuperação](./hyper-v-vmm-recovery-script.md) descreve como configurar tarefas automatizadas usando um script.
 
 #### <a name="dns-update"></a>Atualização dns
 Se o DNS estiver configurado para uma atualização dinâmica do DNS, as máquinas virtuais normalmente atualizam o DNS com o novo endereço IP quando iniciam. Se pretender adicionar um passo explícito para atualizar o DNS com os novos endereços IP das máquinas virtuais, adicione um [script para atualizar IP em DNS](https://aka.ms/asr-dns-update) como uma ação pós-failover em grupos de plano de recuperação.  
@@ -158,5 +158,5 @@ Para obter mais informações, consulte [test failover to Azure in Site Recovery
 
 Para obter mais informações, consulte [Failover na Recuperação do Local.](site-recovery-failover.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [a replicação de outras aplicações](site-recovery-workload.md) utilizando a Recuperação do Site.

@@ -5,15 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130398"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Resolução de problemas na recuperação de desastres da Azure VM
 
-Este artigo descreve problemas comuns na Recuperação do Site Azure quando está a replicar e a recuperar máquinas virtuais Azure (VM) de uma região para outra região. Também explica como resolver os problemas comuns. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve problemas comuns na Recuperação do Site Azure quando está a replicar e a recuperar máquinas virtuais Azure (VM) de uma região para outra região. Também explica como resolver os problemas comuns. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs Azure](./azure-to-azure-support-matrix.md).
 
 A recuperação do local de azure replica consistentemente os dados da região de origem para a região de recuperação de desastres. Também cria um ponto de recuperação consistente a cada 5 minutos. Se a Recuperação do Site não conseguir criar pontos de recuperação durante 60 minutos, alerta-o com esta informação:
 
@@ -77,7 +78,7 @@ Um aumento na taxa de mudança de dados pode vir de uma explosão de dados ocasi
 
 A Recuperação do Site envia dados replicados para a conta de armazenamento de cache. Poderá sentir latência de rede se o envio dos dados de uma máquina virtual para a conta de armazenamento de cache for mais lento do que 4 MB em 3 segundos.
 
-Para verificar se há um problema relacionado com a latência, utilize [a AzCopy](/azure/storage/common/storage-use-azcopy). Pode utilizar este utilitário de linha de comando para enviar dados da máquina virtual para a conta de armazenamento de cache. Se a latência for elevada, verifique se está a utilizar um aparelho virtual de rede (NVA) para controlar o tráfego de rede de saída dos VM. O aparelho pode ser estrangulado se todo o tráfego de replicação passar pela NVA.
+Para verificar se há um problema relacionado com a latência, utilize [a AzCopy](../storage/common/storage-use-azcopy-v10.md). Pode utilizar este utilitário de linha de comando para enviar dados da máquina virtual para a conta de armazenamento de cache. Se a latência for elevada, verifique se está a utilizar um aparelho virtual de rede (NVA) para controlar o tráfego de rede de saída dos VM. O aparelho pode ser estrangulado se todo o tráfego de replicação passar pela NVA.
 
 Recomendamos a criação de um ponto final de serviço de rede na sua rede virtual para "Armazenamento" para que o tráfego de replicação não vá para a NVA. Para obter mais informações, consulte [a configuração do aparelho virtual network](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
@@ -107,7 +108,7 @@ Seguem-se algumas das questões mais comuns.
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Consistência de aplicativos não ativada nos servidores Linux
 
-**Como corrigir** : A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com opções pré e post será usado pelo Agente de Mobilidade de Recuperação do Site Azure para obter consistência de aplicações. [Aqui](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) estão os passos para o permitir.
+**Como corrigir** : A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com opções pré e post será usado pelo Agente de Mobilidade de Recuperação do Site Azure para obter consistência de aplicações. [Aqui](./site-recovery-faq.md#replication) estão os passos para o permitir.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Mais causas devido a problemas relacionados com VSS:
 

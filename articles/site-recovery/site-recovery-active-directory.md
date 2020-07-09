@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132320"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para o Ative Directory e DNS
 
@@ -25,7 +25,7 @@ Este artigo explica como criar uma solução de recuperação de desastres para 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se estiver a replicar-se para o Azure, [prepare os recursos do Azure,](tutorial-prepare-azure.md)incluindo uma subscrição, uma Rede Virtual Azure, uma conta de armazenamento e um cofre dos Serviços de Recuperação.
-- Reveja os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
+- Reveja os [requisitos de suporte](./vmware-physical-azure-support-matrix.md) de todos os componentes.
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
@@ -206,6 +206,6 @@ Se o DNS não estiver no mesmo VM que o controlador de domínio, é necessário 
    dnscmd /config contoso.com /allowupdate 1
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais](site-recovery-workload.md) sobre como proteger as cargas de trabalho da empresa com a Recuperação do Site Azure.

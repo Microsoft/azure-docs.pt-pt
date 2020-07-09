@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132416"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -48,7 +48,7 @@ A tabela seguinte resume o suporte vM. A Recuperação do Site suporta quaisquer
  **Componente** | **Detalhes**
 --- | ---
 Configuração VM | Os VMs que se replicam ao Azure devem satisfazer os [requisitos do Azure](#azure-vm-requirements).
-Sistema operativo convidado | Qualquer convidado do OS [apoiado para a Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)..<br/><br/> O Windows Server 2016 Nano Server não é suportado.
+Sistema operativo convidado | Qualquer convidado do OS [apoiado para a Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases)..<br/><br/> O Windows Server 2016 Nano Server não é suportado.
 
 
 ## <a name="vmdisk-management"></a>Gestão de VM/Disco
@@ -157,7 +157,7 @@ Os VMs no local que replicar para Azure devem satisfazer os requisitos Azure VM 
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | A Recuperação do Site suporta todos os sistemas operativos suportados [pelo Azure.](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)  | Pré-requisitos a verificação falha se não for suportado.
+Sistema operativo convidado | A Recuperação do Site suporta todos os sistemas operativos suportados [pelo Azure.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))  | Pré-requisitos a verificação falha se não for suportado.
 Arquitetura do sistema operativo convidado | 32 bits (Windows Server 2008)/64-bit | Pré-requisitos a verificação falha se não for suportado.
 Tamanho do disco do sistema operativo | Até 2.048 GB para a geração 1 VMs.<br/><br/> Até 300 GB para a geração 2 VMs.  | Pré-requisitos a verificação falha se não for suportado.
 Contagem de discos do sistema operativo | 1 | Pré-requisitos a verificação falha se não for suportado.

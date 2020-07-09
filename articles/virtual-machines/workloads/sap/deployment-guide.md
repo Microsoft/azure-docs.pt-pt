@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361392"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133149"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -211,6 +211,7 @@ ms.locfileid: "85361392"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Cópia de discos entre contas de armazenamento Azure)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Estrutura VM/VHD para implantações DE SAP)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Definição automática para discos anexos)
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solução de monitorização Azure para SAP)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -913,7 +914,7 @@ Para obter mais informações sobre as rotas definidas pelo utilizador, consulte
 > Declaração geral de apoio: Abra sempre um incidente com o SAP sobre o componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR se precisar de suporte para a Extensão Azure para SAP.
 > Existem engenheiros de suporte dedicados da Microsoft a trabalhar no sistema de suporte SAP para ajudar os nossos clientes conjuntos.
 
-Quando tiver preparado o VM como descrito nos [cenários de implementação de VMs para SAP on Azure,][deployment-guide-3]o Agente VM Azure está instalado na máquina virtual. O próximo passo é implantar a Extensão Azure para o SAP, que está disponível no Repositório de Extensão Azure nos datacenters globais do Azure. Para obter mais informações, consulte [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
+Quando tiver preparado o VM como descrito nos [cenários de implementação de VMs para SAP on Azure,][deployment-guide-3]o Agente VM Azure está instalado na máquina virtual. O próximo passo é implantar a Extensão Azure para o SAP, que está disponível no Repositório de Extensão Azure nos datacenters globais do Azure. Para obter mais informações, consulte [o planeamento e implementação de Máquinas Virtuais Azure para o SAP NetWeaver][planning-guide-9.1].
 
 Estamos em vias de lançar uma nova versão da Extensão Azure para SAP. A nova extensão utiliza a identidade atribuída ao sistema da máquina virtual para obter informações sobre os discos anexos, interfaces de rede e a própria máquina virtual. Para poder aceder a estes recursos, a identidade do sistema da máquina virtual necessita de permissão do Leitor para a máquina virtual, disco DE, discos de dados e interfaces de rede. Atualmente, recomendamos apenas instalar a nova extensão nos seguintes cenários:
 

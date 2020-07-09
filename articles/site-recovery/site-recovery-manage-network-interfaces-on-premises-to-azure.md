@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954595"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129885"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerir interfaces de rede VM para recuperação de desastres no local para Azure
 
@@ -25,7 +26,7 @@ Por predefinição, o Azure Site Recovery cria tantas interfaces de rede numa m�
 
 ## <a name="select-the-target-network"></a>Selecione a rede alvo
 
-Para máquinas virtuais VMware e físicas, e para máquinas virtuais Hyper-V (sem System Center Virtual Machine Manager), pode especificar a rede virtual alvo para máquinas virtuais individuais. Para máquinas virtuais Hiper-V geridas com O Gestor de Máquinas Virtuais, utilize [o mapeamento de rede](site-recovery-network-mapping.md) para mapear redes VM num servidor virtual de gestor de máquinas de origem e redes Azure alvo.
+Para máquinas virtuais VMware e físicas, e para máquinas virtuais Hyper-V (sem System Center Virtual Machine Manager), pode especificar a rede virtual alvo para máquinas virtuais individuais. Para máquinas virtuais Hiper-V geridas com O Gestor de Máquinas Virtuais, utilize [o mapeamento de rede](./hyper-v-vmm-network-mapping.md) para mapear redes VM num servidor virtual de gestor de máquinas de origem e redes Azure alvo.
 
 1. Em **itens replicados** num cofre dos Serviços de Recuperação, selecione qualquer item replicado para aceder às definições desse item replicado.
 

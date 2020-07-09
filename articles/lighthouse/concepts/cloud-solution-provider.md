@@ -1,13 +1,14 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
 description: Para os parceiros da CSP, a gestão de recursos delegada da Azure ajuda a melhorar a segurança e o controlo, permitindo permissões granulares.
-ms.date: 12/18/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15b66568ae468d772c0fb7141a10e336cd94afc3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921626"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131508"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Farol Azure e o programa Cloud Solution Provider
 
@@ -26,19 +27,19 @@ Com a AOBO, qualquer utilizador com o papel [de Agente Administrador](/partner-c
 
 ## <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-Utilizando a gestão de recursos delegados do Azure, pode atribuir diferentes grupos a diferentes clientes ou funções, como mostrado no diagrama seguinte. Uma vez que os utilizadores terão o nível de acesso adequado através da gestão de recursos delegados do Azure, pode reduzir o número de utilizadores que têm a função de Agente Administrador (e assim ter acesso total ao AOBO). Isto ajuda a melhorar a segurança limitando o acesso desnecessário aos recursos dos seus clientes. Também lhe dá mais flexibilidade para gerir vários clientes em escala.
+Utilizando o Farol Azure, pode atribuir diferentes grupos a diferentes clientes ou funções, como mostra o diagrama seguinte. Uma vez que os utilizadores terão o nível de acesso adequado através da gestão de recursos delegados do Azure, pode reduzir o número de utilizadores que têm a função de Agente Administrador (e assim ter acesso total ao AOBO). Isto ajuda a melhorar a segurança limitando o acesso desnecessário aos recursos dos seus clientes. Também lhe dá mais flexibilidade para gerir vários clientes em escala.
 
-A bordo de uma subscrição que criou através do programa CSP segue os passos descritos no [A bordo de uma subscrição da gestão de recursos delegados da Azure.](../how-to/onboard-customer.md) Qualquer utilizador que tenha o papel de Agente Administrativo no seu inquilino pode realizar este embarque.
+A bordo de uma subscrição que criou através do programa CSP segue os passos descritos a [bordo de uma subscrição do Farol Azure.](../how-to/onboard-customer.md) Qualquer utilizador que tenha o papel de Agente Administrativo no seu inquilino pode realizar este embarque.
 
 ![Gestão de inquilinos utilizando a GESTÃO DE RECURSOS DELEGADA AOBO e Azure delegada](../media/csp-2.jpg)
 
 > [!NOTE]
-> A página [ **dos meus clientes** no portal Azure](../how-to/view-manage-customers.md) inclui agora uma secção **cloud solution provider (Preview),** que exibe informações e recursos de faturação para clientes da CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started) Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../billing/mpa-overview.md).
+> A página [ **dos meus clientes** no portal Azure](../how-to/view-manage-customers.md) inclui agora uma secção **cloud solution provider (Preview),** que exibe informações e recursos de faturação para clientes da CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started) Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../cost-management-billing/understand/mpa-overview.md).
 >
 > Os clientes da CSP podem aparecer nesta secção, quer também tenham sido acedidos para a gestão de recursos delegados da Azure. Se o fizerem, também aparecerão na secção **Clientes,** conforme descrito no [View e gerirão clientes e recursos delegados.](../how-to/view-manage-customers.md) Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar na gestão de recursos delegados da Azure.
 
 ## <a name="next-steps"></a>Próximos passos
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)
-- Saiba como embarcar [uma subscrição da Azure delegada na gestão de recursos.](../how-to/onboard-customer.md)
+- Saiba como embarcar [numa subscrição do Azure Lighthouse.](../how-to/onboard-customer.md)
 - Saiba mais sobre o [programa Cloud Solution Provider](/partner-center/csp-overview).

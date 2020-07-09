@@ -6,11 +6,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710240"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132515"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Confiem da recuperação de desastres para a Azure para VMs hiper-V usando PowerShell e Azure Resource Manager
 
@@ -24,7 +25,7 @@ Este artigo descreve como usar o Windows PowerShell, juntamente com o Azure Reso
 
 A Azure PowerShell fornece cmdlets para gerir o Azure utilizando o Windows PowerShell. Os cmdlets PowerShell de Recuperação de Sítios, disponíveis com a Azure PowerShell para Azure Resource Manager, ajudam-no a proteger e a recuperar os seus servidores em Azure.
 
-Não é preciso ser um especialista em PowerShell para usar este artigo, mas precisa de compreender conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações, consulte a [Documentação PowerShell](/powershell) e [utilizar a Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Não é preciso ser um especialista em PowerShell para usar este artigo, mas precisa de compreender conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações, consulte a [Documentação PowerShell](/powershell) e [utilizar a Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 > [!NOTE]
 > Os parceiros da Microsoft no programa Cloud Solution Provider (CSP) podem configurar e gerir a proteção dos servidores dos clientes às respetivas subscrições CSP (subscrições de inquilinos).

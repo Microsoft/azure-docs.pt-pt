@@ -3,11 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131078"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -21,6 +22,7 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 
 **Atualizar** |  **Configuração Unificada** | **Óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Sítios** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -31,6 +33,17 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 
 > [!NOTE]
 > O rollup de atualização 44 não é mostrado na tabela porque não incluiu atualizações para os fornecedores e agentes de Recuperação do Site.
+
+## <a name="updates-june-2020"></a>Atualizações (junho de 2020)
+
+### <a name="update-rollup-47"></a>Atualização rollup 47
+
+[O rollup de atualização 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para agentes e fornecedores de Recuperação de Locais conforme detalhado no rollup.
+**Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup.
 
 ## <a name="updates-june-2020"></a>Atualizações (junho de 2020)
 
@@ -345,8 +358,8 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Mapeamento da rede** | Para a recuperação de desastres em Azure VM, pode agora utilizar qualquer rede alvo disponível quando ativar a replicação.
-**SSD Standard** | Pode agora configurar a recuperação de desastres para os VMs Azure utilizando [discos SSD standard](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
-**Direto de Espaços de Armazenamento** | Pode configurar a recuperação de desastres para aplicações em execução em aplicações Azure VM, utilizando [espaços de armazenamento direto](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para uma alta disponibilidade.  A utilização de espaços de armazenamento diretos (S2D) juntamente com a Recuperação do Local proporciona uma proteção abrangente das cargas de trabalho do Azure VM. O S2D permite-lhe acolher um cluster de hóspedes em Azure. Isto é especialmente útil quando um VM acolhe uma aplicação crítica, como a camada SAP ASCS, o SQL Server ou o servidor de ficheiros scale-out.
+**SSD Standard** | Pode agora configurar a recuperação de desastres para os VMs Azure utilizando [discos SSD standard](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Direto de Espaços de Armazenamento** | Pode configurar a recuperação de desastres para aplicações em execução em aplicações Azure VM, utilizando [espaços de armazenamento direto](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para uma alta disponibilidade.  A utilização de espaços de armazenamento diretos (S2D) juntamente com a Recuperação do Local proporciona uma proteção abrangente das cargas de trabalho do Azure VM. O S2D permite-lhe acolher um cluster de hóspedes em Azure. Isto é especialmente útil quando um VM acolhe uma aplicação crítica, como a camada SAP ASCS, o SQL Server ou o servidor de ficheiros scale-out.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastres VMware/servidor físico
@@ -364,7 +377,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 ### <a name="accelerated-networking-azure-vms"></a>Rede acelerada (Azure VMs)
 
-A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando o desempenho da rede. Quando ativa a replicação de um VM Azure, a Recuperação do Local deteta se a rede acelerada está ativada. Se for, após falha de funcionamento, a Recuperação do Site configura automaticamente a rede acelerada na réplica-alvo Azure VM, tanto para [o Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) como para [o Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando o desempenho da rede. Quando ativa a replicação de um VM Azure, a Recuperação do Local deteta se a rede acelerada está ativada. Se for, após falha de funcionamento, a Recuperação do Site configura automaticamente a rede acelerada na réplica-alvo Azure VM, tanto para [o Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como para [o Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -426,7 +439,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 **Apoio Técnico para Linux** | Foi adicionado suporte para Oracle Linux 6.8, Oracle Linux 6.9 e Oracle Linux 7.0 com o Kernel Compatível com chapéu vermelho, e para o Lançamento 5 do Kernel da Empresa Inquebrável (UEK).
 **Sistema de ficheiros Linux BRTFS** | Apoiado para VMs Azure.
 **VMs Azure em zonas de disponibilidade** | Pode permitir a replicação para outra região para VMs Azure implantados em zonas de disponibilidade. Agora pode ativar a replicação de um VM Azure, e definir o alvo para falha de falha para uma única instância VM, um VM em um conjunto de disponibilidade, ou um VM em uma zona de disponibilidade. A definição não afeta a replicação. [Leia](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) o anúncio.
-**Armazenamento ativado por firewall (portal/PowerShell)** | Suporte adicionado para [contas de armazenamento ativadas por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Pode replicar VMs Azure com discos não geridos em contas de armazenamento ativadas por firewall para outra região de Azure para a recuperação de desastres.<br/><br/> Pode utilizar contas de armazenamento ativadas por firewall como contas de armazenamento de alvo para discos não geridos.<br/><br/> Suportado no portal e utilizando o PowerShell.
+**Armazenamento ativado por firewall (portal/PowerShell)** | Suporte adicionado para [contas de armazenamento ativadas por firewall](../storage/common/storage-network-security.md).<br/><br/> Pode replicar VMs Azure com discos não geridos em contas de armazenamento ativadas por firewall para outra região de Azure para a recuperação de desastres.<br/><br/> Pode utilizar contas de armazenamento ativadas por firewall como contas de armazenamento de alvo para discos não geridos.<br/><br/> Suportado no portal e utilizando o PowerShell.
 
 ## <a name="updates-december-2018"></a>Atualizações (dezembro de 2018)
 
@@ -467,7 +480,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 **Suporte de região** | Suporte de recuperação do local adicionado para Austrália Central 1 e Austrália Central 2.
 **Suporte para encriptação de discos** | Suporte adicionado para recuperação de desastres de VMs Azure encriptados com Encriptação de Disco Azure (ADE) com a aplicação AD AZure. [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **Exclusão do disco** | Os discos não iniciados são agora automaticamente excluídos durante a replicação do Azure VM.
-**Armazenamento ativado por firewall (PowerShell)** | Suporte adicionado para [contas de armazenamento ativadas por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Pode replicar VMs Azure com discos não geridos em contas de armazenamento ativadas por firewall para outra região de Azure para a recuperação de desastres.<br/><br/> Pode utilizar contas de armazenamento ativadas por firewall como contas de armazenamento de alvo para discos não geridos.<br/><br/> Suportado apenas com PowerShell.
+**Armazenamento ativado por firewall (PowerShell)** | Suporte adicionado para [contas de armazenamento ativadas por firewall](../storage/common/storage-network-security.md).<br/><br/> Pode replicar VMs Azure com discos não geridos em contas de armazenamento ativadas por firewall para outra região de Azure para a recuperação de desastres.<br/><br/> Pode utilizar contas de armazenamento ativadas por firewall como contas de armazenamento de alvo para discos não geridos.<br/><br/> Suportado apenas com PowerShell.
 
 
 ### <a name="update-rollup-29"></a>Atualização rollup 29
@@ -505,7 +518,7 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Apoio Técnico para Linux** | Suporte adicionado para RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Os VMs baseados em Linux que utilizam o estilo de partição da tabela GUID (GPT) no modo de compatibilidade BIOS legacy são agora suportados. Reveja as [FAQ Azure VM](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) para obter mais informações.
+**Apoio Técnico para Linux** | Suporte adicionado para RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Os VMs baseados em Linux que utilizam o estilo de partição da tabela GUID (GPT) no modo de compatibilidade BIOS legacy são agora suportados. Reveja as [FAQ Azure VM](../virtual-machines/linux/faq-for-disks.md) para obter mais informações.
 **Recuperação de desastres para VMs após migração** | Suporte para permitir a recuperação de desastres para uma região secundária para um VMware VM no local migraram para Azure, sem necessidade de desinstalar o serviço de Mobilidade no VM antes de permitir a replicação.
 **Windows Server 2008** | Suporte para máquinas migratórias que executam o Windows Server 2008 R2/2008 64-bits e 32-bit.<br/><br/> Migração (replicação e failover). O failback não é apoiado.
 

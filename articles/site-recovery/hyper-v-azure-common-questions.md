@@ -3,11 +3,12 @@ title: Questões comuns para recuperação de desastres hiper-V com recuperaçã
 description: Este artigo resume questões comuns sobre a criação de recuperação de desastres para os Hiper-V VMs para Azure no local, utilizando o site de recuperação do local de Azure.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195263"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132656"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre de Hyper-V para o Azure
 
@@ -31,17 +32,17 @@ Normalmente, verá um aumento do custo das transações incorridas nas contas de
 
 Para o servidor de anfitrião Hyper-V, o que precisa depende do cenário de implementação. Confira os pré-requisitos do Hyper-V para:
 
-* [Replicar VMs Hyper-V (sem o VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicar VMs Hyper-V (com o VMM) para o Azure](site-recovery-vmm-to-azure.md)
-* [Replicar VMs Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
-* Se estiver a replicar-se num centro de dados secundário, leia-se sobre [sistemas operativos de hóspedes suportados para Hiper-VMs](https://technet.microsoft.com/library/mt126277.aspx).
-* Se estiver a replicar o Azure, a Recuperação do Site suporta todos os sistemas operativos convidados que são [suportados pelo Azure.](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)
+* [Replicar VMs Hyper-V (sem o VMM) para o Azure](./hyper-v-azure-tutorial.md)
+* [Replicar VMs Hyper-V (com o VMM) para o Azure](./hyper-v-vmm-disaster-recovery.md)
+* [Replicar VMs Hyper-V para um datacenter secundário](./hyper-v-vmm-disaster-recovery.md)
+* Se estiver a replicar-se num centro de dados secundário, leia-se sobre [sistemas operativos de hóspedes suportados para Hiper-VMs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11)).
+* Se estiver a replicar o Azure, a Recuperação do Site suporta todos os sistemas operativos convidados que são [suportados pelo Azure.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Posso proteger os VM quando o Hyper-V está a funcionar num sistema operativo de clientes?
-Não, as VMs têm de estar localizadas num servidor de anfitrião Hyper-V que está a ser executado na máquina do servidor Windows suportada. Se precisar de proteger um computador cliente, poderá replicá-lo como uma máquina física para o [Azure](site-recovery-vmware-to-azure.md) ou um [centro de dados secundário](site-recovery-vmware-to-vmware.md).
+Não, as VMs têm de estar localizadas num servidor de anfitrião Hyper-V que está a ser executado na máquina do servidor Windows suportada. Se precisar de proteger um computador cliente, poderá replicá-lo como uma máquina física para o [Azure](./vmware-azure-tutorial.md) ou um [centro de dados secundário](./vmware-physical-secondary-disaster-recovery.md).
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Os anfitriões Hiper-V precisam de estar nas nuvens de VMM?
-Se pretender replicar-se num centro de dados secundário, então os VMs Hiper-V devem estar nos servidores de anfitriões Hiper-V localizados numa nuvem VMM. Se quiser replicar para Azure, então pode replicar VMs com ou sem nuvens VMM. [Leia mais](tutorial-hyper-v-to-azure.md) sobre a replicação do Hiper-V para Azure.
+Se pretender replicar-se num centro de dados secundário, então os VMs Hiper-V devem estar nos servidores de anfitriões Hiper-V localizados numa nuvem VMM. Se quiser replicar para Azure, então pode replicar VMs com ou sem nuvens VMM. [Leia mais](./hyper-v-azure-tutorial.md) sobre a replicação do Hiper-V para Azure.
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
@@ -70,7 +71,7 @@ A Recuperação do Local é ISO 27001:2013, 27018, HIPAA, DPA certificada, e est
 Sim. Quando cria um cofre numa região, garantimos que todos os metadados utilizados pela Recuperação do Site permanecem dentro do limite geográfico daquela região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
-Sim, tanto a encriptação em trânsito como [a encriptação em Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) são suportadas.
+Sim, tanto a encriptação em trânsito como [a encriptação em Azure](../storage/common/storage-service-encryption.md) são suportadas.
 
 
 ## <a name="deployment"></a>Implementação

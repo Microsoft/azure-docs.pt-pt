@@ -1,18 +1,18 @@
 ---
 title: Criar uma oferta dinâmica 365 para o envolvimento do cliente & PowerApps no mercado comercial da Microsoft
 description: Como criar uma nova Oferta dinâmica 365 para o envolvimento do cliente & oferta de PowerApps para listagem ou venda no Azure Marketplace, AppSource ou através do programa Cloud Solution Provider (CSP) no Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 26f61f6ba2f8fb4c394bc1ce8ee96dfd955dfb8b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980661"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121933"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 

@@ -4,12 +4,12 @@ description: Conheça o serviço Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564119"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122086"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -34,11 +34,11 @@ O hub Azure Migrate inclui estas ferramentas:
 --- | --- | ---
 **Azure Migrate: Avaliação do servidor** | Avaliar servidores. | Descubra e avalie no local VMware VMs, VMs hiper-V e servidores físicos em preparação para a migração para Azure.
 **Azure Migrate: Migração de servidores** | Migrar servidores. | Migrar VMware VMs, VMs Hiper-V, servidores físicos, outras máquinas virtualizadas e VMs de nuvem pública para Azure.
-**Assistente de Migração de Dados** | Avaliar bases de dados do SQL Server para migração para Azure SQL Database, Azure SQL Managed Instance ou Azure VMs que executam o SQL Server. | Data Migration Assistant ajuda a identificar potenciais problemas que bloqueiam a migração. Identifica funcionalidades não apoiadas, novas funcionalidades que podem beneficiar-te após a migração e o caminho certo para a migração de bases de dados. [Saiba mais](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | Migrar bases de dados no local para VMs Azure que executam o SQL Server, Azure SQL Database ou SQL Managed Instances. | [Saiba mais](https://docs.microsoft.com/azure/dms/dms-overview) sobre o Serviço de Migração de Bases de Dados.
+**Assistente de Migração de Dados** | Avaliar bases de dados do SQL Server para migração para Azure SQL Database, Azure SQL Managed Instance ou Azure VMs que executam o SQL Server. | Data Migration Assistant ajuda a identificar potenciais problemas que bloqueiam a migração. Identifica funcionalidades não apoiadas, novas funcionalidades que podem beneficiar-te após a migração e o caminho certo para a migração de bases de dados. [Saiba mais](/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | Migrar bases de dados no local para VMs Azure que executam o SQL Server, Azure SQL Database ou SQL Managed Instances. | [Saiba mais](../dms/dms-overview.md) sobre o Serviço de Migração de Bases de Dados.
 **Movere** | Avaliar servidores. | [Saiba mais](#movere) sobre o Movere.
 **Assistente de migração de aplicativos web** | Avalie as aplicações web no local e emigre-as para Azure. |  Utilize o Assistente de Migração do Serviço de Aplicações Azure para avaliar os sites no local para migração para o Azure App Service.<br/><br/> Utilize o Assistente de Migração para migrar aplicações web .NET e PHP para Azure. [Saiba mais](https://appmigration.microsoft.com/) sobre o Assistente de Migração do Serviço de Aplicações Azure.
-**Azure Data Box** | Migrar dados offline. | Utilize produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Saiba mais](https://docs.microsoft.com/azure/databox/).
+**Azure Data Box** | Migrar dados offline. | Utilize produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Saiba mais](../databox/index.yml).
 
 > [!NOTE]
 > Se estiver no Governo Azure, ferramentas integradas externas e ofertas isv não podem enviar dados para projetos da Azure Migrate. Pode utilizar as ferramentas de forma independente.
@@ -122,7 +122,7 @@ Existem duas versões do serviço Azure Migrate.
 
     Para aceder aos projetos existentes no portal Azure, procure e selecione **Azure Migrate.** O dashboard **Azure Migrate** tem uma notificação e uma ligação para aceder a projetos antigos da Azure Migrate.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Experimente os nossos tutoriais para avaliar [VMware VMs,](tutorial-prepare-vmware.md) [Hiper-VMs,](tutorial-prepare-hyper-v.md)ou [servidores físicos.](tutorial-prepare-physical.md)
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

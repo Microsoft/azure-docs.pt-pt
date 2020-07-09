@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478977"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132501"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação de desastres de servidor físico
 
@@ -35,8 +35,8 @@ A tabela resume os pré-requisitos para a implantação da máquina de servidor 
 | Região do sistema operativo | Inglês (E.U.A.)|
 | Versão do VMware vSphere PowerCLI | Não é necessária|
 | Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
-| Políticas de grupo| Não ative estas políticas de grupo: <br> - Impedir o acesso à solicitação de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ligue a execução do guião <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | - Nenhum website pre-existente <br> - Ativar [a autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a definição [fastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nenhum website/aplicação pré-existente na porta 443<br>|
+| Políticas de grupo| Não ative estas políticas de grupo: <br> - Impedir o acesso à solicitação de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ligue a execução do guião <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+| IIS | - Nenhum website pre-existente <br> - Ativar [a autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> - Nenhum website/aplicação pré-existente na porta 443<br>|
 | Tipo NIC | VMXNET3 (quando implementado como VMware VM) |
 | Tipo de endereço IP | Estático |
 | Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(não é necessário para servidores de processos de escala) <br> - time.nist.gov <br> - time.windows.com |
@@ -108,7 +108,7 @@ Executar o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Tipo | Description| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
@@ -267,7 +267,7 @@ Atualize o servidor da seguinte forma:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Excluir ou não registar um servidor de configuração (PowerShell)
 
-1. [Instalar](https://docs.microsoft.com/powershell/azure/install-Az-ps) Módulo Azure PowerShell
+1. [Instalar](/powershell/azure/install-Az-ps) Módulo Azure PowerShell
 2. Inicie sessão na sua conta Azure utilizando o comando
     
     `Connect-AzAccount`
@@ -313,7 +313,6 @@ Para implementações de servidores de configuração antes de maio de 2016, a e
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Reveja os tutoriais para configurar a recuperação de desastres de [servidores físicos](tutorial-physical-to-azure.md) para Azure.
-
+Reveja os tutoriais para configurar a recuperação de desastres de [servidores físicos](./physical-azure-disaster-recovery.md) para Azure.

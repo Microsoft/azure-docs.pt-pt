@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131392"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -123,7 +123,7 @@ Pode criar um ponto final de serviço de rede na sua rede virtual para "Armazena
 
 Pode sobrepor a rota do sistema padrão da Azure para o prefixo de endereço 0.0.0.0/0 com uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para um aparelho virtual de rede no local (NVA), mas esta configuração não é recomendada para a replicação da Recuperação do Local. Se estiver a utilizar rotas personalizadas, deverá [criar um ponto final de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) na sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite Azure.
 
-## <a name="next-steps"></a>Passos seguintes
-- Comece a proteger as suas cargas de trabalho [replicando máquinas virtuais Azure](site-recovery-azure-to-azure.md).
+## <a name="next-steps"></a>Próximos passos
+- Comece a proteger as suas cargas de trabalho [replicando máquinas virtuais Azure](./azure-to-azure-quickstart.md).
 - Saiba mais sobre [a retenção de endereços IP](site-recovery-retain-ip-azure-vm-failover.md) para falha de falha da máquina virtual Azure.
 - Saiba mais sobre a recuperação de desastres das [máquinas virtuais Azure com o ExpressRoute.](azure-vm-disaster-recovery-with-expressroute.md)

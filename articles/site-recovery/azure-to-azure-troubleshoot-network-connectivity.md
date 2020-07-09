@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884873"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132724"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -50,7 +51,7 @@ Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor DNS nã
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Edição 2: A configuração da recuperação do local falhou (151196)
 
 > [!NOTE]
-> Se os VMs estiverem por trás de um balanceador de carga interno **Standard,** por padrão, não teria acesso ao Office 365 IPs tais como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balançador interno de carga ou crie acesso de saída, conforme mencionado no artigo [Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Se os VMs estiverem por trás de um balanceador de carga interno **Standard,** por padrão, não teria acesso ao Office 365 IPs tais como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balançador interno de carga ou crie acesso de saída, conforme mencionado no artigo [Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -59,7 +60,7 @@ Não é possível estabelecer uma ligação aos pontos finais ip4 de autenticaç
 #### <a name="resolution"></a>Resolução
 
 - A Recuperação do Sítio Azure requer acesso aos intervalos IP do Office 365 para autenticação.
-- Se estiver a utilizar as regras do Grupo de Segurança da Rede Azure (NSG) /procuração de firewall para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação às gamas IP do Office 365. Crie uma regra NSG baseada em etiquetas de [serviço Azure Ative (Azure AD)](/azure/virtual-network/security-overview#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
+- Se estiver a utilizar as regras do Grupo de Segurança da Rede Azure (NSG) /procuração de firewall para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação às gamas IP do Office 365. Crie uma regra NSG baseada em etiquetas de [serviço Azure Ative (Azure AD)](../virtual-network/security-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
 - Se novos endereços forem adicionados à AZure AD no futuro, você precisa criar novas regras NSG.
 
 ### <a name="example-nsg-configuration"></a>Configuração NSG exemplo
@@ -142,7 +143,7 @@ As definições de procuração personalizadas são inválidas e o agente de ser
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos IP necessários,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)siga os passos no [documento de orientação de rede](site-recovery-azure-to-azure-networking-guidance.md).
+Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos IP necessários,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)siga os passos no [documento de orientação de rede](./azure-to-azure-about-networking.md).
 
 ## <a name="next-steps"></a>Próximos passos
 

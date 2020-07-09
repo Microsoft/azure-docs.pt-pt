@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74132959"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131173"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs Hyper-V para um site secundário
 
@@ -35,8 +36,8 @@ A tabela seguinte resume o suporte do sistema operativo para máquinas replicada
 
 **Versão do Windows** | **Hiper-V (com VMM)**
 --- | ---
-Windows Server 2016 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) no Windows Server 2016 
-Windows Server 2012 R2 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) no Windows Server 2012 R2
+Windows Server 2016 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) no Windows Server 2016 
+Windows Server 2012 R2 | Qualquer sistema operativo [de hóspedes suportado por Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) no Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Armazenamento de máquinas Linux
 
@@ -113,5 +114,4 @@ O Fornecedor coordena as comunicações entre servidores VMM.
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Replicar VMs hiper-V em nuvens VMM para um local secundário](tutorial-vmm-to-vmm.md)
-
+[Replicar VMs hiper-V em nuvens VMM para um local secundário](./hyper-v-vmm-disaster-recovery.md)

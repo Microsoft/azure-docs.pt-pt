@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0fe18623d1cea6c7fd692a383a351e0ec76fe91
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83643433"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132970"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -36,61 +37,94 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Registe o seu sistema SUSE Linux Enterprise para permitir que descarregue atualizações e instale pacotes.
 4. Atualize o sistema com as mais recentes correções:
-   
-        # sudo zypper update
-5. Instale o Agente Azure Linux a partir do repositório SLES (Módulo SLE11-Public-Cloud):
-   
-        # sudo zypper install python-azure-agent
-6. Verifique se o waagent está definido para "on" em chkconfig, e se não, ative-o para arranque automático:
-   
-        # sudo chkconfig waagent on
+
+    ```console
+    # sudo zypper update
+    ```
+
+1. Instale o Agente Azure Linux a partir do repositório SLES (Módulo SLE11-Public-Cloud):
+
+    ```console
+    # sudo zypper install python-azure-agent
+    ```
+
+1. Verifique se o waagent está definido para "on" em chkconfig, e se não, ative-o para arranque automático:
+
+    ```console
+    # sudo chkconfig waagent on
+    ```
+
 7. Verifique se o serviço waagent está em funcionamento, e se não, inicie-o: 
-   
-        # sudo service waagent start
+
+    ```console
+    # sudo service waagent start
+    ```
+
 8. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para Azure. Para fazer isto abra "/boot/grub/menu.lst" num editor de texto e certifique-se de que o núcleo padrão inclui os seguintes parâmetros:
-   
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-   
+
+    ```config-grub
+    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    ```
+
     Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte do Azure com problemas de depuração.
 9. Confirme que /boot/grub/menu.lst e /etc/fstab ambos referenciam o disco usando o seu UUID (by-uuid) em vez do ID do disco (by-id). 
    
     Obter disco UUID
-   
-        # ls /dev/disk/by-uuid/
-   
+
+    ```console
+    # ls /dev/disk/by-uuid/
+    ```
+
     Se /dev/disk/by-id/ for usado, atualize tanto /boot/grub/menu.lst e /etc/fstab com o valor by-uuid adequado
    
     Antes da mudança
    
-        root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
+    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
    
     Depois da mudança
    
-        root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+
 10. Modifique as regras udev para evitar gerar regras estáticas para a interface Ethernet. Estas regras podem causar problemas ao clonar uma máquina virtual no Microsoft Azure ou Hiper-V:
-    
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. Recomenda-se a edição do ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
-    
-     DHCLIENT_SET_HOSTNAME="não"
-12. Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
-    
+
+    ```console
+    # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-     Defaults targetpw   # ask for the password of the target user i.e. root
-     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
-     ```
+
+11. Recomenda-se a edição do ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
+
+    ```config
+    DHCLIENT_SET_HOSTNAME="no"
+    ```
+
+12. Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
+
+    ```text
+    Defaults targetpw   # ask for the password of the target user i.e. root
+    ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+    ```
+
 13. Certifique-se de que o servidor SSH está instalado e configurado para começar na hora de arranque.  Este é geralmente o padrão.
 14. Não crie espaço de troca no disco SO.
     
     O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos local que é ligado ao VM após o provisionamento no Azure. Note que o disco de recursos local é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modificar os seguintes parâmetros em /etc/waagent.conf adequadamente:
-    
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## NOTA: desentive isto em tudo o que precisa que seja.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 15. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
-    
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 16. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
 ---
@@ -98,63 +132,97 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 1. No painel central do Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Na concha, executar o `zypper lr` comando' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado-- não são necessários ajustamentos (note que os números da versão podem variar):
-   
-        # | Alias                 | Name                  | Enabled | Refresh
-        --+-----------------------+-----------------------+---------+--------
-        1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
-        2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
-        3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-   
+
+   | # | Alias                 | Name                  | Ativado | Atualizar
+   | - | :-------------------- | :-------------------- | :------ | :------
+   | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
+   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim
+   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Sim     | Sim
+
     Se o comando retornar "Não há repositórios definidos..." em seguida, utilizar os seguintes comandos para adicionar estes repos:
-   
-        # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-        # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
-   
+
+    ```console
+    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
+    # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+    # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+    ```
+
     Em seguida, pode verificar se os repositórios foram adicionados executando o comando `zypper lr` ' novamente. Caso não esteja ativado um dos repositórios de atualização relevantes, ative-o com o seguinte comando:
-   
-        # sudo zypper mr -e [NUMBER OF REPOSITORY]
+
+    ```console
+    # sudo zypper mr -e [NUMBER OF REPOSITORY]
+    ```
+
 4. Atualize o núcleo para a versão mais recente disponível:
-   
-        # sudo zypper up kernel-default
-   
+
+    ```console
+    # sudo zypper up kernel-default
+    ```
+
     Ou para atualizar o sistema com todas as correções mais recentes:
-   
-        # sudo zypper update
+
+    ```console
+    # sudo zypper update
+    ```
+
 5. Instale o Agente Azure Linux.
-   
-        # sudo zypper install WALinuxAgent
+
+    ```console
+    # sudo zypper install WALinuxAgent
+    ```
+
 6. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para Azure. Para isso, abra "/boot/grub/menu.lst" num editor de texto e certifique-se de que o núcleo padrão inclui os seguintes parâmetros:
-   
+
+    ```config-grub
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-   
+    ```
+
    Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte do Azure com problemas de depuração. Além disso, retire os seguintes parâmetros da linha de arranque do núcleo, se existirem:
-   
-     libata.atapi_enabled=0 reserva=0x1f0,0x8
+
+    ```config-grub
+     libata.atapi_enabled=0 reserve=0x1f0,0x8
+    ```
+
 7. Recomenda-se a edição do ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
-   
-     DHCLIENT_SET_HOSTNAME="não"
+
+    ```config
+     DHCLIENT_SET_HOSTNAME="no"
+    ```
+
 8. **Importante:** Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
-     
-     ```
-     Defaults targetpw   # ask for the password of the target user i.e. root
-     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
-     ```
+
+    ```text
+    Defaults targetpw   # ask for the password of the target user i.e. root
+    ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+    ```
 
 9. Certifique-se de que o servidor SSH está instalado e configurado para começar na hora de arranque.  Este é geralmente o padrão.
 10. Não crie espaço de troca no disco SO.
-    
+
     O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos local que é ligado ao VM após o provisionamento no Azure. Note que o disco de recursos local é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modificar os seguintes parâmetros em /etc/waagent.conf adequadamente:
-    
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## NOTA: desentive isto em tudo o que precisa que seja.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 11. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
-    
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
+
 12. Certifique-se de que o Agente Azure Linux funciona no arranque:
-    
-        # sudo systemctl enable waagent.service
+
+    ```console
+    # sudo systemctl enable waagent.service
+    ```
+
 13. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
 ## <a name="next-steps"></a>Próximos passos

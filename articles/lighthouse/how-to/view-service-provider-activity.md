@@ -1,31 +1,32 @@
 ---
 title: Ver a atividade do fornecedor de serviços
 description: Os clientes podem ver a atividade registada para ver ações realizadas por prestadores de serviços através da gestão de recursos delegados da Azure.
-ms.date: 01/15/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131455"
 ---
 # <a name="view-service-provider-activity"></a>Ver a atividade do fornecedor de serviços
 
-Os clientes que delegaram subscrições para a gestão de recursos delegados da Azure podem ver os dados do registo de atividades do [Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações tomadas. Isto dá aos clientes total visibilidade para as operações que os prestadores de serviços estão a realizar através da gestão de recursos delegados da Azure, juntamente com operações feitas pelos utilizadores dentro do inquilino Azure Ative Directory (Azure AD) do cliente.
+Os clientes que tenham delegado subscrições para [o Azure Lighthouse](../overview.md) podem ver os dados [do registo da Atividade Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações tomadas. Isto dá aos clientes total visibilidade para as operações que os prestadores de serviços estão a realizar através da [gestão de recursos delegados da Azure,](../concepts/azure-delegated-resource-management.md)juntamente com operações feitas pelos utilizadores dentro do inquilino Azure Ative Directory (Azure AD) do cliente.
 
 > [!TIP]
 > Também fornecemos uma definição de política incorporada da Azure para auditar a delegação de âmbitos a um inquilino gestor. Para mais informações, consulte [as delegações de auditoria no seu ambiente.](view-manage-service-providers.md#audit-delegations-in-your-environment)
 
 ## <a name="view-activity-log-data"></a>Ver dados de registo de atividade
 
-Pode [visualizar o registo](../../azure-monitor/platform/activity-log-view.md) de atividades no menu **Monitor** no portal Azure. Para limitar os resultados a uma subscrição específica, utilize os filtros para selecionar uma subscrição específica. Também pode [visualizar e recuperar eventos de registo de atividades](../../azure-monitor/platform/activity-log-view.md) programáticamente.
+Pode [visualizar o registo](../../azure-monitor/platform/activity-log.md#view-the-activity-log) de atividades no menu **Monitor** no portal Azure. Para limitar os resultados a uma subscrição específica, utilize os filtros para selecionar uma subscrição específica. Também pode [visualizar e recuperar eventos de registo de atividades](../../azure-monitor/platform/activity-log.md#view-the-activity-log) programáticamente.
 
 > [!NOTE]
-> Os utilizadores do inquilino de um prestador de serviços podem ver os resultados do registo de atividade para uma subscrição delegada num inquilino do cliente se lhes for concedido o papel [de Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor) quando essa subscrição foi a bordo para a gestão de recursos delegados da Azure.
+> Os utilizadores do inquilino de um prestador de serviços podem ver os resultados do registo de atividade para uma subscrição delegada num inquilino do cliente se lhes for concedido o papel [de Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor) quando essa subscrição foi a bordo do Farol de Azure.
 
-No registo de atividades, verá o nome da operação e o seu estado, juntamente com a data e hora em que foi realizada. O **Evento iniciado por** coluna mostra qual o utilizador que realizou a operação, quer se tratasse de um utilizador no inquilino de um prestador de serviços agindo através da gestão de recursos delegados da Azure, ou de um utilizador no próprio inquilino do cliente. Note que o nome do utilizador é mostrado, em vez do inquilino ou da função que o utilizador foi atribuído para essa subscrição.
+No registo de atividades, verá o nome da operação e o seu estado, juntamente com a data e hora em que foi realizada. O **Evento iniciado por** coluna mostra qual o utilizador que realizou a operação, quer se tratasse de um utilizador no inquilino de um prestador de serviços que atuava através do Farol de Azure, ou de um utilizador no próprio inquilino do cliente. Note que o nome do utilizador é mostrado, em vez do inquilino ou da função que o utilizador foi atribuído para essa subscrição.
 
-A atividade registada está disponível no portal Azure nos últimos 90 dias. Para saber como armazenar estes dados por mais de 90 dias, consulte [recolher e analisar registos de atividades do Azure no espaço de trabalho Log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+A atividade registada está disponível no portal Azure nos últimos 90 dias. Para saber como armazenar estes dados por mais de 90 dias, consulte [recolher e analisar registos de atividades do Azure no espaço de trabalho Log Analytics](../../azure-monitor/platform/activity-log.md).
 
 > [!NOTE]
 > Os utilizadores do prestador de serviços aparecem no registo de atividade, mas estes utilizadores e as suas atribuições de funções não são apresentados no **Controlo de Acesso (IAM)** ou na recuperação de informações de atribuição de funções através de APIs.

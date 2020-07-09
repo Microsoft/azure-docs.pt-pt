@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130149"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de falhar as suas máquinas virtuais para o Azure, pode falhar de volta as máquinas virtuais para o local. Para falhar, é necessário reprotegir a máquina virtual de Azure para o local. Para este processo, precisa de um servidor-alvo principal no local para receber o tráfego. 
@@ -26,7 +27,7 @@ Se a sua máquina virtual protegida é uma máquina virtual Windows, então prec
 ## <a name="overview"></a>Descrição geral
 Este artigo fornece instruções sobre como instalar um alvo principal linux.
 
-Publique comentários ou perguntas no final deste artigo ou na página de perguntas do [Microsoft Q&Uma página de perguntas para serviços de recuperação do Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publique comentários ou perguntas no final deste artigo ou na página de perguntas do [Microsoft Q&Uma página de perguntas para serviços de recuperação do Azure](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,6 +37,9 @@ Publique comentários ou perguntas no final deste artigo ou na página de pergun
 * O alvo principal deve estar numa rede que possa comunicar com o servidor de processo e o servidor de configuração.
 * A versão do alvo principal deve ser igual ou mais cedo às versões do servidor de processo e do servidor de configuração. Por exemplo, se a versão do servidor de configuração for 9.4, a versão do alvo principal pode ser 9.4 ou 9.3, mas não 9.5.
 * O alvo principal só pode ser uma máquina virtual VMware e não um servidor físico.
+
+> [!NOTE]
+> Certifique-se de que não liga o Storage vMotion em componentes de gestão, como um alvo principal. Se o alvo principal se mover após uma reproteção bem sucedida, os discos de máquina virtuais (VMDKs) não podem ser separados. Neste caso, o falhanço falha.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Diretrizes de dimensionamento para criar o servidor principal alvo
 
@@ -273,16 +277,22 @@ Utilize os seguintes passos para criar um disco de retenção:
 > [!NOTE]
 > Antes de instalar o servidor alvo principal, verifique se o ficheiro **/etc/anfitriões** na máquina virtual contém entradas que mapeiam o nome de anfitrião local para os endereços IP que estão associados a todos os adaptadores de rede.
 
-1. Copie a frase de passagem de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** no servidor de configuração. Em seguida, guarde-o como **passphrase.txt** no mesmo diretório local, executando o seguinte comando:
+1. Executar o seguinte comando para instalar o alvo principal.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copie a frase de passagem de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** no servidor de configuração. Em seguida, guarde-o como **passphrase.txt** no mesmo diretório local, executando o seguinte comando:
 
     `echo <passphrase> >passphrase.txt`
 
     Exemplo: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Note o endereço IP do servidor de configuração. Executar o seguinte comando para instalar o servidor alvo principal e registar o servidor com o servidor de configuração.
+3. Note o endereço IP do servidor de configuração. Executar o seguinte comando para registar o servidor com o servidor de configuração.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ Depois de concluída a instalação, registe o servidor de configuração utiliz
 
 1. Note o endereço IP do servidor de configuração. Precisa no próximo passo.
 
-2. Executar o seguinte comando para instalar o servidor alvo principal e registar o servidor com o servidor de configuração.
+2. Executar o seguinte comando para registar o servidor com o servidor de configuração.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Exemplo: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Espera até o guião acabar. Se o alvo principal for registado com sucesso, o alvo principal está listado na página de **Infraestrutura** de Recuperação do Local do portal.
@@ -347,9 +351,13 @@ Verá que o campo **Versão** dá o número de versão do alvo principal.
 
 * O alvo principal não deve ter imagens instantâneas na máquina virtual. Se houver instantâneos, falha.
 
-* Devido a algumas configurações personalizadas de NIC, a interface de rede é desativada durante o arranque, e o agente-alvo principal não pode inicializar. Certifique-se de que as seguintes propriedades estão corretamente definidas. Verifique estas propriedades no ficheiro do cartão Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
-    * BOOTPROTO=DHCP
-    * ONBOOT=sim
+* Devido a algumas configurações personalizadas de NIC, a interface de rede é desativada durante o arranque, e o agente-alvo principal não pode inicializar. Certifique-se de que as seguintes propriedades estão corretamente definidas. Verifique estas propriedades no ficheiro do cartão Ethernet /etc/rede/interfaces.
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    Reiniciar o serviço de rede utilizando o seguinte comando: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Próximos passos

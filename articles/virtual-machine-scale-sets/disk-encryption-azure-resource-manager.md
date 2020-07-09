@@ -9,11 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: c2b49a7e7e14bfbefcca64133ff23fdfabe53e7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198430"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129760"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Criptografe conjuntos de escala de máquina virtual com O Gestor de Recursos Azure
 
@@ -37,9 +38,9 @@ Primeiro, selecione o modelo que se adequa ao seu cenário.
 
 Em seguida, siga estes passos:
 
-     1. Click **Deploy to Azure**.
-     2. Fill in the required fields then agree to the terms and conditions.
-     3. Click **Purchase** to deploy the template.
+1. Clique em **Implementar no Azure**.
+2. Preencha os campos necessários e, em seguida, concorde com os termos e condições.
+3. Clique **em Comprar** para implementar o modelo.
 
 ## <a name="next-steps"></a>Próximos passos
 

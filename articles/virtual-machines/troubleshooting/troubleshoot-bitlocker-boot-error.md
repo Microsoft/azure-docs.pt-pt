@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132954"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque BitLocker num Azure VM
 
@@ -135,11 +136,15 @@ Se este método não resolver o problema, siga estes passos para restaurar manua
 
     - Suspender a proteção para desligar temporariamente o BitLocker, executando o seguinte:
 
-                    manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Desencriptar completamente a unidade. Para tal, execute o seguinte comando:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
 
 ### <a name="key-encryption-key-scenario"></a>Cenário chave da chave de encriptação
 
@@ -236,17 +241,17 @@ Para um cenário chave de encriptação, siga estes passos:
 
 4. Vê-se a seguinte saída quando o script começa:
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    Localização da versão GAC                                                                              
+    ---    -------        --------                                                                              
+    Falso v4.0.30319 C:\Ficheiros do programa\WindowsPowerShell\Modules\Az.Accounts \. ..  Falso v4.0.30319 C:\Ficheiros do programa\WindowsPowerShell\Modules\Az.Accounts \. ..
 
     Quando o guião terminar, vê-se a seguinte saída:
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. Para desbloquear o disco anexo utilizando o ficheiro BEK, execute o seguinte comando:
 
@@ -264,11 +269,16 @@ Para um cenário chave de encriptação, siga estes passos:
 
     - Suspender a proteção para desligar temporariamente o BitLocker, executando o seguinte comando:
 
-             manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Desencriptar completamente a unidade. Para tal, execute o seguinte comando:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
+
 ## <a name="script-troubleshooting"></a>Resolução de problemas do script
 
 **Erro: Não foi possível carregar ficheiro ou montagem**

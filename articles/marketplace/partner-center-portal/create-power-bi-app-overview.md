@@ -1,18 +1,18 @@
 ---
 title: Visão geral da criação de aplicativos Power BI - Microsoft AppSource
 description: Este artigo descreve os passos de alto nível para a publicação de uma aplicação Power BI para o Microsoft AppSource. Os requisitos técnicos e empresariais que a sua aplicação Power BI deve cumprir para ser publicado no mercado comercial também são fornecidos.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/02/2020
-ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964656"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121780"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -50,7 +50,7 @@ Reveja os links abaixo, que fornecem modelos, dicas e amostras.
 - [Dicas para a autoria de uma aplicação Power BI](https://docs.microsoft.com/power-bi/service-template-apps-tips)
 - [Amostras](https://docs.microsoft.com/power-bi/service-template-apps-samples)
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para ser publicada no mercado comercial, a sua oferta de aplicações Power BI deve satisfazer os seguintes requisitos técnicos e empresariais.
 

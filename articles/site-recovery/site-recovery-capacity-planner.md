@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73936050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129964"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Capacidade do plano para recuperação de desastres hiper-V VM 
 
@@ -38,7 +39,7 @@ Pode executar a ferramenta em dois modos:
 ## <a name="before-you-start"></a>Antes de começar
 
 * Recolha informações sobre o seu ambiente, incluindo VMs, discos por VM, armazenamento por disco.
-* Identifique a sua taxa de alteração diária (churn) para dados replicados. Descarregue a [ferramenta de planeamento de capacidades Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de variação. [Saiba mais](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre esta ferramenta. Recomendamos que execute esta ferramenta durante uma semana para capturar médias.
+* Identifique a sua taxa de alteração diária (churn) para dados replicados. Descarregue a [ferramenta de planeamento de capacidades Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de variação. [Saiba mais](./hyper-v-deployment-planner-overview.md) sobre esta ferramenta. Recomendamos que execute esta ferramenta durante uma semana para capturar médias.
 
 
 ## <a name="run-the-quick-planner"></a>Executar o Planejador Rápido
@@ -52,7 +53,7 @@ Pode executar a ferramenta em dois modos:
 
    a. Em **Selecione o seu cenário,** escolha **Hyper-V para Azure** ou **VMware/Physical to Azure**.
 
-   b. Na taxa média diária de alteração de **dados (%)**, insira as informações que recolhe utilizando a [ferramenta de planeamento da capacidade de Hiper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou o [Planejador de Implementação da Recuperação do Local.](./site-recovery-deployment-planner.md)
+   b. Na taxa média diária de alteração de **dados (%)**, insira as informações que recolhe utilizando a [ferramenta de planeamento da capacidade de Hiper-V](./hyper-v-deployment-planner-overview.md) ou o [Planejador de Implementação da Recuperação do Local.](./site-recovery-deployment-planner.md)
 
    c. A **definição de compressão** não é usada quando replicas Os VMs Hiper-V para Azure. Para compressão, utilize um aparelho de terceiros, como o Riverbed.
 
@@ -146,4 +147,4 @@ Depois de todas as informações terem sido inseridas, **selecione Enviar dados 
    ![Planejador de Capacidades](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Próximos passos
-[Aprenda a executar a](site-recovery-capacity-planning-for-hyper-v-replication.md) ferramenta de planeamento de capacidades.
+[Aprenda a executar a](./hyper-v-deployment-planner-overview.md) ferramenta de planeamento de capacidades.

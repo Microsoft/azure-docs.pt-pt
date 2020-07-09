@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712178"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130278"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após falha
 
@@ -47,7 +48,7 @@ Leia mais sobre os cenários de failover com o Traffic Manager:
 2. [Azure para Azure falha com](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) gerente de tráfego 
 
 A configuração é a seguinte:
-- Criar um [perfil de Gestor de Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- Criar um [perfil de Gestor de Tráfego.](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 - Utilizando o método de encaminhamento **prioritário,** crie dois pontos finais – **Primário** para fonte e **Failover** para Azure. **A prioridade** 1 é atribuída e **a Falha** é atribuída prioridade 2.
 - O ponto final **primário** pode ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ou [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) dependendo se o seu ambiente de origem está dentro ou fora de Azure.
 - O ponto final **failover** é criado como um ponto final **Azure.** Utilize um **endereço IP público estático,** pois este será o ponto final externo virado para o Gestor de Tráfego no evento de desastre.

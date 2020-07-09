@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956258"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131884"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -50,8 +50,8 @@ Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 com experiên
 Região do sistema operativo | Inglês (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Não é necessário para a versão [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) ou posterior do servidor de configuração.
 Funções do Windows Server | Não ative os serviços de domínio do diretório ativo; Serviços de Informação da Internet (IIS) ou Hiper-V.
-Políticas de grupo| - Impedir o acesso à ordem de comando. <br/> - Impedir o acesso a ferramentas de edição de registo. <br/> - Lógica de confiança para anexos de ficheiros. <br/> - Ligue a execução do guião. <br/> - [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Certifique-se de:<br/><br/> - Não tem um website pre-existente <br/> - Ativar a [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Ativar a definição [fastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Não tem site/app pré-existente a ouvir na porta 443<br/>
+Políticas de grupo| - Impedir o acesso à ordem de comando. <br/> - Impedir o acesso a ferramentas de edição de registo. <br/> - Lógica de confiança para anexos de ficheiros. <br/> - Ligue a execução do guião. <br/> - [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Certifique-se de:<br/><br/> - Não tem um website pre-existente <br/> - Ativar a [autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Não tem site/app pré-existente a ouvir na porta 443<br/>
 Tipo NIC | VMXNET3 (quando implementado como VMware VM)
 Tipo de endereço IP | Estático
 Portas | 443 usado para orquestração de canais de controlo<br/>9443 para transporte de dados
@@ -67,7 +67,7 @@ A Recuperação do Local suporta a replicação de qualquer carga de trabalho em
 --- | ---
 Configurações da máquina | As máquinas que se replicam em Azure devem satisfazer os [requisitos do Azure.](#azure-vm-requirements)
 Carga de trabalho da máquina | A Recuperação do Local suporta a replicação de qualquer carga de trabalho em execução numa máquina suportada. [Saiba mais](https://aka.ms/asr_workload).
-Nome da máquina | Certifique-se de que o nome de exibição da máquina não cai em [nomes de recursos reservados do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Os nomes de volume lógico não são sensíveis a casos. Certifique-se de que não há dois volumes num dispositivo com o mesmo nome. Ex: Volumes com nomes "voLUME1", "volume1" não podem ser protegidos através da Recuperação do Local de Azure.
+Nome da máquina | Certifique-se de que o nome de exibição da máquina não cai em [nomes de recursos reservados do Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Os nomes de volume lógico não são sensíveis a casos. Certifique-se de que não há dois volumes num dispositivo com o mesmo nome. Ex: Volumes com nomes "voLUME1", "volume1" não podem ser protegidos através da Recuperação do Local de Azure.
 
 ### <a name="for-windows"></a>Para Windows
 
@@ -224,7 +224,7 @@ Guest/server - excluir o disco | Sim
 Multipata de hóspedes/servidores (MPIO) | Não
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
-Bota EFI/UEFI de hóspedes/servidor | - Suportado para o Windows Server 2012 ou mais tarde, SLES 12 SP4 e RHEL 8.0 com a versão 9.30 do agente de mobilidade<br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Bota EFI/UEFI de hóspedes/servidor | - Suportado para o Windows Server 2012 ou mais tarde, SLES 12 SP4 e RHEL 8.0 com a versão 9.30 do agente de mobilidade<br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -280,7 +280,7 @@ o nome da VM | De 1 a 63 caracteres.<br/><br/> Limitado a letras, números e hí
 
 ## <a name="resource-group-limits"></a>Limites de grupo de recursos
 
-Para compreender o número de máquinas virtuais que podem ser protegidas sob um único grupo de recursos, consulte o artigo sobre [limites de subscrição e quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+Para compreender o número de máquinas virtuais que podem ser protegidas sob um único grupo de recursos, consulte o artigo sobre [limites de subscrição e quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## <a name="churn-limits"></a>Limites de churn
 

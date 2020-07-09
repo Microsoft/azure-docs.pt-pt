@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129920"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação do Azure para VMware VMs
 
@@ -106,9 +106,9 @@ Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se d
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Janela de propriedades de computação e rede":::
 
    - **Nome Azure VM**: Modifique o nome para satisfazer os requisitos de Azure, se necessário.
-   - **Tamanho VM alvo ou tipo VM**: O tamanho VM predefinido é escolhido com base em parâmetros que incluem contagem de discos, contagem de NIC, contagem de núcleos de CPU, memória e tamanhos de função VM disponíveis na região de Azure alvo. A Azure Site Recovery escolhe o primeiro tamanho VM disponível que satisfaz todos os critérios. Pode selecionar um tamanho VM diferente com base nas suas necessidades a qualquer momento antes de falhar. O tamanho do disco VM também é baseado no tamanho do disco de origem, e só pode ser alterado após a falha. Saiba mais sobre os tamanhos dos discos e as taxas de IOPS no [Scalability e alvos de desempenho para discos VM no Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Grupo de recursos**: Pode selecionar um grupo de [recursos,](/azure/azure-resource-manager/management/overview#resource-groups)a partir do qual uma máquina virtual se torna parte de um failover pós-failover. Pode alterar esta definição a qualquer momento antes de falhar. Depois de falhar, se migrar a máquina virtual para um grupo de recursos diferente, as definições de proteção para essa falha da máquina virtual quebram..
-   - **Conjunto de disponibilidade**: Pode selecionar um [conjunto de disponibilidade](/azure/virtual-machines/windows/tutorial-availability-sets) se a sua máquina virtual precisar de fazer parte de uma falha de publicação. Quando selecionar um conjunto de disponibilidade, tenha em mente as seguintes informações:
+   - **Tamanho VM alvo ou tipo VM**: O tamanho VM predefinido é escolhido com base em parâmetros que incluem contagem de discos, contagem de NIC, contagem de núcleos de CPU, memória e tamanhos de função VM disponíveis na região de Azure alvo. A Azure Site Recovery escolhe o primeiro tamanho VM disponível que satisfaz todos os critérios. Pode selecionar um tamanho VM diferente com base nas suas necessidades a qualquer momento antes de falhar. O tamanho do disco VM também é baseado no tamanho do disco de origem, e só pode ser alterado após a falha. Saiba mais sobre os tamanhos dos discos e as taxas de IOPS no [Scalability e alvos de desempenho para discos VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Grupo de recursos**: Pode selecionar um grupo de [recursos,](../azure-resource-manager/management/overview.md#resource-groups)a partir do qual uma máquina virtual se torna parte de um failover pós-failover. Pode alterar esta definição a qualquer momento antes de falhar. Depois de falhar, se migrar a máquina virtual para um grupo de recursos diferente, as definições de proteção para essa falha da máquina virtual quebram..
+   - **Conjunto de disponibilidade**: Pode selecionar um [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) se a sua máquina virtual precisar de fazer parte de uma falha de publicação. Quando selecionar um conjunto de disponibilidade, tenha em mente as seguintes informações:
      - Apenas os conjuntos de disponibilidade pertencentes ao grupo de recursos especificados estão listados.
      - Os VMs que estão em diferentes redes virtuais não podem fazer parte do mesmo conjunto de disponibilidade.
      - Apenas máquinas virtuais do mesmo tamanho podem fazer parte de um conjunto de disponibilidade.
@@ -141,7 +141,7 @@ Os clientes da Microsoft Software Assurance podem utilizar o Azure Hybrid Benefi
 
 [Saiba mais](https://azure.microsoft.com/pricing/hybrid-benefit/) sobre o Azure Hybrid Benefit.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de a máquina virtual atingir um estado protegido, experimente um [failover](site-recovery-failover.md) para verificar se a sua aplicação aparece no Azure.
 

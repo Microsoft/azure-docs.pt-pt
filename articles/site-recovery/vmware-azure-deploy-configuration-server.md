@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704442"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132153"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -38,7 +39,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 1. O utilizador deve ter uma função de desenvolvedor de aplicações para criar uma aplicação.
     - Para verificar, inscreva-se no portal Azure.</br>
     - Vá ao **Azure Ative Directory**  >  **Roles e administradores**.</br>
-    - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para ativar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para ativar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicações não puder ser atribuída, certifique-se de que o registo da bandeira das **aplicações** é definido como **verdadeiro** para o utilizador criar uma identidade. Para ativar estas permissões:
     - Inicie sessão no Portal do Azure.
@@ -48,7 +49,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Os Serviços da Federação De Diretório Ativo *não são apoiados.* Utilize uma conta gerida através do [Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Os Serviços da Federação De Diretório Ativo *não são apoiados.* Utilize uma conta gerida através do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Transferir o modelo
 

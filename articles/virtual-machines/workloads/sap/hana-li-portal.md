@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70099822"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130873"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controlo de Grandes Instâncias do Azure HANA através do portal do Azure
 Este documento cobre a forma como as [Grandes Instâncias da HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) são apresentadas no [portal Azure](https://portal.azure.com) e que atividades podem ser realizadas através do portal Azure com unidades de Grande Instância HANA que são implantadas para si. A visibilidade de HANA Large Instances in Azure portal é fornecida através de um fornecedor de recursos Azure para HANA Large Instances, que atualmente está em pré-visualização pública
@@ -31,7 +31,9 @@ Normalmente, a sua subscrição Azure que estava a usar para implementações HA
 ### <a name="register-through-cli-interface"></a>Registe-se através da interface CLI
 Tem de iniciar sessão na sua subscrição Azure, utilizada para a implementação da HANA Large Instance através da interface Azure CLI. Pode (re-)registar o Fornecedor de Grandes Instâncias HANA com este comando:
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 Para mais informações, consulte o artigo [Fornecedores e tipos de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 
@@ -155,7 +157,7 @@ Em cada um dos diferentes tipos de problemas, é-lhe oferecida uma seleção de 
 
 À medida que respondeu às perguntas e forneceu detalhes adicionais, pode dar o passo seguinte para rever o pedido de apoio e submetê-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como monitorizar o SAP HANA (grandes instâncias) em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [Monitorizar e resolver problemas do lado do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)

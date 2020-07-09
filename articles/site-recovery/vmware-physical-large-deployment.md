@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81409775"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131778"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres à escala para VMware VMs/servidores físicos
 
@@ -85,7 +85,7 @@ Queremos assegurar que as quotas disponíveis na subscrição-alvo sejam suficie
 
 **Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
-**Verifique os núcleos** | Se os núcleos da quota disponível não forem iguais ou excederem a contagem total de alvos no momento do failover, as falhas falharão. | Para VMware VMs, verifique se tem núcleos suficientes na subscrição-alvo para cumprir a recomendação do núcleo do Plano de Implementação.<br/><br/> Para servidores físicos, verifique se os núcleos Azure cumprem as suas estimativas manuais.<br/><br/> Para verificar quotas, no portal Azure > **Subscrição,** clique em **Utilização + quotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre o aumento das quotas.
+**Verifique os núcleos** | Se os núcleos da quota disponível não forem iguais ou excederem a contagem total de alvos no momento do failover, as falhas falharão. | Para VMware VMs, verifique se tem núcleos suficientes na subscrição-alvo para cumprir a recomendação do núcleo do Plano de Implementação.<br/><br/> Para servidores físicos, verifique se os núcleos Azure cumprem as suas estimativas manuais.<br/><br/> Para verificar quotas, no portal Azure > **Subscrição,** clique em **Utilização + quotas**.<br/><br/> [Saiba mais](../azure-portal/supportability/resource-manager-core-quotas-request.md) sobre o aumento das quotas.
 **Verificar limites de failover** | O número de falhas não deve exceder os limites de failover da Recuperação do Local. |  Se as falhas excederem os limites, pode adicionar subscrições e falhar em várias subscrições ou aumentar a quota para uma subscrição. 
 
 
@@ -100,8 +100,8 @@ O que obedece significa? Para iniciar um Azure VM, a Azure exige que alguns cond
 
 **A máquina está de acordo com o Azure?** | **Limites Azure VM (falha de disco gerido)**
 --- | --- 
-Yes | 2000
-No | 1000
+Sim | 2000
+Não | 1000
 
 - Os limites pressupõem que estão em curso outros postos de trabalho mínimos na região-alvo para a subscrição.
 - Algumas regiões de Azure são menores e podem ter limites ligeiramente mais baixos.
@@ -188,7 +188,7 @@ Depois de iniciar a replicação para o primeiro lote de VMs, comece a monitoriz
 1. Atribua um administrador de recuperação de desastres para monitorizar o estado de saúde das máquinas replicadas.
 2. [Monitorize eventos](site-recovery-monitor-and-troubleshoot.md) para itens replicados e a infraestrutura.
 3. [Monitorize a saúde](vmware-physical-azure-monitor-process-server.md) dos seus servidores de processos de escala.
-4. Inscreva-se para receber [notificações de e-mail para eventos,](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) para facilitar a monitorização.
+4. Inscreva-se para receber [notificações de e-mail para eventos,](./site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) para facilitar a monitorização.
 5. Realizar [exercícios regulares de recuperação de desastres,](site-recovery-test-failover-to-azure.md)para garantir que tudo está funcionando como esperado.
 
 
@@ -214,11 +214,11 @@ Para executar uma falha em larga escala, recomendamos o seguinte:
     - [Saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 2. Adicione scripts de runbook da Azure Automation aos planos de recuperação, para automatizar quaisquer tarefas manuais no Azure. As tarefas típicas incluem configurar os equilibradores de carga, atualizar o DNS, etc. [Saiba mais](site-recovery-runbook-automation.md)
 2. Antes de falhar, prepare as máquinas Windows de modo a que cumpram o ambiente Azure. [Os limites de incumprimento](#plan-azure-subscriptions-and-quotas) são mais elevados para as máquinas que cumprem. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre os livros de corridas.
-4.  Falha no gatilho com o [start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, juntamente com um plano de recuperação.
+4.  Falha no gatilho com o [start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, juntamente com um plano de recuperação.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Monitorizar o Site Recovery](site-recovery-monitor-and-troubleshoot.md)

@@ -1,19 +1,18 @@
 ---
 title: Criar uma oferta de Serviço Gerido no mercado comercial da Microsoft
 description: Como criar uma nova oferta de Serviço Gerido para listagem no Azure Marketplace utilizando o portal Mercado Comercial no Partner Center.
-author: JnHs
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+author: JnHs
+ms.author: jenhayes
+ms.date: 07/07/2020
+ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957584"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121797"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -231,7 +230,7 @@ Para cada **Autorização,** terá de fornecer o seguinte. Pode então seleciona
 
 - **ID do objeto Azure :** O identificador Azure AD de um utilizador, grupo de utilizadores ou aplicação que será concedida determinadas permissões (conforme definido pela Definição de Função) aos recursos dos seus clientes.
 - **Nome de visualização de objeto Ad Azure**: Um nome amigável para ajudar o cliente a compreender o propósito desta autorização. O cliente verá este nome ao delegar recursos.
-- **Definição de Função**: Selecione uma das funções incorporadas AZure AD disponíveis da lista. Esta função determinará as permissões que o utilizador no campo **Azure AD Object ID** terá nos recursos dos seus clientes. Para descrições destas funções, consulte [funções incorporadas](../../role-based-access-control/built-in-roles.md) e [suporte de função para a gestão de recursos delegados da Azure.](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Definição de Função**: Selecione uma das funções incorporadas AZure AD disponíveis da lista. Esta função determinará as permissões que o utilizador no campo **Azure AD Object ID** terá nos recursos dos seus clientes. Para descrições destes papéis, consulte [funções incorporadas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o Farol de Azure.](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)
   > [!NOTE]
   > Como as novas funções incorporadas aplicáveis são adicionadas ao Azure, elas ficarão disponíveis aqui, embora possa haver algum atraso antes de aparecerem.
 - **Funções atribuíveis**: Esta opção só aparecerá se tiver selecionado o Administrador de Acesso ao Utilizador na **Definição de Função** para esta autorização. Em caso afirmativo, deve adicionar uma ou mais funções atribuíveis aqui. O utilizador no campo **Azure AD Object ID** poderá atribuir estas funções a [identidades geridas,](../../active-directory/managed-identities-azure-resources/overview.md)o que é necessário para [implementar políticas que possam ser remediadas.](../../lighthouse/how-to/deploy-policy-remediation.md) Note que nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.

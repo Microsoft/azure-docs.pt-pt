@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259811"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131796"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade de VMware VMs e servidores físicos
 
@@ -128,7 +129,7 @@ Durante uma instalação push do serviço mobility, são executadas as seguintes
 
 Definição | Detalhes
 --- | ---
-Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Sintaxe | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Registos de configuração | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 `/InstallLocation`| Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade (qualquer pasta).
@@ -139,7 +140,7 @@ Registos de configuração | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstalle
 
 Definição | Detalhes
 --- | ---
-Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
+Sintaxe | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Registos de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
 `/CSEndPoint` | Parâmetro obrigatório. `<CSIP>`especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 `/PassphraseFilePath` |  Obrigatório. Localização da frase. Utilize qualquer unc válido ou caminho de arquivo local.
@@ -169,7 +170,7 @@ Registos de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAge
 
 Definição | Detalhes
 --- | ---
-Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 `-d` | Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade: `/usr/local/ASR` .
 `-v` | Obrigatório. Especifica a plataforma na qual o serviço Mobility está instalado. <br/> **VMware** para VMware VMs/servidores físicos. <br/> **Azure** para Azure VMs.
@@ -179,14 +180,14 @@ Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 Definição | Detalhes
 --- | ---
-Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+Sintaxe | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Parâmetro obrigatório. `<CSIP>`especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 `-P` |  Obrigatório. Percurso de ficheiro completo do ficheiro no qual a palavra-passe é guardada. Utilize qualquer pasta válida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual Azure
 
-- **VMs do Windows**: Da versão 9.7.0.0 do serviço mobility, o [agente Azure VM](/azure/virtual-machines/extensions/features-windows#azure-vm-agent) é instalado pelo instalador do serviço Mobility. Isto garante que quando a máquina falha em Azure, o Azure VM satisfaz o pré-requisito de instalação do agente para a utilização de qualquer extensão VM.
-- **Linux VMs**: O [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) deve ser instalado manualmente no Azure VM após a falha.
+- **VMs do Windows**: Da versão 9.7.0.0 do serviço mobility, o [agente Azure VM](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço Mobility. Isto garante que quando a máquina falha em Azure, o Azure VM satisfaz o pré-requisito de instalação do agente para a utilização de qualquer extensão VM.
+- **Linux VMs**: O [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve ser instalado manualmente no Azure VM após a falha.
 
 ## <a name="locate-installer-files"></a>Localizar ficheiros de instaladores
 

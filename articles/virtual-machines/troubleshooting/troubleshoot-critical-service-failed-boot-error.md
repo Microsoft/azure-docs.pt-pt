@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921458"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129861"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRITICAL SERVICE FAILED" no ecrã azul ao iniciar um VM Azure
 Este artigo descreve o erro "CRITICAL SERVICE FAILED" que poderá experimentar ao iniciar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Fornece medidas de resolução de problemas para ajudar a resolver os problemas. 
@@ -83,11 +84,15 @@ Para ativar registos de despejo e Consola em Série, execute o seguinte script.
 
 1. Na recuperação VM, executar o seguinte comando a partir de um pedido de comando elevado. Este comando define o disco operativo afetado para iniciar o modo de segurança na próxima bota:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Por exemplo, se o disco DE que anexou for a unidade F, executar o seguinte comando:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Retire o disco de SO e, em seguida, reencamqui o disco de SO ao VM afetado](troubleshoot-recovery-disks-portal-windows.md). O VM entrará no modo Safe. Se ainda sentir o erro, vá para o passo opcional.
 3. Abra a caixa **'Executar'** e verifique o **verificador** para iniciar a ferramenta Driver Verifier Manager.
@@ -97,7 +102,10 @@ Para ativar registos de despejo e Consola em Série, execute o seguinte script.
 
 7. Remova as definições de arranque de segurança:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Reinicie a VM. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: Analise os registos de despejo no modo Dump Crash

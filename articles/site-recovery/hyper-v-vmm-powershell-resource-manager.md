@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130209"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastres de Hiper-VMs para um local secundário utilizando o PowerShell (Gestor de Recursos)
 
@@ -22,9 +23,9 @@ Este artigo mostra como automatizar os passos para a replicação de VMs hiper-V
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Reveja a [arquitetura e os componentes do cenário](hyper-v-vmm-architecture.md).
-- Reveja os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
-- Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hiper-V cumprem os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
-- Verifique se os VMs que pretende replicar cumprem o [suporte replicado da máquina](site-recovery-support-matrix-to-sec-site.md).
+- Reveja os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hiper-V cumprem os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md).
+- Verifique se os VMs que pretende replicar cumprem o [suporte replicado da máquina](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Preparar o mapeamento da rede
 
@@ -36,10 +37,10 @@ Este artigo mostra como automatizar os passos para a replicação de VMs hiper-V
 
 Prepare o Gestor de Máquinas Virtuais da seguinte forma:
 
-- Certifique-se de que tem [redes lógicas do Gestor de Máquinas Virtuais](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores do Gestor de Máquinas Virtuais de origem e alvo:
+- Certifique-se de que tem [redes lógicas do Gestor de Máquinas Virtuais](/system-center/vmm/network-logical) nos servidores do Gestor de Máquinas Virtuais de origem e alvo:
   - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
   - A rede lógica no servidor de destino deve ser associada à cloud de destino.
-- Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) na fonte e direcione os servidores Virtual Machine Manager. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+- Certifique-se de que tem [redes VM](/system-center/vmm/network-virtual) na fonte e direcione os servidores Virtual Machine Manager. As redes de VMs devem ser ligadas à rede lógica em cada localização.
 - Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem.
 
 ## <a name="prepare-for-powershell"></a>Preparar para PowerShell

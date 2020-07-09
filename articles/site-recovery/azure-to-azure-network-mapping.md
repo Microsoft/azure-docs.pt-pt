@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130435"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereço IP para VNets
 
@@ -93,5 +94,5 @@ A rede alvo não é o VNet de s falha | - O endereço IP alvo será estático co
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Rever [orientação de networking](site-recovery-azure-to-azure-networking-guidance.md) para a recuperação de desastres da Azure VM.
+- Rever [orientação de networking](./azure-to-azure-about-networking.md) para a recuperação de desastres da Azure VM.
 - [Saiba mais](site-recovery-retain-ip-azure-vm-failover.md) sobre a retenção de endereços IP após o failover.

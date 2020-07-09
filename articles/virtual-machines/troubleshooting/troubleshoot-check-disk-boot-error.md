@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f80fbd803cbe4ae5c4ac381c8cdb2f72d0ede316
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921492"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132934"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows mostra "sistema de verificação de ficheiros" ao iniciar um VM Azure
 
@@ -37,9 +38,12 @@ Se for encontrado um erro NTFS no sistema de ficheiros, o Windows verificará e 
 ## <a name="solution"></a>Solução 
 
 O Windows iniciará normalmente depois de concluído o processo do Disco de Verificação. Se o VM estiver preso no processo do Disco de Verificação, tente executar o disco de verificação no VM offline:
-1.  Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
-2.  [Fixe o disco DE A uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).  
-3.  Na recuperação VM, verifique o disco de verificação no disco oss anexado. Na amostra seguinte, a carta do condutor do disco oss anexado é E: 
-        
-        chkdsk E: /f
-4.  Após a conclusão do Disco de Verificação, retire o disco do VM de recuperação e, em seguida, volte a ligar o disco ao VM afetado como disco de oss. Para obter mais informações, consulte [Troubleshoot a Windows VM, fixando o disco OS a um VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+1. Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+2. [Fixe o disco DE A uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).  
+3. Na recuperação VM, verifique o disco de verificação no disco oss anexado. Na amostra seguinte, a carta do condutor do disco oss anexado é E: 
+
+    ```console
+    chkdsk E: /f
+    ```
+
+4. Após a conclusão do Disco de Verificação, retire o disco do VM de recuperação e, em seguida, volte a ligar o disco ao VM afetado como disco de oss. Para obter mais informações, consulte [Troubleshoot a Windows VM, fixando o disco OS a um VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).

@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132122"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de VMware VMs para Azure
 
@@ -20,7 +21,7 @@ Este artigo fornece uma visão geral da recuperação de desastres para VMware V
 
 Uma estratégia de continuidade de negócios e recuperação de desastres (BCDR) ajuda a manter o seu negócio a funcionar. Durante o tempo de inatividade planeado e paragens inesperadas, o BCDR mantém os dados seguros e disponíveis, e garante que as aplicações continuam a funcionar. Além das funcionalidades da plataforma BCDR, como o emparelhamento regional e o armazenamento de alta disponibilidade, o Azure fornece serviços de recuperação como parte integrante da sua solução BCDR. Os serviços de recuperação incluem: 
 
-- [O Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) confirma os seus dados no local e Azure VM. Pode fazer uma erção de um ficheiro e pastas, cargas de trabalho específicas ou um VM inteiro. 
+- [O Azure Backup](../backup/backup-overview.md) confirma os seus dados no local e Azure VM. Pode fazer uma erção de um ficheiro e pastas, cargas de trabalho específicas ou um VM inteiro. 
 - [A Azure Site Recovery](site-recovery-overview.md) proporciona resiliência e recuperação de desastres para apps e cargas de trabalho em funcionamento em máquinas no local, ou VMs Azure IaaS. A recuperação do local orquestra a replicação e as pegas falham em Azure quando ocorrem interrupções. Também trata da recuperação de Azure para o seu local principal. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Como é que a Recuperação do Local faz a recuperação de desastres?

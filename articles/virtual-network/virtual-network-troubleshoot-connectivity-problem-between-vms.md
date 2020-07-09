@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71056806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130674"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Troubleshooting connectivity problems between Azure VMs (Resolver problemas de conectividade entre VMs do Azure)
 
@@ -81,11 +81,15 @@ Pode utilizar um dos seguintes métodos para verificar se a aplicação ou servi
 
 **VM do Windows**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **VM do Linux**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Executar o comando **telnet** na própria máquina virtual para testar a porta. Se o teste falhar, a aplicação ou o serviço não estão configurados para ouvir na porta.
 

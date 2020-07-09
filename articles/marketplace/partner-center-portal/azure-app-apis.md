@@ -1,18 +1,16 @@
 ---
 title: Partner Center submissão API a apps a bordo da Azure no mercado comercial da Microsoft
 description: Aprenda os pré-requisitos para utilizar a API de submissão do Partner Center para aplicações Azure no mercado comercial no Microsoft Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964979"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122001"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Parceiro Center submissão API para apps Azure a bordo no Partner Center
 

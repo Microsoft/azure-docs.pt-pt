@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7947b6c04ade1fd6a5d9032f05cb6ec56e7a1f5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361409"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132082"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -544,7 +544,7 @@ Dentro de uma conta de armazenamento, você tem um tipo de conceito de pasta cha
 
 Dentro de Azure, um nome disco/VHD segue a seguinte ligação de nomeação que precisa fornecer um nome único para o VHD dentro de Azure:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 A cadeia acima precisa de identificar exclusivamente o disco/VHD que é armazenado no Azure Storage.
 
@@ -999,7 +999,7 @@ Um sistema SAP ou mesmo um servidor DBMS dedicado que suporte uma camada de apli
 
 Os discos de dados podem ser armazenados como ficheiros VHD numa Conta de Armazenamento Azure e podem ser diretamente ligados a uma máquina virtual ou ser usados como imagem. Neste caso, o VHD é copiado para outro local antes de ser ligado à máquina virtual. O nome completo do ficheiro VHD em Azure deve ser único dentro do Azure. Como mencionado anteriormente, o nome é uma espécie de nome em três partes que se parece com:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Os discos de dados também podem ser Geridos Discos. Neste caso, o Disco Gerido é utilizado para criar um novo Disco Gerido antes de ser ligado à máquina virtual. O nome do Disco Gerido deve ser único dentro de um grupo de recursos.
 
@@ -1926,7 +1926,7 @@ A arquitetura para SAP HA em Linux on Azure é basicamente a mesma que para o Wi
 
 A SAP ofereceu a funcionalidade para iniciar casos SAP imediatamente após o início do SO dentro do VM. Os passos exatos foram documentados no artigo [1909114]da Base de Conhecimento sapatado. No entanto, a SAP já não recomenda a utilização da definição porque não existe controlo na ordem de caso, assumindo que mais de um VM foi afetado ou vários casos foram per VM. Assumindo um cenário típico de Azure de uma instância de servidor de aplicações SAP num VM e o caso de um único VM eventualmente reiniciado, o Autostart não é crítico e pode ser ativado adicionando este parâmetro:
 
-    Autostart = 1
+`Autostart = 1`
 
 No perfil inicial do caso SAP ABAP e/ou Java.
 

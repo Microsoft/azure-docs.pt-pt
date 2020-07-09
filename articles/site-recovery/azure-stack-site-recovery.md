@@ -3,12 +3,12 @@ title: Replicar VMs Azure Stack para Azure usando Azure Site Recovery / Microsof
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478506"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131610"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -262,7 +262,7 @@ Antes de executar um teste de falha, verifique as propriedades da máquina e cer
 2. No painel **Item replicado**, existe um resumo das informações, do estado de funcionamento e dos pontos de recuperação mais recentes disponíveis da VM. Clique em **Propriedades** para ver mais detalhes.
 3. No **Compute and Network,** modifique as definições conforme necessário.
 
-    - Pode modificar o nome Azure VM, grupo de recursos, tamanho do alvo, [definição de disponibilidade](/azure/virtual-machines/windows/tutorial-availability-sets)e definições de disco gerido.
+    - Pode modificar o nome Azure VM, grupo de recursos, tamanho do alvo, [definição de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md)e definições de disco gerido.
     - Também pode visualizar e modificar as definições de rede. Estes incluem a rede/sub-rede à qual o VM Azure é acompanhado após o failover, e o endereço IP que será atribuído ao VM.
 1. Em **Discos,** veja informações sobre o sistema operativo e os discos de dados no VM.
 
@@ -339,7 +339,7 @@ Nesta fase, o falhanço está completo.
 
 Neste artigo replicamos VMs Azure Stack para Azure. Com a replicação no lugar, fizemos um exercício de recuperação de desastres para garantir que o fracasso para Azure funcionou como esperado. O artigo também incluiu passos para executar um fracasso total para Azure, e falhando de volta a Azure Stack.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter falhado, pode reprotegir o VM e começar a replicá-lo ao Azure novamente Para o fazer, repita os passos deste artigo.
 

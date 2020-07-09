@@ -2,19 +2,17 @@
 title: ficheiro de inclusão
 description: ficheiro de inclusão
 documentationcenter: partner-center-commercial-marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
-ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38f97f8f3397eb1737c2414f5bbbccf99503711e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686358"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121894"
 ---
 Conecte-se diretamente com os clientes, listando a sua oferta nos mercados e ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM) para que possa receber informações de contacto com o cliente imediatamente após um cliente expressar interesse ou implementar o seu produto.
 
