@@ -1,13 +1,14 @@
 ---
 title: Azure Lighthouse em cenários empresariais
 description: As capacidades do Farol Azure podem ser usadas para simplificar a gestão de inquilinos cruzados dentro de uma empresa que usa vários inquilinos AD Azure.
-ms.date: 09/25/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749205"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114147"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
@@ -17,7 +18,7 @@ O cenário mais comum para [o Azure Lighthouse](../overview.md) é um prestador 
 
 Para a maioria das organizações, a gestão é mais fácil com um único inquilino AZure AD. Ter todos os recursos dentro de um inquilino permite centralizar tarefas de gestão por utilizadores designados, grupos de utilizadores ou diretores de serviço dentro desse inquilino. Recomendamos a utilização de um inquilino para a sua organização sempre que possível.
 
-Ao mesmo tempo, existem situações que podem exigir uma organização para manter vários inquilinos da AD Azure. Em alguns casos, esta pode ser uma situação temporária, uma vez que quando as aquisições ocorreram e uma estratégia de consolidação de inquilinos de longo prazo levará algum tempo a definir. Uma organização também pode precisar de manter múltiplos inquilinos numa base contínua (devido a subsidiárias totalmente independentes, requisitos geográficos ou legais, e assim por diante). Nos casos em que é necessária uma arquitetura multi-arrendatário, a gestão de recursos delegada do Azure pode ser usada para centralizar e agilizar as operações de gestão. As assinaturas de vários inquilinos podem ser a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)permitindo aos utilizadores designados num inquilino gerente desempenhar [funções de gestão de inquilinos transversais de](cross-tenant-management-experience.md) forma centralizada e escalável.
+Ao mesmo tempo, existem situações que podem exigir uma organização para manter vários inquilinos da AD Azure. Em alguns casos, esta pode ser uma situação temporária, uma vez que quando as aquisições ocorreram e uma estratégia de consolidação de inquilinos de longo prazo levará algum tempo a definir. Uma organização também pode precisar de manter múltiplos inquilinos numa base contínua (devido a subsidiárias totalmente independentes, requisitos geográficos ou legais, e assim por diante). Nos casos em que é necessária uma arquitetura multi-arrendatário, o Farol de Azure pode ser usado para centralizar e dinamizar operações de gestão. As assinaturas de vários inquilinos podem ser a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)permitindo aos utilizadores designados num inquilino gerente desempenhar [funções de gestão de inquilinos transversais de](cross-tenant-management-experience.md) forma centralizada e escalável.
 
 ## <a name="tenant-management-architecture"></a>Arquitetura de gestão de inquilinos
 
@@ -31,17 +32,17 @@ A sua organização quer usar as mesmas definições políticas, práticas de ba
 
 ## <a name="security-and-access-considerations"></a>Considerações de segurança e acesso
 
-Na maioria dos cenários empresariais, você vai querer delegar uma subscrição completa para a gestão de recursos delegados Azure, embora também possa delegar apenas grupos de recursos específicos dentro de uma subscrição.
+Na maioria dos cenários empresariais, você vai querer delegar uma subscrição completa para O Farol Azure, embora também possa delegar apenas grupos de recursos específicos dentro de uma subscrição.
 
 De qualquer forma, certifique-se [de seguir o princípio do menor privilégio ao definir quais os utilizadores que terão acesso aos recursos](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Ao fazê-lo, os utilizadores apenas têm as permissões necessárias para executar as tarefas necessárias e reduz a possibilidade de erros inadvertidos.
 
-A gestão de recursos delegada em Azure e Azure apenas fornece ligações lógicas entre um inquilino gerente e inquilinos geridos, em vez de mover fisicamente dados ou recursos. Além disso, o acesso vai sempre em apenas uma direção, desde o arrendatário gerente até aos inquilinos geridos.  Os utilizadores e grupos do arrendatário gerente devem continuar a utilizar a autenticação de vários fatores na realização de operações de gestão sobre recursos de inquilino geridos.
+O Farol Azure apenas fornece ligações lógicas entre um inquilino gerente e inquilinos geridos, em vez de dados ou recursos fisicamente em movimento. Além disso, o acesso vai sempre em apenas uma direção, desde o arrendatário gerente até aos inquilinos geridos.  Os utilizadores e grupos do arrendatário gerente devem continuar a utilizar a autenticação de vários fatores na realização de operações de gestão sobre recursos de inquilino geridos.
 
 As empresas com seguranças de governação interna ou externa e de conformidade podem utilizar [registos de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md) para satisfazer os seus requisitos de transparência. Quando os inquilinos da empresa estabeleceram relações de inquilinos de gestão e gestão, os utilizadores em cada inquilino podem monitorizar e ganhar visibilidade às ações tomadas pelos utilizadores do outro inquilino, visualizando a atividade registada.
 
 ## <a name="onboarding-process-considerations"></a>Considerações do processo de embarque
 
-As subscrições (ou grupos de recursos dentro de uma subscrição) podem ser a bordo da Azure delegada gestão de recursos, quer através da implementação de modelos de Gestor de Recursos Azure ou através de ofertas de Serviços Geridos publicadas no Azure Marketplace, tanto privadas como publicamente.
+As subscrições (ou grupos de recursos dentro de uma subscrição) podem ser a bordo do Farol Azure, quer através da implementação de modelos do Gestor de Recursos Azure, quer através de ofertas de Serviços Geridos publicadas no Azure Marketplace, tanto privadas como publicamente.
 
 Uma vez que os utilizadores empresariais normalmente poderão ter acesso direto aos inquilinos da empresa, e não há necessidade de comercializar ou promover uma oferta de gestão, é geralmente mais rápido e simples de implementar diretamente com modelos de Gestor de Recursos Azure. Enquanto nos referimos a prestadores de serviços e clientes na [orientação de embarque,](../how-to/onboard-customer.md)as empresas podem usar os mesmos processos.
 

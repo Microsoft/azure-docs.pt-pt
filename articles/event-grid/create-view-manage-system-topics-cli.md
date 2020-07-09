@@ -1,18 +1,14 @@
 ---
 title: Criar, ver e gerir tópicos do sistema Azure Event Grid usando O CLI
 description: Este artigo mostra como usar o CLI Azure para criar, visualizar e eliminar tópicos do sistema.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: d9ba83d12e73b3ebceaee3167cdcf7f27922b686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885244"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115048"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, ver e gerir tópicos do sistema de grade de eventos usando O Azure CLI
 Este artigo mostra-lhe como criar e gerir tópicos do sistema usando o Azure CLI. Para uma visão geral dos tópicos do sistema, consulte [os tópicos do Sistema](system-topics.md).

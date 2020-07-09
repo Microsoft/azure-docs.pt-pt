@@ -1,20 +1,14 @@
 ---
 title: Azure IoT Hub como fonte de grade de eventos
 description: Este artigo fornece as propriedades e esquema para eventos Azure IoT Hub. Ele lista os tipos de eventos disponíveis, um evento exemplo, e propriedades de eventos.
-services: iot-hub
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113654"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub como fonte de grade de eventos
 Este artigo fornece as propriedades e esquema para eventos Azure IoT Hub. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). 
@@ -25,7 +19,7 @@ Este artigo fornece as propriedades e esquema para eventos Azure IoT Hub. Para u
 
 Azure IoT Hub emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo está registado num hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. | 
@@ -146,7 +140,7 @@ O esquema para eventos DeviceCreated e DeviceDeleted tem a mesma estrutura. Este
 
 Todos os eventos contêm os mesmos dados de alto nível: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ID | string | Identificador único para o evento. |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
@@ -159,7 +153,7 @@ Todos os eventos contêm os mesmos dados de alto nível:
 
 Para todos os eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | nome hub | string | Nome do Hub IoT onde o dispositivo foi criado ou eliminado. |
 | deviceId | string | O identificador único do dispositivo. Esta cadeia sensível a casos pode ter até 128 caracteres de comprimento, e suporta caracteres alfanuméricos ASCII de 7 bits, além dos seguintes caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
@@ -168,7 +162,7 @@ O conteúdo do objeto de dados é diferente para cada editor de eventos.
 
 Para **eventos IoT** Hub ligados e **dispositivos ligados** ao dispositivo, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | moduleId | string | O identificador único do módulo. Este campo é apenas para dispositivos de módulos. Esta cadeia sensível a casos pode ter até 128 caracteres de comprimento, e suporta caracteres alfanuméricos ASCII de 7 bits, além dos seguintes caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | dispositivoConnectionStateEventInfo | objeto | Informações sobre eventos do estado de ligação do dispositivo
@@ -176,7 +170,7 @@ Para **eventos IoT** Hub ligados e **dispositivos ligados** ao dispositivo, o ob
 
 Para o evento IoT Hub de **Telemetria do Dispositivo,** o objeto de dados contém a mensagem dispositivo-nuvem no [formato de mensagem do hub IoT](../iot-hub/iot-hub-devguide-messages-construct.md) e tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | body | string | O conteúdo da mensagem do dispositivo. |
 | propriedades | string | As propriedades da aplicação são cadeias definidas pelo utilizador que podem ser adicionadas à mensagem. Estes campos são opcionais. |
@@ -211,7 +205,7 @@ Para **eventos IoT** Hub criados e **eliminados por dispositivos,** o objeto de 
 | [Reagir aos eventos do IoT Hub usando a Grade de Eventos para desencadear ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do Hub IoT com grade de eventos. |
 | [Dispositivo de encomenda ligado e eventos desligados do dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Mostra como encomendar eventos estatais de ligação do dispositivo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para saber como o IoT Hub e a Grade de Eventos funcionam em conjunto, consulte [os eventos do IoT Hub utilizando a Grade de Eventos para desencadear ações.](../iot-hub/iot-hub-event-grid.md)

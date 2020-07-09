@@ -1,19 +1,14 @@
 ---
 title: 'Quickstart: Enviar eventos personalizados para a Função Azure - Grade de Eventos'
 description: 'Quickstart: Use Azure Event Grid e Azure CLI ou portal para publicar um tópico e subscrever esse evento. Uma Função Azure é utilizada para o ponto final.'
-services: event-grid
-keywords: ''
-author: femila
-ms.author: femila
-ms.date: 11/15/2019
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.openlocfilehash: cc429fd38fc3322887affb72e71e0f583823c297
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557863"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115099"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Quickstart: Encaminhe eventos personalizados para uma função Azure com grade de evento
 
@@ -37,7 +32,7 @@ Depois de instalar a extensão, clique em continuar, dar um nome à sua função
 
 Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** no menu de navegação à esquerda, procure por **Grelha de Eventos**e selecione **Tópicos de Grelha de Eventos**. 
 
     ![Selecione tópicos de grelha de eventos](./media/custom-event-to-function/select-event-grid-topics.png)
@@ -185,7 +180,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
     O outro grupo de recursos que vê na imagem foi criado e usado pela janela Cloud Shell. Elimine-o se não pretender utilizar a janela Cloud Shell mais tarde. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

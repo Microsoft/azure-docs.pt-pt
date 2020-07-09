@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322056"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111002"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -30,9 +30,8 @@ Para partilhar ou receber dados de uma loja de dados Azure, o utilizador precisa
 
 Abaixo está um resumo das funções atribuídas à identidade gerida do recurso Data Share:
 
-| |  |  |
-|---|---|---|
 |**Tipo de Loja de Dados**|**Loja de dados do fornecedor de dados**|**Data Consumer Target Data Store**|
+|---|---|---|
 |Armazenamento de Blobs do Azure| Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
 |Azure Data Lake Gen1 | Proprietário | Não suportado
 |Azure Data Lake Gen2 | Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
@@ -42,9 +41,8 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 
 Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados Azure SQL com o mesmo nome que o recurso Azure Data Share. Abaixo está um resumo da permissão exigida pelo utilizador SQL.
 
-| |  |  |
-|---|---|---|
 |**Tipo de base de dados SQL**|**Permissão do utilizador do fornecedor de dados SQL**|**Autorização do utilizador sql do consumidor de dados**|
+|---|---|---|
 |Base de Dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (anteriormente SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Para ver o convite Azure Data Share pela primeira vez no seu inquilino Azure, po
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre papéis no Azure - [Entenda as definições de funções](../role-based-access-control/role-definitions.md)
-

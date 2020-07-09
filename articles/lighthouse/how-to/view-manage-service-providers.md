@@ -1,17 +1,18 @@
 ---
 title: Ver e gerir fornecedores de serviços
 description: Os clientes podem utilizar a página de prestadores de serviços no portal Azure para visualizar informações sobre prestadores de serviços, ofertas de prestadores de serviços e recursos delegados.
-ms.date: 04/24/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 8b48fb9c92cf6922cea62fe04943ae76d3d3b590
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636466"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111631"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
-Os clientes podem usar a página **dos prestadores de serviços** no [portal Azure](https://portal.azure.com) para visualizar informações sobre prestadores de serviços e ofertas de prestadores de serviços, delegar recursos específicos através da [gestão de recursos delegados da Azure,](../concepts/azure-delegated-resource-management.md)e fazer compras para novas ofertas de prestadores de serviços. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
+Os clientes podem utilizar a página **de prestadores de serviços** no [portal Azure](https://portal.azure.com) para visualizar detalhes sobre os prestadores de serviços e ofertas de prestadores de serviços, delegar recursos específicos para o [Farol Azure](../overview.md)e fazer compras para novas ofertas de prestadores de serviços. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
 
 Para aceder à página **dos prestadores de serviços** no portal Azure, o cliente pode selecionar **Todos os serviços,** em seguida, procurar **por fornecedores de Serviços** e selecioná-lo. Também podem encontrá-lo entrando em "Prestadores de Serviços" ou "Farol Azure" na caixa de pesquisa perto do topo do portal Azure.
 
@@ -20,14 +21,14 @@ Para aceder à página **dos prestadores de serviços** no portal Azure, o clien
 >
 > Para adicionar ofertas, delegar recursos e remover ofertas, o utilizador deve ter o [Proprietário papel incorporado](../../role-based-access-control/built-in-roles.md#owner) para a subscrição.
 
-Tenha em mente que a página **dos prestadores de serviços apenas** mostra informações sobre os prestadores de serviços que têm acesso às subscrições ou grupos de recursos do cliente através da gestão de recursos delegados da Azure. Se um cliente trabalhar com fornecedores de serviços adicionais que não utilizem a Azure delegada gestão de recursos para aceder aos recursos do cliente, informações sobre esses prestadores de serviços não são mostradas aqui.
+Tenha em mente que a página **dos prestadores de serviços apenas** mostra informações sobre os prestadores de serviços que têm acesso às subscrições ou grupos de recursos do cliente através do Farol de Azure. Se um cliente trabalhar com fornecedores de serviços adicionais que não usam o Farol Azure para aceder aos recursos do cliente, a informação sobre esses prestadores de serviços não é mostrada aqui.
 
 > [!TIP]
 > Os prestadores de serviços podem ver informações sobre os seus clientes navegando para **os meus clientes** no portal Azure. Para mais informações, consulte [Ver e gerir clientes e recursos delegados.](view-manage-customers.md)
 
 ## <a name="view-service-provider-details"></a>Ver detalhes do prestador de serviços
 
-Para ver informações sobre os prestadores de serviços, o cliente pode selecionar ofertas de prestadores de **serviços** no lado esquerdo da página dos prestadores de **serviços.**
+Para ver detalhes sobre os prestadores de serviços, o cliente pode selecionar ofertas de prestadores de **serviços** no lado esquerdo da página dos prestadores de **serviços.**
 
 Para cada oferta de prestador de serviços, o cliente verá o nome do prestador de serviços e a oferta que lhe está associada, juntamente com o nome que o cliente inseriu durante o processo de embarque.
 
@@ -66,11 +67,11 @@ As delegações representam as atribuições de funções que concedem permissõ
 Filtros no topo da página permitem-lhe classificar e agrupar as informações da sua delegação. Também pode filtrar por clientes, ofertas ou palavras-chave específicas.
 
 > [!NOTE]
-> Os clientes não verão estas atribuições de funções, ou quaisquer utilizadores do arrendatário prestador de serviços a quem tenha sido concedidas estas funções, ao [visualizar informações de atribuição de funções para o âmbito delegado no portal Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) ou através de APIs.
+> Os clientes não verão estas atribuições de funções, ou quaisquer utilizadores do arrendatário prestador de serviços a quem tenha sido concedidas estas funções, ao [visualizar atribuições de funções para o âmbito delegado no portal Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) ou através de APIs.
 
 ## <a name="audit-delegations-in-your-environment"></a>Delegações de auditoria no seu ambiente
 
-Os clientes podem querer ganhar visibilidade nas subscrições e/ou grupos de recursos que foram delegados a prestadores de serviços para [a gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md) Isto é especialmente útil para os clientes com um grande número de subscrições, ou que têm muitos utilizadores que realizam tarefas de gestão.
+Os clientes podem querer ganhar visibilidade nas subscrições e/ou grupos de recursos que foram delegados ao Farol de Azure. Isto é especialmente útil para os clientes com um grande número de subscrições, ou que têm muitos utilizadores que realizam tarefas de gestão.
 
 Fornecemos uma [definição de política incorporada da Azure](../../governance/policy/samples/built-in-policies.md#lighthouse) Para auditar a delegação de âmbitos a um inquilino gestor. Pode atribuir esta política a um grupo de gestão que inclua todas as subscrições que pretende auditar. Quando verificar o cumprimento desta política, quaisquer subscrições e/ou grupos de recursos delegados (dentro do grupo de gestão ao qual a apólice é atribuída) serão apresentados num estado incompatível. Em seguida, pode rever os resultados e confirmar que não existem delegações inesperadas.
 

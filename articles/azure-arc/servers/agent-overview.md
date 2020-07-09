@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807677"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111257"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Visão geral do Azure Arc para agente de servidores
 
@@ -184,7 +185,7 @@ Para garantir a segurança dos dados em trânsito para Azure, encorajamo-lo a co
 |Plataforma/Idioma | Suporte | Mais Informações |
 | --- | --- | --- |
 |Linux | As distribuições linux tendem a contar com [o suporte OpenSSL](https://www.openssl.org) para suporte TLS 1.2. | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows Server 2012 R2 e superior | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
+| Windows Server 2012 R2 e superior | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Configuração de rede
 
@@ -208,7 +209,7 @@ URLs:
 |*-agentservice-prod-1.azure-automation.net|Configuração de Convidado|
 |*.his.arc.azure.com|Serviço de Identidade Híbrida|
 
-Para obter uma lista de endereços IP para cada tag/região de serviço, consulte o ficheiro JSON - [Gamas IP Azure e Tags de Serviço – Nuvem Pública.](https://www.microsoft.com/download/details.aspx?id=56519) A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, [reveja as etiquetas de serviço.](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)
+Para obter uma lista de endereços IP para cada tag/região de serviço, consulte o ficheiro JSON - [Gamas IP Azure e Tags de Serviço – Nuvem Pública.](https://www.microsoft.com/download/details.aspx?id=56519) A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, [reveja as etiquetas de serviço.](../../virtual-network/security-overview.md#service-tags)
 
 Os URLs na tabela anterior são necessários para além das informações do intervalo de endereços IP da Marca de Serviço, uma vez que a maioria dos serviços não tem atualmente um registo de Marca de Serviço. Como tal, os endereços IP estão sujeitos a alterações. Se forem necessários intervalos de endereços IP para a sua configuração de firewall, então a Tag de Serviço **AzureCloud** deve ser utilizada para permitir o acesso a todos os serviços Azure. Não desative a monitorização de segurança ou a inspeção destes URLs, permitindo-os como se fosse outro tráfego de Internet.
 

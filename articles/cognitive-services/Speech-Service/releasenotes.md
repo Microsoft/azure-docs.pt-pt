@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086309"
+ms.locfileid: "86112991"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -24,7 +24,7 @@ ms.locfileid: "86086309"
 
 ### <a name="new-features"></a>Novas funcionalidades
 
-* **TTS neurais, 15 novas vozes neurais**: As novas vozes adicionadas ao portfólio neural TTS são Salma em árabe (Egito), Zariyah em árabe (Arábia Saudita), Alba em catalão (Espanha), Christel em dinamarquês (Dinamarca), Neerja em inglês (Índia), Swara em Hindi (Índia), Colette em holandês (Holanda), Zof é polaca (Polónia), Fernanda em português (Portugal), Dariya em russo (Rússia), Hillevi em sueco (Suécia), Achara em tailandês (Tailândia), Iselin Norueguês (Bokmål) em (Noruega), HiuGaai em chinês (Hongkong) e HsiaoYu em chinês (Taiwan). Verifique todas as [línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)  
+* **Neural TTS, 15 novas vozes neurais**: As novas vozes adicionadas ao portfólio neural TTS são Salma em `ar-EG` árabe (Egito), Zariyah em `ar-SA` árabe (Arábia Saudita), Alba em `ca-ES` catalão (Espanha), Christel em `da-DK` dinamarquês (Dinamarca), Neerja em `es-IN` inglês (Índia), Noora em `fi-FI` finlandês (Finlândia), Swara em `hi-IN` Hindi (Índia), Colette em `nl-NL` Holanda (Holanda), Zofia em `pl-PL` polaco (Polónia), Fernanda em `pt-PT` Português (Portugal), Dariya em `ru-RU` russo (Rússia), Hillevi em `sv-SE` sueco (Suécia), Achara em `th-TH` tailandês (Tailândia), HiuGaai em `zh-HK` chinês (cantonês, Tradicional) e HsiaoYu em `zh-TW` chinês (mandarim taiwanês). Verifique todas as [línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)  
 
 * **Voz Personalizada, testes de voz simplificados com o fluxo de treino para simplificar a experiência**do utilizador : Com a nova funcionalidade de teste, cada voz será automaticamente testada com um conjunto de testes pré-definido otimizado para cada idioma para cobrir cenários gerais e assistentes de voz. Estes conjuntos de testes são cuidadosamente selecionados e testados para incluir casos de uso típicos e fones de telefone no idioma. Além disso, os utilizadores ainda podem selecionar para carregar os seus próprios scripts de teste ao treinar um modelo.
 
@@ -46,23 +46,23 @@ ms.locfileid: "86086309"
 
 * Melhor vocoder TTS para uma maior fidelidade e menor latência.
 
-    * A Elsa atualizou a Elsa em italiano para um novo vocoder que alcançou +0,464 CMOS (Comparative Mean Opinion Score) ganho na qualidade de voz, 40% mais rápido na síntese e 30% na primeira latência byte. 
-    * Atualizado Xiaoxiao em chinês para o novo vocoder com +0148 CMOS ganho para o domínio geral, +0.348 para o estilo de noticiário e +0.195 para o estilo lírico. 
+    * A Elsa atualizou `it-IT` um novo vocoder que alcançou +0,464 CMOS (Comparative Mean Opinion Score) ganho na qualidade de voz, 40% mais rápido na síntese e 30% na redução da latência do primeiro byte. 
+    * Atualizado Xiaoxiao `zh-CN` para o novo vocoder com +0148 CMOS ganho para o domínio geral, +0.348 para o estilo de noticiário e +0.195 para o estilo lírico. 
 
 * Modelos `de-DE` atualizados e `ja-JP` de voz para tornar a saída TTS mais natural.
     
-    * Atualizado Katja em alemão com o mais recente método de modelação de prosody, o ganho de MOS (Mean Opinion Score) é de +0.13. 
-    * Nanami atualizado em japonês com um novo modelo de prosody de sotaque de tom, o ganho MOS (Mean Opinion Score) é +0.19;  
+    * Atualizado Katja `de-DE` com o mais recente método de modelação de prosody, o ganho de MOS (Mean Opinion Score) é de +0.13. 
+    * Nanami atualizado `ja-JP` com um novo modelo de prosody de sotaque de tom, o ganho MOS (Mean Opinion Score) é de +0.19;  
 
 * Melhor precisão da pronúncia ao nível da palavra em 5 línguas.
 
     | Linguagem | Redução do erro de pronúncia |
     |---|---|
-    | en-GB | 51% |
-    | ko-KR | 17% |
-    | pt-BR | 39% |
-    | pt-PT | 77% |
-    | id-ID | 46% |
+    | `en-GB` | 51% |
+    | `ko-KR` | 17% |
+    | `pt-BR` | 39% |
+    | `pt-PT` | 77% |
+    | `id-ID` | 46% |
 
 ### <a name="bug-fixes"></a>Correções de erros
 
@@ -71,8 +71,8 @@ ms.locfileid: "86086309"
      
     | Linguagem | Entrada | Leitura após melhoria |
     |---|---|---|
-    | es-MX | $1,58 | un peso cincuenta y ocho centavos |
-    | es-ES | $1,58 | un dólar cincuenta y ocho centavos |
+    | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
+    | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
 
     * Apoio à moeda negativa (como "-325€" ) nos locais seguintes: `en-US` , , , . . `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
 
@@ -217,7 +217,7 @@ Mantenha-se saudável!
 - JavaScript: Suporte adicional `FromHost API` para facilitar a utilização com recipientes on-prem e nuvens soberanas. Consulte a documentação [aqui.](speech-container-howto.md)
 - JavaScript: Agora honramos `NODE_TLS_REJECT_UNAUTHORIZED` graças a uma contribuição de [orgads](https://github.com/orgads). Consulte os detalhes [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - `OpenSSL`foi atualizado para a versão 1.1.1b e está estáticamente ligado à biblioteca central do SDK do Discurso para o Linux. Isto pode causar uma rutura se a sua caixa de entrada `OpenSSL` não tiver sido instalada no `/usr/lib/ssl` diretório do sistema. Por favor, consulte a [nossa documentação](how-to-configure-openssl-linux.md) nos docs da Speech SDK para contornar o assunto.
 - Alteramos o tipo de dados devolvido para C# `WordLevelTimingResult.Offset` de para permitir o acesso a quando os `int` `long` `WordLevelTimingResults` dados da fala são superiores a 2 minutos.
@@ -258,7 +258,7 @@ Mantenha-se saudável!
 - Suporte `KeywordRecognizer` adicional no Windows (UWP), Android e iOS através dos pacotes NuGet e Unidade
 - Adicionou conversa remota Java API para fazer transcrição de conversação em lotes assíncronos.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - As funcionalidades de Transcrição de Conversação deslocaram-se sob o espaço de `Microsoft.CognitiveServices.Speech.Transcription` nome.
 - Parte dos métodos de Transcrição de Conversação são transferidos para uma nova `Conversation` classe.
@@ -565,7 +565,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - Apoio ao Objective-C no iOS. Confira o nosso [arranque rápido Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no browser. Confira o nosso [arranque rápido JavaScript](quickstart-js-browser.md).
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Com esta versão, são introduzidas várias alterações de rutura.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para mais detalhes.
@@ -584,7 +584,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 - Exponha informações adicionais sobre erros de ligação.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Em Java (Android), a `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não requer um parâmetro de caminho. Agora o caminho é automaticamente detetado em todas as plataformas suportadas.
 - O acessório da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -613,7 +613,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - O resultado do reconhecimento contém mais campos. São compensados desde o início e duração áudio (ambos em carrapatos) do texto reconhecido e valores adicionais que representam o estatuto de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout` .
 - Autorização de ApoioToken para criar instâncias de fábrica.
 
-**Alterações interruptivas**
+**Quebra de mudanças**
 
 - Eventos de reconhecimento: `NoMatch` tipo de evento foi fundido no `Error` evento.
 - SpeechOutputFormat em C# foi renomeado `OutputFormat` para permanecer alinhado com C++.

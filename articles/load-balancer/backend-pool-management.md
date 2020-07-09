@@ -1,100 +1,173 @@
 ---
 title: Backend Pool Management
-description: Guia para configurar a Piscina de Backend de um Equilibrador de Carga
+titleSuffix: Azure Load Balancer
+description: Começar a aprender como configurar e gerir a piscina de backend de um Equilibrador de Carga Azure
 services: load-balancer
-author: erichrt
+author: asudbring
 ms.service: load-balancer
 ms.topic: overview
-ms.date: 07/06/2020
-ms.author: errobin
-ms.openlocfilehash: 6d9700e134a9e3d6c53524d15c8b3503cf5773c7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.author: allensu
+ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050190"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113977"
 ---
-# <a name="backend-pool-management"></a>Backend Pool Management
-O Backend Pool é um componente fundamental do Balanceador de Carga, que define o grupo de recursos computacional que servirá o tráfego para uma determinada regra de equilíbrio de carga. Ao configurar corretamente uma Piscina de Backend, terá definido um grupo de máquinas elegíveis para servir o tráfego. Existem duas formas de configurar um Pool backend, por Cartão interface de rede (NIC) e por um endereço IP combinado e ID de Recursos de Rede Virtual (VNET). 
+# <a name="backend-pool-management"></a>Gestão de piscinas de backend
+A piscina de backend é um componente crítico do equilibrador de carga. O pool backend define o grupo de recursos que servirá o tráfego para uma determinada regra de equilíbrio de carga.
 
-Na maioria dos cenários que envolvem máquinas virtuais e conjuntos de balanças de máquinas virtuais, recomenda-se configurar o seu Pool backend por NIC, uma vez que este método constrói a ligação mais direta entre o seu recurso e o Backend Pool. Para cenários que envolvam contentores e Kubernetes Pods, que não possuam um NIC ou para pré-alocção de uma série de endereços IP para recursos backend, pode configurar o seu Pool backend por ip address e combinação VNET ID.
+Há duas formas de configurar uma piscina de backend:
+* Cartão de interface de rede (NIC)
+* Endereço IP combinado e ID de Recursos da Rede Virtual (VNET)
 
-Ao configurar por NIC ou IP Address e VNET ID através do Portal, o UI irá acompanhá-lo através de cada passo e todas as atualizações de configuração serão manuseadas no backend. As secções de configuração deste artigo centrar-se-ão nos modelos Azure PowerShell, CLI, REST API e ARM para dar uma ideia de como as Piscinas backend são estruturadas para cada opção de configuração.
+Configure a sua piscina de backend por NIC ao utilizar máquinas virtuais e conjuntos de balanças de máquinas virtuais. Este método constrói a ligação mais direta entre o seu recurso e o pool backend. 
 
-## <a name="configuring-backend-pool-by-nic"></a>Configurar pool backend por NIC
-Ao configurar um Backend Pool por NIC, é importante ter em mente que o Backend Pool é criado como parte da operação do Balancer de Carga e os membros são adicionados ao Pool backend como parte da propriedade de configuração IP da sua Interface de Rede durante a operação Interface de Rede. Os exemplos a seguir são focados nas operações de criação e povoamento para o Backend Pool para destacar este fluxo de trabalho e relação.
+Em cenários em que um NIC não está disponível, como contentores ou Kubernetes Pods, configuure o seu pool de backend por endereço IP e combinação VNET ID.
+
+As secções de configuração deste artigo centrar-se-ão em:
+
+* Azure PowerShell
+* CLI do Azure
+* API REST
+* Modelos do Azure Resource Manager 
+
+Estas secções dão uma ideia de como os pools de backend são estruturados para cada opção de configuração.
+
+## <a name="configuring-backend-pool-by-nic"></a>Configurar piscina de backend por NIC
+O pool backend é criado como parte da operação do balançador de carga. A propriedade de configuração IP do NIC é usada para adicionar membros de pool backend.
+
+Os exemplos a seguir são focados nas operações de criação e povoamento para o pool backend para destacar este fluxo de trabalho e relação.
 
   >[!NOTE] 
-  >É importante notar que os Pools de Backend configurados via Interface de Rede não podem ser atualizados como parte de uma operação no Backend Pool. Qualquer adição ou supressão de recursos backend deve ocorrer na Interface de Rede do recurso.
+  >É importante notar que os pools de backend configurados através da interface de rede não podem ser atualizados como parte de uma operação no pool de backend. Qualquer adição ou supressão de recursos backend deve ocorrer na interface de rede do recurso.
 
 ### <a name="powershell"></a>PowerShell
-Criar um novo Backend Pool: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+Criar uma nova piscina de backend:
+ 
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
-Crie uma nova Interface de Rede e adicione-a ao Pool Backend:
-```powershell
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -LoadBalancerBackendAddressPool $bepool -Subnet $vnet.Subnets[0]
+Crie uma nova interface de rede e adicione-a ao pool backend:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$nicname = "myNic"
+$location = "eastus"
+$vnetname = <your-vnet-name>
+
+$vnet = 
+Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
+
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
-Recupere as informações do Pool backend para o Balanceador de Carga para confirmar que esta Interface de Rede é adicionada ao Pool backend:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $bePool  
+Recupere as informações do pool de backend para o balançador de carga para confirmar que esta interface de rede é adicionada ao pool de backend:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$lb =
+Get-AzLoadBalancer -ResourceGroupName $res
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
-Crie uma nova Máquina Virtual e anexe a Interface de Rede para a colocar no Pool Backend:
-```powershell
+Crie uma nova máquina virtual e fixe a interface de rede para colocá-la na piscina de backend:
+
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nicVM1.Id
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
  
 # Create a virtual machine using the configuration
-$vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
-
-  
 ### <a name="cli"></a>CLI
-Criar a Piscina backend:
-```bash
-az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
+Crie a piscina de backend:
+
+```azurecli-interactive
+az network lb address-pool create \
+--resourceGroup myResourceGroup \
+--lb-name myLB \
+--name myBackendPool 
 ```
 
-Crie uma nova Interface de Rede e adicione-a ao Pool Backend:
-```bash
-az network nic create --resource-group myResourceGroup --name myNic --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup --lb-name myLB --lb-address-pools myBackEndPool
+Crie uma nova interface de rede e adicione-a ao pool backend:
+
+```azurecli-interactive
+az network nic create \
+--resource-group myResourceGroup \
+--name myNic \
+--vnet-name myVnet \
+--subnet mySubnet \
+--network-security-group myNetworkSecurityGroup \
+--lb-name myLB \
+--lb-address-pools myBackEndPool
 ```
 
-Recupere o Pool backend para confirmar que o endereço IP foi corretamente adicionado:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+Recupere o pool de backend para confirmar que o endereço IP foi corretamente adicionado:
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name myLb \
+--name myBackendPool
 ```
 
-Crie uma nova Máquina Virtual e anexe a Interface de Rede para a colocar no Pool Backend:
-```bash
-az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+Crie uma nova máquina virtual e fixe a interface de rede para colocá-la na piscina de backend:
+
+```azurecli-interactive
+az vm create \
+--resource-group myResourceGroup \
+--name myVM \
+--nics myNic \
+--image UbuntuLTS \
+--admin-username azureuser \
+--generate-ssh-keys
 ```
 
 ### <a name="rest-api"></a>API REST
-Criar a Piscina backend:
+Crie a piscina de backend:
+
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Crie uma Interface de Rede e adicione-a ao Pool Backend que criou através da propriedade IP Configurations da Interface de Rede:
+Crie uma interface de rede e adicione-a ao pool de backend que criou através das configurações IP propriedade da interface de rede:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
 
-Corpo de Pedido JSON:
+Corpo de pedido JSON:
 ```json
 {
   "properties": {
@@ -117,19 +190,19 @@ Corpo de Pedido JSON:
 }
 ```
 
-Recupere as informações do Pool backend para o Balanceador de Carga para confirmar que esta Interface de Rede é adicionada ao Pool backend:
+Recupere as informações do pool de backend para o balançador de carga para confirmar que esta interface de rede é adicionada ao pool de backend:
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Crie um VM e anexe o NIC a fazer referência ao Pool Backend:
+Crie um VM e anexe o NIC a fazer referência à piscina de backend:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
 ```
 
-Corpo de Pedido JSON:
+Corpo de pedido JSON:
 ```JSON
 {
   "location": "easttus",
@@ -172,72 +245,111 @@ Corpo de Pedido JSON:
 }
 ```
 
-### <a name="arm-template"></a>Modelo do ARM
-Siga este [modelo DE ARM de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar um balanceador de carga e máquinas virtuais e adicione as máquinas virtuais ao Pool Backend via Interface de Rede.
+### <a name="resource-manager-template"></a>Modelo do Resource Manager
+Siga este [modelo quickstart Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar um equilibrador de carga e máquinas virtuais e adicione as máquinas virtuais ao pool de backend através da interface de rede.
 
-## <a name="configuring-backend-pool-by-ip-address-and-virtual-network"></a>Configurar o Backend Pool por endereço IP e rede virtual
-Se estiver a equilibrar cargas para obter recursos de contentores ou pré-povoar um Pool backend com uma gama de endereços IP, pode aproveitar o Endereço IP e a Rede Virtual para encaminhar para qualquer recurso válido, quer tenha ou não uma Interface de Rede. Ao configurar através do endereço IP e do VNET, toda a gestão do Backend Pool é feita diretamente no objeto backend Pool, conforme realçado nos exemplos abaixo.
+## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configure o pool de backend por endereço IP e rede virtual
+Em cenários com contentores ou uma piscina de backend pré-povoada com IPs, utilize IP e rede virtual.
+
+Toda a gestão da piscina de backend é feita diretamente no objeto da piscina backend, como realçado nos exemplos abaixo.
 
   >[!IMPORTANT] 
   >Esta funcionalidade encontra-se atualmente em pré-visualização e tem as seguintes limitações:
   >* Limite de 100 endereços IP adicionados
-  >* Os recursos de backend devem estar na mesma Rede Virtual que o Balanceador de Carga
-  >* Esta funcionalidade não é atualmente suportada no Portal UX
-  >* Isto só está disponível para balanceadores de carga padrão
+  >* Os recursos de backend devem estar na mesma rede virtual que o equilibrador de carga
+  >* Esta funcionalidade não é suportada atualmente no portal Azure
+  >* Balanceador de carga padrão apenas
   
 ### <a name="powershell"></a>PowerShell
-Criar uma nova piscina de backend: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+Criar uma nova piscina de backend:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$vnetName = "myVnet"
+$location = "eastus"
+$nicName = "myNic"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
-Atualize o pool de backend com um novo IP do VNET existente:  
-```powershell
-$virtualNetwork = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+Atualizar o backend pool com um novo IP da rede virtual existente:
  
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+```azurepowershell-interactive
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+ 
+$ip1 = 
+New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
 
-Recupere as informações do Backend Pool para o Balanceador de Carga para confirmar que os endereços backend são adicionados ao Pool backend:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Recupere as informações do pool de backend para o balançador de carga para confirmar que os endereços de backend são adicionados ao pool de backend:
+
+```azurepowershell-interactive
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
-Crie uma Interface de Rede e adicione-a ao Pool backend definindo o endereço IP num dos endereços backend:
-```
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -PrivateIpAddress 10.0.0.4 -Subnet $vnet.Subnets[0]
+Crie uma interface de rede e adicione-a ao pool de backend. Desaponuse o endereço IP num dos endereços de backend:
+
+```azurepowershell-interactive
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
-Crie um VM e anexe o NIC com um endereço IP no Pool Backend:
-```powershell
+Crie um VM e anexe o NIC com um endereço IP na piscina de backend:
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nic.Id
- 
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
+
 # Create a virtual machine using the configuration
-$vm = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
 ### <a name="cli"></a>CLI
-Utilizando o CLI, pode povoar o Pool backend através de parâmetros de linha de comando ou através de um ficheiro de configuração JSON. 
+Utilizando o CLI, pode povoar o pool de backend através de parâmetros de linha de comando ou através de um ficheiro de configuração JSON. 
 
-Criar e povoar o Pool backend através dos parâmetros da linha de comando:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address name=addr1 ip-address=10.0.0.4 --backend-address name=addr2 ip-address=10.0.0.5
+Criar e povoar a piscina de backend através dos parâmetros da linha de comando:
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address name=addr1 ip-address=10.0.0.4 \
+--backend-address name=addr2 ip-address=10.0.0.5
 ```
 
 Criar e povoar o Backend Pool através do ficheiro de configuração JSON:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address-config-file @config_file.json
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address-config-file @config_file.json
 ```
 
 Ficheiro de configuração JSON:
@@ -256,13 +368,18 @@ Ficheiro de configuração JSON:
         ]
 ```
 
-Recupere as informações do Backend Pool para o Balanceador de Carga para confirmar que os endereços backend são adicionados ao Pool backend:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+Recupere as informações do pool de backend para o balançador de carga para confirmar que os endereços de backend são adicionados ao pool de backend:
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name MyLb \
+--name MyBackendPool
 ```
 
-Crie uma Interface de Rede e adicione-a ao Pool backend definindo o endereço IP num dos endereços backend:
-```bash
+Crie uma interface de rede e adicione-a ao pool de backend. Desaponuse o endereço IP num dos endereços de backend:
+
+```azurecli-interactive
 az network nic create \
   --resource-group myResourceGroup \
   --name myNic \
@@ -273,8 +390,9 @@ az network nic create \
   --private-ip-address 10.0.0.4
 ```
 
-Crie um VM e anexe o NIC com um endereço IP no Pool Backend:
-```bash
+Crie um VM e anexe o NIC com um endereço IP na piscina de backend:
+
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
@@ -286,8 +404,11 @@ az vm create \
 
 ### <a name="rest-api"></a>API REST
 
+Crie a piscina de backend e defina os endereços de backend através de um pedido de pool PUT backend. Configure os endereços de backend no corpo JSON do pedido PUT:
 
-Crie o Pool Backend e defina os endereços backend através de um pedido put backend Pool. Configure os endereços de backend que gostaria de adicionar através do Nome de Endereço, Endereço IP e ID da Rede Virtual no corpo JSON do pedido PUT:
+* Nome do endereço
+* Endereço IP
+* ID de rede virtual 
 
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
@@ -321,12 +442,12 @@ Corpo de Pedido JSON:
 }
 ```
 
-Recupere as informações do Backend Pool para o Balanceador de Carga para confirmar que os endereços backend são adicionados ao Pool backend:
+Recupere as informações do pool de backend para o balançador de carga para confirmar que os endereços de backend são adicionados ao pool de backend:
 ```
 GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Crie uma Interface de Rede e adicione-a ao Pool backend definindo o endereço IP num dos endereços backend:
+Crie uma interface de rede e adicione-a ao pool de backend. Desaponuse o endereço IP num dos endereços de backend:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
@@ -352,7 +473,7 @@ Corpo de Pedido JSON:
 }
 ```
 
-Crie um VM e anexe o NIC com um endereço IP no Pool Backend:
+Crie um VM e anexe o NIC com um endereço IP na piscina de backend:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
@@ -401,8 +522,8 @@ Corpo de Pedido JSON:
 }
 ```
 
-### <a name="arm-template"></a>Modelo do ARM
-Crie o Balancer de Carga, o Pool backend e povoe o Pool Backend com endereços backend:
+### <a name="resource-manager-template"></a>Modelo do Resource Manager
+Crie o equilibrador de carga, a piscina de backend e povoe a piscina de backend com endereços de backend:
 ```
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -521,7 +642,7 @@ Crie o Balancer de Carga, o Pool backend e povoe o Pool Backend com endereços b
 }
 ```
 
-Crie uma Máquina Virtual e uma Interface de Rede anexada. Desaponuse o endereço IP da Interface de Rede para um dos endereços backend:
+Crie uma máquina virtual e interface de rede anexada. Desaponuse o endereço IP da interface de rede para um dos endereços de backend:
 ```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
@@ -719,3 +840,7 @@ Crie uma Máquina Virtual e uma Interface de Rede anexada. Desaponuse o endereç
   ]
 }
 ```
+## <a name="next-steps"></a>Próximos passos
+Neste artigo, você aprendeu sobre a gestão do pool backend balancer Azure Load balancer e como configurar um pool de backend por endereço IP e rede virtual.
+
+Saiba mais sobre [o Azure Load Balancer](load-balancer-overview.md).

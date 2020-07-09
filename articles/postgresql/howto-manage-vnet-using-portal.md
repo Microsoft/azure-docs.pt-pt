@@ -4,14 +4,14 @@ description: Criar e gerir pontos finais de serviço VNet e regras Azure Databas
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 04084aa2a86c6faab40884446d108d49861cf79e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5682213780f6b5c1bbbc02dfa947c48a4d2707de
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82509334"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112464"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
 Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaço de endereço privado de uma Rede Virtual à sua Base de Dados Azure para servidor PostgreSQL. Para obter uma visão geral da Base de Dados Azure para os pontos finais do serviço PostgreSQL VNet, incluindo limitações, consulte [a Base de Dados Azure para os pontos finais do serviço PostgreSQL Server VNet](concepts-data-access-and-security-vnet.md). Os pontos finais de serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para PostgreSQL.
@@ -56,7 +56,7 @@ Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaç
 
    ![Pontos finais de serviço VNet ativados e regra VNet criada](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for PostgreSQL usando Azure CLI](howto-manage-vnet-using-cli.md).
 - Para obter ajuda na ligação a uma base de dados Azure para servidor PostgreSQL, consulte [as bibliotecas de conexão para Azure Database for PostgreSQL](./concepts-connection-libraries.md)
 

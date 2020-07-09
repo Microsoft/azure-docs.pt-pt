@@ -1,17 +1,18 @@
 ---
 title: Implementar a Política Azure para delegar subscrições em escala
-description: Saiba como a gestão de recursos delegada da Azure permite implementar uma definição de política e atribuição de políticas em vários inquilinos.
-ms.date: 11/8/2019
+description: Saiba como o Azure Lighthouse permite implementar uma definição de política e atribuição de políticas em vários inquilinos.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e3af1728b4927874fa599bad256798f39721e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636534"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111801"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementar a Política Azure para delegar subscrições em escala
 
-Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para a Azure delegada gestão de recursos. [O Azure Lighthouse](../overview.md) permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
+Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../overview.md) O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
 
 Este tópico mostra-lhe como usar a [Política Azure](../../governance/policy/index.yml) para implementar uma definição de política e atribuição de políticas em vários inquilinos usando comandos PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento são asseguradas permitindo apenas o tráfego HTTPS.
 

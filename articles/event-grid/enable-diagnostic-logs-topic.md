@@ -1,17 +1,14 @@
 ---
 title: Grelha de Eventos Azure - Ativar registos de diagnóstico para tópicos ou domínios
 description: Este artigo fornece instruções passo a passo sobre como ativar registos de diagnóstico para um tópico de grelha de eventos Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114708"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Ativar registos de diagnóstico para tópicos ou domínios da grelha de eventos Azure
 As definições de diagnóstico permitem aos utilizadores da Grade de Eventos capturar e visualizar **registos de falha de publicação e entrega** numa conta de Armazenamento, num centro de eventos ou num espaço de trabalho do Log Analytics. Este artigo fornece instruções passo a passo para ativar estas definições num tópico de grelha de evento.

@@ -4,11 +4,12 @@ description: A API de Alerta de Log Analytics permite-lhe criar e gerir alertas 
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ab2a1369fc4902afec7d62e44ef8e947864167f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665005"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112056"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta em Log Analytics com REST API 
 
@@ -37,25 +38,29 @@ Por exemplo, considere uma consulta de evento com um intervalo de 15 minutos e u
 ### <a name="retrieving-schedules"></a>Horários de recuperação
 Utilize o método Get para recuperar todos os horários para uma pesquisa guardada.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
+```powershell
+armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
+```
 
 Utilize o método Get com um ID de horário para recuperar um determinado horário para uma pesquisa guardada.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
+```powershell
+armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
+```
 
 Segue-se uma resposta de amostra para um horário.
 
 ```json
 {
-    "value": [{
-        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/sampleRG/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
-        "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
-        "properties": {
-            "Interval": 15,
-            "QueryTimeSpan": 15,
-            "Enabled": true,
-        }
-    }]
+   "value": [{
+      "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/sampleRG/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
+      "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
+      "properties": {
+         "Interval": 15,
+         "QueryTimeSpan": 15,
+         "Enabled": true,
+      }
+   }]
 }
 ```
 
@@ -65,21 +70,25 @@ Utilize o método Put com um ID de horário único para criar um novo horário. 
 > [!NOTE]
 > O nome de todas as pesquisas, horários e ações guardados criados com a API do Log Analytics deve ser minúsculo.
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+```powershell
+$scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+```
 
 ### <a name="editing-a-schedule"></a>Edição de um horário
 Utilize o método 'Colocar' com um ID de horário existente para a mesma pesquisa guardada para modificar esse horário; em exemplo abaixo do horário é desativado. O corpo do pedido deve incluir o *etag* da programação.
 
-      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
-      armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
-
+```powershell
+$scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+```
 
 ### <a name="deleting-schedules"></a>Excluir horários
 Utilize o método Eliminar com um ID de programação para eliminar um horário.
 
-    armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
-
+```powershell
+armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
+```
 
 ## <a name="actions"></a>Ações
 Um horário pode ter várias ações. Uma ação pode definir um ou mais processos para executar, como o envio de um correio ou o início de um livro de execução, ou pode definir um limiar que determina quando os resultados de uma pesquisa correspondem a alguns critérios.  Algumas ações definirão ambas para que os processos sejam realizados quando o limiar for atingido.
@@ -96,11 +105,15 @@ Todas as ações têm as propriedades na tabela seguinte.  Diferentes tipos de a
 
 Utilize o método Get para recuperar todas as ações para um horário.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
+```powershell
+armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
+```
 
 Utilize o método Get com o ID de ação para recuperar uma determinada ação para um horário.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
+```powershell
+armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
+```
 
 ### <a name="creating-or-editing-actions"></a>Criar ou editar ações
 Utilize o método Put com um ID de ação único na programação para criar uma nova ação.  Quando cria uma ação na consola Log Analytics, um GUID é para o ID de ação.
@@ -116,7 +129,9 @@ O formato de pedido para a criação de uma nova ação varia consoando por tipo
 
 Utilize o método Eliminar com o ID de ação para eliminar uma ação.
 
-    armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
+```powershell
+armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
+```
 
 ### <a name="alert-actions"></a>Ações de Alerta
 A Agenda deve ter uma e única ação de alerta.  As ações de alerta têm uma ou mais secções na tabela seguinte.  Cada um é descrito em mais detalhes abaixo.
@@ -143,26 +158,32 @@ Por exemplo, considere uma consulta de evento com um intervalo de 15 minutos, um
 
 Segue-se uma resposta de amostra para uma ação com apenas um limiar.  
 
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My threshold action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Version": 1
-    }
+```json
+"etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "My threshold action",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 10
+   },
+   "Version": 1
+}
+```
 
 Utilize o método Put com um ID de ação único para criar uma nova ação limiar para um horário.  
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+```powershell
+$thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar uma ação limiar para um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+```powershell
+$thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+```
 
 #### <a name="severity"></a>Gravidade
 O Log Analytics permite-lhe classificar os seus alertas em categorias, para permitir uma gestão e triagem mais fáceis. A gravidade do alerta definida é: informativo, aviso e crítico. Estes são mapeados para a escala de severidade normalizada dos Alertas Azure como:
@@ -175,26 +196,33 @@ O Log Analytics permite-lhe classificar os seus alertas em categorias, para perm
 
 Segue-se uma resposta de amostra para uma ação com apenas um limiar e gravidade. 
 
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My threshold action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Severity": "critical",
-        "Version": 1    }
+```json
+"etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "My threshold action",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 10
+   },
+   "Severity": "critical",
+   "Version": 1
+}
+```
 
 Utilize o método Put com um ID de ação único para criar uma nova ação para um horário com severidade.  
 
-    $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+```powershell
+$thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar uma ação de gravidade para um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+```powershell
+$thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+```
 
 #### <a name="suppress"></a>Suprimir
 Os alertas de consulta baseados em Log Analytics dispararão sempre que o limiar for atingido ou excedido. Com base na lógica implícita na consulta, isto pode resultar em alerta para uma série de intervalos e, portanto, notificações também são enviadas constantemente. Para evitar tal cenário, um utilizador pode definir a opção Supressa instruindo o Log Analytics a aguardar um período de tempo estipulado antes de a notificação ser disparada pela segunda vez para a regra de alerta. Assim, se a supressão for definida durante 30 minutos; em seguida, o alerta disparará pela primeira vez e enviará notificações configuradas. Mas, em seguida, aguarde por 30 minutos, antes que a notificação para a regra de alerta seja novamente usada. Durante o período provisório, a regra de alerta continuará a ser executada - apenas a notificação é suprimida pela Log Analytics por tempo especificado, independentemente do número de vezes que a regra de alerta disparada neste período.
@@ -203,29 +231,36 @@ Suprir a regra de alerta log Analytics é especificada usando o valor *de Thrott
 
 Segue-se uma resposta de amostra para uma ação com apenas um limiar, gravidade e suprimir propriedade
 
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My threshold action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Throttling": {
-          "DurationInMinutes": 30
-        },
-        "Severity": "critical",
-        "Version": 1    }
+```json
+"etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "My threshold action",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 10
+   },
+   "Throttling": {
+   "DurationInMinutes": 30
+   },
+   "Severity": "critical",
+   "Version": 1
+}
+```
 
 Utilize o método Put com um ID de ação único para criar uma nova ação para um horário com severidade.  
 
-    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+```powershell
+$AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar uma ação de gravidade para um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+```powershell
+$AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+```
 
 #### <a name="action-groups"></a>Grupos de Ação
 Todos os alertas em Azure, utilize o Action Group como o mecanismo padrão para lidar com as ações. Com o Action Group, pode especificar as suas ações uma vez e, em seguida, associar o grupo de ação a vários alertas - através do Azure. Sem a necessidade de declarar repetidamente as mesmas ações vezes sem conta. Os Grupos de Ação suportam múltiplas ações - incluindo e-mail, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI e muito mais. 
@@ -234,33 +269,39 @@ Para os utilizadores que tenham estendido os seus alertas para o Azure - um cale
 
 Para adicionar um alerta à associação de grupo de ação, especifique o ID único do Gestor de Recursos Azure do grupo de ação na definição de alerta. Abaixo é fornecida uma ilustração da amostra:
 
-     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
-      "properties": {
-        "Type": "Alert",
-        "Name": "test-alert",
-        "Description": "I need to put a description here",
-        "Threshold": {
-          "Operator": "gt",
-          "Value": 12
-        },
-        "AzNsNotification": {
-          "GroupIds": [
-            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ]
-        },
-        "Severity": "critical",
-        "Version": 1
-      },
+```json
+"etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "test-alert",
+   "Description": "I need to put a description here",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 12
+   },
+   "AzNsNotification": {
+      "GroupIds": [
+         "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+      ]
+   },
+   "Severity": "critical",
+   "Version": 1
+}
+```
 
 Utilize o método Put com um ID de ação único para associar o Grupo de Ação já existente para um horário.  Segue-se uma amostra de ilustração de utilização.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```powershell
+$AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar um Grupo de Ação associado a um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': { 'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'] } } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```powershell
+$AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': { 'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'] } } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 #### <a name="customize-actions"></a>Personalizar ações
 Por padrão de ações, siga o modelo padrão e o formato para notificações. Mas o utilizador pode personalizar algumas ações, mesmo que sejam controladas por Grupos de Ação. Atualmente, a personalização é possível para o Email Subject e para Webhook Payload.
@@ -268,70 +309,81 @@ Por padrão de ações, siga o modelo padrão e o formato para notificações. M
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar e-mail subject para grupo de ação
 Por predefinição, o e-mail para alertas é: Notificação de alerta `<AlertName>` para `<WorkspaceName>` . Mas isto pode ser personalizado, para que possa especificar palavras ou tags - para permitir que você use facilmente regras de filtro na sua Caixa de Entrada. Os detalhes do cabeçalho de e-mail personalizado precisam enviar juntamente com os detalhes do ActionGroup, como na amostra abaixo.
 
-     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
-      "properties": {
-        "Type": "Alert",
-        "Name": "test-alert",
-        "Description": "I need to put a description here",
-        "Threshold": {
-          "Operator": "gt",
-          "Value": 12
-        },
-        "AzNsNotification": {
-          "GroupIds": [
-            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ],
-          "CustomEmailSubject": "Azure Alert fired"
-        },
-        "Severity": "critical",
-        "Version": 1
-      },
+```json
+"etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "test-alert",
+   "Description": "I need to put a description here",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 12
+   },
+   "AzNsNotification": {
+      "GroupIds": [
+         "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+      ],
+      "CustomEmailSubject": "Azure Alert fired"
+   },
+   "Severity": "critical",
+   "Version": 1
+}
+```
 
 Utilize o método Put com um ID de ação único para associar o Grupo de Ação já existente à personalização de um horário.  Segue-se uma amostra de ilustração de utilização.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```powershell
+$AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar um Grupo de Ação associado a um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```powershell
+$AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Personalizar a carga útil do Webhook para o Grupo de Ação
 Por predefinição, o webhook enviado via Action Group para análise de registos tem uma estrutura fixa. Mas pode-se personalizar a carga útil do JSON utilizando variáveis específicas suportadas, para satisfazer os requisitos do ponto final webhook. Para obter mais informações, consulte [a ação webhook para obter regras de alerta de registo](../../azure-monitor/platform/alerts-log-webhook.md). 
 
 Os detalhes personalizados do webhook precisam enviar juntamente com os detalhes do ActionGroup e serão aplicados a todos os Webhook URI especificados dentro do grupo de ação; como na amostra abaixo.
 
-     "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
-      "properties": {
-        "Type": "Alert",
-        "Name": "test-alert",
-        "Description": "I need to put a description here",
-        "Threshold": {
-          "Operator": "gt",
-          "Value": 12
-        },
-        "AzNsNotification": {
-          "GroupIds": [
-            "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ],
-          "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
-          "CustomEmailSubject": "Azure Alert fired"
-        },
-        "Severity": "critical",
-        "Version": 1
-      },
+```json
+"etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
+"properties": {
+   "Type": "Alert",
+   "Name": "test-alert",
+   "Description": "I need to put a description here",
+   "Threshold": {
+      "Operator": "gt",
+      "Value": 12
+   },
+   "AzNsNotification": {
+      "GroupIds": [
+         "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
+      ],
+   "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
+   "CustomEmailSubject": "Azure Alert fired"
+   },
+   "Severity": "critical",
+   "Version": 1
+},
+```
 
 Utilize o método Put com um ID de ação único para associar o Grupo de Ação já existente à personalização de um horário.  Segue-se uma amostra de ilustração de utilização.
 
-    $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```powershell
+$AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 Utilize o método Put com um ID de ação existente para modificar um Grupo de Ação associado a um horário.  O corpo do pedido deve incluir o ponto de etag da ação.
 
-    $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
-
+```powershell
+$AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', 'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' } }"
+armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
+```
 
 ## <a name="next-steps"></a>Próximos passos
 

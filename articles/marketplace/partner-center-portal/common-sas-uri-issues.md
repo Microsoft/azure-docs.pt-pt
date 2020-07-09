@@ -1,17 +1,18 @@
 ---
 title: Questões e correções comuns da SAS URI - Azure Marketplace
 description: Questões comuns encontradas e sugeridas resoluções ao trabalhar com assinaturas de acesso partilhado.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: 56db3562efdc0406e745fd38b73df0a473d0ecd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95ce37d92adc3d09c5a09944b094df7971831198
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83724603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110730"
 ---
 # <a name="common-sas-uri-issues-and-fixes"></a>Problemas e correções comuns da SAS URI
 

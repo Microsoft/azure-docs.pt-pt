@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689015"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112117"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computador em consultas de registo do Monitor Azure
 Os grupos informáticos no Azure Monitor permitem-lhe fazer [consultas de registo](../log-query/log-query-overview.md) a um determinado conjunto de computadores.  Cada grupo é preenchido com computadores, quer utilizando uma consulta que define ou importando grupos de diferentes fontes.  Quando o grupo é incluído numa consulta de registo, os resultados limitam-se a registos que correspondem aos computadores do grupo.
@@ -33,7 +34,9 @@ Os grupos informáticos criados a partir de uma consulta de registo contêm todo
 
 Pode utilizar qualquer consulta para um grupo de computadores, mas deve devolver um conjunto distinto de computadores utilizando `distinct Computer` .  Segue-se uma consulta de exemplo típica que pode ser utilizada como um grupo de computador.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Utilize o seguinte procedimento para criar um grupo de computador a partir de uma pesquisa de registo no portal Azure.
 
@@ -93,26 +96,28 @@ Clique no **x** na coluna **Remover** para eliminar o grupo de computador.  Cliq
 ## <a name="using-a-computer-group-in-a-log-query"></a>Usando um grupo de computador em uma consulta de log
 Utiliza um grupo de Computador criado a partir de uma consulta de log numa consulta, tratando o seu pseudónimo como uma função, tipicamente com a seguinte sintaxe:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Por exemplo, pode utilizar o seguinte para devolver registos UpdateSummary apenas para computadores num grupo de computador chamado mycomputatergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Os grupos informáticos importados e os seus computadores incluídos são armazenados na tabela **Do Grupo de Computadores.**  Por exemplo, a seguinte consulta devolveria uma lista de computadores no grupo De computadores de domínio do Ative Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 A seguinte consulta devolveria registos UpdateSummary apenas para computadores em Computadores de Domínio.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Registos de grupos informáticos
 Um registo é criado no espaço de trabalho Log Analytics para cada membro do grupo de computador criado a partir do Ative Directory ou WSUS.  Estes registos têm um tipo de Grupo de **Computador** e têm as propriedades na tabela seguinte.  Os registos não são criados para grupos de computador com base em consultas de registo.

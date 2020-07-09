@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0272d53c5fc4c565baf5d7105bd6e1b4a0ef535
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944700"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114606"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
 
@@ -26,9 +26,11 @@ Este artigo responde a perguntas comuns sobre a migração do Azure Storage.
 
 Para copiar ficheiros entre contentores, pode utilizar o AzCopy. Veja o seguinte exemplo:
 
-    AzCopy /Source:https://xxx.blob.core.windows.net/xxx
-    /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
-    /S
+```azurepowershell-interactive
+AzCopy /Source:https://xxx.blob.core.windows.net/xxx
+/Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
+/S
+```
 
 A AzCopy utiliza a [API copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) para copiar cada ficheiro no recipiente.  
 
@@ -54,11 +56,15 @@ Pode usar o Azure CLI.
 
 - Faça o download de uma única bolha:
 
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```azurecli-interactive
+    azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```
 
 - Faça o upload de uma única bolha:
 
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```azurecli-interactive
+    azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```
 
 **Como posso migrar blobs de uma conta de armazenamento para outra?**
 
@@ -160,15 +166,19 @@ Siga estes passos.
 
     Para copiar discos inteiros na conta de armazenamento:
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     Para copiar apenas um disco, forneça o nome do disco em **Pattern**:
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```
 
 A operação pode levar várias horas para terminar.
 
@@ -190,9 +200,11 @@ Não há opção para fazer o apoio de uma conta de armazenamento inteira direta
 
 3.  Executar o seguinte comando para mover o recipiente. Deve substituir o texto pelos valores reais.   
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     - `/Source`: Forneça o URI para a conta de armazenamento de origem (até ao recipiente).  
     - `/Dest`: Forneça o URI para a conta de armazenamento alvo (até ao recipiente).  

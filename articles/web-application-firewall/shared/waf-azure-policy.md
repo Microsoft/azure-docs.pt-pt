@@ -5,14 +5,14 @@ author: tremansdoerfer
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 4c1fd53eb6ebf1f1aebdfba99b736e26bd6cff2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306962"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111354"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall de aplicação web Azure e Política Azure
 
@@ -22,9 +22,13 @@ O Azure Web Application Firewall (WAF) combinado com a Azure Policy pode ajudar 
 
 Existem várias políticas de Azure incorporadas para gerir os recursos da WAF. Uma repartição das políticas e das suas funcionalidades são as seguintes:
 
-1. **O Firewall da Aplicação Web deve ser ativado para o Serviço de Porta Frontal ou Gateway de aplicação Azure**: Os serviços de porta frontal azure e gateways de aplicações são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Serviço de Porta Frontal Azure ou Gateway de aplicação não tem um WAF e permite que os utilizadores vejam o que o Azure Front Door Service ou o Application Gateway não cumprem atualmente. O Deny impede que qualquer Serviço de Porta Frontal Azure ou Gateway de aplicação seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
+1. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Serviço de Porta Frontal Azure**: Os serviços da porta frontal azure são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Serviço de Porta Frontal Azure não tem um WAF e permite que os utilizadores vejam o que o Serviço de Porta Frontal Azure não cumpre. O Deny impede que qualquer Serviço de Porta Frontal Azure seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
 
-2. **Web Application Firewall deve ser um modo definido para o Application Gateway e Azure Front Door Service**: Web Application Firewall é avaliado em que modo está, quer prevenção quer deteção. A política garante a consistência do modo através das Firewalls de Aplicações Web. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
+2. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Gateway de Aplicação**: Os gateways de aplicações são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Gateway de aplicações não tem um WAF e permite que os utilizadores vejam o que o Gateway de Aplicação não cumpre. O Deny impede que qualquer Gateway de aplicação seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
+
+3. **A Firewall de Aplicação Web (WAF) deve utilizar o modo especificado para o Serviço de Porta Frontal Azure**: Determina a utilização do modo 'Detecção' ou 'Prevenção' para estar ativo em todas as políticas de Firewall de Aplicações Web para o Serviço de Porta Frontal Azure. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
+
+4. **O Firewall de Aplicação Web (WAF) deve utilizar o modo especificado para o Gateway**de Aplicação : Obriga à utilização do modo 'Detecção' ou 'Prevenção' para estar ativo em todas as políticas de Firewall de Aplicação Web para Gateway de aplicações. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
 
 
 ## <a name="launch-an-azure-policy"></a>Lançar uma Política Azure
@@ -45,7 +49,7 @@ Existem várias políticas de Azure incorporadas para gerir os recursos da WAF. 
     2.  **Exclusões**: Selecione quaisquer recursos do âmbito de aplicação para excluir da política 
     3.  **Definição de Política**: Selecione a Política Azure para aplicar ao âmbito com exclusões. Digite "Firewall de aplicação web" na barra de pesquisa para escolher a política de Azure de Firewall de Aplicação Web relevante.
 
-![Firewall de aplicação web Azure](../media/waf-azure-policy/policy-listings.png)
+![Firewall de aplicação web Azure](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selecione o **separador Parâmetros** e atualize os parâmetros de políticas. Para clarificar melhor o que o parâmetro faz, paire sobre o ícone de informação ao lado do nome do parâmetro para mais esclarecimentos.

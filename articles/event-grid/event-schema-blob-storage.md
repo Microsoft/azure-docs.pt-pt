@@ -1,18 +1,14 @@
 ---
 title: Armazenamento Azure Blob como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de armazenamento de blob com Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: ec31d8b0b2cc672b65d0c25a4a902befd8693d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781009"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113756"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento Azure Blob como fonte de grade de eventos
 

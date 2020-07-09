@@ -7,20 +7,20 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 587220753ce22aab2dc461047bb5d65b859c868e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fb54c821c50ff8e1364a125cc5db181aedf0437
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555669"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110594"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programabilidade U-SQL
 
 U-SQL é uma linguagem de consulta que é projetada para grandes cargas de trabalho tipo dado. Uma das características únicas do U-SQL é a combinação da linguagem declarativa semelhante ao SQL com a extensibilidade e programabilidade que é fornecida por C#. Neste guia, concentramo-nos na extensibilidade e programabilidade da linguagem U-SQL que é ativada por C#.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Descarregue e instale [ferramentas do Lago de Dados Azure para o Estúdio Visual.](https://www.microsoft.com/download/details.aspx?id=49504)
 

@@ -1,19 +1,14 @@
 ---
 title: Ver métricas da grelha de eventos Azure e definir alertas
 description: Este artigo descreve como usar o portal Azure para ver métricas para tópicos e subscrições de Azure Event Grid e criar alertas sobre eles.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390606"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114888"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da grelha de eventos 
 Este artigo descreve como usar o portal para ver métricas para tópicos e subscrições de Event Grid, e criar alertas sobre eles. 

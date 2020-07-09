@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: e4782213b38ad9e265cc66c3073dc5f357c50561
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc261c31a1190536f3128ed6472d9ca76dfce7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112216"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -41,10 +41,16 @@ O Azure Bastion é implantado especificamente para ***a AzureBastionSubnet***.
    * **Tráfego ingresso da internet pública:** O Bastião Azure criará um IP público que necessita do porto 443 habilitado no IP público para o tráfego de entrada. A porta 3389/22 NÃO é obrigada a ser aberta na AzureBastionSubnet.
    * **Tráfego ingresso do avião de controlo Azure Bastion:** Para a conectividade do plano de controlo, ative a porta 443 de entrada a partir da etiqueta de serviço **GatewayManager.** Isto permite que o avião de controlo, isto é, o Gateway Manager possa falar com Azure Bastion.
 
+
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Entrada":::
+
 * **Tráfego de Egress:**
 
    * **Tráfego Egress para alvo VMs:** Azure Bastion atingirá os VMs alvo em IP privado. Os NSGs precisam de permitir o tráfego de saída para outras sub-redes VM alvo para as portas 3389 e 22.
    * **Tráfego Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro de Azure (por exemplo, para armazenar registos de diagnósticos e registos de medição). Por esta razão, a Azure Bastion precisa de uma saída para a marca de serviço 443 para **a AzureCloud.**
+
+
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Saída":::
 
 ### <a name="target-vm-subnet"></a>Sub-rede VM alvo
 Esta é a sub-rede que contém a máquina virtual alvo a que pretende fazer RDP/SSH.

@@ -7,14 +7,14 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 141be5c2747ae5d0a812b1301b6af7203fe24351
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72030031"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110611"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Executar U-SQL e depurar localmente no Código do Estúdio Visual
 Este artigo descreve como executar trabalhos U-SQL numa máquina de desenvolvimento local para acelerar as fases de codificação precoce ou depurar código localmente no Código do Estúdio Visual. Para obter instruções sobre a ferramenta Azure Data Lake Tool para código de estúdio visual, consulte [Azure Data Lake Tools para Código de Estúdio Visual](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -83,7 +83,7 @@ Siga os passos abaixo para realizar o depurg local:
    ![Ferramentas do Lago de Dados para o resultado do depurg local do Código do Estúdio Visual](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Utilizar as Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics em VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 * [Começar com data lake analytics usando PowerShell](data-lake-analytics-get-started-powershell.md)

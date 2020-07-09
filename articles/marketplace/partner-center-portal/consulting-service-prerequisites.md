@@ -1,18 +1,18 @@
 ---
 title: Pré-requisitos do serviço de consultoria Azure e Dynamics 365
 description: Pré-requisitos para uma oferta de serviços de consultoria Azure ou Dynamics 365 no mercado comercial da Microsoft
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/08/2020
-ms.author: mingshen
-ms.openlocfilehash: 42bf538ebb78b6b0786a985ed6a32a312db44992
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef840985053289858f5145bafa4e51ad84734b66
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111444"
 ---
 # <a name="consulting-service-prerequisites"></a>Pré-requisitos de serviço de consultoria
 

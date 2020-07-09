@@ -1,18 +1,14 @@
 ---
 title: Tópicos personalizados na Grelha de Eventos Azure
 description: Descreve tópicos personalizados na Grelha de Eventos Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113790"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na Grelha de Eventos Azure
 Um tópico da grelha de eventos fornece um ponto final onde a fonte envia eventos. A editora cria o tópico da grelha de eventos e decide se uma fonte de evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para responder a determinados tipos de eventos, os subscritores decidem quais os tópicos a subscrever.
@@ -72,7 +68,7 @@ As secções seguintes fornecem links para tutoriais para criar tópicos persona
 | [Modelo de gestor de recursos: tópico personalizado e ponto final WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Um modelo de Gestor de Recursos que cria um tópico personalizado e subscrição para esse tópico personalizado. Envia eventos para um WebHook. |
 | [Modelo de gestor de recursos: tópico personalizado e ponto final de Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo de Gestor de Recursos que cria uma subscrição para um tópico personalizado. Envia eventos para um Azure Event Hubs. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 
 - [Tópicos do sistema](system-topics.md)

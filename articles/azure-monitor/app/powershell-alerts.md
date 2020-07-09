@@ -3,11 +3,12 @@ title: Use a Powershell para definir alertas em Insights de Aplicação Microsof
 description: Automatizar a configuração do Application Insights para obter e-mails sobre alterações métricas.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea33ecfbc02bfed75a66e751ce1788474a6d0e8f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701826"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111308"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
@@ -31,28 +32,35 @@ Instale o módulo Azure Powershell na máquina onde pretende executar os scripts
 ## <a name="connect-to-azure"></a>Ligar ao Azure
 Inicie a Azure PowerShell e [ligue-se à sua subscrição:](/powershell/azure/overview)
 
-```powershell
-
-    Add-AzAccount
+```azurepowershell
+Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>Receba alertas
-    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+
+```azurepowershell
+Get-AzAlertRule -ResourceGroup "Fabrikam" `
+  [-Name "My rule"] `
+  [-DetailedOutput]
+```
 
 ## <a name="add-alert"></a>Adicionar alerta
-    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
-     -ResourceGroup "{GROUP NAME}" `
-     -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
-     -MetricName "{METRIC NAME}" `
-     -Operator GreaterThan  `
-     -Threshold {NUMBER}   `
-     -WindowSize {HH:MM:SS}  `
-     [-SendEmailToServiceOwners] `
-     [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US" // must be East US at present
-     -RuleType Metric
 
+```azurepowershell
+Add-AzMetricAlertRule -Name "{ALERT NAME}" `
+  -Description "{TEXT}" `
+  -ResourceGroup "{GROUP NAME}" `
+  -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
+  -MetricName "{METRIC NAME}" `
+  -Operator GreaterThan `
+  -Threshold {NUMBER}  `
+  -WindowSize {HH:MM:SS} `
+  [-SendEmailToServiceOwners] `
+  [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM"] `
+  -Location "East US" // must be East US at present `
+  -RuleType Metric
+```
 
 
 ## <a name="example-1"></a>Exemplo 1
@@ -60,30 +68,35 @@ Envie-me um e-mail se a resposta do servidor aos pedidos HTTP, média superior a
 
 O GUID é o ID de subscrição (não a chave de instrumentação da aplicação).
 
-    Add-AzMetricAlertRule -Name "slow responses" `
-     -Description "email me if the server responds slowly" `
-     -ResourceGroup "Fabrikam" `
-     -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
-     -MetricName "request.duration" `
-     -Operator GreaterThan `
-     -Threshold 1 `
-     -WindowSize 00:05:00 `
-     -SendEmailToServiceOwners `
-     -Location "East US" -RuleType Metric
+```azurepowershell
+Add-AzMetricAlertRule -Name "slow responses" `
+  -ResourceGroup "Fabrikam" `
+  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -MetricName "request.duration" `
+  -Operator GreaterThan `
+  -Threshold 1 `
+  -WindowSize 00:05:00 `
+  -SendEmailToServiceOwners `
+  -Location "East US" `
+  -RuleType Metric
+```
 
 ## <a name="example-2"></a>Exemplo 2
 Tenho uma aplicação na qual uso [trackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) para reportar uma métrica chamada "salesPerHour". Envie um e-mail aos meus colegas se o "salesPerHour" cair abaixo dos 100, em média, mais de 24 horas.
 
-    Add-AzMetricAlertRule -Name "poor sales" `
-     -Description "slow sales alert" `
-     -ResourceGroup "Fabrikam" `
-     -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
-     -MetricName "salesPerHour" `
-     -Operator LessThan `
-     -Threshold 100 `
-     -WindowSize 24:00:00 `
-     -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
-     -Location "East US" -RuleType Metric
+```azurepowershell
+Add-AzMetricAlertRule -Name "poor sales" `
+  -Description "slow sales alert" `
+  -ResourceGroup "Fabrikam" `
+  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -MetricName "salesPerHour" `
+  -Operator LessThan `
+  -Threshold 100 `
+  -WindowSize 24:00:00 `
+  -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
+  -Location "East US" `
+  -RuleType Metric
+```
 
 A mesma regra pode ser usada para a métrica relatada utilizando o parâmetro de [medição](../../azure-monitor/app/api-custom-events-metrics.md#properties) de outra chamada de rastreio, como TrackEvent ou trackPageView.
 

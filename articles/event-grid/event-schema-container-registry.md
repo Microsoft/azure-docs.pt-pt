@@ -1,19 +1,14 @@
 ---
 title: Registo de contentores Azure como fonte de grelha de evento
 description: Descreve as propriedades que são fornecidas para eventos de registo de contentores com Azure Event Grid
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113722"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores Azure como fonte de grelha de evento
 
@@ -25,7 +20,7 @@ Este artigo fornece as propriedades e esquemas para eventos de registo de conten
 
 O Registo de Contentores Azure emite os seguintes tipos de eventos:
 
-| Tipo de evento | Description |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Levantado quando uma imagem é empurrada. |
 | Microsoft.ContainerRegistry.ImageDeleted | Levantado quando uma imagem é apagada. |
@@ -157,7 +152,7 @@ O esquema de um evento eliminado é semelhante ao esquema de um evento apagado c
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -170,7 +165,7 @@ Um evento tem os seguintes dados de alto nível:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ID | string | A identificação do evento. |
 | carimbo de data/hora | string | A hora em que o evento ocorreu. |
@@ -180,7 +175,7 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto alvo tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | mediaType | string | O tipo MIME do objeto referenciado. |
 | size | número inteiro | O número de bytes do conteúdo. O mesmo que o campo De Comprimento. |
@@ -207,7 +202,7 @@ O objeto de pedido tem as seguintes propriedades:
 | [Quickstart: enviar eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

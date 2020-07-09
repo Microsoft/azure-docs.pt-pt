@@ -1,20 +1,14 @@
 ---
 title: 'Quickstart: Enviar eventos personalizados para o ponto final da web - Event Grid, portal Azure'
 description: 'Quickstart: Use a Azure Event Grid e o portal Azure para publicar um tópico personalizado e subscreva eventos para esse tópico. Os eventos são tratados por uma aplicação web.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: 70f2277e1094a269b18911cc6bf037c4eb5e4731
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907737"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115235"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com o portal Azure e a Grade de Eventos
 
@@ -29,7 +23,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o porta
 
 Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 2. Na barra de pesquisa do tópico, escreva **Tópicos de Grelha de Eventos**e, em seguida, selecione Tópicos de Grelha de **Eventos** da lista de drop down. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
@@ -197,7 +191,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
     O outro grupo de recursos que vê na imagem foi criado e usado pela janela Cloud Shell. Elimine-o se não pretender utilizar a janela Cloud Shell mais tarde. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

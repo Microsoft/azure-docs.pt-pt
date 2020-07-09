@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186429"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111988"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados da CollectD sobre agentes do Linux no Azure Monitor
 [CollectD](https://collectd.org/) é uma fonte aberta do daemon Linux que recolhe periodicamente métricas de desempenho a partir de aplicações e informações de nível do sistema. As aplicações exemplo incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho da CollectD no Azure Monitor.
@@ -24,26 +24,30 @@ A seguinte configuração CollectD está incluída no agente Log Analytics para 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-         <Node "oms">
-         URL "127.0.0.1:26000/oms.collectd"
-         Format "JSON"
-         StoreRates true
-         </Node>
-    </Plugin>
+<Plugin write_http>
+   <Node "oms">
+      URL "127.0.0.1:26000/oms.collectd"
+      Format "JSON"
+      StoreRates true
+   </Node>
+</Plugin>
+```
 
 Além disso, se utilizar uma versão de collectD antes do 5.5, utilize a seguinte configuração.
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-       <URL "127.0.0.1:26000/oms.collectd">
-        Format "JSON"
-         StoreRates true
-       </URL>
-    </Plugin>
+<Plugin write_http>
+   <URL "127.0.0.1:26000/oms.collectd">
+      Format "JSON"
+      StoreRates true
+   </URL>
+</Plugin>
+```
 
 A configuração CollectD utiliza o `write_http` plugin predefinido para enviar dados métricos de desempenho sobre a porta 26000 para o agente Log Analytics para o Linux. 
 
@@ -52,15 +56,17 @@ A configuração CollectD utiliza o `write_http` plugin predefinido para enviar 
 
 O agente Log Analytics do Linux também ouve na porta 26000 para métricas CollectD e, em seguida, converte-as em métricas de esquema do Monitor Azure. Segue-se o agente Log Analytics para a configuração do Linux `collectd.conf` .
 
-    <source>
-      type http
-      port 26000
-      bind 127.0.0.1
-    </source>
+```xml
+<source>
+   type http
+   port 26000
+   bind 127.0.0.1
+</source>
 
-    <filter oms.collectd>
-      type filter_collectd
-    </filter>
+<filter oms.collectd>
+   type filter_collectd
+</filter>
+```
 
 > [!NOTE]
 > O CollectD por predefinição é definido para ler valores num intervalo de 10 [segundos](https://collectd.org/wiki/index.php/Interval). Uma vez que isto afeta diretamente o volume de dados enviados para os Registos do Monitor Azure, poderá ser necessário sintonizar este intervalo dentro da configuração Do CollectD para encontrar um bom equilíbrio entre os requisitos de monitorização e os custos associados e a utilização dos Registos monitores Azure.
@@ -83,11 +89,15 @@ Seguem-se os passos básicos para configurar a recolha de dados collectd no Azur
 
     Se o seu diretório de config CollectD estiver localizado em /etc/collectd.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```
 
     Se o seu diretório de config CollectD estiver localizado em /etc/collectd/collectd.conf.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```
 
     >[!NOTE]
     >Para versões CollectD antes de 5.5 terá de modificar as etiquetas `oms.conf` nos dados acima indicados.
@@ -95,13 +105,17 @@ Seguem-se os passos básicos para configurar a recolha de dados collectd no Azur
 
 2. Copiar colecionado.conf para o diretório de configuração omsagent do espaço de trabalho desejado.
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
-        sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```
 
 3. Reinicie o agente CollectD e Log Analytics para o Linux com os seguintes comandos.
 
-        sudo service collectd restart
-        sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```console
+    sudo service collectd restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métricas coletas para conversão de esquema do Monitor Azure
 Para manter um modelo familiar entre as métricas de infraestrutura já recolhidas pelo agente Log Analytics para o Linux e as novas métricas recolhidas pela CollectD é utilizado o seguinte mapeamento de esquema:
@@ -117,6 +131,6 @@ Para manter um modelo familiar entre as métricas de infraestrutura já recolhid
 | `dstypes` | Nenhuma |
 | `values[]` | ContraValue |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 
 * Utilize [campos personalizados](custom-fields.md) para analisar dados de syslog records em campos individuais.

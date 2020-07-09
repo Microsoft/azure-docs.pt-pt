@@ -6,15 +6,15 @@ ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: tracking-python
-ms.openlocfilehash: 0d2a7910523bf5b6dd02d4c93aaf851b38cf09df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31a9a12d6c252c60f3000c2a15a5f382734597a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555645"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110526"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python em Azure Data Lake Analytics
 

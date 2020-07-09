@@ -5,14 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 4a5cf7bb13b12224a5a89d3c82670cc2a36b4494
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fd055b3696d9f91291ae254acadf27ad154e003
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82509385"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112600"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerir pontos finais de serviço VNet para Azure Database para PostgreSQL - Servidor Único usando Azure CLI
 Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaço de endereço privado de uma Rede Virtual à sua Base de Dados Azure para servidor PostgreSQL. Utilizando os convenientes comandos Azure Command Line Interface (CLI), pode criar, atualizar, eliminar, listar e mostrar pontos finais e regras de serviço VNet para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para os pontos finais do serviço PostgreSQL VNet, incluindo limitações, consulte [a Base de Dados Azure para os pontos finais do serviço PostgreSQL Server VNet](concepts-data-access-and-security-vnet.md). Os pontos finais de serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para PostgreSQL.

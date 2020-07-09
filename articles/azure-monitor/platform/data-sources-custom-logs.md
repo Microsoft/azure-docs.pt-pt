@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670598"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112005"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 
@@ -127,11 +128,13 @@ Os registos de registos personalizados têm um tipo com o nome de registo que fo
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Experimente a passagem de um log personalizado
 A secção seguinte percorre um exemplo de criação de um registo personalizado.  O registo de amostras que está a ser recolhido tem uma única entrada em cada linha a começar com uma data e hora e, em seguida, campos delimitados por vírgula para código, estado e mensagem.  Várias entradas de amostra são mostradas abaixo.
 
-    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2019-08-27 01:38:22 302,Error,Application could not connect to database
-    2019-08-27 01:31:34 303,Error,Application lost connection to database
+```output
+2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+2019-08-27 01:38:22 302,Error,Application could not connect to database
+2019-08-27 01:31:34 303,Error,Application lost connection to database
+```
 
 ### <a name="upload-and-parse-a-sample-log"></a>Faça upload e analise um registo de amostra
 Fornecemos um dos ficheiros de registo e podemos ver os eventos que irá recolher.  Neste caso, a New Line é um delimiter suficiente.  Se uma única entrada no registo pode abranger várias linhas, então um delimiter de tempo teria de ser usado.

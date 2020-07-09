@@ -1,17 +1,14 @@
 ---
 title: Use modelos de Gestor de Recursos Azure para criar tópicos de sistema na grelha de eventos Azure
 description: Este artigo mostra como usar modelos do Gestor de Recursos Azure para criar tópicos de sistema na Grelha de Eventos Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: a2fe0ffd5f8ac801d15dc08d027c9442c57ef2b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115167"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Criar tópicos de sistema na grelha de eventos Azure usando modelos de Gestor de Recursos
 Este artigo mostra-lhe como criar e gerir tópicos do sistema usando modelos de Gestor de Recursos. Para uma visão geral dos tópicos do sistema, consulte [os tópicos do Sistema](system-topics.md).

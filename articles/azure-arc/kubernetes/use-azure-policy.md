@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Use a Política Azure para aplicar configurações de cluster à escala
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111274"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utilize a Política Azure para aplicar configurações de cluster à escala (Visualização)
 
@@ -34,7 +35,7 @@ Se estiver a utilizar vários repos git como fontes de verdade para cada cluster
 8. Definir valores de parâmetros que serão utilizados durante a criação do `sourceControlConfiguration` .
 9. Selecione **Seguinte**.
 10. Ativar **Criar uma tarefa de remediação**.
-11. Garanta que **a Criação de uma identidade gerida** é verificada e que a identidade terá permissões do **Contribuinte.** Consulte [este doc](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) e o comentário neste [doc](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) para obter mais informações sobre as permissões necessárias.
+11. Garanta que **a Criação de uma identidade gerida** é verificada e que a identidade terá permissões do **Contribuinte.** Consulte [este doc](../../governance/policy/assign-policy-portal.md) e o comentário neste [doc](../../governance/policy/how-to/remediate-resources.md) para obter mais informações sobre as permissões necessárias.
 12. Selecione **Rever + criar**.
 
 Após a criação da atribuição da política, para qualquer novo `connectedCluster` recurso (ou `managedCluster` recurso com os agentes GitOps instalados) que esteja localizado no âmbito da atribuição, o `sourceControlConfiguration` será aplicado. Para os clusters existentes, terá de executar manualmente uma tarefa de reparação. Normalmente demora de 10 a 20 minutos para que a atribuição da política entre em vigor.
@@ -50,4 +51,4 @@ Após a criação da atribuição da política, para qualquer novo `connectedClu
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Configurar o Monitor Azure para contentores com arco habilitado a clusters Kubernetes](./deploy-azure-monitor-for-containers.md)
+* [Configurar o Monitor Azure para contentores com arco habilitado a clusters Kubernetes](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

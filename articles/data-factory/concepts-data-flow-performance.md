@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114385"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -35,7 +35,7 @@ Ao conceber fluxos de dados de mapeamento, pode testar cada transformação clic
 
 ![Monitorização do fluxo de dados](media/data-flow/mon003.png "Monitor de fluxo de dados 3")
 
- Para o depuração do gasoduto, é necessário cerca de um minuto de tempo de configuração do cluster nos seus cálculos globais de desempenho para um cluster quente. Se estiver a rubricar o tempo de funcionamento da integração Azure padrão, o tempo de rotação pode demorar cerca de 5 minutos.
+ Para o depuração do gasoduto, é necessário cerca de um minuto de tempo de configuração do cluster nos seus cálculos globais de desempenho para um cluster quente. Se estiver a rubricar o tempo de funcionamento da integração Azure padrão, o tempo de rotação pode demorar cerca de 4 minutos.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento do tamanho do cálculo no tempo de execução da integração Azure
 
@@ -55,7 +55,7 @@ Por predefinição, ligar o depurador utilizará o tempo de funcionamento padrã
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Diminuir o tempo de arranque do cálculo do cluster com o TTL
 
-Existe uma propriedade no Azure IR em Data Flow Properties que lhe permitirá levantar um conjunto de recursos de computação de cluster para a sua fábrica. Com este pool, você pode submeter sequencialmente atividades de fluxo de dados para execução. Uma vez que a piscina esteja estabelecida, cada trabalho subsequente levará 1-2 minutos para o cluster Spark on-demand executar o seu trabalho. A configuração inicial do conjunto de recursos levará cerca de 6 minutos. Especifique o tempo que deseja manter o conjunto de recursos na definição de tempo de vida (TTL).
+Existe uma propriedade no Azure IR em Data Flow Properties que lhe permitirá levantar um conjunto de recursos de computação de cluster para a sua fábrica. Com este pool, você pode submeter sequencialmente atividades de fluxo de dados para execução. Uma vez que a piscina esteja estabelecida, cada trabalho subsequente levará 1-2 minutos para o cluster Spark on-demand executar o seu trabalho. A configuração inicial do conjunto de recursos levará cerca de 4 minutos. Especifique o tempo que deseja manter o conjunto de recursos na definição de tempo de vida (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Otimização para Azure SQL Database e Azure SQL Data Warehouse Synapse
 
@@ -145,7 +145,7 @@ Ao utilizar o wildcarding, o seu pipeline conterá apenas uma atividade de Fluxo
 
 O gasoduto For Each em modo paralelo irá gerar múltiplos clusters através de agrupamentos de trabalho giratórios para cada atividade de fluxo de dados executado. Isto pode causar estrangulamento de serviço Azure com um elevado número de execuções simultâneas. No entanto, a utilização do Fluxo de Dados executar dentro de um For Each com conjunto sequencial no oleoduto evitará estrangulamentos e exaustão de recursos. Isto forçará a Data Factory a executar cada um dos seus ficheiros contra um fluxo de dados sequencialmente.
 
-Recomenda-se que, se utilizar para cada um com um fluxo de dados em sequência, utilize a definição de TTL no tempo de execução da integração Azure. Isto porque cada ficheiro incorrerá num tempo de arranque de cluster de 5 minutos dentro do seu iterador.
+Recomenda-se que, se utilizar para cada um com um fluxo de dados em sequência, utilize a definição de TTL no tempo de execução da integração Azure. Isto porque cada ficheiro incorrerá num tempo completo de arranque de 4 minutos dentro do seu iterador.
 
 ### <a name="optimizing-for-cosmosdb"></a>Otimização para CosmosDB
 

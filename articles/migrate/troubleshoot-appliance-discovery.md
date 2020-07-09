@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114062"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -27,7 +27,7 @@ Este artigo ajuda-o a resolver problemas ao colocar o aparelho [Azure Migrate](m
 
 Se receber o erro "O ficheiro manifesto fornecido é inválido: Entrada manifesto OVF inválida", faça o seguinte:
 
-1. Verifique se o ficheiro OVA do aparelho Azure Migrate é descarregado corretamente, verificando o seu valor de haxixe. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor do haxixe não corresponder, descarregue novamente o ficheiro OVA e volte a tentar a implementação.
+1. Verifique se o ficheiro OVA do aparelho Azure Migrate é descarregado corretamente, verificando o seu valor de haxixe. [Saiba mais](./tutorial-prepare-vmware.md). Se o valor do haxixe não corresponder, descarregue novamente o ficheiro OVA e volte a tentar a implementação.
 2. Se a implementação ainda falhar, e estiver a utilizar o cliente VMware vSphere para implementar o ficheiro OVF, tente implantá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
 3. Se estiver a utilizar o cliente web vSphere e a tentar implantá-lo no vCenter Server 6.5 ou 6.7, tente implantar o OVA diretamente no anfitrião ESXi:
    - Ligue-se diretamente ao anfitrião ESXi (em vez do vCenter Server) com o cliente web (https://<*endereço IP anfitrião*>/ui).
@@ -40,7 +40,7 @@ Isto pode acontecer se a máquina do aparelho estiver por detrás de um represen
 
 - Certifique-se de fornecer as credenciais de autorização se o representante precisar delas.
 - Se estiver a usar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de indicações.
-- Se estiver a utilizar um representante de interceção para ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Se estiver a utilizar um representante de interceção para ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](./migrate-appliance.md).
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não pode assinar no Azure a partir da aplicação web do aparelho
 
@@ -64,7 +64,7 @@ Um erro sobre a sincronização da data e da hora (802) indica que o relógio do
 
 Se obter este erro de ligação, poderá não conseguir ligar-se ao nome do *servidor*do servidor do vCenter Server .com:9443. Os detalhes do erro indicam que não há nenhum ponto final a ouvir `https://\*servername*.com:9443/sdk` que possa aceitar a mensagem.
 
-- Verifique se está a executar a versão mais recente do aparelho. Se não estiver, atualize o aparelho para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Verifique se está a executar a versão mais recente do aparelho. Se não estiver, atualize o aparelho para a [versão mais recente](./migrate-appliance.md).
 - Se o problema ainda ocorrer na versão mais recente, o aparelho poderá não conseguir resolver o nome do servidor vCenter especificado, ou a porta especificada pode estar errada. Por predefinição, se a porta não for especificada, o coletor tentará ligar-se ao número da porta 443.
 
     1. Ping *Servername.com*do aparelho.
@@ -77,10 +77,10 @@ Se obter este erro de ligação, poderá não conseguir ligar-se ao nome do *ser
 
 - Erro 60052: "O aparelho pode não ser registado com sucesso no projeto Azure Migrate" ocorrer se a conta Azure utilizada para registar o aparelho não tiver permissões suficientes.
     - Certifique-se de que a conta de utilizador Azure utilizada para registar o aparelho tem pelo menos permissões do Contribuinte na subscrição.
-    - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
+    - [Saiba mais](./migrate-appliance.md#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 - Erro 60039: "O aparelho pode não ser registado com sucesso no projeto Azure Migrate" pode ocorrer se o registo falhar porque o projeto Azure Migrate usado para o registo do aparelho não pode ser encontrado.
     - No portal Azure e verifique se o projeto existe no grupo de recursos.
-    - Se o projeto não existir, crie um novo projeto Azure Migrate no seu grupo de recursos e registe novamente o aparelho. [Saiba como](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
+    - Se o projeto não existir, crie um novo projeto Azure Migrate no seu grupo de recursos e registe novamente o aparelho. [Saiba como](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) criar um novo projeto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: A operação de gestão do Cofre falhou
 
@@ -88,7 +88,7 @@ Se receber o erro 60030 ou 60031, "Uma operação de gestão do Cofre da Chave A
 - Certifique-se de que a conta de utilizador Azure utilizada para registar o aparelho tem pelo menos permissões do Contribuinte na subscrição.
 - Certifique-se de que a conta tem acesso ao cofre de chaves especificado na mensagem de erro e, em seguida, re-tentar a operação.
 - Se o problema persistir, contacte o suporte da Microsoft.
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
+- [Saiba mais](./migrate-appliance.md#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erro 60028: A descoberta não pôde ser iniciada
 
@@ -103,7 +103,7 @@ Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualiza
 - Certifique-se de que a conta de utilizador que inicia a descoberta é a mesma que foi utilizada para registar o aparelho.
 - Fornecer permissões de acesso à aplicação Azure Ative para a conta do utilizador para as quais a operação de descoberta está a falhar.
 - Elimine o grupo de recursos anteriormente criado para o projeto Azure Migrate. Criar outro grupo de recursos para recomeçar.
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as permissões de candidatura do Azure Ative Directory.
+- [Saiba mais](./migrate-appliance.md#appliance---vmware) sobre as permissões de candidatura do Azure Ative Directory.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erro 50004: Não se pode ligar ao hospedeiro ou ao cluster

@@ -1,18 +1,14 @@
 ---
 title: Hubs de eventos Azure como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de centros de eventos com Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113688"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como fonte de grade de eventos
 
@@ -88,7 +84,7 @@ O objeto de dados tem as seguintes propriedades:
 |---------|---------|
 | [Tutorial: transmitir big data para um armazém de dados](event-grid-event-hubs-integration.md) | Quando o Event Hubs cria um ficheiro Capture, o Event Grid envia um evento para uma aplicação de função. A aplicação recupera o ficheiro Captura e migra dados para um armazém de dados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).
