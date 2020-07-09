@@ -3,12 +3,12 @@ title: Avaliações de Azure VM na Avaliação do Servidor Migratório Azure
 description: Conheça as avaliações na Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549956"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108006"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Avaliações de Azure VM em Azure Migrate: Avaliação do servidor
 
@@ -28,7 +28,7 @@ Existem dois tipos de avaliações que pode criar usando Azure Migrate: Avaliaç
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
 **VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação.
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 As avaliações que cria com a Avaliação do Servidor são uma imagem pontual dos dados. Uma avaliação Azure VM na Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
 
@@ -152,7 +152,7 @@ Propriedade | Detalhes | Estatuto de prontidão Azure
 --- | --- | ---
 **Tipo de bota** | O Azure suporta VMs com um tipo de botão de BIOS, não UEFI. | Condicionalmente pronto se o tipo de bota for UEFI
 **Núcleos** | Cada máquina não deve ter mais de 128 núcleos, que é o número máximo que um Azure VM suporta.<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera os núcleos utilizados para comparação. Se as definições de avaliação especificarem um fator de conforto, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos sem aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
-**RAM** | Cada máquina não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma série M Azure Standard_M128m &nbsp; <sup>suportes de 2</sup> VM. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a RAM utilizada para comparação. Se for especificado um fator de conforto, a RAM utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a RAM atribuída é usada sem aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
+**RAM** | Cada máquina não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma série M Azure Standard_M128m &nbsp; <sup>suportes de 2</sup> VM. [Saiba mais](../virtual-machines/windows/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a RAM utilizada para comparação. Se for especificado um fator de conforto, a RAM utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a RAM atribuída é usada sem aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho atribuído de um disco não deve ser superior a 32 TB. Embora o Azure suporte discos de 64-TB com discos Azure Ultra SSD, Azure Migrate: A Avaliação do Servidor verifica atualmente 32 TB como limite de tamanho do disco porque ainda não suporta Ultra SSD. <br/><br/> O número de discos ligados à máquina, incluindo o disco SO, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
 **Redes** | Uma máquina não deve ter mais de 32 interfaces de rede (NICs) ligadas a ela. | Pronto se o número de NICs estiver dentro do limite
 
@@ -161,7 +161,7 @@ Propriedade | Detalhes | Estatuto de prontidão Azure
 Para uma Avaliação VM Azure, juntamente com a revisão das propriedades de VM, a Avaliação do Servidor olha para o sistema operativo de um hóspede para determinar se pode funcionar no Azure.
 
 > [!NOTE]
-> Para lidar com a análise dos VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server. No entanto, o vCenter Server não fornece a versão kernel para sistemas operativos Linux VM. Para descobrir a versão, é necessário configurar a [descoberta da aplicação.](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) Em seguida, o aparelho descobre informações de versão usando as credenciais de hóspedes que especifica quando configura a descoberta de aplicações.
+> Para lidar com a análise dos VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server. No entanto, o vCenter Server não fornece a versão kernel para sistemas operativos Linux VM. Para descobrir a versão, é necessário configurar a [descoberta da aplicação.](./how-to-discover-applications.md) Em seguida, o aparelho descobre informações de versão usando as credenciais de hóspedes que especifica quando configura a descoberta de aplicações.
 
 
 A Avaliação do Servidor utiliza a seguinte lógica para identificar a prontidão do Azure com base no sistema operativo:
@@ -175,8 +175,8 @@ Windows Server 2008 R2 com todos os SPs | O Azure oferece todo o apoio.| Pronto 
 Windows Server 2008 (32 bits e 64 bits) | O Azure oferece todo o apoio. | Pronto para O Azure.
 Windows Server 2003 e Windows Server 2003 R2 | Estes sistemas operativos passaram as suas datas de fim de suporte e precisam de um Acordo de [Apoio Personalizado (CSA)](https://aka.ms/WSosstatement) para apoio em Azure. | Condicionalmente pronto para O Azure. Considere melhorar o SO antes de migrar para Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1 e MS-DOS | Estes sistemas operativos passaram as datas de fim de suporte. A máquina pode começar em Azure, mas a Azure não fornece suporte ao SISTEMA. | Condicionalmente pronto para O Azure. Recomendamos que atualize o SO antes de migrar para Azure.
-Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [subscrição do Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Condicionalmente pronto para O Azure.
-Windows 10 Pro | A Azure fornece suporte com [direitos de hospedagem multitenant.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente pronto para O Azure.
+Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [subscrição do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronto para O Azure.
+Windows 10 Pro | A Azure fornece suporte com [direitos de hospedagem multitenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para O Azure.
 Windows Vista e Windows XP Professional | Estes sistemas operativos passaram as datas de fim de suporte. A máquina pode começar em Azure, mas a Azure não fornece suporte ao SISTEMA. | Condicionalmente pronto para O Azure. Recomendamos que atualize o SO antes de migrar para Azure.
 Linux | Veja os [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md) que o Azure apoia. Outros sistemas operativos Linux podem começar em Azure. Mas recomendamos que atualize o SO para uma versão endossada antes de migrar para Azure. | Pronto para o Azure se a versão for endossada.<br/><br/>Condicionalmente pronto se a versão não for endossada.
 Outros sistemas operativos como o Oracle Solaris, Apple macOS e FreeBSD | O Azure não apoia estes sistemas operativos. A máquina pode começar em Azure, mas a Azure não fornece suporte ao SISTEMA. | Condicionalmente pronto para O Azure. Recomendamos que instale um SISTEMA suportado antes de migrar para Azure.  

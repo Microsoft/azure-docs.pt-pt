@@ -6,17 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109846"
 ---
 # <a name="scale-migration-of-vms"></a>Migração em escala de VMs 
 
 Este artigo ajuda-o a entender como usar scripts para migrar um grande número de máquinas virtuais (VMs). Para escalar a migração, utiliza-se [a Recuperação do Sítio Azure.](../site-recovery/site-recovery-overview.md) 
 
-Os scripts de recuperação do site estão disponíveis para o seu download no [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo no GitHub. Os scripts podem ser usados para migrar VMware, AWS, VMs GCP e servidores físicos para gerir discos em Azure. Também pode utilizar estes scripts para migrar Hiper-VMs se migrar os VMs como servidores físicos. Os scripts que alavancam o Poder de Recuperação do Site Azure estão documentados [aqui.](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell)
+Os scripts de recuperação do site estão disponíveis para o seu download no [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo no GitHub. Os scripts podem ser usados para migrar VMware, AWS, VMs GCP e servidores físicos para gerir discos em Azure. Também pode utilizar estes scripts para migrar Hiper-VMs se migrar os VMs como servidores físicos. Os scripts que alavancam o Poder de Recuperação do Site Azure estão documentados [aqui.](../site-recovery/vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="current-limitations"></a>Limitações atuais
 - Suporte especificando o endereço IP estático apenas para o NIC primário do VM alvo
@@ -68,4 +69,4 @@ O script, por padrão, migra os VMs para discos geridos em Azure. Se a conta de 
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) sobre a migração de servidores para Azure usando a recuperação do site Azure
+[Saiba mais](../site-recovery/migrate-tutorial-on-premises-azure.md) sobre a migração de servidores para Azure usando a recuperação do site Azure

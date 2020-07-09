@@ -4,14 +4,14 @@ description: Este artigo descreve como pode reiniciar uma Base de Dados Azure pa
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: a46437ae14ae644fb9d63d76a64075cc3ba2e25e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95a0459dd21eaf69bf0ee2d8f4cd1482d07313bb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739967"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107929"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL utilizando o PowerShell
 

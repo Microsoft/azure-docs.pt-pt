@@ -4,14 +4,14 @@ description: Este artigo descreve como pode reiniciar uma Base de Dados Azure pa
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 935459a398c07d3b4f61c76dec75b083a2354720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faefdfb93257521c9c687045c1467c5d2d0f84ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82609061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107942"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor MySQL utilizando o PowerShell
 
@@ -44,7 +44,7 @@ Reiniciar o servidor com o seguinte comando:
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados Azure para servidor MySQL utilizando PowerShell](quickstart-create-mysql-server-database-using-azure-powershell.md)

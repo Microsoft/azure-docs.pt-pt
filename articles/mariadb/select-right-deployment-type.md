@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529905"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110305"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de Servidor MariaDB certa em Azure
 
@@ -31,7 +31,7 @@ Ao tomar a sua decisão, considere as seguintes duas opções:
 
 As principais diferenças entre estas opções constam do quadro seguinte:
 
-|            | Azure Database for MariaDB | MariaDB em VMs Azure    |
+| Atributo          | Azure Database for MariaDB | MariaDB em VMs Azure    |
 |:-------------------|:-----------------------------|:--------------------|
 | Contrato de nível de serviço (SLA)                | Oferece SLA de 99,99% de disponibilidade| Até 99,95% de disponibilidade com duas ou mais instâncias no mesmo conjunto de disponibilidade.<br/><br/>99,9% de disponibilidade com um único exemplo VM usando armazenamento premium.<br/><br/>99,99% usando Zonas de Disponibilidade com múltiplas instâncias em conjuntos de disponibilidade múltiplas.<br/><br/>Consulte o [SLA das Máquinas Virtuais.](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) |
 | Patching do sistema operativo        | Automático  | Gerido por clientes |
@@ -41,7 +41,7 @@ As principais diferenças entre estas opções constam do quadro seguinte:
 | Cenários híbridos | Com [a replicação de dados,](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)pode sincronizar dados de um servidor MariaDB externo na Base de Dados Azure para o serviço MariaDB. O servidor externo pode estar no local, em máquinas virtuais ou num serviço de base de dados hospedado por outros fornecedores de nuvem.<br/><br/> Com a funcionalidade [de réplica de leitura,](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) pode replicar dados de uma Base de Dados Azure para o servidor principal MariaDB até cinco servidores de réplica apenas de leitura. As réplicas estão dentro da mesma região de Azure ou em todas as regiões. As réplicas apenas de leitura são assíncroneamente atualizadas usando a tecnologia de replicação binlog.<br/><br/>A replicação de leitura transversal está atualmente em pré-visualização pública.| Gerido por clientes
 | Backup e restauro | Cria automaticamente [cópias de segurança do servidor](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) e armazena-as num armazenamento configurado pelo utilizador que seja localmente redundante ou geo-redundante. O serviço leva cópias de segurança completas, diferenciais e de registo de transações | Gerido por clientes |
 | Monitorização das operações de base de dados | Oferece aos clientes a capacidade de [definir alertas](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) sobre a operação da base de dados e agir ao atingir limiares. | Gerido por clientes |
-| Advanced Threat Protection | Fornece [proteção avançada de ameaças](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Esta proteção deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados.<br/><br/>A Advanced Threat Protection está atualmente em pré-visualização pública.| Os clientes devem construir esta proteção para si mesmos.
+| Proteção Avançada Contra Ameaças | Fornece [proteção avançada de ameaças](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Esta proteção deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados.<br/><br/>A Advanced Threat Protection está atualmente em pré-visualização pública.| Os clientes devem construir esta proteção para si mesmos.
 | Recuperação após desastre | Armazena cópias de segurança automatizadas em [armazenamento localmente redundante ou geo-redundante](https://docs.microsoft.com/azure/MariaDB/howto-restore-server-portal)configurado pelo utilizador. As cópias de segurança também podem restaurar um servidor a um ponto no tempo. O período de retenção é de 7 a 35 dias. A restauração é realizada utilizando o portal Azure. | Totalmente gerido pelos clientes. As responsabilidades incluem, mas não se limitam a agendamento, testes, arquivamento, armazenamento e retenção. Uma opção adicional é usar um cofre dos Serviços de Recuperação Azure para apoiar os VMs e bases de dados em VMs. Esta opção está em pré-visualização. |
 | Recomendações de desempenho | Fornece aos clientes recomendações de [desempenho baseadas](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) em ficheiros de registo de utilização gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho.<br/><br/>As recomendações de desempenho estão atualmente em visualização pública. | Gerido por clientes |
 
@@ -99,7 +99,7 @@ A lista que se segue descreve considerações administrativas para cada opção:
 
   Como não há necessidade de alterar as camadas de apresentação, aplicação e dados, poupa tempo e orçamento na rearquecação da sua solução existente. Em vez disso, pode focar-se em migrar todas as suas soluções para a Azure e abordar algumas otimizações de desempenho que a plataforma Azure poderá necessitar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [a Base de Dados Azure para os preços mariadb](https://azure.microsoft.com/pricing/details/MariaDB/).
 * Começa por [criar o teu primeiro servidor.](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal)

@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fd6285c3d22c8e0bdddbbe47366e6ae9428e7d8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73512733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109880"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminar um projeto do Azure Migrate
 
-Este artigo descreve como eliminar um projeto [Azure Migrate.](migrate-overview.md)
+Este artigo descreve como eliminar um projeto [Azure Migrate.](./migrate-services-overview.md)
 
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -76,6 +76,6 @@ HiperV*Site | Microsoft.OffAzure/HiperVSites
 "ProjectName"-MigrateVault-* | Cofre dos Serviços de Recuperação
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como adicionar ferramentas adicionais de [avaliação](how-to-assess.md) e [migração.](how-to-migrate.md) 

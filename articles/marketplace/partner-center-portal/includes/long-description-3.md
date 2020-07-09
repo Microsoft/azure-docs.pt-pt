@@ -1,18 +1,18 @@
 ---
 title: ficheiro de inclusão
 description: file
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
+author: anbene
+ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dd9de43e172737c96c3ee4cb5611cd2b2bee137
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91c27143b4b122b1913429879d227125e1b2169c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84750944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109678"
 ---
 Utilize tags HTML para formatar a sua descrição para que seja mais envolvente. A maioria das etiquetas requer um componente de abertura e fecho, como mostrado nesta tabela.
 

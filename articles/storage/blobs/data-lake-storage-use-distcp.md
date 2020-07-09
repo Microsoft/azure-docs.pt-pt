@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 602053f7a52b9a46fa797bd1146cf63c02bb60d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465359"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109506"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utilize o DistCp para copiar dados entre as bolhas de armazenamento Azure e a Azure Data Lake Storage Gen2
 
@@ -36,25 +37,33 @@ Um cluster HDInsight vem com o utilitário DistCp, que pode ser usado para copia
 
 2. Verifique se pode aceder à sua conta V2 de finalidade geral existente (sem espaço hierárquico ativado).
 
-        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```bash
+    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```
 
    A saída deve fornecer uma lista de conteúdos no recipiente.
 
 3. Da mesma forma, verifique se pode aceder à conta de armazenamento com espaço hierárquico ativado a partir do cluster. Execute o seguinte comando:
 
-        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```bash
+    hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```
 
     A saída deve fornecer uma lista de ficheiros/pastas na conta de armazenamento do Data Lake.
 
 4. Utilize o DistCp para copiar dados do WASB para uma conta de Armazenamento de Data Lake.
 
-        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```bash
+    hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```
 
     O comando copia o conteúdo da pasta **/exemplo/data/gutenberg/** em armazenamento Blob para **/myfolder** na conta de Armazenamento do Lago de Dados.
 
 5. Da mesma forma, utilize o DistCp para copiar dados da conta de armazenamento do Data Lake para o Blob Storage (WASB).
 
-        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```bash
+    hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```
 
     O comando copia o conteúdo de **/myfolder** na conta Data Lake Store para **/exemplo/data/gutenberg/** pasta em WASB.
 
@@ -64,7 +73,9 @@ Como a granularidade mais baixa do DistCp é um único ficheiro, definir o núme
 
 **Exemplo**
 
-    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```bash
+hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Como determino o número de mappers a utilizar?
 
@@ -74,7 +85,7 @@ Eis algumas orientações que poderá utilizar.
 
 * **Passo 2: Calcular o número de mappers** - O valor de **m** é igual ao quociente da memória total de YARN dividida pelo tamanho do recipiente YARN. A informação sobre o tamanho do contentor YARN também está disponível no portal Ambari. Navegue até YARN e veja o separador Configs. O tamanho do recipiente YARN é apresentado nesta janela. A equação para chegar ao número de mappers **(m)** é
 
-        m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (número de nós * memória YARN para cada nó) / tamanho do recipiente YARN
 
 **Exemplo**
 
@@ -82,11 +93,11 @@ Vamos supor que tem um cluster 4x D14v2s e está a tentar transferir 10 TB de da
 
 * **Memória total do YARN**: A partir do portal Ambari, determina-se que a memória YARN é de 96 GB para um nó D14. Então, a memória total do YARN para quatro aglomerados de nó é: 
 
-        YARN memory = 4 * 96GB = 384GB
+    Memória YARN = 4 * 96GB = 384GB
 
 * **Número de mappers**: A partir do portal Ambari, determina-se que o tamanho do contentor YARN é de 3.072 MB para um nó de cluster D14. Então, o número de mappers é:
 
-        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+    m = (4 nós * 96GB) / 3072MB = 128 mappers
 
 Se outras aplicações estiverem a usar memória, então pode optar por utilizar apenas uma parte da memória YARN do seu cluster para o DistCp.
 

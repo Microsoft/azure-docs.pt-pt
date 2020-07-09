@@ -1,7 +1,7 @@
 ---
-title: Executar exemplo de recipiente de comando de execução de estivador
+title: Executar exemplo de recipiente de estivador executar comando
 titleSuffix: Azure Cognitive Services
-description: Docker executar comando para recipiente de deteção de idiomas
+description: Docker executar comando para recipiente de deteção de linguagem
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,14 +9,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 41b926e3c44da85e7cb2c2e62405bd8f14488fbd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e39f9b537b2b57b455d2e0ab40ba09f1a6a890ba
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108966"
 ---
-Para executar o recipiente de *deteção* de idiomas, execute o seguinte `docker run` comando.
+Para executar o recipiente *de Deteção de Idiomas,* execute o seguinte `docker run` comando. Substitua os espaços reservados abaixo pelos seus próprios valores:
+
+| Marcador de posição | Valor | Formato ou exemplo |
+|-------------|-------|---|
+| **{API_KEY}** | A chave para o seu recurso Text Analytics. Pode encontrá-lo na página **chave e ponta final** do seu recurso, no portal Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | O ponto final para aceder à API de Análise de Texto. Pode encontrá-lo na página **chave e ponta final** do seu recurso, no portal Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -28,7 +34,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa um recipiente de *deteção* de linguagem a partir da imagem do recipiente
-* Atribui um núcleo cpu e 4 gigabytes (GB) de memória
-* Expõe a porta TCP 5000 e atribui um pseudo-TTY para o contentor
-* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
+* Executa um recipiente de deteção de *idiomas* a partir da imagem do recipiente
+* Atribui um núcleo de CPU e 4 gigabytes (GB) de memória
+* Expõe a porta TCP 5000 e atribui uma pseudo-TTY para o contentor
+* Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.

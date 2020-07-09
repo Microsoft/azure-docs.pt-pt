@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: bef2f1c48241a3f0215481aeb0da3fcc237ddb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076632"
+ms.locfileid: "86107449"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Azure Monitor para a sua aplicação Python
 
@@ -72,7 +72,7 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados aos tipos de telem
 
 1. O código solicita continuamente a entrada de um valor. É emitida uma entrada de registo para cada valor introduzido.
 
-    ```
+    ```output
     Enter a value: 24
     24
     Enter a value: 55
@@ -88,22 +88,22 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados aos tipos de telem
     ```python
     import logging
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    
+
     def valuePrompt():
         line = input("Enter a value: ")
         logger.warning(line)
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     if __name__ == "__main__":
         main()
     ```
@@ -122,9 +122,9 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados aos tipos de telem
 
     ```python
     import logging
-    
+
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
@@ -141,33 +141,33 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados aos tipos de telem
 
 Pode configurar o registo explicitamente no seu código de aplicação como acima para as suas aplicações Django, ou pode especificá-lo na configuração de registo registado do Django. Este código pode entrar em qualquer ficheiro que utilize para configuração de configurações de Configurações de Django. Para configurar as definições de Django, consulte as [definições de Django](https://docs.djangoproject.com/en/3.0/topics/settings/). Para obter mais informações sobre a configuração da exploração madeireira, consulte [a exploração madeireira de Django.](https://docs.djangoproject.com/en/3.0/topics/logging/)
 
-```python
- LOGGING = {
-     "handlers": {
-         "azure": {
-             "level": "DEBUG",
-          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-             "instrumentation_key": "<your-ikey-here>",
-          },
-         "console": {
-             "level": "DEBUG",
-             "class": "logging.StreamHandler",
-             "stream": sys.stdout,
-          },
-       },
-     "loggers": {
-         "logger_name": {"handlers": ["azure", "console"]},
-     },
- }
+```json
+LOGGING = {
+    "handlers": {
+        "azure": {
+            "level": "DEBUG",
+        "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+            "instrumentation_key": "<your-ikey-here>",
+         },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+         },
+      },
+    "loggers": {
+        "logger_name": {"handlers": ["azure", "console"]},
+    },
+}
 ```
 
 Certifique-se de que utiliza o madeirão com o mesmo nome especificado na sua configuração.
 
 ```python
- import logging
-        
- logger = logging.getLogger("logger_name")
- logger.warning("this will be tracked")
+import logging
+
+logger = logging.getLogger("logger_name")
+logger.warning("this will be tracked")
 ```
 
 #### <a name="send-exceptions"></a>Enviar exceções
@@ -238,7 +238,7 @@ Para obter mais informações sobre como modificar a telemetria rastreada antes 
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -267,7 +267,7 @@ Para obter mais informações sobre como modificar a telemetria rastreada antes 
     ```
 1. Executar o código solicita-lhe repetidamente que **selecione Enter**. Uma métrica é criada para rastrear o número de vezes **que Enter** é selecionado. A cada entrada, o valor é incrementado e a informação métrica aparece na consola. A informação inclui o valor atual e o carimbo de hora atual quando a métrica foi atualizada.
 
-    ```
+    ```output
     Press enter.
     Point(value=ValueLong(5), timestamp=2019-10-09 20:58:04.930426)
     Press enter.
@@ -290,7 +290,7 @@ Para obter mais informações sobre como modificar a telemetria rastreada antes 
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -381,7 +381,7 @@ Para obter informações sobre como modificar a telemetria rastreada antes de se
 
 1. Executar o código solicita-lhe repetidamente que introduza um valor. A cada entrada, o valor é impresso na concha. O Módulo Python OpenCensus gera uma peça correspondente de `SpanData` . O projeto OpenCensus define um [traço como uma árvore de vãos.](https://opencensus.io/core-concepts/tracing/)
     
-    ```
+    ```output
     Enter a value: 4
     4
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
@@ -399,7 +399,7 @@ Para obter informações sobre como modificar a telemetria rastreada antes de se
     from opencensus.ext.azure.trace_exporter import AzureExporter
     from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     tracer = Tracer(
         exporter=AzureExporter(

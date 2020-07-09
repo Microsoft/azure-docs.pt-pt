@@ -4,12 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Conheça as melhores práticas do operador do cluster para gerir a autenticação e autorização para clusters no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020052"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107143"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Melhores práticas para autenticação e autorização no Serviço Azure Kubernetes (AKS)
 
@@ -20,8 +23,9 @@ Este artigo de boas práticas centra-se na forma como um operador de cluster pod
 > [!div class="checklist"]
 >
 > * Autenticar utilizadores do cluster AKS com diretório ativo Azure
-> * Controlar o acesso a recursos com controlos de acesso baseados em funções (RBAC)
-> * Use uma identidade gerida para se autenticar com outros serviços
+> * Controlar o acesso aos recursos com os controlos de acesso baseados em funções da Kubernetes (RBAC)
+> * Utilize o RBAC Azure para controlar granulivelmente o acesso ao recurso AKS e à API de Kubernetes em escala, bem como ao kubeconfig.
+> * Utilize uma identidade gerida para autenticar as próprias cápsulas com outros serviços
 
 ## <a name="use-azure-active-directory"></a>Utilizar o Azure Active Directory
 
@@ -35,18 +39,18 @@ Com clusters integrados AZURE em AKS, cria *Roles* ou *ClusterRoles* que definem
 
 1. O desenvolvedor autentica com Azure AD.
 1. O ponto final de emissão de ad Ad Azure emite o token de acesso.
-1. O desenvolvedor executa uma ação usando o token AD Azure, como`kubectl create pod`
+1. O desenvolvedor faz uma ação usando o token AD Azure, como`kubectl create pod`
 1. A Kubernetes valida o token com o Azure Ative Directory e adquire os membros do grupo do desenvolvedor.
 1. Kubernetes controle de acesso baseado em funções (RBAC) e políticas de cluster são aplicadas.
 1. O pedido do desenvolvedor é bem sucedido ou não com base na validação prévia da filiação do grupo AD Azure e das políticas e políticas da Kubernetes RBAC.
 
 Para criar um cluster AKS que utilize Azure AD, consulte [IntegraR o Diretório Ativo Azure com AKS][aks-aad].
 
-## <a name="use-role-based-access-controls-rbac"></a>Utilizar controlos de acesso baseados em funções (RBAC)
+## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Utilize controlos de acesso baseados em funções da Kubernetes (RBAC)
 
 **Orientação de boas práticas** - Use o RBAC de Kubernetes para definir as permissões que os utilizadores ou grupos têm para recursos no cluster. Criar funções e encadernações que atribuam o menor número de permissões necessárias. Integre-se com a Azure AD para que qualquer alteração no estado do utilizador ou da adesão ao grupo seja atualizada automaticamente e o acesso aos recursos do cluster é atual.
 
-Em Kubernetes, você pode fornecer controlo granular de acesso a recursos no cluster. As permissões podem ser definidas ao nível do cluster, ou a espaços de nome específicos. Pode definir que recursos podem ser geridos, e com que permissões. Estas funções são então aplicadas a utilizadores ou grupos com uma ligação. Para obter mais informações sobre *Funções,* *ClusterRoles*e *Bindings,* consulte [opções de acesso e identidade para o Serviço Azure Kubernetes (AKS)][aks-concepts-identity].
+Em Kubernetes, você pode fornecer controlo granular de acesso a recursos no cluster. As permissões são definidas ao nível do cluster, ou a espaços de nome específicos. Pode definir que recursos podem ser geridos, e com que permissões. Estas funções são então aplicadas a utilizadores ou grupos com uma ligação. Para obter mais informações sobre *Funções,* *ClusterRoles*e *Bindings,* consulte [opções de acesso e identidade para o Serviço Azure Kubernetes (AKS)][aks-concepts-identity].
 
 Como exemplo, pode criar uma Função que concede acesso total aos recursos no espaço de nome denominado *app financeira,* como mostra o seguinte exemplo YAML manifesto:
 
@@ -83,6 +87,16 @@ roleRef:
 Quando *o developer1 \@ contoso.com* é autenticado contra o cluster AKS, eles têm permissões completas para recursos no espaço *de nomes de aplicativos financeiros.* Desta forma, separa-se logicamente e controla o acesso aos recursos. Kubernetes RBAC deve ser usado em conjunto com a integração AD Azure, como discutido na secção anterior.
 
 Para ver como utilizar grupos AD Azure para controlar o acesso aos recursos de Kubernetes utilizando o RBAC, consulte [o acesso ao Control aos recursos de cluster utilizando controlos de acesso baseados em funções e identidades do Azure Ative Directory em AKS][azure-ad-rbac].
+
+## <a name="use-azure-rbac"></a>Use Azure RBAC 
+**Orientação para as melhores práticas** - Use o Azure RBAC para definir as permissões mínimas exigidas que os utilizadores ou grupos têm para os recursos AKS em uma ou mais subscrições.
+
+Existem dois níveis de acesso necessários para operar plenamente um cluster AKS: 
+1. Aceda ao recurso AKS na sua subscrição Azure. Este nível de acesso permite-lhe controlar as coisas que escalam ou melhoram o seu cluster utilizando as APIs AKS, bem como puxar o seu kubeconfig.
+Para ver como controlar o acesso ao recurso AKS e ao kubeconfig, consulte [o limite de acesso ao ficheiro de configuração do cluster](control-kubeconfig-access.md).
+
+2. Acesso à API de Kubernetes. Este nível de acesso é controlado quer pela [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (tradicionalmente) quer pela integração do Azure RBAC com a AKS para autorização de kubernetes.
+Para ver como dar granularmente permissões à API de Kubernetes usando Azure RBAC ver [Use Azure RBAC para autorização Kubernetes](manage-azure-rbac.md).
 
 ## <a name="use-pod-identities"></a>Use identidades de vagem
 

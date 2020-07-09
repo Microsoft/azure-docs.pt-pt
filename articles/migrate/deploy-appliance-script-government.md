@@ -3,15 +3,16 @@ title: Criar um aparelho Azure Migrate no Governo de Azure
 description: Saiba como instalar um aparelho Azure Migrate no Governo de Azure
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052479"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109982"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Montar um aparelho no Governo de Azure 
 
-Siga este artigo para implementar um [aparelho Azure Migrate](deploy-appliance.md) para VMware VMs, VMs hiper-V e servidores físicos, numa nuvem do Governo Azure. Você executar um script para criar o aparelho, e verificar se ele pode ligar-se ao Azure. Se pretender configurar um aparelho na nuvem pública, siga [este artigo](deploy-appliance-script.md).
+Siga este artigo para implementar um [aparelho Azure Migrate](./migrate-appliance-architecture.md) para VMware VMs, VMs hiper-V e servidores físicos, numa nuvem do Governo Azure. Você executar um script para criar o aparelho, e verificar se ele pode ligar-se ao Azure. Se pretender configurar um aparelho na nuvem pública, siga [este artigo](deploy-appliance-script.md).
 
 
 > [!NOTE]

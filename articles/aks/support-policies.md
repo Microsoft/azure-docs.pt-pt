@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558076"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106990"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de apoio ao Serviço Azure Kubernetes
 
@@ -52,7 +52,7 @@ Como os nós dos trabalhadores são sensíveis, a Microsoft tem o cuidado de lim
 A Microsoft fornece suporte técnico para o seguinte:
 
 > [!NOTE]
-> Quaisquer ações de cluster tomadas pelo suporte da Microsoft são feitas com o consentimento do utilizador sob um papel de ["editar"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) do nome embutido de Kubernetes `aks-support-rolebinding` . Com esta função, o suporte AKS é habilitado a editar a configuração do cluster e os recursos para resolver problemas e diagnosticar problemas de cluster, mas o papel não pode modificar permissões nem criar papéis ou encadernações de papéis. O acesso à função só é ativado em bilhetes de apoio ativos com acesso just-in-time (JIT).
+> Quaisquer ações de cluster tomadas pela Microsoft/AKS são feitas com o consentimento do utilizador sob uma função incorporada de Kubernetes `aks-service` e encadernação de funções `aks-service-rolebinding` incorporadas . Esta função permite que a AKS resolva problemas e diagnostice problemas de cluster, mas não pode modificar permissões, criar papéis ou encadernações de papéis, ou outras ações de alto privilégio. O acesso à função só é ativado em bilhetes de apoio ativos com acesso just-in-time (JIT).
 
 * Conectividade a todos os componentes Kubernetes que o serviço Kubernetes fornece e suporta, como o servidor API.
 * Gestão, uptime, QoS, e operações de kubernetes controlam serviços de avião (Kubernetes master nodes, servidor API, etcd, e kube-dns, por exemplo).

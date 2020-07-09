@@ -4,21 +4,22 @@ ms.author: dapine
 ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b3d856d255968b4a6736db908ce3999cbd56193
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70034434"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108939"
 ---
-## <a name="validate-that-a-container-is-running"></a>Validar que um recipiente está funcionando 
+## <a name="validate-that-a-container-is-running"></a>Validar que um contentor está a funcionar 
 
-Há várias formas de validar que o contentor está a funcionar. Localize o endereço *IP externo* e a porta exposta do contentor em questão e abra o seu navegador web favorito. Utilize os vários URLs de pedido abaixo para validar o funcionamento do recipiente. O pedido de exemplo URLs listados abaixo são, `http://localhost:5000`mas o seu recipiente específico pode variar. Tenha em mente que deve confiar no endereço *IP externo* do seu contentor e na porta exposta.
+Há várias formas de validar que o contentor está a funcionar. Localize o endereço *IP externo* e a porta exposta do recipiente em questão e abra o seu navegador web favorito. Utilize os urls de vários pedidos abaixo para validar o recipiente em funcionamento. O exemplo de pedido URLs listados abaixo são `http://localhost:5000` , mas o seu recipiente específico pode variar. Tenha em mente que deve confiar no endereço *IP externo* do seu contentor e na porta exposta.
 
 | URL do Pedido | Objetivo |
 |--|--|
 | `http://localhost:5000/` | O recipiente fornece uma página inicial. |
-| `http://localhost:5000/status` | Solicitado com um HTTP GET, para validar que o recipiente está em funcionamento sem causar uma consulta de ponto final. Este pedido pode ser utilizado para sondas de [vivacidade e prontidão](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)kubernetes. |
-| `http://localhost:5000/swagger` | O recipiente fornece um conjunto completo de documentação para os pontos finais e uma funcionalidade **Experimente-a.** Com esta funcionalidade, pode introduzir as suas definições num formulário HTML baseado na Web e fazer a consulta sem ter de escrever qualquer código. Após a retorna da consulta, é fornecido um comando CURL de exemplo para demonstrar os cabeçalhos HTTP e o formato corporal que é necessário. |
+| `http://localhost:5000/ready` | Solicitado com GET, isto fornece uma verificação de que o recipiente está pronto para aceitar uma consulta contra o modelo.  Este pedido pode ser utilizado para sondas kubernetes [de prontidão e prontidão.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) |
+| `http://localhost:5000/status` | Também solicitado com GET, isto verifica se a chave api utilizada para iniciar o contentor é válida sem causar uma consulta de ponto final. Este pedido pode ser utilizado para sondas kubernetes [de prontidão e prontidão.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) |
+| `http://localhost:5000/swagger` | O recipiente fornece um conjunto completo de documentação para os pontos finais e uma função **de teste.** Com esta funcionalidade, pode introduzir as suas definições num formulário HTML baseado na Web e fazer a consulta sem ter de escrever qualquer código. Após o retorno da consulta, é fornecido um comando CURL de exemplo para demonstrar os cabeçalhos HTTP e o formato corporal que é necessário. |
 
 ![Página inicial do contentor](./media/cognitive-services-containers-api-documentation/container-webpage.png)

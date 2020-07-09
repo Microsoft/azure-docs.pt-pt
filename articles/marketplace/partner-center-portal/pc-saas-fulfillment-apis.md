@@ -1,17 +1,16 @@
 ---
 title: APIs de cumprimento de SaaS no mercado comercial da Microsoft
 description: Uma introdução às APIs de realização que lhe permitem integrar as suas ofertas SaaS no Microsoft AppSource e no Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: dsindona
-ms.openlocfilehash: 70515ca04e870fa435f8e9f46122a8e0dcb9b588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109302"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no mercado comercial da Microsoft
 

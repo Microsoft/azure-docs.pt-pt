@@ -1,29 +1,29 @@
 ---
-title: Executar instâncias de contentores Azure - Análise de Texto
+title: Executar instâncias de contentores Azure - Análise de texto
 titleSuffix: Azure Cognitive Services
-description: Desloque os recipientes de análise de texto para a Instância de Contentores Azure e teste-os num navegador web.
+description: Implemente os recipientes de análise de texto para a Instância do Recipiente Azure e teste-os num navegador web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876455"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108719"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Implante um recipiente de Análise de Texto para instâncias de contentores de Azure
+# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Implementar um recipiente de análise de texto para instâncias de contentores de Azure
 
-Saiba como implantar o recipiente de Análise de [Texto][install-and-run-containers] dos Serviços Cognitivos para [as Instâncias do Contentor][container-instances]De Azure . Este procedimento exemplifica a criação de um recurso Text Analytics, a criação de uma imagem associada de Análise de Sentimentos e a capacidade de exercer esta orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
+Saiba como implantar o recipiente de [análise de texto][install-and-run-containers] dos serviços cognitivos para as [instâncias do contentor][container-instances]Azure . Este procedimento exemplifica a criação de um recurso Text Analytics, a criação de uma imagem de Análise de Sentimento associada e a capacidade de exercer esta orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Utilize uma assinatura Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Utilize uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -41,12 +41,16 @@ Saiba como implantar o recipiente de Análise de [Texto][install-and-run-contain
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
+#### <a name="text-analytics-for-health"></a>[Análise de texto para a saúde](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
+
 ***
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 * Use mais [recipientes de serviços cognitivos](../../cognitive-services-container-support.md)
-* Utilize o [Serviço Conectado](../vs-text-connected-service.md) de Análise de Texto
+* Utilize o [serviço ligado à análise de texto](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

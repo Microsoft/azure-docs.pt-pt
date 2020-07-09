@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 6c44588f3c95e4707813143c216823323d8183da
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109778"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
 
@@ -117,13 +117,17 @@ Antes de começar esta secção, tem de satisfazer os seguintes pré-requisitos:
 
 Introduza o seguinte código numa célula do bloco de notas:
 
-    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```bash
+%sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```
 
 Na célula, prima **SHIFT + ENTER** para executar o código.
 
 Agora, numa nova célula abaixo desta, introduza o seguinte código e substitua os valores que aparecem nos parênteses pelos mesmos valores utilizados anteriormente:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```python
+dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```
 
 Na célula, prima **SHIFT + ENTER** para executar o código.
 
@@ -187,7 +191,7 @@ Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalh
 
 Se não encerrar manualmente o cluster para automaticamente, desde que tenha selecionado a caixa de verificação **Terminate after minutes of \_ \_ inactivity** enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados numa conta de armazenamento com o Data Lake Storage Gen2 ativado.
 

@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85292082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108511"
 ---
 > [!NOTE]
-> Para `PHI` detetar, utilize o parâmetro e a `domain=phi` versão do modelo ou `2020-04-01` posteriormente.
+> Para detetar `PHI` (informações de saúde protegidas), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
 >
 > Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
 As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/v3.1-preview.1/entities/recognition/pii` ponto final.
 
-| Categoria   | Subcategory | Description                          | Versão do modelo inicial | Notas |
+| Categoria   | Subcategory | Descrição                          | Versão do modelo inicial | Notas |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Pessoa     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também devolvido `domain=phi` com. |
 | PersonType | N/D         | Tipos de emprego ou funções detidas por uma pessoa. | `2020-02-01` | |
@@ -37,7 +37,7 @@ As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/
 | URL | N/D | URLs para sites. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | IP | N/D | Endereços IP de rede. | `2019-10-01` | |
 | DateTime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
-| DateTime | Date | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
+| DateTime | Data | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Idades. | `2019-10-01` | | |
 | Classificação Internacional das Doenças (ICD-9-CM) | N/D | Entidades relacionadas com a Classificação Internacional de Doenças, 9ª Revisão.   | `2020-04-01` | |
@@ -47,7 +47,7 @@ As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/
 
 Esta categoria de entidade inclui informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. Disponível a partir da versão `2019-10-01` modelo. Não voltou com o `domain=phi` parâmetro.
 
-| Subcategory                           | Description                                                                 |
+| Subcategory                           | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave Azure DocumentDB Auth             | Chave de autorização para um servidor Azure DocumentDB.                           |
 | Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma Infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |

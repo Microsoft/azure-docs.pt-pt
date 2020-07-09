@@ -1,18 +1,18 @@
 ---
 title: ficheiro de inclusão
 description: file
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
+author: anbene
+ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: 5023e7e215fd96357ee7cdc2105b57af0989d1eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1f799f1f3aafd8d2d4b9de919ce67214c7150f2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109679"
 ---
 Forneça uma descrição mais longa da sua oferta, até 3.000 caracteres. Os clientes verão isto na visão geral da listagem do Marketplace.
 

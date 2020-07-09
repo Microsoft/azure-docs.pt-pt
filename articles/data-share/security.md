@@ -4,13 +4,14 @@ description: Visão geral de segurança para Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
-ms.openlocfilehash: e299f63777847c557fc13afb4d36d01c12b3b52a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f31b74b461941b15f13e45f90b5fbc408c90fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84637124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108418"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Visão geral de segurança para Azure Data Share
 

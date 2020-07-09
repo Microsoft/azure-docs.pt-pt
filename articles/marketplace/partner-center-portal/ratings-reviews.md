@@ -1,17 +1,16 @@
 ---
 title: Ratings & Avalia painel de análise no Partner Center
 description: Saiba como aceder a uma visão consolidada do feedback do cliente para as suas ofertas no Microsoft AppSource e no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109234"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Ratings & Avalia painel de análise no Partner Center
 

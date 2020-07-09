@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557367"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107330"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são matrizes de portão programáveis em campo (FPGA) e como implementar
 
@@ -25,7 +26,7 @@ Este artigo fornece uma introdução aos conjuntos de portas programáveis em ca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure.  Se não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+- Uma subscrição do Azure. Se não tiver uma, terá de criar uma conta [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) (as contas Azure gratuitas não são elegíveis para quota FPGA).
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Quota da FPGA. Utilize o CLI Azure para verificar se tem quota:
 

@@ -3,12 +3,12 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807269"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107483"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -98,7 +98,8 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
   ```
 
 - Se precisar de confirmar que o Application Insights está ligado com sucesso, pode executar [o Cabo Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) numa janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
 
 ### <a name="unable-to-login"></a>Incapaz de iniciar sessão
 
-* Se o Status Monitor não conseguir iniciar sessão, faça uma instalação de linha de comando. O Status Monitor tenta iniciar sessão para recolher o seu ikey, mas pode fornecer isto manualmente utilizando o comando:
+Se o Status Monitor não conseguir iniciar sessão, faça uma instalação de linha de comando. O Status Monitor tenta iniciar sessão para recolher o seu ikey, mas pode fornecer isto manualmente utilizando o comando:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ Pode iniciar e parar a monitorização com o PowerShell no servidor de IIS.
 
 Primeiro, importe o módulo do Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Descubra que aplicações estão a ser monitorizadas:
 
@@ -221,12 +224,14 @@ Descubra que aplicações estão a ser monitorizadas:
     Para transferir a versão mais recente, utilize Update-ApplicationInsightsVersion.
 * Devolve `ApplicationInsightsApplication` com êxito. Se falhar, regista um rastreio em stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 

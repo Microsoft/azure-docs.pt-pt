@@ -3,11 +3,12 @@ title: Exportação contínua de telemetria a partir de Insights de Aplicação 
 description: Exporte dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregue-os a partir daí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147975"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110220"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Deseja manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de uma forma especializada? Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código necessário para os processar.  
@@ -107,7 +108,9 @@ A data e a hora são UTC e são quando a telemetria foi depositada na loja - nã
 
 Aqui está a forma do caminho:
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Onde
 
@@ -117,37 +120,41 @@ Onde
 ## <a name="data-format"></a><a name="format"></a>Formato de dados
 * Cada bolha é um ficheiro de texto que contém várias linhas separadas de '\n'. Contém a telemetria processada durante um período de tempo de cerca de meio minuto.
 * Cada linha representa um ponto de dados de telemetria, como um pedido ou vista de página.
-* Cada linha é um documento JSON não testado. Se quiser sentar-se e olhar para ele, abra-o no Estúdio Visual e escolha Edit, Advanced, Format File:
+* Cada linha é um documento JSON não testado. Se quiser ver as linhas, abra a bolha no Estúdio Visual e escolha **Editar**  >  Ficheiro de Formato**Avançado:**  >  **Format File**
 
-![Ver a telemetria com uma ferramenta adequada](./media/export-telemetry/06-json.png)
+   ![Ver a telemetria com uma ferramenta adequada](./media/export-telemetry/06-json.png)
 
 As durações do tempo são em carrapatos, onde 10 000 carrapatos = 1 ms. Por exemplo, estes valores mostram um tempo de 1 ms para enviar um pedido do navegador, 3 ms para recebê-lo, e 1.8 s para processar a página no navegador:
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [Referência detalhada do modelo de dados para os tipos e valores da propriedade.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Processamento dos dados
 Em pequena escala, pode escrever um código para separar os seus dados, lê-los numa folha de cálculo, e assim por diante. Por exemplo:
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 Para obter uma amostra de código maior, consulte [utilizando uma função de trabalhador][exportasa].
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107211"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Motoristas e ferramentas de gestão MariaDB compatíveis com Azure Database para MariaDB
 
@@ -37,7 +37,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e a
 
 A vantagem de compatibilidade estende-se também às ferramentas de gestão de bases de dados. As ferramentas existentes devem continuar a trabalhar com a Base de Dados Azure para o MariaDB, desde que a manipulação da base de dados funcione dentro dos limites das permissões do utilizador. Três ferramentas comuns de gestão de bases de dados que foram testadas e consideradas compatíveis com a Base de Dados Azure para MariaDB 10.2 estão listadas no quadro seguinte:
 
-| | **MySQL Workbench 6.x e acima** | **Navicat 12** | **PHPMyAdmin 4.x e para cima**
+| Ação | **MySQL Workbench 6.x e acima** | **Navicat 12** | **PHPMyAdmin 4.x e para cima**
 ---|---|---|---
 Criar, atualizar, ler, escrever, excluir | X | X | X
 Ligação SSL | X | X | X
@@ -48,6 +48,6 @@ Cópia de Segurança e Restauro |  | X |
 Mostrar parâmetros do servidor | X | X | X
 Mostrar ligações ao cliente | X | X | X
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolver problemas de ligação ao Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)

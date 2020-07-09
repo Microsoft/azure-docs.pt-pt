@@ -1,18 +1,18 @@
 ---
 title: ficheiro de inclusão
 description: file
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 0c919e3139fe025f3f1fb4b45c547ebae9662a90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: anbene
+ms.author: mingshen
+ms.openlocfilehash: 95edc9ae621cb7e62729d529c1c43c355ddc7e63
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84750819"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109680"
 ---
 Aqui ficam algumas dicas para escrever a sua descrição:
 
