@@ -14,6 +14,7 @@ ms.date: 03/15/2019
 ms.author: wesmc
 ms.openlocfilehash: 3a7d6f08870495044c4aef0dc21181feda7eb7ab
 ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86041290"
