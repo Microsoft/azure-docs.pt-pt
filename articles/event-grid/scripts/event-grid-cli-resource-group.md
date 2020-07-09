@@ -1,22 +1,15 @@
 ---
 title: Exemplo de script da CLI do Azure - Subscrever um grupo de recursos | Microsoft Docs
-description: Este artigo fornece uma amostra do script Azure CLI que mostra como subscrever eventos da Azure Event Grid para um grupo de recursos.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
+description: Este artigo fornece uma amostra de script Azure CLI que mostra como subscrever eventos Azure Event Grid para um grupo de recursos.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: ff5f317bafd5c59ea4bba8bb6a23b60881cd218f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 33f377fc4101aaba34629d94b7bcb2bc9a53f0c3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720803"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171283"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Subscrever eventos para um grupo de recursos com a CLI do Azure
 

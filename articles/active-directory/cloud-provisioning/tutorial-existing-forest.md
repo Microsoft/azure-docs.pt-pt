@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360644"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146832"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
 
@@ -104,14 +104,14 @@ Para verificar se o agente está em execução, siga estes passos:
 1.  Inscreva-se no portal AD AZure.
 2.  Clique **em Azure Ative Directory**
 3.  Clique **em Azure Ad Connect**
-4.  **Selecione Gerir o provisionamento (Pré-visualização)**
-![](media/how-to-configure/manage1.png)
-5.  Clique em **Nova Configuração**
-![](media/tutorial-single-forest/configure1.png)
+4.  **Selecione Gerir o fornecimento (Pré-visualização)** Screenshot 
+ ![ mostrando o link "Gerir o provisionamento (pré-visualização)".](media/how-to-configure/manage1.png)
+5.  Clique em Novo Screenshot de **Configuração** 
+ ![ do ecrã Azure AD Provisioning (Preview) com o link "Nova configuração" realçado.](media/tutorial-single-forest/configure1.png)
 7.  No ecrã de configuração, introduza um **e-mail de Notificação,** mova o seletor para **Ativar** e clique em **Guardar**.
-![](media/tutorial-single-forest/configure2.png)
+![Screenshot do ecrã configurar com e-mail de notificação preenchido e Ativar selecionado.](media/tutorial-single-forest/configure2.png)
 1.  O estado de configuração deve agora ser **saudável**.
-![](media/how-to-configure/manage4.png)
+![Screenshot do ecrã Azure AD Provisioning (Preview) mostrando o estado saudável.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Verifique se os utilizadores são criados e a sincronização está a ocorrer
 Irá agora verificar se os utilizadores que tinha no nosso diretório no local foram sincronizados e agora existem no nosso inquilino AZure AD.  Esteja ciente de que isto pode levar algumas horas para ser concluído.  Para verificar se os utilizadores estão sincronizados, faça o seguinte.

@@ -1,22 +1,15 @@
 ---
-title: Azure PowerShell - subscreva a subscrição do Azure
-description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos da Rede de Eventos para uma subscrição azure.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
+title: Azure PowerShell - subscreva a subscrição da Azure
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos de Event Grid para uma subscrição do Azure.
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 4a6539966ff2e907c4f6f942dd0c238ee35b6836
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 7540c8eb181e064c5df5372a4bc9b27ebe16bf56
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76721460"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171249"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Subscrever eventos para uma subscrição do Azure com o PowerShell
 
@@ -32,7 +25,7 @@ Este script cria uma subscrição do Event Grid para os eventos para uma subscri
 
 ## <a name="sample-script---preview-module"></a>Script de amostra - módulo de pré-visualização
 
-Este script de amostra de pré-visualização requer o módulo De Rede de Eventos. Para instalar, executar`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+Este script de amostra de pré-visualização requer o módulo 'Grade de Eventos'. Para instalar, executar`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
@@ -44,7 +37,7 @@ Este script utiliza o seguinte comando para criar a subscrição de eventos. Cad
 
 | Comando | Notas |
 |---|---|
-| [Subscrição new-AzEventGrid](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
+| [Nova-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

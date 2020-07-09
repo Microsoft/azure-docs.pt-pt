@@ -1,22 +1,15 @@
 ---
 title: Azure PowerShell - subscreva a conta de armazenamento Blob
-description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos da Rede de Eventos para uma conta de Armazenamento Blob.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos de Grade de Eventos para uma conta blob Storage.
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: a8a0982ca118663cbf0f7e4d72412ce8feda3c4b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 6e1d7fa349134400c26e03815983067d921f388c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76721443"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171232"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Subscrever eventos para uma conta de armazenamento de Blobs com o PowerShell
 
@@ -36,7 +29,7 @@ Este script utiliza o seguinte comando para criar a subscrição de eventos. Cad
 
 | Comando | Notas |
 |---|---|
-| [Subscrição new-AzEventGrid](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
+| [Nova-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

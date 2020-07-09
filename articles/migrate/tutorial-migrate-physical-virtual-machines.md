@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar máquinas físicas para Azure com 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116102"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165401"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
@@ -69,9 +69,9 @@ Prepare o Azure para a migração com a Migração do Servidor.
 
 Atribua a função contribuidora da máquina virtual à conta Azure. Isto fornece permissões para:
 
-    - Criar uma VM no grupo de recursos selecionado.
-    - Criar uma VM na rede virtual selecionada.
-    - Escreva para um disco gerido pelo Azure. 
+- Criar uma VM no grupo de recursos selecionado.
+- Criar uma VM na rede virtual selecionada.
+- Escreva para um disco gerido pelo Azure. 
 
 ### <a name="create-an-azure-network"></a>Criar uma rede Azure
 
@@ -356,6 +356,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

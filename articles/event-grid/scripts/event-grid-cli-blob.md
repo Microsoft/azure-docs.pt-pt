@@ -1,22 +1,15 @@
 ---
 title: Exemplo de script da CLI do Azure - Subscrever uma conta de armazenamento de Blobs | Microsoft Docs
-description: Este artigo fornece uma amostra de script Azure CLI que mostra como subscrever eventos para uma conta de Armazenamento Azure Blob.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
+description: Este artigo fornece uma amostra do script Azure CLI que mostra como subscrever eventos para uma conta de Armazenamento Azure Blob.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: b6cb60273b0fc3ac101eb03c55a3392bd9b942a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: c2dc4780d362f4e98e6b15653123174fca02f03d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720882"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171368"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Subscrever eventos para uma conta de armazenamento de Blobs com a CLI do Azure
 

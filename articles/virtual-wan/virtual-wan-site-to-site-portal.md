@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563009"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144108"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -262,7 +262,7 @@ Na página **Editar VPN Gateway,** pode ver as seguintes definições:
 * Endereço IP público VPN Gateway (atribuído por Azure)
 * Endereço IP privado VPN Gateway (atribuído por Azure)
 * Endereço IP BGP padrão VPN Gateway (atribuído por Azure)
-* Opção de configuração para Endereço IP BGP personalizado: Este campo está reservado para APIPA (Endereço IP Privado Automático). Azure suporta O IP BGP nos intervalos 169.254.21.* e 169.254.22.*
+* Opção de configuração para Endereço IP BGP personalizado: Este campo está reservado para APIPA (Endereço IP Privado Automático). A Azure suporta o BGP IP nos intervalos 169.254.21.* e 169.254.22.* . O Azure aceita ligações BGP nestas gamas, mas irá marcar a ligação com o IP BGP predefinido.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMS AWS para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102808"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165435"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -77,9 +77,9 @@ Prepare o Azure para a migração com a Azure Migrate: ferramenta de migração 
 
 Atribua a função contribuidora da máquina virtual à conta Azure. Isto fornece permissões para:
 
-    - Criar uma VM no grupo de recursos selecionado.
-    - Criar uma VM na rede virtual selecionada.
-    - Escreva para um disco gerido pelo Azure. 
+- Criar uma VM no grupo de recursos selecionado.
+- Criar uma VM na rede virtual selecionada.
+- Escreva para um disco gerido pelo Azure. 
 
 ### <a name="create-an-azure-network"></a>Criar uma rede Azure
 
@@ -354,7 +354,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 - Para monitorização e gestão:
     - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.
 

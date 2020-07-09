@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração de Diretório Sonérório Ativo Azure com o Software Ungerboeck [ Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com Software Ungerboeck Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Ungerboeck Software.
 services: active-directory
 documentationCenter: na
@@ -16,158 +16,152 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c7a7a8fe0ef346cb26e3b0b4f14d3dae7211b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 654abe0900cd1cecd4964c344a01dafe40caeb85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67370307"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166983"
 ---
-# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Tutorial: Integrar software Ungerboeck com Diretório Ativo Azure
+# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Tutorial: Integrar software ungerboeck com diretório ativo Azure
 
-Neste tutorial, aprenderá a integrar o Software Ungerboeck com o Azure Ative Directory (Azure AD). Quando integrar o Software Ungerboeck com a Azure AD, pode:
+Neste tutorial, você vai aprender a integrar o Software Ungerboeck com o Azure Ative Directory (Azure AD). Quando integrar o Software Ungerboeck com AZure AD, pode:
 
-* Controle em Azure AD que tem acesso a Ungerboeck Software.
-* Ative que os seus utilizadores sejam automaticamente inscritos no Software Ungerboeck com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Controle em Azure AD que tem acesso a Software Ungerboeck.
+* Capacitar os seus utilizadores a serem automaticamente inscritos no Software Ungerboeck com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode ter um mês de experiência gratuita [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* A subscrição ativada por um único sinal de insessão (SSO) da Ungerboeck Software.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode ter um mês de teste gratuito [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Ungerboeck Software única subscrição ativada (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. Ungerboeck Software suporta **SP** iniciado SSO.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. Ungerboeck Software suporta SSO iniciado **SP.**
 
-## <a name="adding-ungerboeck-software-from-the-gallery"></a>Adicionando software Ungerboeck da galeria
+## <a name="adding-ungerboeck-software-from-the-gallery"></a>Adicionar Software Ungerboeck da galeria
 
-Para configurar a integração do Software Ungerboeck no Azure AD, precisa de adicionar software Ungerboeck da galeria à sua lista de aplicações geridas pela SaaS.
+Para configurar a integração do Software Ungerboeck no AD Azure, é necessário adicionar software Ungerboeck da galeria à sua lista de aplicações geridas pelo SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No **Add da** secção galeria, digite **O Software Ungerboeck** na caixa de pesquisa.
-1. Selecione **O Software Ungerboeck** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite Software Ungerboeck** na caixa de pesquisa.
+1. Selecione **Ungerboeck Software** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Configure e teste Azure AD SSO com Ungerboeck Software utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Software Ungerboeck.
+Configure e teste Azure AD SSO com Software Ungerboeck usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Software Ungerboeck.
 
-Para configurar e testar o Azure AD SSO com o Ungerboeck Software, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com software Ungerboeck, complete os seguintes blocos de construção:
 
-1. **[Configure O SSO AD Azure](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure O Software Ungerboeck SSO](#configure-ungerboeck-software-sso)** para configurar as definições sSO no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de Azure AD com B.Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que b.Simon utilize um único sinal de AD Azure.
-5. **[Crie o utilizador de teste ungerboeck software](#create-ungerboeck-software-test-user)** para ter uma contrapartida de B.Simon no Software Ungerboeck que está ligada à representação do utilizador da AD Azure.
-6. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Software SSO descodeis](#configure-ungerboeck-software-sso)** para configurar as definições SSO no lado da aplicação.
+3. **[Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user)** para testar o Azure AD com B.Simon.
+4. **[Atribua ao utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que a B.Simon utilize um único sinal de Ad AD.
+5. Crie o utilizador de **[teste de Software Ungerboeck](#create-ungerboeck-software-test-user)** para ter uma contraparte de B.Simon em Software Ungerboeck que está ligada à representação AD AD do utilizador.
+6. **[Teste SSO](#test-sso)** para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **ungerboeck Software,** encontre a secção **Gerir** e selecione **um único sinal .**
-1. Na página **Select a Single sign-on,** selecione **SAML**.
-1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do Software Ungerboeck,** encontre a secção **Gerir** e selecione **'Único sinal de sção'**.
+1. Na página **de método de inscrição única,** selecione **SAML**.
+1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na página **basic SAML Configuração,** introduza os valores para os seguintes campos:
+1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    1. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.ungerboeck.com/prod`
+    1. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.ungerboeck.com/prod`
 
-    1. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:
+    1. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     
-       **Para o ambiente de produção:**
+    *  **Para o ambiente de produção:**
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
-       | |
+       - `https://<SUBDOMAIN>.ungerboeck.com/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.net/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.io/prod`
 
-        **Para o ambiente**de ensaio:
+   * **Para ambiente de ensaio:**
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/test` |
-       | |
+     - `https://<SUBDOMAIN>.ungerboeck.com/test`
+     - `https://<SUBDOMAIN>.ungerboeck.net/test`
+     - `https://<SUBDOMAIN>.ungerboeck.io/test`
 
    > [!NOTE]
-   > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador que é explicado mais tarde na secção de início único de sinal de **software Da Configuração Ungerboeck** do tutorial.
+   > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador, que é explicado mais tarde na secção **Configure Ungerboeck Software Single Sign-On** do tutorial.
 
-1. Na secção Certificado de **Assinatura SAML,** clique no botão **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
+1. Na secção **Certificado de Assinatura SAML,** clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
 
     ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-1. Na secção certificado de **assinatura SAML,** copie a **impressão digital** e guarde-a no seu computador.
+1. Na secção **certificado de assinatura SAML,** copie a **impressão digital e** guarde-a no seu computador.
 
-    ![Copiar valor de impressão digital](common/copy-thumbprint.png)
+    ![Valor da impressão digital do polegar da cópia](common/copy-thumbprint.png)
 
-1. Na secção **DeConfiguração ungerboeck Software,** copie os URL(s) adequados de acordo com o seu requisito.
+1. Na secção **De Software Ungerboeck,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
+    b. Identificador de Azure Ad
 
     c. Logout URL
 
-### <a name="configure-ungerboeck-software-sso"></a>Configure Ungerboeck Software SSO
+### <a name="configure-ungerboeck-software-sso"></a>Configurar software ungerboeck SSO
 
-Para configurar um único sign-on no lado **do Software Ungerboeck,** é necessário enviar o **valor de impressão digital e** URLs copiados apropriados do portal Azure para a equipa de suporte do Software [Ungerboeck](mailto:Rhonda.Jannings@ungerboeck.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **do Software Ungerboeck,** é necessário enviar o **valor de impressão digital** e urls copiados apropriados do portal Azure para a equipa de suporte do Software [Ungerboeck](mailto:Rhonda.Jannings@ungerboeck.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao Software Ungerboeck.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Software Ungerboeck.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Ungerboeck Software**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="create-ungerboeck-software-test-user"></a>Criar o utilizador de teste de software Ungerboeck
+### <a name="create-ungerboeck-software-test-user"></a>Criar utilizador de teste de software ungerboeck
 
-Nesta secção, cria-se um utilizador chamado B.Simon no Software Ungerboeck. Trabalhe com a equipa de suporte da [Ungerboeck Software](mailto:Rhonda.Jannings@ungerboeck.com) para adicionar os utilizadores na plataforma Ungerboeck Software. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado B.Simon in Ungerboeck Software. Trabalhe com a [equipa de suporte do Software Ungerboeck](mailto:Rhonda.Jannings@ungerboeck.com) para adicionar os utilizadores na plataforma de Software Ungerboeck. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo ungerboeck software no Painel de Acesso, deve ser automaticamente inscrito no Software Ungerboeck para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando selecionar o azulejo do Software Ungerboeck no Painel de Acesso, deverá ser automaticamente inscrito no Software Ungerboeck para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

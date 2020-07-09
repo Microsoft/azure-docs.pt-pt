@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704255"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134901"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -103,7 +103,7 @@ Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o segui
 - No computador local, antes da ativação pós-falha, verifique se o serviço Secure Shell está definido para iniciar automaticamente no arranque do sistema.
 - Verifique se as regras de firewall permitem uma ligação SSH.
 - Na VM do Azure após a ativação pós-falha, permita ligações de entrada na porta SSH para as regras de grupo de segurança de rede na VM com ativação pós-falha e para a sub-rede do Azure à qual está ligada.
-- [Adicione um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) para a VM.
+- [Adicione um endereço IP público](./site-recovery-monitor-and-troubleshoot.md) para a VM.
 - Pode consultar o **Diagnóstico de arranque** para ver uma captura de ecrã da VM.
 
 

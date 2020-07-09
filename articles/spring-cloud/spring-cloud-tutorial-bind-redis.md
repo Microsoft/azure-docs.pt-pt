@@ -1,29 +1,29 @@
 ---
-title: Tutorial - Bind Azure Cache for Redis para a sua aplicação Azure Spring Cloud
-description: Este tutorial mostra-lhe como ligar o Cache Azure para redis à sua aplicação Azure Spring Cloud
+title: Bind Azure Cache para Redis para a sua aplicação Azure Spring Cloud
+description: Saiba como ligar a Azure Cache para Redis à sua aplicação Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
-ms.openlocfilehash: 94f7b5a2363b7c53e0f70500e5a0a8cb6f64e611
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ddf239fc6415b3dbee6051d4199cd29e5244e4d2
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277510"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142138"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Bind Azure Cache para Redis para a sua aplicação Azure Spring Cloud 
 
-Em vez de configurar manualmente as suas aplicações spring boot, pode ligar automaticamente os serviços Azure às suas aplicações utilizando a Nuvem de primavera Azure. Este artigo mostra como ligar a sua aplicação ao Azure Cache for Redis.
+Em vez de configurar manualmente as suas aplicações Boot Spring Boot, pode ligar automaticamente os serviços Azure às suas aplicações utilizando a Azure Spring Cloud. Este artigo mostra como ligar a sua aplicação ao Azure Cache para Redis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma instância de Nuvem de primavera Azure implantada
-* Um Cache Azure para a instância de serviço Redis
-* A extensão da Nuvem de primavera Azure para o Azure CLI
+* Um exemplo de Nuvem de primavera de Azure implantado
+* Um Cache Azure para a instância de serviço redis
+* A extensão da Nuvem de primavera Azure para o CLI Azure
 
-Se não tiver uma instância de Nuvem de primavera Azure implantada, siga os passos no [arranque rápido da implementação de uma aplicação Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md).
+Se não tiver uma instância Azure Spring Cloud implantada, siga os passos no [arranque rápido ao implementar uma aplicação Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md).
 
 ## <a name="bind-azure-cache-for-redis"></a>Bind Azure Cache para Redis
 
@@ -35,17 +35,17 @@ Se não tiver uma instância de Nuvem de primavera Azure implantada, siga os pas
         <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
     </dependency>
     ```
-1. Remova `spring.redis.*` quaisquer `application.properties` propriedades do ficheiro
+1. Remova quaisquer `spring.redis.*` propriedades do `application.properties` ficheiro
 
-1. Atualize a `az spring-cloud app update` implementação atual utilizando `az spring-cloud app deployment create`ou crie uma nova implementação utilizando .
+1. Atualize a implementação atual utilizando `az spring-cloud app update` ou crie uma nova implementação utilizando `az spring-cloud app deployment create` .
 
-1. Vá à sua página de serviço Azure Spring Cloud no portal Azure. Vá ao **Painel de Aplicações** e selecione a aplicação para ligar ao Azure Cache for Redis. Esta aplicação é a mesma que atualizou ou implementou no passo anterior.
+1. Aceda à sua página de serviço Azure Spring Cloud no portal Azure. Vá ao **Painel de Aplicações** e selecione a aplicação para ligar ao Cache Azure para Redis. Esta aplicação é a mesma que atualizou ou implementou no passo anterior.
 
-1. Selecione **a ligação do serviço** e selecione Criar a **ligação do serviço**. Preencha o formulário, tendo a certeza de selecionar o valor de **ligação** Do tipo **Azure Cache para Redis,** o seu Cache Azure para o servidor Redis e a opção chave **Primária.**
+1. Selecione **a ligação de serviço** e selecione Criar **ligação de serviço**. Preencha o formulário, tendo a certeza de selecionar o valor **de ligação** **Azure Cache para Redis,** a sua Cache Azure para o servidor Redis e a opção chave **primária.**
 
-1. Reinicie a aplicação. A encadernação deve agora funcionar.
+1. Reinicie a aplicação. A ligação deve agora funcionar.
 
-1. Para garantir que a ligação do serviço está correta, selecione o nome de ligação e verifique os seus dados. O `property` campo deve ser assim:
+1. Para garantir que a ligação de serviço está correta, selecione o nome de encadernação e verifique os seus detalhes. O `property` campo deve ser assim:
     ```
     spring.redis.host=some-redis.redis.cache.windows.net
     spring.redis.port=6380
@@ -55,7 +55,4 @@ Se não tiver uma instância de Nuvem de primavera Azure implantada, siga os pas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a ligar a sua aplicação Azure Spring Cloud ao Azure Cache for Redis. Para saber mais sobre serviços vinculativos à sua aplicação, continue a ser tutorial sobre vincular uma aplicação a uma base de dados Azure para instância MySQL.
-
-> [!div class="nextstepaction"]
-> [Saiba como ligar-se a uma Base de Dados Azure para a instância MySQL](spring-cloud-tutorial-bind-mysql.md)
+Neste artigo, aprendeu a ligar a sua aplicação Azure Spring Cloud ao Azure Cache para Redis. Para saber mais sobre serviços vinculativos à sua aplicação, consulte [a Bind to a Azure Database for MySQL instance](spring-cloud-tutorial-bind-mysql.md).

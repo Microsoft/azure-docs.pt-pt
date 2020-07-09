@@ -11,11 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: cf1732b88867074fe1f672e193ce404a4ef83e54
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143609"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use machine learning automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -106,8 +107,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4.84</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.84</td>
       <td>-73.94</td>
@@ -130,8 +131,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0.69</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.81</td>
       <td>-73.96</td>
@@ -154,8 +155,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0.45</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.91</td>
@@ -178,8 +179,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.81</td>
       <td>40.70</td>
       <td>-73.82</td>
@@ -202,8 +203,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0.50</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.92</td>
@@ -226,8 +227,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1.10</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.95</td>
@@ -250,8 +251,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0.90</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.76</td>
       <td>-73.87</td>
@@ -274,8 +275,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3.30</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.91</td>
@@ -298,8 +299,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1.19</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.95</td>
@@ -322,8 +323,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0.65</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.94</td>
@@ -398,8 +399,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4.84</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.84</td>
       <td>-73.94</td>
@@ -422,8 +423,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0.69</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.81</td>
       <td>-73.96</td>
@@ -446,8 +447,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0.45</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.91</td>
@@ -470,8 +471,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.81</td>
       <td>40.70</td>
       <td>-73.82</td>
@@ -494,8 +495,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0.50</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.92</td>
@@ -518,8 +519,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1.10</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.95</td>
@@ -542,8 +543,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0.90</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.76</td>
       <td>-73.87</td>
@@ -566,8 +567,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3.30</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.91</td>
@@ -590,8 +591,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1.19</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.95</td>
@@ -614,8 +615,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0.65</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.94</td>
@@ -847,10 +848,7 @@ O `test_size` parâmetro determina a percentagem de dados a atribuir aos testes.
 ```python
 from sklearn.model_selection import train_test_split
 
-y_df = final_df.pop("totalAmount")
-x_df = final_df
-
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 ```
 
 O objetivo deste passo é ter pontos de dados para testar o modelo acabado que não tenha sido usado para treinar o modelo, de forma a medir a verdadeira precisão.
@@ -898,8 +896,8 @@ from azureml.train.automl import AutoMLConfig
 
 automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
-                             X=x_train.values,
-                             y=y_train.values.flatten(),
+                             training_data=x_train,
+                             label_column_name="totalAmount",
                              **automl_settings)
 ```
 
@@ -1054,7 +1052,7 @@ Se não planeia usar os recursos que criou, elimine-os, para não incorrer em qu
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial automatizado de aprendizagem automática, fez as seguintes tarefas:
 
