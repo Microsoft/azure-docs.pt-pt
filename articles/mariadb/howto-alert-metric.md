@@ -4,14 +4,14 @@ description: Este artigo descreve como configurar e aceder a alertas métricos p
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 683b89b29265159b0316d427a7ae616bf3766f7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529022"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120080"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para MariaDB
 
@@ -84,6 +84,6 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 * **Desative** ou **Ative** o alerta, se pretender parar temporariamente ou retomar as notificações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

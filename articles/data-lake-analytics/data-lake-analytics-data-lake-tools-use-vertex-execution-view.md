@@ -6,14 +6,14 @@ ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: f5adbb75e6852551976aa040a1a1c723d2e3f59b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dfb03a1b3e0f2bf1146a65627247256125480a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71309717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120114"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use a vista de execução de vértice em ferramentas do lago de dados para estúdio visual
 Saiba como usar a Vista de Execução Vertex para fazer o exame de data lake analytics.
@@ -49,7 +49,7 @@ O painel central inferior mostra informações sobre cada vértice:
 * Versão Criou o Tempo.
 * Processo Criar tempo de início/processo Tempo/Processo Tempo de início/Processo Tempo de início/Tempo completo processo: quando o processo do vértice começar a criar; quando o processo do vértice começa a fazer fila; quando o processo de certos vértices começar; quando o certo vértice estiver concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter informações de diagnóstico de registo, veja [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 * Para ver detalhes do trabalho, consulte [use Job Browser e Job View for Azure Data lake Analytics jobs](data-lake-analytics-data-lake-tools-view-jobs.md)

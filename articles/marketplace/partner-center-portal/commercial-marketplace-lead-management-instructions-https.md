@@ -1,17 +1,18 @@
 ---
 title: Gestão de chumbo com um ponto final HTTPS - Mercado comercial da Microsoft
 description: Aprenda a utilizar o Power Automate e um ponto final HTTPS para gerir os leads a partir do Microsoft AppSource e Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83847823"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120378"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads de marketplace comercial
 

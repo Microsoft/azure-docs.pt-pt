@@ -4,16 +4,16 @@ description: Este artigo descreve como configurar e aceder aos registos de audit
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 1dcad61ed94926aa2aa2237ea735287cd9c9f137
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0f5f71ed636cc67e742198436b48a09d291e798
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362701"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120063"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e aceder a registos de auditoria no CLI do Azure
+# <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configurar e aceder à Base de Dados Azure para registos de auditoria da Maria DB no Azure CLI
 
 Pode configurar a [Base de Dados Azure para registos de auditoria MariaDB](concepts-audit-logs.md) do Azure CLI.
 

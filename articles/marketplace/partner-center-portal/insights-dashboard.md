@@ -1,17 +1,16 @@
 ---
 title: Marketplace Insights - Mercado comercial da Microsoft
 description: Aceda a um resumo da análise web do marketplace, que lhe permite medir o envolvimento do cliente no Microsoft AppSource e no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745662"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120403"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel de insights de mercado no Partner Center
 

@@ -4,13 +4,14 @@ description: Saiba como configurar e gerir a encriptação de dados para o seu A
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 731827fb63f8b23d21ea2eddaef3fa9b796d14bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119587"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para servidor single PostgreSQL utilizando o Azure CLI
 
@@ -21,28 +22,28 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
 * Você deve ter uma subscrição Azure e ser um administrador nessa subscrição.
 * Crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente. Também permita a proteção da purga e a eliminação suave no cofre da chave.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+   ```azurecli-interactive
+   az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
+   ```
 
 * No Azure Key Vault criado, crie a chave que será usada para a encriptação de dados da Base de Dados Azure para o servidor Single PostgreSQL.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+   ```azurecli-interactive
+   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+   ```
 
 * Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
   * [Eliminação recuperável](../key-vault/general/overview-soft-delete.md)
 
-    ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-    ```
+      ```azurecli-interactive
+      az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+      ```
 
   * [Purga protegida](../key-vault/general/overview-soft-delete.md#purge-protection)
 
-    ```azurecli-interactive
-    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+      ```
 
 * A chave deve ter os seguintes atributos para usar como chave gerida pelo cliente:
   * Sem data de validade
@@ -87,36 +88,37 @@ Depois de a Base de Dados Azure para o servidor PostgreSQL Single ser encriptada
 
 ### <a name="creating-a-restoredreplica-server"></a>Criação de um servidor restaurado/replicado
 
-  *  [Criar um servidor de restauração](howto-restore-server-cli.md) 
-  *  [Criar um servidor de réplica de leitura](howto-read-replicas-cli.md) 
+* [Criar um servidor de restauração](howto-restore-server-cli.md)
+* [Criar um servidor de réplica de leitura](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Uma vez restaurado o servidor, revalidar a encriptação de dados do servidor restaurado
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>Capacidade adicional para a chave que está a ser utilizada para a Base de Dados Azure para servidor single PostgreSQL
 
 ### <a name="get-the-key-used"></a>Use a chave
 
-    ```azurecli-interactive
-    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Url chave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Listar a chave usada
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>Largue a chave que está a ser usada
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Usando um modelo de Gestor de Recursos Azure para permitir encriptação de dados
 
 Além do portal Azure, também pode ativar a encriptação de dados na sua Base de Dados Azure para servidor único PostgreSQL utilizando modelos de Gestor de Recursos Azure para servidor novo e existente.

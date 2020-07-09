@@ -1,17 +1,14 @@
 ---
 title: Definir alertas para métricas de grelha de eventos Azure e operações de log de atividade
 description: Este artigo descreve como criar alertas nas métricas da Azure Event Grid e nas operações de registo de atividades.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412843"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119145"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Definir alertas em métricas de grelha de evento azure e registos de atividade
 Este artigo descreve como criar alertas nas métricas da Azure Event Grid e nas operações de registo de atividades. Pode criar alertas nas métricas de publicação e entrega dos recursos da Azure Event Grid (tópicos e domínios). Para tópicos do sistema, [crie alertas utilizando a página **Métricas** ](#create-alerts-using-the-metrics-page).

@@ -1,17 +1,18 @@
 ---
 title: Gestão de chumbo para o mercado comercial Azure Marketplace e AppSource
 description: Uma visão geral de vários tópicos relacionados com ofertas de publicação e artefactos técnicos para o Azure Marketplace e AppSource
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 0d16a2fa91b498888ae5dafd1b254b51eca94ebc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801415"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119451"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
@@ -77,7 +78,7 @@ Uma vez que a configuração técnica esteja em vigor, você deve incorporar est
 
 > Resolução: Inscreva-se no Partner Center, consulte os detalhes da Storefront >> destino lead >> URL, verifique se é uma instância de CRM dinâmica válida.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **O que são pistas e por que são importantes para mim como editora no Marketplace?** 
 

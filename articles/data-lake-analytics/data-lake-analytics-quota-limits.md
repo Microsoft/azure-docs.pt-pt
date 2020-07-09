@@ -7,13 +7,14 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b51fbfc15183fe5c8defafa6523835f938c1cf49
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75644720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121253"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar quotas e limites no Azure Data Lake Analytics
 

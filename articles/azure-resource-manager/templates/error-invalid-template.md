@@ -3,11 +3,12 @@ title: Erros do modelo inválidos
 description: Descreve como resolver erros de modelo inválidos ao implementar modelos do Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324067"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118890"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolve errors for invalid template (Resolver erros de modelo inválido)
 
@@ -47,7 +48,7 @@ Este erro é fácil de fazer porque as expressões do modelo podem ser complexas
 
 Se não fornecer a sintaxe correspondente, o modelo produz um valor diferente da sua intenção.
 
-Quando receber este tipo de erro, reveja cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como [Visual Studio](create-visual-studio-deployment-project.md) ou Visual [Studio Code,](use-vs-code-to-create-template.md)que pode avisá-lo sobre erros de sintaxe.
+Quando receber este tipo de erro, reveja cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como [Visual Studio](create-visual-studio-deployment-project.md) ou Visual [Studio Code,](quickstart-create-templates-use-visual-studio-code.md)que pode avisá-lo sobre erros de sintaxe.
 
 <a id="incorrect-segment-lengths"></a>
 

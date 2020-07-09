@@ -3,12 +3,12 @@ title: Perguntas sobre a descoberta, avaliação e análise de dependência em A
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118839"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -33,7 +33,7 @@ Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servid
 
 - Utilize **avaliações de VM do Azure** quando pretender avaliar os seus [VMs VMs, VMs](how-to-set-up-appliance-vmware.md) [hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure. [Saiba mais](concepts-assessment-calculation.md)
 
-- Utilize avaliações **da Solução VMware Azure (AVS)** quando pretender avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+- Utilize avaliações **da Solução VMware Azure (AVS)** quando pretender avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Pode utilizar um grupo comum com máquinas VMware apenas para executar ambos os tipos de avaliações. Note que se estiver a fazer avaliações AVS em Azure Migrate pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
 
@@ -113,7 +113,7 @@ As avaliações de VM Azure baseadas em importação são avaliações criadas c
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Porque é que o instrumento de migração sugerido na avaliação do AVS baseado nas importações é marcado como desconhecido?
 
-Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão numa avaliação AVS é desconhecida. No entanto, para máquinas VMware, é aconselhável utilizar a solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation)
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão numa avaliação AVS é desconhecida. No entanto, para máquinas VMware, é aconselhável utilizar a solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](../azure-vmware/hybrid-cloud-extension-installation.md)
 
 
 ## <a name="what-is-dependency-visualization"></a>O que é visualização de dependência?
@@ -130,9 +130,9 @@ As diferenças entre visualização sem agente e visualização baseada em agent
 **Requisito** | **Sem agente** | **Baseada em agente**
 --- | --- | ---
 Suporte | Esta opção está atualmente em pré-visualização, e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operativos suportados. | Em disponibilidade geral (GA).
-Agente | Não é necessário instalar agentes em máquinas que pretende verificar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o [agente Desadependido](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+Agente | Não é necessário instalar agentes em máquinas que pretende verificar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](../azure-monitor/platform/agent-windows.md)e o [agente Desadependido](../azure-monitor/platform/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Reveja](concepts-dependency-visualization.md#agentless-analysis) os requisitos pré-requisitos e requisitos de implantação. | [Reveja](concepts-dependency-visualization.md#agent-based-analysis) os requisitos pré-requisitos e requisitos de implantação.
-Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [de Mapa de Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nos [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
+Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
 Como funciona | Captura dados de ligação TCP em máquinas ativadas para visualização de dependência. Após a descoberta, recolhe dados em intervalos de cinco minutos. | Os agentes do Mapa de Serviço instalados numa máquina recolhem dados sobre processos TCP e ligações de entrada/saída para cada processo.
 Dados | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta. | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta.<br/><br/> O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
 Visualização | O mapa de dependência de um único servidor pode ser visto durante uma hora a 30 dias. | Mapa de dependência de um único servidor.<br/><br/> O mapa pode ser visto apenas durante uma hora.<br/><br/> Mapa de dependência de um grupo de servidores.<br/><br/> Adicione e remova os servidores num grupo a partir da vista do mapa.
@@ -151,7 +151,7 @@ Não. Saiba mais sobre [os preços da Azure Migrate.](https://azure.microsoft.co
 
 Para utilizar agentes de visualização de dependência baseados em agentes, descarregue e instale agentes em cada máquina no local que pretende avaliar:
 
-- [Agente de monitorização da Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)
+- [Agente de monitorização da Microsoft (MMA)](../azure-monitor/platform/agent-windows.md)
 - [Agente de Dependência](../azure-monitor/platform/agents-overview.md#dependency-agent)
 - Se tiver máquinas que não tenham conectividade com a Internet, descarregue e instale o gateway Do Log Analytics nelas.
 
@@ -163,7 +163,7 @@ Sim, para visualização de dependência baseada em agente, você pode anexar um
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
 
-Não, o relatório de visualização de dependência na visualização baseada em agentes não pode ser exportado. No entanto, a Azure Migrate utiliza o Mapa de Serviços e pode utilizar o [Mapa de Serviços REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para recuperar as dependências no formato JSON.
+Não, o relatório de visualização de dependência na visualização baseada em agentes não pode ser exportado. No entanto, a Azure Migrate utiliza o Mapa de Serviços e pode utilizar o [Mapa de Serviços REST API](/rest/api/servicemap/machines/listconnections) para recuperar as dependências no formato JSON.
 
 ## <a name="can-i-automate-agent-installation"></a>Posso automatizar a instalação do agente?
 
@@ -175,18 +175,18 @@ Para visualização de dependência baseada em agentes:
 
 ## <a name="what-operating-systems-does-mma-support"></a>Que sistemas operativos suporta o MMA?
 
-- Veja a lista de [sistemas operativos Windows que o MMA suporta.](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)
-- Veja a lista dos [sistemas operativos Linux que o MMA suporta.](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)
+- Veja a lista de [sistemas operativos Windows que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+- Veja a lista dos [sistemas operativos Linux que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>Posso visualizar as dependências por mais de uma hora?
 
-Para visualização baseada em agentes, pode visualizar dependências até uma hora. Pode voltar até um mês até uma data específica na história, mas a duração máxima para visualização é de uma hora. Por exemplo, você pode usar a duração do tempo no mapa de dependência para ver dependências para ontem, mas você pode ver dependências apenas por uma janela de uma hora. No entanto, pode utilizar registos do Azure Monitor para [consultar dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração mais longa.
+Para visualização baseada em agentes, pode visualizar dependências até uma hora. Pode voltar até um mês até uma data específica na história, mas a duração máxima para visualização é de uma hora. Por exemplo, você pode usar a duração do tempo no mapa de dependência para ver dependências para ontem, mas você pode ver dependências apenas por uma janela de uma hora. No entanto, pode utilizar registos do Azure Monitor para [consultar dados de dependência](./how-to-create-group-machine-dependencies.md) por uma duração mais longa.
 
 Para visualização sem agente, pode ver o mapa de dependência de um único servidor a partir de uma duração entre uma hora e 30 dias.
 
 ## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-vms"></a>Posso visualizar dependências para grupos de mais de 10 VMs?
 
-Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) para grupos que tenham até 10 VMs. Se tiver um grupo com mais de 10 VMs, recomendamos que divida o grupo em grupos mais pequenos e, em seguida, visualize as dependências.
+Pode [visualizar dependências](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) para grupos que tenham até 10 VMs. Se tiver um grupo com mais de 10 VMs, recomendamos que divida o grupo em grupos mais pequenos e, em seguida, visualize as dependências.
 
 ## <a name="next-steps"></a>Próximos passos
 

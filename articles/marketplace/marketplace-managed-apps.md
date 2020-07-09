@@ -1,18 +1,18 @@
 ---
 title: Aplicações Azure geridos guia de publicação de oferta de aplicações - Azure Marketplace
 description: Este artigo descreve os requisitos para a publicação de uma aplicação gerida no Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-ms.author: dsindona
-ms.openlocfilehash: a4b788749e6178c49010b153fb5caae35b79abf9
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 70922b80139015226445ca62026ec6f5a59b751c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119825"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação de aplicações geridas pela Azure
 
@@ -30,7 +30,7 @@ Utilize o tipo de oferta de aplicação gerida nas seguintes condições:
 
 ## <a name="managed-application-offer-requirements"></a>Requisitos de oferta de aplicação geridos
 
-|Requirements |Detalhes  |
+|Requisitos |Detalhes  |
 |---------|---------|
 |Uma subscrição do Azure. | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 |Faturação e medição    |  Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente.        |

@@ -1,18 +1,18 @@
 ---
 title: Contas de trabalho da empresa e Partner Center
 description: Como verificar se a sua empresa tem uma conta de trabalho criada com a Microsoft, criar uma nova conta de trabalho ou configurar várias contas de trabalho para utilizar com o Partner Center.
-author: dsindona
-ms.author: parthp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119757"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas de trabalho da empresa e Partner Center
 

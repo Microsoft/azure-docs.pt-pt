@@ -1,18 +1,14 @@
 ---
 title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: femila
-ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559017"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119094"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
 O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções da Azure (RBAC).

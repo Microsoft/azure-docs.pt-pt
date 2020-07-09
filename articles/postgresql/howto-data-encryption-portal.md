@@ -4,14 +4,14 @@ description: Saiba como configurar e gerir a encriptação de dados para o seu A
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00fd6ff9d79a59421a13d02ad4bafcf3f0a964fa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119672"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Encriptação de dados para Azure Database para servidor single PostgreSQL utilizando o portal Azure
 
@@ -94,6 +94,6 @@ Depois de a Base de Dados Azure para o servidor PostgreSQL Single ser encriptada
 
    ![Screenshot da Base de Dados Azure para PostgreSQL, mostrando funcionalidade restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados de servidor único postgresQL com a chave gerida pelo cliente](concepts-data-encryption-postgresql.md).

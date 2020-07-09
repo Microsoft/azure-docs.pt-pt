@@ -4,14 +4,14 @@ description: Este artigo descreve como pode reiniciar uma Base de Dados Azure pa
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: f5572611b99245fd62b4e0a9d73e6ed728e42f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c26412c37efbfcce340ce90753d0860307a08e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79530653"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121151"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Reinicie a base de dados de Azure para o servidor MariaDB utilizando o Azure CLI
 Este tópico descreve como pode reiniciar uma Base de Dados Azure para servidor MariaDB. Pode ser necessário reiniciar o servidor por razões de manutenção, o que provoca uma falha curta à medida que o servidor executa a operação.
@@ -38,6 +38,6 @@ Reiniciar o servidor com o seguinte comando:
 az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba [como definir parâmetros na Base de Dados Azure para MariaDB](howto-configure-server-parameters-cli.md)

@@ -1,18 +1,14 @@
 ---
 title: Subscrições da Azure Event Grid através do portal
 description: Este artigo descreve como criar subscrições de Event Grid para as fontes suportadas, como o Azure Blob Storage, utilizando o portal Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119995"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subscreva eventos através do portal
 
@@ -28,7 +24,7 @@ Para criar uma subscrição de Grade de Eventos para qualquer uma das fontes de 
 
 1. Procure por **Subscrições de Grelha de Eventos** e selecione-as nas opções disponíveis.
 
-   ![Pesquisar](./media/subscribe-through-portal/search.png)
+   ![Pesquisa](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Subscrição de Eventos**.
 
@@ -64,7 +60,7 @@ Algumas fontes de eventos suportam a criação de uma subscrição de eventos at
 
 O portal apresenta-lhe opções para criar uma subscrição de eventos relevante para essa fonte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

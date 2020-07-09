@@ -4,14 +4,14 @@ description: Este artigo descreve como pode permitir o armazenamento de crescime
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 7ec4c7a61725fa02f00bf38048182d640666ae8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b0df05cf42215e9af42e6b13435dd8c11188c0a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79528902"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120046"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Armazenamento de crescimento automático na Base de Dados Azure para MariaDB usando o portal Azure
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento do servidor MariaDB crescer sem afetar a carga de trabalho.
@@ -40,6 +40,6 @@ Siga estes passos para definir o crescimento automático do armazenamento do ser
 
     ![Azure Database for MariaDB - sucesso de crescimento automático](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba [como criar alertas sobre métricas.](howto-alert-metric.md)

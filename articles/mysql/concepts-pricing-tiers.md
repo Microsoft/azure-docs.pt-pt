@@ -6,17 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3af5a716bc5e211a7fd3263f57f5b5e62af628ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9cf070e1431c04a7e899a3b8875c8db796608d3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488363"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119893"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para os níveis de preços do MySQL
 
 Pode criar uma Base de Dados Azure para o servidor MySQL num dos três níveis de preços diferentes: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de cálculo em vCores que podem ser a provisionados, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são a provisionados ao nível do servidor MySQL. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Atributo   | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Os recursos compute são fornecidos como vCores, que representam o CPU lógico d
 
 O armazenamento que fornece é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MySQL. A quantidade total de armazenamento que fornece também define a capacidade de E/S disponível para o seu servidor.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Atributo de armazenamento   | Básica | Fins gerais | Com otimização de memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -82,7 +83,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo de conceitos.](concepts-backup.md)
 

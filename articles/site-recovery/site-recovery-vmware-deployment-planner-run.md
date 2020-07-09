@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119842"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Executar o Planejador de Implementação para recuperação de desastres VMware
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -39,18 +40,24 @@ Em primeiro lugar, precisa de uma lista das VMs para as quais vão ser criados p
 2. Abra a consola do VMware vSphere PowerCLI.
 3. Confirme que a política de execução está ativada no script. Se estiver desativada, abra a consola do VMware vSphere PowerCLI no modo de administrador e ative-a, executando o comando seguinte:
 
-            Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```powershell
+    Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```
 
 4. Pode, opcionalmente, ter de executar o seguinte comando se o Connect-VIServer não for reconhecido como o nome de cmdlet.
 
-            Add-PSSnapin VMware.VimAutomation.Core
+    ```powershell
+    Add-PSSnapin VMware.VimAutomation.Core
+    ```
 
 5. Para obter todos os nomes de VMs num vCenter Server/anfitrião ESXi do vSphere e armazená-los num ficheiro .txt, execute os dois comandos listados aqui.
 Substitua &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo; pelas suas entradas.
 
-            Connect-VIServer -Server <server name> -User <user name> -Password <password>
+    ```powershell
+    Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-            Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    ```
 
 6. Abra o ficheiro de saída no Bloco de notas e, em seguida, copie os nomes de todas as VMs para as quais quer criar perfis para outro ficheiro (por exemplo, ProfileVMList.txt), com um nome de VM por linha. Este ficheiro é utilizado como entrada para o parâmetro *-VMListFile* da ferramenta de linha de comandos.
 

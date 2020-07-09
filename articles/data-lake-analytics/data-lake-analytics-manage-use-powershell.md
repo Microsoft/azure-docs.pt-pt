@@ -7,14 +7,14 @@ author: matt1883
 ms.author: mahi
 ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a197ef645b4b3ba2cb656e93778d6546462f431a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66156418"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121338"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -555,7 +555,7 @@ foreach ($sub in $subs)
 
 Também pode utilizar um modelo do Grupo de Recursos Azure utilizando a seguinte amostra: [Criar uma conta Data Lake Analytics utilizando um modelo](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Começar com data lake analytics usando o [portal Azure](data-lake-analytics-get-started-portal.md)  |  [PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
 * Gerir a Azure Data Lake Analytics usando [o portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 

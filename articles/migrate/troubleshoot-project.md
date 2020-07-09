@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121644"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Resolver problemas relacionados com projetos do Azure Migrate
 
@@ -52,7 +52,7 @@ Se tentar criar um projeto e encontrar um erro de implantação:
 - Se receber o erro, "Os pedidos devem conter cabeçalhos de identidade do utilizador", o que pode indicar que não tem acesso ao inquilino do Azure Ative Directory (Azure AD) da organização. Neste caso:
     - Quando você é adicionado a um inquilino AZure AD pela primeira vez, você recebe um convite de e-mail para se juntar ao inquilino.
     - Aceite o convite para ser adicionado ao inquilino.
-    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que [reencaia o convite](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) para si.
+    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que [reencaia o convite](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) para si.
     - Depois de receber o e-mail do convite, abra-o e selecione o link para aceitar o convite. Em seguida, assine fora do portal Azure e inscreva-se novamente. (refrescar o navegador não vai funcionar.) Pode então começar a criar o projeto de migração.
 
 ## <a name="how-do-i-delete-a-project"></a>Como posso apagar um projeto
@@ -63,6 +63,6 @@ Se tentar criar um projeto e encontrar um erro de implantação:
 
 Certifique-se de que tem o projeto certo selecionado. No hub Azure Migrate > **Servers** ou em **Bases de Dados,** clique em **Change** next to **Migrate project (Change)** no canto superior direito do ecrã. Escolha o nome correto da subscrição e do projeto > **OK**. A página deve refrescar-se com as ferramentas adicionadas do projeto selecionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) a projetos da Azure Migrate.

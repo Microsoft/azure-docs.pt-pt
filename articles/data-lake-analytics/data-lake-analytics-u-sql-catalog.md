@@ -7,14 +7,14 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78bd7f446b7716031e3eef02639acc8bb729719e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564186"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119570"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Começa com o Catálogo U-SQL em Azure Data Lake Analytics
 

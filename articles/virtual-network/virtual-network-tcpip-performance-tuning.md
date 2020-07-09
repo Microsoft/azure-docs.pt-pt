@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68297773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120284"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Afinação do desempenho TCP/IP para VMs Azure
 
@@ -136,7 +136,7 @@ Esta tabela mostra a distância em linha reta entre dois locais. Nas redes, a di
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Pode usar 200 para a velocidade de propagação. Esta é a distância, em metros, que a luz viaja em 1 milissegundo.
+Pode usar 200 para a velocidade de propagação. Esta é a distância, em quilómetros, que a luz viaja em 1 milissegundo.
 
 Vamos levar Nova Iorque a São Francisco como exemplo. A distância em linha reta é de 4.148 km. Ligando esse valor à equação, obtemos o seguinte:
 
@@ -373,6 +373,6 @@ Além disso, tenha em mente que alguma retransmissão e ACKs duplicados são nor
 
 Ainda assim, estes tipos de pacotes são indicações de que a produção da TCP não está a atingir o seu desempenho máximo, por razões discutidas noutras secções deste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu sobre a afinação de desempenho da TCP/IP para VMs Azure, talvez queira ler sobre outras considerações para [planear redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou aprender mais sobre a [ligação e configuração de redes virtuais.](https://docs.microsoft.com/azure/virtual-network/)

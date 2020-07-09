@@ -3,21 +3,22 @@ title: Ofertas de Serviço Gerido no Azure Marketplace
 description: As ofertas de Serviços Geridos permitem que os prestadores de serviços vendam ofertas de gestão de recursos aos clientes no Azure Marketplace.
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121593"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de Serviço Gerido no Azure Marketplace
 
-Este artigo descreve o tipo de oferta **de serviço gerido** no [Azure Marketplace.](https://azuremarketplace.microsoft.com) As ofertas de Serviços Geridos permitem-lhe oferecer serviços de gestão de recursos aos clientes através da [gestão de recursos delegada da Azure.](azure-delegated-resource-management.md) Pode disponibilizar estas ofertas a todos os potenciais clientes, ou apenas a um ou mais clientes específicos. Uma vez que cobra diretamente aos clientes os custos relacionados com estes serviços geridos, não existem taxas cobradas pela Microsoft.
+Este artigo descreve o tipo de oferta **de serviço gerido** no [Azure Marketplace.](https://azuremarketplace.microsoft.com) As ofertas de Serviço Gerido permitem-lhe oferecer serviços de gestão de recursos aos clientes através [do Farol Azure.](../overview.md) Pode disponibilizar estas ofertas a todos os potenciais clientes, ou apenas a um ou mais clientes específicos. Uma vez que cobra diretamente aos clientes os custos relacionados com estes serviços geridos, não existem taxas cobradas pela Microsoft.
 
 ## <a name="understand-managed-service-offers"></a>Compreender ofertas de Serviço Gerido
 
-O Managed Service oferece agilização do processo de embarque de clientes para a gestão de recursos delegados da Azure. Quando um cliente comprar uma oferta no Azure Marketplace, poderá especificar quais as subscrições e/ou grupos de recursos que devem ser a bordo.
+O Managed Service oferece agilização do processo de embarque de clientes para o Farol de Azure. Quando um cliente comprar uma oferta no Azure Marketplace, poderá especificar quais as subscrições e/ou grupos de recursos que devem ser a bordo.
 
-Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do inquilino da sua organização, de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com funções que definem o seu nível de acesso. Ao atribuir permissões a um grupo Azure AD em vez de uma série de contas individuais de utilizador ou aplicação, pode adicionar ou remover utilizadores individuais quando os seus requisitos de acesso mudarem.
+Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do inquilino da sua organização através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com funções que definem o seu nível de acesso. Ao atribuir permissões a um grupo Azure AD em vez de uma série de contas individuais de utilizador ou aplicação, pode adicionar ou remover utilizadores individuais quando os seus requisitos de acesso mudarem.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 

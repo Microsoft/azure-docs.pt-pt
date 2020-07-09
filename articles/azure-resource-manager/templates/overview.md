@@ -3,12 +3,12 @@ title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure para a implementação de recursos.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119366"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -54,7 +54,7 @@ Se estiver a tentar decidir entre a utilização de modelos ARM e uma das outras
 
 * **Código exportável**: Pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos, ou visualizando o modelo utilizado para uma determinada implantação. Ver o [modelo exportado](export-template-portal.md) é uma forma útil de aprender sobre a sintaxe do modelo.
 
-* **Ferramentas de autoria**: Pode autor de modelos com [Código de Estúdio Visual](use-vs-code-to-create-template.md) e a extensão da ferramenta do modelo. Você tem intellisense, destaque de sintaxe, ajuda em linha, e muitas outras funções linguísticas. Além do código Visual Studio, também pode utilizar [o Visual Studio.](create-visual-studio-deployment-project.md)
+* **Ferramentas de autoria**: Pode autor de modelos com [Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md) e a extensão da ferramenta do modelo. Você tem intellisense, destaque de sintaxe, ajuda em linha, e muitas outras funções linguísticas. Além do código Visual Studio, também pode utilizar [o Visual Studio.](create-visual-studio-deployment-project.md)
 
 ## <a name="template-file"></a>Arquivo de modelo
 

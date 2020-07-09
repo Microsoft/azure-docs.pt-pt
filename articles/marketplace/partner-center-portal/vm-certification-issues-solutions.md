@@ -1,18 +1,18 @@
 ---
 title: Certificação de máquinas virtuais - problemas e soluções
 description: Este artigo explica mensagens de erro comuns para imagens VM. Também discute soluções relacionadas
-author: v-miegge
-ms.author: v-krmall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
+author: v-miegge
+ms.author: v-krmall
 ms.date: 06/16/2020
-ms.openlocfilehash: 71577a52ed1b528bc330d4c8e1f4c34ab6e1d81f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087049"
+ms.locfileid: "86120658"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
 

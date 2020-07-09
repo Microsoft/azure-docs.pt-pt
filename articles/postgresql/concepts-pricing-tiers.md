@@ -6,17 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3a813a9b8c2a81a85d1c4a96d5a4da2256832d3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487989"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121627"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
 
 Pode criar uma Base de Dados Azure para servidor PostgreSQL num dos três níveis de preços diferentes: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de cálculo em vCores que podem ser a provisionados, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são a provisionados ao nível do servidor PostgreSQL. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Recurso / Nível | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Os recursos compute são fornecidos como vCores, que representam o CPU lógico d
 
 O armazenamento que fornece é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para servidor PostgreSQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores PostgreSQL. A quantidade total de armazenamento que fornece também define a capacidade de E/S disponível para o seu servidor.
 
-|    | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Atributos de armazenamento | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -55,7 +56,7 @@ O armazenamento que fornece é a quantidade de capacidade de armazenamento dispo
 > Todas as outras regiões suportam até 4TB de armazenamento e 6000 IOPS.
 >
 
-Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema cresça armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho. 
+Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema cresça armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho.
 
 >[!NOTE]
 > O armazenamento só pode ser aumentado, não para baixo.
@@ -84,7 +85,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo de conceitos.](concepts-backup.md)
 
@@ -92,7 +93,7 @@ O serviço retira automaticamente cópias de segurança do seu servidor. Pode se
 
 Depois de criar o seu servidor, pode alterar independentemente os vCores, a geração de hardware, o nível de preços (exceto de e para o Básico), a quantidade de armazenamento e o período de retenção de backup. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. O número de vCores pode ser aumentado para cima ou para baixo. O período de retenção de backup pode ser aumentado para cima ou para baixo de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. A escala dos recursos pode ser feita através do portal ou do Azure CLI. Para um exemplo de escala através da utilização do Azure CLI, consulte [o Monitor e dimensione uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
-> [!NOTE] 
+> [!NOTE]
 > O tamanho do armazenamento só pode ser aumentado. Não pode voltar a ter um tamanho de armazenamento menor após o aumento.
 
 Quando altera o número de vCores, a geração de hardware ou o nível de preços, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
@@ -106,5 +107,5 @@ Para obter as informações de preços mais atualizadas, consulte a [página de 
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
-- Saiba mais sobre [os limites de serviço.](concepts-limits.md) 
+- Saiba mais sobre [os limites de serviço.](concepts-limits.md)
 - Aprenda a [escalar com réplicas de leitura.](howto-read-replicas-portal.md)

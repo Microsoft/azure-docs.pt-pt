@@ -4,14 +4,14 @@ description: Este artigo descreve como pode criar novas contas de utilizador par
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119604"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -82,7 +82,7 @@ A conta de utilizador de administração do servidor pode ser usada para criar u
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação: [Criar e gerir a Base de Dados Azure para regras de firewall PostgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 

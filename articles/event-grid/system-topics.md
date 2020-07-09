@@ -1,18 +1,14 @@
 ---
 title: Tópicos do sistema na Grelha de Eventos Azure
 description: Descreve tópicos do sistema na Grelha de Eventos Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887918"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119927"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
 Um tópico de sistema em Event Grid representa um ou mais eventos publicados pelos serviços da Azure, tais como Azure Storage e Azure Event Hubs. Por exemplo, um tópico do sistema pode representar **todos os eventos blob** ou apenas eventos **blob criados** e **blob eliminados** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando uma bolha é carregada para a conta de armazenamento, o serviço Azure Storage publica um evento **criado blob** para o tópico do sistema em Event Grid, que depois encaminha o evento para [os subscritores](event-handlers.md) do tópico que recebem e processam o evento. 

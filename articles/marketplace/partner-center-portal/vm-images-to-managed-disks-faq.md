@@ -1,18 +1,16 @@
 ---
 title: Estamos a mover imagens de máquinas virtuais (VM) para o armazenamento de discos geridos no Azure Marketplace
 description: Para fornecer armazenamento e suporte mais rápidos e fiáveis para novas funcionalidades e capacidades de marketplace, estamos movendo imagens VM do mercado para armazenamento de discos gerido.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d64bb176f79a0c15c15e425df18a22c9c4f423e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285117"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120624"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos a mover imagens de máquinas virtuais (VM) no Azure Marketplace para o armazenamento de discos geridos
 

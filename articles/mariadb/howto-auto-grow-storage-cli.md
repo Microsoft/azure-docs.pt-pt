@@ -4,14 +4,14 @@ description: Este artigo descreve como pode permitir o armazenamento de crescime
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 4be84c750f6a3ca7a0d48aa2b98d75272c1cbadf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39b07e313213be2645d211f292d49d9fa1a8d6bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529089"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120165"
 ---
 # <a name="auto-grow-azure-database-for-mariadb-storage-using-the-azure-cli"></a>Base de dados Azure de crescimento automático para armazenamento MariaDB utilizando o Azure CLI
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento do servidor MariaDB crescer sem afetar a carga de trabalho.
@@ -41,6 +41,6 @@ Ativar o armazenamento de crescimento automático do servidor enquanto cria um n
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.3
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba [como criar alertas sobre métricas.](howto-alert-metric.md)

@@ -4,13 +4,14 @@ description: Saiba como monitorizar o estado do convite, partilhar subscrições
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ee3f0d37c8e35972a1fc2b8c5d04504d2e065f3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120199"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorizar o Azure Data Share  
 

@@ -2,18 +2,18 @@
 title: Guia de publicação de ofertas de contentores no Azure Marketplace
 description: Este artigo descreve os requisitos para a publicação de ofertas de contentores no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: fae11343332fe741301016d4871d098b0214c7f5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964452"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119400"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Guia de publicação de ofertas de contentores
 

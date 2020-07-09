@@ -1,17 +1,14 @@
 ---
 title: Azure Service Bus como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Service Bus com Azure Event Grid
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559485"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121139"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus como fonte de grade de eventos
 

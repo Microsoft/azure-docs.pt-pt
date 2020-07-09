@@ -6,14 +6,14 @@ services: data-lake-analytics
 author: matt1883
 ms.author: mahi
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
-ms.openlocfilehash: 9fbc94259d6fdfb6758204efd6e6f0a346dc58da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 758bf7a41218bcb8f34761db6cbbd541b97b6a86
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60813380"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120879"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Configure o acesso do utilizador à informação de trabalho em Azure Data Lake Analytics 
 
@@ -44,5 +44,5 @@ Se precisar de mais controlo granular ou precisar de scriptar as permissões, en
    - /sistema/jobservice/jobs/Usql/2018/05/25/11/01
    - /system/jobservice/jobs/Usql/2018/05/25/11/01/b074bd7a-1448-d879-9d75-f562b101bd3d
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Adicionar um novo utilizador](data-lake-analytics-manage-use-portal.md#add-a-new-user)

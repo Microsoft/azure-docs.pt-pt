@@ -1,18 +1,16 @@
 ---
 title: Descarrega dashboard no mercado comercial da Microsoft análise no Partner Center
 description: Saiba como aceder a pedidos de descarregamento para as suas ofertas de marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fde95e3b6d1b4d1cdfb060c11e1e67241d3329f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732723"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121712"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Transferências na análise de mercados comerciais
 
@@ -29,7 +27,7 @@ O painel de **transferências** do menu **Analyze** apresenta pedidos para quais
 
 Receberá uma notificação pop-up e um e-mail contendo um link para o dashboard **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

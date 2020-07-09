@@ -1,17 +1,18 @@
 ---
 title: Gestão de recursos delegados do Azure
-description: As ofertas de serviços geridos permitem que os prestadores de serviços vendam ofertas de gestão de recursos aos clientes no Azure Marketplace.
+description: A gestão de recursos delegados da Azure é uma parte fundamental do Farol de Azure, permitindo aos prestadores de serviços gerir recursos delegados em escala com agilidade e precisão.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219077"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120896"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-A gestão de recursos delegados da Azure é um dos componentes-chave do Farol Azure. Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão.
+A gestão de recursos delegados da Azure é um dos componentes-chave do [Farol Azure.](../overview.md) Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>O que é a gestão de recursos delegada da Azure?
 
@@ -24,7 +25,7 @@ Com a Azure delegada na gestão de recursos, os utilizadores autorizados podem t
 
 A [experiência de gestão de inquilinos cross-tenant ajuda-o](cross-tenant-management-experience.md) a trabalhar de forma mais eficiente com serviços de gestão da Azure como a Azure Policy, O Azure Security Center, e muito mais. Toda a atividade do prestador de serviços é rastreada no registo de atividades, que é armazenado no arrendatário do cliente (e pode ser visto pelos utilizadores no inquilino gerente). Isto significa que tanto o cliente como o prestador de serviços podem facilmente identificar o utilizador associado a quaisquer alterações.
 
-Quando embarcar num cliente para a Azure delegada na gestão de recursos, eles terão acesso à página dos novos **prestadores de serviços** no portal Azure, onde podem [confirmar e gerir as suas ofertas, prestadores de serviços e recursos delegados.](../how-to/view-manage-service-providers.md) Se o cliente quiser revogar o acesso a um prestador de serviços, pode fazê-lo aqui a qualquer momento.
+Quando embarcar num cliente para a Azure delegada na gestão de recursos, eles terão acesso à página **de prestadores de serviços** no portal Azure, onde podem [confirmar e gerir as suas ofertas, prestadores de serviços e recursos delegados.](../how-to/view-manage-service-providers.md) Se o cliente quiser revogar o acesso a um prestador de serviços, pode fazê-lo aqui a qualquer momento.
 
 Pode [publicar o novo tipo de oferta de Serviço Gerido para o Azure Marketplace](../how-to/publish-managed-services-offers.md) para facilmente embarcar clientes para a Azure delegada gestão de recursos. Em alternativa, pode [concluir o processo de embarque através da implementação de modelos do Gestor de Recursos Azure](../how-to/onboard-customer.md).
 

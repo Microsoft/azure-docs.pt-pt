@@ -4,14 +4,14 @@ description: Saiba como gerir uma Base de Dados Azure para o servidor MySQL a pa
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c0bee0b628a49746a19545d14b8b8761d0e880d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2fba3666e4e35c4f8492b0017f859c0bb80a160
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062409"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120607"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MySQL utilizando o portal Azure
 Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MySQL. As tarefas de gestão incluem o dimensionamento de cálculo e armazenamento, o reset da palavra-passe de administração e a visualização de detalhes do servidor.
@@ -102,6 +102,6 @@ Pode eliminar o seu servidor se já não precisar dele.
 3. Selecione **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais [sobre backups e restauro do servidor](howto-restore-server-portal.md)
 - Saiba mais sobre [afinação e monitorização em Azure Database for MySQL](concepts-monitoring.md)

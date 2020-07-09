@@ -7,14 +7,14 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 9ff20235834fdd2fafc43383c1ea3f0dd7288fce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 771590a145d4da0a3a81050e6bbe8a9a4d528b30
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555705"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121219"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definidos pelo utilizador U-SQL (UDOs)
 Este artigo descreve como desenvolver operadores definidos pelo utilizador para processar dados num trabalho U-SQL.

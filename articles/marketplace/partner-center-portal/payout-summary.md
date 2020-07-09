@@ -1,17 +1,18 @@
 ---
 title: Relatórios de pagamento - Mercado comercial da Microsoft
 description: Os relatórios do Payout mostram-lhe detalhes sobre o dinheiro que ganhou com a sua oferta, incluindo o valor do pagamento e quando será pago.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744817"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120726"
 ---
 # <a name="payout-summaries"></a>Resumos de dividendos
 

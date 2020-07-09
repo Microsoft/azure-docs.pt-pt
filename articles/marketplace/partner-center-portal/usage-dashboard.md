@@ -1,17 +1,16 @@
 ---
 title: Painel de utilização na análise do mercado comercial da Microsoft
 description: Saiba como aceder a todos os VM oferece métricas de utilização e faturação medido. Vá ao painel de utilização no Partner Center no mercado comercial.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746669"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120675"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de utilização na análise do mercado comercial da Microsoft
 

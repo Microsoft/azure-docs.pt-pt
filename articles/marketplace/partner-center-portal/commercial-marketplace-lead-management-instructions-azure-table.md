@@ -1,17 +1,18 @@
 ---
 title: Gestão de chumbo com armazenamento de mesa Azure - mercado comercial da Microsoft
 description: Saiba como utilizar o armazenamento da Tabela Azure para configurar os leads para o Microsoft AppSource e para o Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120845"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
 

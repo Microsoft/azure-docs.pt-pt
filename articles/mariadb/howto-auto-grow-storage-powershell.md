@@ -4,13 +4,14 @@ description: Este artigo descreve como pode permitir o armazenamento de crescime
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: ac32908fe20424b812487365ccbfd70d74a06b54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8519d7e66ae57b00a96adc60cf09c953c6ee7114
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120029"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>Armazenamento de crescimento automático na Base de Dados Azure para servidor MariaDB usando PowerShell
 

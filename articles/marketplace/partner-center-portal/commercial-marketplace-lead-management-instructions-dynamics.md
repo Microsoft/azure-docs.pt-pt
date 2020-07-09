@@ -1,17 +1,18 @@
 ---
 title: Gestão de chumbo para Dynamics 365 Customer Engagement - Microsoft commercial marketplace
 description: Saiba como configurar o Dynamics 365 Customer Engagement para gerir os leads do Microsoft AppSource e do Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957244"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120385"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 

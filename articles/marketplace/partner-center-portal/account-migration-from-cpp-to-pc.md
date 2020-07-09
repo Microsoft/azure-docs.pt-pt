@@ -1,17 +1,18 @@
 ---
 title: Migrar contas do Cloud Partner Portal para o mercado comercial da Microsoft
 description: Saiba como migrar a sua conta do Cloud Partner Portal para Partner Center no mercado comercial da Microsoft para o Azure
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fb6fe624248a9098f37b94773b7162052b94b5ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83800405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120505"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Como migrar a sua conta do Portal do Parceiro Cloud para o Partner Center
 

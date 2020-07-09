@@ -1,19 +1,19 @@
 ---
 title: Reveja e publique uma oferta ao mercado comercial da Microsoft
 description: Use partner Center para submeter a sua oferta para pré-visualizar, pré-visualizar a sua oferta e, em seguida, publicá-la no mercado comercial da Microsoft.
-author: mingshen-ms
-ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 910a886f02b386d7242bdd5e85f0710baa25408e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86091022"
+ms.locfileid: "86119740"
 ---
 # <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Rever e publicar uma oferta ao mercado comercial
 

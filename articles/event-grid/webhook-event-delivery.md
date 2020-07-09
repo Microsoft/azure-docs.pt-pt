@@ -1,18 +1,14 @@
 ---
 title: Entrega de eventos WebHook
 description: Este artigo descreve a entrega de eventos WebHook e a validação do ponto final quando se utiliza webhooks.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: femila
-ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558442"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118958"
 ---
 # <a name="webhook-event-delivery"></a>Entrega do Evento Webhook
 Webhooks são uma das muitas formas de receber eventos da Azure Event Grid. Quando um novo evento estiver pronto, o serviço de Rede de Eventos POSTs um pedido HTTP para o ponto final configurado com o evento no organismo de pedido.

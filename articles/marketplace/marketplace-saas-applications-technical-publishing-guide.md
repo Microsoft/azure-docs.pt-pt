@@ -2,18 +2,16 @@
 title: Guia de publicação de aplicações SaaS - Mercado comercial da Microsoft
 description: Requisitos e recursos para a publicação de ofertas de aplicações SaaS para o Microsoft AppSource e Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: dsindona
-ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c19799265679eeead96bf95943f274aa32c75ff2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963840"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121576"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação de ofertas de aplicações SaaS
 
@@ -38,7 +36,7 @@ A chamada à ação para uma listagem saas sem julgamento e sem funcionalidade d
 
 Não é necessário configurar o Azure Ative Directory para listar uma aplicação SaaS. 
 
-|Requirements  |Detalhes  |
+|Requisitos  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 
@@ -48,7 +46,7 @@ Não é necessário configurar o Azure Ative Directory para listar uma aplicaç�
 Você fornece uma solução ou app usando um teste baseado em software-as-a-service (SaaS). As ofertas de ensaio gratuito podem ser apresentadas como uma conta experimental de utilização limitada ou de duração limitada. 
 
 
-|Requirements  |Detalhes  |
+|Requisitos  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 |A sua aplicação está ativada pela AAD     |   O cliente será re-direcionado para o seu domínio e irá transagir diretamente com o cliente       |

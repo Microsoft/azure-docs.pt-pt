@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid - Guia de resolução de problemas
 description: Este artigo fornece uma lista de códigos de erro, mensagens de erro, descrições e ações recomendadas.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254825"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119043"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Resolução de problemas Erros da Grelha de Eventos do Azure
 Este guia de resolução de problemas fornece-lhe uma lista de códigos de erro da Grelha de Eventos Azure, mensagens de erro, suas descrições e ações recomendadas que deve tomar quando receber estes erros. 

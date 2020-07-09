@@ -1,18 +1,14 @@
 ---
 title: Entrega segura da WebHook com Azure AD na grelha de eventos Azure
 description: Descreve como entregar eventos a pontos finais HTTPS protegidos pelo Azure Ative Directory usando a Azure Event Grid
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: femila
-ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126081"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119128"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Ative Directory pontos finais protegidos
 

@@ -4,13 +4,14 @@ description: Saiba como configurar um mapeamento de conjunto de dados para uma p
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52a8b9c5441f9261f8b9179c8100cdb01777bfd1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964248"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119961"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de conjunto de dados para uma participação recebida no Azure Data Share
 

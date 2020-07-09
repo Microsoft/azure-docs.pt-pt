@@ -1,18 +1,16 @@
 ---
 title: Segurança da rede para recursos da Grelha de Eventos Azure
 description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414254"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119247"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 

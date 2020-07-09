@@ -7,14 +7,14 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2017
-ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa2a128e25e3751813f056286fff4eb6caa24437
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60617712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121389"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerir uma aplicação .NET do Azure Data Lake Analytics
 
@@ -441,7 +441,7 @@ var newPolicyParams = new ComputePolicyCreateOrUpdateParameters(userAadObjectId,
 adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)

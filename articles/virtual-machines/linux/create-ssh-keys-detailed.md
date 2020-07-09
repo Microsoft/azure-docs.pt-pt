@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 44923a124b864083b1badfc617ce0303be66a10e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119213"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: Criar e gerir chaves SSH para autenticação num Linux VM em Azure 
 Com um par de chaves secure shell (SSH), pode criar uma máquina virtual Linux no Azure que predefine a utilização de chaves SSH para autenticação, eliminando a necessidade de senhas para iniciar sessão. Os VMs criados com o portal Azure CLI, modelos de Gestor de Recursos ou outras ferramentas podem incluir a sua chave pública SSH como parte da implementação, que configura a autenticação da chave SSH para ligações SSH. 
@@ -40,7 +41,7 @@ Por predefinição, as chaves SSH são mantidas no diretório `~/.ssh`.  Se não
 
 ### <a name="basic-example"></a>Exemplo básico
 
-O `ssh-keygen` seguinte comando gera ficheiros chave SSH RSA públicos e privados de 2048 por padrão no `~/.ssh` diretório. Se existir um par de chaves SSH na localização atual, esses ficheiros são substituídos.
+O `ssh-keygen` seguinte comando gera ficheiros chave ssh RSA públicos e privados de 4096 bits por padrão no `~/.ssh` diretório. Se existir um par de chaves SSH na localização atual, esses ficheiros são substituídos.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

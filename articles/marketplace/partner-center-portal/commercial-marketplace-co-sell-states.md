@@ -1,18 +1,18 @@
 ---
 title: Co-vender códigos estatais e de província no Azure Marketplace
 description: Obtenha os códigos de estado e província disponíveis ao fornecer informações de contacto na página de Co-venda da sua oferta no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 04/01/2020
-ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120522"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-vender códigos estatais e de província no Azure Marketplace
 
@@ -113,6 +113,6 @@ Este artigo lista os códigos de estado e província disponíveis ao fornecer in
 | Território do Norte                  |  AU-NT    |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [opção de co-venda no Partner Center.](./commercial-marketplace-co-sell.md)

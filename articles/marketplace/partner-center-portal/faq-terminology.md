@@ -1,17 +1,16 @@
 ---
 title: Terminologia de & de análise de mercado comercial - Partner Center
 description: Obtenha respostas para perguntas comumente sobre análise de marketplace comercial no Partner Center. Este artigo inclui um dicionário de dados para terminologia analítica.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ece7fa64c64d4c2f771be61984485cf9b1c4abaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744570"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121746"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 

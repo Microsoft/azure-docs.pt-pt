@@ -1,18 +1,14 @@
 ---
 title: Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
 description: Este artigo descreve diferentes formas de autenticar a entrega aos manipuladores de eventos na Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 46b1aa500f00046dd4d6e318b270982e8b747a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: d48930ac9cfdd1ecd3e7d6c64067d5389323f8bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412826"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119944"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
 Este artigo fornece informações sobre a autenticação da entrega de eventos aos manipuladores de eventos. Também mostra como proteger os pontos finais do webhook que são usados para receber eventos da Grade de Eventos usando O Diretório Ativo Azure (Azure AD) ou um segredo partilhado.
