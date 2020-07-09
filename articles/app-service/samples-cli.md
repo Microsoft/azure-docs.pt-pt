@@ -6,17 +6,18 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054547"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169447"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Amostras de CLI para O Serviço de Aplicações Azure
 
 A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure.
 
-| | |
+| Script | Descrição |
 |-|-|
 |**Criar aplicação**||
 | [Criar uma app e implementar ficheiros com FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e implementa um ficheiro para ele usando FTP. |

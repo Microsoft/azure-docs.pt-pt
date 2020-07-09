@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360763"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146819"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 
@@ -164,19 +164,19 @@ Utilize os seguintes passos para configurar o provisionamento:
  1. Inscreva-se no portal AD AZure.
  2. Clique **em Azure Ative Directory**
  3. Clique **em Azure Ad Connect**
- 4. **Selecione Gerir o provisionamento (Pré-visualização)**
- ![](media/how-to-configure/manage1.png)</br>
- 5.  Clique em **Nova Configuração**
- ![](media/tutorial-single-forest/configure1.png)</br>
+ 4. **Selecione Gerir o fornecimento (Pré-visualização)** Screenshot 
+  ![ mostrando o link "Gerir o provisionamento (pré-visualização)".](media/how-to-configure/manage1.png)</br>
+ 5.  Clique em Novo Screenshot de **Configuração** 
+  ![ do ecrã Azure AD Provisioning (Preview) com o link "Nova configuração" realçado.](media/tutorial-single-forest/configure1.png)</br>
  6.  No ecrã de configuração, introduza um **e-mail de Notificação,** mova o seletor para **Ativar** e clique em **Guardar**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Screenshot do ecrã configurar com e-mail de notificação preenchido e Ativar selecionado.](media/tutorial-single-forest/configure2.png)</br>
  7. Em **Configuração**, selecione **Todos os utilizadores** para alterar o âmbito da regra de configuração.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Screenshot do ecrã configurar com "Todos os utilizadores" em destaque ao lado de "Utilizadores de Âmbito".](media/how-to-configure/scope2.png)</br>
  8. À direita, altere o âmbito para incluir o OU específico que acabou de criar "OU=CPUsers,DC=contoso,DC=com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Screenshot do ecrã dos utilizadores do Scope realçando o âmbito alterado para o OU que criou.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Clique **em Fazer** e **Guardar**.
  10. O âmbito deve agora ser definido para uma unidade organizacional. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Screenshot do ecrã configurar com "1 unidade organizacional" em destaque ao lado de "Utilizadores de Âmbito".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verifique se os utilizadores são a provisionados por provisões em nuvem

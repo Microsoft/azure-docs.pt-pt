@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a utilizar a API de Análise de Texto para extrair frases-chave de texto armazenado no Power BI.
+description: Saiba como utilizar a API text Analytics para extrair frases-chave do texto armazenado no Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 067a0383c90ce42120269ff40f910805dacfd11a
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378539"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143877"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 <a name="Prerequisites"></a>
 
 - Do Microsoft Power BI Desktop. [Transfira sem custos](https://powerbi.microsoft.com/get-started/).
-- Uma conta do Microsoft Azure. [Inicie uma avaliação gratuita](https://azure.microsoft.com/free/) ou [inicie sessão](https://portal.azure.com/).
+- Uma conta do Microsoft Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/cognitive-services/) ou [inscreva-se .](https://portal.azure.com/)
 - Uma conta de API dos Serviços Cognitivos com a API de Análise de Texto. Se não tiver uma, poderá [inscrever-se](../../cognitive-services-apis-create-account.md) e utilizar o escalão gratuito de 5000 transações/mês (veja [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para concluir este tutorial.
 - A [chave de acesso da Análise de Texto](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada automaticamente durante a sua inscrição.
 - De comentários de clientes. Pode utilizar os [nossos dados de exemplo](https://aka.ms/cogsvc/ta) ou seus próprios dados. Este tutorial parte do princípio de que está a utilizar os nossos dados de exemplo.
@@ -94,7 +94,7 @@ A [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/ser
 | | |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro do pedido. A resposta também contém este campo. Desta forma, se processar mais do que um documento, poderá associar facilmente as expressões-chave extraídas ao documento do qual provêm. Neste tutorial, uma vez que está a processar apenas um documento por pedido, pode codificar o valor de `id` para ser o mesmo para cada pedido.|
-| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. As frases-chave API exigem que estes dados não sejam mais do que cerca de 5.120 caracteres.|
+| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API das Frases-Chave exige que estes dados não sejam superiores a 5.120 caracteres.|
 | `language` | O código para o idioma natural em que o documento está escrito. Todas as mensagens nos dados de exemplo estão em inglês, pelo que pode codificar o valor `en` para este campo.|
 
 ## <a name="create-a-custom-function"></a>Criar uma função personalizada
@@ -114,7 +114,7 @@ Agora, no friso **Base** no grupo **Nova Consulta**, abra o menu pendente **Nova
 Agora, no friso **Base**, no grupo **Consulta**, clique em **Editor Avançado** para abrir a janela deste editor. Elimine o código que já aparece na janela e cole o código seguinte. 
 
 > [!NOTE]
-> Substitua o ponto final `<your-custom-subdomain>`do exemplo abaixo (contendo) pelo ponto final gerado para o seu recurso Text Analytics. Pode encontrar este ponto final ao iniciar sessão no [portal Azure,](https://azure.microsoft.com/features/azure-portal/) `Quick start`selecionando a subscrição de Text Analytics e selecionando .
+> Substitua o ponto final de exemplo abaixo `<your-custom-subdomain>` (contendo) com o ponto final gerado para o seu recurso Text Analytics. Pode encontrar este ponto final fazendo sessão no [portal Azure,](https://azure.microsoft.com/features/azure-portal/)selecionando a sua subscrição text Analytics e selecionando `Quick start` .
 
 
 ```fsharp
@@ -145,7 +145,7 @@ No Power BI Desktop, na janela do Editor de Consultas, mude novamente para a con
 
 É apresentada a caixa de diálogo Invocar Função Personalizada. Em **Nome da nova coluna**, introduza `keyphrases`. Em **Consulta de função**, selecione a função personalizada que criou, `KeyPhrases`.
 
-Um novo campo é apresentado na caixa de diálogo, **text (optional)** (texto [opcional]). Este campo está a pedir a coluna que queremos utilizar para indicar valores para o parâmetro `text` da API de Expressões-Chave. (Lembre-se que já codificaos duramente os valores dos `language` e `id` parâmetros.) Selecione `Merged` (a coluna que criou [anteriormente,](#PreparingData) fundindo o assunto e os campos de mensagens) a partir do menu suspenso.
+Um novo campo é apresentado na caixa de diálogo, **text (optional)** (texto [opcional]). Este campo está a pedir a coluna que queremos utilizar para indicar valores para o parâmetro `text` da API de Expressões-Chave. (Lembre-se que já codifica os valores para os `language` parâmetros e `id` parâmetros.) Selecione `Merged` (a coluna que criou [anteriormente,](#PreparingData) fundindo os campos de assunto e de mensagens) a partir do menu suspenso.
 
 ![[Invocar uma função personalizada]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -217,7 +217,7 @@ Clique na ferramenta Modo de Detalhe para ver melhor o balão de palavras. A fer
 
 O serviço Análise de Texto, um dos Serviços Cognitivos que o Microsoft Azure oferece, também disponibiliza análise de sentimentos e deteção de idioma. A deteção de idioma em particular é útil se os comentários do seu cliente não estão todos em inglês.
 
-Estas duas outras APIs são semelhantes à API de Expressões-Chave. Isto significa que pode integrá-las com o Power BI Desktop através de funções personalizadas que são quase idênticas às que criou neste tutorial. Basta criar uma consulta em branco e colar o código adequado abaixo, no Advanced Editor (Editor Avançado), como fez anteriormente. (Não se esqueça da chave de acesso!) Em seguida, como antes, use a função para adicionar uma nova coluna à mesa.
+Estas duas outras APIs são semelhantes à API de Expressões-Chave. Isto significa que pode integrá-las com o Power BI Desktop através de funções personalizadas que são quase idênticas às que criou neste tutorial. Basta criar uma consulta em branco e colar o código adequado abaixo, no Advanced Editor (Editor Avançado), como fez anteriormente. (Não se esqueça da chave de acesso!) Em seguida, como antes, utilize a função para adicionar uma nova coluna à mesa.
 
 A função Sentiment Analysis, abaixo, devolve uma classificação que indica até que ponto é positivo o sentimento expresso no texto.
 
@@ -296,7 +296,7 @@ Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Powe
 > [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) (Referência à API de Análise de Texto)
 
 > [!div class="nextstepaction"]
-> [Referência de Consulta de Poder M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Referência de consulta de energia M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentação do Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

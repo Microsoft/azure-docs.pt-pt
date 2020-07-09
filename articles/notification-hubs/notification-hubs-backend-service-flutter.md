@@ -1,21 +1,21 @@
 ---
-title: Envie notificações push para aplicações Xamarin.Forms usando Hubs de Notificação Azure através de um serviço de backend ! Microsoft Docs
-description: Saiba como empurrar notificações para aplicações Xamarin.Forms que utilizam os Hubs de Notificação Azure através de um serviço de backend.
+title: Envie notificações push para apps flutter usando hubs de notificação Azure através de um serviço de backend ! Microsoft Docs
+description: Saiba como empurrar notificações para aplicações Flutter que usam hubs de notificação Azure através de um serviço de backend.
 author: mikeparker104
 ms.service: notification-hubs
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: miparker
-ms.openlocfilehash: 5175edfd438edb527f6873c87b948f8ff0701cf1
+ms.openlocfilehash: 5fa753a6b8b1284c4f8fcd046f74fabcbae3f8fb
 ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166336"
+ms.locfileid: "86171011"
 ---
-# <a name="tutorial-send-push-notifications-to-xamarinforms-apps-using-azure-notification-hubs-via-a-backend-service"></a>Tutorial: Enviar notificações push para aplicações Xamarin.Forms usando Hubs de Notificação Azure através de um serviço de backend  
+# <a name="tutorial-send-push-notifications-to-flutter-apps-using-azure-notification-hubs-via-a-backend-service"></a>Tutorial: Enviar notificações push para apps flutter usando hubs de notificação Azure através de um serviço de backend  
 
-[![Download Sample ](./media/notification-hubs-backend-service-xamarin-forms/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
+[![Download Sample ](./media/notification-hubs-backend-service-flutter/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
 
 > [!div class="op_single_selector"]
 >
@@ -23,7 +23,7 @@ ms.locfileid: "86166336"
 > * [Agitação](notification-hubs-backend-service-flutter.md)
 > * [React Native](notification-hubs-backend-service-react-native.md)
 
-Neste tutorial, você usa [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) para empurrar notificações para uma aplicação [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) direcionada para **Android** e **iOS**.  
+Neste tutorial, você usa [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) para empurrar notificações para uma aplicação [Flutter](https://flutter.dev) direcionada para **Android** e **iOS.**  
 
 [!INCLUDE [Notification Hubs Backend Service Introduction](../../includes/notification-hubs-backend-service-introduction.md)]
 
@@ -33,7 +33,7 @@ Este tutorial leva-o através dos seguintes passos:
 >
 > * [Configurar serviços de notificação push e centros de notificação Azure.](#set-up-push-notification-services-and-azure-notification-hub)
 > * [Crie uma aplicação de backend core web ASP.NET.](#create-an-aspnet-core-web-api-backend-application)
-> * [Crie uma aplicação Xamarin.Forms de plataforma cruzada.](#create-a-cross-platform-xamarinforms-application)
+> * [Crie uma aplicação flutter de plataforma cruzada.](#create-a-cross-platform-flutter-application)
 > * [Configure o projeto Android nativo para notificações push.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure o projeto nativo do iOS para notificações push.](#configure-the-native-ios-project-for-push-notifications)
 > * [Teste a solução.](#test-the-solution)
@@ -43,7 +43,8 @@ Este tutorial leva-o através dos seguintes passos:
 Para acompanhar, é necessário:
 
 * Uma [subscrição Azure](https://portal.azure.com) onde pode criar e gerir recursos.
-* Um Mac com [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) instalado (ou um PC a executar Visual Studio [2019](https://visualstudio.microsoft.com/vs) com o Desenvolvimento Móvel com carga de trabalho **.NET).**
+* O kit de ferramentas [Flutter](https://flutter.dev/docs/get-started/install) (juntamente com os seus pré-requisitos).
+* [Código de estúdio visual](https://code.visualstudio.com) com os [plugins Flutter e Dart instalados.](https://flutter.dev/docs/get-started/editor?tab=vscode)
 * A capacidade de executar a aplicação em **dispositivos Android** (físicos ou emuladores) ou **iOS** (apenas dispositivos físicos).
 
 Para Android, você deve ter:
@@ -55,6 +56,7 @@ Para iOS, deve ter:
 * Uma [conta](https://developer.apple.com)de desenvolvimento de Maçã ativa.
 * Um dispositivo físico iOS [registado na sua conta de programador](https://help.apple.com/developer-account/#/dev40df0d9fa) *(executando o iOS 13.0 ou superior)*.
 * Um [certificado de desenvolvimento](https://help.apple.com/developer-account/#/dev04fd06d56) **.p12** instalado no seu **chaveiro** permite-lhe [executar uma aplicação num dispositivo físico.](https://help.apple.com/xcode/mac/current/#/dev5a825a1ca)
+* [Cacau instalados](https://guides.cocoapods.org/using/getting-started.html#installation) para gerir dependências da biblioteca.
 
 > [!NOTE]
 > O simulador iOS não suporta notificações remotas, pelo que é necessário um dispositivo físico ao explorar esta amostra no iOS. No entanto, não precisa de executar a aplicação tanto no **Android** como no **iOS** para completar este tutorial.
@@ -65,9 +67,10 @@ Pode seguir os passos neste exemplo de princípios iniciais sem experiência pr�
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
 * [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 * [Consola Google Firebase](https://console.firebase.google.com/u/0/)
-* [Xamarin](https://dotnet.microsoft.com/apps/xamarin) e [Xamarin.Formas](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms)
+* [Flutter](https://flutter.dev) e [Dardo](https://dart.dev) para desenvolvimento de plataformas cruzadas
+* [Kotlin](https://kotlinlang.org) e [Swift](https://developer.apple.com/swift) para desenvolvimento nativo android e iOS
 
-Os passos previstos são para [o Visual Studio para Mac,](https://visualstudio.microsoft.com/vs/mac/) mas é possível acompanhar usando o Visual Studio [2019.](https://visualstudio.microsoft.com/vs)
+Os passos fornecidos são específicos do [macOS.](https://developer.apple.com/macos) É possível seguir o [Windows](https://www.microsoft.com/windows) ignorando os aspetos do **iOS.**
 
 ## <a name="set-up-push-notification-services-and-azure-notification-hub"></a>Configurar serviços de notificação push e hub de notificação Azure
 
@@ -85,25 +88,25 @@ Nesta secção, configura os **[Serviços de Mensagens Cloud Firebase (FCM)](htt
 
 ## <a name="create-an-aspnet-core-web-api-backend-application"></a>Crie uma aplicação de backend core web ASP.NET
 
-Nesta secção, cria o [backend da API core web ASP.NET](https://dotnet.microsoft.com/apps/aspnet/apis) para lidar com o registo do [dispositivo](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) e o envio de notificações para a aplicação móvel Xamarin.Forms.
+Nesta secção, cria-se o [backend da API core web ASP.NET](https://dotnet.microsoft.com/apps/aspnet/apis) para lidar com o registo do [dispositivo](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) e o envio de notificações para a aplicação móvel Flutter.
 
 [!INCLUDE [Create an ASP.NET Core Web API backend application](../../includes/notification-hubs-backend-service-web-api.md)]
 
-## <a name="create-a-cross-platform-xamarinforms-application"></a>Criar uma aplicação Xamarin.Forms cross-platform
+## <a name="create-a-cross-platform-flutter-application"></a>Criar uma aplicação cross-platform Flutter
 
-Nesta secção, você constrói uma aplicação móvel [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) implementando notificações push de forma transversal.
+Nesta secção, você constrói uma aplicação móvel [Flutter](https://flutter.dev) implementando notificações push de forma transversal.
 
 [!INCLUDE [Sample application generic overview](../../includes/notification-hubs-backend-service-sample-app-overview.md)]
 
-[!INCLUDE [Create Xamarin.Forms application](../../includes/notification-hubs-backend-service-sample-app-xamarin-forms.md)]
+[!INCLUDE [Create Flutter application](../../includes/notification-hubs-backend-service-sample-app-flutter.md)]
 
 ## <a name="configure-the-native-android-project-for-push-notifications"></a>Configure o projeto Android nativo para notificações push
 
-[!INCLUDE [Configure the native Android project](../../includes/notification-hubs-backend-service-configure-xamarin-android.md)]
+[!INCLUDE [Configure the native Android project](../../includes/notification-hubs-backend-service-configure-flutter-android.md)]
 
 ## <a name="configure-the-native-ios-project-for-push-notifications"></a>Configure o projeto nativo do iOS para notificações push
 
-[!INCLUDE [Configure the native iOS project](../../includes/notification-hubs-backend-service-configure-xamarin-ios.md)]
+[!INCLUDE [Configure the native iOS project](../../includes/notification-hubs-backend-service-configure-flutter-ios.md)]
 
 ## <a name="test-the-solution"></a>Testar a solução
 
@@ -113,7 +116,7 @@ Pode agora testar o envio de notificações através do serviço de backend.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Deverá agora ter uma aplicação básica de Xamarin.Forms ligada a um centro de notificação através de um serviço de backend e pode enviar e receber notificações.
+Deverá agora ter uma aplicação básica do Flutter ligada a um centro de notificação através de um serviço de backend e pode enviar e receber notificações.
 
 [!INCLUDE [Next steps](../../includes/notification-hubs-backend-service-next-steps.md)]
 
@@ -124,8 +127,8 @@ Deverá agora ter uma aplicação básica de Xamarin.Forms ligada a um centro de
 ## <a name="related-links"></a>Ligações relacionadas
 
 * [Visão geral dos Hubs de Notificação do Azure](notification-hubs-push-notification-overview.md)
-* [Instalação do Estúdio Visual para Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
-* [Instalação de Xamarin no Windows](https://docs.microsoft.com/xamarin/get-started/installation/windows)
+* [Instalar flutter no macOS](https://flutter.dev/docs/get-started/install/macos)
+* [Instalação flutter no Windows](https://flutter.dev/docs/get-started/install/windows)
 * [Hubs de Notificação SDK para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Hubs de Notificação SDK no GitHub](https://github.com/Azure/azure-notificationhubs)
 * [Registar com o back-end da aplicação](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)

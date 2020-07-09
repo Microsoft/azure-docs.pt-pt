@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b860f4f75e142a8df09bb538ebee3f2eac6d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297482"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168308"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -101,10 +101,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` | 
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Estes valores não são reais. Você precisa atualizar estes valores com o URL e identificador de assinatura real, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -173,10 +171,8 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` |
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Estes valores não são reais. Você precisa atualizar estes valores com o URL e identificador de assinatura real, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -319,7 +315,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
         1. Introduza o **Url de Metadados da Federação** de Aplicações que copiou do portal Azure.
 
-        1. Selecione **Importar**.
+        1. Selecione **Import** (Importar).
 
     1. Lê o URL de metadados IdP e povoa todas as informações dos campos.
 

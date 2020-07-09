@@ -4,18 +4,18 @@ description: Saiba como migrar um recipiente personalizado do Windows para o Azu
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8f2f4f707300e3ebe31f059c65492247befe324a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205627"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169957"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 
 O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um contentor personalizado do Windows no Serviço de Aplicações permite efetuar as alterações ao SO de que a aplicação precisa, pelo que é fácil migrar uma aplicação no local que requer uma configuração personalizada do SO e software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), e, em seguida, execute-a no Serviço de Aplicações.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Mostra a aplicação web a funcionar num recipiente Windows.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,12 +141,12 @@ No **separador Básicos,** configufique as definições de acordo com a tabela s
 |**Nome**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app-name>.azurewebsites.net`, em que `<app-name>` é o nome da aplicação. |
 |**Publicar**| Recipiente de estivador | |
 |**Sistema Operativo**| Windows | |
-|**Região**| Europa Ocidental | |
+|**Region**| Europa Ocidental | |
 |**Plano do Windows**| Selecione **Criar novo,** **digite o myAppServicePlan**e clique **em OK**. | |
 
 O seu separador **Básico** deve ser assim:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![Mostra o separador Basics usado para configurar a aplicação web.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Configurar o contentor do Windows
 
@@ -167,7 +167,7 @@ Clique em **Criar** e aguarde que o Azure crie os recursos necessários.
 
 Quando a operação do Azure estiver concluída, é apresentada uma caixa de notificação.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Mostra que a operação Azure está completa.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. Clique em **Ir para recurso**.
 
@@ -175,11 +175,11 @@ Quando a operação do Azure estiver concluída, é apresentada uma caixa de not
 
 É aberta uma página nova do browser na seguinte página:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![Mostra a nova página do navegador para a aplicação web.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 Aguarde alguns minutos e tente novamente, até chegar à página de boas-vindas com o tipo de letra elegante de que está à espera:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Mostra a página inicial com o tipo de letra configurado.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **Parabéns!** Migrou uma aplicação ASP.NET para o Serviço de Aplicações do Azure num contentor do Windows.
 

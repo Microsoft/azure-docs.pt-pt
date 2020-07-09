@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80388972"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133171"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
-Este tutorial mostra-lhe como migrar máquinas virtuais da Amazon Web Services (AWS) para VMs (VMs) utilizando a Azure Site Recovery. Quando migramos instâncias do AWS EC2 para o Azure, as VMs são tratadas como computadores físicos no local. Neste tutorial, ficará a saber como:
+Este tutorial mostra-lhe como migrar máquinas virtuais (VMs) da Amazon Web Services (VMs) para Azure VMs utilizando a Recuperação do Site Azure. Quando migramos instâncias do AWS EC2 para o Azure, as VMs são tratadas como computadores físicos no local. Neste tutorial, ficará a saber como:
 
 
 > [!TIP]
-> Deverá agora utilizar o serviço Azure Migrate para migrar VMs AWS para Azure, em vez do serviço de Recuperação do Site Azure. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
+> Deve agora utilizar o serviço Azure Migrate para migrar VMS AWS para Azure, em vez do serviço de Recuperação do Local Azure. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Este tutorial mostra-lhe como migrar máquinas virtuais da Amazon Web Services (
 > * Testar a ativação pós-falha para confirmar que está tudo a confirmar
 > * Executar uma ativação pós-falha única para o Azure
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,8 +43,8 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
   - Windows Server 2012 R2
   - Windows Server 2012 
   - a versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
-  - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (apenas casos virtualizados de HVM) *(As instâncias que executam os condutores de PV RedHat não são suportadas.)*
-  - CentOS 6.4 a 6.10, 7.1 a 7.6 (apenas casos virtualizados de HVM)
+  - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (apenas instâncias virtualizadas HVM) *(Os casos que executam os condutores de PV RedHat não são suportados.)*
+  - CentOS 6.4 a 6.10, 7.1 a 7.6 (apenas instâncias virtualizadas de HVM)
  
 - O Serviço de mobilidade tem de ser instalado em cada VM que queira replicar. 
 
@@ -66,7 +66,7 @@ Tem de ter alguns recursos prontos no Azure para serem utilizados pelas instânc
 As imagens das máquinas replicadas são guardadas no Armazenamento do Microsoft Azure. As VMs do Azure são criadas a partir do armazenamento quando efetuar a ativação pós-falha do local para o Azure.
 
 1. No [portal do Azure](https://portal.azure.com), no menu da esquerda, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**.
-2. Introduza um nome para a conta do Storage. Para estes tutoriais, utilizamos o nome **awsmigrated2017**. O nome tem de:
+2. Introduza um nome para a conta de armazenamento. Para estes tutoriais, utilizamos o nome **awsmigrated2017**. O nome tem de:
     - Ser exclusivo no Azure
     - Ter entre 3 e 24 carateres
     - Conter apenas números e letras minúsculas
@@ -86,9 +86,9 @@ As imagens das máquinas replicadas são guardadas no Armazenamento do Microsoft
 4. Em **Grupo de recursos**, selecione **Utilizar existente** e depois selecione **migrationRG**.
 5. Em **Localização**, selecione **Europa Ocidental**.
 5. Selecione **Afixar ao dashboard** para ser capaz de aceder rapidamente ao novo cofre a partir do dashboard.
-7. Quando terminar, selecione **Criar**.
+7. Quando concluir, selecione **Criar**.
 
-Para ver o novo cofre, vá ao **Dashboard** > **Todos os recursos.** O novo cofre também aparece na página principal de **Cofres dos Serviços de Recuperação**.
+Para ver o novo cofre, vá ao **Dashboard**  >  **Todos os recursos.** O novo cofre também aparece na página principal de **Cofres dos Serviços de Recuperação**.
 
 ### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
 
@@ -97,15 +97,15 @@ Quando as VMs do Azure são criadas após a migração (ativação pós-falha), 
 1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** >
    **Rede virtual**.
 3. Em **Nome**, introduza **myMigrationNetwork**.
-4. Deixe o valor predefinido para **o espaço Address** (deve inserir o valor).
+4. Deixe o valor predefinido para **o espaço Address** (deve introduzir valor).
 5. Para **Subscrição**, selecione a subscrição pretende utilizar.
-6. Para **o grupo Recursos,** selecione **Use o existente**e, em seguida, selecione **migrationRG**.
+6. Para **o grupo de recursos**, selecione Use existente e, **em**seguida, selecione **migrationRG**.
 7. Em **Localização**, selecione **Europa Ocidental**.
-8. Em **Subnet,** deixe os valores predefinidos para **nome** e intervalo **IP (deve introduzir o valor)**.
+8. Na **sub-rede,** deixe os valores predefinidos para **o intervalo Nome** e IP **(deve introduzir valor)**.
 9. Adicione instruções para as definições de proteção DDoS.
 10. Deixe a opção de **Pontos finais de serviço** desativada.
 11. Adicione instruções para as definições de Firewall.
-12. Quando terminar, selecione **Criar**.
+12. Quando concluir, selecione **Criar**.
 
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 
@@ -119,12 +119,12 @@ Na página **Objetivo da proteção**, selecione os seguintes valores:
 |---------|-----------|
 | Onde estão localizadas as máquinas? |Escolha **no local**.|
 | Para onde pretende replicar as máquinas? |Selecionar **Para o Azure**.|
-| Estás a fazer uma migração? | Selecione **Sim**, e depois verifique a caixa ao lado **de eu substand, mas eu gostaria** de continuar com a Recuperação do Site Azure.
+| Estás a fazer uma migração? | Selecione **Sim**, e depois verifique a caixa ao lado **de I underdstand, mas gostaria de continuar com a Recuperação do Site Azure.**
 | As máquinas estão virtualizadas? |Selecione **Não virtualizadas / Outro**.|
 
 Quando tiver terminado, selecione **OK** para avançar para a secção seguinte.
 
-### <a name="2-select-deployment-planning"></a>2: Selecione planeamento de implementação
+### <a name="2-select-deployment-planning"></a>2: Selecione o planeamento da implantação
 
 Em **Concluiu o planeamento da implementação**, selecione **Faço mais tarde**, e selecione **OK**.
 
@@ -133,7 +133,7 @@ Em **Concluiu o planeamento da implementação**, selecione **Faço mais tarde**
 Na página **Preparar origem**, selecione em **+ Servidor de Configuração**.
 
 1. Utilize uma instância do EC2 que esteja a executar o Windows Server 2012 R2 para criar um servidor de configuração e registá-lo no seu cofre de recuperação.
-2. Configure o proxy na VM de instância do EC2 que está a utilizar como servidor de configuração, para que possa aceder aos [URLs do serviço](site-recovery-support-matrix-to-azure.md).
+2. Configure o proxy na VM de instância do EC2 que está a utilizar como servidor de configuração, para que possa aceder aos [URLs do serviço](./vmware-physical-azure-support-matrix.md).
 3. Transfira [Microsoft Azure Site Recovery Unified Setup](https://aka.ms/unifiedinstaller_wus) (Configuração Unificada do Microsoft Azure Site Recovery). Pode transferi-lo para o seu computador local e, em seguida, copiá-lo para a VM que está a utilizar como servidor de configuração.
 4. Clique no botão **Transferir** para transferir a chave de registo do cofre. Copie o ficheiro transferido para a VM que está a utilizar como o servidor de configuração.
 5. Na VM, clique com botão direito do rato no instalador que transferiu para o Microsoft Azure Site Recovery Unified Setup e depois selecione **Executar como administrador**.
@@ -144,7 +144,7 @@ Na página **Preparar origem**, selecione em **+ Servidor de Configuração**.
     4. Em **Definições da Internet**, selecione **Ligar ao Azure Site Recovery sem um servidor proxy**, e depois selecione **Seguinte**.
     5. A página **Verificação de Pré-requisitos**, executa verificações relativamente a vários itens. Quando terminar, selecione **Seguinte**.
     6. Em **Configuração de MySQL**, indique as palavras-passe necessárias e depois selecione **Seguinte**.
-    7. Em **Detalhes do Ambiente**, selecione **Não**. Não precisa de proteger máquinas de VMware. Em seguida, selecione **Next**.
+    7. Em **Detalhes do Ambiente**, selecione **Não**. Não precisa de proteger máquinas de VMware. Em seguida, selecione **Seguinte**.
     8. Em **Localização da Instalação**, selecione **Seguinte** para aceitar a predefinição.
     9. Em **Seleção de rede**, selecione **Seguinte** para aceitar a predefinição.
     10. Em **Resumo**, selecione **Instalar**.
@@ -153,7 +153,7 @@ Na página **Preparar origem**, selecione em **+ Servidor de Configuração**.
 
 Quando terminar de configurar o servidor de configuração, regresse ao portal, selecione o servidor que acabou de criar para **Servidor de Configuração**. Selecione **OK** para ir para 3: Preparar o destino.
 
-### <a name="4-prepare-target"></a>4: Preparar o alvo
+### <a name="4-prepare-target"></a>4: Preparar alvo
 
 Nesta secção, vai introduzir informações sobre os recursos que criou em [Preparar recursos do Azure](#prepare-azure-resources) mais atrás neste tutorial.
 
@@ -162,11 +162,11 @@ Nesta secção, vai introduzir informações sobre os recursos que criou em [Pre
 3. O Site Recovery verifica que tem uma ou mais conta de armazenamento e rede do Azure compatível. Estes devem ser os recursos que criou em [Preparar recursos do Azure](#prepare-azure-resources) mais atrás neste tutorial.
 4. Quando tiver terminado, selecione **OK**.
 
-### <a name="5-prepare-replication-settings"></a>5: Preparar as definições de replicação
+### <a name="5-prepare-replication-settings"></a>5: Preparar definições de replicação
 
 Antes de poder ativar a replicação, tem de criar uma política de replicação.
 
-1. Selecione **Criar e Associar**.
+1. Selecione **Criar e Associar.**
 2. Em **Nome**, introduza **myReplicationPolicy**.
 3. Deixe as restantes predefinições e depois selecione **OK** para criar a política. A política nova é associada automaticamente ao servidor de configuração.
 
@@ -176,7 +176,7 @@ Quando tiver terminado todas as cinco secções em **Preparar infraestrutura**, 
 
 Ative a replicação em cada VM que quer migrar. Quando a replicação for ativada, o Site Recovery instala o Serviço de mobilidade automaticamente.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 1. Na página do seu cofre, em **Introdução**, selecione **Site Recovery**.
 2. Sob **Em máquinas no local e em VMs do Azure**, selecione **Passo 1: Replicar aplicação**. Conclua as páginas do assistente com as seguintes informações. Selecione **OK** em cada página quando tiver terminado:
    - 1: Configurar origem
@@ -229,17 +229,17 @@ Quando executa uma ativação pós-falha de teste, seguinte os seguintes eventos
 
 No portal, execute a ativação pós-falha de teste:
 
-1. Na página do seu cofre, vá a **itens protegidos** > **Replicados**. Selecione a VM e, em seguida, selecione **Ativação pós-falha de teste**.
+1. Na página do seu cofre, vá a **itens protegidos**  >  **Itens Replicados.** Selecione a VM e, em seguida, selecione **Ativação pós-falha de teste**.
 2. Selecione um ponto de recuperação a utilizar para a ativação pós-falha:
     - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (objetivo de tempo de recuperação) baixo.
     - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
     - **Personalizado**: selecione qualquer ponto de recuperação.
 
 3. Em **Ativação Pós-Falha de Teste**, selecione a rede do Azure de destino para as VMs do Azure que serão ligadas após a ocorrência da ativação pós-falha. Esta deve ser a rede que criou em [Preparar recursos do Azure](#prepare-azure-resources).
-4. Selecione **OK** para iniciar a ativação pós-falha. Para acompanhar o progresso, selecione a VM para ver as respetivas propriedades. Ou pode selecionar a tarefa de **ativação pós-falha de teste** na página para o seu cofre. Para tal, **selecione Monitorização e reporta** > empregos de recuperação de**locais**de**trabalho.** >  
+4. Selecione **OK** para iniciar a ativação pós-falha. Para acompanhar o progresso, selecione a VM para ver as respetivas propriedades. Ou pode selecionar a tarefa de **ativação pós-falha de teste** na página para o seu cofre. Para isso, selecione **Monitoring and reports**  >  **Jobs**  >   **Site Recovery jobs jobs .**
 5. Quando a ativação pós-falha termina, a VM do Azure de réplica é apresentada no portal do Azure. Para ver a VM, selecione **Máquinas Virtuais**. Assegure-se de que a VM tem o tamanho adequado, está ligada à rede certa e está em execução.
 6. Deverá conseguir ligar-se à VM replicada no Azure agora.
-7. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, selecione **Limpar ativação pós-falha de teste**, no plano de recuperação. Em **Notas,** grave e guarde quaisquer observações associadas ao failover do teste.
+7. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, selecione **Limpar ativação pós-falha de teste**, no plano de recuperação. Em **Notas,** registem e guarde quaisquer observações associadas ao teste.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional. O processamento demora 8 a 10 minutos a concluir.
 
@@ -247,8 +247,8 @@ Em alguns cenários, a ativação pós-falha requer processamento adicional. O p
 
 Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-las para as VMs do Azure:
 
-1. Em **itens protegidos,** > **Replicated items**selecione as instâncias AWS e, em seguida, selecione **Failover**.
-2. Em **Ativação Pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente e inicie a recuperação pós-falha. Pode acompanhar o progresso da falha na página **Jobs.**
+1. Em **itens protegidos**  >  **Itens replicados,** selecione as instâncias AWS e, em seguida, selecione **Failover**.
+2. Em **Ativação Pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente e inicie a recuperação pós-falha. Pode acompanhar o progresso falhado na página **Jobs.**
 1. Assegure-se de que a VM aparece em **Itens replicados**.
 2. Clique com o botão direito do rato em cada VM, e selecione **Concluir a Migração**. Isto faz o seguinte:
 

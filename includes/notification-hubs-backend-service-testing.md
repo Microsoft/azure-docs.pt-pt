@@ -4,12 +4,12 @@ ms.author: miparker
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: 72e4318bea7245e440db4c7d95bf7f1f38bbe268
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5e75c5d5510f596eb7911cae0310e60b6bef67bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081536"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146469"
 ---
 ### <a name="send-a-test-notification"></a>Enviar uma notificação de teste
 
@@ -26,9 +26,6 @@ ms.locfileid: "85081536"
    | Chave                            | Valor                          |
    | ------------------------------ | ------------------------------ |
    | apikey                         | <your_api_key>                 |
-
-   > [!NOTE]
-   > Isto pode ser encontrado em **Config.local_secrets.cs** de dentro do projeto **PushDemo.**
 
 1. Escolha a opção **bruta** para o **Corpo,** em seguida, escolha **JSON** na lista de opções de formato e, em seguida, inclua algum conteúdo de espaço reservado **JSON:**
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar falha de VMs Hiper-V para Azure em Recuperação do Site Azure
-description: Aprenda a falhar sobre os VMs Hiper-V para Azure com a Recuperação do Site Azure.
+title: Configurar o failover de Hiper-VMs para Azure na Recuperação do Local de Azure
+description: Aprenda a falhar sobre Os VMs hiper-V para Azure com a recuperação do site Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,30 +8,30 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498170"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132457"
 ---
-# <a name="fail-over-hyper-v-vms-to-azure"></a>Falhar sobre os VMs Hiper-V para Azure
+# <a name="fail-over-hyper-v-vms-to-azure"></a>Falha em VMs Hiper-V para Azure
 
-Este tutorial descreve como falhar sobre os VMs Hiper-V para Azure com a Recuperação do [Site Azure](site-recovery-overview.md). Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste tutorial, ficará a saber como:
+Este tutorial descreve como falhar sobre VMs Hiper-V para Azure com [Azure Site Recovery](site-recovery-overview.md). Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Verifique as propriedades De VM Hyper-V para verificar os requisitos do Azure.
-> * Falhar sobre vMs específicos para Azure.
+> * Verifique as propriedades Hyper-V VM para verificar conforme os requisitos do Azure.
+> * Falha em VMs específicos para Azure.
 
 
 Este é o quinto tutorial de uma série. Este tutorial parte do princípio de que já concluiu as tarefas dos tutoriais anteriores.    
 
 1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar Hyper-V no local](tutorial-prepare-on-premises-hyper-v.md)
-3. Configurar recuperação após desastre para as [ VM de Hyper-V](tutorial-hyper-v-to-azure.md) ou para as [VM de Hyper-V geridas nas System Center VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+2. [Preparar Hyper-V no local](./hyper-v-prepare-on-premises-tutorial.md)
+3. Configurar recuperação após desastre para as [ VM de Hyper-V](./hyper-v-azure-tutorial.md) ou para as [VM de Hyper-V geridas nas System Center VMM clouds](./hyper-v-vmm-azure-tutorial.md)
 4. [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)
 
-[Aprenda sobre](failover-failback-overview.md#types-of-failover) diferentes tipos de falhas. Se quiser falhar em vários VMs num plano de recuperação, reveja [este artigo.](site-recovery-failover.md)
+[Saiba mais sobre](failover-failback-overview.md#types-of-failover) diferentes tipos de falha. Se quiser falhar em vários VMs num plano de recuperação, [reveja este artigo](site-recovery-failover.md).
 
 ## <a name="prepare-for-failover"></a>Preparar para ativação pós-falha 
 Certifique-se de que não existem instantâneos na VM e de que a VM no local está desativada durante a reativação pós-falha. Desta forma, garante-se a consistência dos dados durante a replicação. Não ative a VM no local durante a reativação pós-falha. 
@@ -58,26 +58,26 @@ Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 
 ## <a name="fail-over-to-azure"></a>Ativação pós-falha para o Azure
 
-1. Em**itens replicados**de **Definições,** > clique no VM > **Failover**.
+1. Em **Definições**  >  **Itens Replicados,** clique no VM > **Failover**.
 2. Na **Ativação pós-falha**, selecione o ponto de recuperação **Mais recente**. 
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar as VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso da falha na página **Jobs.**
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar as VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso falhado na página **Jobs.**
 4. Depois de verificar a ativação pós-falha, clique em **Consolidar**. Todos os pontos de recuperação disponíveis são eliminados.
 
 > [!WARNING]
 > **Não cancele uma ativação pós-falha em curso**: Se cancelar uma ativação pós-falha que esteja em curso, esta é interrompida, mas a VM não volta a ser replicada.
 
-## <a name="connect-to-failed-over-vm"></a>Ligar a VM falhado
+## <a name="connect-to-failed-over-vm"></a>Ligue-se a VM falhado
 
-1. Se pretender ligar-se aos VMs Azure após a falha utilizando o Protocolo de Ambiente de Trabalho Remoto (RDP) e a Secure Shell (SSH), [verifique se os requisitos foram cumpridos](failover-failback-overview.md#connect-to-azure-after-failover).
-2. Depois de failover, vá ao [connecting](../virtual-machines/windows/connect-logon.md) VM e valide ligando-o.
-3. Use o ponto de **recuperação da alteração** se pretender utilizar um ponto de recuperação diferente após a falha. Depois de cometer a falha no próximo passo, esta opção deixará de estar disponível.
-4. Após validação, selecione **Comprometer-se** a finalizar o ponto de recuperação do VM após a falha.
-5. Depois de se comprometer, todos os outros pontos de recuperação disponíveis são eliminados. Este passo completa a falha.
+1. Se pretender ligar-se aos VMs Azure após o failover utilizando o Remote Desktop Protocol (RDP) e o Secure Shell (SSH), [verifique se os requisitos foram cumpridos](failover-failback-overview.md#connect-to-azure-after-failover).
+2. Depois de falhar, vá ao VM e valide [ligando-o.](../virtual-machines/windows/connect-logon.md)
+3. Utilize **o ponto de recuperação de alteração** se quiser utilizar um ponto de recuperação diferente após a falha. Depois de cometer o failover no próximo passo, esta opção deixará de estar disponível.
+4. Após validação, **selecione Comprometa-se** a finalizar o ponto de recuperação do VM após o failover.
+5. Depois de se comprometer, todos os outros pontos de recuperação disponíveis são eliminados. Este passo completa o fracasso.
 
 >[!TIP]
-> Se encontrar algum problema de conectividade após a falha, siga o guia de resolução de [problemas](site-recovery-failover-to-azure-troubleshoot.md).
+> Se encontrar problemas de conectividade após o failover, siga o [guia de resolução de problemas](site-recovery-failover-to-azure-troubleshoot.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Após a falha, reproteja os VMs Azure para que se reproduzam de Azure para as instalações. Depois, depois de os VMs serem reprotegidos e replicando-se para o local, volte de Azure quando estiver pronto.
+Após o failover, reprotete os VMs Azure para que se reproduzam de Azure para o local. Depois de os VM serem reprotegidos e replicarem-se no local, recuem do Azure quando estiverem prontos.

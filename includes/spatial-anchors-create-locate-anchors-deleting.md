@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec78ffd1fbc1f77a7b1e1467df1c2303e7d5daf1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67183976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156529"
 ---
-## <a name="delete-anchors"></a>Eliminar âncoras
+## <a name="delete-anchors"></a>Apagar âncoras
 
-Para eliminar uma âncora espacial `DeleteAnchor()` em nuvem, utilize o método. Apagar âncoras quando já não são utilizadas é uma boa prática para incluir no início do seu processo de desenvolvimento e práticas. Ao fazê-lo, mantém os recursos limpos. Além disso, mesmo que possa utilizar âncoras espaciais Azure gratuitamente, os preços podem mudar no futuro. Pode encontrar detalhes sobre preços durante a Pré-visualização na nossa [página de preços](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+Para eliminar uma âncora espacial em nuvem, utilize o `DeleteAnchor()` método. Eliminar âncoras quando já não é usado é uma boa prática para incluir no início do seu processo de desenvolvimento e práticas, para manter os seus recursos Azure limpos. 

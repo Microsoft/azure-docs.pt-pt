@@ -2,19 +2,20 @@
 title: Identifie imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
 description: Saiba como utilizar as ferramentas de marcação de dados num projeto de rotulagem Azure Machine Learning.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147023"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Identifite imagens num projeto de rotulagem (pré-visualização)
+# <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
 Depois de o administrador do seu projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
@@ -63,7 +64,7 @@ O Azure ativa o botão **Enviar** quando tiver marcado todas as imagens na pági
 
 Depois de submeter tags para os dados em questão, o Azure atualiza a página com um novo conjunto de imagens da fila de trabalho.
 
-### <a name="assisted-machine-learning"></a>Aprendizagem de máquina assistida 
+### <a name="assisted-machine-learning-preview"></a>Aprendizagem assistida de máquinas (pré-visualização) 
 
 Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 
@@ -124,13 +125,13 @@ Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a fe
 
 Depois de criar as caixas de delimitação para uma imagem, **selecione Submeter-se** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
 
-## <a name="finish-up"></a>Concluir
+## <a name="finish-up"></a>Conclusão
 
 Quando envia uma página de dados marcados, o Azure atribui-lhe novos dados não identificados a partir de uma fila de trabalho. Se não houver mais dados não rotulados disponíveis, receberá uma mensagem a notar isto juntamente com um link para a página inicial do portal.
 
 Quando terminar a rotulagem, selecione o seu nome no canto superior direito do portal de rotulagem e, em seguida, selecione **a sing-out**. Se não assinar, eventualmente, o Azure irá "cronometrar" e atribuir os seus dados a outro labeler.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [treinar modelos de classificação de imagem em Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
 

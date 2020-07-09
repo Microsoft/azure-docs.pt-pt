@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 663d6659acf5c1e5abc8be56156af84167c51797
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984016"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146949"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
@@ -61,7 +61,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   + **Grupo de recursos.** Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   + **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
    + **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
 
@@ -175,7 +175,7 @@ Um [objeto skillset](https://docs.microsoft.com/rest/api/searchservice/create-sk
 
 1. A pedido **Body**, copie a definição JSON abaixo. Esta habilidade consiste nas seguintes competências incorporadas.
 
-   | Habilidade                 | Description    |
+   | Habilidade                 | Descrição    |
    |-----------------------|----------------|
    | [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente blob. |
    | [Deteção de Idioma](cognitive-search-skill-language-detection.md) | Deteta a linguagem do conteúdo. |
@@ -451,7 +451,7 @@ Lembre-se que começamos com conteúdo blob, onde todo o documento é embalado e
 1. Utilize o **GET** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço, para procurar casos de um termo ou frase, devolvendo o `content` campo e uma contagem dos documentos correspondentes.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    Os resultados deste conteúdo do documento de devolução de consultas, que é o mesmo resultado que obteria se usasse o indexante blob sem o pipeline de pesquisa cognitiva. Este campo é pesquisável, mas inviável se quiser utilizar facetas, filtros ou precontos automáticos.
@@ -461,7 +461,7 @@ Lembre-se que começamos com conteúdo blob, onde todo o documento é embalado e
 1. Para a segunda consulta, devolva alguns dos novos campos criados pelo oleoduto (pessoas, organizações, localizações, languageCode). Estamos a omitir as palavras-chave para a brevidade, mas deve incluí-la se quiser ver esses valores.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Os campos da declaração $select contêm novas informações criadas a partir das capacidades naturais de processamento de linguagem dos Serviços Cognitivos. Como seria de esperar, há algum ruído nos resultados e variações entre documentos, mas em muitos casos, os modelos analíticos produzem resultados precisos.
 
@@ -483,7 +483,7 @@ Lembre-se que começamos com conteúdo blob, onde todo o documento é embalado e
 1. Neste exemplo final, aplique um filtro na recolha das organizações, devolvendo dois fósforos para critérios de filtro baseados no NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Estas consultas ilustram algumas das formas de trabalhar com sintaxe de consulta e filtros em novos campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, consulte [Exemplos em Documentos de Busca REST API,](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) [exemplos simples de consulta de sintaxe](search-query-simple-examples.md)e [exemplos de consulta de Lucene Completo.](search-query-lucene-examples.md)

@@ -1,115 +1,116 @@
 ---
-title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação [ Microsoft Docs'
+title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação Microsoft Docs'
 description: Aprenda a usar alertas de Nuvem de primavera.
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77920081"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142452"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Monitor ize os recursos da Nuvem de primavera utilizando alertas e grupos de ação
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorizar os recursos da Cloud da primavera usando alertas e grupos de ação
 
-A Azure Spring Cloud alerta para o suporte de recursos de monitorização com base em condições como armazenamento disponível, taxa de pedidos ou utilização de dados. Um alerta envia notificação quando as tarifas ou condições cumprem as especificações definidas.
+A Azure Spring Cloud alerta para o suporte de recursos com base em condições como armazenamento disponível, taxa de pedidos ou utilização de dados. Um alerta envia notificação quando as tarifas ou condições cumprem as especificações definidas.
 
-Há dois passos para criar um oleoduto de alerta: 
-1. Criar um Grupo de Ação com as ações a tomar quando um alerta é desencadeado, tais como e-mail, SMS, Runbook ou Webhook. Os Grupos de Ação podem ser reutilizados entre diferentes alertas.
-2. Estabeleça miná-lo em regras de alerta. As regras ligam os padrões métricos com os grupos de ação baseados no recurso-alvo, métrica, condição, agregação do tempo, etc.
+Há dois passos para configurar um oleoduto de alerta: 
+1. Crie um Grupo de Ação com as ações a serem tomadas quando um alerta é desencadeado, como e-mail, SMS, Runbook ou Webhook. Os Grupos de Ação podem ser reutilizadas entre diferentes alertas.
+2. Estabeleça as regras de alerta. As regras ligam padrões métricos aos grupos de ação com base no recurso-alvo, métrica, condição, agregação de tempo, etc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para além dos requisitos da primavera Azure, este tutorial depende dos seguintes recursos.
 
-* Um caso de Nuvem de primavera Azure implantado.  Siga o nosso [início rápido](spring-cloud-quickstart-launch-app-cli.md) para começar.
+Além dos requisitos da primavera de Azure, os procedimentos neste trabalho tutorial com uma instância de Nuvem de primavera Azure implantada.  Siga um [arranque rápido](spring-cloud-quickstart-launch-app-cli.md) para começar.
 
-* Um recurso Azure para monitorizar. Este exemplo monitoriza uma instância da Nuvem de primavera.
- 
-Os seguintes procedimentos inicializam tanto o **Grupo de Ação** como o Alerta **a** partir da opção **Alertas** no painel de navegação esquerdo de uma instância de Nuvem de primavera. (O procedimento também pode partir da página **de visão geral** do monitor do portal Azure.) 
+Os seguintes procedimentos inicializam tanto o **Grupo de Ação** como o **Alerta** a partir da opção **Alertas** no painel de navegação esquerdo de uma instância cloud de mola. (O procedimento também pode começar a partir da página geral do **Monitor** do portal Azure.) 
 
-Navegue de um grupo de recursos para a sua instância de Nuvem de primavera. Selecione **Alertas** no painel esquerdo e, em seguida, selecione **As ações de gestão:**
+Navegue de um grupo de recursos para o seu exemplo de Cloud primavera. Selecione **Alertas** no painel esquerdo e, em seguida, **selecione Gerir as ações**:
 
-![Página do grupo de recursos do portal screenshot](media/alerts-action-groups/action-1-a.png)
+![Página de grupo de recursos do portal screenshot](media/alerts-action-groups/action-1-a.png)
 
-## <a name="set-up-action-group"></a>Criar grupo de ação
+## <a name="set-up-action-group"></a>Criar Grupo de Ação
 
-Para iniciar o procedimento para inicializar um novo Grupo de **Ação,** selecione **+ Adicionar grupo de ação**.
+Para iniciar o procedimento de inicialização de um novo **Grupo de Ação,** selecione **+ Adicione grupo de ação**.
 
-![Screenshot portal Adicionar grupo de ação](media/alerts-action-groups/action-1.png)
+![Portal screenshot Adicionar grupo de ação](media/alerts-action-groups/action-1.png)
 
 Na página do **grupo de ação Add:**
 
- 1. Especifique um nome de **grupo de ação** e um nome **curto**.
+ 1. Especificar um **nome de grupo de ação** e nome **curto**.
 
  1. Especificar o grupo **de subscrição** e **recursos.**
 
  1. Especificar **o nome de ação**.
 
- 1. Selecione **Tipo de ação**.  Isto abrirá mais um painel sobre o direito de definir a ação que será tomada na ativação.
+ 1. Selecione **Tipo de Ação**.  Isto abrirá mais um painel sobre o direito de definir as medidas que serão tomadas na sua ativação.
 
- 1. Defina a ação utilizando as opções no painel direito.  Este caso utiliza notificação por e-mail.
+ 1. Defina a ação utilizando as opções no painel direito.  Este caso utiliza a notificação por e-mail.
 
- 1. Clique **OK** no painel de ação certo.
+ 1. Clique em **OK** no painel de ação certo.
 
- 1. Clique **OK** no diálogo do grupo de **ação Adicionar.** 
+ 1. Clique em **OK** no diálogo do **grupo de ação Add.** 
 
-  ![Screenshot Portal define ação](media/alerts-action-groups/action-2.png)
+  ![Portal screenshot define ação](media/alerts-action-groups/action-2.png)
 
 ## <a name="set-up-alert"></a>Configurar alerta 
 
-Os passos anteriores criaram um **Grupo de Ação** que utiliza e-mails. Também pode utilizar notificações telefónicas, webhooks, funções Azure, etc.  
+Os passos anteriores criaram um **Grupo de Ação** que utiliza o e-mail. Também pode utilizar notificações telefónicas, webhooks, funções Azure, etc.  
 
-Para configurar um **Alerta,** navegue de volta para a página **Alertas** e clique em **Gerir regras**de alerta .
+Para configurar um **Alerta,** volte à página **Alertas** e clique em **'Gerir Regras de Alerta'.**
 
-  ![Screenshot Portal definir alerta](media/alerts-action-groups/alerts-2.png)
+  ![Portal screenshot definir alerta](media/alerts-action-groups/alerts-2.png)
 
-1. Selecione o **Recurso** para o alerta.
+1. Selecione o **recurso** para o alerta.
 
 1. Clique **+ Nova regra de alerta**.
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-3.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-3.png)
 
-1. Na página de **regra Criar,** especifique o **RECURSO**.
+1. Na página **'Criar'** especifique o **RECURSO**.
 
-1. A definição **DE CONDIÇÃO** fornece muitas opções para monitorizar os seus recursos da Nuvem **de primavera.**  Clique **em Adicionar** para abrir o painel lógico de sinal **configurar.**
+1. A definição **CONDITION** fornece muitas opções para monitorizar os seus recursos **de Cloud primavera.**  Clique **em Adicionar** para abrir o painel de lógica de sinal de **configuração.**
 
-1. Selecione uma condição. Este exemplo utiliza **a Percentagem de Utilização**do CPU do Sistema .
+1. Selecione uma condição. Este exemplo utiliza **a Percentagem de Utilização do CPU do Sistema.**
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-3-1.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-3-1.png)
 
-1. Desloque-se para baixo do painel lógico de **sinal configurar** para definir o **valor limiar** para monitorizar.
+1. Percorra o painel de lógica de **sinal de configuração** para definir o **valor threshold** para monitorizar.
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-3-2.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-3-2.png)
 
 1. Clique em **Concluído**.
 
-Para mais detalhes sobre as condições disponíveis para monitorizar, consulte [as opções](spring-cloud-concept-metrics.md#user-metrics-options)de métricas do portal do utilizador .
+Para obter mais informações sobre as condições disponíveis para monitorizar, consulte [as opções do portal do Utilizador](spring-cloud-concept-metrics.md#user-metrics-options).
 
- Em **AÇÕES,** clique em **Selecionar grupo de ação**. A partir de **AÇÕES,** selecione o Grupo de **Ação**previamente definido .
+ Em **AÇÕES**, clique **em Selecionar grupo de ação**. A partir do painel **de ações** selecione o **Grupo de Ação**previamente definido .
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-3-3.png) 
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-3-3.png) 
 
-1. Percorra para baixo e, em DETALHES DE **ALERTA,** nomeie a regra do alerta.
+1. Desloque-se para baixo, e em **DETALHES ALERTA,** nomeie a regra de alerta.
 
-1. Definir a **gravidade.**
+1. Definir a **Severidade**.
 
-1. Clique **em Criar a regra**de alerta .
+1. Clique **em Criar regra de alerta**.
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-3-4.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-3-4.png)
 
 Verifique se a nova regra de alerta está ativada.
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-4.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-4.png)
 
 Uma regra também pode ser criada usando a página **Métricas:**
 
-   ![Screenshot Portal nova regra de alerta](media/alerts-action-groups/alerts-5.png)
+   ![Regra de alerta do Portal Screenshot](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Opções de métricas do portal do utilizador](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Criar e gerir grupos de ação no portal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Comportamento de alerta sms em grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Tutorial: Utilização de Rastreio Distribuído com Nuvem de primavera Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+Neste tutorial aprendeu a configurar alertas e grupos de ação para uma aplicação Azure Spring Cloud. Para saber mais sobre grupos de ação, consulte:
+
+> [!div class="nextstepaction"]
+> [Criar e gerir grupos de ação no portal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [Comportamento de alerta de SMS em grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

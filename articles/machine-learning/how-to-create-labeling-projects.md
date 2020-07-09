@@ -8,13 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025187"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146546"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Criar um projeto de rotulagem de dados (pré-visualização) e rótulos de exportação 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -143,7 +144,7 @@ Para as caixas de delimitação, questões importantes incluem:
 >[!NOTE]
 > Tenha em atenção que os rótulos poderão selecionar as primeiras 9 etiquetas utilizando as teclas 1-9.
 
-## <a name="use-ml-assisted-labeling"></a>Utilizar rotulagem assistida ML
+## <a name="use-ml-assisted-labeling-preview"></a>Utilizar rotulagem assistida ML (pré-visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
@@ -217,7 +218,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)
