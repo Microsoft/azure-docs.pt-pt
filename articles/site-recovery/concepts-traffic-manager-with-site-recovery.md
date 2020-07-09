@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134956"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestor de Tráfego do Azure com o Azure Site Recovery
 
@@ -30,7 +30,7 @@ Para o primeiro cenário, considere **a Empresa A** que tem toda a sua infraestr
 **A Empresa A** está a executar aplicações com pontos finais públicos e quer a capacidade de redirecionar o tráfego perfeitamente para Azure num evento de desastre. O método de encaminhamento de tráfego [prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) no Azure Traffic Manager permite à Empresa A implementar facilmente este padrão de failover.
 
 A configuração é a seguinte:
-- **A Empresa A** cria um [perfil de Gestor de Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- **A Empresa A** cria um [perfil de Gestor de Tráfego.](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 - Utilizando o método de encaminhamento **prioritário,** a **Empresa A** cria dois pontos finais – **Primário** para as instalações e **Failover** para o Azure. **A prioridade** 1 é atribuída e **a Falha** é atribuída prioridade 2.
 - Uma vez que o ponto final **principal** é hospedado fora de Azure, o ponto final é criado como um ponto final [externo.](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)
 - Com a Recuperação do Site Azure, o site Azure não possui nenhuma máquina virtual ou aplicações em execução antes de falhar. Assim, o ponto final **failover** também é criado como um ponto final **externo.**
@@ -65,7 +65,7 @@ Para este exemplo, considere **a Empresa C** que tem toda a sua infraestrutura d
 **A Empresa C** está a executar aplicações com pontos finais públicos e quer a capacidade de redirecionar o tráfego para uma região de Azure diferente num evento de desastre. O método de encaminhamento de tráfego [prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) permite à **Empresa C** implementar facilmente este padrão de failover.
 
 A configuração é a seguinte:
-- **A Empresa C** cria um [perfil de Gestor de Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- **A Empresa C** cria um [perfil de Gestor de Tráfego.](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 - Utilizando o método de encaminhamento **prioritário,** a **Empresa C** cria dois pontos finais – **Primários** para a região de origem (Azure East Asia) e **Failover** para a região de recuperação (Azure Southeast Asia). **A prioridade** 1 é atribuída e **a Falha** é atribuída prioridade 2.
 - Uma vez que o ponto final **principal** é hospedado em Azure, o ponto final pode ser como um ponto final [Azure.](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints)
 - Com a Recuperação do Site Azure, o site Azure de recuperação não possui nenhuma máquina virtual ou aplicações em execução antes de falhar. Assim, o ponto final **failover** pode ser criado como um ponto final [externo.](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)
@@ -115,7 +115,7 @@ Pode ainda otimizar o valor DNS Time to Live (TTL) para o perfil de Gestor de Tr
 
 O TTL experimentado pelo cliente também não aumenta se o número de DNS resolver entre o cliente e o servidor DNS autoritário aumentar. O DNS resolve a 'contagem decrescente' do TTL e apenas passa um valor TTL que reflete o tempo decorrido desde que o registo foi em cache. Isto garante que o registo de DNS seja atualizado no cliente após o TTL, independentemente do número de DNS Resolvers na cadeia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [os métodos de encaminhamento](../traffic-manager/traffic-manager-routing-methods.md)do Traffic Manager .
 - Saiba mais sobre [os perfis de Gestor de Tráfego aninhado.](../traffic-manager/traffic-manager-nested-profiles.md)
 - Saiba mais sobre [a monitorização do ponto final.](../traffic-manager/traffic-manager-monitoring.md)

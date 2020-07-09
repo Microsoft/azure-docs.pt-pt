@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133773"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VMware VM ou máquina física para Azure
 
@@ -90,7 +90,7 @@ Se o botão **'Ligar'** na VM em Azure estiver acinzentado e não estiver ligado
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível ligar/RDP/SSH - Botão VM Connect disponível
 
-Se o botão **Ligar** no VM falhado em Azure estiver disponível (não acinzentado), verifique os **diagnósticos de Boot** na sua Máquina Virtual e verifique se existem erros tal como listados [neste artigo](../virtual-machines/windows/boot-diagnostics.md).
+Se o botão **Ligar** no VM falhado em Azure estiver disponível (não acinzentado), verifique os **diagnósticos de Boot** na sua Máquina Virtual e verifique se existem erros tal como listados [neste artigo](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Se a máquina virtual não tiver começado, tente falhar até um ponto de recuperação mais antigo.
 2. Se a aplicação dentro da máquina virtual não estiver em cima, tente falhar num ponto de recuperação consistente da aplicação.
@@ -174,7 +174,7 @@ Para resolver o problema:
 
 
 ## <a name="next-steps"></a>Próximos passos
-- Resolução de problemas [ligação RDP ao Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Resolução de [problemas Ligação SSH ao Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Resolução de problemas [ligação RDP ao Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Resolução de [problemas Ligação SSH ao Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Se precisar de mais ajuda, em seguida, publique a sua consulta no [Microsoft Q&Uma página de perguntas para recuperação](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) do site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.
+Se precisar de mais ajuda, em seguida, publique a sua consulta no [Microsoft Q&Uma página de perguntas para recuperação](/answers/topics/azure-site-recovery.html) do site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969607"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134613"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente Azure Monitor 
 
@@ -461,26 +461,27 @@ A rotação de CMK requer uma atualização explícita ao recurso *Cluster* com 
 
 Todos os seus dados permanecem acessíveis após a operação de rotação da chave, uma vez que os dados sempre encriptados com a Chave de Encriptação de Contas (AEK) enquanto o AEK está agora a ser encriptado com a sua nova versão Key Encryption Key (KEK) no Key Vault.
 
-## <a name="saving-queries-protected-with-cmk"></a>Salvar consultas protegidas com CMK
+## <a name="cmk-for-queries"></a>CMK para consultas
 
-A linguagem de consulta utilizada no Log Analytics é expressiva e pode conter informações sensíveis nos comentários que adiciona às consultas ou na sintaxe de consulta. Algumas organizações exigem que tais informações são mantidas protegidas como parte da política da CMK e você precisa salvar as suas consultas encriptadas com a sua chave. O Azure Monitor permite-lhe armazenar *pesquisas guardadas* e *consultas de alerta de registo* na sua própria conta de armazenamento que liga ao seu espaço de trabalho. 
+A linguagem de consulta utilizada no Log Analytics é expressiva e pode conter informações sensíveis nos comentários que adiciona às consultas ou na sintaxe de consulta. Algumas organizações exigem que tais informações são mantidas protegidas como parte da política da CMK e você precisa salvar as suas consultas encriptadas com a sua chave. O Azure Monitor *permite-lhe* armazenar pesquisas guardadas e *consultas de alerta de registo* encriptadas com a sua chave na sua própria conta de armazenamento quando ligada ao seu espaço de trabalho. 
 
-> NOTA CMK para consultas usadas em livros de trabalho e dashboards Azure ainda não está suportado. Estas consultas permanecem encriptadas com a chave microsoft.  
+> [!NOTE]
+> CMK para consultas usadas em livros de trabalho e dashboards Azure ainda não está suportado. Estas consultas permanecem encriptadas com a chave microsoft.  
 
-Com o Bring Your Own Storage (BYOS), o serviço envia consultas para a conta de armazenamento que controla. Isto significa que controla a [política de encriptação em repouso,](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) utilizando a mesma chave que utiliza para encriptar dados no cluster Log Analytics, ou numa chave diferente. No entanto, será responsável pelos custos associados a essa conta de armazenamento. 
+Quando [traz o seu próprio armazenamento](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) e o associa ao seu espaço de trabalho, o serviço faz uploads de pesquisas *guardadas* e *consultas de alerta de registo* na sua conta de armazenamento. Isto significa que controla a conta de armazenamento e a [política de encriptação em repouso,](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) utilizando a mesma chave que utiliza para encriptar dados no cluster Log Analytics, ou numa chave diferente. No entanto, será responsável pelos custos associados a essa conta de armazenamento. 
 
 **Considerações antes de definir CMK para consultas**
 * Precisa de ter permissões de 'escrever' tanto para o seu espaço de trabalho como para a conta de armazenamento
 * Certifique-se de criar a sua Conta de Armazenamento na mesma região que o seu espaço de trabalho Log Analytics
 * As *pesquisas de poupança* no armazenamento são consideradas como artefactos de serviço e o seu formato pode mudar
-* As pesquisas de *salvamento existentes* são removidas do seu espaço de trabalho. Copie e *quaisquer pesquisas de poupança* que você precisa antes da configuração. Pode visualizar as suas *pesquisas guardadas* usando este [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* As pesquisas de *salvamento existentes* são removidas do seu espaço de trabalho. Copie e *quaisquer pesquisas de poupança* que você precisa antes da configuração. Pode ver as suas *pesquisas guardadas* utilizando [o PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
 * A história da consulta não é suportada e não poderá ver as consultas que correu.
 * Você pode associar uma única conta de armazenamento ao espaço de trabalho com o propósito de salvar consultas, mas é pode ser usado tanto para *pesquisas guardadas* como consultas *de alerta de log*
 * Pin to dashboard não é suportado
 
-**Configuração de BYOS para consultas**
+**Configure BYOS para consultas de pesquisas guardadas**
 
-Associe uma conta de armazenamento *com dados de consultaSourceType* ao seu espaço de trabalho. 
+Associate storage account for *Questionry* to your workspace -- *consultas de pesquisas guardadas* são guardadas na sua conta de armazenamento. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 Após a configuração, qualquer nova consulta *de pesquisa guardada* será guardada no seu armazenamento.
 
-**Configuração do BYOS para alertas de registo**
+**Configure BYOS para consultas de alerta de registo**
 
-Associe uma conta de armazenamento com *os dados* alertsSourceType ao seu espaço de trabalho. 
+Associate storage account for *Alerts* to your workspace -- as consultas *de alerta de registo* são guardadas na sua conta de armazenamento. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

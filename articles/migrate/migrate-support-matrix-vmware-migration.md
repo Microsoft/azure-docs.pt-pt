@@ -3,11 +3,12 @@ title: Suporte à migração de VMware em Azure Migrate
 description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: c4184628739b6c47b35263fe99285b05b9e0a190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134992"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
 
@@ -50,7 +51,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 
 **Suporte** | **Detalhes**
 --- | ---
-**Sistemas operativos suportados** | Pode migrar sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure.
+**Sistemas operativos suportados** | Pode migrar sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) que são suportados pelo Azure.
 **Windows VMs em Azure** | Talvez precise de [fazer algumas alterações](prepare-for-migration.md#verify-required-changes-before-migrating) nos VM antes da migração. 
 **Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Bota Linux** | Se o arranque estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se /boot é parte da raiz (/) partição, então a partição '/' deve estar no disco DE, e não abranger outros discos.
@@ -85,7 +86,7 @@ A migração sem agentes utiliza o [aparelho Azure Migrate](migrate-appliance.md
 --- | ---
 Aparelho | Ligações de saída no porto 443 para carregar dados replicados para Azure, e para comunicar com os serviços da Azure Migrate orquestrando replicação e migração.
 vCenter Server | Ligações de entrada na porta 443 para permitir que o aparelho orquestende a replicação - criar instantâneos, copiar dados, lançar instantâneos
-vSphere/EXSI anfitrião | Entrada na porta TCP 902 para que o aparelho reproduza dados de instantâneos.
+vSphere/ESXI anfitrião | Entrada na porta TCP 902 para que o aparelho reproduza dados de instantâneos.
 
 ## <a name="agent-based-migration"></a>Migração baseada em agente 
 

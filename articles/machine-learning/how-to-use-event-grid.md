@@ -1,5 +1,5 @@
 ---
-title: Desencadear eventos em fluxos de trabalho ML
+title: Desencadear eventos em fluxos de trabalho ML (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Configurar aplicações, processos ou fluxos de trabalho de aprendizagem automática de máquinas de CI/CD em Azure Machine Learning.
 services: machine-learning
@@ -10,13 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338318"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135968"
 ---
-# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (Pré-visualização)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
 Neste artigo, aprende a configurar aplicações, processos ou fluxos de trabalho de CI/CD baseados em eventos de Aprendizagem automática Azure, tais como e-mails de notificação de falhas ou gasoduto ML, quando determinadas condições são detetadas pela [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 

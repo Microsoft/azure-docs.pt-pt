@@ -3,22 +3,22 @@ title: Ver e gerir os clientes e os recursos delegados
 description: Como prestador de serviços que utiliza o Azure Lighthouse, pode visualizar todos os recursos e subscrições do seu cliente delegado indo para os meus clientes no portal Azure.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a850dc8cfe7667a75ced64ef0bd0afc352b20daa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133278"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Ver e gerir os clientes e os recursos delegados
 
-Os prestadores de serviços que utilizam o Farol Azure podem utilizar a página **My customers** no [portal Azure](https://portal.azure.com) para visualizar os recursos e subscrições delegados do cliente. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
+Os prestadores de serviços que utilizam o [Farol Azure](../overview.md) podem utilizar a página **My customers** no [portal Azure](https://portal.azure.com) para visualizar os recursos e subscrições delegados do cliente. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
 
 Para aceder à página **Dos Meus clientes** no portal Azure, selecione **Todos os serviços,** em seguida, procure **os meus clientes** e selecione-o. Também pode encontrá-lo inserindo "Os meus clientes" na caixa de pesquisa perto do topo do portal Azure.
 
-Tenha em mente que a secção de **clientes** de topo da página **dos meus clientes** apenas mostra informações sobre clientes que delegaram subscrições ou grupos de recursos. Se trabalhar com outros clientes (como através do [programa Cloud Solution Provider),](/partner-center/csp-overview)não verá informações sobre esses clientes na secção **Clientes,** a menos que tenha acedido aos seus recursos para [a gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
+Tenha em mente que a secção de **clientes** de topo da página **dos meus clientes** apenas mostra informações sobre clientes que delegaram subscrições ou grupos de recursos. Se trabalhar com outros clientes (como através do [programa Cloud Solution Provider),](/partner-center/csp-overview)não verá informações sobre esses clientes na secção **Clientes,** a menos que tenha [acedido aos seus recursos para o Farol de Azure.](onboard-customer.md)
 
-Mais abaixo na página, uma secção separada chamada **Cloud Solution Provider (Preview)** mostra informações e recursos de faturação para os seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure](/partner-center/azure-plan-get-started). Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../billing/mpa-overview.md). Note que estes clientes CSP aparecem nesta secção se também os a bordo para a Azure delegada gestão de recursos. Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar na gestão de recursos delegados da Azure.
+Mais abaixo na página, uma secção separada chamada **Cloud Solution Provider (Preview)** mostra informações e recursos de faturação para os seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure](/partner-center/azure-plan-get-started). Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../cost-management-billing/understand/mpa-overview.md). Note que estes clientes CSP aparecem nesta secção se também os a bordo do Farol de Azure. Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar no Farol de Azure.
 
 > [!NOTE]
 > Os seus clientes podem ver informações sobre fornecedores de serviços navegando para **os prestadores** de serviços no portal Azure. Para mais informações, consulte [Ver e gerir os prestadores de serviços.](view-manage-service-providers.md)
@@ -52,7 +52,7 @@ Os utilizadores e permissões associadas a cada delegação aparecem na coluna *
 
 ### <a name="remove-delegations"></a>Remover delegações
 
-Se incluiu utilizadores com a [Atribuição de Registo de Serviços Geridos Eliminar Função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar um cliente para a gestão de recursos delegados da Azure, esses utilizadores podem remover uma delegação selecionando o ícone do caixote do lixo que aparece na fila para essa delegação. Quando o fizerem, nenhum utilizadores do arrendatário do prestador de serviços poderá aceder aos recursos que tinham sido previamente delegados.
+Se incluiu utilizadores com a [Atribuição de Registo de Serviços Geridos Eliminar Função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar um cliente para o Farol de Azure, esses utilizadores podem remover uma delegação selecionando o ícone do caixote do lixo que aparece na fila para essa delegação. Quando o fizerem, nenhum utilizadores do arrendatário do prestador de serviços poderá aceder aos recursos que tinham sido previamente delegados.
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalho no contexto de uma assinatura delegada
 

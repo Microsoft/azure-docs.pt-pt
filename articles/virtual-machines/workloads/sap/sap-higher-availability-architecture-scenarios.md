@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77623806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134537"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reiniciar para alcançar "maior disponibilidade" de um sistema SAP
 
@@ -266,7 +267,7 @@ O SAP oferece uma definição que permite iniciar casos SAP imediatamente após 
 
 Assumindo um cenário típico de Azure de uma instância de servidor de aplicações SAP num VM e um único VM eventualmente reiniciado, o Autostart não é crítico. Mas pode capacitá-lo adicionando o seguinte parâmetro no perfil inicial da programação de aplicações empresariais avançadas da SAP (ABAP) ou da instância java:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

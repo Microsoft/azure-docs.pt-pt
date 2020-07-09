@@ -7,22 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135881"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Crie SDKs personalizados para Azure Digital Twins com AutoRest
+# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
 Neste momento, o único plano de dados publicado SDK para interagir com as APIs das Gémeas Digitais Azure é para .NET (C#). Pode ler sobre os .NET SDK e as APIs em geral, em [Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure](how-to-use-apis-sdks.md). Se estiver a trabalhar noutra língua, este artigo irá mostrar-lhe como gerar o seu próprio SDK na linguagem à sua escolha, utilizando o AutoRest.
 
-## <a name="set-up-the-sdk"></a>Configurar o SDK
+## <a name="set-up-your-machine"></a>Configurar a sua máquina
 
 Para gerar um SDK, você precisará:
 * [AutoRest](https://github.com/Azure/autorest), versão 2.0.4413 (a versão 3 não está suportada atualmente)
 * [Node.js](https://nodejs.org) como pré-requisito para o AutoRest
-* O [arquivo Azure Digital Twins OpenAPI (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* O [ficheiro Azure Digital Twins Swagger (OpenAPI)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) intitulado *digitaltwins.js*e a sua pasta de exemplos. Descarregue o ficheiro Swagger e a sua pasta de exemplos para a sua máquina local.
+
+Uma vez que a sua máquina esteja equipada com tudo da lista acima, está pronto a usar o AutoRest para criar o SDK.
+
+## <a name="create-the-sdk-with-autorest"></a>Criar o SDK com AutoRest 
 
 Se tiver Node.js instalado, pode executar este comando para se certificar de que tem a versão certa do AutoRes instalado:
 ```cmd/sh
@@ -30,31 +35,33 @@ npm install -g autorest@2.0.4413
 ```
 
 Para executar o AutoRest contra o ficheiro Azure Digital Twins Swagger, siga estes passos:
-1. Copie o ficheiro Azure Digital Twins Swagger num diretório de trabalho.
-2. Em um pedido de comando, mude para o diretório de trabalho.
-3. Corra autorest com o seguinte comando.
+1. Copie o ficheiro Azure Digital Twins Swagger e a sua pasta de exemplos que o acompanha num diretório de trabalho.
+2. Use uma janela de ordem de comando para mudar para o diretório de trabalho.
+3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , , `--python` `--java` `--go` etc. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi,* que continuará a utilizar através dos restantes exemplos.
+Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*, que continuará a utilizar através dos restantes exemplos de utilização deste artigo.
 
 O AutoRest suporta uma vasta gama de geradores de códigos linguísticos.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Adicione o SDK a um projeto do Estúdio Visual
 
-Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, como provavelmente necessitará do SDK Azure Digital Twins em vários projetos distintos (aplicações do seu cliente, aplicações Azure Functions, etc.), recomendamos que construa um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, pode incluir este projeto de biblioteca de classes nas suas outras soluções como referência do projeto.
+Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, como provavelmente necessitará do Azure Digital Twins SDK em vários projetos separados (aplicações do seu cliente, aplicações Azure Functions, e assim por diante), pode ser útil construir um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, pode incluir este projeto de biblioteca de classes em várias soluções como referência do projeto.
 
-Esta secção dá instruções sobre como construir o SDK como uma biblioteca de classes, que é o seu próprio projeto e pode ser incluído em outros projetos. Eis os passos:
+Esta secção dá instruções sobre como construir o SDK como uma biblioteca de classes, que é o seu próprio projeto e pode ser incluído em outros projetos. Estes passos dependem do **Visual Studio** (pode instalar a versão mais recente a partir [daqui).](https://visualstudio.microsoft.com/downloads/)
+
+Eis os passos:
 
 1. Crie uma nova solução visual Studio para uma biblioteca de classes
-2. Use o nome "ADTApi" como nome do projeto
+2. Use *a ADTApi* como nome do projeto
 3. No Solutions Explorer, selecione à direita o projeto *ADTApi* da solução gerada e escolha *Adicionar > Item Existente...*
 4. Encontre a pasta onde gerou o SDK e selecione os ficheiros ao nível da raiz
 5. Prima "Ok"
 6. Adicione uma pasta ao projeto (selecione à direita o projeto no Solution Explorer e escolha *Adicionar > Nova Pasta)*
-7. Nomeie a pasta "Modelos"
+7. Nomeie os *modelos* de pasta
 8. Selecione à direita a pasta *Modelos* no Explorador de Soluções e *selecione Adicionar > Item existente...*
 9. Selecione os ficheiros na pasta *Modelos* do SDK gerado e prima "Ok"
 

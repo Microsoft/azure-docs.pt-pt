@@ -1,6 +1,6 @@
 ---
 title: 'Gestor de Recursos Azure: Criar uma única base de dados'
-description: Crie uma única base de dados na Base de Dados Azure SQL utilizando o modelo Azure Resource Manager.
+description: Crie uma única base de dados na Base de Dados Azure SQL utilizando um modelo de Gestor de Recursos Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,20 +11,20 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135644"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL utilizando o modelo do Gestor de Recursos Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL usando um modelo ARM
 
-A criação de uma [única base de dados](single-database-overview.md) é a opção mais rápida e simples para criar uma base de dados na Base de Dados Azure SQL. Este quickstart mostra-lhe como criar uma única base de dados utilizando o modelo Azure Resource Manager.
+A criação de uma [única base de dados](single-database-overview.md) é a opção mais rápida e simples para criar uma base de dados na Base de Dados Azure SQL. Este quickstart mostra-lhe como criar uma única base de dados utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão Implementar para Azul. O modelo será aberto no portal Azure.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
 
 [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Uma única base de dados tem um conjunto definido de computação, memória, IO e recursos de armazenamento utilizando um de dois [modelos de compra.](purchasing-models.md) Quando cria uma única base de dados, também define um [servidor](logical-servers.md) para geri-lo e colocá-lo dentro do [grupo de recursos Azure](../../active-directory-b2c/overview.md) numa região especificada.
 
-O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
@@ -80,7 +80,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie uma regra de firewall ao nível do servidor para ligar à base de dados única a partir de instalações ou ferramentas remotas. Para obter mais informações, consulte [Criar uma regra de firewall ao nível do servidor](firewall-create-server-level-portal-quickstart.md).
 - Depois de criar uma regra de firewall ao nível do servidor, [conecte e questione a](connect-query-content-reference-guide.md) sua base de dados utilizando várias ferramentas e idiomas diferentes.
@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
   - [Ligar e consultar com o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para criar uma única base de dados utilizando o Azure CLI, consulte [as amostras do Azure CLI](az-cli-script-samples-content-guide.md).
 - Para criar uma única base de dados utilizando a Azure PowerShell, consulte [as amostras do Azure PowerShell](powershell-script-content-guide.md).
-- Para aprender a criar modelos de Gestor de Recursos, consulte [Criar o seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- Para aprender a criar modelos ARM, consulte [Criar o seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

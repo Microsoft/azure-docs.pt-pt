@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: site-recovery
 ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417859"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133798"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico da versão do planejador de implementação de recuperação do site Azure
 
@@ -168,7 +169,7 @@ Leia mais sobre o [Suporte de discos grandes no Azure Site Recovery](https://azu
 
 **Limitações conhecidas:**
 
-- Suporta apenas para VMware para cenários de recuperação de desastres Azure. Para cenários de recuperação de desastres Hyper-V a Azure, utilize a [ferramenta de planificador de capacidade Hiper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Suporta apenas para VMware para cenários de recuperação de desastres Azure. Para cenários de recuperação de desastres Hyper-V a Azure, utilize a [ferramenta de planificador de capacidade Hiper-V](./hyper-v-deployment-planner-overview.md).
 - Não apoia a operação GetThroughput para as regiões do Governo dos EUA e da China Microsoft Azure.
 - A ferramenta não pode perfilar VMs se o servidor vCenter tiver dois ou mais VMs com o mesmo nome ou endereço IP em vários anfitriões ESXi.
 Nesta versão, a ferramenta ignora a criação de perfis para nomes ou endereços IP de VMs duplicados em VMListFile. A solução é criar perfis para as VMs com um anfitrião ESXi em vez do vCenter Server. Certifique-se de executar um exemplo para cada anfitrião ESXi.

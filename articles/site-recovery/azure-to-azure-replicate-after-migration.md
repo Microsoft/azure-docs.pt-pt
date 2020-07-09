@@ -8,16 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74159105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135677"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
 
 
-Siga este artigo se [você emigrou as máquinas no local para Azure VMs](tutorial-migrate-on-premises-to-azure.md) usando o serviço de Recuperação de [Locais,](site-recovery-overview.md) e agora você quer obter os VMs configurados para recuperação de desastres para uma região secundária de Azure. O artigo descreve como garantir que o agente Azure VM é instalado em VMs migrados, e como remover o serviço de Mobilidade de Recuperação do Local que já não é necessário após a migração.
+Siga este artigo se [você emigrou as máquinas no local para Azure VMs](./migrate-tutorial-on-premises-azure.md) usando o serviço de Recuperação de [Locais,](site-recovery-overview.md) e agora você quer obter os VMs configurados para recuperação de desastres para uma região secundária de Azure. O artigo descreve como garantir que o agente Azure VM é instalado em VMs migrados, e como remover o serviço de Mobilidade de Recuperação do Local que já não é necessário após a migração.
 
 
 
@@ -48,14 +49,14 @@ Para verificar se o agente está instalado:
 2. Clique com o direito no ficheiro e, em **Propriedades,** selecione o separador **Detalhes.**
 3. Verifique se o campo **versão do produto** apresenta 2.6.1198.718 ou superior.
 
-[Saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) sobre a instalação do agente para windows.
+[Saiba mais](../virtual-machines/extensions/agent-windows.md) sobre a instalação do agente para windows.
 
 ### <a name="install-the-agent-on-linux-vms"></a>Instale o agente em VMs Linux
 
 Instale manualmente o agente [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) da seguinte forma:
 
 1. Certifique-se de que tem permissões de administração na máquina.
-2. Recomendamos vivamente que instale o agente Linux VM utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Todos os [fornecedores de distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote de agente Azure Linux nas suas imagens e repositórios.
+2. Recomendamos vivamente que instale o agente Linux VM utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Todos os [fornecedores de distribuição endossados](../virtual-machines/linux/endorsed-distros.md) integram o pacote de agente Azure Linux nas suas imagens e repositórios.
     - Recomendamos vivamente que atualize o agente apenas através de um repositório de distribuição.
     - Não recomendamos instalar o agente Linux VM diretamente do GitHub e atualizá-lo.
     -  Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. 

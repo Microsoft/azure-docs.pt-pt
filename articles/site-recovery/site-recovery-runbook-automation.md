@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134800"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automatização do Azure aos planos de recuperação
 
@@ -128,7 +129,7 @@ O blog de Aman Sharma na [Harvesting Clouds](http://harvestingclouds.com) tem um
 
 Você pode usar um único script runbook em planos de recuperação múltiplas, usando variáveis externas. 
 
-- Utiliza [variáveis Azure Automation](../automation/automation-variables.md) para armazenar parâmetros para executar um plano de recuperação.
+- Utiliza [variáveis Azure Automation](../automation/shared-resources/variables.md) para armazenar parâmetros para executar um plano de recuperação.
 - Ao adicionar o nome do plano de recuperação como prefixo à variável, pode criar variáveis individuais para cada plano de recuperação. Em seguida, use as variáveis como parâmetros.
 - Pode alterar um parâmetro sem alterar o script, mas ainda assim alterar a forma como o script funciona.
 
@@ -198,7 +199,7 @@ Em alguns cenários poderá não ser capaz de criar variáveis separadas para ca
 - Por exemplo, uma recuperação do SharePoint tem duas extremidades dianteiras. Uma aplicação básica de linha de negócios (LOB) tem apenas uma extremidade frontal.
 - Neste cenário não é possível criar variáveis separadas para cada plano de recuperação.
 
-No exemplo seguinte, criamos uma [variável complexa](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) na conta Azure Automation.
+No exemplo seguinte, criamos uma [variável complexa](/powershell/module/servicemanagement/azure/set-azureautomationvariable) na conta Azure Automation.
 
 Fazemos isso especificando vários valores, utilizando a Azure PowerShell.
 
@@ -263,9 +264,6 @@ Este vídeo dá outro exemplo. Demonstra como recuperar uma aplicação WordPres
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre uma [Azure Automation Run As account](../automation/automation-create-runas-account.md)
+- Saiba mais sobre uma [Azure Automation Run As account](../automation/manage-runas-account.md)
 - Reveja [os scripts da amostra da Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Saiba mais](site-recovery-failover.md) sobre execução de falhas.
-
-
-

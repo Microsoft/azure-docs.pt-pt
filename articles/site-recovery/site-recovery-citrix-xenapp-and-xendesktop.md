@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74084544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134847"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>criar recuperação de desastres para uma implementação de Citrix XenApp e XenDesktop de vários níveis
 
@@ -29,8 +30,8 @@ Este documento fornece orientações passo a passo para a construção de uma so
 
 Antes de começar, certifique-se de entender o seguinte:
 
-1. [Replicando uma máquina virtual para Azure](site-recovery-vmware-to-azure.md)
-1. Como [desenhar uma rede de recuperação](site-recovery-network-design.md)
+1. [Replicando uma máquina virtual para Azure](./vmware-azure-tutorial.md)
+1. Como [desenhar uma rede de recuperação](./concepts-on-premises-to-azure-networking.md)
 1. [Fazendo um teste falhado para Azure](site-recovery-test-failover-to-azure.md)
 1. [Fazendo um falhanço em Azure](site-recovery-failover.md)
 1. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
@@ -95,7 +96,7 @@ Consulte o [Protect Ative Directory e o DNS com a Azure Site Recovery](site-reco
 
 Consulte o [Protect SQL Server com recuperação de desastres do SQL Server e a recuperação do site Azure](site-recovery-sql.md) para obter orientações técnicas detalhadas sobre as opções recomendadas para proteger os servidores SQL.
 
-Siga [esta orientação](site-recovery-vmware-to-azure.md) para começar a replicar as outras máquinas virtuais componentes para o Azure.
+Siga [esta orientação](./vmware-azure-tutorial.md) para começar a replicar as outras máquinas virtuais componentes para o Azure.
 
 ![Proteção de Componentes XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

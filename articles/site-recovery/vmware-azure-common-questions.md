@@ -3,11 +3,12 @@ title: Questões comuns sobre recuperação de desastres VMware com recuperaçã
 description: Obtenha respostas a perguntas comuns sobre a recuperação de desastres de VMware VMs para Azure utilizando a Recuperação do Site Azure.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135156"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -121,7 +122,7 @@ A replicação de novos VMs numa conta de armazenamento só está disponível ut
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Posso alterar o tipo de disco gerido depois de uma máquina estar protegida?
 
-Sim, pode [facilmente alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para replicações em curso. Antes de alterar o tipo, certifique-se de que não é gerado nenhum URL de assinatura de acesso partilhado no disco gerido:
+Sim, pode [facilmente alterar o tipo de disco gerido](../virtual-machines/windows/convert-disk-storage.md) para replicações em curso. Antes de alterar o tipo, certifique-se de que não é gerado nenhum URL de assinatura de acesso partilhado no disco gerido:
 
 1. Vá ao recurso **De Disco Gerido** no portal Azure e verifique se tem um banner URL de assinatura de acesso partilhado na lâmina do **visão geral.**
 1. Se o banner estiver presente, selecione-o para cancelar a exportação em curso.

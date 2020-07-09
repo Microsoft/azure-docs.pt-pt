@@ -3,11 +3,12 @@ title: Excluir discos da replicação com recuperação do site Azure
 description: Como excluir discos da replicação para Azure com a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135689"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
 
@@ -259,7 +260,6 @@ As nossas definições de ficheiros de paging no Azure VM são as seguintes:
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as diretrizes para o disco de armazenamento temporário:
-    - [Saiba mais sobre](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) a utilização de SSDs em VMs Azure para armazenar extensões de tempDB e buffer pool SQL
-    - [Reveja as](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) melhores práticas de desempenho para SQL Server em VMs Azure.
+    - [Saiba mais sobre](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) a utilização de SSDs em VMs Azure para armazenar extensões de tempDB e buffer pool SQL
+    - [Reveja as](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) melhores práticas de desempenho para SQL Server em VMs Azure.
 - Depois da implementação estar instalada e em execução, [saiba mais](failover-failback-overview.md) sobre os diferentes tipos de ativação pós-falha.
-

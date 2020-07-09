@@ -3,15 +3,16 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920593"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135482"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
-Como prestador de serviços, pode utilizar a [gestão de recursos delegados da Azure](../concepts/azure-delegated-resource-management.md) para gerir os recursos da Azure para vários clientes dentro do seu próprio inquilino no [portal Azure.](https://portal.azure.com) A maioria das tarefas e serviços podem ser realizados em recursos delegados da Azure através de inquilinos geridos. Este artigo descreve alguns dos cenários melhorados onde a gestão de recursos delegada do Azure pode ser eficaz.
+Como prestador de serviços, pode utilizar [o Azure Lighthouse](../overview.md) para gerir recursos para vários clientes dentro do seu próprio inquilino no [portal Azure.](https://portal.azure.com) Muitas tarefas e serviços podem ser realizados em recursos delegados da Azure através de inquilinos geridos, utilizando [a gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
 
 > [!NOTE]
 > A gestão de recursos delegados Azure também pode ser usada [dentro de uma empresa que tem vários inquilinos AD Azure próprios](enterprise.md) para simplificar a administração de inquilinos cruzados.
@@ -22,9 +23,9 @@ Um inquilino do Azure Ative Directory (Azure AD) é uma representação de uma o
 
 Normalmente, para gerir os recursos da Azure para um cliente, os prestadores de serviços teriam de se inscrever no portal Azure utilizando uma conta associada ao inquilino desse cliente, exigindo que um administrador no arrendatário do cliente criasse e gerisse contas de utilizador para o prestador de serviços.
 
-Com a gestão de recursos delegada da Azure, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão aceder e gerir subscrições, grupos de recursos e recursos no inquilino do cliente. Estes utilizadores podem então iniciar seduca no portal Azure usando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos Meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
+Com o Azure Lighthouse, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão aceder e gerir subscrições, grupos de recursos e recursos no inquilino do cliente. Estes utilizadores podem então iniciar seduca no portal Azure usando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos Meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
 
-A gestão de recursos delegados da Azure permite uma maior flexibilidade na gestão de recursos para vários clientes sem ter de se inscrever em contas diferentes em diferentes inquilinos. Por exemplo, um prestador de serviços pode ter dois clientes com responsabilidades diferentes e níveis de acesso. Utilizando a gestão de recursos delegada da Azure, os utilizadores autorizados podem inscrever-se no inquilino do prestador de serviços para aceder a estes recursos.
+O Farol Azure permite uma maior flexibilidade na gestão de recursos para vários clientes sem ter de se inscrever em contas diferentes em diferentes inquilinos. Por exemplo, um prestador de serviços pode ter dois clientes com responsabilidades diferentes e níveis de acesso. Utilizando o Farol Azure, os utilizadores autorizados podem inscrever-se no inquilino do prestador de serviços para aceder a estes recursos.
 
 ![Recursos do cliente geridos através de um inquilino prestador de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ Da mesma forma, os comandos Azure CLI, tais como [a lista de conta az](/cli/azur
 > [!TIP]
 > Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .
 
-Também fornecemos APIs que são específicas para executar tarefas delegadas de gestão de recursos Azure. Para mais informações, consulte a secção **Referência.**
+Também fornecemos APIs que são específicas para executar tarefas do Farol Azure. Para mais informações, consulte a secção **Referência.**
 
 ## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários melhorados
 
-A maioria das tarefas e serviços podem ser realizados em recursos delegados entre inquilinos geridos. Abaixo estão alguns dos cenários-chave onde a gestão interina pode ser eficaz.
+A maioria das tarefas e serviços podem ser realizados em recursos delegados entre inquilinos geridos. Abaixo estão alguns dos cenários-chave onde a gestão inter-inquilino pode ser especialmente eficaz.
 
 [Azure Arc para servidores (pré-visualização)](../../azure-arc/servers/overview.md):
 
-- [Ligue máquinas windows server ou Linux fora do Azure](../../azure-arc/servers/quickstart-onboard-portal.md) a subscrições delegadas e/ou grupos de recursos em Azure
+- [Ligue máquinas windows server ou Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) a subscrições delegadas e/ou grupos de recursos em Azure
 - Gerir máquinas conectadas utilizando construções Azure, tais como Azure Policy e marcação
 
 [Azure Automation:](../../automation/index.yml)

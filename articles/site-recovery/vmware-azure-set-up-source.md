@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135382"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para a replicação da VMware para a Azure
 
@@ -36,7 +37,7 @@ O artigo assume que já tem:
 
 ## <a name="set-up-the-configuration-server"></a>Configurar o servidor de configuração
 
-Pode configurar o servidor de configuração como um VMware VM no local através de um modelo de Aplicação de Virtualização Aberta (OVA). [Saiba mais](concepts-vmware-to-azure-architecture.md) sobre os componentes que serão instalados no VMware VM.
+Pode configurar o servidor de configuração como um VMware VM no local através de um modelo de Aplicação de Virtualização Aberta (OVA). [Saiba mais](./vmware-azure-architecture.md) sobre os componentes que serão instalados no VMware VM.
 
 1. Saiba mais sobre os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites) para a implementação do servidor de configuração.
 2. [Verifique os números de capacidade](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) para a implantação.

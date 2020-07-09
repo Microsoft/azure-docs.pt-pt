@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672747"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134821"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para vMware VM/recuperação de desastres de servidor físico
 
@@ -21,7 +22,7 @@ Configura um servidor de configuração no local quando utiliza [a Recuperação
 
 ## <a name="update-windows-license"></a>Atualizar licença do Windows
 
-A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uma utilização ininterrupta, deve ativar o Windows com uma licença adquirida. A atualização da licença pode ser feita através de uma chave autónoma ou da chave padrão KMS. A orientação está disponível na [linha de comando do DISM Windows para a execução do SISTEMA](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obter as chaves, consulte o [cliente KMS configurado](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uma utilização ininterrupta, deve ativar o Windows com uma licença adquirida. A atualização da licença pode ser feita através de uma chave autónoma ou da chave padrão KMS. A orientação está disponível na [linha de comando do DISM Windows para a execução do SISTEMA](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obter as chaves, consulte o [cliente KMS configurado](/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Servidor de configuração de acesso
 
@@ -265,7 +266,7 @@ ProxyPassword="Password"
 
 Pode eliminar opcionalmente o servidor de configuração utilizando o PowerShell.
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-Az-ps) o módulo Azure PowerShell.
+1. [Instale](/powershell/azure/install-Az-ps) o módulo Azure PowerShell.
 2. Inscreva-se na sua conta Azure utilizando este comando:
 
     `Connect-AzAccount`

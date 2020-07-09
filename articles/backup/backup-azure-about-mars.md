@@ -4,12 +4,12 @@ description: Saiba como o Agente MARS suporta os cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134968"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
 
@@ -42,7 +42,7 @@ O agente MARS suporta os seguintes cenários de restauro:
 1. A partir do portal Azure, crie um [cofre dos Serviços de Recuperação](install-mars-agent.md#create-a-recovery-services-vault)e escolha ficheiros, pastas e o estado do sistema a partir dos **objetivos de Backup**.
 2. [Descarregue as credenciais de cofre dos Serviços de Recuperação e o instalador](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) de agentes para uma máquina no local.
 
-3. [instale o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e utilize as credenciais de abóbada descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
+3. [Instale o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e utilize as credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
 4. A partir da consola do agente no cliente, [configufique a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) para especificar o que fazer, quando fazer backup (o horário), quanto tempo as cópias de segurança devem ser mantidas no Azure (a política de retenção) e começar a proteger.
 
 ![Diagrama do agente de backup Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
@@ -53,7 +53,7 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 - **As cópias de segurança incrementais** (backups subsequentes) são executadas de acordo com o calendário especificado. Durante as cópias de segurança incrementais, os ficheiros alterados são identificados e um novo VHD é criado. O VHD é comprimido e encriptado, e depois é enviado para o cofre. Após os acabamentos incrementais de backup, o novo VHD é fundido com o VHD criado após a replicação inicial. Este VHD fundido fornece o estado mais recente a ser usado para comparação para cópias de segurança em curso.
 
-- O agente MARS pode executar a tarefa de backup em **modo otimizado** utilizando o diário de alteração USN (Update Sequence Number) ou em **modo não otimizado,** verificando alterações nos diretórios ou ficheiros através da digitalização de todo o volume. O modo nãotimizado é mais lento porque o agente tem de digitalizar cada ficheiro no volume e compará-lo com os metadados para determinar os ficheiros alterados.  A **cópia de segurança inicial** será sempre executada em modo nãotimizado. Se o backup anterior falhar, o próximo trabalho de backup programado será executado em modo nãotimizado.
+- O agente MARS pode executar a tarefa de backup em **modo otimizado** utilizando o diário de alteração USN (Update Sequence Number) ou em **modo não otimizado,** verificando alterações nos diretórios ou ficheiros através da digitalização de todo o volume. O modo nãotimizado é mais lento porque o agente tem de digitalizar cada ficheiro no volume e compará-lo com os metadados para determinar os ficheiros alterados.  A **cópia de segurança inicial** será sempre executada em modo nãotimizado. Se o backup anterior falhar, o próximo trabalho de backup programado será executado em modo nãotimizado. Para saber mais sobre estes modos e como os verificar, consulte [este artigo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
 
@@ -61,7 +61,7 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 - **Sementeira offline**: As cópias de segurança completas iniciais dos dados para o Azure normalmente transferem grandes quantidades de dados e requerem mais largura de banda de rede. As cópias de segurança subsequentes transferem apenas a quantidade de dados delta, ou incremental. O Azure Backup comprime as cópias de segurança iniciais. Através do processo de *sementeira offline,* o Azure Backup pode utilizar discos para enviar os dados de backup iniciais comprimidos offline para Azure. Para obter mais informações, consulte [a cópia de segurança offline do Azure Backup utilizando a Caixa de Dados Azure](offline-backup-azure-data-box.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Matriz de suporte do agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
 

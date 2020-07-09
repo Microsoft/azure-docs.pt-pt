@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134369"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Planejador de Implementação de Recuperação do Local Azure para a recuperação de desastres hiper-V para Azure
 
@@ -139,4 +140,4 @@ Consulte a página [história da versão do plano de implementação do plano de
 
 
 ## <a name="next-steps"></a>Próximos passos
-* [Executar o planejador de implantação](site-recovery-hyper-v-deployment-planner-run.md).
+* [Executar o planejador de implantação](./hyper-v-deployment-planner-run.md).

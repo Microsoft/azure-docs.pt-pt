@@ -1,27 +1,30 @@
 ---
-title: Integrar um cliente na gestão de recursos delegados do Azure
-description: Saiba como embarcar um cliente para a Azure delegada gestão de recursos, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
+title: A bordo de um cliente para o Farol de Azure
+description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133480"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>A bordo de um cliente para o Farol de Azure
 
-Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para a Azure delegada gestão de recursos, permitindo que os seus recursos delegados (subscrições e/ou grupos de recursos) sejam acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD). Enquanto nos referimos a prestadores de serviços e clientes aqui, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
+Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para o Farol Azure. Ao fazê-lo, os recursos delegados do cliente (subscrições e/ou grupos de recursos) podem ser acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD), utilizando a [gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
 
-Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado assina no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão sem ter que assinar em cada cliente inquilino individual.
+Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado assina no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão, sem ter que assinar em cada cliente inquilino individual.
 
-Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que você precisará realizar esta associação no seu inquilino prestador de serviços. Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e concedendo-lhe acesso reader a todos os clientes a bordo. Para obter mais informações, consulte [Link um ID do parceiro nas suas contas Azure.](../../billing/billing-partner-admin-link-started.md) 
+Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que você precisará realizar esta associação no seu inquilino prestador de serviços. Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e concedendo-lhe acesso reader a todos os clientes a bordo. Para obter mais informações, consulte [Link um ID do parceiro nas suas contas Azure.](../../cost-management-billing/manage/link-partner-id.md) 
 
 > [!NOTE]
-> Os clientes também podem estar a bordo quando adquirem uma oferta de serviços geridos (públicos ou privados) que publicou no Azure Marketplace. Para mais informações, consulte [as ofertas de Serviços Geridos da Publicação ao Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
+> Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de serviços geridos (públicos ou privados) que publicou no Azure Marketplace. Para mais informações, consulte [as ofertas de Serviços Geridos da Publicação ao Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
 
 O processo de embarque requer a ações a tomar tanto dentro do arrendatário do prestador de serviços como do arrendatário do cliente. Todos estes passos são descritos neste artigo.
+
+> [!TIP]
+> Apesar de nos referirmos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Recolha detalhes do inquilino e da subscrição
 
@@ -193,7 +196,7 @@ A última autorização no exemplo acima adiciona um **principalid** com a funç
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
-Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar na gestão de recursos delegados do Azure (ou para cada subscrição que contenha grupos de recursos que deseja embarcar).
+Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar (ou para cada subscrição que contenha grupos de recursos que pretende embarcar).
 
 Por se trata de uma implementação de nível de subscrição, não pode ser iniciada no portal Azure. A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
 
@@ -244,7 +247,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Confirme o sucesso do embarque
 
-Quando uma subscrição de clientes tiver sido acedida com sucesso à Azure delegada gestão de recursos, os utilizadores do arrendatário do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes for concedido acesso através do processo acima, individualmente ou como membro de um grupo AD Azure com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
+Quando uma subscrição do cliente tiver sido acedida com sucesso ao Farol de Azure, os utilizadores do arrendatário do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes for concedido acesso através do processo acima, individualmente ou como membro de um grupo AZure AD com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -255,7 +258,7 @@ No arrendatário do prestador de serviços:
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!IMPORTANT]
-> Para ver a subscrição delegada nos [meus clientes, os](view-manage-customers.md)utilizadores do arrendatário do prestador de serviços devem ter recebido a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor) quando a subscrição foi a bordo para a gestão de recursos delegados da Azure.
+> Para ver a subscrição delegada nos [meus clientes, os](view-manage-customers.md)utilizadores do arrendatário do prestador de serviços devem ter recebido a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Reader) quando a subscrição foi a bordo.
 
 No inquilino do cliente:
 

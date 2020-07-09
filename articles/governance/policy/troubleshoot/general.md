@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 868b8c53a120ebdb6a35806538e02af39e25c338
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135576"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -95,7 +95,7 @@ Uma atribuição de política ao âmbito do seu novo ou atualizado recurso está
 
 #### <a name="resolution"></a>Resolução
 
-A mensagem de erro de uma atribuição de política de negação inclui a definição de política e iDs de atribuição de políticas. Se a informação de erro na mensagem for perdida, também está disponível no [registo de Atividades](../../../azure-monitor/platform/activity-log-view.md). Utilize estas informações para obter mais detalhes para compreender as restrições de recursos e ajustar as propriedades de recursos no seu pedido para corresponder aos valores permitidos.
+A mensagem de erro de uma atribuição de política de negação inclui a definição de política e iDs de atribuição de políticas. Se a informação de erro na mensagem for perdida, também está disponível no [registo de Atividades](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Utilize estas informações para obter mais detalhes para compreender as restrições de recursos e ajustar as propriedades de recursos no seu pedido para corresponder aos valores permitidos.
 
 ## <a name="template-errors"></a>Erros do modelo
 

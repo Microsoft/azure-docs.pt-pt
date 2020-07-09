@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: 5e74466891a5926d8ae8feb3c1c48348ecf3cfe6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74134999"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133191"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Depreciação da funcionalidade de encriptação de dados de recuperação de sítios
 
@@ -21,7 +22,7 @@ Este documento descreve os detalhes da depreciação e as medidas de reparação
 ## <a name="deprecation-information"></a>Informação sobre depreciação
 
 
-A funcionalidade de encriptação de dados de recuperação do site estava disponível para os clientes que protegem os hiper-V vms para garantir que os dados replicados estavam protegidos contra ameaças de segurança. esta funcionalidade será depreciada até **30 de dezembro de 2019**. Está a ser substituído pela funcionalidade [de Encriptação mais](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) avançada em Repouso, que utiliza [encriptação do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Com a SSE, os dados são encriptados antes de persistirem no armazenamento e desencriptados na recuperação, e, após a falha para o Azure, os seus VMs serão executados a partir das contas de armazenamento encriptadas, permitindo um melhor objetivo de tempo de recuperação (RTO).
+A funcionalidade de encriptação de dados de recuperação do site estava disponível para os clientes que protegem os hiper-V vms para garantir que os dados replicados estavam protegidos contra ameaças de segurança. esta funcionalidade será depreciada até **30 de dezembro de 2019**. Está a ser substituído pela funcionalidade [de Encriptação mais](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) avançada em Repouso, que utiliza [encriptação do serviço de armazenamento](../storage/common/storage-service-encryption.md) (SSE). Com a SSE, os dados são encriptados antes de persistirem no armazenamento e desencriptados na recuperação, e, após a falha para o Azure, os seus VMs serão executados a partir das contas de armazenamento encriptadas, permitindo um melhor objetivo de tempo de recuperação (RTO).
 
 Por favor, note que se for um cliente existente usando esta funcionalidade, teria recebido comunicações com os detalhes de depreciação e medidas de reparação. 
 
@@ -34,9 +35,9 @@ Depois de **30 de dezembro de 2019**, quaisquer VMs que ainda utilizem a funcion
 Para continuar as operações de failover bem sucedidas e as replicações seguem os passos abaixo mencionados:
 
 Siga estes passos para cada VM: 
-1.  [Desativar a replicação.](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)
-2.  [Criar uma nova política de replicação.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy)
-3.  [Ativar a replicação](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) e selecionar uma conta de armazenamento com SSE ativada.
+1.  [Desativar a replicação.](./site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)
+2.  [Criar uma nova política de replicação.](./hyper-v-azure-tutorial.md#set-up-a-replication-policy)
+3.  [Ativar a replicação](./hyper-v-vmm-azure-tutorial.md#enable-replication) e selecionar uma conta de armazenamento com SSE ativada.
 
 Depois de completar a replicação inicial para contas de armazenamento com SSE ativada, os seus VMs estarão a usar encriptação em repouso com recuperação do site Azure.
 

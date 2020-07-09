@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135774"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs Azure para outra região do Azure
 
@@ -50,7 +50,7 @@ Ative a replicação. Este procedimento pressupõe que a região primária de Az
        - Se o grupo de recursos criado pela Recuperação do Local já existir, é reutilizado.
        - Pode personalizar as definições do grupo de recursos.
        - A localização do grupo de recursos-alvo pode ser qualquer região de Azure, exceto a região em que os VMs de origem estão hospedados.
-   - **Rede virtual alvo**: Por padrão, a Recuperação do Site cria uma nova rede virtual na região alvo com um sufixo "asr" no nome. Isto está mapeado para a sua rede de origem, e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento de rede.
+   - **Rede virtual alvo**: Por padrão, a Recuperação do Site cria uma nova rede virtual na região alvo com um sufixo "asr" no nome. Isto está mapeado para a sua rede de origem, e usado para qualquer proteção futura. [Saiba mais](./azure-to-azure-network-mapping.md) sobre mapeamento de rede.
    - **Contas de armazenamento de destino (fonte VM não utiliza discos geridos)**: Por padrão, a Recuperação do Site cria uma nova conta de armazenamento-alvo que imita a configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, é reutilizada.
    - **Discos geridos por réplicas (fonte VM utiliza discos geridos)**: A Recuperação do Local cria novos discos geridos por réplicas na região alvo para espelhar os discos geridos pela fonte VM com o mesmo tipo de armazenamento (Standard ou premium) que o disco gerido pela VM de origem.
    - **Cache Contas de Armazenamento**: A Recuperação do Local necessita de uma conta de armazenamento extra chamada armazenamento de cache na região de origem. Todas as alterações que ocorram nos VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache antes de as replicarem para o local alvo. Esta conta de armazenamento deve ser standard.

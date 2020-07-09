@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920166"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134585"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Ativação do Windows falha em cenário de túnel forçado
 
@@ -78,7 +79,9 @@ Para adicionar a rota personalizada, siga estes passos:
     ```
 3. Vá ao VM que tem problemas de ativação. Utilize [o PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se pode chegar ao servidor KMS:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Tente ativar o Windows e ver se o problema está resolvido.
 
@@ -106,7 +109,9 @@ Para adicionar a rota personalizada, siga estes passos:
 
 3. Vá ao VM que tem problemas de ativação. Utilize [o PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para testar se pode chegar ao servidor KMS:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Tente ativar o Windows e ver se o problema está resolvido.
 

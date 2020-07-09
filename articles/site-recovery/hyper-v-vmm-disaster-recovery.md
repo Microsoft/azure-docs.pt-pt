@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437497"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134006"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs Hyper-V para um site no local secundário
 
@@ -48,10 +48,10 @@ O [mapeamento de rede](hyper-v-vmm-network-mapping.md) faz o mapeamento entre as
 
 Prepare o VMM da seguinte forma:
 
-1. Confirme que tem [redes lógicas do VMM](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores do VMM de origem e de destino.
+1. Confirme que tem [redes lógicas do VMM](/system-center/vmm/network-logical) nos servidores do VMM de origem e de destino.
     - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
     - A rede lógica no servidor de destino deve ser associada à cloud de destino.
-1. Certifique-se de que tem [redes de VMs](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores do VMM de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+1. Certifique-se de que tem [redes de VMs](/system-center/vmm/network-virtual) nos servidores do VMM de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
 2. Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem. 
 
 
@@ -153,6 +153,6 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 
 Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial estará concluída e a VM estará preparada para a ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Executar um teste de recuperação após desastre](hyper-v-vmm-test-failover.md)

@@ -65,6 +65,10 @@
     - name: Documentação de orientação para pedidos limitados
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Obter alterações do recurso

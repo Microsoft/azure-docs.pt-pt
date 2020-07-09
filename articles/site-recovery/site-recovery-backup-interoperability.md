@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c334eee34eb878135d3d81ab15d03618c6604846
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72376223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135186"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para utilização da Recuperação do Site com Backup Azure
 
-Este artigo resume o suporte à utilização do [serviço de Recuperação](site-recovery-overview.md) do Local juntamente com o [serviço de backup Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Este artigo resume o suporte à utilização do [serviço de Recuperação](site-recovery-overview.md) do Local juntamente com o [serviço de backup Azure](../backup/backup-overview.md).
 
 **Ação** | **Suporte do Site Recovery** | **Detalhes**
 --- | --- | ---

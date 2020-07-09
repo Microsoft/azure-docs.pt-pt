@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: c41292a05e5c857cd0b1c120784a400f2f5410ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5a9ace105e56d9db61470c35f665954812c3825
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134255"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI (Migrar recursos IaaS de clássica para Azure Resource Manager com a CLI do Azure)
 
@@ -49,11 +50,15 @@ Para cenários de migração, você precisa configurar o seu ambiente tanto para
 
 Inscreva-se na sua conta.
 
-    azure login
+```azurecli
+azure login
+```
 
 Selecione a subscrição Azure utilizando o seguinte comando.
 
-    azure account set "<azure-subscription-name>"
+```azurecli
+azure account set "<azure-subscription-name>"
+```
 
 > [!NOTE]
 > O registo é um passo único, mas tem de ser feito uma vez antes de tentar migrar. Sem registar verá a seguinte mensagem de erro 
@@ -64,42 +69,53 @@ Selecione a subscrição Azure utilizando o seguinte comando.
 
 Registe-se junto do fornecedor de recursos de migração utilizando o seguinte comando. Note que em alguns casos, este comando acaba. No entanto, o registo será bem sucedido.
 
-    azure provider register Microsoft.ClassicInfrastructureMigrate
+```azurecli
+azure provider register Microsoft.ClassicInfrastructureMigrate
+```
 
 Por favor, espere cinco minutos para a inscrição terminar. Pode verificar o estado da aprovação utilizando o seguinte comando. Certifique-se de que o Estado de Registo está `Registered` antes de prosseguir.
 
-    azure provider show Microsoft.ClassicInfrastructureMigrate
+```azurecli
+azure provider show Microsoft.ClassicInfrastructureMigrate
+```
 
 Agora mude o CLI para o `asm` modo.
 
-    azure config mode asm
+```azurecli
+azure config mode asm
+```
 
 ## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Passo 3: Certifique-se de que tem vCPUs virtual do Gestor de Recursos Azure na região Azure da sua atual implantação ou VNET
 Para este passo terá de mudar para `arm` o modo. Faça isto com o seguinte comando.
 
-```
+```azurecli
 azure config mode arm
 ```
 
 Pode utilizar o seguinte comando CLI para verificar o número atual de vCPUs que tem no Azure Resource Manager. Para saber mais sobre as quotas vCPU, consulte [Limits e o Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
-```
+```azurecli
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
 Uma vez terminado a verificação deste passo, pode voltar ao `asm` modo.
 
-    azure config mode asm
-
+```azurecli
+azure config mode asm
+```
 
 ## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Passo 4: Opção 1 - Migrar máquinas virtuais num serviço de nuvem
 Obtenha a lista de serviços em nuvem usando o seguinte comando e, em seguida, escolha o serviço de nuvem que deseja migrar. Note que se os VMs no serviço de nuvem estiverem numa rede virtual ou se tiverem funções web/trabalhador, receberá uma mensagem de erro.
 
-    azure service list
+```azurecli
+azure service list
+```
 
 Executar o seguinte comando para obter o nome de implementação do serviço de nuvem a partir da saída verbose. Na maioria dos casos, o nome de implantação é o mesmo que o nome de serviço em nuvem.
 
-    azure service show <serviceName> -vv
+```azurecli
+azure service show <serviceName> -vv
+```
 
 Em primeiro lugar, valide se conseguir migrar o serviço de nuvem utilizando os seguintes comandos:
 
@@ -111,32 +127,42 @@ Prepare as máquinas virtuais no serviço de nuvem para migração. Tem duas op�
 
 Se pretender migrar os VMs para uma rede virtual criada pela plataforma, utilize o seguinte comando.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
+```azurecli
+azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
+```
 
 Se pretender migrar para uma rede virtual existente no modelo de implementação do Gestor de Recursos, utilize o seguinte comando.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
+```azurecli
+azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
+```
 
 Depois de a operação de preparação ter sido bem sucedida, pode olhar através da produção verbosa para obter o estado de migração dos VMs e garantir que estão no `Prepared` estado.
 
-    azure vm show <vmName> -vv
+```azurecli
+azure vm show <vmName> -vv
+```
 
 Verifique a configuração dos recursos preparados utilizando o CLI ou o portal Azure. Se não estiver pronto para a migração e quiser voltar ao estado antigo, use o seguinte comando.
 
-    azure service deployment abort-migration <serviceName> <deploymentName>
+```azurecli
+azure service deployment abort-migration <serviceName> <deploymentName>
+```
 
 Se a configuração preparada parecer boa, pode avançar e comprometer os recursos utilizando o seguinte comando.
 
-    azure service deployment commit-migration <serviceName> <deploymentName>
-
-
+```azurecli
+azure service deployment commit-migration <serviceName> <deploymentName>
+```
 
 ## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Passo 4: Opção 2 - Migrar máquinas virtuais numa rede virtual
 Escolha a rede virtual que pretende migrar. Note que se a rede virtual contiver funções web/trabalhador ou VMs com configurações não suportadas, receberá uma mensagem de erro de validação.
 
 Obtenha todas as redes virtuais na subscrição utilizando o seguinte comando.
 
-    azure network vnet list
+```azurecli
+azure network vnet list
+```
 
 A saída será semelhante à seguinte:
 
@@ -152,30 +178,42 @@ azure network vnet validate-migration <virtualNetworkName>
 
 Prepare a rede virtual da sua escolha para a migração utilizando o seguinte comando.
 
-    azure network vnet prepare-migration <virtualNetworkName>
+```azurecli
+azure network vnet prepare-migration <virtualNetworkName>
+```
 
 Verifique a configuração das máquinas virtuais preparadas utilizando o CLI ou o portal Azure. Se não estiver pronto para a migração e quiser voltar ao estado antigo, use o seguinte comando.
 
-    azure network vnet abort-migration <virtualNetworkName>
+```azurecli
+azure network vnet abort-migration <virtualNetworkName>
+```
 
 Se a configuração preparada parecer boa, pode avançar e comprometer os recursos utilizando o seguinte comando.
 
-    azure network vnet commit-migration <virtualNetworkName>
+```azurecli
+azure network vnet commit-migration <virtualNetworkName>
+```
 
 ## <a name="step-5-migrate-a-storage-account"></a>Passo 5: Migrar uma conta de armazenamento
 Uma vez terminada a migração das máquinas virtuais, recomendamos que emigres a conta de armazenamento.
 
 Prepare a conta de armazenamento para a migração utilizando o seguinte comando
 
-    azure storage account prepare-migration <storageAccountName>
+```azurecli
+azure storage account prepare-migration <storageAccountName>
+```
 
 Verifique a configuração da conta de armazenamento preparada utilizando o CLI ou o portal Azure. Se não estiver pronto para a migração e quiser voltar ao estado antigo, use o seguinte comando.
 
-    azure storage account abort-migration <storageAccountName>
+```azurecli
+azure storage account abort-migration <storageAccountName>
+```
 
 Se a configuração preparada parecer boa, pode avançar e comprometer os recursos utilizando o seguinte comando.
 
-    azure storage account commit-migration <storageAccountName>
+```azurecli
+azure storage account commit-migration <storageAccountName>
+```
 
 ## <a name="next-steps"></a>Próximos passos
 

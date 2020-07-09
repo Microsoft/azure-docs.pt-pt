@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f42942d0e112aad147f78d62b5f5b43587eca9b3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80388904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135612"
 ---
 # <a name="about-migration"></a>Acerca da migração
 
@@ -30,7 +30,7 @@ Aqui está o que pode migrar usando a Recuperação do Local:
 - **Migrar AWS**: migre instâncias do Windows AWS para VMs IaaS do Azure. 
 
 > [!NOTE]
-> Pode agora migrar do local para Azure utilizando o serviço Azure Migrate. [Saiba mais](../migrate/migrate-overview.md).
+> Pode agora migrar do local para Azure utilizando o serviço Azure Migrate. [Saiba mais](../migrate/migrate-services-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer com migração?
 
@@ -48,7 +48,7 @@ Além de utilizar a Recuperação do Local para a recuperação de desastres no 
 **Migrar entre regiões de Azure** | Você pode migrar VMs Azure de uma região de Azure para outra. Após a conclusão da migração, pode configurar a recuperação de desastres para os VMs Azure agora na região secundária para a qual emigrou.
 **Migrar o AWS para o Azure** | Pode migrar instâncias do AWS para VMs do Azure. A Recuperação do Site trata os casos AWS como servidores físicos para fins de migração. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Migrar máquinas no local para o Azure](migrate-tutorial-on-premises-azure.md)
 - [Migrar VMs de uma região do Azure para outra](azure-to-azure-tutorial-migrate.md)

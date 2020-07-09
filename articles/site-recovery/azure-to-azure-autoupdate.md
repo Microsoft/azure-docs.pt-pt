@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985606"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135846"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação Azure-to-Azure
 
@@ -90,7 +90,7 @@ Se não conseguir ativar atualizações automáticas, consulte os seguintes erro
 
 - **Erro**: Não tem permissões para criar uma conta Azure Run As (principal serviço) e conceder o papel de Contribuinte ao titular do serviço.
 
-  **Ação recomendada**: Certifique-se de que a conta de assinatura é atribuída como Contribuinte e tente novamente. Para obter mais informações sobre a atribuição de permissões, consulte a secção de permissões necessárias de [Como: Utilizar o portal para criar uma aplicação AD AD Azure que possa aceder aos recursos.](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)
+  **Ação recomendada**: Certifique-se de que a conta de assinatura é atribuída como Contribuinte e tente novamente. Para obter mais informações sobre a atribuição de permissões, consulte a secção de permissões necessárias de [Como: Utilizar o portal para criar uma aplicação AD AD Azure que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
   Para corrigir a maioria dos problemas depois de ativar atualizações automáticas, selecione **Reparação**. Se o botão de reparação não estiver disponível, consulte a mensagem de erro exibida no painel de definições de atualização de extensão.
 
@@ -98,11 +98,11 @@ Se não conseguir ativar atualizações automáticas, consulte os seguintes erro
 
 - **Erro**: A conta Run As não tem a permissão para aceder ao recurso de serviços de recuperação.
 
-  **Ação recomendada**: Eliminar e, em seguida, [recriar a conta Run As](/azure/automation/automation-create-runas-account). Ou, certifique-se de que a aplicação Azure Ative Directy da conta Azure Ative da conta pode aceder ao recurso dos serviços de recuperação.
+  **Ação recomendada**: Eliminar e, em seguida, [recriar a conta Run As](../automation/manage-runas-account.md). Ou, certifique-se de que a aplicação Azure Ative Directy da conta Azure Ative da conta pode aceder ao recurso dos serviços de recuperação.
 
 - **Erro**: Executar Como a conta não é encontrada. Qualquer uma delas foi eliminada ou não foi criada - Aplicação de Diretório Ativo Azure, Diretor de Serviço, Papel, Certificado de Automação, Ativo de Ligação de Automação - ou a impressão digital não é idêntica entre Certificado e Conexão.
 
-  **Ação recomendada**: Eliminar e, em seguida, [recriar a conta Run As](/azure/automation/automation-create-runas-account).
+  **Ação recomendada**: Eliminar e, em seguida, [recriar a conta Run As](../automation/manage-runas-account.md).
 
 - **Erro**: O Azure Run como Certificado utilizado pela conta de automação está prestes a expirar.
 

@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133674"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre recuperação do local de Azure
 
@@ -56,7 +56,7 @@ Não, os dados são replicados no armazenamento Azure na sua subscrição. Quand
 Sim.
 
 ### <a name="what-platforms-do-you-currently-support"></a>Quais as plataformas a que atualmente dão suporte?
-Apoiamos implementações do Azure Pack, Cloud Platform System e System Center (2012 e superior). [Saiba mais](https://technet.microsoft.com/library/dn850370.aspx) sobre a integração do Azure Pack e da Recuperação do Local.
+Apoiamos implementações do Azure Pack, Cloud Platform System e System Center (2012 e superior). [Saiba mais](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) sobre a integração do Azure Pack e da Recuperação do Local.
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Suportam implementações únicas de Azure Pack e de servidor VMM?
 Sim, pode replicar máquinas virtuais Hyper-V para Azure, ou entre sites de prestadores de serviços.  Note que se replicar entre sites de prestadores de serviços, a integração do runbook Azure não está disponível.
@@ -105,7 +105,7 @@ A Recuperação do Local é ISO 27001:2013, 27018, HIPAA, DPA certificada, e est
 Sim. Quando cria um cofre de recuperação de locais numa região, garantimos que todos os metadados que precisamos para permitir e orquestrar a replicação e falha permanecem dentro da fronteira geográfica dessa região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
-Para máquinas virtuais e servidores físicos, é suportada a replicação entre sites no local de encriptação em trânsito. Para máquinas virtuais e servidores físicos que se replicam no Azure, são suportados tanto a encriptação em trânsito como a [encriptação em repouso (em Azure).](https://docs.microsoft.com/azure/storage/storage-service-encryption)
+Para máquinas virtuais e servidores físicos, é suportada a replicação entre sites no local de encriptação em trânsito. Para máquinas virtuais e servidores físicos que se replicam no Azure, são suportados tanto a encriptação em trânsito como a [encriptação em repouso (em Azure).](../storage/common/storage-service-encryption.md)
 
 ### <a name="does-azure-to-azure-site-recovery-use-tls-12-for-all-communications-across-microservices-of-azure"></a>A recuperação do sítio Azure-to-Azure utiliza TLS 1.2 para todas as comunicações em microserviços da Azure?
 Sim, o protocolo TLS 1.2 é aplicado por padrão para o cenário de recuperação do local de Azure-to-Azure. 
@@ -198,7 +198,7 @@ Os discos dinâmicos são suportados ao replicar máquinas virtuais Hyper-V e ao
 Sim. Pode ler mais sobre a largura de banda de estrangulamento nestes artigos:
 
 * [Planeamento de capacidade para replicar VMware VMs e servidores físicos](site-recovery-plan-capacity-vmware.md)
-* [Planeamento de capacidade para replicar VMs hiper-V para Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Planeamento de capacidade para replicar VMs hiper-V para Azure](./hyper-v-deployment-planner-overview.md)
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso permitir a replicação com consistência de aplicações nos servidores Linux? 
 Sim. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. Abaixo estão os passos para o permitir.
@@ -254,7 +254,7 @@ Para automatizar, pode utilizar o Orquestrador ou Diretor de Operações no loca
 
 * [Leia mais](site-recovery-create-recovery-plans.md) sobre os planos de recuperação.
 * [Leia mais](site-recovery-failover.md) sobre o fracasso.
-* [Leia mais](site-recovery-failback-azure-to-vmware.md) sobre vMware de volta e servidores físicos
+* [Leia mais](./vmware-azure-failback.md) sobre vMware de volta e servidores físicos
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>Se o meu anfitrião no local não está a responder ou a despenhar-se, posso voltar a ser um hospedeiro diferente?
 Sim, pode usar a recuperação de localização alternativa para falhar com um anfitrião diferente do Azure.
@@ -279,4 +279,3 @@ Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a 
 
 ## <a name="next-steps"></a>Próximos passos
 * Leia a [Descrição geral da Recuperação de Sites](site-recovery-overview.md)
-

@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31e9e88bc37dc19d1d81dc55d52786de60706313
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652492"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134545"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI elemento
 
@@ -82,7 +83,7 @@ Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) trunc
 - `constraints.accept`especifica os tipos de ficheiros que são mostrados no diálogo de ficheiros do navegador. Consulte a [especificação HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) para obter valores permitidos. O valor por defeito é **nulo.**
 - Se `options.multiple` estiver definido como **verdadeiro,** o utilizador pode selecionar mais de um ficheiro no diálogo de ficheiros do navegador. O valor predefinido é **falso**.
 - Este elemento suporta o upload de ficheiros em dois modos com base no valor de `options.uploadMode` . Se o **ficheiro** for especificado, a saída tem o conteúdo do ficheiro como uma bolha. Se **o url** for especificado, então o ficheiro é enviado para um local temporário, e a saída tem o URL da bolha. As bolhas temporárias serão purgadas após 24 horas. O valor predefinido é **ficheiro.**
-- Um ficheiro carregado está protegido. O URL de saída inclui um [símbolo SAS para](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) aceder ao ficheiro durante a implementação.
+- Um ficheiro carregado está protegido. O URL de saída inclui um [símbolo SAS para](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) aceder ao ficheiro durante a implementação.
 - O valor determina `options.openMode` como o ficheiro é lido. Se se espera que o ficheiro seja texto simples, especifique **o texto;** caso contrário, especifique **binário.** O valor predefinido é **texto.**
 - Se `options.uploadMode` estiver definido para **arquivar** e estiver definido `options.openMode` para **binário,** a saída é codificada com base64.
 - `options.encoding`especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**, e é utilizado apenas quando `options.openMode` é definido para **texto**.

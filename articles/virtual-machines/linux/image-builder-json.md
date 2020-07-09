@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263318"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135077"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -391,7 +391,8 @@ Os ficheiros no personalizador de ficheiros podem ser descarregados a partir do 
 
 ### <a name="windows-update-customizer"></a>Personalizador de atualização do Windows
 Este personalizador é construído na [comunidade Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) para Packer, que é um projeto de código aberto mantido pela comunidade Packer. A Microsoft testa e valida o provisionador com o serviço Image Builder, e irá apoiar a investigação de problemas com o mesmo, e trabalhará para resolver problemas, no entanto o projeto open source não é oficialmente suportado pela Microsoft. Para obter documentação detalhada e ajudar com o Windows Update Provisioner, consulte o repositório do projeto.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ Este personalizador é construído na [comunidade Windows Update Provisioner](ht
                 "updateLimit": 20
             }
                ], 
-Suporte oss: Windows
+OS support: Windows
+```
 
 Personalize propriedades:
 - **tipo** – WindowsUpdate.

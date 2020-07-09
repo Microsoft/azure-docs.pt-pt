@@ -16,11 +16,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52f25d89691a2a721025848e28d119a0fbe5e322
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135986"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
@@ -52,7 +53,7 @@ Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para co
 
 Neste cenário, pode ligar-se utilizando o **Nome** VM (também mostrado como **Nome de Computador** ou nome de **anfitrião** no portal). Este é o nome que forneceu para o VM durante a criação. Por exemplo, se nomeou o seu SQL VM **mysqlvm,** um VM cliente no mesmo serviço de nuvem poderia usar o seguinte fio de ligação para ligar:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Conecte-se ao SQL Server através da Internet
 Se pretender ligar-se ao seu motor de base de dados SQL Server a partir da Internet, tem de criar um ponto final de máquina virtual para a comunicação TCP de entrada. Este passo de configuração do Azure direciona o tráfego da porta TCP recebido para uma porta TCP a que a máquina virtual tenha acesso.
@@ -61,7 +62,7 @@ Para se ligar através da internet, deve utilizar o nome DNS do VM e o número d
 
 Por exemplo, considere uma máquina virtual clássica chamada **Mysqlvm** com um nome DNS de **mysqlvm7777.cloudapp.net** e um ponto final VM de **57500**. Assumindo a conectividade devidamente configurada, a seguinte cadeia de ligação poderia ser usada para aceder à máquina virtual a partir de qualquer lugar da internet:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 Embora isto permita conectividade para os clientes através da internet, isso não implica que qualquer pessoa possa ligar-se ao seu SQL Server. Os clientes externos têm o nome de utilizador e a palavra-passe corretos. Para maior segurança, não utilize o conhecido porto 1433 para o ponto final da máquina virtual pública. E, se possível, considere adicionar um ACL no seu ponto final para restringir o tráfego apenas aos clientes que permitir. Para obter instruções sobre a utilização de ACLs com pontos finais, consulte [gerir a ACL num ponto final](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -77,7 +78,7 @@ As redes virtuais também permitem juntar os seus VMs Azure a um domínio. Esta 
 
 Se vai configurar um ambiente de domínio e autenticação do Windows, não precisa de utilizar os passos deste artigo para configurar o ponto final público ou a Autenticação e logins SQL. Neste cenário, pode ligar-se à sua instância SQL Server especificando o nome VM do servidor SQL na cadeia de ligação. O exemplo a seguir pressupõe que a Autenticação do Windows também foi configurada e que o utilizador teve acesso à instância do SQL Server.
 
-    "Server=mysqlvm;Integrated Security=true"
+`Server=mysqlvm;Integrated Security=true`
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Passos para configurar a conectividade do Servidor SQL num VM Azure
 Os seguintes passos demonstram como ligar-se à instância do SQL Server através da internet utilizando o SQL Server Management Studio (SSMS). No entanto, os mesmos passos aplicam-se para tornar a sua máquina virtual SQL Server acessível às suas aplicações, funcionando tanto no local como no Azure.

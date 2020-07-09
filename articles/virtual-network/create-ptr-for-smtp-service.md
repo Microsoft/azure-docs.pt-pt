@@ -13,11 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0264ad93eb53e27d1dc76f2b20ad175a6ee2f8de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ffadb8d54db0c2a99dc12e45b5990155a0505e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688692"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135061"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurar zonas de procura inversa para uma verificação de banner SMTP
 
@@ -37,10 +38,12 @@ Para configurar os registos PTR em zonas proprietárias da Microsoft, utilize a 
 
 Quando configurar os registos PTR, certifique-se de que o endereço IP e o FQDN invertido são propriedade da subscrição. Se tentar definir um FQDN invertido que não pertença à subscrição, recebe a seguinte mensagem de erro:
 
-    Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
-                        
-    1) ReverseFqdn corresponde a Fqdn de qualquer recurso ip público ao abrigo da subscrição;
-    2) ReverseFqdn resolve a fqdn (através da cadeia de registos CName) de qualquer recurso ip público ao abrigo da subscrição;
-    3) Resolve-se para o endereço IP (através da cadeia de registos CName e A) de um recurso ip público estático sob a subscrição.
+```output
+Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
+                    
+1) ReverseFqdn matches fqdn of any public ip resource under the subscription;
+2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription;
+3) It resolves to the ip address (through CName and A records chain) of a static public ip resource under the subscription.
+```
 
 Se alterar manualmente o seu banner SMTP para corresponder ao nosso FQDN invertido padrão, o servidor de correio remoto ainda pode falhar porque pode esperar que o anfitrião do banner SMTP corresponda ao registo MX do domínio.

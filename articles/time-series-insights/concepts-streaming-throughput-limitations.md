@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a82aa3aca55622308cae5816c95df9766048da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: baa132589f5242ab480c9caa55ca793e0652ad6e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135008"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
 
 Azure Time Series Insights streaming de dados ingresss limitações são descritos abaixo.
 
 > [!TIP]
-> Leia [O Plano do seu ambiente de pré-visualização](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) para uma lista completa de todos os limites de pré-visualização. **TODO** remover a palavra "Pré-visualização" aqui uma vez que o título do artigo foi atualizado.
+> Leia [O Plano do seu ambiente de pré-visualização](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) para uma lista completa de todos os limites de pré-visualização.
 
 ## <a name="per-environment-limitations"></a>Por limitações ambientais
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71f4209b4af9c5bb5f171cf3c8e35b0fbc05fac9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366301"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134789"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implementação de Recuperação de Sítios Azure para VMware a Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -119,7 +120,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
 
 ## <a name="version-history"></a>Histórico de versões
 A versão mais recente da ferramenta De Implementação de Implementação do Site Recovery Planner é 2.5.
-Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) para obter as correções que foram adicionadas em cada atualização.
+Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](./site-recovery-deployment-planner-history.md) para obter as correções que foram adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Próximos passos
 [Planeador de Implementações do Site Recovery](site-recovery-vmware-deployment-planner-run.md)

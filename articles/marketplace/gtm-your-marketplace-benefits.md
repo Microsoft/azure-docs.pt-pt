@@ -1,18 +1,18 @@
 ---
 title: Go-To-Market Services - os seus benefícios de mercado comercial, Azure Marketplace
 description: Go-To-Market Services - Os recursos da Microsoft que os editores podem usar são descritos nesta secção.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085689"
+ms.locfileid: "86135520"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -36,13 +36,13 @@ O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benef�
 
 Você terá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards.](https://aka.ms/marketplacerewards)
+Descrições detalhadas de todos os benefícios do programa podem ser encontradas nesta [apresentação do programa Marketplace Rewards.](https://aka.ms/marketplacerewards)
 
-Os seus passos para começar são fáceis:
+Começar é fácil:
 
 1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
-2. Vá ao [painel](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)partner Center , abra o **Mercado Comercial** no menu de navegação à esquerda, selecione Marketplace **Rewards,** em seguida, selecione o separador **de benefícios de Vendas e Marketing** para ver a sua lista de benefícios.
-3. Para ativar o benefício de vendas e marketing, você deve primeiro atribuir um contato de marketing da empresa. Este contacto receberá as comunicações de acompanhamento do Marketplace Rewards.
+2. Vá ao [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **Matricular-se no Programa de Recompensas do Mercado.**
+3. Para ativar o benefício de vendas e marketing, atribua um contacto de marketing da empresa. Este contacto receberá as comunicações de acompanhamento do Marketplace Rewards.
 4. Para adicionar ou atualizar as suas informações de contacto de marketing, vá ao topo do separador de benefícios de Vendas e Marketing na página Marketplace Rewards e, em **seguida, selecione Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
 
     1. Selecione um utilizador da lista. Se o utilizador que pretende atribuir não estiver na lista, pode adicionar novos utilizadores nas **definições de Conta**.
@@ -56,7 +56,7 @@ Os seus passos para começar são fáceis:
 2. Como utilizar os benefícios de patrocínio da Azure será partilhado através de um e-mail à medida que desbloqueie estes benefícios.
 
 >[!NOTE]
->Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, por favor, verifique dentro da sua organização quem é o proprietário da oferta em questão, olhando para o Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário tiver deixado a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Apoio.](https://aka.ms/marketplacepublishersupport)
+>Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, por favor, verifique dentro da sua organização quem é o proprietário da oferta em questão, olhando para o Partner Center. Devem ter a comunicação e os próximos passos.<br><br>Se não conseguir determinar o proprietário, ou se o proprietário tiver deixado a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Apoio.](https://aka.ms/marketplacepublishersupport)
 
 O âmbito das atividades disponíveis para si expande-se à medida que aumenta as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um email auto-servido de recursos e boas práticas.
 
@@ -75,7 +75,7 @@ Descrições detalhadas para todos estes benefícios podem ser encontradas no de
 Quando você vai ao vivo com a sua oferta transacionável no Azure Marketplace ou Microsoft AppSource, você pode aceder a benefícios adicionais à medida que cresce suas transações de vendas faturadas ou assentos vendidos através do mercado comercial. 
 
 >[!NOTE]
->O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
+>O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que têm integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2020.
 
 Estes benefícios são projetados para apoiá-lo em marketing, vendas e atividades técnicas, ajudando assim a obter mais visitantes, receber mais leads e converter mais negócios.
 

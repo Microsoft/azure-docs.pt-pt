@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135720"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Ativar zona para zona de recuperação de desastres para máquinas virtuais Azure
 
@@ -97,7 +98,7 @@ Faça login no portal Azure.
 
 5. Se pretender fazer alterações nas definições de replicação, clique em 'Seguinte: Definições avançadas'.
 
-6. Altere as definições para longe do padrão sempre que apropriado. Para os utilizadores de Azure to Azure Disaster Recovery, esta página pode parecer familiar. Mais detalhes sobre as opções apresentadas nesta lâmina podem ser [consultados aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Altere as definições para longe do padrão sempre que apropriado. Para os utilizadores de Azure to Azure Disaster Recovery, esta página pode parecer familiar. Mais detalhes sobre as opções apresentadas nesta lâmina podem ser [consultados aqui](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Página de Definições Avançadas](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ O RTO SLA é o mesmo que para a Recuperação do Local em geral. Prometemos RTO 
 A equipa de recuperação do local e o plano da equipa de gestão de capacidades da Azure para capacidade de infraestrutura suficiente. Quando inicia uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Local serão implantadas na zona alvo.
 
 **4. Que sistemas operativos são suportados?**
-Zona para zona Recuperação de Desastres suporta os mesmos sistemas operativos que Azure para Azure Disaster Recovery. Consulte aqui a [matriz](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)de suporte.
+Zona para zona Recuperação de Desastres suporta os mesmos sistemas operativos que Azure para Azure Disaster Recovery. Consulte aqui a [matriz](./azure-to-azure-support-matrix.md)de suporte.
 
 **5. Os grupos de recursos de origem e de destino podem ser os mesmos?**
 Não, tens de falhar com um grupo de recursos diferente.
@@ -124,8 +125,8 @@ Não, tens de falhar com um grupo de recursos diferente.
 
 Os passos que precisam de ser seguidos para executar um exercício de recuperação de desastres, falhar, re-proteger e falhar são os mesmos que os passos em Azure para O cenário de Recuperação de Desastres Azure.
 
-Para realizar um exercício de recuperação de desastres, siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill)descritos.
+Para realizar um exercício de recuperação de desastres, siga os passos [aqui](./azure-to-azure-tutorial-dr-drill.md)descritos.
 
-Para efetuar uma falha e re-proteger os VMs na zona secundária, siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)descritos.
+Para efetuar uma falha e re-proteger os VMs na zona secundária, siga os passos [aqui](./azure-to-azure-tutorial-failover-failback.md)descritos.
 
-Para não responder à zona primária, siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback)descritos.
+Para não responder à zona primária, siga os passos [aqui](./azure-to-azure-tutorial-failback.md)descritos.

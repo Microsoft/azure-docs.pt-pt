@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135248"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -101,15 +102,15 @@ Se precisar de ativar as solicitações de carregamento de arranque do Windows p
 
     ![Ligue-se ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    `cmd`Insira para criar um canal que tenha uma instância CMD.
+1. `cmd`Insira para criar um canal que tenha uma instância CMD.
 
-1.    Introduza `ch -si 1` ou prima `<esc>+<tab>` as teclas de atalho para mudar para o canal que está a executar a instância CMD.
+1. Introduza `ch -si 1` ou prima `<esc>+<tab>` as teclas de atalho para mudar para o canal que está a executar a instância CMD.
 
-1.    Pressione **Intromia**e, em seguida, introduza credenciais de inscrição com permissões administrativas.
+1. Pressione **Intromia**e, em seguida, introduza credenciais de inscrição com permissões administrativas.
 
-1.    Depois de ter introduzido credenciais válidas, abre-se a instância CMD.
+1. Depois de ter introduzido credenciais válidas, abre-se a instância CMD.
 
-1.    Para iniciar uma instância PowerShell, insira `PowerShell` na instância CMD e, em seguida, prima **Enter**.
+1. Para iniciar uma instância PowerShell, insira `PowerShell` na instância CMD e, em seguida, prima **Enter**.
 
     ![Exemplo Open PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
@@ -190,7 +191,7 @@ Colar em PowerShell em SAC resulta num terceiro personagem se o conteúdo origin
 Algumas entradas de teclado produzem uma saída SAC estranha (por exemplo, **[A**, **[3~**). | As sequências de fuga [vT100](https://aka.ms/vtsequences) não são suportadas pelo pedido da SAC.
 Colar cordas compridas não funciona. | A consola em série limita o comprimento das cordas coladas no terminal aos caracteres de 2048 para evitar sobrecargas na largura de banda da porta em série.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Q. Como posso enviar feedback?**
 

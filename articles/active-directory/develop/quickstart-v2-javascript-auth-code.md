@@ -1,7 +1,7 @@
 ---
-title: Inscreva-se em utilizadores em aplicações de página única JavaScript (SPA) com código auth / Azure
+title: Inscreva-se nos utilizadores em aplicações de página única JavaScript (SPA) com código auth ! Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação JavaScript pode chamar uma API que requer acesso a fichas usando a plataforma de identidade da Microsoft.
+description: Saiba como uma aplicação JavaScript pode chamar uma API que requer acesso a tokens usando a plataforma de identidade da Microsoft.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,63 +12,63 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0ba4531ed15630a8887cb7be843a00ba23a439cc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682014"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134181"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso num JavaScript SPA utilizando o fluxo de código auth
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem mudar antes da disponibilidade geral (GA).
 
-Neste arranque rápido, executa uma amostra de código que demonstra como uma aplicação de uma página única javaScript (SPA) pode inscrever utilizadores de contas pessoais, contas de trabalho e contas escolares utilizando o fluxo de código de autorização. A amostra de código também demonstra obter um sinal de acesso para chamar uma API web, neste caso a API do Microsoft Graph. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
+Neste quickstart, você executou uma amostra de código que demonstra como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares usando o fluxo de código de autorização. A amostra de código também demonstra obter um token de acesso para chamar uma API web, neste caso a Microsoft Graph API. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
-Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Para um quickstart semelhante que utiliza MSAL.js 1.0 com o fluxo implícito, consulte [Quickstart: Inscreva-se nos utilizadores em aplicações de página única JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorização. Para um quickstart semelhante que utiliza MSAL.js 1.0 com o fluxo implícito, consulte [Quickstart: Inicie nos utilizadores em aplicações de página única JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [Criar uma subscrição Azure gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Subscrição Azure - [Crie gratuitamente uma subscrição Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
 * [Código de Estúdio Visual](https://code.visualstudio.com/download) ou outro editor de código
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-application"></a>Registe-se e descarregue a sua aplicação quickstart
+> ## <a name="register-and-download-your-quickstart-application"></a>Registe-se e baixe a sua aplicação de arranque rápido
 > Para iniciar a sua aplicação de arranque rápido, utilize qualquer uma das seguintes opções.
 >
-> ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Express): Registe-se e configure automaticamente a sua aplicação e, em seguida, descarregue a sua amostra de código
+> ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Expresso): Registar e configurar automaticamente a sua app e, em seguida, descarregar a sua amostra de código
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a conta no canto superior direito e, em seguida, detete a sua sessão do portal para o inquilino azure Ative Directory (Azure AD) que deseja utilizar.
+> 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino Azure Ative Directory (Azure AD) que pretende utilizar.
 > 1. Selecione [Registos das aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Introduza um nome para a aplicação.
-> 1. Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**.
-> 1. Vá ao painel de arranque rápido e siga as instruções para descarregar e configure automaticamente a sua nova aplicação.
+> 1. Vá ao painel de arranque rápido e siga as instruções para descarregar e configurar automaticamente a sua nova aplicação.
 >
-> ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2 (Manual): Registe-se e configure manualmente a sua aplicação e amostra de código
+> ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2 (Manual): Registar e configurar manualmente a sua aplicação e amostra de código
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito e, em seguida, marque a sua sessão do portal para o inquilino da AD Azure que deseja utilizar.
+> 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino AD AZure que pretende usar.
 > 1. Selecione [Registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
-> 1. Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
-> 1. Selecione **Registar**. Na página de **visão geral** da aplicação, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
-> 1. No painel esquerdo da aplicação registada, **selecione Autenticação**.
-> 1. Sob **as configurações da Plataforma,** selecione **Adicionar uma plataforma**. No painel que abre a aplicação de **página única.**
-> 1. Desloque o valor **URI redirecionamento** para `http://localhost:3000/` .
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
+> 1. No painel esquerdo da aplicação registada, selecione **Autenticação**.
+> 1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**. No painel que abre selecione **aplicação de página única**.
+> 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/` .
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configure a sua aplicação no portal Azure
-> Para que a amostra de código neste arranque rápido funcione, é necessário adicionar um `redirectUri` como `http://localhost:3000/` .
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
+> Para fazer a amostra de código neste trabalho de arranque rápido, você precisa adicionar um `redirectUri` como `http://localhost:3000/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça estas mudanças para mim]()
+> > [Faça estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
@@ -76,7 +76,7 @@ Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Par
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
 
 > [!div renderon="docs"]
-> Para executar o projeto com um servidor web utilizando o Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
+> Para executar o projeto com um servidor web utilizando Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Executar o projeto com um servidor web usando Node.js
@@ -85,7 +85,7 @@ Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Par
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip)
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configure a sua aplicação JavaScript
+> #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configurar a sua aplicação JavaScript
 >
 > Na pasta da *aplicação,* abra o ficheiro *authConfig.js* e atualize o `clientID` , e `authority` `redirectUri` valores no `msalConfig` objeto.
 >
@@ -110,33 +110,33 @@ Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Par
 
 > [!div renderon="docs"]
 >
-> Modificar os valores na `msalConfig` secção aqui descrita:
+> Modifique os valores na `msalConfig` secção descrita aqui:
 >
-> - `Enter_the_Application_Id_Here`é o ID de **Aplicação (cliente)** para o pedido que registou.
-> - `Enter_the_Cloud_Instance_Id_Here`é o exemplo da nuvem Azure. Para a nuvem azure principal ou global, entre `https://login.microsoftonline.com/` . Para as nuvens **nacionais** (por exemplo, China), veja [as nuvens nacionais.](authentication-national-cloud.md)
+> - `Enter_the_Application_Id_Here`é o **ID de Aplicação (cliente)** para a aplicação que registou.
+> - `Enter_the_Cloud_Instance_Id_Here`é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, `https://login.microsoftonline.com/` entre. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](authentication-national-cloud.md)
 > - `Enter_the_Tenant_info_here`é definido para um dos seguintes:
->   - Se a sua candidatura apoiar *contas neste diretório organizacional,* substitua este valor pelo nome de Id do **Arrendatário** ou **inquilino**. Por exemplo, `contoso.microsoft.com`.
->   - Se a sua aplicação apoiar *contas em qualquer diretório organizacional,* substitua este valor por `organizations` .
->   - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais*da Microsoft, substitua este valor por `common` . **Para este arranque rápido,** utilize `common` .
->   - Para restringir o suporte apenas a *contas pessoais*da Microsoft, substitua este valor por `consumers` .
+>   - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino.** Por exemplo, `contoso.microsoft.com`.
+>   - Se a sua candidatura suportar *contas em qualquer diretório organizacional,* substitua este valor por `organizations` .
+>   - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por `common` . **Para este arranque rápido,** utilize `common` .
+>   - Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor por `consumers` .
 > - `Enter_the_Redirect_Uri_Here` é `http://localhost:3000/`.
 >
-> O `authority` valor no seu *authConfig.js* deve ser semelhante ao seguinte se estiver a usar a nuvem azure principal (global):
+> O `authority` valor do seu *authConfig.js* deve ser semelhante ao seguinte se estiver a usar a nuvem Azure principal (global):
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
 > > [!TIP]
-> > Para encontrar os valores de Id de **Aplicação (cliente),** **ID de Diretório (inquilino)** e tipos de **conta suportada,** vá para a página **de visão geral** do registo da aplicação no portal Azure.
+> > Para encontrar os valores de ID de **aplicação (cliente),** **ID de diretório (inquilino)** e **tipos de conta suportados,** aceda à **página** geral do registo da aplicação no portal Azure.
 >
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
-> Configurámos o seu projeto com valores das propriedades da sua aplicação.
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para correr
+> Configuramos o seu projeto com valores das propriedades da sua aplicação.
 
 > [!div renderon="docs"]
 >
-> Em seguida, ainda na mesma pasta, editar o ficheiro *graphConfig.js* e atualizar os `graphMeEndpoint` valores e `graphMailEndpoint` valores no `apiConfig` objeto.
+> Em seguida, ainda na mesma pasta, edite o ficheiro *graphConfig.js* e atualize os `graphMeEndpoint` valores e `graphMailEndpoint` valores no `apiConfig` objeto.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -153,9 +153,9 @@ Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Par
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`é o ponto final contra o que as chamadas da API serão feitas contra. Para o principal (global) serviço Microsoft Graph API, introduza `https://graph.microsoft.com/` (inclua o trail-slash para a frente). Para obter mais informações sobre o Microsoft Graph sobre as nuvens nacionais, consulte a [implantação da nuvem nacional.](https://docs.microsoft.com/graph/deployments)
+> `Enter_the_Graph_Endpoint_Here`é o ponto final que as chamadas da API serão feitas contra. Para o serviço API do Microsoft Graph principal(global), `https://graph.microsoft.com/` insira (inclua o corte dianteiro). Para obter mais informações sobre o Microsoft Graph nas nuvens nacionais, consulte [a implementação nacional da nuvem](https://docs.microsoft.com/graph/deployments).
 >
-> Os `graphMeEndpoint` `graphMailEndpoint` valores e valores no ficheiro *graphConfig.js* devem ser semelhantes aos seguintes se estiver a utilizar o serviço principal (global) Microsoft Graph API:
+> Os `graphMeEndpoint` `graphMailEndpoint` valores e valores no ficheiro *graphConfig.js* devem ser semelhantes ao seguinte se estiver a utilizar o serviço API principal (global) da Microsoft Graph:
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -164,7 +164,7 @@ Este quickstart utiliza MSAL.js 2.0 com o fluxo de código de autorização. Par
 >
 > #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
-Executar o projeto com um servidor web utilizando node.js:
+Executar o projeto com um servidor web utilizando Node.js:
 
 1. Para iniciar o servidor, execute os seguintes comandos a partir do diretório do projeto:
     ```console
@@ -173,26 +173,26 @@ Executar o projeto com um servidor web utilizando node.js:
     ```
 1. Navegue para `http://localhost:3000/`.
 
-1. Selecione Iniciar o **sessão** para iniciar o processo de início de sessão e, em seguida, ligue para a Microsoft Graph API.
+1. Selecione **Iniciar s-in** para iniciar o processo de início e, em seguida, ligue para a API do Gráfico microsoft.
 
-    A primeira vez que faz o insessão, é solicitado que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de assinado com sucesso, as informações do seu perfil de utilizador devem ser exibidas na página.
+    A primeira vez que iniciar sessão, é solicitado que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de ter assinado com sucesso, as informações do seu perfil de utilizador devem ser apresentadas na página.
 
 ## <a name="more-information"></a>Mais informações
 
 ### <a name="how-the-sample-works"></a>Como funciona a amostra
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagrama que mostra o fluxo de código de autorização para uma aplicação de uma única página":::
+![Diagrama mostrando o fluxo de código de autorização para uma aplicação de uma página.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### <a name="msaljs"></a>msal.js
 
-A biblioteca MSAL.js assina nos utilizadores e solicita os tokens que são usados para aceder a uma API protegida pela plataforma de identidade da Microsoft. O ficheiro *index.html* da amostra contém uma referência à biblioteca:
+O MSAL.js sinais de biblioteca nos utilizadores e solicita os tokens que são usados para aceder a uma API que está protegida pela plataforma de identidade da Microsoft. O ficheiro *index.html* da amostra contém uma referência à biblioteca:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js" integrity=
 "sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 
-Se tiver node.js instalado, pode descarregar a versão mais recente utilizando o Node.js Package Manager (npm):
+Se tiver Node.js instalado, pode descarregar a versão mais recente utilizando o Node.js Package Manager (npm):
 
 ```console
 npm install @azure/msal-browser
@@ -200,7 +200,7 @@ npm install @azure/msal-browser
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para um guia passo a passo mais detalhado sobre a construção da aplicação utilizada neste quickstart, consulte o seguinte tutorial:
+Para um guia passo a passo mais detalhado sobre a construção da aplicação utilizada neste arranque rápido, consulte o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sessão e ligar para o Gráfico de MS >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Tutorial para iniciar sincê-lo e ligar para o MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408626"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135786"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais ativadas por encriptação do disco Azure para outra região do Azure
 
@@ -93,7 +93,7 @@ Por exemplo, a principal região de Azure é a Ásia Oriental, e a região secun
     - **Localização do alvo**: O local onde os dados da sua máquina virtual de origem serão replicados. A Recuperação do Local fornece uma lista de regiões-alvo adequadas com base na localização da máquina selecionada. Recomendamos que utilize o mesmo local que a localização do cofre dos Serviços de Recuperação.
     - **Subscrição-alvo**: A subscrição-alvo que é usada para a recuperação de desastres. Por padrão, a subscrição-alvo é a mesma que a subscrição de origem.
     - **Grupo de recursos-alvo**: O grupo de recursos ao qual todas as suas máquinas virtuais replicadas pertencem. Por predefinição, a Recuperação do Site cria um novo grupo de recursos na região alvo. O nome recebe o sufixo "asr". Se já existe um grupo de recursos que foi criado pela Azure Site Recovery, é reutilizado. Também pode optar por personalizá-lo, como mostra a seguinte secção. A localização do grupo de recursos-alvo pode ser qualquer região de Azure, exceto a região onde as máquinas virtuais de origem estão hospedadas.
-    - **Rede virtual alvo**: Por padrão, a Recuperação do Site cria uma nova rede virtual na região alvo. O nome recebe o sufixo "asr". Está mapeado para a sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento de rede.
+    - **Rede virtual alvo**: Por padrão, a Recuperação do Site cria uma nova rede virtual na região alvo. O nome recebe o sufixo "asr". Está mapeado para a sua rede de origem e usado para qualquer proteção futura. [Saiba mais](./azure-to-azure-network-mapping.md) sobre mapeamento de rede.
     - **Contas de armazenamento de destino (se a sua fonte VM não utilizar discos geridos)**: Por padrão, a Recuperação do Site cria uma nova conta de armazenamento-alvo imitando a configuração de armazenamento de VM de origem. Se uma conta de armazenamento já existe, é reutilizada.
     - **Replica discos geridos (se a sua fonte VM utiliza discos geridos)**: A Recuperação do Local cria novos discos geridos por réplicas na região alvo para espelhar os discos geridos da fonte VM do mesmo tipo de armazenamento (padrão ou premium) que os discos geridos pela VM de origem.
     - **Contas de armazenamento de cache**: A Recuperação do Local necessita de uma conta de armazenamento extra chamada armazenamento *cache* na região de origem. Todas as alterações nos VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache. Depois são replicados no local do alvo.
@@ -155,6 +155,6 @@ Permissão necessária no [cofre da chave alvo](#required-user-permissions)
 
 **Como corrigir:** Vá a **casa**  >  **Keyvaults**  >  **ContosotargetKeyvault**As políticas de  >  **acesso** e adicione as permissões apropriadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre a execução de um teste falhado.

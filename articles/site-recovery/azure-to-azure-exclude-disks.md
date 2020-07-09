@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
-ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75973685"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135801"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação powerShell de VMs Azure
 
@@ -24,14 +25,14 @@ Antes de começar:
 
 - Certifique-se de que compreende a [arquitetura e componentes de recuperação de desastres.](azure-to-azure-architecture.md)
 - Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
-- Certifique-se de que tem o módulo AzureRm PowerShell "Az". Para instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Certifique-se de que tem o módulo AzureRm PowerShell "Az". Para instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 - Certifique-se de que criou um cofre de serviços de recuperação e protegeu máquinas virtuais pelo menos uma vez. Se ainda não fez estas coisas, siga o processo de recuperação de [desastres para máquinas virtuais Azure utilizando a Azure PowerShell](azure-to-azure-powershell.md).
 - Se procura informações sobre a adição de discos a um VM Azure habilitado para replicação, [reveja este artigo](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>Porquê excluir discos da replicação
 Pode ser necessário excluir discos da replicação porque:
 
-- A sua máquina virtual atingiu [os limites de recuperação do local de Azure para replicar as taxas de alteração de dados.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
+- A sua máquina virtual atingiu [os limites de recuperação do local de Azure para replicar as taxas de alteração de dados.](./azure-to-azure-support-matrix.md)
 
 - Os dados que estão no disco excluído não são importantes ou não precisam de ser replicados.
 

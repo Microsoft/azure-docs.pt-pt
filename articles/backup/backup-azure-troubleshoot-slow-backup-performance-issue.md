@@ -1,15 +1,14 @@
 ---
 title: Resolução de problemas cópias de segurança lenta de ficheiros e pastas
 description: Fornece orientação de resolução de problemas para ajudá-lo a diagnosticar a causa de problemas de desempenho de backup Azure
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194030"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135040"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -50,13 +49,13 @@ Aqui estão alguns contadores de desempenho e gamas que podem ser úteis no diag
 
 | Contador | Estado |
 | --- | --- |
-| Disco lógico (Disco Físico)--%inativo |* 100% ocioso a 50% inativo = Saudável</br>* 49% inativo a 20% inativo = Aviso ou Monitor</br>* 19% ocioso a 0% inativo = Crítico ou Fora de Especificação |
-| Disco lógico (Disco Físico)--%Avg. Leitura ou escrita de disco |* 0.001 ms a 0.015 ms = Saudável</br>* 0,015 ms a 0,025 ms = Aviso ou Monitor</br>* 0.026 ms ou mais = Crítico ou Fora de Especificação |
+| Disco lógico (Disco Físico)--%inativo |<li> 100% inativo a 50% inativo = Saudável</br><li> 49% inativo a 20% inativo = Aviso ou Monitor</br><li> 19% ocioso a 0% inativo = Crítico ou Fora de Especificação |
+| Disco lógico (Disco Físico)--%Avg. Leitura ou escrita de disco |<li> 0.001 ms a 0,015 ms = Saudável</br><li> 0,015 ms a 0,025 ms = Aviso ou Monitor</br><li> 0.026 ms ou mais = Crítico ou fora de especificação |
 | Disco lógico (Disco Físico)-- Comprimento da fila do disco atual (para todos os casos) |80 pedidos por mais de 6 minutos |
-| Memory-- Pool Non Paged Bytes |* Menos de 60% da piscina consumida = Saudável<br>* 61% a 80% do pool consumido = Aviso ou Monitor</br>* Maior do que 80% de piscina consumida = Crítico ou Fora de Especificação |
-| Memória-- Pool Paged Bytes |* Menos de 60% da piscina consumida = Saudável</br>* 61% a 80% do pool consumido = Aviso ou Monitor</br>* Maior do que 80% de piscina consumida = Crítico ou Fora de Especificação |
-| Megabytes disponíveis |* 50% da memória gratuita disponível ou mais = Saudável</br>* 25% da memória gratuita disponível = Monitor</br>* 10% da memória gratuita disponível = Aviso</br>* Menos de 100 MB ou 5% da memória gratuita disponível = Crítico ou Fora de Espectro |
-| Processador-- \% Tempo do processador (todos os casos) |* Menos de 60% consumido = Saudável</br>* 61% a 90% consumido = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
+| Memory-- Pool Non Paged Bytes |<li> Menos de 60% da piscina consumida = Saudável<br><li> 61% a 80% da piscina consumida = Aviso ou Monitor</br><li> Maior do que 80% de piscina consumida = Crítico ou Fora de Especificação |
+| Memória-- Pool Paged Bytes |<li> Menos de 60% da piscina consumida = Saudável</br><li> 61% a 80% da piscina consumida = Aviso ou Monitor</br><li> Maior do que 80% de piscina consumida = Crítico ou Fora de Especificação |
+| Megabytes disponíveis |<li> 50% da memória gratuita disponível ou mais = Saudável</br><li> 25% da memória gratuita disponível = Monitor</br><li>10% da memória gratuita disponível = Aviso</br><li> Menos de 100 MB ou 5% da memória gratuita disponível = Crítico ou Fora de Especificação |
+| Processador-- \% Tempo do processador (todos os casos) |<li> Menos de 60% consumido = Saudável</br><li> 61% a 90% consumido = Monitor ou Cuidado</br><li> 91% a 100% consumido = Crítico |
 
 > [!NOTE]
 > Se determinar que a infraestrutura é o culpado, recomendamos que desfragmente os discos regularmente para um melhor desempenho.
