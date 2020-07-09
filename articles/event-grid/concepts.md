@@ -1,17 +1,14 @@
 ---
 title: Conceitos de grelha de eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos. Define vários componentes-chave da Grade de Eventos.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.author: spelluru
-ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659185"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116493"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos em Azure Event Grid
 

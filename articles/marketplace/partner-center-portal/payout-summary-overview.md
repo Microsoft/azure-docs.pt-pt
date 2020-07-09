@@ -1,17 +1,18 @@
 ---
 title: Resumo do pagamento - Azure Marketplace
 description: O resumo do pagamento mostra-lhe detalhes sobre o dinheiro que ganhou com a sua oferta. Também lhe permite saber quando receberá pagamentos e quanto será pago.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118482"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 

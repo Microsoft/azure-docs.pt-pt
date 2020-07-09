@@ -7,14 +7,14 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2017
-ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364682f6bcf2edeecc7af2da6c91e4bfd1de98a4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71315799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117292"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar uma base de dados U-SQL
 
@@ -51,7 +51,7 @@ Neste passo, pode verificar os objetos selecionados na caixa de **lista de objet
 
 Também pode configurar outras definições para o objetivo de exportação. As descrições de configuração estão listadas na tabela seguinte:
 
-|Configuração|Description|
+|Configuração|Descrição|
 |-------------|-----------|
 |Nome do destino|Este nome indica onde pretende guardar os recursos de base de dados exportados. Exemplos são conjuntos, ficheiros adicionais e dados de amostras. Uma pasta com este nome é criada sob a pasta de raiz de dados local.|
 |Diretório de Projetos|Este caminho define onde pretende salvar o script U-SQL exportado. Todas as definições de objetos de base de dados são guardadas neste local.|
@@ -82,7 +82,7 @@ Para importar a base de dados para diferentes conta data lake analytics:
 
 Atualmente, se selecionar a opção **Schema e Data** no Passo 3, a ferramenta executa um trabalho U-SQL para exportar os dados armazenados em tabelas. Por isso, o processo de exportação de dados pode ser lento e poderá incorrer em custos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre bases de dados U-SQL](/u-sql/data-definition-language-ddl-statements) 
 * [Testar e depurar tarefas U-SQL utilizando a execução local e o SDK U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)

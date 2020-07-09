@@ -4,14 +4,14 @@ description: Saiba como validar a encriptação da Base de Dados Azure para Post
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117853"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validação da encriptação de dados para a base de dados Azure para PostgreSQL
 
@@ -53,6 +53,6 @@ Este artigo ajuda-o a validar essa encriptação de dados utilizando a chave ger
 
 [Os Relatórios de Auditoria](https://servicetrust.microsoft.com) também podem ser revistos que fornecem informações sobre o cumprimento das normas de proteção de dados e requisitos regulamentares.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados de servidor único postgresQL com a chave gerida pelo cliente](concepts-data-encryption-postgresql.md).

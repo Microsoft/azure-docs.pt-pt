@@ -4,14 +4,14 @@ description: Aprenda as melhores práticas para gerir conjuntos U-SQL C# num pip
 author: yanancai
 ms.author: yanacai
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2018
-ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9daf2cc6ed176e46399f2cdb2f424a622fdeb812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71315856"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115396"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Melhores práticas para a gestão de conjuntos U-SQL num gasoduto CI/CD
 
@@ -86,7 +86,7 @@ Pode implementar uma base de dados U-SQL utilizando um projeto de base de dados 
 
 Em Azure DevOps, pode utilizar uma tarefa de linha de comando e este SDK para configurar um pipeline de automação para a atualização da base de dados U-SQL. [Saiba mais sobre o SDK e como configurar um pipeline CI/CD para a implementação da base de dados U-SQL](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar um pipeline CI/CD para a Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 * [Teste o seu código Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)

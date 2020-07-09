@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: f8e8e1672f754e843a3bd1c75d496599d31e5f11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1173defa8bbe66cbeaaf6bd5264b0730160a197b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583996"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116833"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalar um grupo de servidores de hiperescala (Citus)
 
@@ -48,6 +48,6 @@ Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes.
 
 Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Clique no link **de configuração Change** sob **o nó do coordenador**. Aparecerá um diálogo com sliders para a capacidade de vCores e armazenamento do coordenador. Mude os sliders conforme desejado e selecione **OK**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .

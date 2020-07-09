@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117037"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas em métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -108,6 +108,6 @@ Recomendamos a definição de alertas de espaço em cada nó em cada grupo de se
 
 A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso do CPU é geralmente de cerca de 40-60%. Se o uso do CPU começar subitamente a pairar cerca de 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta desviada. Ao criar um alerta de CPU, deslovide uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

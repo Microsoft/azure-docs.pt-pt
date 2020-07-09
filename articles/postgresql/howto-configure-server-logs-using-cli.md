@@ -5,13 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1346d1402b46088ce0bed015c723cf817d982317
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74763577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118108"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos do servidor utilizando o Azure CLI
 Pode descarregar os registos de erro do servidor PostgreSQL utilizando a interface de linha de comando (Azure CLI). No entanto, o acesso aos registos de transações não é suportado. 

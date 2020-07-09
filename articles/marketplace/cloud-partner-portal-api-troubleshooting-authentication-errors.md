@@ -1,18 +1,16 @@
 ---
 title: Resolução de erros comuns de autenticação Mercado Azure
 description: Fornece assistência com erros de autenticação comuns ao utilizar as APIs do Portal do Parceiro cloud.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 7684e097118fce4dcd471257ec0d9d476ce342be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8c9bd6dbe54f797090c5f7405ad709db954f8fb9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964928"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115473"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Resolução de erros comuns de autenticação
 

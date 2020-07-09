@@ -1,18 +1,16 @@
 ---
 title: Go Live API - Azure Marketplace
 description: A API Go Live inicia o processo de listagem ao vivo da oferta.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 5d550f576108447a88660321899f2f55ffeb3c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115711"
 ---
 # <a name="go-live"></a>Ir ao vivo
 

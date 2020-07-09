@@ -6,14 +6,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/8/2019
-ms.openlocfilehash: abcc979bb36fe0acb663a511875a1e186c2c0739
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a47a6e1860edcb9b2bf89c25e78f6a66e8a7cf4d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583961"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117717"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Problemas de conexão de resolução de problemas na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -60,7 +60,7 @@ Se a aplicação não se ligar persistentemente à Hiperescala (Citus), as causa
 3. Verifique a sua cadeia de ligação e outras definições de ligação.
 4. Verifique a saúde do serviço no painel de instrumentos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça os conceitos de regras de [Firewall na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)](concepts-hyperscale-firewall-rules.md)
 * Ver como gerir as regras de [firewall para a base de dados Azure para PostgreSQL - Hiperescala (Citus)](howto-hyperscale-manage-firewall-using-portal.md)

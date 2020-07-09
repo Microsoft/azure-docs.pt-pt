@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: 78e6e8c18e67ce2dff0de94d298f06693a40135f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584049"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116884"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar Alta disponibilidade de Hiperescala (Citus)
 
@@ -31,6 +31,6 @@ O **separador Visão Geral** do grupo do servidor listará todos os nós e os se
 
 ![a coluna ha na visão geral do grupo do servidor](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a alta disponibilidade.](concepts-hyperscale-high-availability.md)

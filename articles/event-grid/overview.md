@@ -1,20 +1,14 @@
 ---
 title: O que é o Azure Event Grid?
 description: Envie dados de eventos de uma fonte para os manipuladores com a Azure Event Grid. Construa aplicações baseadas em eventos e integre-se com os serviços Azure.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 4ae40c37d42848cc2ac726694e32df621996df03
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116136"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -115,7 +109,7 @@ O Event Grid liga a sua aplicação a outros serviços. Por exemplo, crie um tó
 
 O Azure Event Grid tem um modelo de preços “pagar por evento”, de modo que só paga pelo que utilizar. As primeiras 100 000 operações por mês são gratuitas. As operações são definidas como entrada de evento, tentativas de entrega de subscrição, chamadas de gestão e filtragem pelo sufixo do requerente. Para obter detalhes, veja a [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) (Encaminhar eventos do Blob de Armazenamento)  
   Utilize o Event Grid para responder a eventos de blobs de armazenamento.

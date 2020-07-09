@@ -518,6 +518,8 @@
               href: ../data-factory/format-avro.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Armazenamento de Blobs do Azure
               href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Azure Cognitive Search
+              href: ../data-factory/connector-azure-search.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: API SQL do Azure Cosmos DB
               href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: API do Azure Cosmos DB para MongoDB
@@ -536,13 +538,11 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Armazenamento de Ficheiros do Azure
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure Search
-              href: ../data-factory/connector-azure-search.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Base de Dados SQL do Azure
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instância Gerida do Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Data Warehouse
+            - name: Azure Synapse Analytics (anteriormente SQL Data Warehouse)
               href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Table Storage do Azure
               href: ../data-factory/connector-azure-table-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -570,6 +570,8 @@
               href: ../data-factory/connector-dynamics-ax.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Dynamics CRM
               href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Formato Excel
+              href: ../data-factory/format-excel.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Sistema de Ficheiros
               href: ../data-factory/connector-file-system.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: FTP
@@ -608,8 +610,6 @@
               href: ../data-factory/connector-mariadb.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Marketo
               href: ../data-factory/connector-marketo.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Microsoft 365
-              href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Microsoft Access
               href: ../data-factory/connector-microsoft-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: MongoDB
@@ -625,6 +625,8 @@
               href: ../data-factory/connector-odata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: ODBC
               href: ../data-factory/connector-odbc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Office 365
+              href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Oracle
               href: ../data-factory/connector-oracle.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Oracle Eloqua
@@ -633,6 +635,8 @@
               href: ../data-factory/connector-oracle-responsys.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cloud do Serviço Oracle
               href: ../data-factory/connector-oracle-service-cloud.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Formato ORC
+              href: ../data-factory/format-orc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Formato Parquet
               href: ../data-factory/format-parquet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: PayPal
@@ -654,12 +658,11 @@
             - name: Salesforce Marketing Cloud
               href: ../data-factory/connector-salesforce-marketing-cloud.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: SAP Business Warehouse Open Hub
+              href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               items:
-                - name: SAP Business Warehouse Open Hub
-                  href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Carregar dados do SAP BW
                   href: ../data-factory/load-sap-bw-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: SAP Business Warehouse
+            - name: SAP Business Warehouse MDX
               href: ../data-factory/connector-sap-business-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: SAP Cloud for Customer
               href: ../data-factory/connector-sap-cloud-for-customer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -673,8 +676,12 @@
               href: ../data-factory/connector-servicenow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: SFTP
               href: ../data-factory/connector-sftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Lista do SharePoint Online
+              href: ../data-factory/connector-sharepoint-online-list.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Shopify
               href: ../data-factory/connector-shopify.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Snowflake
+              href: ../data-factory/connector-snowflake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Spark
               href: ../data-factory/connector-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: SQL Server
@@ -697,18 +704,32 @@
           items:
             - name: Copiar dados através da Atividade de Cópia
               href: ../data-factory/copy-activity-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Monitorizar a atividade de cópia
+              href: ../data-factory/copy-activity-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Eliminar ficheiros com Eliminar Atividade
               href: ../data-factory/delete-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Ferramenta Copiar Dados
               href: ../data-factory/copy-data-tool.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Desempenho e otimização
-              href: ../data-factory/copy-activity-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Suporte de formato e compressão
               href: ../data-factory/supported-file-formats-and-compression-codecs.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Desempenho da atividade de cópia
+              items:
+                - name: Guia de desempenho e escalabilidade
+                  href: ../data-factory/copy-activity-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Resolver problemas de desempenho
+                  href: ../data-factory/copy-activity-performance-troubleshooting.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Funcionalidades de desempenho
+                  href: ../data-factory/copy-activity-performance-features.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Preservar metadados e ACLs
+              href: ../data-factory/copy-activity-preserve-metadata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Mapeamento de esquemas e tips
               href: ../data-factory/copy-activity-schema-and-type-mapping.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Tolerância a falhas
               href: ../data-factory/copy-activity-fault-tolerance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Verificação da consistência dos dados
+              href: ../data-factory/copy-activity-data-consistency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Suporte de formato e compressão (legado)
+              href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Transformar dados
           href: ../data-factory/transform-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           items:

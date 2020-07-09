@@ -4,13 +4,14 @@ description: A Proteção de Ameaças deteta atividades anómalas de bases de da
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d94170ade3de7e7fc128fe85437db59822694add
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74776148"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117819"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada de ameaças para base de dados de Azure para PostgreSQL - Servidor Único
 

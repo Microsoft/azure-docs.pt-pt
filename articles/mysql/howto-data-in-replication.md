@@ -4,14 +4,14 @@ description: Este artigo descreve como configurar a replicação de dados para a
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: 7b66f227469328767f23c6858fda15803832704b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1012a2afa84270089ae44b1c5d224e65a2e01ae
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737568"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118567"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 

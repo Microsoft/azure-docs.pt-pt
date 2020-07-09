@@ -4,13 +4,14 @@ description: Este artigo descreve como pode otimizar as operações de inserçã
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d10f06577738364e3f4a0ea40221d37ebfb31c0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74770140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116289"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimize inserções a granel e utilize dados transitórios numa Base de Dados Azure para PostgreSQL - Servidor Único 
 Este artigo descreve como pode otimizar operações de inserção a granel e utilizar dados transitórios numa Base de Dados Azure para servidor PostgreSQL.

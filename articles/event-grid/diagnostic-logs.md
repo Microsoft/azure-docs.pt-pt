@@ -1,18 +1,14 @@
 ---
 title: Grelha de Eventos Azure - Registos de diagnóstico para tópicos ou domínios
 description: Este artigo fornece informações conceptuais sobre registos de diagnóstico para um tópico de grelha de eventos Azure ou um domínio.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630255"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116748"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registos de diagnóstico para tópicos/domínios da Grelha de Eventos Azure
 As definições de diagnóstico permitem aos utilizadores da Grade de Eventos capturar e visualizar registos de **falha de publicação e entrega** numa conta de Armazenamento, num centro de eventos ou num espaço de trabalho do Log Analytics. Este artigo fornece esquema para os registos e uma entrada de registo de exemplo.
@@ -20,7 +16,7 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 
 ## <a name="schema-for-publishdelivery-failure-logs"></a>Esquema para registos de falha de publicação/entrega
 
-| Nome da propriedade | Tipo de dados | Description |
+| Nome da propriedade | Tipo de dados | Descrição |
 | ------------- | --------- | ----------- | 
 | Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>**Valor do exemplo:** 01-29-2020 09:52:02.700</p> |
 | Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
@@ -42,5 +38,5 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a ativar registos de diagnóstico para tópicos ou domínios, consulte [Ativar registos de diagnóstico](enable-diagnostic-logs-topic.md).

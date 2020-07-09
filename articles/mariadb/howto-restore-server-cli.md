@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/27/2020
-ms.openlocfilehash: 6faae80c78fe07d33579cc3fb7c76ce668969992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1eb164d367aa968b599c6d3e92c48fd94b0098
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80369276"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118720"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para MariaDB usando o Azure CLI
 
@@ -125,7 +125,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)

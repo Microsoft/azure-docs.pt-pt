@@ -3,12 +3,12 @@ title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos do Gestor de Recursos Azure usando a sintaxe declarativa JSON.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 4fdf386aa3b17f46589183706b2a91637acacdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208829"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116544"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Compreender a estrutura e a sintaxe dos modelos ARM
 
@@ -35,7 +35,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito de aplicação e do seu editor JSON.<br><br>Se estiver a utilizar [o Código VS com a extensão de ferramentas Azure Resource Manager,](use-vs-code-to-create-template.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito de aplicação e do seu editor JSON.<br><br>Se estiver a utilizar [o Código VS com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | parte de conteúdoVersão |Sim |Versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado. |
 | apiProfile |Não | Uma versão API que serve como uma coleção de versões API para tipos de recursos. Utilize este valor para evitar ter de especificar versões API para cada recurso no modelo. Quando especifica uma versão de perfil API e não especifica uma versão API para o tipo de recurso, o Gestor de Recursos utiliza a versão API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil API é especialmente útil ao implementar um modelo para diferentes ambientes, como Azure Stack e Global Azure. Utilize a versão de perfil API para se certificar de que o seu modelo utiliza automaticamente versões suportadas em ambos os ambientes. Para obter uma lista das versões de perfil da API atuais e as versões API de recursos definidas no perfil, consulte o [Perfil da API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [as versões Track utilizando perfis API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parâmetros](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
@@ -307,7 +307,7 @@ Para comentários inline, você pode usar ou `//` `/* ... */` mas esta sintaxe n
   ],
 ```
 
-No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) pode detetar automaticamente o modelo do Gestor de Recursos e alterar o modo de idioma em conformidade. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código VS, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
+No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) pode detetar automaticamente o modelo do Gestor de Recursos e alterar o modo de idioma em conformidade. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código VS, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
 
 ![Modo modelo de gestor de recursos do código de estúdio visual Azure](./media/template-syntax/resource-manager-template-editor-mode.png)
 

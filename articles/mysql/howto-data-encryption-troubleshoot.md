@@ -4,13 +4,14 @@ description: Saiba como resolver problemas de encriptação de dados na Base de 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fba55dcca46b313c7b9a847412615215ad57c72
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79297045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118584"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para o MySQL
 

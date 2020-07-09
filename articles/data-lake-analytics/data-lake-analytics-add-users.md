@@ -7,14 +7,14 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16ec54bb2a41927a92d953586af59ae3653a29c0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71672732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117462"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um novo utilizador no portal do Azure
 
@@ -51,7 +51,7 @@ O comando da amostra para dar acesso ao utilizador para submeter empregos, ver n
 `Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Começar com data lake analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)

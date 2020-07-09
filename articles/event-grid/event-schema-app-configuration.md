@@ -1,17 +1,14 @@
 ---
 title: Configuração de aplicativos Azure como fonte de grelha de evento
 description: Este artigo descreve como usar a Configuração de Aplicações Azure como fonte de eventos da Grade de Eventos. Fornece o esquema e links para artigos tutoriais e como-a-para-
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553158"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117003"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de aplicativos Azure como fonte de grade de eventos
 Este artigo fornece as propriedades e esquema para eventos de Configuração de Aplicações Azure. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar a Configuração de Aplicações Azure como fonte de evento.

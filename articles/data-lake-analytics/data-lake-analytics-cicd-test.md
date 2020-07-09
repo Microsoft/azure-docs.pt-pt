@@ -7,14 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 08/30/2019
-ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7965baa5410aeef61221288ce3a36fae97a72803
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70913951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117343"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Teste o seu código Azure Data Lake Analytics
 

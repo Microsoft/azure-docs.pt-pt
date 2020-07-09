@@ -4,14 +4,14 @@ description: Saiba como configurar e gerir a encriptação de dados para a sua B
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: 9d1e89919647d9d94b287618da2f9a77278425a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bb15e494638d543795ac5b95e2513cb5871a2a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459088"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118635"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Encriptação de dados para Azure Database para MySQL utilizando o portal Azure
 
@@ -94,6 +94,6 @@ Depois de a Azure Database for MySQL ser encriptada com a chave gerida de um cli
 
    ![Screenshot da Base de Dados Azure para o MySQL, mostrando funcionalidade restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados do MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).

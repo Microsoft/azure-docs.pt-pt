@@ -6,15 +6,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81f623b3bca2877fce1a9aee7cd2dff6e44f37d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71309934"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117428"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utilize um projeto de base de dados U-SQL para desenvolver uma base de dados U-SQL para O Lago de Dados Azure
 
@@ -113,7 +113,7 @@ Um projeto U-SQL pode fazer referência a um projeto de base de dados U-SQL. A r
 
     ![Ferramentas do Lago de Dados para Estúdio Visual adicionar assistente de referência de projeto de base de dados](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference-wizard.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar um pipeline CI/CD para a Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 - [Como testar o seu código Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)

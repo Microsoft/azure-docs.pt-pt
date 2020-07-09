@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 9/12/2019
-ms.openlocfilehash: b7de5755a9a1e49b994e7efa7fc4bca58cc6cfd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584033"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116918"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerir regras de firewall para Azure Database for PostgreSQL - Hyperscale (Citus)
 As regras de firewall ao nível do servidor podem ser usadas para gerir o acesso a um nó coordenador de Hiperescala (Citus) a partir de um endereço IP especificado ou intervalo de endereços IP especificados.
@@ -60,5 +60,5 @@ Repita os passos para gerir as regras da firewall.
 * Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique na elipse [...] e clique em **Eliminar** para remover a regra. Clique em **Guardar** para guardar as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o conceito de regras de firewall,](concepts-hyperscale-firewall-rules.md)incluindo como resolver problemas de conexão.

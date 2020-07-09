@@ -1,18 +1,18 @@
 ---
 title: Oferta listando as melhores práticas - Mercado comercial da Microsoft
 description: Saiba mais sobre as melhores práticas de listagem do mercado para as suas ofertas microsoft AppSource e Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118397"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -31,7 +31,7 @@ As tabelas desta secção fornecem sugestões para criar e envolver ofertas de m
 
 Categorias e indústrias para uma montra diferente serão aplicáveis a diferentes tipos de oferta.
 
-|  | **Categorias <br> por Storefront** |  | **Indústrias <br> para AppSource** |
+| Frente de Loja | Categorias <br>por Storefront | Categorias <br>por Storefront | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo de Oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicação Azure | X | |
@@ -144,7 +144,7 @@ Selecione categorias e subcategorias que melhor se alinham com a sua oferta e o 
 
 Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como as capacidades de transação podem afetar a forma como a sua oferta pode ser vista e comprada pelos clientes do mercado. Para as ofertas da SaaS, a capacidade de transação da oferta, bem como a seleção de categorias determinarão a montra onde a sua oferta será publicada:
 
-| Oferta SaaS    |     |          |           |    |    |     | Montra aplicável |              |
+| Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Montra aplicável | Montra aplicável |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Faturação medido | Suplementos Microsoft 365 | Contacte-me | Transact (pelo menos 1 plano) | Plano privado | Plano apenas público | Planos privados de & pública | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |

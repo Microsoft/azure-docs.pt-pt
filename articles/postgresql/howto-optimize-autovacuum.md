@@ -4,14 +4,14 @@ description: Este artigo descreve como pode otimizar o autovacuum numa Base de D
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116361"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimize o autovacuum numa base de dados Azure para PostgreSQL - Servidor Único
 Este artigo descreve como otimizar eficazmente o autovacuum numa Base de Dados Azure para servidor PostgreSQL.
@@ -22,20 +22,25 @@ O PostgreSQL utiliza o controlo de conuncy multiversão (MVCC) para permitir uma
 Uma aspiração pode ser acionada manualmente ou automaticamente. Existem mais tuples mortos quando a base de dados experimenta operações de atualização ou eliminação pesadas. Menos tuples mortos existem quando a base de dados está inativa. É necessário aspirar com mais frequência quando a carga da base de dados é pesada, o que torna os trabalhos de vácuo *manualmente* inconvenientes.
 
 O autovacuum pode ser configurado e beneficia da afinação. Os valores predefinidos que a PostgreSQL envia tentam garantir que o produto funciona em todos os tipos de dispositivos. Estes dispositivos incluem Raspberry Pis. Os valores de configuração ideais dependem do seguinte:
+
 - Recursos totais disponíveis, como SKU e tamanho de armazenamento.
 - Utilização de recursos.
 - Características individuais do objeto.
 
 ## <a name="autovacuum-benefits"></a>Benefícios autovacuum
+
 Se não aspirar de vez em quando, os tuples mortos que se acumulam podem resultar em:
+
 - Inchar dados, como bases de dados e tabelas maiores.
 - Índices sub-ideais maiores.
 - Aumento de E/S.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitor bloat com consultas de autovacuum
 A seguinte consulta de amostra é projetada para identificar o número de tuples mortos e vivos numa tabela chamada XYZ:
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## <a name="autovacuum-configurations"></a>Configurações de autovacuum
 Os parâmetros de configuração que controlam o autovacuum baseiam-se em respostas a duas questões-chave:
@@ -56,6 +61,7 @@ autovacuum_max_workers|Especifica o número máximo de processos de autovacuum, 
 Para anular as definições para tabelas individuais, altere os parâmetros de armazenamento da tabela. 
 
 ## <a name="autovacuum-cost"></a>Custo do autovacuum
+
 Aqui estão os "custos" de funcionamento de uma operação de vácuo:
 
 - As páginas de dados em que o vácuo funciona estão bloqueadas.
@@ -64,6 +70,7 @@ Aqui estão os "custos" de funcionamento de uma operação de vácuo:
 Como resultado, não faça trabalhos de vácuo com demasiada frequência ou com demasiada frequência. Um trabalho de vácuo tem de se adaptar à carga de trabalho. Teste todas as alterações dos parâmetros de autovacuum devido às trocas de cada um.
 
 ## <a name="autovacuum-start-trigger"></a>Gatilho de arranque de autovacuum
+
 O autovacuum é acionado quando o número de tuples mortos excede autovacuum_vacuum_threshold + autovacuum_vacuum_scale_fator * reltuples. Aqui, os reltuples são uma constante.
 
 A limpeza do autovacuum deve acompanhar a carga da base de dados. Caso contrário, poderá ficar sem armazenamento e experimentar uma desaceleração geral das consultas. Amortizada ao longo do tempo, a velocidade a que uma operação de vácuo limpa os tuples mortos deve ser igual à velocidade a que são criados tuples mortos.
@@ -91,7 +98,9 @@ O parâmetro autovacuum_max_workers determina o número máximo de processos de 
 Com o PostgreSQL, pode definir estes parâmetros ao nível da tabela ou ao nível de instância. Hoje em dia, pode definir estes parâmetros ao nível da tabela apenas na Base de Dados Azure para PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Otimizar o autovacuum por tabela
+
 Pode configurar todos os parâmetros de configuração anteriores por tabela. Eis um exemplo:
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -102,7 +111,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum é um processo sincronizado por tabela. Quanto maior for a percentagem de tuples mortos que uma mesa tem, maior o "custo" para o autovacuum. Pode dividir tabelas com uma alta taxa de atualizações e elimina-se em várias tabelas. A divisão de mesas ajuda a paralelizar o autovacuum e reduzir o "custo" para completar o autovacuum numa mesa. Pode também aumentar o número de trabalhadores paralelos a autovacuum para garantir que os trabalhadores são liberalmente programados.
 
 ## <a name="next-steps"></a>Próximos passos
+
 Para saber mais sobre como usar e sintonizar o autovacuum, consulte a seguinte documentação PostgreSQL:
 
- - [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Capítulo 24, Tarefas de manutenção de bases de dados de rotina](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+- [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
+- [Capítulo 24, Tarefas de manutenção de bases de dados de rotina](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

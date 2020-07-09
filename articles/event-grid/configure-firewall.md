@@ -1,18 +1,14 @@
 ---
 title: Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure (Pré-visualização)
 description: Este artigo descreve como configurar as definições de firewall para tópicos ou domínios da Grade de Eventos.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: c64d947c13cf067d4ffc2b32ed655960143ad1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1cb285af6a463b2e0f413b1f876df96f82bb7f93
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391779"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116476"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure (Pré-visualização)
 Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre funcionalidades de segurança de rede suportadas pela Grade de Eventos, consulte [a segurança da rede de eventos](network-security.md).

@@ -1,25 +1,21 @@
 ---
 title: Métricas suportadas por Azure Event Grid
 description: Este artigo fornece métricas do Azure Monitor suportadas pelo serviço Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 643df2f4cc6347e0fd56f9124b68f1888ab85e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 3b22beafc9f88d2d95b25fd7ad2f2308a4df9097
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116425"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Métricas suportadas por Azure Event Grid
 Este artigo fornece listas de métricas de Grade de Eventos que são categorizadas por espaços de nome. 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domínios
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Tópico|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|Tópico,ErrorType,Error|
@@ -33,7 +29,7 @@ Este artigo fornece listas de métricas de Grade de Eventos que são categorizad
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/tópicos
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhuma|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
@@ -48,7 +44,7 @@ Este artigo fornece listas de métricas de Grade de Eventos que são categorizad
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhuma|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType, Error|
@@ -63,7 +59,7 @@ Este artigo fornece listas de métricas de Grade de Eventos que são categorizad
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Nenhuma|
 |EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Erro, ErrorType|
@@ -74,12 +70,12 @@ Este artigo fornece listas de métricas de Grade de Eventos que são categorizad
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhuma|
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType, Error|
 |InigualávelEventCount|Eventos incomparáveis|Contagem|Total|Total de eventos que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhuma|
 |Publicar Inimitrodências|Publicar Latência de Sucesso|Milissegundos|Total|Publique latência de sucesso em milissegundos|Nenhuma|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Ver o seguinte artigo: [Registos de diagnóstico](diagnostic-logs.md)

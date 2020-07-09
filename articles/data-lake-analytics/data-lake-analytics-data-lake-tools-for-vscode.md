@@ -7,14 +7,14 @@ author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: dd3db27160f8fcc0ad3135b0ab87921a636fd155
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565115"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117666"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar Azure Data Lake Tools for Visual Studio Code
 

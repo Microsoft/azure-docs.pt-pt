@@ -4,14 +4,14 @@ description: Saiba como validar a encriptação da Base de Dados Azure para o My
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118533"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validação da encriptação de dados para a base de dados Azure para o MySQL
 
@@ -53,6 +53,6 @@ Este artigo ajuda-o a validar essa encriptação de dados utilizando a chave ger
 
 [Os Relatórios de Auditoria](https://servicetrust.microsoft.com) também podem ser revistos que fornecem informações sobre o cumprimento das normas de proteção de dados e requisitos regulamentares.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados do MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).

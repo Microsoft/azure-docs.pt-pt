@@ -7,14 +7,14 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36b298593bf8834824f81672d754f9864a253f2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72966440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117598"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gerir a Azure Data Lake Analytics usando políticas de conta
 
@@ -103,7 +103,7 @@ Há uma política de incumprimento definida em cada conta. A política por defei
 * [Post de blog de políticas de nível de conta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Post de blog de políticas de nível de emprego](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Começar com data lake analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)

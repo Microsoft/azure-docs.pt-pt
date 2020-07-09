@@ -1,17 +1,14 @@
 ---
 title: Autenticar clientes que publicam eventos para tópicos ou domínios personalizados da Grade de Eventos
 description: Este artigo descreve diferentes formas de autenticar clientes que publicam eventos para tópicos personalizados da Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 7805c9b9096cb52fcef3dad8eb0bdd9509cbce47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1e147830a4b37a8603df8e4ce29953acab2345bd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414887"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115881"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticar clientes editoriais (Azure Event Grid)
 Este artigo fornece informações sobre clientes autenticados que publicam eventos para tópicos ou domínios da Azure Event Grid utilizando **a chave de acesso** ou o token de Assinatura de Acesso Partilhado **(SAS).** Recomendamos a utilização de token SAS, mas a autenticação chave fornece uma programação simples, e é compatível com muitos editores webhook existentes.  

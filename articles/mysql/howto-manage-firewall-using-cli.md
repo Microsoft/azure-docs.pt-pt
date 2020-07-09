@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 11aa4a80deba4df14c239e69910ea38bac1b9c55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42245a8e1c8ce726b925fccade3c62637abb4f12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063519"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118669"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a Base de Dados Azure para as regras de firewall mySQL utilizando o Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MySQL a partir de um endereço IP específico ou de uma série de endereços IP. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para firewalls MySQL, consulte [a Base de Dados Azure para as regras de firewall do servidor MySQL](./concepts-firewall-rules.md).
@@ -118,7 +118,7 @@ az mysql server firewall-rule delete --resource-group myresourcegroup --server-n
 ```
 Após o sucesso, não há saída. Após falha, o texto da mensagem de erro aparece.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Conheça mais sobre as [regras de firewall do MySQL Server](./concepts-firewall-rules.md).
 - [Crie e gere a base de dados Azure para as regras de firewall mySQL utilizando o portal Azure](./howto-manage-firewall-using-portal.md).
 - Acesso mais seguro ao seu servidor através da [criação e gestão de pontos finais de serviço de Rede Virtual e regras utilizando o Azure CLI](howto-manage-vnet-using-cli.md).

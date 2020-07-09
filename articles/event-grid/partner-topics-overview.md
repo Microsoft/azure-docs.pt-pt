@@ -1,17 +1,14 @@
 ---
 title: Tópicos parceiros da Azure Event Grid
 description: Envie eventos de parceiros de eventos de terceiros SaaS e PaaS diretamente para os serviços da Azure com a Azure Event Grid.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560273"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116000"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tópicos de parceiro na Grelha de Eventos Azure (pré-visualização)
 Ao utilizar tópicos de parceiros, pode ligar fontes de eventos de terceiros diretamente à Azure Event Grid. Esta integração permite-lhe subscrever eventos de parceiros da mesma forma que subscreve eventos dos serviços Azure. 

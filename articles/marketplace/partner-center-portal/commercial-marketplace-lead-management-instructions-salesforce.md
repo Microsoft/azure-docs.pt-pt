@@ -1,17 +1,18 @@
 ---
 title: Gestão de chumbo em Salesforce - Mercado comercial da Microsoft
 description: Saiba como utilizar a Salesforce para configurar leads para o Microsoft AppSource e para o Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849145"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117120"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configure a gestão de chumbo para a Salesforce
 

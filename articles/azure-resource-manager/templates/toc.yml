@@ -222,12 +222,6 @@
         - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Amostras
-  items:
-    - name: Modelos de Início Rápido do Azure
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Exemplos de modelo
-      href: template-samples.md
 - name: Conceitos
   items:
     - name: Modelo de melhores práticas
@@ -299,16 +293,6 @@
             - name: Saídas
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Usar ferramentas de criação
-      items:
-        - name: Código VS
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Atualizar o script de Implementação do VS para o módulo Az
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Detetar as propriedades do modelo
       items:
         - name: Exportar modelo
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Proteger modelos com o token de SAS
           href: secure-template-with-sas-token.md
+        - name: Ver histórico de implementações
+          href: deployment-history.md
     - name: Implementações no âmbito
       items:
         - name: Subscrição
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Implementar - GitHub Actions
           href: deploy-github-actions.md
-    - name: Ver histórico de implementações
-      href: deployment-history.md
+    - name: Usar ferramentas de criação
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Atualizar o script de Implementação do VS para o módulo Az
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Resolução de problemas de implementações
       items:
         - name: Resolver erros de implementação
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
+    - name: Modelos de Início Rápido do Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de preços

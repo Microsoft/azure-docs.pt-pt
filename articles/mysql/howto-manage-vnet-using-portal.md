@@ -4,14 +4,14 @@ description: Criar e gerir a Base de Dados Azure para os pontos finais e regras 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: ba63c65c2b0d7abda089c3dfd315bfe499632cc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 843bb32a4b5b5e29c4ab7c1dc9ff254a8424ae86
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82509232"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118686"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para os pontos finais de serviço MySQL VNet e as regras VNet utilizando o portal Azure
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Para obter uma visão geral da Base de Dados Azure para os pontos finais do serviço MySQL VNet, incluindo limitações, consulte [a Base de Dados Azure para os pontos finais do serviço VNet do MySQL Server](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para o MySQL.
@@ -56,7 +56,7 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
 
    ![Pontos finais de serviço VNet ativados e regra VNet criada](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for MySQL usando Azure CLI](howto-manage-vnet-using-cli.md).
 - Para obter ajuda na ligação a uma base de dados Azure para servidor MySQL, consulte [as bibliotecas de conexão para a base de dados Azure para o MySQL](./concepts-connection-libraries.md)
 
