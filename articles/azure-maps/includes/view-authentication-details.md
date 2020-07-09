@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 9146844a6b83f78ad99ef7cd1aec4b028daf3ff6
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988616"
 ---
 Pode ver os detalhes da autenticação da conta Azure Maps no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação**.
