@@ -3,16 +3,16 @@ title: Introdução ao portal Azure Enterprise
 description: Este artigo explica como é que os clientes do Contrato Enterprise do Azure (Azure EA) utilizam o portal Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298113"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560357"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 
@@ -471,6 +471,7 @@ O portal Azure Enterprise filtra as inscrições inativas de forma a não serem 
 
 ### <a name="enrollment-statuses"></a>Estados da inscrição
 
+- **Novo**: este estado é atribuído a uma inscrição que tenha sido criada nas últimas 24 horas e é atualizado para o estado Pendente passadas 24 horas.
 - **Pendente**: o administrador da inscrição tem de iniciar sessão no portal Azure Enterprise. Depois de a sessão ter sido iniciada, a inscrição muda para o estado Ativo.
 - **Ativo**: a inscrição está Ativa e podem ser criadas contas e subscrições no portal Azure Enterprise. A inscrição permanece ativa até à data limite do Contrato Enterprise.
 - **Período alargado indefinidamente**: o estado de período alargado indefinidamente ocorre depois de chegar à data limite do Contrato Enterprise. Permite que os clientes Azure EA que optaram pelo período alargado continuem a utilizar os serviços do Azure indefinidamente no final do Contrato Enterprise.

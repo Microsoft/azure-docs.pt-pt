@@ -5,17 +5,17 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1c0be8ed8c176fe32b8fe7fd420d65727c5288d2
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 837e82131b17fa02fca87da067eac6d77903b31d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111673"
 ---
-Estes exemplos mostram como utilizar o Azure Policy com subscrições que foram integradas na gestão de recursos delegados do Azure.
+Estes exemplos mostram como utilizar o Azure Policy com subscrições que foram integradas no Azure Lighthouse.
 
 | **Modelo** | **Descrição** |
 |---------|---------|

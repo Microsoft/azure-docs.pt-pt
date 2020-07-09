@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752102"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601416"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -22,7 +22,7 @@ Esta funcionalidade está disponível apenas para os Parceiros de Faturação Di
 
 Para pedir a propriedade de faturação, precisa de ter a função de **Administrador Global** ou **Agente de Administração**. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).
 
-Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Microsoft. Estas contas foram criadas para os Fornecedores de Soluções Cloud (CSPs) gerirem a faturação dos clientes na nova experiência comercial. A nova experiência está disponível apenas para os parceiros, que têm pelo menos um cliente que aceitou um Contrato de Cliente da Microsoft (MCA) e tem um Plano do Azure. [Verifique se tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
+Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Microsoft. Estas contas foram criadas para os Fornecedores de Soluções Cloud (CSPs) gerirem a faturação dos clientes na nova experiência comercial. A nova experiência está disponível apenas para os parceiros que têm pelo menos um cliente que aceitou um Contrato de Cliente da Microsoft (MCA) e tem um Plano do Azure. [Verifique se tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
 1. O utilizador recebe um e-mail com instruções para rever o pedido de transferência.  
     ![Captura de ecrã que mostra o e-mail da revisão do pedido de transferência](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Para aprovar o pedido de transferência, o utilizador seleciona a ligação no e-mail e segue as instruções.  
-    [![Captura de ecrã que mostra a revisão do pedido de transferência](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) O utilizador pode selecionar a conta de faturação a partir da qual pretende transferir os produtos do Azure. Depois de selecionada, são apresentados os produtos elegíveis para transferência. **Nota:** as subscrições desativadas não podem ser transferidas e aparecerão na lista "Produtos do Azure não transferíveis", se aplicável. Quando os produtos do Azure que vão ser transferidos forem selecionados, selecione **Validar**.
+    [![Captura de ecrã que mostra a revisão do pedido de transferência](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) O utilizador pode selecionar a conta de faturação a partir da qual pretende transferir os produtos do Azure. Depois de selecionada, são apresentados os produtos elegíveis para transferência. **Nota:** As subscrições desativadas não podem ser transferidas e aparecerão na lista "Produtos do Azure não transferíveis", se aplicável. Quando os produtos do Azure que vão ser transferidos forem selecionados, selecione **Validar**.
 1. A área **Resultado da Validação da Transferência** mostrará o impacto dos produtos do Azure que vão ser transferidos. Eis os estados possíveis:
     * **Aprovada** - a validação deste produto do Azure foi aprovada e pode ser transferido.
     * **Aviso** - há um aviso relativo ao produto do Azure selecionado. Embora o produto continue a poder ser transferido, a transferência terá algum impacto e o utilizador deverá estar a par do mesmo, caso queira tomar medidas de mitigação. Por exemplo, a subscrição do Azure que está a ser transferida está a beneficiar de uma RI. Após a transferência, deixa de receber esse benefício. Para maximizar as poupanças, deve confirmar-se que a RI está associada a outra subscrição que pode utilizar o benefício. Em vez disso, o utilizador também pode optar por voltar para a página de seleção e anular a seleção desta subscrição do Azure.

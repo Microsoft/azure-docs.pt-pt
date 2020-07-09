@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: 4875c37a73626e726416aedc6b5d43cf1db10dc1
-  ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+  ms.openlocfilehash: 8599ddc8a4216b97be6d5bf183eea68654ff65a4
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/05/2020
-  ms.locfileid: "85963619"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86111546"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Integrar um cliente na gestão de recursos delegados do Azure
+    - text: Incluir um cliente no Azure Lighthouse
       url: ./how-to/onboard-customer.md
   - linkListType: concept
     links:

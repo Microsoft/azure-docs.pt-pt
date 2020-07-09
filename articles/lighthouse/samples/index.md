@@ -2,19 +2,19 @@
 title: Exemplos e modelos do Azure Lighthouse
 description: Estes exemplos e modelos do Azure Resource Manager mostram como integrar clientes na gestão de recursos delegados do Azure e dar suporte a cenários do Azure Lighthouse.
 ms.topic: sample
-ms.date: 03/30/2020
-ms.openlocfilehash: 9e0ba8175931e277357e5b65e7e9ebded908a675
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 07/07/2020
+ms.openlocfilehash: 9a90923b43fa5afe59f6385e3f227cdc722b27f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111674"
 ---
 # <a name="azure-lighthouse-samples"></a>Exemplos do Azure Lighthouse
 
 A tabela seguinte inclui ligações para modelos importantes do Azure Resource Manager para o Azure Lighthouse. Também pode encontrar estes ficheiros e muito mais no [Repositório de exemplos do Azure Lighthouse](https://github.com/Azure/Azure-Lighthouse-samples/).
 
-## <a name="onboarding-customers-to-azure-delegated-resource-management"></a>Integrar clientes na gestão de recursos delegados do Azure
+## <a name="onboarding-customers-to-azure-lighthouse"></a>Incluir clientes no Azure Lighthouse
 
 [!INCLUDE [azure-lighthouse-samples-onboarding](../../../includes/azure-lighthouse-samples-onboarding.md)]
 

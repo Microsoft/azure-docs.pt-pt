@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/09/2020
-  ms.openlocfilehash: d6c1708543623423c939d03f0510e1abc72cf637
-  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+  ms.date: 07/07/2020
+  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/23/2020
-  ms.locfileid: "85209203"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86118873"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -29,14 +29,16 @@ landingContent:
     links:
     - text: Melhores práticas
       url: template-best-practices.md
+    - text: Perguntas mais frequentes
+      url: frequently-asked-questions.md
     - text: Modos de implementação
       url: deployment-modes.md
     - text: Modelos ligados
       url: linked-templates.md
   - linkListType: video
     links:
-    - text: Novidades
-      url: https://youtu.be/3D-JIKShrws
+    - text: Apresentação do Build 2020
+      url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -61,8 +63,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Utilizar Código VS
-      url: use-vs-code-to-create-template.md
     - text: Utilizar funções
       url: template-functions.md
     - text: Definir parâmetros

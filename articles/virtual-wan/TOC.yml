@@ -116,6 +116,12 @@
           href: how-to-virtual-hub-routing.md
         - name: Como ver as rotas efetivas do hub virtual
           href: effective-routes-virtual-hub.md
+        - name: Encaminhar tráfego de um hub virtual para um NVA (legado)
+          items:
+            - name: Portal do Azure
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
     - name: Segurança
       items:
         - name: Instalar o Azure Firewall num hub

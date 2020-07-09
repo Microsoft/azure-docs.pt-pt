@@ -4,14 +4,14 @@ description: Saiba como pode trocar ou reembolsar Reservas do Azure.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/01/2020
 ms.author: banders
-ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101032"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807694"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
@@ -20,6 +20,9 @@ As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas 
 A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. São suportados outros tipos de subscrições de administração pública dos EUA, incluindo Pay As You Go e Fornecedor de Soluções Cloud (CSP).
 
 Deve ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente. Pode [Adicionar ou alterar os utilizadores que podem gerir reservas](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+
+> [!NOTE]
+> Atualmente, a Microsoft não cobra taxas de rescisão antecipadas relativamente a reembolsos de reservas. Poderemos cobrar estas taxas em reembolsos feitos no futuro. Não temos data para a aplicação desta taxa neste momento.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar reservas já existentes
 
@@ -72,7 +75,7 @@ O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 
 **Políticas de reembolso**
 
-- Poderá ser aplicada uma taxa de 12% de rescisão antecipada para cancelamentos.
+- Atualmente, não estamos a cobrar uma taxa de rescisão antecipada, mas poderá haver uma taxa de 12% para cancelamentos no futuro.
 - A alocação cancelada total não pode exceder os 50 000 $ num período de 12 meses. Exemplo: numa reserva de três anos que custe 100 $ por mês e reembolsada no 18.º mês, a alocação cancelada é de 1800 $. Após o reembolso, o limite disponível novo para reembolso será de 48 200 $. A partir de 365 dias a seguir ao reembolso, o limite de 48 200 será aumentado em 1800 $ e o seu conjunto novo será de 50 000 $. Qualquer outro cancelamento de reserva esgotará o mesmo conjunto e será aplicada a mesma lógica de renovação.
 - Os reembolsos são calculados com base no preço mais baixo do preço de compra ou do preço atual da reserva.
 - Apenas os proprietários de encomendas de reservas podem processar reembolsos. [Saiba como Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

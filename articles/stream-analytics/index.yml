@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentação do Azure Stream Analytics
-summary: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
+summary: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para obter informações, criar relatórios ou acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
 metadata:
   title: Documentação do Azure Stream Analytics
-  description: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
+  description: O Azure Stream Analytics é um serviço de análise em tempo real totalmente gerido, concebido para ajudá-lo a analisar e processar fluxos de dados rápidos, que podem ser utilizados para obter informações, criar relatórios ou acionar alertas e ações. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: 2ef6663ce3ebf21227635fff763d45391281c955
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82130959"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86119655"
 landingContent:
 - title: Sobre o Azure Stream Analytics
   linkLists:

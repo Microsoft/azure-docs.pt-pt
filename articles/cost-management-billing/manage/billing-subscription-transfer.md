@@ -7,21 +7,21 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 07/01/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 722d1bca7f983c124c85e6d675f51d29c5357522
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854946"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
 Pode querer transferir a propriedade de faturação da sua subscrição do Azure se estiver de saída da organização ou se quiser que a sua subscrição seja faturada noutra conta. A transferência da propriedade de faturação para outra conta dá aos administradores da nova conta permissão para tarefas de faturação. Podem alterar o método de pagamento, ver os custos e cancelar a subscrição.
 
-Se quiser manter a propriedade de faturação, mas alterar o tipo da subscrição, veja [Mudar a sua subscrição do Azure para outra oferta](switch-azure-offer.md). Para controlar quem pode gerir recursos na subscrição, veja [Funções internas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Se quiser manter a propriedade de faturação, mas alterar o tipo da subscrição, veja [Mudar a sua subscrição do Azure para outra oferta](switch-azure-offer.md). Para controlar quem tem acesso aos recursos na subscrição, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Se for um cliente do Contrato Enterprise (EA), os administradores de empresa poderão transferir a propriedade de faturação das suas subscrições entre contas. Para mais informações, veja [Transferir a propriedade da faturação das subscrições do Contrato Enterprise (EA)](#EA).
 
@@ -45,7 +45,7 @@ Se for um cliente do Contrato Enterprise (EA), os administradores de empresa pod
 
     > [!IMPORTANT]
     >
-    > Se optar por mover a subscrição para o inquilino do Microsoft Azure AD da nova conta, todas as atribuições de [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para gerir os recursos na subscrição serão permanentemente removidos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir recursos na subscrição. Para obter mais informações, veja [Transferir a subscrição para um utilizador noutro inquilino do Microsoft Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Como alternativa, pode desmarcar a caixa para o inquilino da Subscrição do Microsoft Azure AD para transferir a propriedade de faturação sem mover a subscrição para o inquilino da nova conta. Se o fizer, as permissões RBAC existentes para gerir os recursos do Azure serão mantidas.
+    > Se optar por mover a subscrição para o inquilino do Microsoft Azure AD novo da conta, todas as [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) para aceder aos recursos na subscrição serão permanentemente removidas. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir recursos na subscrição. Para obter mais informações, veja a secção [Transferir uma subscrição para outra conta de inquilino do Microsoft Azure AD](#transfer-a-subscription-to-another-azure-ad-tenant-account). Como alternativa, pode desmarcar a caixa de **Inquilino da Subscrição do Azure AD** para transferir a propriedade de faturação sem mover a subscrição para o inquilino da nova conta. Se o fizer, as atribuições de funções do Azure atuais para aceder aos recursos do Azure serão preservadas.
 
     ![Enviar página de transferência](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -71,7 +71,7 @@ Quando se inscreve no Azure, é criado um inquilino do Azure Active Directory (A
 
 Quando cria uma nova subscrição, esta é alojada no inquilino do Azure AD da sua conta. Se quiser conceder a outras pessoas acesso à sua subscrição ou aos seus recursos, precisa de convidá-las para aderirem ao seu inquilino. Fazê-lo ajuda a controlar o acesso às suas subscrições e recursos.
 
-Quando transfere a propriedade de faturação da sua subscrição para uma conta noutro inquilino do Azure AD, pode mover a subscrição para o inquilino da nova conta. Se o fizer, deixarão de ter acesso todos os utilizadores, grupos ou principais de serviço que tiverem [acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) para gerir subscrições e respetivos recursos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir os recursos. O novo proprietário tem de [adicionar manualmente estes utilizadores à subscrição](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para fornecer acesso ao utilizador que o perdeu.
+Quando transfere a propriedade de faturação da sua subscrição para uma conta noutro inquilino do Azure AD, pode mover a subscrição para o inquilino da nova conta. Se o fizer, deixarão de ter acesso todos os utilizadores, grupos ou principais de serviço que tiverem [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) para gerir subscrições e respetivos recursos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir os recursos. O novo proprietário tem de adicionar manualmente estes utilizadores à subscrição para conceder acesso ao utilizador que o perdeu. Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
 
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transferir subscrições do Visual Studio e do Partner Network
@@ -89,7 +89,7 @@ O Administrador da Empresa pode transferir a propriedade das subscrições entre
 
 Se aceitou a propriedade de faturação de uma subscrição do Azure, recomendamos que analise os próximos passos:
 
-1. Reveja e atualize o Administrador do Serviço, os Coadministradores e outras funções de RBAC. Para saber mais, veja [Adicionar ou alterar os administradores de subscrição](add-change-subscription-administrator.md) e [Gerir acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+1. Reveja e atualize Azure Administrador de Serviço, Coadministradores e as atribuições de funções do Azure. Para saber mais, veja [Adicionar ou alterar os administradores da subscrição](add-change-subscription-administrator.md) e [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços desta subscrição, incluindo:
    1. Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão para o Azure](../../cloud-services/cloud-services-certs-create.md)
    1. As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
@@ -142,7 +142,7 @@ Se não tiver a certeza de quem é o administrador de conta de uma subscrição,
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>É transferido tudo? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Todos os recursos, como VMs, discos e sites, são transferidos para a nova conta. No entanto, se transferir uma subscrição para uma conta noutro inquilino do Azure AD, as atribuições de [funções de administrador](add-change-subscription-administrator.md) e de [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) na subscrição [não são transferidas](#transfer-a-subscription-to-another-azure-ad-tenant-account). Além disso, os [registos de aplicações](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do inquilino não são transferidos juntamente com a subscrição.
+Todos os recursos, como VMs, discos e sites, são transferidos para a nova conta. No entanto, se transferir uma subscrição para uma conta noutro inquilino do Azure AD, as atribuições de [funções de administrador](add-change-subscription-administrator.md) e de [funções do Azure](../../role-based-access-control/role-assignments-portal.md) na subscrição [não são transferidas](#transfer-a-subscription-to-another-azure-ad-tenant-account). Além disso, os [registos de aplicações](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do inquilino não são transferidos juntamente com a subscrição.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Posso transferir a propriedade para uma conta noutro país/região?
 Infelizmente, não é possível executar transferências entre países/regiões no portal do Azure. Para transferir a sua subscrição entre países/regiões, [entre em contacto com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -152,7 +152,7 @@ Sim, pode transferir a subscrição entre as suas contas. As suas contas são co
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Uma transferência de subscrição resulta num eventual tempo de inatividade de serviço?
 
-Se transferir uma subscrição para uma conta no mesmo inquilino do Azure AD, não tem impacto nos recursos em execução na subscrição. No entanto, as informações de contexto guardadas no PowerShell não são atualizadas, pelo que poderá ter de as limpar ou alterar as definições. Se transferir a subscrição para uma conta noutro inquilino e decidir mover a subscrição para o inquilino, todos os utilizadores, grupos e principais de serviço que tinham [acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para gerir recursos na subscrição deixarão de ter acesso. O tempo de inatividade do serviço pode resultar.
+Se transferir uma subscrição para uma conta no mesmo inquilino do Azure AD, não tem impacto nos recursos em execução na subscrição. No entanto, as informações de contexto guardadas no PowerShell não são atualizadas, pelo que poderá ter de as limpar ou alterar as definições. Se transferir a subscrição para uma conta noutro inquilino e decidir mover a subscrição para o inquilino, todos os utilizadores, grupos e principais de serviço que tinham [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) para aceder aos recursos na subscrição deixarão de ter acesso. O tempo de inatividade do serviço pode resultar.
 
 ### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>Os utilizadores na nova conta podem aceder ao histórico de utilização e faturação?
 
@@ -173,19 +173,19 @@ Estas FAQs aplicam-se a utilizadores que estão a aceitar a propriedade da fatur
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Se eu assumir a propriedade de faturação de uma subscrição de outra conta, os utilizadores nessa conta continuarão a ter acesso aos meus recursos?
 
-Sim. No entanto, as atribuições de [funções de administrador](add-change-subscription-administrator.md) e de [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) podem ser removidas. A perda de acesso ocorre quando a sua conta está num inquilino do Azure AD diferente do inquilino da subscrição e o utilizador que enviou o pedido de transferência muda a subscrição para o inquilino da sua conta. Para ver os utilizadores que têm [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/overview.md) para gerir recursos na subscrição, utilize os seguintes passos:
+Sim. No entanto, as [funções de administrador](add-change-subscription-administrator.md) e as [atribuições de funções](../../role-based-access-control/role-assignments-portal.md) podem ser removidas. A perda de acesso ocorre quando a sua conta está num inquilino do Azure AD diferente do inquilino da subscrição e o utilizador que enviou o pedido de transferência muda a subscrição para o inquilino da sua conta. Para ver os utilizadores que têm atribuições de funções do Azure para aceder aos recursos na subscrição, utilize os passos abaixo:
 
 1. Visite a [página de Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a subscrição que pretende verificar e, em seguida, selecione **Controlo de acesso (IAM)** no painel à esquerda.
-1. Selecione **Atribuições de função** na parte superior da página. A página de atribuições de função lista todos os utilizadores que têm acesso RBAC na subscrição.
+1. Selecione **Atribuições de função** na parte superior da página. A página de atribuições de funções apresenta todos os utilizadores que têm acesso na subscrição.
 
-Mesmo que as atribuições de [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os utilizadores na conta do proprietário original poderão continuar a aceder à subscrição através de alguns mecanismos de segurança, incluindo:
+Mesmo que as [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os utilizadores na conta do proprietário original poderão continuar a aceder à subscrição através de outros mecanismos de segurança, incluindo:
 
 * Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
 * Chaves de acesso dos serviços como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
-Se o destinatário precisar de restringir o acesso aos seus recursos, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
+Se o destinatário precisar de restringir o acesso aos recursos dele, deverá ponderar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
 
   1. Inicie sessão no [portal do Azure](https://portal.azure.com).
   2. No menu Hub, selecione **Todos os recursos**.
@@ -225,4 +225,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja e atualize o Administrador do Serviço, os Coadministradores e outras funções de RBAC. Para saber mais, veja [Adicionar ou alterar os administradores de subscrição](add-change-subscription-administrator.md) e [Gerir acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+- Reveja e atualize Azure Administrador de Serviço, Coadministradores e as atribuições de funções do Azure. Para saber mais, veja [Adicionar ou alterar os administradores da subscrição](add-change-subscription-administrator.md) e [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
